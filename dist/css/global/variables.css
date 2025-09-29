@@ -7,67 +7,57 @@
   --text-bright: #eee;
   --text-dark: #333;
   --text-med: #808080;
-
   /* shared backgrounds */
   --bg-img: url(uploads2/widowspeakskins/bg/treeline2.jpg);
   --bg-blend: multiply;
-
   /* borders */
   --b-1: 1px solid;
   --b-2: 2px solid;
   --bdoub: 3px double;
   --bdash: 1px dashed;
-
   /* fonts */
   --font-serif: "Cormorant Garamond", serif;
   --font-sans: "Lato", system-ui, sans-serif;
   --font-block: "Cormorant Garamond", serif;
   --font-fancy: "Cormorant Garamond", serif;
   --font-hand: "Inconsolata", monospace;
-
   --size-xs: 8px;
   --size-sm: 10px;
   --size-md: 12px;
   --size-lg: 14px;
   --size-xl: 16px;
-
   /* transitions */
   --transi-quick: all .3s ease-in-out;
   --transi-med: all .6s ease-in-out;
   --transi-slow: all 1s ease-in-out;
-
   /* forum widths */
   --max-w: 1250px;
   --min-w: 610px;
-
   /* sidebar variables */
   --push-w: 250px;
-  --push-msg: "click to close";
-}
+  --push-msg: "click to close"; }
 
 .theme-light {
   /* accents */
-  --accent-1: #7C1E2F; /* oxblood */
-  --accent-2: #8E7C63; /* sepia */
+  --accent-1: #7C1E2F;
+  /* oxblood */
+  --accent-2: #8E7C63;
+  /* sepia */
   --accent-3: #403A36;
   --warn: #dc4949;
-
   /* parchment backgrounds */
   --bg-1: #F3EEE6;
   --bg-2: #ECE4D9;
   --bg-3: #D9CFC2;
   --bg-4: #BCB2A7;
   --bg-grad: linear-gradient(#00000090,#00000090);
-
   /* text */
   --text-hiCon: #1E1E1E;
   --text-medCon: #3A3632;
   --text-loCon: #6A5E55;
   --text-clear: #1C1A19;
-
   /* borders */
-  --border-1: 1px solid #565656;
-}
+  --border-1: 1px solid #565656; }
 
 .theme-dark {
   /* accents tuned for dark */
@@ -75,31 +65,25 @@
   --accent-2: #8E7C63;
   --accent-3: #6a4d49;
   --warn: #dc4949;
-
   /* ink backgrounds */
   --bg-1: #1c1b1a;
   --bg-2: #161514;
   --bg-3: #23211f;
   --bg-4: #0f0e0e;
   --bg-grad: linear-gradient(#000000cc,#000000f0);
-
   /* text */
   --text-hiCon: #EDE7DE;
   --text-medCon: #C9BFB5;
   --text-loCon: #9B9086;
   --text-clear: #F5EFE6;
-
   /* borders */
-  --border-1: 1px solid #565656;
-}
+  --border-1: 1px solid #565656; }
 
 :focus-visible {
-    /* clearly visible styles for keyboard selected elements */
-	outline: none;
-	box-shadow: inset 0 0 0 2px var(--accent-3);
-	transition: var(--transi-quick);
-}
+  /* clearly visible styles for keyboard selected elements */
+  outline: none;
+  box-shadow: inset 0 0 0 2px var(--accent-3);
+  transition: var(--transi-quick); }
 
 ::-moz-focus-inner {
-	border: 0;
-}
+  border: 0; }
