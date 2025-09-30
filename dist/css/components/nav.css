@@ -1,3 +1,150 @@
-/*******************************
-    Navigation
-********************************/
+/*******************************Navigation********************************/
+#navstrip {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 0.5rem 1rem;
+  background: var(--bg-2);
+  border: var(--border-1);
+  border-radius: 4px;
+  font-family: var(--font-serif);
+  font-size: var(--size-lg);
+  color: var(--text-clear);
+  transition: var(--transi-quick); }
+  #navstrip a {
+    color: var(--text-clear);
+    text-decoration: none;
+    line-height: 1;
+    transition: var(--transi-quick); }
+    #navstrip a:hover {
+      color: var(--accent-1);
+      text-decoration: underline; }
+    #navstrip a:focus-visible {
+      color: var(--accent-1);
+      text-decoration: underline;
+      outline: none;
+      box-shadow: inset 0 0 0 2px var(--accent-3);
+      transition: var(--transi-quick); }
+  #navstrip .theme {
+    display: inline-flex;
+    align-items: center;
+    margin-left: auto;
+    gap: .5rem;
+    position: relative; }
+    #navstrip .theme::before {
+      content: "";
+      inline-size: 1px;
+      block-size: 1.25rem;
+      background: currentColor;
+      opacity: .25;
+      margin-inline-end: .5rem; }
+    #navstrip .theme #theme-toggle {
+      background: var(--bg-1);
+      border: var(--border-1);
+      background: var(--bg-1);
+      border: var(--border-1); }
+      #navstrip .theme #theme-toggle:hover {
+        background: var(--bg-3);
+        color: var(--accent-1);
+        background: var(--bg-3);
+        color: var(--accent-1); }
+  #navstrip button:focus-visible {
+    outline: none;
+    box-shadow: inset 0 0 0 2px var(--accent-3);
+    transition: var(--transi-quick); }
+
+[data-theme="light"] #navstrip {
+  background: linear-gradient(rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.06)), var(--bg-2);
+  color: var(--text-hiCon);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.06); }
+  [data-theme="light"] #navstrip a {
+    color: var(--text-medCon); }
+    [data-theme="light"] #navstrip a:hover {
+      color: var(--accent-1); }
+    [data-theme="light"] #navstrip a:focus-visible {
+      color: var(--accent-1); }
+
+[data-theme="light"] #theme-toggle {
+  --plate-bg: var(--bg-2);
+  --plate-text: var(--text-hiCon); }
+  [data-theme="light"] #theme-toggle:hover {
+    background: linear-gradient(rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.06)), var(--bg-2); }
+
+[data-theme="dark"] #navstrip {
+  background: var(--bg-grad), var(--bg-2);
+  background-blend-mode: var(--bg-blend);
+  color: var(--text-clear);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25), inset 0 0 0 999px rgba(255, 255, 255, 0); }
+  [data-theme="dark"] #navstrip a {
+    color: var(--text-loCon); }
+    [data-theme="dark"] #navstrip a:hover {
+      color: var(--accent-1); }
+    [data-theme="dark"] #navstrip a:focus-visible {
+      color: var(--accent-1); }
+
+[data-theme="dark"] #theme-toggle {
+  --plate-bg: var(--bg-3);
+  --plate-text: var(--text-clear); }
+
+#theme-toggle {
+  position: relative;
+  z-index: 1;
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  background: var(--plate-bg);
+  border: var(--plate-border);
+  border-radius: 4px;
+  font-family: var(--font-serif);
+  font-size: var(--size-lg);
+  letter-spacing: 0.03em;
+  color: var(--plate-text);
+  line-height: 1;
+  cursor: pointer;
+  transition: var(--transi-quick);
+  position: relative;
+  isolation: isolate;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15), inset 0 0 0 999px rgba(0, 0, 0, 0); }
+  #theme-toggle::before {
+    content: "";
+    position: absolute;
+    inset: 2px;
+    border: var(--bdash);
+    opacity: 0.35;
+    pointer-events: none; }
+  #theme-toggle:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18), inset 0 0 0 999px rgba(0, 0, 0, 0.02); }
+  #theme-toggle:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), inset 0 0 0 999px rgba(0, 0, 0, 0.04); }
+  #theme-toggle .label {
+    text-transform: uppercase;
+    font-size: var(--size-sm);
+    letter-spacing: 0.08em;
+    pointer-events: none;
+    opacity: .9; }
+  #theme-toggle i {
+    font-size: 1rem;
+    line-height: 1;
+    display: inline-block; }
+  #theme-toggle:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--accent-3), 0 0 0 4px rgba(0, 0, 0, 0.15); }
+
+#icon-sun {
+  display: none; }
+
+#icon-moon {
+  display: none; }
+
+body[data-theme="light"] #icon-moon {
+  display: inline-block;
+  color: var(--accent-3); }
+
+body[data-theme="dark"] #icon-sun {
+  display: inline-block;
+  color: var(--accent-2); }

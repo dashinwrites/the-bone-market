@@ -45,7 +45,7 @@
   --push-w: 250px;
   --push-msg: "click to close"; }
 
-html[data-theme="light"] {
+[data-theme="light"] {
   /* accents */
   --accent-1: rgb(124 30 47);
   /* oxblood */
@@ -68,7 +68,7 @@ html[data-theme="light"] {
   /* borders */
   --border-1: 1px solid rgb(86, 86, 86); }
 
-html[data-theme="dark"] {
+[data-theme="dark"] {
   --accent-1: rgb(196, 67, 88);
   --accent-2: rgb(142, 124, 99);
   --accent-3: rgb(106, 77, 73);

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
     <head>
         <title>the bone market</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,17 +27,19 @@
 <script type='text/javascript' src='../dist/js/settings.js'></script>
 <link rel="stylesheet" href="../dist/css/settings.css" />   
     </head>
-    <body id="idx" class="g-4">
+    <body id="idx" class="g-4" data-theme="dark">
         <header class="bm-head">
     <a href="../public/index.html"><h1>the bone market</h1></a>
 </header>
       <div id="navstrip" align="left">
     &nbsp;<a href="../public/index.html">the bone market</a> 
-    <div class="theme"> 
-               <button id="theme-toggle" type="button"> 
-               <label for="theme-toggle"> <i class="fa-solid fa-moon" title="switch to dark mode"></i> <i class="fa-solid fa-sun" title="switch to light mode"></i> </label> 
-               </button> 
-            </div> </div>
+    <span class="theme">
+        <button id="theme-toggle" type="button" aria-label="Toggle theme">
+            <i class="fa-solid fa-moon" id="icon-moon" title="Switch to dark mode"></i>
+            <i class="fa-solid fa-sun"  id="icon-sun"  title="Switch to light mode"></i>
+        </button>
+    </span>
+</div>
         
         <!--Main Body-->
         <main>
