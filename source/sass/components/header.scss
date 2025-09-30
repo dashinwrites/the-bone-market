@@ -3,3 +3,13 @@
 /*******************************
     Header
 ********************************/
+
+.bm-head {
+    font-family: var(--font-serif);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}

@@ -9,7 +9,7 @@
   --text-med: #808080;
 
   /* shared backgrounds */
-  --bg-img: url(uploads2/widowspeakskins/bg/treeline2.jpg);
+  --bg-img: url(https://files.jcink.net/uploads2/thebonemarket/images/parchment_bg.jpg);
   --bg-blend: multiply;
 
   /* borders */
@@ -30,6 +30,27 @@
   --size-md: 12px;
   --size-lg: 14px;
   --size-xl: 16px;
+
+  --accent-1: #C44358;
+  --accent-2: #8E7C63;
+  --accent-3: #6a4d49;
+  --warn: #dc4949;
+
+  --bg-1: #1c1b1a;
+  --bg-2: #161514;
+  --bg-3: #23211f;
+  --bg-4: #0f0e0e;
+  --bg-grad: linear-gradient(#000000cc,#000000f0);
+  --bg-blend: multiply;
+
+  /* text */
+  --text-hiCon: #EDE7DE;
+  --text-medCon: #C9BFB5;
+  --text-loCon: #9B9086;
+  --text-clear: #F5EFE6;
+
+  /* borders */
+  --border-1: 1px solid #565656;
 
   /* transitions */
   --transi-quick: all .3s ease-in-out;
@@ -58,6 +79,7 @@
   --bg-3: #D9CFC2;
   --bg-4: #BCB2A7;
   --bg-grad: linear-gradient(#00000090,#00000090);
+  --bg-blend: screen;
 
   /* text */
   --text-hiCon: #1E1E1E;
@@ -70,18 +92,17 @@
 }
 
 .theme-dark {
-  /* accents tuned for dark */
   --accent-1: #C44358;
   --accent-2: #8E7C63;
   --accent-3: #6a4d49;
   --warn: #dc4949;
 
-  /* ink backgrounds */
   --bg-1: #1c1b1a;
   --bg-2: #161514;
   --bg-3: #23211f;
   --bg-4: #0f0e0e;
   --bg-grad: linear-gradient(#000000cc,#000000f0);
+  --bg-blend: multiply;
 
   /* text */
   --text-hiCon: #EDE7DE;

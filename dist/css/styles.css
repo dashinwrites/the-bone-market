@@ -1,6 +1,7 @@
 /*******************************
     Reset
 ********************************/
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inconsolata:wght@400;600&family=Lato:wght@400;700&display=swap");
 * {
   position: relative;
   -webkit-box-sizing: border-box;
@@ -36,7 +37,7 @@ a {
   --text-dark: #333;
   --text-med: #808080;
   /* shared backgrounds */
-  --bg-img: url(uploads2/widowspeakskins/bg/treeline2.jpg);
+  --bg-img: url(https://files.jcink.net/uploads2/thebonemarket/images/parchment_bg.jpg);
   --bg-blend: multiply;
   /* borders */
   --b-1: 1px solid;
@@ -54,6 +55,23 @@ a {
   --size-md: 12px;
   --size-lg: 14px;
   --size-xl: 16px;
+  --accent-1: #C44358;
+  --accent-2: #8E7C63;
+  --accent-3: #6a4d49;
+  --warn: #dc4949;
+  --bg-1: #1c1b1a;
+  --bg-2: #161514;
+  --bg-3: #23211f;
+  --bg-4: #0f0e0e;
+  --bg-grad: linear-gradient(#000000cc,#000000f0);
+  --bg-blend: multiply;
+  /* text */
+  --text-hiCon: #EDE7DE;
+  --text-medCon: #C9BFB5;
+  --text-loCon: #9B9086;
+  --text-clear: #F5EFE6;
+  /* borders */
+  --border-1: 1px solid #565656;
   /* transitions */
   --transi-quick: all .3s ease-in-out;
   --transi-med: all .6s ease-in-out;
@@ -79,6 +97,7 @@ a {
   --bg-3: #D9CFC2;
   --bg-4: #BCB2A7;
   --bg-grad: linear-gradient(#00000090,#00000090);
+  --bg-blend: screen;
   /* text */
   --text-hiCon: #1E1E1E;
   --text-medCon: #3A3632;
@@ -88,17 +107,16 @@ a {
   --border-1: 1px solid #565656; }
 
 .theme-dark {
-  /* accents tuned for dark */
   --accent-1: #C44358;
   --accent-2: #8E7C63;
   --accent-3: #6a4d49;
   --warn: #dc4949;
-  /* ink backgrounds */
   --bg-1: #1c1b1a;
   --bg-2: #161514;
   --bg-3: #23211f;
   --bg-4: #0f0e0e;
   --bg-grad: linear-gradient(#000000cc,#000000f0);
+  --bg-blend: multiply;
   /* text */
   --text-hiCon: #EDE7DE;
   --text-medCon: #C9BFB5;
@@ -121,6 +139,23 @@ a {
 /*******************************
     Global
 ********************************/
+* {
+  font-family: var(--font-sans);
+  background: var(--bg-1); }
+
+.bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-image: var(--bg-img);
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-blend-mode: var(--bg-blend); }
+
 /*******************************
     Utilities
 ********************************/
@@ -130,6 +165,25 @@ a {
 /*******************************
     Header
 ********************************/
+.bm-head {
+  font-family: var(--font-serif);
+  text-align: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+  z-index: 1; }
+
 /*******************************
    Categories and Forums
 ********************************/
