@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*******************************Navigation********************************/
 #navstrip {
   display: flex;
@@ -11,15 +12,28 @@
   font-family: var(--font-serif);
   font-size: var(--size-lg);
   color: var(--text-clear);
-  transition: var(--transi-quick); }
+  transition: var(--transi-quick);
+  /* links */ }
   #navstrip a {
     color: var(--text-clear);
     text-decoration: none;
     line-height: 1;
-    transition: var(--transi-quick); }
+    transition: var(--transi-quick);
+    /* dagger separator after each link except the last one before .theme */
+    /* on hover/focus, tint the separator too */ }
+    #navstrip a:not(:last-of-type)::after {
+      content: "†";
+      display: inline-block;
+      margin: 0 0 0 1rem;
+      opacity: .8;
+      color: var(--text-medCon);
+      /* subtle by default */ }
     #navstrip a:hover {
       color: var(--accent-1);
       text-decoration: underline; }
+    #navstrip a:hover::after, #navstrip a:focus-visible::after {
+      color: var(--accent-1);
+      opacity: 1; }
     #navstrip a:focus-visible {
       color: var(--accent-1);
       text-decoration: underline;
@@ -31,7 +45,8 @@
     align-items: center;
     margin-left: auto;
     gap: .5rem;
-    position: relative; }
+    position: relative;
+    /* vertical rule before the toggle */ }
     #navstrip .theme::before {
       content: "";
       inline-size: 1px;
@@ -41,12 +56,8 @@
       margin-inline-end: .5rem; }
     #navstrip .theme #theme-toggle {
       background: var(--bg-1);
-      border: var(--border-1);
-      background: var(--bg-1);
       border: var(--border-1); }
       #navstrip .theme #theme-toggle:hover {
-        background: var(--bg-3);
-        color: var(--accent-1);
         background: var(--bg-3);
         color: var(--accent-1); }
   #navstrip button:focus-visible {
@@ -59,7 +70,11 @@
   color: var(--text-hiCon);
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.06); }
   [data-theme="light"] #navstrip a {
-    color: var(--text-medCon); }
+    color: var(--text-medCon);
+    /* lighter separator tone in light mode */ }
+    [data-theme="light"] #navstrip a:not(:last-of-type)::after {
+      color: var(--text-loCon);
+      opacity: .85; }
     [data-theme="light"] #navstrip a:hover {
       color: var(--accent-1); }
     [data-theme="light"] #navstrip a:focus-visible {
@@ -77,7 +92,11 @@
   color: var(--text-clear);
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25), inset 0 0 0 999px rgba(255, 255, 255, 0); }
   [data-theme="dark"] #navstrip a {
-    color: var(--text-loCon); }
+    color: var(--text-loCon);
+    /* slightly dimmer separator in dark mode */ }
+    [data-theme="dark"] #navstrip a:not(:last-of-type)::after {
+      color: var(--text-medCon);
+      opacity: .75; }
     [data-theme="dark"] #navstrip a:hover {
       color: var(--accent-1); }
     [data-theme="dark"] #navstrip a:focus-visible {
@@ -87,6 +106,7 @@
   --plate-bg: var(--bg-3);
   --plate-text: var(--text-clear); }
 
+/* Toggle styles (unchanged from your base) */
 #theme-toggle {
   position: relative;
   z-index: 1;
@@ -135,10 +155,8 @@
     outline: none;
     box-shadow: 0 0 0 2px var(--accent-3), 0 0 0 4px rgba(0, 0, 0, 0.15); }
 
-#icon-sun {
-  display: none; }
-
-#icon-moon {
+/* Icon swap */
+#icon-sun, #icon-moon {
   display: none; }
 
 body[data-theme="light"] #icon-moon {

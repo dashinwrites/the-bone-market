@@ -6,17 +6,19 @@
         })   
     </head>
     <body id="idx" class="g-4" data-theme="dark">
+        <div class="bm-container">
+        @@include('../source/templates/nav.html', {
+            "prefix": ".."
+        })
         @@include('../source/templates/header.html', {
             "prefix": ".."
         })
-      @@include('../source/templates/nav.html', {
-            "prefix": ".."
-        })
-        
+
         <!--Main Body-->
+        <div class="bg" aria-hidden="true"></div>
         <main>
             <a name="top"></a>
-            <div class="bg"></div>
+            
 
             <!--Category-->
             <section class="category"></section>
@@ -191,6 +193,7 @@
                 </div>
             </div> 
         </main>
+        </div>
 
         @@include('../source/templates/scripts.html', {
             "prefix": "../dist"

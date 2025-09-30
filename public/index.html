@@ -28,11 +28,9 @@
 <link rel="stylesheet" href="../dist/css/settings.css" />   
     </head>
     <body id="idx" class="g-4" data-theme="dark">
-        <header class="bm-head">
-    <a href="../public/index.html"><h1>the bone market</h1></a>
-</header>
-      <div id="navstrip" align="left">
-    &nbsp;<a href="../public/index.html">the bone market</a> 
+        <div class="bm-container">
+        <div id="navstrip" align="left">
+    &nbsp;<a href="../public/index.html">the bone market</a> <a href="/">more words</a>
     <span class="theme">
         <button id="theme-toggle" type="button" aria-label="Toggle theme">
             <i class="fa-solid fa-moon" id="icon-moon" title="Switch to dark mode"></i>
@@ -40,11 +38,31 @@
         </button>
     </span>
 </div>
-        
+        <header class="bm-head">
+  <div class="plate-meta left">Pl. VII</div>
+
+  <div class="plate-center">
+    <span class="plate-rule" aria-hidden="true"></span>
+    <a href="../public/index.html" class="plate-title">
+      the bone market
+      <em class="plate-sub">mercatus ossium</em>
+    </a>
+    <span class="plate-rule" aria-hidden="true"></span>
+  </div>
+
+  <div class="plate-meta right">1894</div>
+
+  <figure class="plate-fig" aria-hidden="true">
+    <img src="https://i.pinimg.com/736x/d1/71/96/d17196880ed63494482f8f5cf3e58db0.jpg" alt="">
+  </figure>
+</header>
+
+
         <!--Main Body-->
+        <div class="bg" aria-hidden="true"></div>
         <main>
             <a name="top"></a>
-            <div class="bg"></div>
+            
 
             <!--Category-->
             <section class="category"></section>
@@ -219,6 +237,7 @@
                 </div>
             </div> 
         </main>
+        </div>
 
         <script src="../dist/js/scripts.js"></script>   
     </body>

@@ -13,15 +13,35 @@
 	font-size: var(--size-lg);
 	color: var(--text-clear);
 	transition: var(--transi-quick);
+
+	/* links */
 	a {
 		color: var(--text-clear);
 		text-decoration: none;
 		line-height: 1;
 		transition: var(--transi-quick);
+
+		/* dagger separator after each link except the last one before .theme */
+		&:not(:last-of-type)::after {
+			content: "†";
+			display: inline-block;
+			margin: 0 0 0 1rem;
+			opacity: .8;
+			color: var(--text-medCon); /* subtle by default */
+		}
+
 		&:hover {
 			color: var(--accent-1);
 			text-decoration: underline;
 		}
+
+		/* on hover/focus, tint the separator too */
+		&:hover::after,
+		&:focus-visible::after {
+			color: var(--accent-1);
+			opacity: 1;
+		}
+
 		&:focus-visible {
 			color: var(--accent-1);
 			text-decoration: underline;
@@ -30,12 +50,15 @@
 			transition: var(--transi-quick);
 		}
 	}
+
 	.theme {
 		display: inline-flex;
 		align-items: center;
 		margin-left: auto;
 		gap: .5rem;
 		position: relative;
+
+		/* vertical rule before the toggle */
 		&::before {
 			content: "";
 			inline-size: 1px;
@@ -44,19 +67,18 @@
 			opacity: .25;
 			margin-inline-end: .5rem;
 		}
+
 		#theme-toggle {
 			background: var(--bg-1);
 			border: var(--border-1);
-			background: var(--bg-1);
-			border: var(--border-1);
+
 			&:hover {
-				background: var(--bg-3);
-				color: var(--accent-1);
 				background: var(--bg-3);
 				color: var(--accent-1);
 			}
 		}
 	}
+
 	button {
 		&:focus-visible {
 			outline: none;
@@ -65,50 +87,65 @@
 		}
 	}
 }
+
 [data-theme="light"] {
 	#navstrip {
 		background: linear-gradient(rgba(0,0,0,0.03), rgba(0,0,0,0.06)), var(--bg-2);
 		color: var(--text-hiCon);
 		box-shadow: 0 1px 0 rgba(0,0,0,.08), 0 2px 6px rgba(0,0,0,.06);
+
 		a {
 			color: var(--text-medCon);
-			&:hover {
-				color: var(--accent-1);
+
+			/* lighter separator tone in light mode */
+			&:not(:last-of-type)::after {
+				color: var(--text-loCon);
+				opacity: .85;
 			}
-			&:focus-visible {
-				color: var(--accent-1);
-			}
+
+			&:hover { color: var(--accent-1); }
+			&:focus-visible { color: var(--accent-1); }
 		}
 	}
+
 	#theme-toggle {
 		--plate-bg: var(--bg-2);
 		--plate-text: var(--text-hiCon);
+
 		&:hover {
 			background: linear-gradient(rgba(0,0,0,.03), rgba(0,0,0,.06)), var(--bg-2);
 		}
 	}
 }
+
 [data-theme="dark"] {
 	#navstrip {
 		background: var(--bg-grad), var(--bg-2);
 		background-blend-mode: var(--bg-blend);
 		color: var(--text-clear);
 		box-shadow: 0 1px 0 rgba(0,0,0,.25), inset 0 0 0 999px rgba(255,255,255,0);
+
 		a {
 			color: var(--text-loCon);
-			&:hover {
-				color: var(--accent-1);
+
+			/* slightly dimmer separator in dark mode */
+			&:not(:last-of-type)::after {
+				color: var(--text-medCon);
+				opacity: .75;
 			}
-			&:focus-visible {
-				color: var(--accent-1);
-			}
+
+			&:hover { color: var(--accent-1); }
+			&:focus-visible { color: var(--accent-1); }
 		}
 	}
+
 	#theme-toggle {
 		--plate-bg: var(--bg-3);
 		--plate-text: var(--text-clear);
 	}
 }
+
+/* Toggle styles (unchanged from your base) */
 #theme-toggle {
 	position: relative;
 	z-index: 1;
@@ -130,6 +167,7 @@
 	position: relative;
 	isolation: isolate;
 	box-shadow: 0 1px 0 rgba(0,0,0,.15), inset 0 0 0 999px rgba(0,0,0,0);
+
 	&::before {
 		content: "";
 		position: absolute;
@@ -138,14 +176,17 @@
 		opacity: 0.35;
 		pointer-events: none;
 	}
+
 	&:hover {
 		transform: translateY(-1px);
 		box-shadow: 0 2px 6px rgba(0,0,0,.18), inset 0 0 0 999px rgba(0,0,0,0.02);
 	}
+
 	&:active {
 		transform: translateY(0);
 		box-shadow: 0 1px 2px rgba(0,0,0,.2), inset 0 0 0 999px rgba(0,0,0,0.04);
 	}
+
 	.label {
 		text-transform: uppercase;
 		font-size: var(--size-sm);
@@ -153,31 +194,20 @@
 		pointer-events: none;
 		opacity: .9;
 	}
+
 	i {
 		font-size: 1rem;
 		line-height: 1;
 		display: inline-block;
 	}
+
 	&:focus-visible {
 		outline: none;
 		box-shadow: 0 0 0 2px var(--accent-3), 0 0 0 4px rgba(0,0,0,.15);
 	}
 }
-#icon-sun {
-	display: none;
-}
-#icon-moon {
-	display: none;
-}
-body[data-theme="light"] {
-	#icon-moon {
-		display: inline-block;
-		color: var(--accent-3);
-	}
-}
-body[data-theme="dark"] {
-	#icon-sun {
-		display: inline-block;
-		color: var(--accent-2);
-	}
-}
+
+/* Icon swap */
+#icon-sun, #icon-moon { display: none; }
+body[data-theme="light"] #icon-moon { display: inline-block; color: var(--accent-3); }
+body[data-theme="dark"]  #icon-sun  { display: inline-block; color: var(--accent-2); }
