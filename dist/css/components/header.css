@@ -13,27 +13,32 @@
   background: var(--bg-1);
   border: var(--border-1);
   border-radius: 4px;
-  color: var(--text-clear); }
+  color: var(--text-clear);
+  overflow: clip; }
   .bm-head::before {
     content: "";
     position: absolute;
     inset: .5rem;
     border: var(--bdash);
     opacity: .35;
-    pointer-events: none; }
+    pointer-events: none;
+    z-index: 2; }
   .bm-head::after {
     content: "";
     position: absolute;
     inset: .5rem;
     pointer-events: none;
     background: linear-gradient(currentColor, currentColor) left top/18px 1px no-repeat, linear-gradient(currentColor, currentColor) left top/1px 18px no-repeat, linear-gradient(currentColor, currentColor) right top/18px 1px no-repeat, linear-gradient(currentColor, currentColor) right top/1px 18px no-repeat, linear-gradient(currentColor, currentColor) left bottom/18px 1px no-repeat, linear-gradient(currentColor, currentColor) left bottom/1px 18px no-repeat, linear-gradient(currentColor, currentColor) right bottom/18px 1px no-repeat, linear-gradient(currentColor, currentColor) right bottom/1px 18px no-repeat;
-    opacity: .25; }
+    opacity: .25;
+    z-index: 2; }
   .bm-head .plate-meta {
     font-family: var(--font-serif);
     font-size: var(--size-md);
     letter-spacing: .08em;
     text-transform: uppercase;
-    color: var(--text-loCon); }
+    color: var(--text-loCon);
+    position: relative;
+    z-index: 3; }
     .bm-head .plate-meta.left {
       justify-self: start; }
     .bm-head .plate-meta.right {
@@ -41,13 +46,35 @@
       display: inline-flex;
       align-items: center;
       gap: .5rem; }
+  .bm-head .plate-fig {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    top: -80px;
+    right: 80px;
+    pointer-events: none;
+    display: grid;
+    place-items: center end;
+    padding: 1rem 2rem; }
+    .bm-head .plate-fig img {
+      height: 100%;
+      width: auto;
+      max-width: css-min(56vw, 720px);
+      object-fit: contain;
+      mix-blend-mode: multiply;
+      opacity: .78;
+      filter: sepia(0.3) saturate(0.9) contrast(1.05);
+      transform: translateX(-6vw) scale(1.02);
+      transform-origin: right center; }
   .bm-head .plate-center {
     justify-self: center;
     display: grid;
     grid-auto-flow: column;
     align-items: center;
     gap: .75rem;
-    text-align: center; }
+    text-align: center;
+    position: relative;
+    z-index: 3; }
     .bm-head .plate-center .plate-rule {
       width: 8vw;
       max-width: 140px;
@@ -60,7 +87,7 @@
       text-decoration: none;
       color: var(--accent-1);
       font-family: var(--font-serif);
-      font-size: clamp(28px, 4vw, 64px);
+      font-size: css-clamp(28px, 4vw, 64px);
       line-height: 1.05;
       letter-spacing: .02em;
       text-align: center; }
@@ -69,5 +96,14 @@
         font-style: normal;
         font-variant: small-caps;
         letter-spacing: .06em;
-        font-size: clamp(12px, 1.2vw, 16px);
+        font-size: css-clamp(12px, 1.2vw, 16px);
         color: var(--text-medCon); }
+
+/* light/dark tuning so contrast stays good */
+[data-theme="light"] .bm-head .plate-fig img {
+  opacity: .66;
+  filter: sepia(0.45) saturate(0.85) contrast(1) brightness(0.98); }
+
+[data-theme="dark"] .bm-head .plate-fig img {
+  opacity: .82;
+  filter: sepia(0.25) saturate(0.9) contrast(1.15) brightness(0.9); }

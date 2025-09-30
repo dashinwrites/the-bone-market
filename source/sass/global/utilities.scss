@@ -3,3 +3,7 @@
 /*******************************
     Utilities
 ********************************/
+
+@function css-min($a,$b){ @return unquote("min(#{$a}, #{$b})"); }
+@function css-max($a,$b){ @return unquote("max(#{$a}, #{$b})"); }
+@function css-clamp($a,$b,$c){ @return unquote("clamp(#{$a}, #{$b}, #{$c})"); }
