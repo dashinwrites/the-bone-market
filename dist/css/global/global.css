@@ -1,109 +1,23 @@
 /*******************************
     Global
 ********************************/
-/*******************************
-    Header
-********************************/
-.bm-head {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
-  gap: 1rem;
-  height: 42vh;
-  padding: 2rem 1.25rem;
+* {
+  font-family: var(--font-sans); }
+
+.bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: var(--bg-img);
+  opacity: 0.1;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+body {
   background: var(--bg-1);
-  border: var(--border-1);
-  border-radius: 4px;
-  color: var(--text-clear);
-  overflow: clip; }
-  .bm-head::before {
-    content: "";
-    position: absolute;
-    inset: .5rem;
-    border: var(--bdash);
-    opacity: .35;
-    pointer-events: none;
-    z-index: 2; }
-  .bm-head::after {
-    content: "";
-    position: absolute;
-    inset: .5rem;
-    pointer-events: none;
-    background: linear-gradient(currentColor, currentColor) left top/18px 1px no-repeat, linear-gradient(currentColor, currentColor) left top/1px 18px no-repeat, linear-gradient(currentColor, currentColor) right top/18px 1px no-repeat, linear-gradient(currentColor, currentColor) right top/1px 18px no-repeat, linear-gradient(currentColor, currentColor) left bottom/18px 1px no-repeat, linear-gradient(currentColor, currentColor) left bottom/1px 18px no-repeat, linear-gradient(currentColor, currentColor) right bottom/18px 1px no-repeat, linear-gradient(currentColor, currentColor) right bottom/1px 18px no-repeat;
-    opacity: .25;
-    z-index: 2; }
-  .bm-head .plate-meta {
-    font-family: var(--font-serif);
-    font-size: var(--size-md);
-    letter-spacing: .08em;
-    text-transform: uppercase;
-    color: var(--text-loCon);
-    position: relative;
-    z-index: 3; }
-    .bm-head .plate-meta.left {
-      justify-self: start; }
-    .bm-head .plate-meta.right {
-      justify-self: end;
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem; }
-  .bm-head .plate-fig {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    top: -20px;
-    pointer-events: none;
-    display: grid;
-    place-items: center end;
-    padding: 1rem 2rem; }
-    .bm-head .plate-fig img {
-      height: 100%;
-      width: auto;
-      max-width: 56vw;
-      object-fit: contain;
-      mix-blend-mode: multiply;
-      opacity: .78;
-      filter: sepia(0.3) saturate(0.9) contrast(1.05);
-      transform: translateX(-6vw) scale(1.02);
-      transform-origin: right center; }
-  .bm-head .plate-center {
-    justify-self: center;
-    display: grid;
-    grid-auto-flow: column;
-    align-items: center;
-    gap: .75rem;
-    text-align: center;
-    position: relative;
-    z-index: 3; }
-    .bm-head .plate-center .plate-rule {
-      width: 8vw;
-      min-width: 60px;
-      height: 1px;
-      background: currentColor;
-      opacity: .25; }
-    .bm-head .plate-center .plate-title {
-      display: grid;
-      text-decoration: none;
-      color: var(--accent-1);
-      font-family: var(--font-serif);
-      font-size: 4vw;
-      line-height: 1.05;
-      letter-spacing: .02em;
-      text-align: center; }
-      .bm-head .plate-center .plate-title .plate-sub {
-        margin-top: .25rem;
-        font-style: normal;
-        font-variant: small-caps;
-        letter-spacing: .06em;
-        font-size: 1.2vw;
-        color: var(--text-medCon); }
-
-[data-theme="light"] .bm-head .plate-fig img {
-  opacity: .66;
-  filter: sepia(0.45) saturate(0.85) contrast(1) brightness(0.98); }
-
-[data-theme="dark"] .bm-head .plate-fig img {
-  opacity: .82;
-  filter: sepia(0.25) saturate(0.9) contrast(1.15) brightness(0.9); }
+  color: var(--text-bg);
+  font-size: var(--size-md); }

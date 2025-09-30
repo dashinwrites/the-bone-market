@@ -11,15 +11,12 @@
   height: 42vh;
   padding: 2rem 1.25rem;
   background: var(--bg-1);
-  border: var(--border-1);
-  border-radius: 4px;
   color: var(--text-clear);
   overflow: clip; }
   .bm-head::before {
     content: "";
     position: absolute;
     inset: .5rem;
-    border: var(--bdash);
     opacity: .35;
     pointer-events: none;
     z-index: 2; }
@@ -97,7 +94,8 @@
         font-variant: small-caps;
         letter-spacing: .06em;
         font-size: css-clamp(12px, 1.2vw, 16px);
-        color: var(--text-medCon); }
+        color: var(--text-medCon);
+        font-family: var(--font-serif); }
 
 /* light/dark tuning so contrast stays good */
 [data-theme="light"] .bm-head .plate-fig img {

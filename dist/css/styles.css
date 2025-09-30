@@ -38,6 +38,7 @@ a {
   --font-block: "Cormorant Garamond", serif;
   --font-fancy: "Cormorant Garamond", serif;
   --font-hand: "Inconsolata", monospace;
+  --font-sans: "Lato", sans-serif;
   /* scale */
   --size-xs: 8px;
   --size-sm: 10px;
@@ -119,141 +120,26 @@ a {
 /*******************************
     Global
 ********************************/
-/*******************************
-    Header
-********************************/
-.bm-head {
-  position: relative;
-  z-index: 1;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr auto 1fr;
-  grid-template-columns: 1fr auto 1fr;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: 1rem;
-  height: 42vh;
-  padding: 2rem 1.25rem;
+* {
+  font-family: var(--font-sans); }
+
+.bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: var(--bg-img);
+  opacity: 0.1;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+body {
   background: var(--bg-1);
-  border: var(--border-1);
-  border-radius: 4px;
-  color: var(--text-clear);
-  overflow: clip; }
-  .bm-head::before {
-    content: "";
-    position: absolute;
-    inset: .5rem;
-    border: var(--bdash);
-    opacity: .35;
-    pointer-events: none;
-    z-index: 2; }
-  .bm-head::after {
-    content: "";
-    position: absolute;
-    inset: .5rem;
-    pointer-events: none;
-    background: -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left top/18px 1px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left top/1px 18px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) right top/18px 1px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) right top/1px 18px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left bottom/18px 1px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left bottom/1px 18px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) right bottom/18px 1px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) right bottom/1px 18px no-repeat;
-    background: linear-gradient(currentColor, currentColor) left top/18px 1px no-repeat, linear-gradient(currentColor, currentColor) left top/1px 18px no-repeat, linear-gradient(currentColor, currentColor) right top/18px 1px no-repeat, linear-gradient(currentColor, currentColor) right top/1px 18px no-repeat, linear-gradient(currentColor, currentColor) left bottom/18px 1px no-repeat, linear-gradient(currentColor, currentColor) left bottom/1px 18px no-repeat, linear-gradient(currentColor, currentColor) right bottom/18px 1px no-repeat, linear-gradient(currentColor, currentColor) right bottom/1px 18px no-repeat;
-    opacity: .25;
-    z-index: 2; }
-  .bm-head .plate-meta {
-    font-family: var(--font-serif);
-    font-size: var(--size-md);
-    letter-spacing: .08em;
-    text-transform: uppercase;
-    color: var(--text-loCon);
-    position: relative;
-    z-index: 3; }
-    .bm-head .plate-meta.left {
-      -ms-grid-column-align: start;
-          justify-self: start; }
-    .bm-head .plate-meta.right {
-      -ms-grid-column-align: end;
-          justify-self: end;
-      display: -webkit-inline-box;
-      display: -webkit-inline-flex;
-      display: -ms-inline-flexbox;
-      display: inline-flex;
-      -webkit-box-align: center;
-      -webkit-align-items: center;
-          -ms-flex-align: center;
-              align-items: center;
-      gap: .5rem; }
-  .bm-head .plate-fig {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    top: -20px;
-    pointer-events: none;
-    display: -ms-grid;
-    display: grid;
-    place-items: center end;
-    padding: 1rem 2rem; }
-    .bm-head .plate-fig img {
-      height: 100%;
-      width: auto;
-      max-width: 56vw;
-      -o-object-fit: contain;
-         object-fit: contain;
-      mix-blend-mode: multiply;
-      opacity: .78;
-      -webkit-filter: sepia(0.3) saturate(0.9) contrast(1.05);
-              filter: sepia(0.3) saturate(0.9) contrast(1.05);
-      -webkit-transform: translateX(-6vw) scale(1.02);
-          -ms-transform: translateX(-6vw) scale(1.02);
-              transform: translateX(-6vw) scale(1.02);
-      -webkit-transform-origin: right center;
-          -ms-transform-origin: right center;
-              transform-origin: right center; }
-  .bm-head .plate-center {
-    -ms-grid-column-align: center;
-        justify-self: center;
-    display: -ms-grid;
-    display: grid;
-    grid-auto-flow: column;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-        -ms-flex-align: center;
-            align-items: center;
-    gap: .75rem;
-    text-align: center;
-    position: relative;
-    z-index: 3; }
-    .bm-head .plate-center .plate-rule {
-      width: 8vw;
-      min-width: 60px;
-      height: 1px;
-      background: currentColor;
-      opacity: .25; }
-    .bm-head .plate-center .plate-title {
-      display: -ms-grid;
-      display: grid;
-      text-decoration: none;
-      color: var(--accent-1);
-      font-family: var(--font-serif);
-      font-size: 4vw;
-      line-height: 1.05;
-      letter-spacing: .02em;
-      text-align: center; }
-      .bm-head .plate-center .plate-title .plate-sub {
-        margin-top: .25rem;
-        font-style: normal;
-        font-variant: small-caps;
-        letter-spacing: .06em;
-        font-size: 1.2vw;
-        color: var(--text-medCon); }
-
-[data-theme="light"] .bm-head .plate-fig img {
-  opacity: .66;
-  -webkit-filter: sepia(0.45) saturate(0.85) contrast(1) brightness(0.98);
-          filter: sepia(0.45) saturate(0.85) contrast(1) brightness(0.98); }
-
-[data-theme="dark"] .bm-head .plate-fig img {
-  opacity: .82;
-  -webkit-filter: sepia(0.25) saturate(0.9) contrast(1.15) brightness(0.9);
-          filter: sepia(0.25) saturate(0.9) contrast(1.15) brightness(0.9); }
+  color: var(--text-bg);
+  font-size: var(--size-md); }
 
 /*******************************
     Utilities
@@ -484,15 +370,12 @@ body[data-theme="dark"] #icon-sun {
   height: 42vh;
   padding: 2rem 1.25rem;
   background: var(--bg-1);
-  border: var(--border-1);
-  border-radius: 4px;
   color: var(--text-clear);
   overflow: clip; }
   .bm-head::before {
     content: "";
     position: absolute;
     inset: .5rem;
-    border: var(--bdash);
     opacity: .35;
     pointer-events: none;
     z-index: 2; }
@@ -592,7 +475,8 @@ body[data-theme="dark"] #icon-sun {
         font-variant: small-caps;
         letter-spacing: .06em;
         font-size: clamp(12px, 1.2vw, 16px);
-        color: var(--text-medCon); }
+        color: var(--text-medCon);
+        font-family: var(--font-serif); }
 
 /* light/dark tuning so contrast stays good */
 [data-theme="light"] .bm-head .plate-fig img {

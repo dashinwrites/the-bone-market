@@ -13,15 +13,15 @@
   height: 42vh; 
   padding: 2rem 1.25rem;
   background: var(--bg-1);
-  border: var(--border-1);
-  border-radius: 4px;
+  // border: var(--border-1);
+  // border-radius: 4px;
   color: var(--text-clear);
   overflow: clip;
 
   &::before {
     content: "";
     position: absolute; inset: .5rem;
-    border: var(--bdash);
+    // border: var(--bdash);
     opacity: .35;
     pointer-events: none;
     z-index: 2;
@@ -116,6 +116,7 @@
         letter-spacing: .06em;
         font-size: css-clamp(12px, 1.2vw, 16px);
         color: var(--text-medCon);
+        font-family: var(--font-serif);
       }
     }
   }
