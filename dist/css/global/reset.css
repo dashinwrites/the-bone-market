@@ -22,4 +22,5 @@ select {
   font: inherit; }
 
 a {
-  text-decoration: none; }
+  text-decoration: none;
+  color: var(--text-bright); }
