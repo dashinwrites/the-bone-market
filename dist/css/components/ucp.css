@@ -191,6 +191,9 @@
       @media (min-width: 769px) {
         #UserCP.code-54 #ucpcontent .tableborder:first-child table > tbody > tr:not(:first-child):not(:last-child) {
           flex: 0 0 calc(50% - (var(--spacing-md) / 2)); } }
+      @media (min-width: 1025px) {
+        #UserCP.code-54 #ucpcontent .tableborder:first-child table > tbody > tr:not(:first-child):not(:last-child) {
+          flex: 0 0 calc((100% / 3) - (var(--spacing-md) * 2 / 3)); } }
       #UserCP.code-54 #ucpcontent .tableborder:first-child table > tbody > tr:not(:first-child):not(:last-child) > td {
         margin: 0;
         padding: 0 0 0 calc(var(--spacing-sm) + 20px);

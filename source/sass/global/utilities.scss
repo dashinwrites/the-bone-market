@@ -7,3 +7,27 @@
 @function css-min($a,$b){ @return unquote("min(#{$a}, #{$b})"); }
 @function css-max($a,$b){ @return unquote("max(#{$a}, #{$b})"); }
 @function css-clamp($a,$b,$c){ @return unquote("clamp(#{$a}, #{$b}, #{$c})"); }
+
+@font-face {
+  font-family: 'Ghosthey';
+  src: url('https://files.jcink.net/uploads2/thebonemarket/fonts/ghosthey_Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ghosthey';
+  src: url('https://files.jcink.net/uploads2/thebonemarket/fonts/ghosthey_Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Obituary';
+  src: url('https://files.jcink.net/uploads2/thebonemarket/fonts/Obituary.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
