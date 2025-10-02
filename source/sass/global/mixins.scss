@@ -68,3 +68,92 @@ $size-xxl: 1900px !default;
         font-size: #{$font-max}px;
     }
 }
+
+@mixin focus-ring($c: var(--accent-3)) {
+  outline: none;
+  box-shadow: 0 0 0 2px $c, 0 0 0 4px rgba(0,0,0,.15);
+}
+
+@mixin pseudo-frame($skip-top: false, $radius: 4px) {
+  position: relative;
+  isolation: isolate;
+  border-radius: $radius;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: var(--border-1);
+    @if $skip-top { border-top: none; }
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 2px;
+    border: var(--bdash);
+    opacity: .35;
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: -1;
+  }
+}
+
+@mixin inner-line($inset: 2px, $border: var(--bdash), $opacity: .35) {
+  &::after {
+    content: "";
+    position: absolute;
+    inset: $inset;
+    border: $border;
+    opacity: $opacity;
+    pointer-events: none;
+    border-radius: inherit;
+    z-index: -1; /* stays between content and outer pseudo-border */
+  }
+}
+
+@mixin corner-ticks($inset: .5rem, $len: 18px, $thick: 2px, $opacity: .25) {
+  &::after {
+    content: "";
+    position: absolute;
+    inset: $inset;
+    pointer-events: none;
+    opacity: $opacity;
+    // 8 ticks (2 per corner) using currentColor
+    background:
+      linear-gradient(currentColor, currentColor) left   top    / #{$len} #{$thick} no-repeat,
+      linear-gradient(currentColor, currentColor) left   top    / #{$thick} #{$len} no-repeat,
+      linear-gradient(currentColor, currentColor) right  top    / #{$len} #{$thick} no-repeat,
+      linear-gradient(currentColor, currentColor) right  top    / #{$thick} #{$len} no-repeat,
+      linear-gradient(currentColor, currentColor) left   bottom / #{$len} #{$thick} no-repeat,
+      linear-gradient(currentColor, currentColor) left   bottom / #{$thick} #{$len} no-repeat,
+      linear-gradient(currentColor, currentColor) right  bottom / #{$len} #{$thick} no-repeat,
+      linear-gradient(currentColor, currentColor) right  bottom / #{$thick} #{$len} no-repeat;
+    border-radius: inherit;
+    z-index: 2;
+  }
+}
+
+@mixin pseudo-border($skip-top: false, $radius: 4px) {
+  position: relative;
+  isolation: isolate;
+  border-radius: $radius;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: var(--border-1);
+    @if $skip-top { border-top: none; }
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: -1;
+  }
+}
+
+// usage
+#navstrip { @include pseudo-border(true, 4px 4px 4px 0); }
+#leftbar  { @include pseudo-border(true, 0); }

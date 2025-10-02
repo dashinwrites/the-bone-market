@@ -1,47 +1,93 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Uncial+Antiqua&family=Caudex:wght@400;700&family=Forum&family=Spectral+SC:wght@400;700&family=Junge&display=swap");
+#navstrip {
+  position: relative;
+  isolation: isolate;
+  border-radius: 4px 4px 4px 0; }
+  #navstrip::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: var(--border-1);
+    border-top: none;
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: -1; }
+
+#leftbar {
+  position: relative;
+  isolation: isolate;
+  border-radius: 0; }
+  #leftbar::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: var(--border-1);
+    border-top: none;
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: -1; }
+
 /*******************************
     Header
 ********************************/
 .bm-head {
-  /* layout tokens for this component only */
+  /* component tokens */
   --gutter: 5vw;
   --side-col: 20vw;
   --center-max: 50vw;
-  position: relative;
   z-index: 1;
   display: grid;
-  width: 100vw;
+  inline-size: 100%;
   gap: 1rem;
   padding: 2rem 1.25rem;
-  height: css-clamp(320px, 40vh, 560px);
+  block-size: clamp(320px, 40vh, 560px);
   color: var(--text-clear);
   background: var(--bg-1);
-  border: var(--border-1);
-  border-top: none;
-  border-radius: 4px;
   overflow: clip;
   /* symmetric frame with named areas */
   grid-template-columns: var(--gutter) var(--side-col) minmax(0, var(--center-max)) var(--side-col) var(--gutter);
   grid-template-areas: "left info center bridge right";
-  /* dashed inner plate & corner ticks */
-  /* --- shared text defaults inside header --- */
+  /* outer frame & inner dash aligned with the site’s “plate” look */
+  position: relative;
+  isolation: isolate;
+  border-radius: 4px;
+  margin-block-start: calc(-1 * var(--frame-join));
+  /* shared small text inside header */
   /* left/right captions */
   /* info column (textarea + staff) */
-  /* decorative cutout figure (stays behind content) */
+  /* decorative cutout figure (behind content) */
   /* centered title block */
   /* bridge (quick links) */ }
-  .bm-head::before, .bm-head::after {
+  .bm-head::before {
     content: "";
     position: absolute;
-    inset: .5rem;
+    inset: 0;
+    border: var(--border-1);
+    border-top: none;
+    border-radius: inherit;
     pointer-events: none;
-    z-index: 2; }
-  .bm-head::before {
-    border: var(--bdash);
-    opacity: .35; }
+    z-index: -1; }
   .bm-head::after {
-    opacity: .25;
-    background: linear-gradient(currentColor, currentColor) left top/18px 2px no-repeat, linear-gradient(currentColor, currentColor) left top/2px 18px no-repeat, linear-gradient(currentColor, currentColor) right top/18px 2px no-repeat, linear-gradient(currentColor, currentColor) right top/2px 18px no-repeat, linear-gradient(currentColor, currentColor) left bottom/18px 2px no-repeat, linear-gradient(currentColor, currentColor) left bottom/2px 18px no-repeat, linear-gradient(currentColor, currentColor) right bottom/18px 2px no-repeat, linear-gradient(currentColor, currentColor) right bottom/2px 18px no-repeat; }
+    content: "";
+    position: absolute;
+    inset: 2px;
+    border: var(--bdash);
+    opacity: .35;
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: -1; }
+  .bm-head::after {
+    inset: .5rem; }
+  .bm-head::after {
+    content: "";
+    position: absolute;
+    inset: 0.5rem;
+    pointer-events: none;
+    opacity: 0.25;
+    background: linear-gradient(currentColor, currentColor) left top / 18px 2px no-repeat, linear-gradient(currentColor, currentColor) left top / 2px 18px no-repeat, linear-gradient(currentColor, currentColor) right top / 18px 2px no-repeat, linear-gradient(currentColor, currentColor) right top / 2px 18px no-repeat, linear-gradient(currentColor, currentColor) left bottom / 18px 2px no-repeat, linear-gradient(currentColor, currentColor) left bottom / 2px 18px no-repeat, linear-gradient(currentColor, currentColor) right bottom / 18px 2px no-repeat, linear-gradient(currentColor, currentColor) right bottom / 2px 18px no-repeat;
+    border-radius: inherit;
+    z-index: 2; }
   .bm-head :where(.plate-meta, .plate-info, .plate-bridge) {
     font-family: var(--font-serif);
     font-size: var(--size-sm);
@@ -52,12 +98,12 @@
     color: var(--text-loCon);
     font-size: var(--size-md);
     text-transform: uppercase; }
-  .bm-head .plate-meta.right {
-    grid-area: right;
-    justify-self: end;
-    display: inline-flex;
-    gap: .5rem;
-    align-items: center; }
+    .bm-head .plate-meta.right {
+      grid-area: right;
+      justify-self: end;
+      display: inline-flex;
+      gap: .5rem;
+      align-items: center; }
   .bm-head .plate-info {
     grid-area: info;
     align-self: center;
@@ -79,7 +125,7 @@
       clip-path: inset(50%);
       clip: rect(1px, 1px, 1px, 1px); }
     .bm-head .plate-info__text {
-      width: 100%;
+      inline-size: 100%;
       resize: vertical;
       min-block-size: 72px;
       max-block-size: 240px;
@@ -93,7 +139,7 @@
       font: 400 var(--size-sm)/1.4 var(--font-sans); }
       .bm-head .plate-info__text:focus-visible {
         outline: none;
-        box-shadow: 0 0 0 2px color-mix(in oklab, var(--accent-1) 35%, transparent);
+        box-shadow: 0 0 0 2px color-mix(in oklab, var(--accent-1) 35%, transparent), 0 0 0 4px rgba(0, 0, 0, 0.15);
         color: var(--text-hiCon); }
     .bm-head .plate-info__label {
       justify-self: center;
@@ -107,6 +153,18 @@
       gap: .5rem;
       justify-self: center;
       justify-content: space-around; }
+      .bm-head .plate-info__staff img {
+        inline-size: 48px;
+        block-size: 48px;
+        border-radius: 100%;
+        object-fit: cover;
+        background: var(--bg-3);
+        border: var(--border-1);
+        box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
+        transition: var(--transi-quick); }
+        .bm-head .plate-info__staff img:hover {
+          transform: translateY(-1px);
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18); }
   .bm-head .plate-fig {
     position: absolute;
     inset: .5rem;
@@ -122,7 +180,6 @@
       min-block-size: 320px;
       max-block-size: 1080px;
       max-inline-size: 540px;
-      width: auto;
       object-fit: contain;
       transform: translateX(-5vw) translateY(-7vw);
       transform-origin: center;
@@ -140,15 +197,18 @@
     position: relative;
     z-index: 3;
     max-inline-size: var(--center-max);
-    inline-size: 100%; }
-    .bm-head .plate-center::after {
+    inline-size: 100%;
+    /* soft gradient wash behind the title */ }
+    .bm-head .plate-center::before {
       content: "";
       position: absolute;
       inset: -0.75rem -10vw;
       pointer-events: none;
       z-index: -1;
-      background: linear-gradient(to right, rgba(28, 27, 26, 0), rgba(28, 27, 26, 0.32), rgba(28, 27, 26, 0));
-      border-radius: 6px; }
+      border-radius: 6px;
+      /* use currentColor; opacity handles light/dark */
+      background: linear-gradient(to right, transparent, currentColor 32%, transparent);
+      opacity: .18; }
     .bm-head .plate-center .plate-rule {
       inline-size: clamp(90px, 7vw, 140px);
       block-size: 1px;
@@ -158,7 +218,7 @@
       display: grid;
       color: var(--accent-1);
       font-family: var(--font-test);
-      font-size: css-clamp(28px, 4vw, 64px);
+      font-size: clamp(28px, 4vw, 64px);
       line-height: 1.05;
       letter-spacing: .02em; }
       .bm-head .plate-center .plate-title .plate-sub {
@@ -167,7 +227,7 @@
         font-style: normal;
         font-variant: small-caps;
         letter-spacing: .06em;
-        font-size: css-clamp(12px, 1.2vw, 16px);
+        font-size: clamp(12px, 1.2vw, 16px);
         color: var(--text-medCon); }
   .bm-head .plate-bridge {
     grid-area: bridge;
@@ -192,26 +252,9 @@
       transition: var(--transi-quick); }
       .bm-head .plate-bridge a:hover, .bm-head .plate-bridge a:focus-visible {
         outline: none;
+        box-shadow: 0 0 0 2px var(--accent-3), 0 0 0 4px rgba(0, 0, 0, 0.15);
         color: var(--accent-1);
         text-decoration: underline; }
     .bm-head .plate-bridge .sep {
       opacity: .45;
       user-select: none; }
-
-/* --- tiny helpers reused above --- */
-.cameo, .bm-head .plate-info__staff img {
-  inline-size: 48px;
-  block-size: 48px;
-  border-radius: 100%;
-  object-fit: cover;
-  background: var(--bg-3);
-  border: var(--border-1);
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15), inset 0 0 0 999px rgba(0, 0, 0, 0);
-  transition: var(--transi-quick); }
-  .cameo:hover, .bm-head .plate-info__staff img:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18), inset 0 0 0 999px rgba(0, 0, 0, 0.02); }
-
-.title-cinzel {
-  font-family: 'Cinzel Decorative', serif;
-  font-weight: 700; }

@@ -1,6 +1,36 @@
 @charset "UTF-8";
+#navstrip {
+  position: relative;
+  isolation: isolate;
+  border-radius: 4px 4px 4px 0; }
+  #navstrip::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: var(--border-1);
+    border-top: none;
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: -1; }
+
+#leftbar {
+  position: relative;
+  isolation: isolate;
+  border-radius: 0; }
+  #leftbar::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: var(--border-1);
+    border-top: none;
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: -1; }
+
 /*******************************Navigation********************************/
 #navstrip {
+  position: fixed;
+  top: 0;
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -8,11 +38,14 @@
   padding: 0.5rem 1rem;
   background: var(--bg-2);
   border: var(--border-1);
-  border-radius: 4px;
+  border-radius: 4px 4px 4px 0px;
   font-family: var(--font-serif);
   font-size: var(--size-lg);
   color: var(--text-clear);
   transition: var(--transi-quick);
+  height: 50px;
+  width: 100%;
+  z-index: 4;
   /* links */ }
   #navstrip a {
     color: var(--text-clear);
@@ -65,19 +98,39 @@
     box-shadow: inset 0 0 0 2px var(--accent-3);
     transition: var(--transi-quick); }
 
-[data-theme="light"] #navstrip {
+#leftbar {
+  position: fixed;
+  background: var(--bg-2);
+  display: flex;
+  color: var(--text-clear);
+  align-items: center;
+  z-index: 4;
+  border: var(--border-1);
+  border-top: none;
+  left: 0;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between !important;
+  padding: 20px 0;
+  width: 40px;
+  height: calc(100% - 40px);
+  top: 50px;
+  flex-flow: column nowrap;
+  justify-content: flex-start; }
+
+[data-theme="light"] #navstrip, [data-theme="light"] #leftbar {
   background: linear-gradient(rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.06)), var(--bg-2);
   color: var(--text-hiCon);
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.06); }
-  [data-theme="light"] #navstrip a {
+  [data-theme="light"] #navstrip a, [data-theme="light"] #leftbar a {
     color: var(--text-medCon);
     /* lighter separator tone in light mode */ }
-    [data-theme="light"] #navstrip a:not(:last-of-type)::after {
+    [data-theme="light"] #navstrip a:not(:last-of-type)::after, [data-theme="light"] #leftbar a:not(:last-of-type)::after {
       color: var(--text-loCon);
       opacity: .85; }
-    [data-theme="light"] #navstrip a:hover {
+    [data-theme="light"] #navstrip a:hover, [data-theme="light"] #leftbar a:hover {
       color: var(--accent-1); }
-    [data-theme="light"] #navstrip a:focus-visible {
+    [data-theme="light"] #navstrip a:focus-visible, [data-theme="light"] #leftbar a:focus-visible {
       color: var(--accent-1); }
 
 [data-theme="light"] #theme-toggle {
@@ -86,20 +139,20 @@
   [data-theme="light"] #theme-toggle:hover {
     background: linear-gradient(rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.06)), var(--bg-2); }
 
-[data-theme="dark"] #navstrip {
+[data-theme="dark"] #navstrip, [data-theme="dark"] #leftbar {
   background: var(--bg-grad), var(--bg-2);
   background-blend-mode: var(--bg-blend);
   color: var(--text-clear);
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25), inset 0 0 0 999px rgba(255, 255, 255, 0); }
-  [data-theme="dark"] #navstrip a {
+  [data-theme="dark"] #navstrip a, [data-theme="dark"] #leftbar a {
     color: var(--text-loCon);
     /* slightly dimmer separator in dark mode */ }
-    [data-theme="dark"] #navstrip a:not(:last-of-type)::after {
+    [data-theme="dark"] #navstrip a:not(:last-of-type)::after, [data-theme="dark"] #leftbar a:not(:last-of-type)::after {
       color: var(--text-medCon);
       opacity: .75; }
-    [data-theme="dark"] #navstrip a:hover {
+    [data-theme="dark"] #navstrip a:hover, [data-theme="dark"] #leftbar a:hover {
       color: var(--accent-1); }
-    [data-theme="dark"] #navstrip a:focus-visible {
+    [data-theme="dark"] #navstrip a:focus-visible, [data-theme="dark"] #leftbar a:focus-visible {
       color: var(--accent-1); }
 
 [data-theme="dark"] #theme-toggle {
