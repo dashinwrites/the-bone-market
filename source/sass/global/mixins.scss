@@ -74,7 +74,7 @@ $size-xxl: 1900px !default;
   box-shadow: 0 0 0 2px $c, 0 0 0 4px rgba(0,0,0,.15);
 }
 
-@mixin pseudo-frame($skip-top: false, $radius: 4px) {
+@mixin pseudo-frame($skip-top: false, $skip-left: false, $radius: 4px) {
   position: relative;
   isolation: isolate;
   border-radius: $radius;
@@ -85,6 +85,7 @@ $size-xxl: 1900px !default;
     inset: 0;
     border: var(--border-1);
     @if $skip-top { border-top: none; }
+    @if $skip-left { border-right: none; }
     border-radius: inherit;
     pointer-events: none;
     z-index: -1;
@@ -111,7 +112,7 @@ $size-xxl: 1900px !default;
     opacity: $opacity;
     pointer-events: none;
     border-radius: inherit;
-    z-index: -1; /* stays between content and outer pseudo-border */
+    z-index: -1;
   }
 }
 
@@ -122,7 +123,6 @@ $size-xxl: 1900px !default;
     inset: $inset;
     pointer-events: none;
     opacity: $opacity;
-    // 8 ticks (2 per corner) using currentColor
     background:
       linear-gradient(currentColor, currentColor) left   top    / #{$len} #{$thick} no-repeat,
       linear-gradient(currentColor, currentColor) left   top    / #{$thick} #{$len} no-repeat,
@@ -153,7 +153,3 @@ $size-xxl: 1900px !default;
     z-index: -1;
   }
 }
-
-// usage
-#navstrip { @include pseudo-border(true, 4px 4px 4px 0); }
-#leftbar  { @include pseudo-border(true, 0); }

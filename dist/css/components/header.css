@@ -1,41 +1,9 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Uncial+Antiqua&family=Caudex:wght@400;700&family=Forum&family=Spectral+SC:wght@400;700&family=Junge&display=swap");
-#navstrip {
-  position: relative;
-  isolation: isolate;
-  border-radius: 4px 4px 4px 0; }
-  #navstrip::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border: var(--border-1);
-    border-top: none;
-    border-radius: inherit;
-    pointer-events: none;
-    z-index: -1; }
-
-#leftbar {
-  position: relative;
-  isolation: isolate;
-  border-radius: 0; }
-  #leftbar::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border: var(--border-1);
-    border-top: none;
-    border-radius: inherit;
-    pointer-events: none;
-    z-index: -1; }
-
 /*******************************
     Header
 ********************************/
 .bm-head {
-  /* component tokens */
-  --gutter: 5vw;
-  --side-col: 20vw;
-  --center-max: 50vw;
   z-index: 1;
   display: grid;
   inline-size: 100%;
@@ -48,7 +16,6 @@
   /* symmetric frame with named areas */
   grid-template-columns: var(--gutter) var(--side-col) minmax(0, var(--center-max)) var(--side-col) var(--gutter);
   grid-template-areas: "left info center bridge right";
-  /* outer frame & inner dash aligned with the site’s “plate” look */
   position: relative;
   isolation: isolate;
   border-radius: 4px;
@@ -65,6 +32,7 @@
     inset: 0;
     border: var(--border-1);
     border-top: none;
+    border-right: none;
     border-radius: inherit;
     pointer-events: none;
     z-index: -1; }
@@ -161,7 +129,7 @@
         background: var(--bg-3);
         border: var(--border-1);
         box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
-        transition: var(--transi-quick); }
+        transition: var(--transi-quick) filter var(--transi-slow); }
         .bm-head .plate-info__staff img:hover {
           transform: translateY(-1px);
           box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18); }
@@ -258,3 +226,73 @@
     .bm-head .plate-bridge .sep {
       opacity: .45;
       user-select: none; }
+
+html, body {
+  margin: 0;
+  padding: 0; }
+
+#navstrip, #leftbar, .bm-head {
+  margin: 0; }
+
+/* nuke any stray margins */
+/* ====== FIXED BARS ====== */
+#navstrip {
+  position: fixed;
+  inset-block-start: 0;
+  inset-inline: 0;
+  block-size: var(--nav-h);
+  z-index: 100; }
+
+#leftbar {
+  position: fixed;
+  inset-block-start: var(--nav-h);
+  inset-inline-start: 0;
+  inline-size: var(--leftbar-w);
+  block-size: calc(100dvb - var(--nav-h));
+  z-index: 90; }
+  @supports not (height: 100dvb) {
+    #leftbar {
+      block-size: calc(100vh - var(--nav-h)); } }
+
+/* ====== THE IMPORTANT PART: OFFSET YOUR PAGE FLOW ======
+   Your header is inside .bm-container, so offset THAT, not <body>.
+*/
+.bm-container {
+  position: relative;
+  padding-block-start: var(--nav-h);
+  /* sits directly under fixed nav */
+  padding-inline-start: var(--leftbar-w);
+  /* keeps clear of fixed leftbar */
+  min-block-size: 100dvb;
+  /* not required, but nice for testing */ }
+
+/* Fuse the header frame into the nav frame (no seam) */
+.bm-head {
+  /* keep your pseudo-frame(true, …) if you use it */
+  margin-block-start: calc(-1 * var(--frame-join)) !important; }
+
+/* ====== LAST-RESORT SAFETY NET ======
+   If something else is still first in the container, ensure the FIRST in-flow child
+   (which should be your header) is forced to start right under the nav.
+*/
+.bm-container > :first-child {
+  margin-block-start: 0 !important;
+  padding-block-start: 0 !important; }
+
+/* ====== OPTIONAL: DEBUG MODE ======
+   Temporarily add `class="debug"` on <html> to visualize boxes and confirm offsets.
+*/
+html.debug * {
+  outline: 1px dotted rgba(255, 0, 200, 0.35); }
+
+html.debug #navstrip {
+  outline: 2px solid lime; }
+
+html.debug #leftbar {
+  outline: 2px solid cyan; }
+
+html.debug .bm-container {
+  outline: 2px solid orange; }
+
+html.debug .bm-head {
+  outline: 2px solid red; }

@@ -1,31 +1,3 @@
-#navstrip {
-  position: relative;
-  isolation: isolate;
-  border-radius: 4px 4px 4px 0; }
-  #navstrip::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border: var(--border-1);
-    border-top: none;
-    border-radius: inherit;
-    pointer-events: none;
-    z-index: -1; }
-
-#leftbar {
-  position: relative;
-  isolation: isolate;
-  border-radius: 0; }
-  #leftbar::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border: var(--border-1);
-    border-top: none;
-    border-radius: inherit;
-    pointer-events: none;
-    z-index: -1; }
-
 /*******************************
    Categories and Forums
 ********************************/

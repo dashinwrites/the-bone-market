@@ -1,85 +1,72 @@
 @charset "UTF-8";
+/*******************************
+	Navigation
+********************************/
+/* ===========================
+   Top nav strip
+   =========================== */
 #navstrip {
+  position: fixed;
+  inset-block-start: 0;
+  inset-inline: 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 0 1rem;
+  background: var(--plate-bg);
+  box-shadow: var(--plate-shadow);
+  font-family: var(--font-serif);
+  font-size: var(--size-lg);
+  color: var(--text-clear);
+  transition: var(--transi-quick);
+  block-size: var(--nav-h);
+  z-index: var(--z-nav);
   position: relative;
   isolation: isolate;
-  border-radius: 4px 4px 4px 0; }
+  border-radius: 4px; }
   #navstrip::before {
     content: "";
     position: absolute;
     inset: 0;
     border: var(--border-1);
-    border-top: none;
+    border-right: none;
     border-radius: inherit;
     pointer-events: none;
     z-index: -1; }
-
-#leftbar {
-  position: relative;
-  isolation: isolate;
-  border-radius: 0; }
-  #leftbar::before {
+  #navstrip::after {
     content: "";
     position: absolute;
-    inset: 0;
-    border: var(--border-1);
-    border-top: none;
+    inset: 2px;
+    border: var(--bdash);
+    opacity: .35;
     border-radius: inherit;
     pointer-events: none;
     z-index: -1; }
-
-/*******************************Navigation********************************/
-#navstrip {
-  position: fixed;
-  top: 0;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-  padding: 0.5rem 1rem;
-  background: var(--bg-2);
-  border: var(--border-1);
-  border-radius: 4px 4px 4px 0px;
-  font-family: var(--font-serif);
-  font-size: var(--size-lg);
-  color: var(--text-clear);
-  transition: var(--transi-quick);
-  height: 50px;
-  width: 100%;
-  z-index: 4;
-  /* links */ }
   #navstrip a {
-    color: var(--text-clear);
+    color: var(--link);
     text-decoration: none;
     line-height: 1;
-    transition: var(--transi-quick);
-    /* dagger separator after each link except the last one before .theme */
-    /* on hover/focus, tint the separator too */ }
-    #navstrip a:not(:last-of-type)::after {
-      content: "†";
-      display: inline-block;
-      margin: 0 0 0 1rem;
-      opacity: .8;
-      color: var(--text-medCon);
-      /* subtle by default */ }
+    transition: var(--transi-quick); }
     #navstrip a:hover {
       color: var(--accent-1);
       text-decoration: underline; }
-    #navstrip a:hover::after, #navstrip a:focus-visible::after {
-      color: var(--accent-1);
-      opacity: 1; }
     #navstrip a:focus-visible {
-      color: var(--accent-1);
-      text-decoration: underline;
       outline: none;
       box-shadow: inset 0 0 0 2px var(--accent-3);
       transition: var(--transi-quick); }
+  #navstrip a + a::before {
+    content: "†";
+    display: inline-block;
+    margin-right: 1rem;
+    opacity: .85;
+    color: var(--link-sep); }
   #navstrip .theme {
     display: inline-flex;
     align-items: center;
-    margin-left: auto;
     gap: .5rem;
-    position: relative;
-    /* vertical rule before the toggle */ }
+    margin-inline-start: auto;
+    position: relative; }
     #navstrip .theme::before {
       content: "";
       inline-size: 1px;
@@ -88,8 +75,8 @@
       opacity: .25;
       margin-inline-end: .5rem; }
     #navstrip .theme #theme-toggle {
-      background: var(--bg-1);
-      border: var(--border-1); }
+      background: var(--plate-bg);
+      border: var(--plate-border); }
       #navstrip .theme #theme-toggle:hover {
         background: var(--bg-3);
         color: var(--accent-1); }
@@ -98,71 +85,52 @@
     box-shadow: inset 0 0 0 2px var(--accent-3);
     transition: var(--transi-quick); }
 
+/* ===========================
+   Left bar
+   =========================== */
 #leftbar {
   position: fixed;
-  background: var(--bg-2);
+  inset-block-start: var(--nav-h);
+  inset-inline-start: 0;
   display: flex;
-  color: var(--text-clear);
+  flex-direction: column;
   align-items: center;
-  z-index: 4;
-  border: var(--border-1);
-  border-top: none;
-  left: 0;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: space-between !important;
-  padding: 20px 0;
-  width: 40px;
-  height: calc(100% - 40px);
-  top: 50px;
-  flex-flow: column nowrap;
-  justify-content: flex-start; }
-
-[data-theme="light"] #navstrip, [data-theme="light"] #leftbar {
-  background: linear-gradient(rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.06)), var(--bg-2);
-  color: var(--text-hiCon);
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.06); }
-  [data-theme="light"] #navstrip a, [data-theme="light"] #leftbar a {
-    color: var(--text-medCon);
-    /* lighter separator tone in light mode */ }
-    [data-theme="light"] #navstrip a:not(:last-of-type)::after, [data-theme="light"] #leftbar a:not(:last-of-type)::after {
-      color: var(--text-loCon);
-      opacity: .85; }
-    [data-theme="light"] #navstrip a:hover, [data-theme="light"] #leftbar a:hover {
-      color: var(--accent-1); }
-    [data-theme="light"] #navstrip a:focus-visible, [data-theme="light"] #leftbar a:focus-visible {
-      color: var(--accent-1); }
-
-[data-theme="light"] #theme-toggle {
-  --plate-bg: var(--bg-2);
-  --plate-text: var(--text-hiCon); }
-  [data-theme="light"] #theme-toggle:hover {
-    background: linear-gradient(rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.06)), var(--bg-2); }
-
-[data-theme="dark"] #navstrip, [data-theme="dark"] #leftbar {
-  background: var(--bg-grad), var(--bg-2);
-  background-blend-mode: var(--bg-blend);
+  justify-content: flex-start;
+  padding-block: 20px;
+  inline-size: 40px;
+  block-size: calc(100dvb - var(--nav-h));
+  background: var(--plate-bg);
   color: var(--text-clear);
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25), inset 0 0 0 999px rgba(255, 255, 255, 0); }
-  [data-theme="dark"] #navstrip a, [data-theme="dark"] #leftbar a {
-    color: var(--text-loCon);
-    /* slightly dimmer separator in dark mode */ }
-    [data-theme="dark"] #navstrip a:not(:last-of-type)::after, [data-theme="dark"] #leftbar a:not(:last-of-type)::after {
-      color: var(--text-medCon);
-      opacity: .75; }
-    [data-theme="dark"] #navstrip a:hover, [data-theme="dark"] #leftbar a:hover {
-      color: var(--accent-1); }
-    [data-theme="dark"] #navstrip a:focus-visible, [data-theme="dark"] #leftbar a:focus-visible {
-      color: var(--accent-1); }
+  box-shadow: var(--plate-shadow);
+  z-index: var(--z-nav);
+  position: relative;
+  isolation: isolate;
+  border-radius: 4px; }
+  #leftbar::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: var(--border-1);
+    border-top: none;
+    border-right: none;
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: -1; }
+  #leftbar::after {
+    content: "";
+    position: absolute;
+    inset: 2px;
+    border: var(--bdash);
+    opacity: .35;
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: -1; }
 
-[data-theme="dark"] #theme-toggle {
-  --plate-bg: var(--bg-3);
-  --plate-text: var(--text-clear); }
-
-/* Toggle styles (unchanged from your base) */
+/* ===========================
+   Theme toggle (single source)
+   =========================== */
 #theme-toggle {
   position: relative;
-  z-index: 1;
   pointer-events: auto;
   display: inline-flex;
   align-items: center;
@@ -174,13 +142,13 @@
   font-family: var(--font-serif);
   font-size: var(--size-lg);
   letter-spacing: 0.03em;
-  color: var(--plate-text);
+  color: var(--plate-text, var(--text-clear));
   line-height: 1;
   cursor: pointer;
   transition: var(--transi-quick);
-  position: relative;
   isolation: isolate;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15), inset 0 0 0 999px rgba(0, 0, 0, 0); }
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15), inset 0 0 0 999px rgba(0, 0, 0, 0);
+  /* optional inner dashed */ }
   #theme-toggle::before {
     content: "";
     position: absolute;
@@ -194,6 +162,9 @@
   #theme-toggle:active {
     transform: translateY(0);
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), inset 0 0 0 999px rgba(0, 0, 0, 0.04); }
+  #theme-toggle:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--accent-3), 0 0 0 4px rgba(0, 0, 0, 0.15); }
   #theme-toggle .label {
     text-transform: uppercase;
     font-size: var(--size-sm);
@@ -204,11 +175,8 @@
     font-size: 1rem;
     line-height: 1;
     display: inline-block; }
-  #theme-toggle:focus-visible {
-    outline: none;
-    box-shadow: 0 0 0 2px var(--accent-3), 0 0 0 4px rgba(0, 0, 0, 0.15); }
 
-/* Icon swap */
+/* icon swap */
 #icon-sun, #icon-moon {
   display: none; }
 
@@ -219,3 +187,53 @@ body[data-theme="light"] #icon-moon {
 body[data-theme="dark"] #icon-sun {
   display: inline-block;
   color: var(--accent-2); }
+
+/* ===========================
+   Theme-specific surfaces
+   =========================== */
+[data-theme="light"] #navstrip, [data-theme="light"] #leftbar {
+  background: linear-gradient(rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.06)), var(--bg-2);
+  color: var(--text-hiCon);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.06); }
+
+[data-theme="light"] #navstrip a {
+  color: var(--text-medCon); }
+
+[data-theme="light"] #navstrip a + a::before {
+  color: var(--text-loCon);
+  opacity: .85; }
+
+[data-theme="light"] #theme-toggle {
+  --plate-bg: var(--bg-2);
+  --plate-text: var(--text-hiCon); }
+
+[data-theme="dark"] #navstrip, [data-theme="dark"] #leftbar {
+  background: var(--bg-grad), var(--bg-2);
+  background-blend-mode: var(--bg-blend);
+  color: var(--text-clear);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25), inset 0 0 0 999px rgba(255, 255, 255, 0); }
+
+[data-theme="dark"] #navstrip a {
+  color: var(--text-loCon); }
+
+[data-theme="dark"] #navstrip a + a::before {
+  color: var(--text-medCon);
+  opacity: .75; }
+
+[data-theme="dark"] #theme-toggle {
+  --plate-bg: var(--bg-3);
+  --plate-text: var(--text-clear); }
+
+/* Light mode */
+[data-theme="dark"] .bm-head .plate-info__staff img {
+  filter: saturate(15%); }
+
+/* Dark mode */
+[data-theme="light"] .bm-head .plate-info__staff img {
+  filter: saturate(15%); }
+
+[data-theme="dark"] .bm-head .plate-info__staff img:hover {
+  filter: none; }
+
+[data-theme="light"] .bm-head .plate-info__staff img:hover {
+  filter: none; }
