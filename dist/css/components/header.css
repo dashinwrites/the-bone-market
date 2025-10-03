@@ -9,17 +9,15 @@
   inline-size: 100%;
   gap: 1rem;
   padding: 2rem 1.25rem;
-  block-size: clamp(320px, 40vh, 560px);
+  block-size: clamp(320px, 60vh, 7800px);
   color: var(--text-clear);
   background: var(--bg-1);
   overflow: clip;
-  /* symmetric frame with named areas */
   grid-template-columns: var(--gutter) var(--side-col) minmax(0, var(--center-max)) var(--side-col) var(--gutter);
   grid-template-areas: "left info center bridge right";
   position: relative;
   isolation: isolate;
   border-radius: 4px;
-  margin-block-start: calc(-1 * var(--frame-join));
   /* shared small text inside header */
   /* left/right captions */
   /* info column (textarea + staff) */
@@ -31,8 +29,7 @@
     position: absolute;
     inset: 0;
     border: var(--border-1);
-    border-top: none;
-    border-right: none;
+    border: none;
     border-radius: inherit;
     pointer-events: none;
     z-index: -1; }
@@ -54,7 +51,6 @@
     pointer-events: none;
     opacity: 0.25;
     background: linear-gradient(currentColor, currentColor) left top / 18px 2px no-repeat, linear-gradient(currentColor, currentColor) left top / 2px 18px no-repeat, linear-gradient(currentColor, currentColor) right top / 18px 2px no-repeat, linear-gradient(currentColor, currentColor) right top / 2px 18px no-repeat, linear-gradient(currentColor, currentColor) left bottom / 18px 2px no-repeat, linear-gradient(currentColor, currentColor) left bottom / 2px 18px no-repeat, linear-gradient(currentColor, currentColor) right bottom / 18px 2px no-repeat, linear-gradient(currentColor, currentColor) right bottom / 2px 18px no-repeat;
-    border-radius: inherit;
     z-index: 2; }
   .bm-head :where(.plate-meta, .plate-info, .plate-bridge) {
     font-family: var(--font-serif);
@@ -139,7 +135,8 @@
     z-index: 1;
     pointer-events: none;
     display: grid;
-    place-items: center end; }
+    place-items: center end;
+    top: 6rem; }
     .bm-head .plate-fig .plate-wrap {
       position: relative;
       display: inline-block;
@@ -174,7 +171,6 @@
       pointer-events: none;
       z-index: -1;
       border-radius: 6px;
-      /* use currentColor; opacity handles light/dark */
       background: linear-gradient(to right, transparent, currentColor 32%, transparent);
       opacity: .18; }
     .bm-head .plate-center .plate-rule {
@@ -185,10 +181,11 @@
     .bm-head .plate-center .plate-title {
       display: grid;
       color: var(--accent-1);
-      font-family: var(--font-test);
+      font-family: var(--font-title);
       font-size: clamp(28px, 4vw, 64px);
       line-height: 1.05;
-      letter-spacing: .02em; }
+      letter-spacing: .02em;
+      padding-top: 1rem; }
       .bm-head .plate-center .plate-title .plate-sub {
         margin-top: .25rem;
         font-family: var(--font-serif);

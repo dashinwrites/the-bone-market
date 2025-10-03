@@ -21,28 +21,7 @@
   color: var(--text-clear);
   transition: var(--transi-quick);
   block-size: var(--nav-h);
-  z-index: var(--z-nav);
-  position: relative;
-  isolation: isolate;
-  border-radius: 4px; }
-  #navstrip::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border: var(--border-1);
-    border-right: none;
-    border-radius: inherit;
-    pointer-events: none;
-    z-index: -1; }
-  #navstrip::after {
-    content: "";
-    position: absolute;
-    inset: 2px;
-    border: var(--bdash);
-    opacity: .35;
-    border-radius: inherit;
-    pointer-events: none;
-    z-index: -1; }
+  z-index: var(--z-nav); }
   #navstrip a {
     color: var(--link);
     text-decoration: none;
@@ -102,29 +81,7 @@
   background: var(--plate-bg);
   color: var(--text-clear);
   box-shadow: var(--plate-shadow);
-  z-index: var(--z-nav);
-  position: relative;
-  isolation: isolate;
-  border-radius: 4px; }
-  #leftbar::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border: var(--border-1);
-    border-top: none;
-    border-right: none;
-    border-radius: inherit;
-    pointer-events: none;
-    z-index: -1; }
-  #leftbar::after {
-    content: "";
-    position: absolute;
-    inset: 2px;
-    border: var(--bdash);
-    opacity: .35;
-    border-radius: inherit;
-    pointer-events: none;
-    z-index: -1; }
+  z-index: var(--z-nav); }
 
 /* ===========================
    Theme toggle (single source)
@@ -147,8 +104,7 @@
   cursor: pointer;
   transition: var(--transi-quick);
   isolation: isolate;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15), inset 0 0 0 999px rgba(0, 0, 0, 0);
-  /* optional inner dashed */ }
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15), inset 0 0 0 999px rgba(0, 0, 0, 0); }
   #theme-toggle::before {
     content: "";
     position: absolute;
@@ -176,7 +132,6 @@
     line-height: 1;
     display: inline-block; }
 
-/* icon swap */
 #icon-sun, #icon-moon {
   display: none; }
 
@@ -188,9 +143,6 @@ body[data-theme="dark"] #icon-sun {
   display: inline-block;
   color: var(--accent-2); }
 
-/* ===========================
-   Theme-specific surfaces
-   =========================== */
 [data-theme="light"] #navstrip, [data-theme="light"] #leftbar {
   background: linear-gradient(rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.06)), var(--bg-2);
   color: var(--text-hiCon);
@@ -224,11 +176,9 @@ body[data-theme="dark"] #icon-sun {
   --plate-bg: var(--bg-3);
   --plate-text: var(--text-clear); }
 
-/* Light mode */
 [data-theme="dark"] .bm-head .plate-info__staff img {
   filter: saturate(15%); }
 
-/* Dark mode */
 [data-theme="light"] .bm-head .plate-info__staff img {
   filter: saturate(15%); }
 

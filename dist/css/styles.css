@@ -39,13 +39,14 @@ a {
   --font-block: var(--font-serif);
   --font-fancy: var(--font-serif);
   --font-hand: "Inconsolata", monospace;
-  --font-test: "Ghosthey";
+  --font-title: "Ghosthey", serif;
   /* scale */
   --size-xs: 8px;
   --size-sm: 10px;
   --size-md: 12px;
   --size-lg: 14px;
   --size-xl: 16px;
+  --size-forum-title: 24px;
   --size-title: 36px;
   /* motion */
   --transi-quick: all .3s ease-in-out;
@@ -57,7 +58,7 @@ a {
   --push-w: 250px;
   --push-msg: "click to close";
   --nav-h: clamp(44px, 6vh, 56px);
-  --leftbar-w: clamp(32px, 8vw, 40px);
+  --leftbar-w: clamp(44px, 6vw, 40px);
   --frame-join: 1px;
   --z-nav: 10;
   /* component tokens */
@@ -129,6 +130,7 @@ a {
   --accent-3: rgb(106 77 73);
   --warn:     rgb(220 73 73);
   --bg-1: rgb(28 27 26);
+  --bg-1-rgb: rgba(28, 27, 26, 0.75);
   --bg-2: rgb(22 21 20);
   --bg-3: rgb(35 33 31);
   --bg-4: rgb(15 14 14);
@@ -224,28 +226,7 @@ body {
   -webkit-transition: var(--transi-quick);
   transition: var(--transi-quick);
   block-size: var(--nav-h);
-  z-index: var(--z-nav);
-  position: relative;
-  isolation: isolate;
-  border-radius: 4px; }
-  #navstrip::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border: var(--border-1);
-    border-right: none;
-    border-radius: inherit;
-    pointer-events: none;
-    z-index: -1; }
-  #navstrip::after {
-    content: "";
-    position: absolute;
-    inset: 2px;
-    border: var(--bdash);
-    opacity: .35;
-    border-radius: inherit;
-    pointer-events: none;
-    z-index: -1; }
+  z-index: var(--z-nav); }
   #navstrip a {
     color: var(--link);
     text-decoration: none;
@@ -332,29 +313,7 @@ body {
   color: var(--text-clear);
   -webkit-box-shadow: var(--plate-shadow);
           box-shadow: var(--plate-shadow);
-  z-index: var(--z-nav);
-  position: relative;
-  isolation: isolate;
-  border-radius: 4px; }
-  #leftbar::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border: var(--border-1);
-    border-top: none;
-    border-right: none;
-    border-radius: inherit;
-    pointer-events: none;
-    z-index: -1; }
-  #leftbar::after {
-    content: "";
-    position: absolute;
-    inset: 2px;
-    border: var(--bdash);
-    opacity: .35;
-    border-radius: inherit;
-    pointer-events: none;
-    z-index: -1; }
+  z-index: var(--z-nav); }
 
 /* ===========================
    Theme toggle (single source)
@@ -385,8 +344,7 @@ body {
   transition: var(--transi-quick);
   isolation: isolate;
   -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15), inset 0 0 0 999px rgba(0, 0, 0, 0);
-          box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15), inset 0 0 0 999px rgba(0, 0, 0, 0);
-  /* optional inner dashed */ }
+          box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15), inset 0 0 0 999px rgba(0, 0, 0, 0); }
   #theme-toggle::before {
     content: "";
     position: absolute;
@@ -421,7 +379,6 @@ body {
     line-height: 1;
     display: inline-block; }
 
-/* icon swap */
 #icon-sun, #icon-moon {
   display: none; }
 
@@ -433,9 +390,6 @@ body[data-theme="dark"] #icon-sun {
   display: inline-block;
   color: var(--accent-2); }
 
-/* ===========================
-   Theme-specific surfaces
-   =========================== */
 [data-theme="light"] #navstrip, [data-theme="light"] #leftbar {
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.03)), to(rgba(0, 0, 0, 0.06))), var(--bg-2);
   background: linear-gradient(rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.06)), var(--bg-2);
@@ -472,12 +426,10 @@ body[data-theme="dark"] #icon-sun {
   --plate-bg: var(--bg-3);
   --plate-text: var(--text-clear); }
 
-/* Light mode */
 [data-theme="dark"] .bm-head .plate-info__staff img {
   -webkit-filter: saturate(15%);
           filter: saturate(15%); }
 
-/* Dark mode */
 [data-theme="light"] .bm-head .plate-info__staff img {
   -webkit-filter: saturate(15%);
           filter: saturate(15%); }
@@ -500,19 +452,16 @@ body[data-theme="dark"] #icon-sun {
   inline-size: 100%;
   gap: 1rem;
   padding: 2rem 1.25rem;
-  block-size: clamp(320px, 40vh, 560px);
+  block-size: clamp(320px, 60vh, 7800px);
   color: var(--text-clear);
   background: var(--bg-1);
   overflow: clip;
-  /* symmetric frame with named areas */
   -ms-grid-columns: var(--gutter) 1rem var(--side-col) 1rem minmax(0, var(--center-max)) 1rem var(--side-col) 1rem var(--gutter);
   grid-template-columns: var(--gutter) var(--side-col) minmax(0, var(--center-max)) var(--side-col) var(--gutter);
       grid-template-areas: "left info center bridge right";
   position: relative;
   isolation: isolate;
   border-radius: 4px;
-  -webkit-margin-before: calc(-1 * var(--frame-join));
-          margin-block-start: calc(-1 * var(--frame-join));
   /* shared small text inside header */
   /* left/right captions */
   /* info column (textarea + staff) */
@@ -524,8 +473,7 @@ body[data-theme="dark"] #icon-sun {
     position: absolute;
     inset: 0;
     border: var(--border-1);
-    border-top: none;
-    border-right: none;
+    border: none;
     border-radius: inherit;
     pointer-events: none;
     z-index: -1; }
@@ -548,7 +496,6 @@ body[data-theme="dark"] #icon-sun {
     opacity: 0.25;
     background: -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left top / 18px 2px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left top / 2px 18px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) right top / 18px 2px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) right top / 2px 18px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left bottom / 18px 2px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left bottom / 2px 18px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) right bottom / 18px 2px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) right bottom / 2px 18px no-repeat;
     background: linear-gradient(currentColor, currentColor) left top / 18px 2px no-repeat, linear-gradient(currentColor, currentColor) left top / 2px 18px no-repeat, linear-gradient(currentColor, currentColor) right top / 18px 2px no-repeat, linear-gradient(currentColor, currentColor) right top / 2px 18px no-repeat, linear-gradient(currentColor, currentColor) left bottom / 18px 2px no-repeat, linear-gradient(currentColor, currentColor) left bottom / 2px 18px no-repeat, linear-gradient(currentColor, currentColor) right bottom / 18px 2px no-repeat, linear-gradient(currentColor, currentColor) right bottom / 2px 18px no-repeat;
-    border-radius: inherit;
     z-index: 2; }
   .bm-head :where(.plate-meta, .plate-info, .plate-bridge) {
     font-family: var(--font-serif);
@@ -668,7 +615,8 @@ body[data-theme="dark"] #icon-sun {
     pointer-events: none;
     display: -ms-grid;
     display: grid;
-    place-items: center end; }
+    place-items: center end;
+    top: 6rem; }
     .bm-head .plate-fig .plate-wrap {
       position: relative;
       display: inline-block;
@@ -717,7 +665,6 @@ body[data-theme="dark"] #icon-sun {
       pointer-events: none;
       z-index: -1;
       border-radius: 6px;
-      /* use currentColor; opacity handles light/dark */
       background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(32%, currentColor), to(transparent));
       background: linear-gradient(to right, transparent, currentColor 32%, transparent);
       opacity: .18; }
@@ -730,10 +677,11 @@ body[data-theme="dark"] #icon-sun {
       display: -ms-grid;
       display: grid;
       color: var(--accent-1);
-      font-family: var(--font-test);
+      font-family: var(--font-title);
       font-size: clamp(28px, 4vw, 64px);
       line-height: 1.05;
-      letter-spacing: .02em; }
+      letter-spacing: .02em;
+      padding-top: 1rem; }
       .bm-head .plate-center .plate-title .plate-sub {
         margin-top: .25rem;
         font-family: var(--font-serif);
@@ -869,6 +817,228 @@ html.debug .bm-head {
 /*******************************
    Categories and Forums
 ********************************/
+.category {
+  margin: 2rem auto;
+  background: var(--bg-1-rgb);
+  border: var(--border-1);
+  border-radius: 6px;
+  -webkit-box-shadow: var(--plate-shadow);
+          box-shadow: var(--plate-shadow);
+  overflow: hidden;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: auto 1fr;
+  grid-template-rows: auto 1fr;
+  width: clamp(520px, 80vw, 1920px);
+  position: relative;
+  /* for pseudo-elements */
+  /* dashed inset border */
+  /* corner ticks */ }
+  .category::before {
+    content: "";
+    position: absolute;
+    inset: .5rem;
+    border: var(--bdash);
+    opacity: .35;
+    pointer-events: none;
+    z-index: 1;
+    border-radius: 4px;
+    /* match outer */ }
+  .category::after {
+    content: "";
+    position: absolute;
+    inset: 0.5rem;
+    pointer-events: none;
+    opacity: 0.25;
+    background: -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left top / 18px 2px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left top / 2px 18px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) right top / 18px 2px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) right top / 2px 18px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left bottom / 18px 2px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left bottom / 2px 18px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) right bottom / 18px 2px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) right bottom / 2px 18px no-repeat;
+    background: linear-gradient(currentColor, currentColor) left top / 18px 2px no-repeat, linear-gradient(currentColor, currentColor) left top / 2px 18px no-repeat, linear-gradient(currentColor, currentColor) right top / 18px 2px no-repeat, linear-gradient(currentColor, currentColor) right top / 2px 18px no-repeat, linear-gradient(currentColor, currentColor) left bottom / 18px 2px no-repeat, linear-gradient(currentColor, currentColor) left bottom / 2px 18px no-repeat, linear-gradient(currentColor, currentColor) right bottom / 18px 2px no-repeat, linear-gradient(currentColor, currentColor) right bottom / 2px 18px no-repeat;
+    z-index: 2; }
+  .category .category-head {
+    padding: 1rem 1.25rem;
+    background: var(--bg-2);
+    border-bottom: var(--border-1);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    /* center title by default */
+    position: relative;
+    z-index: 2;
+    /* sit above the pseudo-borders */
+    overflow: hidden; }
+    .category .category-head .category-title {
+      margin: 0 auto;
+      font: 700 var(--size-title)/1 var(--font-serif);
+      text-transform: lowercase;
+      letter-spacing: 0.15rem;
+      color: var(--accent-1);
+      position: relative;
+      z-index: 2;
+      /* above watermark */ }
+    .category .category-head .category-meta {
+      font: 500 var(--size-sm)/1 var(--font-hand);
+      color: var(--text-loCon);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      position: relative;
+      z-index: 2; }
+  .category .category-body {
+    display: -ms-grid;
+    display: grid;
+    gap: 1rem;
+    padding: 1.25rem;
+    -ms-grid-columns: (minmax(0, 1fr))[2];
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    position: relative;
+    z-index: 2; }
+    .category .category-body > .forum:last-child:nth-child(odd) {
+      grid-column: 1 / -1; }
+    @media (max-width: 720px) {
+      .category .category-body {
+        -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr; }
+        .category .category-body > .forum:last-child:nth-child(odd) {
+          grid-column: auto; } }
+    .category .category-body > .forum {
+      position: relative;
+      padding: 1rem;
+      background: var(--bg-2);
+      border: var(--border-1);
+      border-radius: 4px;
+      overflow: hidden;
+      -webkit-transition: var(--transi-quick);
+      transition: var(--transi-quick); }
+      .category .category-body > .forum:hover {
+        background: var(--bg-3);
+        -webkit-transform: translateY(-1px);
+            -ms-transform: translateY(-1px);
+                transform: translateY(-1px);
+        -webkit-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); }
+      .category .category-body > .forum .forum-title {
+        margin: 0 0 .25rem;
+        font: 600 var(--size-xl)/1.2 var(--font-serif); }
+        .category .category-body > .forum .forum-title a {
+          color: var(--accent-1);
+          text-decoration: none; }
+          .category .category-body > .forum .forum-title a:hover {
+            text-decoration: underline; }
+      .category .category-body > .forum .forum-desc {
+        margin: 0 0 .5rem;
+        font: 400 var(--size-sm)/1.4 var(--font-sans);
+        color: var(--text-medCon); }
+      .category .category-body > .forum .forum-meta {
+        font: 400 var(--size-xs)/1 var(--font-sans);
+        color: var(--text-loCon); }
+
+/* -------------------------------------------------
+   Anatomy plate system (3 placement modes)
+   Controlled by CSS vars:
+   --plate-img, --plate-w, --plate-h, --plate-size, --plate-pos,
+   --plate-alpha, --plate-blend
+--------------------------------------------------*/
+/* A) WATERMARK BEHIND THE TITLE */
+.category--plate-watermark .category-head::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--plate-img);
+  background-repeat: no-repeat;
+  background-size: var(--plate-size, contain);
+  background-position: var(--plate-pos, center);
+  opacity: var(--plate-alpha, 0.18);
+  mix-blend-mode: var(--plate-blend, multiply);
+  pointer-events: none;
+  z-index: 1;
+  /* below title/meta */ }
+
+/* B) SIDE CAMEO (image block sits to the left of title) */
+.category--plate-side .category-head {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto 1fr auto;
+  grid-template-columns: auto 1fr auto;
+  -webkit-column-gap: 1rem;
+     -moz-column-gap: 1rem;
+          column-gap: 1rem;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  /* keeps title centered in the right track */ }
+
+.category--plate-side .category-head::before {
+  content: "";
+  width: var(--plate-w, 96px);
+  height: calc(var(--plate-h, 136px) * 1.5);
+  background-image: var(--plate-img);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  opacity: var(--plate-alpha, 0.6);
+  mix-blend-mode: var(--plate-blend, multiply);
+  -ms-grid-column-align: center;
+      justify-self: center;
+  -webkit-align-self: stretch;
+      -ms-flex-item-align: stretch;
+              -ms-grid-row-align: stretch;
+          align-self: stretch; }
+
+/* C) BOTTOM ANCHOR (hangs below header edge) */
+.category--plate-anchor .category-head::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+  bottom: calc(-1 * var(--plate-h, 120px) * .28);
+  width: var(--plate-w, 140px);
+  height: var(--plate-h, 140px);
+  background-image: var(--plate-img);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  opacity: var(--plate-alpha, 0.75);
+  mix-blend-mode: var(--plate-blend, multiply);
+  pointer-events: none;
+  z-index: 1; }
+
+/* Theme tuning for plate opacity/blend (can tweak) */
+[data-theme="light"] .category[class*="plate-"] {
+  --plate-alpha: .18;
+  --plate-blend: multiply; }
+
+[data-theme="dark"] .category[class*="plate-"] {
+  --plate-alpha: 1;
+  --plate-blend: overlay; }
+
+/* Example variant — HEART plate (swap per category) */
+.category.is-heart {
+  --plate-img: url("https://files.jcink.net/uploads2/thebonemarket/images/16_6_static.jpg");
+  --plate-w: 128px;
+  --plate-h: 168px;
+  --plate-size: cover;
+  --plate-pos: right 35% center;
+  /* for watermark placement */ }
+
+/* (Optional) more variants… */
+/*
+.category.is-skull { --plate-img: url(...); --plate-w:120px; --plate-h:140px; }
+.category.is-ribcage { --plate-img: url(...); --plate-w:140px; --plate-h:160px; }
+*/
 /*******************************
     Board Stats
 ********************************/

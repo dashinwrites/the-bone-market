@@ -1,3 +1,190 @@
+@charset "UTF-8";
 /*******************************
    Categories and Forums
 ********************************/
+.category {
+  margin: 2rem auto;
+  background: var(--bg-1-rgb);
+  border: var(--border-1);
+  border-radius: 6px;
+  box-shadow: var(--plate-shadow);
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  width: clamp(520px, 80vw, 1920px);
+  position: relative;
+  /* for pseudo-elements */
+  /* dashed inset border */
+  /* corner ticks */ }
+  .category::before {
+    content: "";
+    position: absolute;
+    inset: .5rem;
+    border: var(--bdash);
+    opacity: .35;
+    pointer-events: none;
+    z-index: 1;
+    border-radius: 4px;
+    /* match outer */ }
+  .category::after {
+    content: "";
+    position: absolute;
+    inset: 0.5rem;
+    pointer-events: none;
+    opacity: 0.25;
+    background: linear-gradient(currentColor, currentColor) left top / 18px 2px no-repeat, linear-gradient(currentColor, currentColor) left top / 2px 18px no-repeat, linear-gradient(currentColor, currentColor) right top / 18px 2px no-repeat, linear-gradient(currentColor, currentColor) right top / 2px 18px no-repeat, linear-gradient(currentColor, currentColor) left bottom / 18px 2px no-repeat, linear-gradient(currentColor, currentColor) left bottom / 2px 18px no-repeat, linear-gradient(currentColor, currentColor) right bottom / 18px 2px no-repeat, linear-gradient(currentColor, currentColor) right bottom / 2px 18px no-repeat;
+    z-index: 2; }
+  .category .category-head {
+    padding: 1rem 1.25rem;
+    background: var(--bg-2);
+    border-bottom: var(--border-1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* center title by default */
+    position: relative;
+    z-index: 2;
+    /* sit above the pseudo-borders */
+    overflow: hidden; }
+    .category .category-head .category-title {
+      margin: 0 auto;
+      font: 700 var(--size-title)/1 var(--font-serif);
+      text-transform: lowercase;
+      letter-spacing: 0.15rem;
+      color: var(--accent-1);
+      position: relative;
+      z-index: 2;
+      /* above watermark */ }
+    .category .category-head .category-meta {
+      font: 500 var(--size-sm)/1 var(--font-hand);
+      color: var(--text-loCon);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      position: relative;
+      z-index: 2; }
+  .category .category-body {
+    display: grid;
+    gap: 1rem;
+    padding: 1.25rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    position: relative;
+    z-index: 2; }
+    .category .category-body > .forum:last-child:nth-child(odd) {
+      grid-column: 1 / -1; }
+    @media (max-width: 720px) {
+      .category .category-body {
+        grid-template-columns: 1fr; }
+        .category .category-body > .forum:last-child:nth-child(odd) {
+          grid-column: auto; } }
+    .category .category-body > .forum {
+      position: relative;
+      padding: 1rem;
+      background: var(--bg-2);
+      border: var(--border-1);
+      border-radius: 4px;
+      overflow: hidden;
+      transition: var(--transi-quick); }
+      .category .category-body > .forum:hover {
+        background: var(--bg-3);
+        transform: translateY(-1px);
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); }
+      .category .category-body > .forum .forum-title {
+        margin: 0 0 .25rem;
+        font: 600 var(--size-xl)/1.2 var(--font-serif); }
+        .category .category-body > .forum .forum-title a {
+          color: var(--accent-1);
+          text-decoration: none; }
+          .category .category-body > .forum .forum-title a:hover {
+            text-decoration: underline; }
+      .category .category-body > .forum .forum-desc {
+        margin: 0 0 .5rem;
+        font: 400 var(--size-sm)/1.4 var(--font-sans);
+        color: var(--text-medCon); }
+      .category .category-body > .forum .forum-meta {
+        font: 400 var(--size-xs)/1 var(--font-sans);
+        color: var(--text-loCon); }
+
+/* -------------------------------------------------
+   Anatomy plate system (3 placement modes)
+   Controlled by CSS vars:
+   --plate-img, --plate-w, --plate-h, --plate-size, --plate-pos,
+   --plate-alpha, --plate-blend
+--------------------------------------------------*/
+/* A) WATERMARK BEHIND THE TITLE */
+.category--plate-watermark .category-head::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--plate-img);
+  background-repeat: no-repeat;
+  background-size: var(--plate-size, contain);
+  background-position: var(--plate-pos, center);
+  opacity: var(--plate-alpha, 0.18);
+  mix-blend-mode: var(--plate-blend, multiply);
+  pointer-events: none;
+  z-index: 1;
+  /* below title/meta */ }
+
+/* B) SIDE CAMEO (image block sits to the left of title) */
+.category--plate-side .category-head {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  column-gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  /* keeps title centered in the right track */ }
+
+.category--plate-side .category-head::before {
+  content: "";
+  width: var(--plate-w, 96px);
+  height: calc(var(--plate-h, 136px) * 1.5);
+  background-image: var(--plate-img);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  opacity: var(--plate-alpha, 0.6);
+  mix-blend-mode: var(--plate-blend, multiply);
+  justify-self: center;
+  align-self: stretch; }
+
+/* C) BOTTOM ANCHOR (hangs below header edge) */
+.category--plate-anchor .category-head::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: calc(-1 * var(--plate-h, 120px) * .28);
+  width: var(--plate-w, 140px);
+  height: var(--plate-h, 140px);
+  background-image: var(--plate-img);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  opacity: var(--plate-alpha, 0.75);
+  mix-blend-mode: var(--plate-blend, multiply);
+  pointer-events: none;
+  z-index: 1; }
+
+/* Theme tuning for plate opacity/blend (can tweak) */
+[data-theme="light"] .category[class*="plate-"] {
+  --plate-alpha: .18;
+  --plate-blend: multiply; }
+
+[data-theme="dark"] .category[class*="plate-"] {
+  --plate-alpha: 1;
+  --plate-blend: overlay; }
+
+/* Example variant — HEART plate (swap per category) */
+.category.is-heart {
+  --plate-img: url("https://files.jcink.net/uploads2/thebonemarket/images/16_6_static.jpg");
+  --plate-w: 128px;
+  --plate-h: 168px;
+  --plate-size: cover;
+  --plate-pos: right 35% center;
+  /* for watermark placement */ }
+
+/* (Optional) more variants… */
+/*
+.category.is-skull { --plate-img: url(...); --plate-w:120px; --plate-h:140px; }
+.category.is-ribcage { --plate-img: url(...); --plate-w:140px; --plate-h:160px; }
+*/

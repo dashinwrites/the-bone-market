@@ -10,12 +10,10 @@
   inline-size: 100%;
   gap: 1rem;
   padding: 2rem 1.25rem;
-  block-size: clamp(320px, 40vh, 560px);
+  block-size: clamp(320px, 60vh, 7800px);
   color: var(--text-clear);
   background: var(--bg-1);
   overflow: clip;
-
-  /* symmetric frame with named areas */
   grid-template-columns:
     var(--gutter)
     var(--side-col)
@@ -24,10 +22,10 @@
     var(--gutter);
   grid-template-areas: "left info center bridge right";
 
-  @include pseudo-frame(true, true 4px);
+  @include pseudo-frame(false, true, 4px);
   &::after { inset: .5rem; }
   @include corner-ticks(.5rem, 18px, 2px, .25);
-  margin-block-start: calc(-1 * var(--frame-join));
+  // margin-block-start: calc(-1 * var(--frame-join));
 
   /* shared small text inside header */
   :where(.plate-meta, .plate-info, .plate-bridge) {
@@ -138,6 +136,7 @@
     pointer-events: none;
     display: grid;
     place-items: center end;
+    top: 6rem;
 
     .plate-wrap {
       position: relative;
@@ -185,7 +184,6 @@
       pointer-events: none;
       z-index: -1;
       border-radius: 6px;
-      /* use currentColor; opacity handles light/dark */
       background: linear-gradient(to right, transparent, currentColor 32%, transparent);
       opacity: .18;
     }
@@ -200,10 +198,11 @@
     .plate-title {
       display: grid;
       color: var(--accent-1);
-      font-family: var(--font-test);
+      font-family: var(--font-title);
       font-size: clamp(28px, 4vw, 64px);
       line-height: 1.05;
       letter-spacing: .02em;
+      padding-top: 1rem;
 
       .plate-sub {
         margin-top: .25rem;

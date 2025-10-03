@@ -8,7 +8,7 @@
   --font-block: var(--font-serif);
   --font-fancy: var(--font-serif);
   --font-hand: "Inconsolata", monospace;
-  --font-test: "Ghosthey";
+  --font-title: "Ghosthey", serif;
 
   /* scale */
   --size-xs: 8px;
@@ -16,6 +16,7 @@
   --size-md: 12px;
   --size-lg: 14px;
   --size-xl: 16px;
+  --size-forum-title: 24px;
   --size-title: 36px;
 
   /* motion */
@@ -29,7 +30,7 @@
   --push-w: 250px;
   --push-msg: "click to close";
   --nav-h: clamp(44px, 6vh, 56px);
-  --leftbar-w: clamp(32px, 8vw, 40px);
+  --leftbar-w: clamp(44px, 6vw, 40px);
   --frame-join: 1px;
   --z-nav: 10;
 
@@ -116,6 +117,7 @@
   --warn:     rgb(220 73 73);
 
   --bg-1: rgb(28 27 26);
+  --bg-1-rgb: rgba(28, 27, 26, 0.75);
   --bg-2: rgb(22 21 20);
   --bg-3: rgb(35 33 31);
   --bg-4: rgb(15 14 14);
