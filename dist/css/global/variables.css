@@ -71,6 +71,12 @@
   --link: var(--text-medCon);
   --link-sep: var(--text-loCon); }
 
+.category--plate-side {
+  --cat-head-h: 8rem;
+  /* desired header height */
+  --cameo-scale: 1.6;
+  /* how much taller the cameo is than the header */ }
+
 /* Light theme */
 [data-theme="light"] {
   --accent-1: rgb(124 30 47);
