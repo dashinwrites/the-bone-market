@@ -83,15 +83,24 @@
       position: relative;
       padding: 1rem;
       background: var(--bg-2);
-      border: var(--border-1); 
+      border: var(--border-1);
       border-radius: 4px;
       overflow: hidden;
       transition: var(--transi-quick);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
 
       &:hover {
         background: var(--bg-3);
         transform: translateY(-1px);
         box-shadow: 0 2px 6px rgba(0,0,0,.15);
+      }
+
+      .forum-info {
+        flex: 1;
+        min-width: 0;
       }
 
       .forum-title {
@@ -104,16 +113,88 @@
         }
       }
 
-      .forum-desc  {
-        margin: 0 0 .5rem;
+      .forum-desc {
+        margin: 0;
         font: 400 var(--size-sm)/1.4 var(--font-sans);
         color: var(--text-medCon);
       }
 
-      .forum-meta  {
+      .forum-meta {
+        flex: 1 1 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: .35rem;
         font: 400 var(--size-xs)/1 var(--font-sans);
         color: var(--text-loCon);
+        text-align: right;
+        max-width: clamp(180px, 50%, 320px);
+
+        .last-post {
+          display: flex;
+          align-items: center;
+          gap: .5rem;
+          max-width: 100%;
+          text-align: left; /* for thread text alignment */
+
+          .last-avatar {
+            width: 24px;
+            height: 36px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+            border: 1px solid color-mix(in oklab, var(--border-1), transparent 60%);
+          }
+
+          .last-details {
+            display: flex;
+            flex-direction: column;
+            gap: .1rem;
+            overflow: hidden;
+          }
+
+          .last-thread {
+            font-weight: 600;
+            color: var(--accent-1);
+            text-decoration: none;
+            font-size: var(--size-sm);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            &:hover { text-decoration: underline; }
+          }
+
+          .last-info {
+            color: var(--text-loCon);
+            font-size: var(--size-xs);
+          }
+        }
       }
+    }
+
+    /* ✅ Responsive: stack on small screens */
+    @media (max-width: 680px) {
+      .forum {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .forum .forum-meta {
+        align-items: flex-start;
+        text-align: left;
+        margin-top: .75rem;
+        flex: 1 1 auto;
+
+        .last-post {
+          flex-direction: row;
+          align-items: center;
+        }
+      }
+    }
+
+    /* 🧹 Optional: if meta gets long, allow wrap on mid widths */
+    @media (max-width: 920px) and (min-width: 681px) {
+      .forum { align-items: stretch; }
+      .forum .forum-meta { align-self: start; }
     }
   }
 }
@@ -155,10 +236,6 @@
   --plate-size: cover;
   --plate-pos: right 35% center;
 }
-
-
-
-
 
 /* -------------------------------------------
    Category title: shared hooks / tokens
@@ -262,4 +339,12 @@
 ------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
   .category-title { text-shadow: none; }
+}
+
+@media (min-width: 921px) {
+  .forum .forum-meta {
+    padding-left: 1rem;
+    border-left: 1px dashed color-mix(in oklab, var(--text-loCon), transparent 60%); 
+    height:100%;
+  }
 }
