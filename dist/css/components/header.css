@@ -79,7 +79,8 @@
     max-inline-size: 280px;
     color: var(--text-medCon);
     font-family: var(--font-sans);
-    text-align: center; }
+    text-align: center;
+    z-index: 2; }
     .bm-head .plate-info .sr-only {
       position: absolute !important;
       inline-size: 1px;
@@ -185,7 +186,8 @@
       font-size: clamp(28px, 4vw, 64px);
       line-height: 1.05;
       letter-spacing: .02em;
-      padding-top: 1rem; }
+      padding-top: 1rem;
+      text-shadow: 2px 2px 2px var(--bg-4), -2px -2px 2px var(--bg-4), 2px -2px 2px var(--bg-4), -2px 2px 2px var(--bg-4); }
       .bm-head .plate-center .plate-title .plate-sub {
         margin-top: .25rem;
         font-family: var(--font-serif);

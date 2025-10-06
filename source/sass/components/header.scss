@@ -64,6 +64,7 @@
     color: var(--text-medCon);
     font-family: var(--font-sans);
     text-align: center;
+    z-index: 2;
 
     .sr-only {
       position: absolute !important;
@@ -203,6 +204,11 @@
       line-height: 1.05;
       letter-spacing: .02em;
       padding-top: 1rem;
+      text-shadow: 
+        2px 2px 2px var(--bg-4),
+        -2px -2px 2px var(--bg-4),
+        2px -2px 2px var(--bg-4),
+        -2px 2px 2px var(--bg-4);
 
       .plate-sub {
         margin-top: .25rem;

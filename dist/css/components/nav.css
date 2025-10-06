@@ -14,7 +14,7 @@
   gap: 1rem;
   flex-wrap: wrap;
   padding: 0 1rem;
-  background: var(--plate-bg);
+  background: var(bg-2);
   box-shadow: var(--plate-shadow);
   font-family: var(--font-serif);
   font-size: var(--size-lg);

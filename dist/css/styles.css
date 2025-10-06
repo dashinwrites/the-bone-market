@@ -139,8 +139,8 @@ a {
   --bg-1-rgb: rgba(28, 27, 26, 0.75);
   --bg-2: rgb(22 21 20);
   --bg-3: rgb(35 33 31);
-  --bg-4: rgb(15 14 14);
-  --bg-grad:  linear-gradient(rgba(0,0,0,.80), rgba(0,0,0,.94));
+  --bg-4: rgb(15, 14, 14);
+  --bg-grad:  linear-gradient(rgba(22,21,20,.80), rgba(22,21,20,.94));
   --bg-blend: multiply;
   --text-hiCon: rgb(237 231 222);
   --text-medCon: rgb(201 191 181);
@@ -223,7 +223,7 @@ body {
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
   padding: 0 1rem;
-  background: var(--plate-bg);
+  background: var(bg-2);
   -webkit-box-shadow: var(--plate-shadow);
           box-shadow: var(--plate-shadow);
   font-family: var(--font-serif);
@@ -548,7 +548,8 @@ body[data-theme="dark"] #icon-sun {
     max-inline-size: 280px;
     color: var(--text-medCon);
     font-family: var(--font-sans);
-    text-align: center; }
+    text-align: center;
+    z-index: 2; }
     .bm-head .plate-info .sr-only {
       position: absolute !important;
       inline-size: 1px;
@@ -687,7 +688,8 @@ body[data-theme="dark"] #icon-sun {
       font-size: clamp(28px, 4vw, 64px);
       line-height: 1.05;
       letter-spacing: .02em;
-      padding-top: 1rem; }
+      padding-top: 1rem;
+      text-shadow: 2px 2px 2px var(--bg-4), -2px -2px 2px var(--bg-4), 2px -2px 2px var(--bg-4), -2px 2px 2px var(--bg-4); }
       .bm-head .plate-center .plate-title .plate-sub {
         margin-top: .25rem;
         font-family: var(--font-serif);
