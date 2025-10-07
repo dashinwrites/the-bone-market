@@ -502,20 +502,20 @@ a[href=""] {
           padding-top: var(--spacing-sm); }
           #Search.code-show main > #search-topics .tablebasic > tbody > tr > td:nth-child(4)::before,
           #Search.code-getactive .tablebasic > tbody > tr > td:nth-child(4)::before {
-            content: 'Posted in '; }
+            content: "Posted in "; }
         #Search.code-show main > #search-topics .tablebasic > tbody > tr > td:nth-child(5),
         #Search.code-getactive .tablebasic > tbody > tr > td:nth-child(5) {
           order: 4;
           padding-bottom: var(--spacing-sm); }
           #Search.code-show main > #search-topics .tablebasic > tbody > tr > td:nth-child(5)::before,
           #Search.code-getactive .tablebasic > tbody > tr > td:nth-child(5)::before {
-            content: 'Started by '; }
+            content: "Started by "; }
         #Search.code-show main > #search-topics .tablebasic > tbody > tr > td:nth-child(6),
         #Search.code-getactive .tablebasic > tbody > tr > td:nth-child(6) {
           order: 2; }
           #Search.code-show main > #search-topics .tablebasic > tbody > tr > td:nth-child(6)::after,
           #Search.code-getactive .tablebasic > tbody > tr > td:nth-child(6)::after {
-            content: ' Replies'; }
+            content: " Replies"; }
         #Search.code-show main > #search-topics .tablebasic > tbody > tr > td:nth-child(8),
         #Search.code-getactive .tablebasic > tbody > tr > td:nth-child(8) {
           display: flex;

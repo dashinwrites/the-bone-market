@@ -1,4 +1,4 @@
-@import '../global/mixins.scss';
+@import "../global/mixins.scss";
 
 /*******************************
    Categories and Forums
@@ -20,16 +20,16 @@
   &::before {
     content: "";
     position: absolute;
-    inset: .5rem;
+    inset: 0.5rem;
     border: var(--bdash);
-    opacity: .35;
+    opacity: 0.35;
     pointer-events: none;
     z-index: 1;
     border-radius: 4px; /* match outer */
   }
 
   /* corner ticks */
-  @include corner-ticks(.5rem, 18px, 2px, .25);
+  @include corner-ticks(0.5rem, 18px, 2px, 0.25);
 
   .category-head {
     padding: 1rem 1.25rem;
@@ -44,7 +44,7 @@
 
     .category-title {
       margin: 0 auto;
-      font: 700 var(--size-title)/1 var(--font-serif);
+      font: 700 var(--size-title) / 1 var(--font-serif);
       text-transform: lowercase;
       letter-spacing: 0.15rem;
       color: var(--accent-1);
@@ -53,9 +53,9 @@
     }
 
     .category-meta {
-      font: 500 var(--size-sm)/1 var(--font-hand);
+      font: 500 var(--size-sm) / 1 var(--font-hand);
       color: var(--text-loCon);
-      letter-spacing:.06em;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
       position: relative;
       z-index: 2;
@@ -76,7 +76,9 @@
 
     @media (max-width: 720px) {
       grid-template-columns: 1fr;
-      > .forum:last-child:nth-child(odd) { grid-column: auto; }
+      > .forum:last-child:nth-child(odd) {
+        grid-column: auto;
+      }
     }
 
     > .forum {
@@ -95,7 +97,7 @@
       &:hover {
         background: var(--bg-3);
         transform: translateY(-1px);
-        box-shadow: 0 2px 6px rgba(0,0,0,.15);
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
       }
 
       .forum-info {
@@ -104,18 +106,20 @@
       }
 
       .forum-title {
-        margin: 0 0 .25rem;
-        font: 600 var(--size-xl)/1.2 var(--font-serif);
+        margin: 0 0 0.25rem;
+        font: 600 var(--size-xl) / 1.2 var(--font-serif);
         a {
           color: var(--accent-1);
           text-decoration: none;
-          &:hover { text-decoration: underline; }
+          &:hover {
+            text-decoration: underline;
+          }
         }
       }
 
       .forum-desc {
         margin: 0;
-        font: 400 var(--size-sm)/1.4 var(--font-sans);
+        font: 400 var(--size-sm) / 1.4 var(--font-sans);
         color: var(--text-medCon);
       }
 
@@ -124,8 +128,8 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        gap: .35rem;
-        font: 400 var(--size-xs)/1 var(--font-sans);
+        gap: 0.35rem;
+        font: 400 var(--size-xs) / 1 var(--font-sans);
         color: var(--text-loCon);
         text-align: right;
         max-width: clamp(180px, 50%, 320px);
@@ -133,7 +137,7 @@
         .last-post {
           display: flex;
           align-items: center;
-          gap: .5rem;
+          gap: 0.5rem;
           max-width: 100%;
           text-align: left; /* for thread text alignment */
 
@@ -143,13 +147,14 @@
             border-radius: 50%;
             object-fit: cover;
             flex-shrink: 0;
-            border: 1px solid color-mix(in oklab, var(--border-1), transparent 60%);
+            border: 1px solid
+              color-mix(in oklab, var(--border-1), transparent 60%);
           }
 
           .last-details {
             display: flex;
             flex-direction: column;
-            gap: .1rem;
+            gap: 0.1rem;
             overflow: hidden;
           }
 
@@ -161,7 +166,9 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            &:hover { text-decoration: underline; }
+            &:hover {
+              text-decoration: underline;
+            }
           }
 
           .last-info {
@@ -181,7 +188,7 @@
       .forum .forum-meta {
         align-items: flex-start;
         text-align: left;
-        margin-top: .75rem;
+        margin-top: 0.75rem;
         flex: 1 1 auto;
 
         .last-post {
@@ -193,8 +200,12 @@
 
     /* 🧹 Optional: if meta gets long, allow wrap on mid widths */
     @media (max-width: 920px) and (min-width: 681px) {
-      .forum { align-items: stretch; }
-      .forum .forum-meta { align-self: start; }
+      .forum {
+        align-items: stretch;
+      }
+      .forum .forum-meta {
+        align-self: start;
+      }
     }
   }
 }
@@ -224,7 +235,7 @@
 /* Theme tuning (merged) */
 [data-theme="light"] .category[class*="plate-"],
 [data-theme="dark"] .category[class*="plate-"] {
-  --plate-alpha: .62;
+  --plate-alpha: 0.62;
   --plate-blend: multiply;
 }
 
@@ -243,11 +254,11 @@
 .category-title {
   --ct-accent-1: var(--accent-1);
   --ct-accent-2: var(--accent-2);
-  --ct-glyph: "†";         /* change to ✦ ⟡ ❖ etc. */
+  --ct-glyph: "†"; /* change to ✦ ⟡ ❖ etc. */
   position: relative;
   display: inline-block;
-  line-height: 1.05;       /* keeps ornaments snug */
-  letter-spacing: .02em;
+  line-height: 1.05; /* keeps ornaments snug */
+  letter-spacing: 0.02em;
 }
 
 /* -------------------------------------------
@@ -263,21 +274,20 @@
   margin-top: -5px;
 
   /* soft glow for depth */
-  text-shadow:
-    0 1px 0 rgba(0,0,0,.25),
-    0 0 12px #{'color-mix(in oklab, var(--ct-accent-1) 40%, transparent)'};
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25),
+    0 0 12px #{"color-mix(in oklab, var(--ct-accent-1) 40%, transparent)"};
 
   /* decorative underline (centered, not full-width) */
   &::after {
     content: "";
     position: absolute;
     left: 50%;
-    bottom: -.35em;
+    bottom: -0.35em;
     transform: translateX(-50%);
-    inline-size: #{'min(60%, 22ch)'}; /* ← force CSS min(), avoid unit math */
+    inline-size: #{"min(60%, 22ch)"}; /* ← force CSS min(), avoid unit math */
     block-size: 1px;
     background: currentColor;
-    opacity: .55;
+    opacity: 0.55;
   }
 
   /* side glyph (inherits currentColor from gradient ink) */
@@ -286,8 +296,8 @@
     position: absolute;
     inset-inline-start: -1.25em;
     inset-block-start: 0;
-    font-size: .8em;
-    opacity: .65;
+    font-size: 0.8em;
+    opacity: 0.65;
   }
 
   /* if you later add a right glyph, consider another pseudo/span */
@@ -299,14 +309,14 @@
 .category-title--etched {
   color: transparent;
   -webkit-text-stroke: 1px var(--ct-accent-1);
-  text-shadow: 0 1px 0 rgba(0,0,0,.25);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
 
   &::after {
     content: attr(data-title);
     position: absolute;
     inset: 0;
     color: var(--ct-accent-2);
-    opacity: .25;
+    opacity: 0.25;
     transform: translate(1px, 1px);
     mix-blend-mode: multiply;
     pointer-events: none;
@@ -328,17 +338,23 @@
     block-size: 1px;
     inline-size: clamp(40px, 8vw, 120px);
     background: currentColor;
-    opacity: .35;
+    opacity: 0.35;
   }
-  &::before { inset-inline-start: calc(#{'100%'} + .5rem); } /* ← escape % */
-  &::after  { inset-inline-end:  calc(#{'100%'} + .5rem); }
+  &::before {
+    inset-inline-start: calc(#{"100%"} + 0.5rem);
+  } /* ← escape % */
+  &::after {
+    inset-inline-end: calc(#{"100%"} + 0.5rem);
+  }
 }
 
 /* -------------------------------------------
    Reduced motion tidy
 ------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
-  .category-title { text-shadow: none; }
+  .category-title {
+    text-shadow: none;
+  }
 }
 
 @media (min-width: 1140px) {

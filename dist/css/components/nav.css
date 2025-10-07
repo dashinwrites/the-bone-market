@@ -38,12 +38,12 @@
     content: "†";
     display: inline-block;
     margin-right: 1rem;
-    opacity: .85;
+    opacity: 0.85;
     color: var(--link-sep); }
   #navstrip .theme {
     display: inline-flex;
     align-items: center;
-    gap: .5rem;
+    gap: 0.5rem;
     margin-inline-start: auto;
     position: relative; }
     #navstrip .theme::before {
@@ -51,8 +51,8 @@
       inline-size: 1px;
       block-size: 1.25rem;
       background: currentColor;
-      opacity: .25;
-      margin-inline-end: .5rem; }
+      opacity: 0.25;
+      margin-inline-end: 0.5rem; }
     #navstrip .theme #theme-toggle {
       background: var(--plate-bg);
       border: var(--plate-border); }
@@ -126,13 +126,14 @@
     font-size: var(--size-sm);
     letter-spacing: 0.08em;
     pointer-events: none;
-    opacity: .9; }
+    opacity: 0.9; }
   #theme-toggle i {
     font-size: 1rem;
     line-height: 1;
     display: inline-block; }
 
-#icon-sun, #icon-moon {
+#icon-sun,
+#icon-moon {
   display: none; }
 
 body[data-theme="light"] #icon-moon {
@@ -143,7 +144,8 @@ body[data-theme="dark"] #icon-sun {
   display: inline-block;
   color: var(--accent-2); }
 
-[data-theme="light"] #navstrip, [data-theme="light"] #leftbar {
+[data-theme="light"] #navstrip,
+[data-theme="light"] #leftbar {
   background: linear-gradient(rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.06)), var(--bg-2);
   color: var(--text-hiCon);
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.06); }
@@ -153,13 +155,14 @@ body[data-theme="dark"] #icon-sun {
 
 [data-theme="light"] #navstrip a + a::before {
   color: var(--text-loCon);
-  opacity: .85; }
+  opacity: 0.85; }
 
 [data-theme="light"] #theme-toggle {
   --plate-bg: var(--bg-2);
   --plate-text: var(--text-hiCon); }
 
-[data-theme="dark"] #navstrip, [data-theme="dark"] #leftbar {
+[data-theme="dark"] #navstrip,
+[data-theme="dark"] #leftbar {
   background: var(--bg-grad), var(--bg-2);
   background-blend-mode: var(--bg-blend);
   color: var(--text-clear);
@@ -170,7 +173,7 @@ body[data-theme="dark"] #icon-sun {
 
 [data-theme="dark"] #navstrip a + a::before {
   color: var(--text-medCon);
-  opacity: .75; }
+  opacity: 0.75; }
 
 [data-theme="dark"] #theme-toggle {
   --plate-bg: var(--bg-3);
