@@ -1041,8 +1041,8 @@ body {
           max-width: 100%;
           text-align: left; }
           .category .category-body > .forum .forum-meta .last-post .last-avatar {
-            width: 24px;
-            height: 36px;
+            width: 48px;
+            height: 72px;
             border-radius: 50%;
             -o-object-fit: cover;
                object-fit: cover;
@@ -1063,20 +1063,45 @@ body {
             gap: 0.1rem;
             overflow: hidden; }
           .category .category-body > .forum .forum-meta .last-post .last-thread {
+            display: inline-block;
+            position: relative;
             font: 600 var(--size-md)/1 var(--font-sans);
             color: var(--accent-1);
-            text-decoration: none;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
             -webkit-transition: letter-spacing 0.5s ease-in-out;
             transition: letter-spacing 0.5s ease-in-out; }
             .category .category-body > .forum .forum-meta .last-post .last-thread:hover {
-              text-decoration: underline;
               letter-spacing: 0.05rem; }
+            .category .category-body > .forum .forum-meta .last-post .last-thread::after {
+              content: '';
+              position: absolute;
+              width: 100%;
+              -webkit-transform: scaleX(0);
+                  -ms-transform: scaleX(0);
+                      transform: scaleX(0);
+              height: 1px;
+              bottom: 0;
+              left: 0;
+              background-color: var(--accent-1);
+              -webkit-transform-origin: bottom right;
+                  -ms-transform-origin: bottom right;
+                      transform-origin: bottom right;
+              -webkit-transition: -webkit-transform 0.25s ease-in-out;
+              transition: -webkit-transform 0.25s ease-in-out;
+              transition: transform 0.25s ease-in-out;
+              transition: transform 0.25s ease-in-out, -webkit-transform 0.25s ease-in-out; }
+            .category .category-body > .forum .forum-meta .last-post .last-thread:hover::after {
+              -webkit-transform: scaleX(1);
+                  -ms-transform: scaleX(1);
+                      transform: scaleX(1);
+              -webkit-transform-origin: bottom left;
+                  -ms-transform-origin: bottom left;
+                      transform-origin: bottom left; }
           .category .category-body > .forum .forum-meta .last-post .last-info {
-            color: var(--text-loCon);
-            font-size: var(--size-xs); }
+            font: 400 var(--size-sm)/1 var(--font-hand);
+            color: var(--text-loCon); }
     @media (max-width: 680px) {
       .category .category-body .forum {
         -webkit-box-orient: vertical;

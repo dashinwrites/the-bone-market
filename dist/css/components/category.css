@@ -151,8 +151,8 @@
           max-width: 100%;
           text-align: left; }
           .category .category-body > .forum .forum-meta .last-post .last-avatar {
-            width: 24px;
-            height: 36px;
+            width: 48px;
+            height: 72px;
             border-radius: 50%;
             object-fit: cover;
             flex-shrink: 0;
@@ -163,19 +163,33 @@
             gap: 0.1rem;
             overflow: hidden; }
           .category .category-body > .forum .forum-meta .last-post .last-thread {
+            display: inline-block;
+            position: relative;
             font: 600 var(--size-md)/1 var(--font-sans);
             color: var(--accent-1);
-            text-decoration: none;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
             transition: letter-spacing 0.5s ease-in-out; }
             .category .category-body > .forum .forum-meta .last-post .last-thread:hover {
-              text-decoration: underline;
               letter-spacing: 0.05rem; }
+            .category .category-body > .forum .forum-meta .last-post .last-thread::after {
+              content: '';
+              position: absolute;
+              width: 100%;
+              transform: scaleX(0);
+              height: 1px;
+              bottom: 0;
+              left: 0;
+              background-color: var(--accent-1);
+              transform-origin: bottom right;
+              transition: transform 0.25s ease-in-out; }
+            .category .category-body > .forum .forum-meta .last-post .last-thread:hover::after {
+              transform: scaleX(1);
+              transform-origin: bottom left; }
           .category .category-body > .forum .forum-meta .last-post .last-info {
-            color: var(--text-loCon);
-            font-size: var(--size-xs); }
+            font: 400 var(--size-sm)/1 var(--font-hand);
+            color: var(--text-loCon); }
     @media (max-width: 680px) {
       .category .category-body .forum {
         flex-direction: column;

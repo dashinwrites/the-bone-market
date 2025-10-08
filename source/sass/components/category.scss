@@ -179,8 +179,8 @@
           text-align: left;
 
           .last-avatar {
-            width: 24px;
-            height: 36px;
+            width: 48px;
+            height: 72px;
             border-radius: 50%;
             object-fit: cover;
             flex-shrink: 0;
@@ -196,23 +196,41 @@
           }
 
           .last-thread {
+            display: inline-block;
+            position: relative;
             font: 600 var(--size-md) / 1 var(--font-sans);
             color: var(--accent-1);
-            text-decoration: none;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
             transition: letter-spacing 0.5s ease-in-out;
 
-            &:hover {
-              text-decoration: underline;
+            &:hover {              
               letter-spacing: 0.05rem;
+            }
+
+            &::after {
+              content: '';
+              position: absolute;
+              width: 100%;
+              transform: scaleX(0);
+              height: 1px;
+              bottom: 0;
+              left: 0;
+              background-color: var(--accent-1);
+              transform-origin: bottom right;
+              transition: transform 0.25s ease-in-out;
+            }
+
+            &:hover::after {
+              transform: scaleX(1);
+              transform-origin: bottom left;
             }
           }
 
           .last-info {
+            font: 400 var(--size-sm) / 1 var(--font-hand);
             color: var(--text-loCon);
-            font-size: var(--size-xs);
           }
         }
       }
