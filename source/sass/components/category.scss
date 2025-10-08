@@ -132,7 +132,7 @@
         transition: letter-spacing 0.5s ease-in-out;
           a {
             color: var(--accent-1);
-          }
+          
 
             &:hover {              
               letter-spacing: 0.05rem;
@@ -155,6 +155,7 @@
               transform: scaleX(1);
               transform-origin: bottom left;
             }
+          }
       }
 
       .forum-desc {

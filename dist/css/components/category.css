@@ -118,22 +118,22 @@
         transition: letter-spacing 0.5s ease-in-out; }
         .category .category-body > .forum .forum-title a {
           color: var(--accent-1); }
-        .category .category-body > .forum .forum-title:hover {
-          letter-spacing: 0.05rem; }
-        .category .category-body > .forum .forum-title::after {
-          content: '';
-          position: absolute;
-          width: 100%;
-          transform: scaleX(0);
-          height: 1px;
-          bottom: 0;
-          left: 0;
-          background-color: var(--accent-1);
-          transform-origin: bottom right;
-          transition: transform 0.25s ease-in-out; }
-        .category .category-body > .forum .forum-title:hover::after {
-          transform: scaleX(1);
-          transform-origin: bottom left; }
+          .category .category-body > .forum .forum-title a:hover {
+            letter-spacing: 0.05rem; }
+          .category .category-body > .forum .forum-title a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 1px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--accent-1);
+            transform-origin: bottom right;
+            transition: transform 0.25s ease-in-out; }
+          .category .category-body > .forum .forum-title a:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left; }
       .category .category-body > .forum .forum-desc {
         margin: 0;
         font: 400 var(--size-sm)/1.4 var(--font-sans);
