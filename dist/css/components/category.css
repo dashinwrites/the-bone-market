@@ -3,7 +3,7 @@
    Categories and Forums
 ********************************/
 .category {
-  margin: 2rem auto;
+  margin: 12rem auto;
   background: var(--bg-1-rgb);
   border: var(--border-1);
   border-radius: 6px;
@@ -11,7 +11,7 @@
   overflow: hidden;
   display: grid;
   grid-template-rows: auto 1fr;
-  width: clamp(520px, 90vw, 1920px);
+  width: clamp(520px, 60vw, 1920px);
   position: relative;
   /* for pseudo-elements */
   /* dashed inset border */
@@ -144,6 +144,16 @@
             text-align: right; }
             .category .category-body > .forum .forum-meta .forum-stats .forum-stat b {
               color: var(--accent-1); }
+          .category .category-body > .forum .forum-meta .forum-stats::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            height: 1px;
+            width: 100%;
+            background-image: repeating-linear-gradient(to right, color-mix(in oklab, var(--text-loCon), transparent 60%) 0 4px, transparent 4px 8px);
+            pointer-events: none; }
         .category .category-body > .forum .forum-meta .last-post {
           display: flex;
           align-items: center;
