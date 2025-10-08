@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Uncial+Antiqua&family=Caudex:wght@400;700&family=Forum&family=Spectral+SC:wght@400;700&family=Junge&display=swap");
 /*******************************
     Header
@@ -255,46 +254,3 @@ body {
   @supports not (height: 100dvb) {
     #leftbar {
       block-size: calc(100vh - var(--nav-h)); } }
-
-/* ====== THE IMPORTANT PART: OFFSET YOUR PAGE FLOW ======
-   Your header is inside .bm-container, so offset THAT, not <body>.
-*/
-.bm-container {
-  position: relative;
-  padding-block-start: var(--nav-h);
-  /* sits directly under fixed nav */
-  padding-inline-start: var(--leftbar-w);
-  /* keeps clear of fixed leftbar */
-  min-block-size: 100dvb;
-  /* not required, but nice for testing */ }
-
-/* Fuse the header frame into the nav frame (no seam) */
-.bm-head {
-  /* keep your pseudo-frame(true, …) if you use it */
-  margin-block-start: calc(-1 * var(--frame-join)) !important; }
-
-/* ====== LAST-RESORT SAFETY NET ======
-   If something else is still first in the container, ensure the FIRST in-flow child
-   (which should be your header) is forced to start right under the nav.
-*/
-.bm-container > :first-child {
-  margin-block-start: 0 !important;
-  padding-block-start: 0 !important; }
-
-/* ====== OPTIONAL: DEBUG MODE ======
-   Temporarily add `class="debug"` on <html> to visualize boxes and confirm offsets.
-*/
-html.debug * {
-  outline: 1px dotted rgba(255, 0, 200, 0.35); }
-
-html.debug #navstrip {
-  outline: 2px solid lime; }
-
-html.debug #leftbar {
-  outline: 2px solid cyan; }
-
-html.debug .bm-container {
-  outline: 2px solid orange; }
-
-html.debug .bm-head {
-  outline: 2px solid red; }

@@ -6,6 +6,32 @@ body {
   color: var(--text-bg);
   font-size: var(--size-md); }
 
+*::-webkit-scrollbar {
+  height: 6px;
+  width: 6px; }
+
+*::-webkit-scrollbar-track {
+  border-radius: 1px;
+  background-color: var(--bg-3); }
+
+*::-webkit-scrollbar-track:hover {
+  background-color: var(--bg-2); }
+
+*::-webkit-scrollbar-track:active {
+  background-color: var(--bg-3); }
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+  background-color: var(--accent-3);
+  border: var(--bdash);
+  border-color: var(--border-color); }
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: var(--accent-2); }
+
+*::-webkit-scrollbar-thumb:active {
+  background-color: var(--accent-2); }
+
 /* Background layers */
 .bg {
   position: fixed;
@@ -21,3 +47,34 @@ body {
     background: var(--bg-texture) center/cover no-repeat fixed;
     background-blend-mode: var(--bg-blend);
     opacity: 0.3; }
+
+.bm-container {
+  position: relative;
+  padding-block-start: var(--nav-h);
+  padding-inline-start: var(--leftbar-w);
+  min-block-size: 100dvb; }
+
+.bm-head {
+  margin-block-start: calc(-1 * var(--frame-join)) !important; }
+
+.bm-container > :first-child {
+  margin-block-start: 0 !important;
+  padding-block-start: 0 !important; }
+
+/* ====== OPTIONAL: DEBUG MODE ======
+   Temporarily add `class="debug"` on <html> to visualize boxes and confirm offsets.
+*/
+html.debug * {
+  outline: 1px dotted rgba(255, 0, 200, 0.35); }
+
+html.debug #navstrip {
+  outline: 2px solid lime; }
+
+html.debug #leftbar {
+  outline: 2px solid cyan; }
+
+html.debug .bm-container {
+  outline: 2px solid orange; }
+
+html.debug .bm-head {
+  outline: 2px solid red; }

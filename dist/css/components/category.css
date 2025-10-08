@@ -11,7 +11,7 @@
   overflow: hidden;
   display: grid;
   grid-template-rows: auto 1fr;
-  width: clamp(520px, 60vw, 1920px);
+  width: clamp(520px, 90vw, 1920px);
   position: relative;
   /* for pseudo-elements */
   /* dashed inset border */
@@ -89,14 +89,28 @@
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      gap: 1rem; }
+      gap: 1rem;
+      text-transform: lowercase; }
       .category .category-body > .forum:hover {
         background: var(--bg-3);
         transform: translateY(-1px);
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); }
       .category .category-body > .forum .forum-info {
         flex: 1;
-        min-width: 0; }
+        min-width: 0;
+        padding-right: 1rem;
+        height: 100%;
+        display: grid;
+        align-content: stretch; }
+        .category .category-body > .forum .forum-info::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          right: 0;
+          width: 1px;
+          background-image: repeating-linear-gradient(to bottom, color-mix(in oklab, var(--text-loCon), transparent 60%) 0 4px, transparent 4px 8px);
+          pointer-events: none; }
       .category .category-body > .forum .forum-title {
         margin: 0 0 0.25rem;
         font: 600 var(--size-xl)/1.2 var(--font-serif); }
@@ -108,24 +122,34 @@
       .category .category-body > .forum .forum-desc {
         margin: 0;
         font: 400 var(--size-sm)/1.4 var(--font-sans);
-        color: var(--text-medCon); }
+        color: var(--text-medCon);
+        text-align: justify;
+        margin-left: 1rem;
+        max-height: 5rem;
+        overflow-y: auto;
+        padding-right: 0.25rem; }
       .category .category-body > .forum .forum-meta {
         flex: 1 1 50%;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
+        display: grid;
         gap: 0.35rem;
         font: 400 var(--size-xs)/1 var(--font-sans);
         color: var(--text-loCon);
-        text-align: right;
-        max-width: clamp(180px, 50%, 320px); }
+        max-width: clamp(180px, 50%, 320px);
+        height: 100%;
+        align-content: space-around; }
+        .category .category-body > .forum .forum-meta .forum-stats {
+          line-height: 1rem;
+          font: 500 var(--size-sm)/1 var(--font-hand); }
+          .category .category-body > .forum .forum-meta .forum-stats .forum-stat {
+            text-align: right; }
+            .category .category-body > .forum .forum-meta .forum-stats .forum-stat b {
+              color: var(--accent-1); }
         .category .category-body > .forum .forum-meta .last-post {
           display: flex;
           align-items: center;
           gap: 0.5rem;
           max-width: 100%;
-          text-align: left;
-          /* for thread text alignment */ }
+          text-align: left; }
           .category .category-body > .forum .forum-meta .last-post .last-avatar {
             width: 24px;
             height: 36px;
@@ -139,15 +163,16 @@
             gap: 0.1rem;
             overflow: hidden; }
           .category .category-body > .forum .forum-meta .last-post .last-thread {
-            font-weight: 600;
+            font: 600 var(--size-md)/1 var(--font-sans);
             color: var(--accent-1);
             text-decoration: none;
-            font-size: var(--size-sm);
             white-space: nowrap;
             overflow: hidden;
-            text-overflow: ellipsis; }
+            text-overflow: ellipsis;
+            transition: letter-spacing 0.5s ease-in-out; }
             .category .category-body > .forum .forum-meta .last-post .last-thread:hover {
-              text-decoration: underline; }
+              text-decoration: underline;
+              letter-spacing: 0.05rem; }
           .category .category-body > .forum .forum-meta .last-post .last-info {
             color: var(--text-loCon);
             font-size: var(--size-xs); }
@@ -281,8 +306,7 @@
   /* soft glow for depth */
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25), 0 0 12px color-mix(in oklab, var(--ct-accent-1) 40%, transparent);
   /* decorative underline (centered, not full-width) */
-  /* side glyph (inherits currentColor from gradient ink) */
-  /* if you later add a right glyph, consider another pseudo/span */ }
+  /* side glyph (inherits currentColor from gradient ink) */ }
   .category-title--fancy::after {
     content: "";
     position: absolute;
@@ -300,7 +324,8 @@
     inset-inline-start: -1.25em;
     inset-block-start: 0;
     font-size: 0.8em;
-    opacity: 0.65; }
+    opacity: 0.65;
+    color: var(--ct-accent-1); }
 
 /* -------------------------------------------
    2) Etched (engraved/outline with subtle “ink bleed”)
@@ -346,22 +371,3 @@
 @media (prefers-reduced-motion: reduce) {
   .category-title {
     text-shadow: none; } }
-
-@media (min-width: 1140px) {
-  .forum {
-    position: relative; }
-    .forum .forum-meta {
-      position: relative;
-      padding-left: 1rem; }
-      .forum .forum-meta::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        width: 1px;
-        background-image: repeating-linear-gradient(to bottom, color-mix(in oklab, var(--text-loCon), transparent 60%) 0 4px, transparent 4px 8px);
-        transform: skewX(-20deg);
-        /* ← tilt angle */
-        transform-origin: top left;
-        pointer-events: none; } }
