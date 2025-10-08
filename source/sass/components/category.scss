@@ -127,14 +127,34 @@
 
       .forum-title {
         margin: 0 0 0.25rem;
-        font: 600 var(--size-forum-title) / 1.2 var(--font-serif);
-        a {
-          color: var(--accent-1);
-          text-decoration: none;
-          &:hover {
-            text-decoration: underline;
+        font: 800 var(--size-forum-title) / 1.2 var(--font-serif);
+        text-overflow: ellipsis;
+        transition: letter-spacing 0.5s ease-in-out;
+          a {
+            color: var(--accent-1);
           }
-        }
+
+            &:hover {              
+              letter-spacing: 0.05rem;
+            }
+
+            &::after {
+              content: '';
+              position: absolute;
+              width: 100%;
+              transform: scaleX(0);
+              height: 1px;
+              bottom: 0;
+              left: 0;
+              background-color: var(--accent-1);
+              transform-origin: bottom right;
+              transition: transform 0.25s ease-in-out;
+            }
+
+            &:hover::after {
+              transform: scaleX(1);
+              transform-origin: bottom left;
+            }
       }
 
       .forum-desc {
