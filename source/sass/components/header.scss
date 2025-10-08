@@ -10,7 +10,7 @@
   inline-size: 100%;
   gap: 1rem;
   padding: 2rem 1.25rem;
-  block-size: clamp(320px, calc(100vh - var(--nav-h)), 7800px);
+  block-size: clamp(320px, 60vh, 7800px);
   color: var(--text-clear);
   background: var(--bg-1);
   overflow: clip;
