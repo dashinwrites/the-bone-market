@@ -1,4 +1,1303 @@
+@charset "UTF-8";
+/***********************************************
+ The Bone Market — Member Group Gradients (RGB)
+ SCSS maps + mixins to auto-generate classes.
+***********************************************/
+/* ── 1) GRADIENT MAPS ───────────────────────── */
+/* Master map (merge all). Order determines cascade if names ever collide. */
+/* ── 2) CORE MIXINS ─────────────────────────── */
+/* Utility: create classes like `.membergroup--obsidian` with a CSS var for reuse */
+/* Pill style (filled chip/badge) */
+/* Outline style (transparent fill; gradient border) */
+/* Text gradient style (keeps container transparent) */
+/* ── 3) ONE-LINE API TO GENERATE EVERYTHING ─── */
+/* ── 4) CALLS — generate per-set or all at once ─ */
 @import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Uncial+Antiqua&family=Caudex:wght@400;700&family=Forum&family=Spectral+SC:wght@400;700&family=Junge&display=swap");
+.membergroup--obsidian {
+  --mg-gradient: linear-gradient(135deg, #0b0b0c, #3a3a3d); }
+
+.membergroup--quartz {
+  --mg-gradient: linear-gradient(135deg, #e6e2dd, #cfc9c4); }
+
+.membergroup--onyx {
+  --mg-gradient: linear-gradient(135deg, #1b1b1b, #404040); }
+
+.membergroup--amber {
+  --mg-gradient: linear-gradient(135deg, #ffb347, #ffcc33); }
+
+.membergroup--jade {
+  --mg-gradient: linear-gradient(135deg, #3fa374, #a1d19d); }
+
+.membergroup--silver {
+  --mg-gradient: linear-gradient(135deg, #d7d7d7, #9ea4ad); }
+
+.membergroup--obsidian.is-pill {
+  --mg-gradient: linear-gradient(135deg, #0b0b0c, #3a3a3d);
+  background: var(--mg-gradient);
+  color: #1c1c1c;
+  /* readable on most light gradients */
+  /* If your theme is dark, force white text: */
+  border-radius: 999px;
+  padding: .3rem .65rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
+  .membergroup--obsidian.is-pill.on-dark {
+    color: whitesmoke; }
+
+.membergroup--quartz.is-pill {
+  --mg-gradient: linear-gradient(135deg, #e6e2dd, #cfc9c4);
+  background: var(--mg-gradient);
+  color: #1c1c1c;
+  /* readable on most light gradients */
+  /* If your theme is dark, force white text: */
+  border-radius: 999px;
+  padding: .3rem .65rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
+  .membergroup--quartz.is-pill.on-dark {
+    color: whitesmoke; }
+
+.membergroup--onyx.is-pill {
+  --mg-gradient: linear-gradient(135deg, #1b1b1b, #404040);
+  background: var(--mg-gradient);
+  color: #1c1c1c;
+  /* readable on most light gradients */
+  /* If your theme is dark, force white text: */
+  border-radius: 999px;
+  padding: .3rem .65rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
+  .membergroup--onyx.is-pill.on-dark {
+    color: whitesmoke; }
+
+.membergroup--amber.is-pill {
+  --mg-gradient: linear-gradient(135deg, #ffb347, #ffcc33);
+  background: var(--mg-gradient);
+  color: #1c1c1c;
+  /* readable on most light gradients */
+  /* If your theme is dark, force white text: */
+  border-radius: 999px;
+  padding: .3rem .65rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
+  .membergroup--amber.is-pill.on-dark {
+    color: whitesmoke; }
+
+.membergroup--jade.is-pill {
+  --mg-gradient: linear-gradient(135deg, #3fa374, #a1d19d);
+  background: var(--mg-gradient);
+  color: #1c1c1c;
+  /* readable on most light gradients */
+  /* If your theme is dark, force white text: */
+  border-radius: 999px;
+  padding: .3rem .65rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
+  .membergroup--jade.is-pill.on-dark {
+    color: whitesmoke; }
+
+.membergroup--silver.is-pill {
+  --mg-gradient: linear-gradient(135deg, #d7d7d7, #9ea4ad);
+  background: var(--mg-gradient);
+  color: #1c1c1c;
+  /* readable on most light gradients */
+  /* If your theme is dark, force white text: */
+  border-radius: 999px;
+  padding: .3rem .65rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
+  .membergroup--silver.is-pill.on-dark {
+    color: whitesmoke; }
+
+.membergroup--obsidian.is-outline {
+  --mg-gradient: linear-gradient(135deg, #0b0b0c, #3a3a3d);
+  background: transparent;
+  color: inherit;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  padding: .25rem .6rem;
+  /* border-image supports gradients nicely */
+  border-image: var(--mg-gradient) 1; }
+
+.membergroup--quartz.is-outline {
+  --mg-gradient: linear-gradient(135deg, #e6e2dd, #cfc9c4);
+  background: transparent;
+  color: inherit;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  padding: .25rem .6rem;
+  /* border-image supports gradients nicely */
+  border-image: var(--mg-gradient) 1; }
+
+.membergroup--onyx.is-outline {
+  --mg-gradient: linear-gradient(135deg, #1b1b1b, #404040);
+  background: transparent;
+  color: inherit;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  padding: .25rem .6rem;
+  /* border-image supports gradients nicely */
+  border-image: var(--mg-gradient) 1; }
+
+.membergroup--amber.is-outline {
+  --mg-gradient: linear-gradient(135deg, #ffb347, #ffcc33);
+  background: transparent;
+  color: inherit;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  padding: .25rem .6rem;
+  /* border-image supports gradients nicely */
+  border-image: var(--mg-gradient) 1; }
+
+.membergroup--jade.is-outline {
+  --mg-gradient: linear-gradient(135deg, #3fa374, #a1d19d);
+  background: transparent;
+  color: inherit;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  padding: .25rem .6rem;
+  /* border-image supports gradients nicely */
+  border-image: var(--mg-gradient) 1; }
+
+.membergroup--silver.is-outline {
+  --mg-gradient: linear-gradient(135deg, #d7d7d7, #9ea4ad);
+  background: transparent;
+  color: inherit;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  padding: .25rem .6rem;
+  /* border-image supports gradients nicely */
+  border-image: var(--mg-gradient) 1; }
+
+.membergroup--obsidian.is-text {
+  --mg-gradient: linear-gradient(135deg, #0b0b0c, #3a3a3d);
+  background: var(--mg-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  /* optional subtle stroke for dark bg legibility */
+  -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25); }
+
+/* stronger stroke helper for very light backgrounds */
+.membergroup--obsidian.is-text.on-light {
+  -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
+
+.membergroup--quartz.is-text {
+  --mg-gradient: linear-gradient(135deg, #e6e2dd, #cfc9c4);
+  background: var(--mg-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  /* optional subtle stroke for dark bg legibility */
+  -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25); }
+
+/* stronger stroke helper for very light backgrounds */
+.membergroup--quartz.is-text.on-light {
+  -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
+
+.membergroup--onyx.is-text {
+  --mg-gradient: linear-gradient(135deg, #1b1b1b, #404040);
+  background: var(--mg-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  /* optional subtle stroke for dark bg legibility */
+  -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25); }
+
+/* stronger stroke helper for very light backgrounds */
+.membergroup--onyx.is-text.on-light {
+  -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
+
+.membergroup--amber.is-text {
+  --mg-gradient: linear-gradient(135deg, #ffb347, #ffcc33);
+  background: var(--mg-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  /* optional subtle stroke for dark bg legibility */
+  -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25); }
+
+/* stronger stroke helper for very light backgrounds */
+.membergroup--amber.is-text.on-light {
+  -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
+
+.membergroup--jade.is-text {
+  --mg-gradient: linear-gradient(135deg, #3fa374, #a1d19d);
+  background: var(--mg-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  /* optional subtle stroke for dark bg legibility */
+  -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25); }
+
+/* stronger stroke helper for very light backgrounds */
+.membergroup--jade.is-text.on-light {
+  -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
+
+.membergroup--silver.is-text {
+  --mg-gradient: linear-gradient(135deg, #d7d7d7, #9ea4ad);
+  background: var(--mg-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  /* optional subtle stroke for dark bg legibility */
+  -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25); }
+
+/* stronger stroke helper for very light backgrounds */
+.membergroup--silver.is-text.on-light {
+  -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
+
+.membergroup--marrow {
+  --mg-gradient: linear-gradient(135deg, #f1e6dc, #bba998); }
+
+.membergroup--sinew {
+  --mg-gradient: linear-gradient(135deg, #d5a981, #8c5b3c); }
+
+.membergroup--blood {
+  --mg-gradient: linear-gradient(135deg, #7a0d1d, #d92b2b); }
+
+.membergroup--vein {
+  --mg-gradient: linear-gradient(135deg, #21334d, #486b94); }
+
+.membergroup--bone {
+  --mg-gradient: linear-gradient(135deg, #e7dfd3, #b6a99a); }
+
+.membergroup--flesh {
+  --mg-gradient: linear-gradient(135deg, #f5c3b5, #d98f80); }
+
+.membergroup--marrow.is-pill {
+  --mg-gradient: linear-gradient(135deg, #f1e6dc, #bba998);
+  background: var(--mg-gradient);
+  color: #1c1c1c;
+  /* readable on most light gradients */
+  /* If your theme is dark, force white text: */
+  border-radius: 999px;
+  padding: .3rem .65rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
+  .membergroup--marrow.is-pill.on-dark {
+    color: whitesmoke; }
+
+.membergroup--sinew.is-pill {
+  --mg-gradient: linear-gradient(135deg, #d5a981, #8c5b3c);
+  background: var(--mg-gradient);
+  color: #1c1c1c;
+  /* readable on most light gradients */
+  /* If your theme is dark, force white text: */
+  border-radius: 999px;
+  padding: .3rem .65rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
+  .membergroup--sinew.is-pill.on-dark {
+    color: whitesmoke; }
+
+.membergroup--blood.is-pill {
+  --mg-gradient: linear-gradient(135deg, #7a0d1d, #d92b2b);
+  background: var(--mg-gradient);
+  color: #1c1c1c;
+  /* readable on most light gradients */
+  /* If your theme is dark, force white text: */
+  border-radius: 999px;
+  padding: .3rem .65rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
+  .membergroup--blood.is-pill.on-dark {
+    color: whitesmoke; }
+
+.membergroup--vein.is-pill {
+  --mg-gradient: linear-gradient(135deg, #21334d, #486b94);
+  background: var(--mg-gradient);
+  color: #1c1c1c;
+  /* readable on most light gradients */
+  /* If your theme is dark, force white text: */
+  border-radius: 999px;
+  padding: .3rem .65rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
+  .membergroup--vein.is-pill.on-dark {
+    color: whitesmoke; }
+
+.membergroup--bone.is-pill {
+  --mg-gradient: linear-gradient(135deg, #e7dfd3, #b6a99a);
+  background: var(--mg-gradient);
+  color: #1c1c1c;
+  /* readable on most light gradients */
+  /* If your theme is dark, force white text: */
+  border-radius: 999px;
+  padding: .3rem .65rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
+  .membergroup--bone.is-pill.on-dark {
+    color: whitesmoke; }
+
+.membergroup--flesh.is-pill {
+  --mg-gradient: linear-gradient(135deg, #f5c3b5, #d98f80);
+  background: var(--mg-gradient);
+  color: #1c1c1c;
+  /* readable on most light gradients */
+  /* If your theme is dark, force white text: */
+  border-radius: 999px;
+  padding: .3rem .65rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
+  .membergroup--flesh.is-pill.on-dark {
+    color: whitesmoke; }
+
+.membergroup--marrow.is-outline {
+  --mg-gradient: linear-gradient(135deg, #f1e6dc, #bba998);
+  background: transparent;
+  color: inherit;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  padding: .25rem .6rem;
+  /* border-image supports gradients nicely */
+  border-image: var(--mg-gradient) 1; }
+
+.membergroup--sinew.is-outline {
+  --mg-gradient: linear-gradient(135deg, #d5a981, #8c5b3c);
+  background: transparent;
+  color: inherit;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  padding: .25rem .6rem;
+  /* border-image supports gradients nicely */
+  border-image: var(--mg-gradient) 1; }
+
+.membergroup--blood.is-outline {
+  --mg-gradient: linear-gradient(135deg, #7a0d1d, #d92b2b);
+  background: transparent;
+  color: inherit;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  padding: .25rem .6rem;
+  /* border-image supports gradients nicely */
+  border-image: var(--mg-gradient) 1; }
+
+.membergroup--vein.is-outline {
+  --mg-gradient: linear-gradient(135deg, #21334d, #486b94);
+  background: transparent;
+  color: inherit;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  padding: .25rem .6rem;
+  /* border-image supports gradients nicely */
+  border-image: var(--mg-gradient) 1; }
+
+.membergroup--bone.is-outline {
+  --mg-gradient: linear-gradient(135deg, #e7dfd3, #b6a99a);
+  background: transparent;
+  color: inherit;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  padding: .25rem .6rem;
+  /* border-image supports gradients nicely */
+  border-image: var(--mg-gradient) 1; }
+
+.membergroup--flesh.is-outline {
+  --mg-gradient: linear-gradient(135deg, #f5c3b5, #d98f80);
+  background: transparent;
+  color: inherit;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  padding: .25rem .6rem;
+  /* border-image supports gradients nicely */
+  border-image: var(--mg-gradient) 1; }
+
+.membergroup--marrow.is-text {
+  --mg-gradient: linear-gradient(135deg, #f1e6dc, #bba998);
+  background: var(--mg-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  /* optional subtle stroke for dark bg legibility */
+  -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25); }
+
+/* stronger stroke helper for very light backgrounds */
+.membergroup--marrow.is-text.on-light {
+  -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
+
+.membergroup--sinew.is-text {
+  --mg-gradient: linear-gradient(135deg, #d5a981, #8c5b3c);
+  background: var(--mg-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  /* optional subtle stroke for dark bg legibility */
+  -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25); }
+
+/* stronger stroke helper for very light backgrounds */
+.membergroup--sinew.is-text.on-light {
+  -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
+
+.membergroup--blood.is-text {
+  --mg-gradient: linear-gradient(135deg, #7a0d1d, #d92b2b);
+  background: var(--mg-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  /* optional subtle stroke for dark bg legibility */
+  -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25); }
+
+/* stronger stroke helper for very light backgrounds */
+.membergroup--blood.is-text.on-light {
+  -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
+
+.membergroup--vein.is-text {
+  --mg-gradient: linear-gradient(135deg, #21334d, #486b94);
+  background: var(--mg-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  /* optional subtle stroke for dark bg legibility */
+  -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25); }
+
+/* stronger stroke helper for very light backgrounds */
+.membergroup--vein.is-text.on-light {
+  -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
+
+.membergroup--bone.is-text {
+  --mg-gradient: linear-gradient(135deg, #e7dfd3, #b6a99a);
+  background: var(--mg-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  /* optional subtle stroke for dark bg legibility */
+  -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25); }
+
+/* stronger stroke helper for very light backgrounds */
+.membergroup--bone.is-text.on-light {
+  -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
+
+.membergroup--flesh.is-text {
+  --mg-gradient: linear-gradient(135deg, #f5c3b5, #d98f80);
+  background: var(--mg-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  /* optional subtle stroke for dark bg legibility */
+  -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25); }
+
+/* stronger stroke helper for very light backgrounds */
+.membergroup--flesh.is-text.on-light {
+  -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
+
+.membergroup--eclipse {
+  --mg-gradient: linear-gradient(135deg, #191919, #4a3b5e); }
+
+.membergroup--nova {
+  --mg-gradient: linear-gradient(135deg, #ff8a00, #ff3d00); }
+
+.membergroup--comet {
+  --mg-gradient: linear-gradient(135deg, #4b8fd2, #c5dfff); }
+
+.membergroup--orbit {
+  --mg-gradient: linear-gradient(135deg, #434a5c, #7782a1); }
+
+.membergroup--umbra {
+  --mg-gradient: linear-gradient(135deg, #0d0c1b, #3b3a62); }
+
+.membergroup--zenith {
+  --mg-gradient: linear-gradient(135deg, #f6e58d, #f9ca24); }
+
+.membergroup--eclipse.is-pill {
+  --mg-gradient: linear-gradient(135deg, #191919, #4a3b5e);
+  background: var(--mg-gradient);
+  color: #1c1c1c;
+  /* readable on most light gradients */
+  /* If your theme is dark, force white text: */
+  border-radius: 999px;
+  padding: .3rem .65rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
+  .membergroup--eclipse.is-pill.on-dark {
+    color: whitesmoke; }
+
+.membergroup--nova.is-pill {
+  --mg-gradient: linear-gradient(135deg, #ff8a00, #ff3d00);
+  background: var(--mg-gradient);
+  color: #1c1c1c;
+  /* readable on most light gradients */
+  /* If your theme is dark, force white text: */
+  border-radius: 999px;
+  padding: .3rem .65rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
+  .membergroup--nova.is-pill.on-dark {
+    color: whitesmoke; }
+
+.membergroup--comet.is-pill {
+  --mg-gradient: linear-gradient(135deg, #4b8fd2, #c5dfff);
+  background: var(--mg-gradient);
+  color: #1c1c1c;
+  /* readable on most light gradients */
+  /* If your theme is dark, force white text: */
+  border-radius: 999px;
+  padding: .3rem .65rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
+  .membergroup--comet.is-pill.on-dark {
+    color: whitesmoke; }
+
+.membergroup--orbit.is-pill {
+  --mg-gradient: linear-gradient(135deg, #434a5c, #7782a1);
+  background: var(--mg-gradient);
+  color: #1c1c1c;
+  /* readable on most light gradients */
+  /* If your theme is dark, force white text: */
+  border-radius: 999px;
+  padding: .3rem .65rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
+  .membergroup--orbit.is-pill.on-dark {
+    color: whitesmoke; }
+
+.membergroup--umbra.is-pill {
+  --mg-gradient: linear-gradient(135deg, #0d0c1b, #3b3a62);
+  background: var(--mg-gradient);
+  color: #1c1c1c;
+  /* readable on most light gradients */
+  /* If your theme is dark, force white text: */
+  border-radius: 999px;
+  padding: .3rem .65rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
+  .membergroup--umbra.is-pill.on-dark {
+    color: whitesmoke; }
+
+.membergroup--zenith.is-pill {
+  --mg-gradient: linear-gradient(135deg, #f6e58d, #f9ca24);
+  background: var(--mg-gradient);
+  color: #1c1c1c;
+  /* readable on most light gradients */
+  /* If your theme is dark, force white text: */
+  border-radius: 999px;
+  padding: .3rem .65rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
+  .membergroup--zenith.is-pill.on-dark {
+    color: whitesmoke; }
+
+.membergroup--eclipse.is-outline {
+  --mg-gradient: linear-gradient(135deg, #191919, #4a3b5e);
+  background: transparent;
+  color: inherit;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  padding: .25rem .6rem;
+  /* border-image supports gradients nicely */
+  border-image: var(--mg-gradient) 1; }
+
+.membergroup--nova.is-outline {
+  --mg-gradient: linear-gradient(135deg, #ff8a00, #ff3d00);
+  background: transparent;
+  color: inherit;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  padding: .25rem .6rem;
+  /* border-image supports gradients nicely */
+  border-image: var(--mg-gradient) 1; }
+
+.membergroup--comet.is-outline {
+  --mg-gradient: linear-gradient(135deg, #4b8fd2, #c5dfff);
+  background: transparent;
+  color: inherit;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  padding: .25rem .6rem;
+  /* border-image supports gradients nicely */
+  border-image: var(--mg-gradient) 1; }
+
+.membergroup--orbit.is-outline {
+  --mg-gradient: linear-gradient(135deg, #434a5c, #7782a1);
+  background: transparent;
+  color: inherit;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  padding: .25rem .6rem;
+  /* border-image supports gradients nicely */
+  border-image: var(--mg-gradient) 1; }
+
+.membergroup--umbra.is-outline {
+  --mg-gradient: linear-gradient(135deg, #0d0c1b, #3b3a62);
+  background: transparent;
+  color: inherit;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  padding: .25rem .6rem;
+  /* border-image supports gradients nicely */
+  border-image: var(--mg-gradient) 1; }
+
+.membergroup--zenith.is-outline {
+  --mg-gradient: linear-gradient(135deg, #f6e58d, #f9ca24);
+  background: transparent;
+  color: inherit;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  padding: .25rem .6rem;
+  /* border-image supports gradients nicely */
+  border-image: var(--mg-gradient) 1; }
+
+.membergroup--eclipse.is-text {
+  --mg-gradient: linear-gradient(135deg, #191919, #4a3b5e);
+  background: var(--mg-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  /* optional subtle stroke for dark bg legibility */
+  -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25); }
+
+/* stronger stroke helper for very light backgrounds */
+.membergroup--eclipse.is-text.on-light {
+  -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
+
+.membergroup--nova.is-text {
+  --mg-gradient: linear-gradient(135deg, #ff8a00, #ff3d00);
+  background: var(--mg-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  /* optional subtle stroke for dark bg legibility */
+  -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25); }
+
+/* stronger stroke helper for very light backgrounds */
+.membergroup--nova.is-text.on-light {
+  -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
+
+.membergroup--comet.is-text {
+  --mg-gradient: linear-gradient(135deg, #4b8fd2, #c5dfff);
+  background: var(--mg-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  /* optional subtle stroke for dark bg legibility */
+  -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25); }
+
+/* stronger stroke helper for very light backgrounds */
+.membergroup--comet.is-text.on-light {
+  -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
+
+.membergroup--orbit.is-text {
+  --mg-gradient: linear-gradient(135deg, #434a5c, #7782a1);
+  background: var(--mg-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  /* optional subtle stroke for dark bg legibility */
+  -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25); }
+
+/* stronger stroke helper for very light backgrounds */
+.membergroup--orbit.is-text.on-light {
+  -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
+
+.membergroup--umbra.is-text {
+  --mg-gradient: linear-gradient(135deg, #0d0c1b, #3b3a62);
+  background: var(--mg-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  /* optional subtle stroke for dark bg legibility */
+  -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25); }
+
+/* stronger stroke helper for very light backgrounds */
+.membergroup--umbra.is-text.on-light {
+  -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
+
+.membergroup--zenith.is-text {
+  --mg-gradient: linear-gradient(135deg, #f6e58d, #f9ca24);
+  background: var(--mg-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  /* optional subtle stroke for dark bg legibility */
+  -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25); }
+
+/* stronger stroke helper for very light backgrounds */
+.membergroup--zenith.is-text.on-light {
+  -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
+
+.membergroup--hemlock {
+  --mg-gradient: linear-gradient(135deg, #1c3b32, #3d6656); }
+
+.membergroup--nightshade {
+  --mg-gradient: linear-gradient(135deg, #3b1a4a, #713b86); }
+
+.membergroup--yew {
+  --mg-gradient: linear-gradient(135deg, #143d26, #32694a); }
+
+.membergroup--ivy {
+  --mg-gradient: linear-gradient(135deg, #264d35, #6ca97f); }
+
+.membergroup--rowan {
+  --mg-gradient: linear-gradient(135deg, #5d1714, #9c3b2e); }
+
+.membergroup--thorn {
+  --mg-gradient: linear-gradient(135deg, #732e2e, #b64b4b); }
+
+.membergroup--hemlock.is-pill {
+  --mg-gradient: linear-gradient(135deg, #1c3b32, #3d6656);
+  background: var(--mg-gradient);
+  color: #1c1c1c;
+  /* readable on most light gradients */
+  /* If your theme is dark, force white text: */
+  border-radius: 999px;
+  padding: .3rem .65rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
+  .membergroup--hemlock.is-pill.on-dark {
+    color: whitesmoke; }
+
+.membergroup--nightshade.is-pill {
+  --mg-gradient: linear-gradient(135deg, #3b1a4a, #713b86);
+  background: var(--mg-gradient);
+  color: #1c1c1c;
+  /* readable on most light gradients */
+  /* If your theme is dark, force white text: */
+  border-radius: 999px;
+  padding: .3rem .65rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
+  .membergroup--nightshade.is-pill.on-dark {
+    color: whitesmoke; }
+
+.membergroup--yew.is-pill {
+  --mg-gradient: linear-gradient(135deg, #143d26, #32694a);
+  background: var(--mg-gradient);
+  color: #1c1c1c;
+  /* readable on most light gradients */
+  /* If your theme is dark, force white text: */
+  border-radius: 999px;
+  padding: .3rem .65rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
+  .membergroup--yew.is-pill.on-dark {
+    color: whitesmoke; }
+
+.membergroup--ivy.is-pill {
+  --mg-gradient: linear-gradient(135deg, #264d35, #6ca97f);
+  background: var(--mg-gradient);
+  color: #1c1c1c;
+  /* readable on most light gradients */
+  /* If your theme is dark, force white text: */
+  border-radius: 999px;
+  padding: .3rem .65rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
+  .membergroup--ivy.is-pill.on-dark {
+    color: whitesmoke; }
+
+.membergroup--rowan.is-pill {
+  --mg-gradient: linear-gradient(135deg, #5d1714, #9c3b2e);
+  background: var(--mg-gradient);
+  color: #1c1c1c;
+  /* readable on most light gradients */
+  /* If your theme is dark, force white text: */
+  border-radius: 999px;
+  padding: .3rem .65rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
+  .membergroup--rowan.is-pill.on-dark {
+    color: whitesmoke; }
+
+.membergroup--thorn.is-pill {
+  --mg-gradient: linear-gradient(135deg, #732e2e, #b64b4b);
+  background: var(--mg-gradient);
+  color: #1c1c1c;
+  /* readable on most light gradients */
+  /* If your theme is dark, force white text: */
+  border-radius: 999px;
+  padding: .3rem .65rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
+  .membergroup--thorn.is-pill.on-dark {
+    color: whitesmoke; }
+
+.membergroup--hemlock.is-outline {
+  --mg-gradient: linear-gradient(135deg, #1c3b32, #3d6656);
+  background: transparent;
+  color: inherit;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  padding: .25rem .6rem;
+  /* border-image supports gradients nicely */
+  border-image: var(--mg-gradient) 1; }
+
+.membergroup--nightshade.is-outline {
+  --mg-gradient: linear-gradient(135deg, #3b1a4a, #713b86);
+  background: transparent;
+  color: inherit;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  padding: .25rem .6rem;
+  /* border-image supports gradients nicely */
+  border-image: var(--mg-gradient) 1; }
+
+.membergroup--yew.is-outline {
+  --mg-gradient: linear-gradient(135deg, #143d26, #32694a);
+  background: transparent;
+  color: inherit;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  padding: .25rem .6rem;
+  /* border-image supports gradients nicely */
+  border-image: var(--mg-gradient) 1; }
+
+.membergroup--ivy.is-outline {
+  --mg-gradient: linear-gradient(135deg, #264d35, #6ca97f);
+  background: transparent;
+  color: inherit;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  padding: .25rem .6rem;
+  /* border-image supports gradients nicely */
+  border-image: var(--mg-gradient) 1; }
+
+.membergroup--rowan.is-outline {
+  --mg-gradient: linear-gradient(135deg, #5d1714, #9c3b2e);
+  background: transparent;
+  color: inherit;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  padding: .25rem .6rem;
+  /* border-image supports gradients nicely */
+  border-image: var(--mg-gradient) 1; }
+
+.membergroup--thorn.is-outline {
+  --mg-gradient: linear-gradient(135deg, #732e2e, #b64b4b);
+  background: transparent;
+  color: inherit;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  padding: .25rem .6rem;
+  /* border-image supports gradients nicely */
+  border-image: var(--mg-gradient) 1; }
+
+.membergroup--hemlock.is-text {
+  --mg-gradient: linear-gradient(135deg, #1c3b32, #3d6656);
+  background: var(--mg-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  /* optional subtle stroke for dark bg legibility */
+  -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25); }
+
+/* stronger stroke helper for very light backgrounds */
+.membergroup--hemlock.is-text.on-light {
+  -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
+
+.membergroup--nightshade.is-text {
+  --mg-gradient: linear-gradient(135deg, #3b1a4a, #713b86);
+  background: var(--mg-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  /* optional subtle stroke for dark bg legibility */
+  -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25); }
+
+/* stronger stroke helper for very light backgrounds */
+.membergroup--nightshade.is-text.on-light {
+  -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
+
+.membergroup--yew.is-text {
+  --mg-gradient: linear-gradient(135deg, #143d26, #32694a);
+  background: var(--mg-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  /* optional subtle stroke for dark bg legibility */
+  -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25); }
+
+/* stronger stroke helper for very light backgrounds */
+.membergroup--yew.is-text.on-light {
+  -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
+
+.membergroup--ivy.is-text {
+  --mg-gradient: linear-gradient(135deg, #264d35, #6ca97f);
+  background: var(--mg-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  /* optional subtle stroke for dark bg legibility */
+  -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25); }
+
+/* stronger stroke helper for very light backgrounds */
+.membergroup--ivy.is-text.on-light {
+  -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
+
+.membergroup--rowan.is-text {
+  --mg-gradient: linear-gradient(135deg, #5d1714, #9c3b2e);
+  background: var(--mg-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  /* optional subtle stroke for dark bg legibility */
+  -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25); }
+
+/* stronger stroke helper for very light backgrounds */
+.membergroup--rowan.is-text.on-light {
+  -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
+
+.membergroup--thorn.is-text {
+  --mg-gradient: linear-gradient(135deg, #732e2e, #b64b4b);
+  background: var(--mg-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  /* optional subtle stroke for dark bg legibility */
+  -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25); }
+
+/* stronger stroke helper for very light backgrounds */
+.membergroup--thorn.is-text.on-light {
+  -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
+
+.membergroup--ivory {
+  --mg-gradient: linear-gradient(135deg, #fff8ee, #d9cbb0); }
+
+.membergroup--velvet {
+  --mg-gradient: linear-gradient(135deg, #381b3f, #6a2e67); }
+
+.membergroup--spice {
+  --mg-gradient: linear-gradient(135deg, #c47a34, #ffb15e); }
+
+.membergroup--smoke {
+  --mg-gradient: linear-gradient(135deg, #2e2e2e, #9a9a9a); }
+
+.membergroup--glass {
+  --mg-gradient: linear-gradient(135deg, #e3eef3, #a3b8c2); }
+
+.membergroup--gold {
+  --mg-gradient: linear-gradient(135deg, #d4af37, #f5d76e); }
+
+.membergroup--ivory.is-pill {
+  --mg-gradient: linear-gradient(135deg, #fff8ee, #d9cbb0);
+  background: var(--mg-gradient);
+  color: #1c1c1c;
+  /* readable on most light gradients */
+  /* If your theme is dark, force white text: */
+  border-radius: 999px;
+  padding: .3rem .65rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
+  .membergroup--ivory.is-pill.on-dark {
+    color: whitesmoke; }
+
+.membergroup--velvet.is-pill {
+  --mg-gradient: linear-gradient(135deg, #381b3f, #6a2e67);
+  background: var(--mg-gradient);
+  color: #1c1c1c;
+  /* readable on most light gradients */
+  /* If your theme is dark, force white text: */
+  border-radius: 999px;
+  padding: .3rem .65rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
+  .membergroup--velvet.is-pill.on-dark {
+    color: whitesmoke; }
+
+.membergroup--spice.is-pill {
+  --mg-gradient: linear-gradient(135deg, #c47a34, #ffb15e);
+  background: var(--mg-gradient);
+  color: #1c1c1c;
+  /* readable on most light gradients */
+  /* If your theme is dark, force white text: */
+  border-radius: 999px;
+  padding: .3rem .65rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
+  .membergroup--spice.is-pill.on-dark {
+    color: whitesmoke; }
+
+.membergroup--smoke.is-pill {
+  --mg-gradient: linear-gradient(135deg, #2e2e2e, #9a9a9a);
+  background: var(--mg-gradient);
+  color: #1c1c1c;
+  /* readable on most light gradients */
+  /* If your theme is dark, force white text: */
+  border-radius: 999px;
+  padding: .3rem .65rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
+  .membergroup--smoke.is-pill.on-dark {
+    color: whitesmoke; }
+
+.membergroup--glass.is-pill {
+  --mg-gradient: linear-gradient(135deg, #e3eef3, #a3b8c2);
+  background: var(--mg-gradient);
+  color: #1c1c1c;
+  /* readable on most light gradients */
+  /* If your theme is dark, force white text: */
+  border-radius: 999px;
+  padding: .3rem .65rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
+  .membergroup--glass.is-pill.on-dark {
+    color: whitesmoke; }
+
+.membergroup--gold.is-pill {
+  --mg-gradient: linear-gradient(135deg, #d4af37, #f5d76e);
+  background: var(--mg-gradient);
+  color: #1c1c1c;
+  /* readable on most light gradients */
+  /* If your theme is dark, force white text: */
+  border-radius: 999px;
+  padding: .3rem .65rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
+  .membergroup--gold.is-pill.on-dark {
+    color: whitesmoke; }
+
+.membergroup--ivory.is-outline {
+  --mg-gradient: linear-gradient(135deg, #fff8ee, #d9cbb0);
+  background: transparent;
+  color: inherit;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  padding: .25rem .6rem;
+  /* border-image supports gradients nicely */
+  border-image: var(--mg-gradient) 1; }
+
+.membergroup--velvet.is-outline {
+  --mg-gradient: linear-gradient(135deg, #381b3f, #6a2e67);
+  background: transparent;
+  color: inherit;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  padding: .25rem .6rem;
+  /* border-image supports gradients nicely */
+  border-image: var(--mg-gradient) 1; }
+
+.membergroup--spice.is-outline {
+  --mg-gradient: linear-gradient(135deg, #c47a34, #ffb15e);
+  background: transparent;
+  color: inherit;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  padding: .25rem .6rem;
+  /* border-image supports gradients nicely */
+  border-image: var(--mg-gradient) 1; }
+
+.membergroup--smoke.is-outline {
+  --mg-gradient: linear-gradient(135deg, #2e2e2e, #9a9a9a);
+  background: transparent;
+  color: inherit;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  padding: .25rem .6rem;
+  /* border-image supports gradients nicely */
+  border-image: var(--mg-gradient) 1; }
+
+.membergroup--glass.is-outline {
+  --mg-gradient: linear-gradient(135deg, #e3eef3, #a3b8c2);
+  background: transparent;
+  color: inherit;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  padding: .25rem .6rem;
+  /* border-image supports gradients nicely */
+  border-image: var(--mg-gradient) 1; }
+
+.membergroup--gold.is-outline {
+  --mg-gradient: linear-gradient(135deg, #d4af37, #f5d76e);
+  background: transparent;
+  color: inherit;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  padding: .25rem .6rem;
+  /* border-image supports gradients nicely */
+  border-image: var(--mg-gradient) 1; }
+
+.membergroup--ivory.is-text {
+  --mg-gradient: linear-gradient(135deg, #fff8ee, #d9cbb0);
+  background: var(--mg-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  /* optional subtle stroke for dark bg legibility */
+  -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25); }
+
+/* stronger stroke helper for very light backgrounds */
+.membergroup--ivory.is-text.on-light {
+  -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
+
+.membergroup--velvet.is-text {
+  --mg-gradient: linear-gradient(135deg, #381b3f, #6a2e67);
+  background: var(--mg-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  /* optional subtle stroke for dark bg legibility */
+  -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25); }
+
+/* stronger stroke helper for very light backgrounds */
+.membergroup--velvet.is-text.on-light {
+  -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
+
+.membergroup--spice.is-text {
+  --mg-gradient: linear-gradient(135deg, #c47a34, #ffb15e);
+  background: var(--mg-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  /* optional subtle stroke for dark bg legibility */
+  -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25); }
+
+/* stronger stroke helper for very light backgrounds */
+.membergroup--spice.is-text.on-light {
+  -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
+
+.membergroup--smoke.is-text {
+  --mg-gradient: linear-gradient(135deg, #2e2e2e, #9a9a9a);
+  background: var(--mg-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  /* optional subtle stroke for dark bg legibility */
+  -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25); }
+
+/* stronger stroke helper for very light backgrounds */
+.membergroup--smoke.is-text.on-light {
+  -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
+
+.membergroup--glass.is-text {
+  --mg-gradient: linear-gradient(135deg, #e3eef3, #a3b8c2);
+  background: var(--mg-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  /* optional subtle stroke for dark bg legibility */
+  -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25); }
+
+/* stronger stroke helper for very light backgrounds */
+.membergroup--glass.is-text.on-light {
+  -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
+
+.membergroup--gold.is-text {
+  --mg-gradient: linear-gradient(135deg, #d4af37, #f5d76e);
+  background: var(--mg-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  /* optional subtle stroke for dark bg legibility */
+  -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25); }
+
+/* stronger stroke helper for very light backgrounds */
+.membergroup--gold.is-text.on-light {
+  -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
+
+/* Or: just this one line if you prefer a single pass */
+/* ── 5) EXAMPLES (delete/keep as docs) ──────── */
+/* HTML usage:
+  <span class="membergroup--obsidian is-pill">Obsidian</span>
+  <span class="membergroup--blood is-outline">Blood</span>
+  <span class="membergroup--nova is-text">Nova</span>
+
+  // Optional legibility helpers based on page theme:
+  <span class="membergroup--jade is-pill on-dark">Jade</span>
+  <span class="membergroup--glass is-text on-light">Glass</span>
+*/
+/*************************************************
+ Utility: apply membergroup gradients to anything
+**************************************************/
+/* 1) Set the active gradient from the master map */
+/* 2) Gradient BORDER (perfect with rounded corners)
+   Uses twin-background trick so border-radius is honored.  */
+/* 3) Gradient FILL (full background) */
+/* 4) Gradient OVERLAY (keeps original bg; adds gradient veil via ::after) */
+/* 5) Gradient TEXT (transparent fill with optional stroke) */
+/* 6) Gradient RULE (thin bars/dividers) */
+/* 7) Corner ticks fed by gradient (works with your corner-ticks aesthetic)
+   Creates an inset frame using ::before so it plays nice with your own mixin. */
+/* 8) One-liners to scope by name (sugar helpers)
+   Usage: @include mg-apply-border(blood); etc. */
 /*******************************
     Header
 ********************************/

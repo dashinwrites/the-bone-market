@@ -129,9 +129,10 @@
         margin: 0 0 0.25rem;
         font: 800 var(--size-forum-title) / 1.2 var(--font-serif);
         text-overflow: ellipsis;
-        transition: letter-spacing 0.5s ease-in-out;
+        
           a {
             color: var(--accent-1);
+            transition: letter-spacing 0.5s ease-in-out;
           
 
             &:hover {              
