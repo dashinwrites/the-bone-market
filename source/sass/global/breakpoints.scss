@@ -1,0 +1,75 @@
+/***************************************
+ 📐 Bone Market — Responsive Breakpoints
+ Lightweight, semantic, SCSS-based
+***************************************/
+
+/* ────────────────────────────────
+   Base Variables
+──────────────────────────────── */
+$bp-xs: 480px;   // phones, narrow viewports
+$bp-sm: 768px;   // tablets, small laptops
+$bp-md: 1024px;  // standard laptops
+$bp-lg: 1280px;  // desktops
+$bp-xl: 1600px;  // large displays
+$bp-xxl: 1920px; // 1080p+
+$bp-4k: 2560px;  // 4K and ultrawide monitors
+
+/* ────────────────────────────────
+   Media Query Mixins
+──────────────────────────────── */
+
+/* Max-width — common "down" breakpoints */
+@mixin down($bp) {
+  @media (max-width: #{$bp}) { @content; }
+}
+
+/* Min-width — common "up" breakpoints */
+@mixin up($bp) {
+  @media (min-width: #{$bp}) { @content; }
+}
+
+/* Between two sizes */
+@mixin between($min, $max) {
+  @media (min-width: #{$min}) and (max-width: #{$max}) { @content; }
+}
+
+/* Orientation helpers */
+@mixin portrait { @media (orientation: portrait) { @content; } }
+@mixin landscape { @media (orientation: landscape) { @content; } }
+
+/* Motion-safe helper (for animations/transitions) */
+@mixin motion-safe {
+  @media (prefers-reduced-motion: no-preference) { @content; }
+}
+
+/* Motion-reduce helper */
+@mixin motion-reduce {
+  @media (prefers-reduced-motion: reduce) { @content; }
+}
+
+/* Example usage:
+───────────────────────────────────────
+@include down($bp-sm) {
+  .category { width: 95%; }
+}
+
+@include up($bp-lg) {
+  .plate-info__staff img { width: 120px; }
+}
+
+@include between($bp-sm, $bp-lg) {
+  .leftbar { display: none; }
+}
+
+@include portrait {
+  .header-bg { background-position: center top; }
+}
+*/
+
+/* ────────────────────────────────
+   Optional Semantic Shortcuts
+──────────────────────────────── */
+@mixin mobile { @include down($bp-sm) { @content; } }         // ≤768px
+@mixin tablet { @include between($bp-sm, $bp-md) { @content; } }
+@mixin desktop { @include up($bp-md) { @content; } }          // ≥1024px
+@mixin widescreen { @include up($bp-xl) { @content; } }       // ≥1600px
