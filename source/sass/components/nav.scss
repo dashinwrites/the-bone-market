@@ -31,15 +31,8 @@
     line-height: 1;
     transition: var(--transi-quick);
 
-    &:hover {
-      color: var(--accent-1);
-      text-decoration: underline;
-    }
-    &:focus-visible {
-      outline: none;
-      box-shadow: inset 0 0 0 2px var(--accent-3);
-      transition: var(--transi-quick);
-    }
+    &:hover { color: var(--accent-1); text-decoration: underline; }
+    &:focus-visible { outline: none; box-shadow: inset 0 0 0 2px var(--accent-3); transition: var(--transi-quick); }
   }
 
   a + a::before {
@@ -69,19 +62,11 @@
     #theme-toggle {
       background: var(--plate-bg);
       border: var(--plate-border);
-
-      &:hover {
-        background: var(--bg-3);
-        color: var(--accent-1);
-      }
+      &:hover { background: var(--bg-3); color: var(--accent-1); }
     }
   }
 
-  button:focus-visible {
-    outline: none;
-    box-shadow: inset 0 0 0 2px var(--accent-3);
-    transition: var(--transi-quick);
-  }
+  button:focus-visible { outline: none; box-shadow: inset 0 0 0 2px var(--accent-3); transition: var(--transi-quick); }
 }
 
 /* ---------------------------
@@ -93,7 +78,7 @@
   inset-inline-start: 0;
   display: flex;
   align-items: start;
-  justify-content: flex-start;
+  justify-content: center;
   padding-block: 20px;
   inline-size: var(--leftbar-w);
   block-size: 100dvb;
@@ -109,6 +94,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    z-index: 95;
     gap: .5rem;      /* vertical rhythm */
     padding: 6px;    /* room so separators don't touch border */
 
@@ -128,64 +114,129 @@
       pointer-events: none;
       border-radius: 6px;
     }
-  }
 
-  /* icons inside the panel (no individual plates) */
-  .lb-plate .icon {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    /* separator tuning tokens */
+    --sep-inset: 8px;   /* left/right inset of the dashed rule */
+    --sep-offset: -3px; /* vertical offset so the rule sits between items */
 
-    inline-size: var(--lb-icon-sz, 38px);
-    block-size: var(--lb-icon-sz, 38px);
-
-    background: transparent;
-    border: 0;
-    border-radius: 6px;
-    color: currentColor;
-    text-decoration: none;
-    cursor: pointer;
-    transition: var(--transi-quick);
-    isolation: isolate;
-
-    i {
-      font-size: var(--lb-icon-font, 1.05rem);
-      line-height: 1;
+    /* ─────────────────────────────
+       Static icons at the top
+       ───────────────────────────── */
+    > .icon {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      inline-size: var(--lb-icon-sz, 38px);
+      block-size: var(--lb-icon-sz, 38px);
+      border: 0;
+      background: transparent;
+      border-radius: 4px;
       color: currentColor;
-      display: inline-block;
+      cursor: pointer;
+      transition: var(--transi-quick);
+      isolation: isolate;
+
+      i { font-size: var(--lb-icon-font, 1.05rem); line-height: 1; display: inline-block; color: currentColor; }
+
+      /* dashed separator between each static icon */
+      & + .icon::before {
+        content: "";
+        position: absolute;
+        inset-inline: var(--sep-inset);
+        inset-block-start: var(--sep-offset);
+        border-top: var(--bdash);
+        opacity: .35;
+        pointer-events: none;
+      }
+
+      &:hover { transform: translateY(-1px); color: var(--accent-1); box-shadow: inset 0 0 0 999px rgba(0,0,0,.02); }
+      &:active { transform: translateY(0); box-shadow: inset 0 0 0 999px rgba(0,0,0,.04); }
+      &:focus-visible { outline: none; box-shadow: 0 0 0 2px var(--accent-3), 0 0 0 4px rgba(0,0,0,.15); }
+      &[aria-current="page"] { color: var(--accent-2); box-shadow: inset 0 0 0 999px rgba(0,0,0,.045); }
     }
 
-    /* dashed separator between items (skip the first) */
-    & + .icon::before {
-      content: "";
-      position: absolute;
-      inset-inline: 8px;      /* indent the rule */
-      inset-block-start: -3px;
-      border-top: var(--bdash);
-      opacity: .35;
-      pointer-events: none;
-    }
+    /* ─────────────────────────────
+       MEMBER (m-<g_id>) & GUEST (g-<g_id>) sections
+       ───────────────────────────── */
+    > [class^="m-"],
+    > [class^="g-"] {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      gap: .4rem;
 
-    /* feedback without extra borders */
-    &:hover {
-      transform: translateY(-1px);
-      color: var(--accent-1);
-      box-shadow: inset 0 0 0 999px rgba(0,0,0,.02);
-    }
-    &:active {
-      transform: translateY(0);
-      box-shadow: inset 0 0 0 999px rgba(0,0,0,.04);
-    }
-    &:focus-visible {
-      outline: none;
-      box-shadow:
-        0 0 0 2px var(--accent-3),
-        0 0 0 4px rgba(0,0,0,.15);
-    }
-    &[aria-current="page"] {
-      color: var(--accent-1);
-      box-shadow: inset 0 0 0 999px rgba(0,0,0,.045);
+      /* collapse any extra spacing so divider sits tight */
+      margin-block-start: 0;
+      padding-block-start: 0;
+      position: relative;
+
+      /* first divider in the group (drawn on the first <a>) */
+      > a:first-of-type::before {
+        content: "";
+        position: absolute;
+        inset-inline: var(--sep-inset);
+        inset-block-start: var(--sep-offset);
+        border-top: var(--bdash);
+        opacity: .35;
+        pointer-events: none;
+      }
+      > a:first-of-type:hover::before,
+      > a:first-of-type:focus-visible::before {
+        border-top-color: var(--accent-1); /* only needed if --bdash isn't using currentColor */
+        opacity: .6;
+      }
+
+      &:empty { display: none; }
+
+      a {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        inline-size: var(--lb-icon-sz, 38px);
+        block-size: var(--lb-icon-sz, 38px);
+        border-radius: 4px;
+        color: currentColor;
+        text-decoration: none;
+        transition: var(--transi-quick);
+
+        i {
+          font-size: var(--lb-icon-font, 1.05rem);
+          line-height: 1;
+          color: currentColor;
+        }
+
+        &:hover {
+          transform: translateY(-1px);
+          color: var(--accent-1);
+          box-shadow: inset 0 0 0 999px rgba(0, 0, 0, .02);
+        }
+
+        &:active {
+          transform: translateY(0);
+          box-shadow: inset 0 0 0 999px rgba(0, 0, 0, .04);
+        }
+
+        &:focus-visible {
+          outline: none;
+          box-shadow:
+            0 0 0 2px var(--accent-3),
+            0 0 0 4px rgba(0, 0, 0, .15);
+        }
+      }
+
+      /* dashed separator between each member/guest icon */
+      a + a::before {
+        content: "";
+        position: absolute;
+        inset-inline: var(--sep-inset);
+        inset-block-start: var(--sep-offset);
+        border-top: var(--bdash);
+        opacity: .35;
+        pointer-events: none;
+      }
     }
   }
 }
@@ -199,8 +250,7 @@
 }
 
 /* icon swap logic (shared) */
-#icon-sun,
-#icon-moon { display: none; }
+#icon-sun, #icon-moon { display: none; }
 body[data-theme="light"] #icon-moon { display: inline-block; color: var(--accent-3); }
 body[data-theme="dark"]  #icon-sun  { display: inline-block; color: var(--accent-2); }
 
@@ -237,10 +287,9 @@ body[data-theme="dark"]  #icon-sun  { display: inline-block; color: var(--accent
     a {
       display: block;
       padding: .5rem .6rem;
-      border-radius: 6px;
+      border-radius: 4px;
       text-decoration: none;
       color: var(--text-medCon);
-
       &:hover { background: var(--bg-3); color: var(--accent-1); }
     }
   }
@@ -270,8 +319,7 @@ body[data-sidebar="open"] {
 
 /* Light */
 [data-theme="light"] {
-  #navstrip,
-  #leftbar {
+  #navstrip, #leftbar {
     background: linear-gradient(rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.06)), var(--bg-2);
     color: var(--text-hiCon);
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.06);
@@ -282,10 +330,7 @@ body[data-sidebar="open"] {
 
   /* plate tokens (toggle + leftbar panel) */
   #theme-toggle,
-  #leftbar .lb-plate {
-    --plate-bg: var(--bg-2);
-    --plate-text: var(--text-hiCon);
-  }
+  #leftbar .lb-plate { --plate-bg: var(--bg-2); --plate-text: var(--text-hiCon); }
 
   /* drawer coloring */
   #sidebar { background: var(--bg-2); color: var(--text-hiCon); }
@@ -293,8 +338,7 @@ body[data-sidebar="open"] {
 
 /* Dark */
 [data-theme="dark"] {
-  #navstrip,
-  #leftbar {
+  #navstrip, #leftbar {
     background: var(--bg-grad), var(--bg-2);
     background-blend-mode: var(--bg-blend);
     color: var(--text-clear);
@@ -306,20 +350,11 @@ body[data-sidebar="open"] {
 
   /* plate tokens (toggle + leftbar panel) */
   #theme-toggle,
-  #leftbar .lb-plate {
-    --plate-bg: var(--bg-3);
-    --plate-text: var(--text-clear);
-  }
+  #leftbar .lb-plate { --plate-bg: var(--bg-3); --plate-text: var(--text-clear); }
 
   /* drawer coloring */
   #sidebar { background: var(--bg-3); color: var(--text-clear); }
 }
-
-/* (kept from your original; grouped) */
-[data-theme="dark"] .bm-head .plate-info__staff img,
-[data-theme="light"] .bm-head .plate-info__staff img { filter: saturate(15%); }
-[data-theme="dark"] .bm-head .plate-info__staff img:hover,
-[data-theme="light"] .bm-head .plate-info__staff img:hover { filter: none; }
 
 
 /* ==========================================================
@@ -337,5 +372,12 @@ body[data-sidebar="open"] {
    RESPONSIVE
    ========================================================== */
 
-@media (max-width: 920px) { :root { --lb-icon-sz: 34px; } }
-@media (max-width: 680px) { :root { --lb-icon-sz: 32px; } }
+// @media (max-width: 920px) { :root { --lb-icon-sz: 32px; } }
+// @media (max-width: 680px) { :root { --lb-icon-sz: 32px; } }
+
+/* ==========================================================
+   JCINK HELPERS
+   ========================================================== */
+
+/* Hide ACP/MCP links when Jcink outputs "0" */
+.acp-0, .mcp-0 { display: none !important; }

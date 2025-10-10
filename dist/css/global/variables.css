@@ -27,13 +27,13 @@
   --push-w: 250px;
   --push-msg: "click to close";
   --nav-h: clamp(44px, 6vh, 56px);
-  --leftbar-w: clamp(44px, 6vw, 40px);
+  --leftbar-w: clamp(44px, 6vw, 56px);
   --frame-join: 1px;
   --z-nav: 10;
   /* container size for each icon */
   --lb-icon-sz: 32px;
   /* font size of the icon glyph inside */
-  --lb-icon-font: 1rem;
+  --lb-icon-font: 0.75rem;
   /* good default */
   /* component tokens */
   --gutter: 5vw;

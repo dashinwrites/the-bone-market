@@ -91,18 +91,50 @@ Magic is currency, and the black market thrives on blood.
     <button id="sidebar-toggle" class="icon" type="button" aria-label="Menu">
       <i class="fa-solid fa-bars"></i>
     </button>
-    <a href="../../public/index.html" class="icon" aria-current="page">
+    <a href="/" class="icon" aria-current="page">
       <i class="fa-solid fa-house"></i>
     </a>
-    <a href="/forums" class="icon">
-      <i class="fa-solid fa-scroll"></i>
+    <a href="/" class="icon">
+      <i class="fa-solid fa-book"></i></i>
     </a>
-    <a href="/members" class="icon">
-      <i class="fa-solid fa-user-group"></i>
-    </a>
-    <a href="/messages" class="icon">
-      <i class="fa-solid fa-envelope"></i>
-    </a>
+    <div class="m-<!-- |g_id| -->">
+      <a href="/index.php?showuser=<!-- |id| -->">
+        <i class="fa-solid fa-user"></i></i>
+      </a>
+      <!-- begin subaccounts -->
+      <a>
+        <i class="fa-solid fa-exchange"></i>
+      </a>
+      <!-- end subaccounts -->
+      <a href="/index.php?act=UserCP">
+        <i class="fa-solid fa-pencil"></i></i>
+      </a>
+      <a href="/index.php?act=Msg&CODE=01">
+        <i class="fa-solid fa-envelope"></i></i> (<!-- |new_msg| -->)
+      </a>
+      <a href="/index.php?act=UserCP&CODE=alerts">
+        <i class="fa-solid fa-bell"></i></i> (<!-- |new_alerts| -->)
+      </a>
+      <a href="index.php?act=Login&CODE=03&key=<!-- |auth_key| -->">
+        <i class="fa-solid fa-sign-out"></i></i>
+      </a>
+      <a href="admin.php" target="_blank" class="acp-<!-- |g_access_cp| -->">
+        <i class="fa-solid fa-wrench"></i></i>
+      </a>
+      <a href="/index.php?act=modcp" class="mcp-<!-- |g_is_supmod| -->">
+        <i class="fa-solid fa-cog"></i></i>
+      </a>
+    </div>
+
+    <div class="g-<!-- |g_id| -->" style="display: none;">
+      <a href='/index.php?act=Login&CODE=00'>
+        <i class="fa-solid fa-sign-in"></i></i>
+      </a>
+      <a href='/index.php?act=Reg&CODE=00'>
+        <i class="fa-solid fa-user-plus"></i></i>
+      </a>
+
+    </div>
   </div>
 </nav>
 

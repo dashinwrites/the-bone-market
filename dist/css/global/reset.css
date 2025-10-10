@@ -24,3 +24,18 @@ select {
 a {
   text-decoration: none;
   color: var(--text-bright); }
+
+#userlinks {
+  display: none; }
+
+/* hides staff links from non-staff users */
+.mcp-0, .acp-0 {
+  display: none; }
+
+/* hides member links from guests */
+.m-2 {
+  display: none; }
+
+/* forces guest links to show for guests */
+.g-2 {
+  display: block !important; }
