@@ -6,6 +6,7 @@
         })
     </head>
     <body id="Profile" class="g-4">
+        <div class="bm-container">
         @@include('../source/templates/header.html', {
             "prefix": ".."
         })
@@ -19,7 +20,205 @@
 		
 
             <!--Profile-->
-            <section class="profile"></section>
+            <section class="bm-profile" data-profile="dossier" data-set="anatomy">
+                <!-- TOP TABS -->
+                <div class="bm-tabs" role="tablist" aria-label="Profile sections">
+                    <button class="bm-tab is-active" id="tabbtn-cover" role="tab"
+                            aria-selected="true" aria-controls="tab-cover" data-tab="cover">cover</button>
+
+                    <button class="bm-tab" id="tabbtn-basic" role="tab"
+                            aria-selected="false" aria-controls="tab-basic" data-tab="basic">basic info & aesthetic</button>
+
+                    <button class="bm-tab" id="tabbtn-cheats" role="tab"
+                            aria-selected="false" aria-controls="tab-cheats" data-tab="cheats">cheatsheet & relationships</button>
+
+                    <button class="bm-tab" id="tabbtn-freeform" role="tab"
+                            aria-selected="false" aria-controls="tab-freeform" data-tab="freeform">freeform</button>
+
+                    <button class="bm-tab" id="tabbtn-plotting" role="tab"
+                            aria-selected="false" aria-controls="tab-plotting" data-tab="plotting">plotting</button>
+
+                    <button class="bm-tab" id="tabbtn-ooc" role="tab"
+                            aria-selected="false" aria-controls="tab-ooc" data-tab="ooc">ooc info</button>
+
+                    <span class="bm-tab__active-bar" aria-hidden="true"></span>
+                </div>
+
+                <!-- PANELS -->
+                <div class="bm-panels">
+                    <!-- COVER -->
+                    <section id="tab-cover" class="bm-panel" role="tabpanel" aria-labelledby="tabbtn-cover">
+                    <header class="bm-cover">
+                        <figure class="bm-cover__image">
+                        <img src="https://picsum.photos/1600/900" alt="Character cover image">
+                        </figure>
+                        <div class="bm-cover__overlay">
+                        <h1 class="bm-cover__name">
+                            Character Name
+                            <em class="bm-cover__alias">epithet / alias</em>
+                        </h1>
+                        <div class="bm-cover__links">
+                            <a class="chip" href="#plotting/interested">plots</a>
+                            <a class="chip" href="?act=Msg&CODE=4">message</a>
+                            <a class="chip" href="#ooc">ooc prefs</a>
+                            <a class="chip" href="#freeform">freeform</a>
+                        </div>
+                        <aside class="bm-cover__tw" aria-label="content warnings">
+                            <strong>content warnings</strong>
+                            <ul>
+                            <li>violence (underground fights)</li>
+                            <li>medical imagery / blood</li>
+                            <li>coercion themes</li>
+                            </ul>
+                        </aside>
+                        </div>
+                    </header>
+                    </section>
+
+    <!-- BASIC INFO & AESTHETIC -->
+    <section id="tab-basic" class="bm-panel" role="tabpanel" aria-labelledby="tabbtn-basic" hidden>
+      <div class="bm-block grid-2">
+        <div>
+          <h2 class="bm-h">basics</h2>
+          <ul class="stack">
+            <li><b>name:</b> …</li>
+            <li><b>pronouns:</b> …</li>
+            <li><b>appears/age:</b> …</li>
+            <li><b>species:</b> …</li>
+            <li><b>role:</b> …</li>
+            <li><b>territory:</b> …</li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="bm-h">aesthetic</h2>
+          <ul class="stack">
+            <li>palette: bone • oxblood • soot</li>
+            <li>textures: parchment • wax • silk</li>
+            <li>motifs: sigils • blades • threads</li>
+            <li>sounds: <em>song title</em> — artist</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bm-block">
+        <h2 class="bm-h">moodboard</h2>
+        <div class="mood-grid">
+          <img src="https://picsum.photos/400/400?1" alt="">
+          <img src="https://picsum.photos/400/400?2" alt="">
+          <img src="https://picsum.photos/400/400?3" alt="">
+          <img src="https://picsum.photos/400/400?4" alt="">
+          <img src="https://picsum.photos/400/400?5" alt="">
+          <img src="https://picsum.photos/400/400?6" alt="">
+        </div>
+      </div>
+    </section>
+
+    <!-- CHEATSHEET & RELATIONSHIPS -->
+    <section id="tab-cheats" class="bm-panel" role="tabpanel" aria-labelledby="tabbtn-cheats" hidden>
+      <div class="bm-block grid-3">
+        <div>
+          <h2 class="bm-h">quick facts</h2>
+          <ul class="tick">
+            <li>alignment / vibe</li>
+            <li>strengths / flaws</li>
+            <li>magic cost / ban</li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="bm-h">hooks</h2>
+          <ol class="hooks__list">
+            <li><b>steal:</b> …</li>
+            <li><b>confess:</b> …</li>
+            <li><b>betray:</b> …</li>
+          </ol>
+        </div>
+        <div>
+          <h2 class="bm-h">stats (flavor)</h2>
+          <ul class="stack">
+            <li>grit: ●●●○○</li>
+            <li>charm: ●●●●○</li>
+            <li>menace: ●●○○○</li>
+            <li>luck: ●●○○○</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bm-block">
+        <h2 class="bm-h">relationships</h2>
+        <ul class="rel">
+          <li><span class="tag tag--lover">lover</span> <b>name</b> — one-line vibe.</li>
+          <li><span class="tag tag--rival">rival</span> <b>name</b> — one-line vibe.</li>
+          <li><span class="tag tag--kin">kin</span> <b>name</b> — one-line vibe.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- FREEFORM -->
+    <section id="tab-freeform" class="bm-panel" role="tabpanel" aria-labelledby="tabbtn-freeform" hidden>
+      <article class="bm-block prose">
+        <h2 class="bm-h">freeform</h2>
+        <p>Write in-character here. Paragraphs, little vignettes, etc.</p>
+      </article>
+    </section>
+
+    <!-- PLOTTING (NESTED TABS) -->
+    <section id="tab-plotting" class="bm-panel" role="tabpanel" aria-labelledby="tabbtn-plotting" hidden>
+      <div class="bm-subtabs" role="tablist" aria-label="Plotting">
+        <button class="bm-subtab is-active" id="subbtn-interested" role="tab"
+                aria-selected="true" aria-controls="sub-interested" data-subtab="interested">interested</button>
+        <button class="bm-subtab" id="subbtn-not" role="tab"
+                aria-selected="false" aria-controls="sub-not" data-subtab="not">not interested</button>
+        <span class="bm-subtab__active-bar" aria-hidden="true"></span>
+      </div>
+
+      <div class="bm-subpanels">
+        <section id="sub-interested" class="bm-subpanel" role="tabpanel" aria-labelledby="subbtn-interested">
+          <div class="bm-block">
+            <ul class="tick">
+              <li>slow-burn enemies → reluctant allies → lovers</li>
+              <li>debts/favors economy (markers, bargains, blood)</li>
+              <li>found family w/ sharp edges</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="sub-not" class="bm-subpanel" role="tabpanel" aria-labelledby="subbtn-not" hidden>
+          <div class="bm-block">
+            <ul class="tick">
+              <li>graphic torture</li>
+              <li>sexual violence</li>
+              <li>scat</li>
+            </ul>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- OOC INFO -->
+    <section id="tab-ooc" class="bm-panel" role="tabpanel" aria-labelledby="tabbtn-ooc" hidden>
+      <div class="bm-block grid-2">
+        <div>
+          <h2 class="bm-h">writer</h2>
+          <ul class="stack">
+            <li>timezone: America/Denver</li>
+            <li>reply pace: …</li>
+            <li>contact: PM / Discord …</li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="bm-h">preferences</h2>
+          <ul class="stack">
+            <li>3rd or 1st present; 400–800 words</li>
+            <li>wants: hurt/comfort, debts, peril</li>
+            <li>limits: see Not Interested</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>
+
+
 
             <!-- Copyright Information -->
             <div class="tableborder" align="center">
@@ -43,5 +242,6 @@
         @@include('../source/templates/scripts.html', {
             "prefix": "../dist"
         })   
+        </div>
     </body>
 </html>

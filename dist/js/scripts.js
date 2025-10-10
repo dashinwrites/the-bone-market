@@ -359,3 +359,91 @@ if(pageType === 'store') {
     }
   }
 })();
+
+// Main Profile Tabs
+
+(() => {
+  /* ---------- helpers ---------- */
+  const $ = (s, r=document) => r.querySelector(s);
+  const $$= (s, r=document) => Array.from(r.querySelectorAll(s));
+
+  function moveBar(bar, btn) {
+    if (!bar || !btn) return;
+    const r = btn.getBoundingClientRect();
+    const p = btn.parentElement.getBoundingClientRect();
+    bar.style.inlineSize = r.width + 'px';
+    bar.style.transform  = `translateX(${r.left - p.left}px)`;
+  }
+
+  /* ---------- top-level tabs ---------- */
+  const tabs   = $$('.bm-tab');
+  const panels = $$('.bm-panel');
+  const bar    = $('.bm-tab__active-bar');
+
+  function activateTop(id) {
+    tabs.forEach(b => {
+      const on = b.dataset.tab === id;
+      b.classList.toggle('is-active', on);
+      b.setAttribute('aria-selected', String(on));
+    });
+    panels.forEach(p => p.hidden = p.id !== `tab-${id}`);
+    moveBar(bar, $(`.bm-tab[data-tab="${id}"]`));
+  }
+
+  /* ---------- nested plotting tabs ---------- */
+  const subtabs   = $$('.bm-subtab');
+  const subpanels = $$('.bm-subpanel');
+  const subbar    = $('.bm-subtab__active-bar');
+
+  function activateSub(id) {
+    subtabs.forEach(b => {
+      const on = b.dataset.subtab === id;
+      b.classList.toggle('is-active', on);
+      b.setAttribute('aria-selected', String(on));
+    });
+    subpanels.forEach(p => p.hidden = p.id !== `sub-${id}`);
+    moveBar(subbar, $(`.bm-subtab[data-subtab="${id}"]`));
+  }
+
+  /* ---------- deep-link routing ---------- */
+  // hashes: #cover, #basic, #cheats, #freeform, #plotting, #ooc
+  // nested: #plotting/interested or #plotting/not
+  function routeFromHash() {
+    const hash = (location.hash || '#cover').slice(1);  // remove '#'
+    const [top, sub] = hash.split('/');
+    const topId = ['cover','basic','cheats','freeform','plotting','ooc'].includes(top) ? top : 'cover';
+    activateTop(topId);
+    if (topId === 'plotting') {
+      activateSub(sub === 'not' ? 'not' : 'interested');
+    }
+  }
+
+  /* ---------- events ---------- */
+  tabs.forEach(b => b.addEventListener('click', () => {
+    const id = b.dataset.tab;
+    activateTop(id);
+    // set hash (keep nested sub if on plotting)
+    if (id === 'plotting') {
+      const sub = $('.bm-subtab.is-active')?.dataset.subtab || 'interested';
+      history.replaceState(null, '', `#${id}/${sub}`);
+    } else {
+      history.replaceState(null, '', `#${id}`);
+    }
+  }));
+
+  subtabs.forEach(b => b.addEventListener('click', () => {
+    const id = b.dataset.subtab;
+    activateSub(id);
+    history.replaceState(null, '', `#plotting/${id}`);
+  }));
+
+  window.addEventListener('resize', () => {
+    moveBar(bar, $('.bm-tab.is-active'));
+    moveBar(subbar, $('.bm-subtab.is-active'));
+  }, { passive: true });
+
+  window.addEventListener('hashchange', routeFromHash);
+
+  /* ---------- init ---------- */
+  routeFromHash();
+})();

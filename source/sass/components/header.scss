@@ -269,3 +269,8 @@ body {
   margin: 0;
   padding: 0;
 }
+
+.bm-head { display: none; }
+body[id="idx"] .bm-head {
+  display: block;
+}
