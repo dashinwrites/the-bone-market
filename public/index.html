@@ -31,19 +31,56 @@
     </head>
     <body id="idx" class="g-4" data-theme="dark">
         <div class="bm-container">
-        <div id="navstrip" align="left">
-    <i class="fa-solid fa-bars"></i> &nbsp; <a href="../public/index.html">the bone market</a> <a href="/">more words</a>
-    <span class="theme">
-        <button id="theme-toggle" type="button" aria-label="Toggle theme">
-            <i class="fa-solid fa-moon" id="icon-moon" title="Switch to dark mode"></i>
-            <i class="fa-solid fa-sun"  id="icon-sun"  title="Switch to light mode"></i>
-        </button>
-    </span>
-</div>
+        <nav id="navstrip" align="left">
+  &nbsp; <a href="../public/index.html">the bone market</a>
+  <a href="/">more words</a>
+  <span class="theme">
+    <button id="theme-toggle" type="button" aria-label="Toggle theme">
+      <i
+        class="fa-solid fa-moon"
+        id="icon-moon"
+        title="Switch to dark mode"
+      ></i>
+      <i class="fa-solid fa-sun" id="icon-sun" title="Switch to light mode"></i>
+    </button>
+  </span>
+</nav>
 
-<div id="leftbar">
-    
-</div>
+<nav id="leftbar">
+  <div class="lb-plate" role="navigation" aria-label="Quick actions">
+    <button id="sidebar-toggle" class="icon" type="button" aria-label="Menu">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <a href="../public/index.html" class="icon" aria-current="page">
+      <i class="fa-solid fa-house"></i>
+    </a>
+    <a href="/forums" class="icon">
+      <i class="fa-solid fa-scroll"></i>
+    </a>
+    <a href="/members" class="icon">
+      <i class="fa-solid fa-user-group"></i>
+    </a>
+    <a href="/messages" class="icon">
+      <i class="fa-solid fa-envelope"></i>
+    </a>
+  </div>
+</nav>
+
+<aside id="sidebar" hidden>
+  <!-- put whatever you want here: quick links, staff, search, etc. -->
+  <button class="sidebar-close" type="button" aria-label="Close sidebar">
+    <i class="fa-solid fa-xmark"></i>
+  </button>
+  <nav class="sidebar-nav">
+    <a href="/">Home</a>
+    <a href="/forums">Forums</a>
+    <a href="/members">Members</a>
+  </nav>
+</aside>
+
+<!-- backdrop for click-to-close (insert once, anywhere near the end of body) -->
+<div id="sidebar-scrim" hidden></div>
+
         <header class="bm-head">
   <div class="plate-meta left">Pl. VII</div>
   <div class="plate-info">

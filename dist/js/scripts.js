@@ -226,3 +226,78 @@ if(pageType === 'store') {
     <a href="?act=store&code=edit_inventory" class="staffOnly">Edit Inventory</a></div></div>`;
     */
 }
+
+(() => {
+  const body = document.body;
+  const btn  = document.getElementById('sidebar-toggle');
+  const pane = document.getElementById('sidebar');
+  const scrim= document.getElementById('sidebar-scrim');
+  const closeBtn = document.querySelector('#sidebar .sidebar-close');
+
+  if (!btn || !pane || !scrim) return;
+
+  const STORAGE_KEY = 'sidebarOpen';
+  const qsFocusable = [
+    'a[href]','button:not([disabled])','input:not([disabled])',
+    'select:not([disabled])','textarea:not([disabled])','[tabindex]:not([tabindex="-1"])'
+  ].join(',');
+
+  function setState(open, { skipFocus = false } = {}) {
+  body.dataset.sidebar = open ? 'open' : 'closed';
+  btn.setAttribute('aria-expanded', String(open));
+  pane.hidden = !open;
+  scrim.hidden = !open;
+  try { localStorage.setItem(STORAGE_KEY, open ? '1' : '0'); } catch {}
+
+  if (skipFocus) return; // ← new flag to skip autofocus
+
+  if (open) {
+    // focus first focusable in pane, else pane itself
+    const first = pane.querySelector(qsFocusable) || pane;
+    first.focus({ preventScroll: true });
+  } else {
+    btn.focus({ preventScroll: true });
+  }
+}
+
+  function toggle() {
+    const open = body.dataset.sidebar !== 'open';
+    setState(open);
+  }
+
+  // restore previous state (default: closed)
+  try {
+  if (localStorage.getItem(STORAGE_KEY) === '1') {
+    // reopen visually but skip autofocus on page load
+    setState(true, { skipFocus: true });
+  } else {
+    setState(false, { skipFocus: true });
+  }
+} catch {
+  setState(false, { skipFocus: true });
+}
+
+  // events
+  btn.addEventListener('click', toggle);
+  scrim.addEventListener('click', () => setState(false));
+  closeBtn?.addEventListener('click', () => setState(false));
+
+  // ESC to close
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && body.dataset.sidebar === 'open') {
+      e.preventDefault();
+      setState(false);
+    }
+  });
+
+  // optional: basic focus containment when open
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Tab' || body.dataset.sidebar !== 'open') return;
+    const nodes = Array.from(pane.querySelectorAll(qsFocusable));
+    if (!nodes.length) return;
+    const first = nodes[0], last = nodes[nodes.length - 1];
+    const active = document.activeElement;
+    if (e.shiftKey && active === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && active === last) { e.preventDefault(); first.focus(); }
+  });
+})();

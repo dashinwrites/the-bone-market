@@ -40,3 +40,4 @@ document.addEventListener("DOMContentLoaded", () => {
     if (persist) localStorage.setItem("theme", theme);
   }
 });
+

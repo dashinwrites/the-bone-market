@@ -1,4 +1,10 @@
 @charset "UTF-8";
+/* =========================================
+   Plate Button Mixin (theme-toggle style)
+   ========================================= */
+/* Optional: current/active state helper */
+/* Optional: tooltip pulled from a data attribute (e.g., data-label) */
+/* Optional: respect prefers-reduced-motion on anything you include this on */
 /***********************************************
  The Bone Market — Member Group Gradients (RGB)
  SCSS maps + mixins to auto-generate classes.
@@ -1528,28 +1534,3 @@ html,
 body {
   margin: 0;
   padding: 0; }
-
-#navstrip,
-#leftbar,
-.bm-head {
-  margin: 0; }
-
-/* nuke any stray margins */
-/* ====== FIXED BARS ====== */
-#navstrip {
-  position: fixed;
-  inset-block-start: 0;
-  inset-inline: 0;
-  block-size: var(--nav-h);
-  z-index: 100; }
-
-#leftbar {
-  position: fixed;
-  inset-block-start: var(--nav-h);
-  inset-inline-start: 0;
-  inline-size: var(--leftbar-w);
-  block-size: calc(100dvb - var(--nav-h));
-  z-index: 90; }
-  @supports not (height: 100dvb) {
-    #leftbar {
-      block-size: calc(100vh - var(--nav-h)); } }

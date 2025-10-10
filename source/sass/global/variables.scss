@@ -34,6 +34,12 @@
   --frame-join: 1px;
   --z-nav: 10;
 
+  /* container size for each icon */
+  --lb-icon-sz: 32px;
+
+  /* font size of the icon glyph inside */
+  --lb-icon-font: 1rem; /* good default */
+
   /* component tokens */
   --gutter: 5vw;
   --side-col: 20vw;

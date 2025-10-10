@@ -9,13 +9,13 @@
 #navstrip {
   position: fixed;
   inset-block-start: 0;
-  inset-inline: 0;
+  inset-inline: var(--leftbar-w) 0;
   display: flex;
   align-items: center;
   gap: 1rem;
   flex-wrap: wrap;
-  padding: 0 1rem;
-  background: var(bg-2);
+  padding: 0 1rem 0 0;
+  background: var(--bg-2);
   box-shadow: var(--plate-shadow);
   font-family: var(--font-serif);
   font-size: var(--size-lg);
@@ -23,7 +23,7 @@
   transition: var(--transi-quick);
   block-size: var(--nav-h);
   z-index: var(--z-nav);
-  // @include pseudo-frame(false, 4px 4px 4px 0);
+  text-transform: lowercase;
 
   a {
     color: var(--link);
@@ -69,6 +69,7 @@
     #theme-toggle {
       background: var(--plate-bg);
       border: var(--plate-border);
+
       &:hover {
         background: var(--bg-3);
         color: var(--accent-1);
@@ -83,162 +84,258 @@
   }
 }
 
-/* ===========================
-   Left bar
-   =========================== */
+/* ---------------------------
+   Leftbar (single plate panel)
+   --------------------------- */
 #leftbar {
   position: fixed;
-  inset-block-start: var(--nav-h);
+  inset-block-start: 0;
   inset-inline-start: 0;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  align-items: start;
   justify-content: flex-start;
-
   padding-block: 20px;
-  inline-size: 40px;
-  block-size: calc(100dvb - var(--nav-h));
-
-  background: var(--plate-bg);
+  inline-size: var(--leftbar-w);
+  block-size: 100dvb;
+  z-index: 90;
+  background: transparent; /* panel draws the plate */
   color: var(--text-clear);
-  box-shadow: var(--plate-shadow);
 
-  z-index: var(--z-nav);
+  @supports not (height: 100dvb) { block-size: 100vh; }
 
-  // @include pseudo-frame(true, 0);
+  /* one-and-only plate container for all icons */
+  .lb-plate {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;      /* vertical rhythm */
+    padding: 6px;    /* room so separators don't touch border */
+
+    background: var(--plate-bg);
+    border: var(--plate-border);
+    border-radius: 8px;
+    box-shadow: 0 1px 0 rgba(0,0,0,.15);
+    color: var(--plate-text, var(--text-clear));
+
+    /* dashed inset like the theme toggle */
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 4px;
+      border: var(--bdash);
+      opacity: .35;
+      pointer-events: none;
+      border-radius: 6px;
+    }
+  }
+
+  /* icons inside the panel (no individual plates) */
+  .lb-plate .icon {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    inline-size: var(--lb-icon-sz, 38px);
+    block-size: var(--lb-icon-sz, 38px);
+
+    background: transparent;
+    border: 0;
+    border-radius: 6px;
+    color: currentColor;
+    text-decoration: none;
+    cursor: pointer;
+    transition: var(--transi-quick);
+    isolation: isolate;
+
+    i {
+      font-size: var(--lb-icon-font, 1.05rem);
+      line-height: 1;
+      color: currentColor;
+      display: inline-block;
+    }
+
+    /* dashed separator between items (skip the first) */
+    & + .icon::before {
+      content: "";
+      position: absolute;
+      inset-inline: 8px;      /* indent the rule */
+      inset-block-start: -3px;
+      border-top: var(--bdash);
+      opacity: .35;
+      pointer-events: none;
+    }
+
+    /* feedback without extra borders */
+    &:hover {
+      transform: translateY(-1px);
+      color: var(--accent-1);
+      box-shadow: inset 0 0 0 999px rgba(0,0,0,.02);
+    }
+    &:active {
+      transform: translateY(0);
+      box-shadow: inset 0 0 0 999px rgba(0,0,0,.04);
+    }
+    &:focus-visible {
+      outline: none;
+      box-shadow:
+        0 0 0 2px var(--accent-3),
+        0 0 0 4px rgba(0,0,0,.15);
+    }
+    &[aria-current="page"] {
+      color: var(--accent-1);
+      box-shadow: inset 0 0 0 999px rgba(0,0,0,.045);
+    }
+  }
 }
 
-/* ===========================
-   Theme toggle (single source)
-   =========================== */
+/* ---------------------------
+   Theme Toggle (component)
+   --------------------------- */
 #theme-toggle {
-  position: relative;
-  pointer-events: auto;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.4rem 0.8rem;
-
-  background: var(--plate-bg);
-  border: var(--plate-border);
-  border-radius: 4px;
-
-  font-family: var(--font-serif);
-  font-size: var(--size-lg);
-  letter-spacing: 0.03em;
-  color: var(--plate-text, var(--text-clear));
-  line-height: 1;
-  cursor: pointer;
-  transition: var(--transi-quick);
-  isolation: isolate;
-
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15), inset 0 0 0 999px rgba(0, 0, 0, 0);
-
-  &::before {
-    content: "";
-    position: absolute;
-    inset: 2px;
-    border: var(--bdash);
-    opacity: 0.35;
-    pointer-events: none;
-  }
-
-  &:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18),
-      inset 0 0 0 999px rgba(0, 0, 0, 0.02);
-  }
-  &:active {
-    transform: translateY(0);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2),
-      inset 0 0 0 999px rgba(0, 0, 0, 0.04);
-  }
-  &:focus-visible {
-    outline: none;
-    box-shadow: 0 0 0 2px var(--accent-3), 0 0 0 4px rgba(0, 0, 0, 0.15);
-  }
-
-  .label {
-    text-transform: uppercase;
-    font-size: var(--size-sm);
-    letter-spacing: 0.08em;
-    pointer-events: none;
-    opacity: 0.9;
-  }
-  i {
-    font-size: 1rem;
-    line-height: 1;
-    display: inline-block;
-  }
+  @include plate-button($pad: .4rem .8rem, $radius: 4px, $icon-size: 1rem);
+  @include reduce-motion;
 }
 
+/* icon swap logic (shared) */
 #icon-sun,
-#icon-moon {
-  display: none;
-}
-body[data-theme="light"] #icon-moon {
-  display: inline-block;
-  color: var(--accent-3);
-}
-body[data-theme="dark"] #icon-sun {
-  display: inline-block;
-  color: var(--accent-2);
+#icon-moon { display: none; }
+body[data-theme="light"] #icon-moon { display: inline-block; color: var(--accent-3); }
+body[data-theme="dark"]  #icon-sun  { display: inline-block; color: var(--accent-2); }
+
+/* ---------------------------
+   Off-canvas Sidebar (drawer)
+   --------------------------- */
+#sidebar {
+  position: fixed;
+  inset-block: var(--nav-h) 0;             /* below top nav */
+  inset-inline-start: var(--leftbar-w);    /* right of leftbar */
+  inline-size: clamp(260px, 28vw, 380px);
+  background: var(--bg-2);
+  color: var(--text-clear);
+  border-inline-start: var(--plate-border);
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+  transform: translateX(-102%);
+  transition: var(--transi-quick);
+  z-index: calc(var(--z-nav) - 1);
+  padding: 1rem;
+  overflow: auto;
+
+  .sidebar-close {
+    @include plate-button($size: 32px, $radius: 6px, $icon-size: 1rem);
+    position: absolute;
+    inset-inline-end: .75rem;
+    inset-block-start: .75rem;
+  }
+
+  .sidebar-nav {
+    display: grid;
+    gap: .5rem;
+    margin-block-start: 2.25rem;
+
+    a {
+      display: block;
+      padding: .5rem .6rem;
+      border-radius: 6px;
+      text-decoration: none;
+      color: var(--text-medCon);
+
+      &:hover { background: var(--bg-3); color: var(--accent-1); }
+    }
+  }
 }
 
+/* scrim/backdrop for the drawer */
+#sidebar-scrim {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.35);
+  backdrop-filter: blur(1px);
+  transition: var(--transi-quick);
+  z-index: calc(var(--z-nav) - 2);
+}
+
+/* open state driven by a data attribute on <body> */
+body[data-sidebar="open"] {
+  #sidebar { transform: translateX(0); }
+  #sidebar[hidden] { display: block; }        /* unhide when open */
+  #sidebar-scrim[hidden] { display: block; }  /* unhide scrim */
+}
+
+
+/* ==========================================================
+   THEMING
+   ========================================================== */
+
+/* Light */
 [data-theme="light"] {
   #navstrip,
   #leftbar {
-    background: linear-gradient(rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.06)),
-      var(--bg-2);
+    background: linear-gradient(rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.06)), var(--bg-2);
     color: var(--text-hiCon);
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.06);
   }
-  #navstrip a {
-    color: var(--text-medCon);
-  }
-  #navstrip a + a::before {
-    color: var(--text-loCon);
-    opacity: 0.85;
-  }
-  #theme-toggle {
+
+  #navstrip a { color: var(--text-medCon); }
+  #navstrip a + a::before { color: var(--text-loCon); opacity: 0.85; }
+
+  /* plate tokens (toggle + leftbar panel) */
+  #theme-toggle,
+  #leftbar .lb-plate {
     --plate-bg: var(--bg-2);
     --plate-text: var(--text-hiCon);
   }
+
+  /* drawer coloring */
+  #sidebar { background: var(--bg-2); color: var(--text-hiCon); }
 }
 
+/* Dark */
 [data-theme="dark"] {
   #navstrip,
   #leftbar {
     background: var(--bg-grad), var(--bg-2);
     background-blend-mode: var(--bg-blend);
     color: var(--text-clear);
-    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25),
-      inset 0 0 0 999px rgba(255, 255, 255, 0);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25), inset 0 0 0 999px rgba(255, 255, 255, 0);
   }
-  #navstrip a {
-    color: var(--text-loCon);
-  }
-  #navstrip a + a::before {
-    color: var(--text-medCon);
-    opacity: 0.75;
-  }
-  #theme-toggle {
+
+  #navstrip a { color: var(--text-loCon); }
+  #navstrip a + a::before { color: var(--text-medCon); opacity: 0.75; }
+
+  /* plate tokens (toggle + leftbar panel) */
+  #theme-toggle,
+  #leftbar .lb-plate {
     --plate-bg: var(--bg-3);
     --plate-text: var(--text-clear);
   }
+
+  /* drawer coloring */
+  #sidebar { background: var(--bg-3); color: var(--text-clear); }
 }
 
-[data-theme="dark"] .bm-head .plate-info__staff img {
-  filter: saturate(15%);
+/* (kept from your original; grouped) */
+[data-theme="dark"] .bm-head .plate-info__staff img,
+[data-theme="light"] .bm-head .plate-info__staff img { filter: saturate(15%); }
+[data-theme="dark"] .bm-head .plate-info__staff img:hover,
+[data-theme="light"] .bm-head .plate-info__staff img:hover { filter: none; }
+
+
+/* ==========================================================
+   BEHAVIORS / PREFS
+   ========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  #sidebar { transition: none; }
+  #leftbar .lb-plate .icon { transition: none; }
+  #leftbar .lb-plate .icon:hover { transform: none; }
 }
 
-[data-theme="light"] .bm-head .plate-info__staff img {
-  filter: saturate(15%);
-}
 
-[data-theme="dark"] .bm-head .plate-info__staff img:hover {
-  filter: none;
-}
-[data-theme="light"] .bm-head .plate-info__staff img:hover {
-  filter: none;
-}
+/* ==========================================================
+   RESPONSIVE
+   ========================================================== */
+
+@media (max-width: 920px) { :root { --lb-icon-sz: 34px; } }
+@media (max-width: 680px) { :root { --lb-icon-sz: 32px; } }

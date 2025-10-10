@@ -9,6 +9,12 @@ body {
   font-size: var(--size-md);
 }
 
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
 // * {
 //   scrollbar-width: thin;
 //   scrollbar-color: #397524 #DFE9EB;

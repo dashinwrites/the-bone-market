@@ -269,32 +269,3 @@ body {
   margin: 0;
   padding: 0;
 }
-#navstrip,
-#leftbar,
-.bm-head {
-  margin: 0;
-} /* nuke any stray margins */
-
-/* ====== FIXED BARS ====== */
-#navstrip {
-  position: fixed;
-  inset-block-start: 0;
-  inset-inline: 0;
-  block-size: var(--nav-h);
-  z-index: 100;
-}
-
-#leftbar {
-  position: fixed;
-  inset-block-start: var(--nav-h);
-  inset-inline-start: 0;
-  inline-size: var(--leftbar-w);
-  block-size: calc(100dvb - var(--nav-h));
-  z-index: 90;
-
-  @supports not (height: 100dvb) {
-    block-size: calc(100vh - var(--nav-h));
-  }
-}
-
-
