@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*******************************
     Variables (streamlined)
 ********************************/
@@ -77,13 +78,29 @@
   --plate-hover-shadow: 0 2px 6px rgba(0,0,0,.18);
   /* nav links */
   --link: var(--text-medCon);
-  --link-sep: var(--text-loCon); }
+  --link-sep: var(--text-loCon);
+  --h-underline-w: 42%;
+  /* change to taste: 30%–60% */
+  --h-underline-alpha: .28;
+  /* lighter/heavier dash */
+  --profile-vpad: 12px;
+  /* breathing room around the whole profile */ }
 
 .category--plate-side {
   --cat-head-h: 8rem;
   /* desired header height */
   --cameo-scale: 1.6;
   /* how much taller the cameo is than the header */ }
+
+.bm-profile {
+  --portrait-max-h: 86%;
+  --portrait-aspect: 3/4;
+  --portrait-offset: clamp(12px, 3vw, 24px);
+  --portrait-max-w: clamp(0px, 38vw, 520px);
+  --cover-bg-opacity: .65;
+  --cover-bg-blend: multiply;
+  --overlay-top: clamp(12px, 3vh, 48px);
+  --overlay-left: clamp(12px, 4vw, 32px); }
 
 /* Light theme */
 [data-theme="light"] {

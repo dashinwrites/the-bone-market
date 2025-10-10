@@ -240,4 +240,4 @@ body {
   display: none; }
 
 body[id="idx"] .bm-head {
-  display: block; }
+  display: grid; }
