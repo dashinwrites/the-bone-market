@@ -684,9 +684,12 @@ a {
   --push-w: 250px;
   --push-msg: "click to close";
   --nav-h: clamp(44px, 6vh, 56px);
-  --leftbar-w: clamp(44px, 6vw, 56px);
+  --leftbar-w: clamp(54px, 8vw, 64px);
   --frame-join: 1px;
   --z-nav: 10;
+  --z-leftbar: var(--z-nav);
+  --z-sidebar: calc(var(--z-leftbar) - 1);
+  --z-scrim:   calc(var(--z-leftbar) - 2);
   /* container size for each icon */
   --lb-icon-sz: 32px;
   /* font size of the icon glyph inside */
@@ -1027,7 +1030,7 @@ html.debug .bm-head {
   padding-block: 20px;
   inline-size: var(--leftbar-w);
   block-size: 100dvb;
-  z-index: 90;
+  z-index: var(--z-leftbar);
   background: transparent;
   /* panel draws the plate */
   color: var(--text-clear);
@@ -1035,6 +1038,30 @@ html.debug .bm-head {
   @supports not (height: 100dvb) {
     #leftbar {
       block-size: 100vh; } }
+  #leftbar .icon--pm,
+  #leftbar .icon--alerts {
+    position: relative;
+    overflow: visible; }
+    #leftbar .icon--pm.has-new::after,
+    #leftbar .icon--alerts.has-new::after {
+      content: "";
+      position: absolute;
+      inset-block-start: -2px;
+      inset-inline-end: -2px;
+      inline-size: 10px;
+      block-size: 10px;
+      -webkit-transform: translate(35%, -35%);
+          -ms-transform: translate(35%, -35%);
+              transform: translate(35%, -35%);
+      /* pull outside corner a bit */
+      border-radius: 50%;
+      background: var(--warn, #dc4949);
+      /* fall back to red */
+      -webkit-box-shadow: 0 0 0 2px var(--bg-2, #fff);
+              box-shadow: 0 0 0 2px var(--bg-2, #fff);
+      /* ring so dot is readable on any bg */
+      z-index: 10;
+      pointer-events: none; }
   #leftbar .lb-plate {
     position: relative;
     display: -webkit-box;
@@ -1050,7 +1077,7 @@ html.debug .bm-head {
     -webkit-align-items: center;
         -ms-flex-align: center;
             align-items: center;
-    z-index: 95;
+    z-index: calc(var(--z-nav) * 2);
     gap: .5rem;
     /* vertical rhythm */
     padding: 6px;
@@ -1332,9 +1359,7 @@ body[data-theme="dark"] #icon-sun {
 #sidebar {
   position: fixed;
   inset-block: var(--nav-h) 0;
-  /* below top nav */
   inset-inline-start: var(--leftbar-w);
-  /* right of leftbar */
   inline-size: clamp(260px, 28vw, 380px);
   background: var(--bg-2);
   color: var(--text-clear);
@@ -1342,12 +1367,18 @@ body[data-theme="dark"] #icon-sun {
           border-inline-start: var(--plate-border);
   -webkit-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
           box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  /* slide-from-left baseline */
   -webkit-transform: translateX(-102%);
       -ms-transform: translateX(-102%);
           transform: translateX(-102%);
-  -webkit-transition: var(--transi-quick);
-  transition: var(--transi-quick);
-  z-index: calc(var(--z-nav) - 1);
+  opacity: .999;
+  /* avoids text subpixel shimmer on move */
+  -webkit-transition: opacity 320ms cubic-bezier(0.22, 0.61, 0.36, 1), -webkit-transform 320ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition: opacity 320ms cubic-bezier(0.22, 0.61, 0.36, 1), -webkit-transform 320ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition: transform 320ms cubic-bezier(0.22, 0.61, 0.36, 1), opacity 320ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition: transform 320ms cubic-bezier(0.22, 0.61, 0.36, 1), opacity 320ms cubic-bezier(0.22, 0.61, 0.36, 1), -webkit-transform 320ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  will-change: transform;
+  z-index: var(--z-sidebar);
   padding: 1rem;
   overflow: auto; }
   #sidebar .sidebar-close {
@@ -1432,25 +1463,31 @@ body[data-theme="dark"] #icon-sun {
         background: var(--bg-3);
         color: var(--accent-1); }
 
-/* scrim/backdrop for the drawer */
+/* Scrim */
 #sidebar-scrim {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.35);
   -webkit-backdrop-filter: blur(1px);
           backdrop-filter: blur(1px);
-  -webkit-transition: var(--transi-quick);
-  transition: var(--transi-quick);
-  z-index: calc(var(--z-nav) - 2); }
+  opacity: 0;
+  -webkit-transition: opacity 320ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition: opacity 320ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  z-index: var(--z-scrim);
+  pointer-events: none;
+  /* only clickable when visible */ }
 
-/* open state driven by a data attribute on <body> */
+/* Open state — driven by data attribute on <body> */
 body[data-sidebar="open"] {
   /* unhide when open */
-  /* unhide scrim */ }
+  /* unhide scrim   */ }
   body[data-sidebar="open"] #sidebar {
     -webkit-transform: translateX(0);
         -ms-transform: translateX(0);
             transform: translateX(0); }
+  body[data-sidebar="open"] #sidebar-scrim {
+    opacity: 1;
+    pointer-events: auto; }
   body[data-sidebar="open"] #sidebar[hidden] {
     display: block; }
   body[data-sidebar="open"] #sidebar-scrim[hidden] {
@@ -1509,7 +1546,7 @@ body[data-sidebar="open"] {
    BEHAVIORS / PREFS
    ========================================================== */
 @media (prefers-reduced-motion: reduce) {
-  #sidebar {
+  #sidebar, #sidebar-scrim {
     -webkit-transition: none;
     transition: none; }
   #leftbar .lb-plate .icon {

@@ -82,11 +82,32 @@
   padding-block: 20px;
   inline-size: var(--leftbar-w);
   block-size: 100dvb;
-  z-index: 90;
+  z-index: var(--z-leftbar);
   background: transparent; /* panel draws the plate */
   color: var(--text-clear);
 
   @supports not (height: 100dvb) { block-size: 100vh; }
+
+  .icon--pm,
+  .icon--alerts {
+    position: relative;
+    overflow: visible;
+
+    &.has-new::after {
+      content: "";
+      position: absolute;
+      inset-block-start: -2px;
+      inset-inline-end: -2px;
+      inline-size: 10px;
+      block-size: 10px;
+      transform: translate(35%,-35%); /* pull outside corner a bit */
+      border-radius: 50%;
+      background: var(--warn, rgb(220, 73, 73)); /* fall back to red */
+      box-shadow: 0 0 0 2px var(--bg-2, #fff); /* ring so dot is readable on any bg */
+      z-index: 10;
+      pointer-events: none;
+    }
+  }
 
   /* one-and-only plate container for all icons */
   .lb-plate {
@@ -94,7 +115,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    z-index: 95;
+    z-index: calc(var(--z-nav) * 2);
     gap: .5rem;      /* vertical rhythm */
     padding: 6px;    /* room so separators don't touch border */
 
@@ -259,16 +280,23 @@ body[data-theme="dark"]  #icon-sun  { display: inline-block; color: var(--accent
    --------------------------- */
 #sidebar {
   position: fixed;
-  inset-block: var(--nav-h) 0;             /* below top nav */
-  inset-inline-start: var(--leftbar-w);    /* right of leftbar */
+  inset-block: var(--nav-h) 0;
+  inset-inline-start: var(--leftbar-w);
   inline-size: clamp(260px, 28vw, 380px);
+
   background: var(--bg-2);
   color: var(--text-clear);
   border-inline-start: var(--plate-border);
   box-shadow: 0 10px 30px rgba(0,0,0,.25);
+
+  /* slide-from-left baseline */
   transform: translateX(-102%);
-  transition: var(--transi-quick);
-  z-index: calc(var(--z-nav) - 1);
+  opacity: .999;                 /* avoids text subpixel shimmer on move */
+  transition:
+    transform 320ms cubic-bezier(.22,.61,.36,1),
+    opacity   320ms cubic-bezier(.22,.61,.36,1);
+  will-change: transform;
+  z-index: var(--z-sidebar);
   padding: 1rem;
   overflow: auto;
 
@@ -295,21 +323,24 @@ body[data-theme="dark"]  #icon-sun  { display: inline-block; color: var(--accent
   }
 }
 
-/* scrim/backdrop for the drawer */
+/* Scrim */
 #sidebar-scrim {
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,.35);
   backdrop-filter: blur(1px);
-  transition: var(--transi-quick);
-  z-index: calc(var(--z-nav) - 2);
+  opacity: 0;
+  transition: opacity 320ms cubic-bezier(.22,.61,.36,1);
+  z-index: var(--z-scrim);
+  pointer-events: none; /* only clickable when visible */
 }
 
-/* open state driven by a data attribute on <body> */
+/* Open state — driven by data attribute on <body> */
 body[data-sidebar="open"] {
   #sidebar { transform: translateX(0); }
+  #sidebar-scrim { opacity: 1; pointer-events: auto; }
   #sidebar[hidden] { display: block; }        /* unhide when open */
-  #sidebar-scrim[hidden] { display: block; }  /* unhide scrim */
+  #sidebar-scrim[hidden] { display: block; }  /* unhide scrim   */
 }
 
 
@@ -362,7 +393,7 @@ body[data-sidebar="open"] {
    ========================================================== */
 
 @media (prefers-reduced-motion: reduce) {
-  #sidebar { transition: none; }
+  #sidebar, #sidebar-scrim { transition: none; }
   #leftbar .lb-plate .icon { transition: none; }
   #leftbar .lb-plate .icon:hover { transform: none; }
 }

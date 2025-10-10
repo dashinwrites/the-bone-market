@@ -227,6 +227,7 @@ if(pageType === 'store') {
     */
 }
 
+// Sidebar Toggle
 (() => {
   const body = document.body;
   const btn  = document.getElementById('sidebar-toggle');
@@ -242,22 +243,49 @@ if(pageType === 'store') {
     'select:not([disabled])','textarea:not([disabled])','[tabindex]:not([tabindex="-1"])'
   ].join(',');
 
-  function setState(open, { skipFocus = false } = {}) {
-  body.dataset.sidebar = open ? 'open' : 'closed';
-  btn.setAttribute('aria-expanded', String(open));
-  pane.hidden = !open;
-  scrim.hidden = !open;
-  try { localStorage.setItem(STORAGE_KEY, open ? '1' : '0'); } catch {}
-
-  if (skipFocus) return; // ← new flag to skip autofocus
-
-  if (open) {
-    // focus first focusable in pane, else pane itself
+  function focusFirst() {
     const first = pane.querySelector(qsFocusable) || pane;
     first.focus({ preventScroll: true });
-  } else {
-    btn.focus({ preventScroll: true });
   }
+
+  function setState(open, { skipFocus = false } = {}) {
+  if (open) {
+    pane.hidden = false;
+    scrim.hidden = false;
+    // next frame -> animate in
+    requestAnimationFrame(() => {
+      body.dataset.sidebar = 'open';
+      try { localStorage.setItem(STORAGE_KEY, '1'); } catch {}
+      if (!skipFocus) {
+        const first = pane.querySelector(qsFocusable) || pane;
+        first.focus({ preventScroll: true });
+      }
+    });
+    return;
+  }
+
+  // animate out
+  body.dataset.sidebar = 'closed';
+  try { localStorage.setItem(STORAGE_KEY, '0'); } catch {}
+  if (!skipFocus) btn.focus({ preventScroll: true });
+
+  // hide AFTER the slide finishes
+  const DONE_MS = 340; // a hair > CSS duration
+  let done = false;
+
+  const onEnd = (e) => {
+    if (e.propertyName !== 'transform') return; // only after the slide
+    if (done) return;
+    done = true;
+    pane.hidden = true;
+    scrim.hidden = true;
+    pane.removeEventListener('transitionend', onEnd);
+  };
+
+  pane.addEventListener('transitionend', onEnd);
+
+  // safety: if transitionend doesn’t fire (tab switch, etc)
+  setTimeout(() => { if (!done) onEnd({ propertyName: 'transform' }); }, DONE_MS);
 }
 
   function toggle() {
@@ -300,4 +328,34 @@ if(pageType === 'store') {
     if (e.shiftKey && active === first) { e.preventDefault(); last.focus(); }
     else if (!e.shiftKey && active === last) { e.preventDefault(); first.focus(); }
   });
+})();
+
+// Alert Dot
+(function () {
+  function parseCount(raw) {
+    if (!raw) return 0;
+    // handles "(3)", "3", "  3 new", empty, etc.
+    const m = String(raw).match(/(\d+)/);
+    return m ? Math.max(0, parseInt(m[1], 10)) : 0;
+  }
+
+  const pmEl = document.querySelector('#leftbar .icon--pm');
+  const alEl = document.querySelector('#leftbar .icon--alerts');
+
+  if (pmEl) {
+    const pmCount = parseCount(pmEl.getAttribute('data-count-pm'));
+    pmEl.classList.toggle('has-new', pmCount > 0);
+    // (optional a11y) append to aria-label if present
+    if (pmEl.ariaLabel && pmCount > 0) {
+      pmEl.ariaLabel = `${pmEl.ariaLabel} (${pmCount} new)`;
+    }
+  }
+
+  if (alEl) {
+    const alCount = parseCount(alEl.getAttribute('data-count-alerts'));
+    alEl.classList.toggle('has-new', alCount > 0);
+    if (alEl.ariaLabel && alCount > 0) {
+      alEl.ariaLabel = `${alEl.ariaLabel} (${alCount} new)`;
+    }
+  }
 })();
