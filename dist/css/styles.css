@@ -3223,7 +3223,8 @@ body[data-sidebar="open"] {
       line-height: 1.05;
       letter-spacing: 0.02em;
       padding-top: 1rem;
-      text-shadow: -1px -1px 0 var(--bg-4), 1px -1px 0 var(--bg-4), -1px 1px 0 var(--bg-4), 1px 1px 0 var(--bg-4); }
+      text-shadow: -1px -1px 0 var(--bg-4), 1px -1px 0 var(--bg-4), -1px 1px 0 var(--bg-4), 1px 1px 0 var(--bg-4);
+      text-decoration: none; }
       .bm-head .plate-center .plate-title .plate-sub {
         margin-top: 0.25rem;
         font-family: var(--font-serif);
@@ -3459,7 +3460,8 @@ body[id="idx"] .bm-head {
           color: var(--accent-1);
           -webkit-transition: letter-spacing 0.5s ease-in-out;
           -o-transition: letter-spacing 0.5s ease-in-out;
-          transition: letter-spacing 0.5s ease-in-out; }
+          transition: letter-spacing 0.5s ease-in-out;
+          text-decoration: none; }
           .category .category-body > .forum .forum-title a:hover {
             letter-spacing: 0.05rem; }
           .category .category-body > .forum .forum-title a::after {
@@ -4254,7 +4256,8 @@ body[id="idx"] .bm-head {
   margin: 0;
   padding-left: 1.2rem; }
   .tick li {
-    margin: .25rem 0; }
+    margin: .25rem 0;
+    text-align: justify; }
 
 .rel {
   margin: 0;

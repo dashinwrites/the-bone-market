@@ -192,7 +192,8 @@
       line-height: 1.05;
       letter-spacing: 0.02em;
       padding-top: 1rem;
-      text-shadow: -1px -1px 0 var(--bg-4), 1px -1px 0 var(--bg-4), -1px 1px 0 var(--bg-4), 1px 1px 0 var(--bg-4); }
+      text-shadow: -1px -1px 0 var(--bg-4), 1px -1px 0 var(--bg-4), -1px 1px 0 var(--bg-4), 1px 1px 0 var(--bg-4);
+      text-decoration: none; }
       .bm-head .plate-center .plate-title .plate-sub {
         margin-top: 0.25rem;
         font-family: var(--font-serif);
