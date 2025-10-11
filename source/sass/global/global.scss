@@ -1,108 +1,458 @@
 @import '../global/mixins.scss';
 
-/*******************************
-    Global
-********************************/
+/* ================================
+   BASE / RESET
+================================ */
+html, body { margin: 0; padding: 0; }
 body {
   background: var(--bg-1);
   color: var(--text-bg);
   font-size: var(--size-md);
 }
 
-html,
-body {
-  margin: 0;
-  padding: 0;
-}
-
-// * {
-//   scrollbar-width: thin;
-//   scrollbar-color: #397524 #DFE9EB;
-// }
-
-*::-webkit-scrollbar {
-  height: 6px;
-  width: 6px;
-}
+/* Scrollbars */
+*::-webkit-scrollbar { height: 6px; width: 6px; }
 *::-webkit-scrollbar-track {
-  border-radius: 1px;
-  background-color: var(--bg-3);
+  border-radius: 1px; background-color: var(--bg-3);
+  &:hover { background-color: var(--bg-2); }
+  &:active { background-color: var(--bg-3); }
 }
-
-*::-webkit-scrollbar-track:hover {
-  background-color: var(--bg-2);
-}
-
-*::-webkit-scrollbar-track:active {
-  background-color: var(--bg-3);
-}
-
 *::-webkit-scrollbar-thumb {
-  border-radius: 2px;
-  background-color: var(--accent-3);
-  border: var(--bdash);
-  border-color: var(--border-color);
+  border-radius: 2px; background-color: var(--accent-3);
+  border: var(--bdash); border-color: var(--border-color);
+  &:hover { background-color: var(--accent-2); }
+  &:active { background-color: var(--accent-2); }
 }
 
-*::-webkit-scrollbar-thumb:hover {
-  background-color: var(--accent-2);
-}
-
-*::-webkit-scrollbar-thumb:active {
-  background-color: var(--accent-2);
-}
-
-/* Background layers */
+/* ================================
+   LAYOUT
+================================ */
 .bg {
-  position: fixed;
-  inset: 0;
-  inline-size: 100%;
-  block-size: 100dvb;
+  position: fixed; inset: 0;
+  inline-size: 100%; block-size: 100dvb;
   background: var(--bg-img) center/cover no-repeat fixed;
-  opacity: 0.25;
+  opacity: .25;
 
   &::before {
-    content: "";
-    position: fixed;
-    inset: 0;
+    content: ""; position: fixed; inset: 0;
     background: var(--bg-texture) center/cover no-repeat fixed;
     background-blend-mode: var(--bg-blend);
-    opacity: 0.3;
+    opacity: .3;
+  }
+}
+.bm-container {
+  position: relative;
+  padding-block-start: var(--nav-h);
+  padding-inline-start: var(--leftbar-w);
+  min-block-size: 100dvb;
+}
+.bm-head { margin-block-start: calc(-1 * var(--frame-join)) !important; }
+.bm-container > :first-child { margin-block-start: 0 !important; padding-block-start: 0 !important; }
+
+/* ================================
+   TYPOGRAPHY — HEADINGS (simplified, robust)
+================================ */
+h7, h8 { display: block; }
+
+$heading-levels: (
+  h2: (font: var(--font-title), weight: 800, size: clamp(1.4rem, 2.6vw, 1.9rem)),
+  h3: (font: var(--font-serif), weight: 700, size: clamp(1.25rem, 2.2vw, 1.6rem)),
+  h4: (font: var(--font-sans),  weight: 700, size: clamp(1.1rem, 1.8vw, 1.35rem)),
+  h5: (font: var(--font-sans),  weight: 650, size: clamp(1rem, 1.6vw, 1.2rem),    track: .02em),
+  h6: (font: var(--font-sans),  weight: 650, size: .98rem,                          track: .06em, upper: true),
+  h7: (font: var(--font-sans),  weight: 600, size: .95rem,                          track: .08em, upper: true),
+  h8: (font: var(--font-sans),  weight: 600, size: .90rem,                          track: .12em, upper: true)
+);
+
+h2, h3, h4, h5, h6, h7, h8 {
+  margin: .2rem 0 .6rem;
+  line-height: 1.2;
+  position: relative;
+  isolation: isolate;                 /* make a local stacking context */
+  padding-block-end: .3rem;
+  color: var(--text-clear);
+
+  /* underline — always spans the heading’s width (no % width math) */
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;                         /* ensures definite width */
+    width: 100%;
+    height: 0;                        /* just a border line */
+    bottom: 0;
+    border-bottom: var(--bdash);
+    border-bottom-color: currentColor;
+    opacity: var(--h-underline-alpha, .30);
+    pointer-events: none;
+    z-index: 0;                       /* sits under caps */
+  }
+
+  /* caps */
+  &[data-caps] {
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 8px; height: 2px;
+      background: currentColor; opacity: .35;
+      z-index: 1;                     /* above underline */
+    }
+    > .hcap {
+      position: absolute;
+      bottom: 0;
+      right: 0;                       /* end of the underline */
+      width: 8px; height: 2px;
+      background: currentColor; opacity: .35;
+      transform: translateX(0);       /* no flip needed now */
+      z-index: 1;
+    }
+  }
+
+  /* alignment (visual text alignment only) */
+  &[data-align="center"] { text-align: center; }
+  &[data-align="end"]    { text-align: end; }
+
+  /* opt-out */
+  &[data-underline="none"]::after { content: none; }
+}
+
+/* per-level defaults */
+@each $tag, $conf in $heading-levels {
+  #{$tag} {
+    font-family: map-get($conf, font);
+    font-weight: map-get($conf, weight);
+    font-size: map-get($conf, size);
+    @if map-has-key($conf, track) { letter-spacing: map-get($conf, track); }
+    @if map-has-key($conf, upper) and map-get($conf, upper) == true { text-transform: uppercase; }
   }
 }
 
-.bm-container {
+/* font/weight helpers (unchanged) */
+$tags: (h2, h3, h4, h5, h6, h7, h8);
+$font-keys: (title, serif, sans, block, fancy, hand);
+@each $t in $tags {
+  @each $fk in $font-keys { #{$t}[data-font="#{$fk}"] { font-family: var(--font-#{$fk}); } }
+  #{$t}[data-weight="regular"] { font-weight: 600; }
+  #{$t}[data-weight="bold"]    { font-weight: 700; }
+  #{$t}[data-weight="black"]   { font-weight: 800; }
+}
+
+/* width presets */
+h2[data-underline="narrow"] { --_uw: 28%; }
+h3[data-underline="narrow"] { --_uw: 26%; }
+h4[data-underline="narrow"] { --_uw: 24%; }
+h5[data-underline="narrow"] { --_uw: 22%; }
+h6[data-underline="narrow"] { --_uw: 20%; }
+h7[data-underline="narrow"] { --_uw: 18%; }
+h8[data-underline="narrow"] { --_uw: 16%; }
+h2[data-underline="wide"]   { --_uw: 60%; }
+h3[data-underline="wide"]   { --_uw: 54%; }
+h4[data-underline="wide"]   { --_uw: 48%; }
+h5[data-underline="wide"]   { --_uw: 42%; }
+h6[data-underline="wide"]   { --_uw: 36%; }
+h7[data-underline="wide"]   { --_uw: 32%; }
+h8[data-underline="wide"]   { --_uw: 30%; }
+
+
+/* ===== Headings underline width via data-uw presets ===== */
+/* Default: full width; override via data-uw="…" */
+h2, h3, h4, h5, h6, h7, h8 { --uw: 100%; }
+
+/* Generate preset selectors like [data-uw="60"] { --uw: 60%; } */
+$uw-min: 10;  // lowest percent
+$uw-max: 100; // highest percent
+$uw-step: 2;  // step size
+
+@for $p from $uw-min through $uw-max {
+  @if ($p % $uw-step == 0) {
+    h2[data-uw="#{$p}"],
+    h3[data-uw="#{$p}"],
+    h4[data-uw="#{$p}"],
+    h5[data-uw="#{$p}"],
+    h6[data-uw="#{$p}"],
+    h7[data-uw="#{$p}"],
+    h8[data-uw="#{$p}"] { --uw: #{$p}% }
+  }
+}
+
+/* Base underline: spans --uw of the heading box */
+h2, h3, h4, h5, h6, h7, h8 {
   position: relative;
-  padding-block-start: var(--nav-h); 
-  padding-inline-start: var(--leftbar-w);
-  min-block-size: 100dvb; 
+  isolation: isolate;                 /* keeps caps above underline */
+  padding-block-end: .3rem;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;                          /* start-aligned by default */
+    width: var(--uw);
+    height: 0;
+    border-bottom: var(--bdash);
+    border-bottom-color: currentColor;
+    opacity: var(--h-underline-alpha, .30);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Caps: left cap at start; right cap at end of visible line */
+  &[data-caps] {
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 8px; height: 2px;
+      background: currentColor; opacity: .35; z-index: 1;
+    }
+    > .hcap {
+      position: absolute;
+      bottom: 0;
+      width: 8px; height: 2px;
+      background: currentColor; opacity: .35; z-index: 1;
+      /* end-of-line anchor for start alignment */
+      left: var(--uw); transform: translateX(-100%);
+    }
+  }
+
+  /* Center-aligned underline + caps */
+  &[data-align="center"] {
+    text-align: center;
+    &::after { left: 50%; transform: translateX(-50%); width: var(--uw); }
+    &[data-caps] {
+      &::before { left: calc(50% - (var(--uw) / 2)); }                       /* left cap */
+      > .hcap   { left: calc(50% + (var(--uw) / 2)); transform: translateX(-100%); } /* right cap */
+    }
+  }
+
+  /* End-aligned underline + caps (right) */
+  &[data-align="end"] {
+    text-align: end;
+    &::after { left: auto; right: 0; width: var(--uw); }
+    &[data-caps] {
+      &::before { left: auto; right: calc(var(--uw)); transform: translateX(0); } /* left cap at start of line */
+      > .hcap   { left: auto; right: 0; transform: none; }                        /* right cap at container edge */
+    }
+  }
+
+  /* Opt-out */
+  &[data-underline="none"]::after { content: none; }
 }
 
-
-.bm-head {
-  margin-block-start: calc(-1 * var(--frame-join)) !important;
+/* font/weight helpers (unchanged) */
+$tags: (h2, h3, h4, h5, h6, h7, h8);
+$font-keys: (title, serif, sans, block, fancy, hand);
+@each $t in $tags {
+  @each $fk in $font-keys { #{$t}[data-font="#{$fk}"] { font-family: var(--font-#{$fk}); } }
+  #{$t}[data-weight="regular"] { font-weight: 600; }
+  #{$t}[data-weight="bold"]    { font-weight: 700; }
+  #{$t}[data-weight="black"]   { font-weight: 800; }
 }
 
-.bm-container > :first-child {
-  margin-block-start: 0 !important;
-  padding-block-start: 0 !important;
+/* ================================
+   INLINE TEXT + LINKS
+================================ */
+strong, b { font-weight: 700; color: var(--text-clear); }
+em, i     { font-style: italic; }
+u         { text-underline-offset: .14em; }
+s, del    { opacity: .85; text-decoration-thickness: .08em; }
+
+a {
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-thickness: .06em;
+  text-underline-offset: .18em;
+  transition: color .15s ease;
+  &:hover { color: var(--accent-1); }
+  &:focus-visible { outline: none; box-shadow: inset 0 0 0 2px var(--accent-3); border-radius: 2px; }
 }
 
-/* ====== OPTIONAL: DEBUG MODE ======
-   Temporarily add `class="debug"` on <html> to visualize boxes and confirm offsets.
-*/
-html.debug * {
-  outline: 1px dotted rgba(255, 0, 200, 0.35);
+/* ================================
+   LISTS
+================================ */
+ul, ol { margin: 0 0 .9rem; padding-inline-start: 1.2em; }
+li + li { margin-block-start: .35rem; }
+li > ul, li > ol { margin-block-start: .35rem; }
+
+/* Opt-in dashed list */
+.dash-list {
+  list-style: none; padding-inline-start: 1.2em;
+  > li {
+    position: relative;
+    &::before {
+      content: "—";
+      position: absolute; inset-inline-start: -1.1em;
+      color: var(--text-medCon);
+    }
+  }
 }
-html.debug #navstrip {
-  outline: 2px solid lime;
+
+/* ================================
+   QUOTES (custom + blockquote plate)
+================================ */
+bm-quote,
+.bm-quote {
+  display: block;
+  margin: .6rem 0;
+  padding: .75rem 1rem;
+  background: var(--bg-1-rgb);
+  border-radius: 6px;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--text-loCon) 12%, transparent);
+  position: relative;
 }
-html.debug #leftbar {
-  outline: 2px solid cyan;
+bm-quote::before, .bm-quote::before {
+  content: "❝";
+  position: absolute;
+  inset-inline-start: .55rem; inset-block-start: .35rem;
+  font-size: 1.1rem; opacity: .35;
 }
-html.debug .bm-container {
-  outline: 2px solid orange;
+bm-quote :where(p, ul, ol):not(:last-child),
+.bm-quote :where(p, ul, ol):not(:last-child) { margin-block-end: .5rem; }
+bm-quote > cite, .bm-quote > cite {
+  display: block; margin-block-start: .4rem; color: var(--text-medCon); font-style: normal;
 }
-html.debug .bm-head {
-  outline: 2px solid red;
+bm-quote[data-tone="warn"], .bm-quote[data-tone="warn"] {
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--warn) 35%, transparent);
+  background: color-mix(in srgb, var(--warn) 10%, transparent);
 }
+
+/* plate-flavored blockquote */
+blockquote {
+  position: relative; display: block;
+  margin: .8rem 0; padding: var(--bq-pad);
+  max-width: 550px;
+  background: var(--bg-1-rgb);
+  border-radius: var(--bq-radius);
+  border: var(--plate-border);
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, var(--text-loCon) 10%, transparent),
+    0 10px 30px rgba(0,0,0,.08);
+  text-align: justify; white-space: pre-line;
+
+  > :where(p, ul, ol, pre, figure):not(:last-child) { margin-block-end: .55rem; }
+
+  &::after {
+    content: ""; position: absolute;
+    inset-inline: 1rem 1rem; inset-block-start: .6rem;
+    border-bottom: var(--bq-dash); opacity: .28; pointer-events: none;
+  }
+  &::before {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background:
+      linear-gradient(currentColor, currentColor) top .5rem left .5rem / 14px 2px,
+      linear-gradient(currentColor, currentColor) top .5rem left .5rem / 2px 14px,
+      linear-gradient(currentColor, currentColor) bottom .5rem right .5rem / 14px 2px,
+      linear-gradient(currentColor, currentColor) bottom .5rem right .5rem / 2px 14px;
+    background-repeat: no-repeat; opacity: .18;
+  }
+  cite { display: block; margin-block-start: .45rem; color: var(--text-medCon); font-style: normal; font-size: .95em; }
+
+  blockquote {
+    margin: .6rem 0 0; transform: translateY(.1rem); opacity: .95;
+    &::after { inset-inline: .8rem .8rem; inset-block-start: .55rem; opacity: .24; }
+  }
+
+  &[data-tone="warn"] {
+    --bq-accent: var(--warn);
+    box-shadow:
+      inset 0 0 0 1px color-mix(in srgb, var(--warn) 22%, transparent),
+      0 10px 30px rgba(0,0,0,.08);
+  }
+  &[data-tone="accent"] {
+    --bq-accent: var(--accent-2);
+    box-shadow:
+      inset 0 0 0 1px color-mix(in srgb, var(--accent-2) 22%, transparent),
+      0 10px 30px rgba(0,0,0,.08);
+  }
+}
+blockquote[data-rule] {
+  padding-inline-start: calc(1rem + 6px);
+  border-inline-start: 4px solid color-mix(in srgb, var(--bq-accent) 65%, transparent);
+}
+
+/* ================================
+   SPOILERS
+================================ */
+details.spoiler {
+  border: 1px dashed color-mix(in srgb, var(--text-loCon) 35%, transparent);
+  border-radius: 6px; padding: .5rem .75rem;
+
+  summary {
+    cursor: pointer; color: var(--text-medCon); list-style: none;
+    &::-webkit-details-marker { display: none; }
+    &:hover { color: var(--text-clear); }
+  }
+  &[open] { border-style: solid; }
+  > *:not(summary) { margin-block-start: .5rem; }
+}
+.spoiler-inline {
+  background: color-mix(in srgb, var(--bg-3) 60%, transparent);
+  color: transparent; text-shadow: 0 0 12px rgba(0,0,0,.55);
+  border-radius: 3px; padding: 0 .2em; transition: color .15s;
+  &.is-open { color: inherit; text-shadow: none; }
+}
+
+/* ================================
+   I18N HELPERS
+================================ */
+ruby rt { font-size: .75em; color: var(--text-medCon); letter-spacing: .02em; }
+.tr {
+  position: relative; border-bottom: 1px dotted var(--text-loCon); cursor: help;
+  &:hover::after {
+    content: attr(data-tr); position: absolute; inset-inline-start: 0; inset-block-end: 100%;
+    transform: translateY(-4px);
+    background: var(--bg-2); color: var(--text-clear);
+    padding: .25rem .4rem; border-radius: 4px;
+    border: 1px solid color-mix(in srgb, var(--text-loCon) 20%, transparent);
+    box-shadow: 0 6px 20px rgba(0,0,0,.18); white-space: nowrap; z-index: 10;
+  }
+}
+
+/* ================================
+   CALLOUTS
+================================ */
+.tw, .note {
+  padding: .65rem .8rem .7rem;
+  border-radius: 6px; border: 1px solid; display: grid; gap: .35rem;
+}
+.tw {
+  border-color: color-mix(in srgb, var(--warn) 45%, transparent);
+  background: color-mix(in srgb, var(--warn) 10%, transparent);
+  color: color-mix(in srgb, var(--warn) 85%, var(--text-clear));
+}
+.note {
+  border-color: color-mix(in srgb, var(--accent-2) 40%, transparent);
+  background: color-mix(in srgb, var(--accent-2) 10%, transparent);
+  color: var(--text-clear);
+}
+.tw > strong, .note > strong {
+  text-transform: lowercase; letter-spacing: .06em; font: 700 .9rem/1 var(--font-sans);
+}
+
+/* ================================
+   RULES & UTILITIES
+================================ */
+hr {
+  border: 0; block-size: 0; margin-block: .9rem; background: none; position: relative;
+  &::before {
+    content: ""; display: block; inline-size: 40%;
+    border-bottom: var(--bdash); opacity: .35; margin-inline: auto;
+  }
+}
+.vr { inline-size: 1px; block-size: 1.25em; background: color-mix(in srgb, var(--text-loCon) 20%, transparent);
+  display: inline-block; vertical-align: middle; margin-inline: .5rem; }
+.content-flow { max-inline-size: var(--content-max); margin: 0 auto; }
+
+/* ================================
+   MEDIA QUERIES
+================================ */
+@media (max-width: 720px) { blockquote::after { inset-inline: .75rem .75rem; inset-block-start: .55rem; } }
+
+/* ================================
+   DEBUG HELPERS
+================================ */
+html.debug * { outline: 1px dotted rgba(255, 0, 200, .35); }
+html.debug #navstrip { outline: 2px solid lime; }
+html.debug #leftbar  { outline: 2px solid cyan; }
+html.debug .bm-container { outline: 2px solid orange; }
+html.debug .bm-head { outline: 2px solid red; }

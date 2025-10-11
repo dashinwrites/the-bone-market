@@ -1,8 +1,10 @@
 /*******************************
-    Variables (streamlined)
+    Variables
 ********************************/
 :root {
-  /* fonts */
+  /* ================================
+     Fonts
+  ================================= */
   --font-serif: "Cormorant Garamond", serif;
   --font-sans: "Lato", system-ui, sans-serif;
   --font-block: var(--font-serif);
@@ -10,7 +12,9 @@
   --font-hand: "Inconsolata", monospace;
   --font-title: "Ghosthey", serif;
 
-  /* scale */
+  /* ================================
+     Type Scale
+  ================================= */
   --size-xs: 8px;
   --size-sm: 10px;
   --size-md: 12px;
@@ -19,12 +23,16 @@
   --size-forum-title: 24px;
   --size-title: 36px;
 
-  /* motion */
+  /* ================================
+     Motion
+  ================================= */
   --transi-quick: all .3s ease-in-out;
   --transi-med:   all .6s ease-in-out;
   --transi-slow:  all 2s ease-in-out;
 
-  /* layout */
+  /* ================================
+     Layout & Z-index
+  ================================= */
   --max-w: 100vw;
   --min-w: 610px;
   --push-w: 250px;
@@ -32,43 +40,66 @@
   --nav-h: clamp(44px, 6vh, 56px);
   --leftbar-w: clamp(54px, 8vw, 64px);
   --frame-join: 1px;
+
+  /* initial layer values */
   --z-nav: 10;
   --z-leftbar: var(--z-nav);
   --z-sidebar: calc(var(--z-leftbar) - 1);
   --z-scrim:   calc(var(--z-leftbar) - 2);
 
-  /* container size for each icon */
-  --lb-icon-sz: 32px;
+  /* layers (redeclared) */
+  --z-nav: 100;
+  --z-overlay: 400;
+  --z-modal: 1000;
 
-  /* font size of the icon glyph inside */
-  --lb-icon-font: 0.75rem; /* good default */
+  /* ================================
+     Leftbar icon sizing
+  ================================= */
+  --lb-icon-sz: 32px;         /* container size */
+  --lb-icon-font: 0.75rem;    /* glyph font-size */
 
-  /* component tokens */
+  /* ================================
+     Component layout tokens
+  ================================= */
   --gutter: 5vw;
   --side-col: 20vw;
   --center-max: 50vw;
 
-  /* plate surface tokens */
+  /* ================================
+     Plate surface tokens
+  ================================= */
+  /* plate defaults block */
   --plate-bg: var(--bg-2);
+  --plate-text: var(--text-hiCon);
   --plate-border: var(--border-1);
   --plate-shadow: 0 1px 0 rgba(0,0,0,.08), 0 2px 6px rgba(0,0,0,.06);
+  --plate-hover-shadow: 0 2px 6px rgba(0,0,0,.18);
 
-  /* link tones */
-  --link: var(--text-clear);
-  --link-sep: var(--text-medCon);
+  /* ================================
+     Link tones
+  ================================= */
+  /* nav links */
+  --link: var(--text-medCon);
+  --link-sep: var(--text-loCon);
 
-  /* backgrounds */
+  /* ================================
+     Backgrounds
+  ================================= */
   --bg-img: url(https://files.jcink.net/uploads2/thebonemarket/images/jr_korpa_mDvtYjZR8QI_unsplash.jpg);
   --bg-texture: url(https://files.jcink.net/uploads2/thebonemarket/images/parchment_bg.jpg);
   --bg-blend: multiply;
 
-  /* neutral text */
+  /* ================================
+     Neutral text colors
+  ================================= */
   --text-bg:    rgb(171 171 171);
   --text-bright:rgb(238 238 238);
   --text-dark:  rgb(51 51 51);
   --text-med:   rgb(128 128 128);
 
-  /* borders */
+  /* ================================
+     Borders
+  ================================= */
   --border-color: rgb(86 86 86);
   --b-1: 1px solid;
   --b-2: 2px solid;
@@ -76,33 +107,37 @@
   --bdash: 1px dashed;
   --border-1: 1px solid var(--border-color);
 
-  /* layers */
-  --z-nav: 100;
-  --z-overlay: 400;
-  --z-modal: 1000;
+  /* ================================
+     Headings & content knobs
+  ================================= */
+  --h-underline-w: 42%;               /* change to taste: 30%–60% */
+  --profile-vpad: 12px;               /* breathing room around the whole profile */
+  --content-max: 75vw;
+  --text-muted: color-mix(in srgb, var(--text-loCon) 25%, transparent);
+  --h-underline-alpha: .30;
 
-  /* plate defaults */
-  --plate-bg: var(--bg-2);
-  --plate-text: var(--text-hiCon);
-  --plate-border: var(--border-1);
-  --plate-shadow: 0 1px 0 rgba(0,0,0,.08), 0 2px 6px rgba(0,0,0,.06);
-  --plate-hover-shadow: 0 2px 6px rgba(0,0,0,.18);
+  /* blockquote */
+  --bq-pad: .9rem 1rem;
+  --bq-radius: 8px;
+  --bq-accent: var(--accent-1);
+  --bq-dash: var(--bdash);
+  --bq-muted: color-mix(in srgb, var(--text-loCon) 20%, transparent);
+  --bq-border: 1px solid color-mix(in srgb, var(--text-loCon) 12%, transparent);
+  --bq-shadow: 0 10px 30px rgba(0,0,0,.08);
 
-  /* nav links */
-  --link: var(--text-medCon);
-  --link-sep: var(--text-loCon);
-
-  --h-underline-w: 42%;        /* change to taste: 30%–60% */
-  --h-underline-alpha: .28;    /* lighter/heavier dash */
-
-  --profile-vpad: 12px;         /* breathing room around the whole profile */
 }
 
+/* ================================
+   Category plate-side
+================================ */
 .category--plate-side {
   --cat-head-h: 8rem;           /* desired header height */
   --cameo-scale: 1.6;           /* how much taller the cameo is than the header */
 }
 
+/* ================================
+   BM Profile
+================================ */
 .bm-profile {
   --portrait-max-h: 86%;
   --portrait-aspect: 3/4;
@@ -114,7 +149,9 @@
   --overlay-left: clamp(12px, 4vw, 32px);
 }
 
-/* Light theme */
+/* ================================
+   Light theme
+================================ */
 [data-theme="light"] {
   --accent-1: rgb(124 30 47);
   --accent-2: rgb(142 124 99);
@@ -139,7 +176,9 @@
   --link-sep: var(--text-loCon);
 }
 
-/* Dark theme */
+/* ================================
+   Dark theme
+================================ */
 [data-theme="dark"] {
   --accent-1: rgb(196 67 88);
   --accent-2: rgb(142 124 99);
