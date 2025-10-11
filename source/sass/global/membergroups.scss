@@ -5,49 +5,80 @@
 
 /* ── 1) GRADIENT MAPS ───────────────────────── */
 $gradients-precious: (
-  obsidian: linear-gradient(135deg, rgb(11,11,12), rgb(58,58,61)),
-  quartz:   linear-gradient(135deg, rgb(230,226,221), rgb(207,201,196)),
-  onyx:     linear-gradient(135deg, rgb(27,27,27),   rgb(64,64,64)),
+  /* kept neutral black glassy */
+  obsidian: linear-gradient(135deg, rgb(11,11,12),  rgb(58,58,61)),
+  /* cooler opalescent (unchanged from your latest) */
+  quartz:   linear-gradient(135deg, rgb(216,239,255), rgb(202,191,255)),
+  /* warmer charcoal to separate from obsidian/smoke */
+  onyx:     linear-gradient(135deg, rgb(22,18,16),   rgb(74,56,52)),
+  /* classic warm amber */
   amber:    linear-gradient(135deg, rgb(255,179,71), rgb(255,204,51)),
+  /* emerald with soft sage highlight (kept) */
   jade:     linear-gradient(135deg, rgb(63,163,116), rgb(161,209,157)),
-  silver:   linear-gradient(135deg, rgb(215,215,215),rgb(158,164,173))
+  /* steel-blue silver (less like glass/orbit) */
+  silver:   linear-gradient(135deg, rgb(176,196,210), rgb(120,144,160))
 );
 
 $gradients-anatomy: (
+  /* pink-beige marrow (kept) */
   marrow: linear-gradient(135deg, rgb(241,230,220), rgb(187,169,152)),
+  /* tendon tan/brown (kept) */
   sinew:  linear-gradient(135deg, rgb(213,169,129), rgb(140,91,60)),
+  /* deep crimson (kept) */
   blood:  linear-gradient(135deg, rgb(122,13,29),   rgb(217,43,43)),
+  /* oxygenated blue vein (kept) */
   vein:   linear-gradient(135deg, rgb(33,51,77),    rgb(72,107,148)),
-  bone:   linear-gradient(135deg, rgb(231,223,211), rgb(182,169,154)),
+  /* cooler greige bone so it’s not ivory-twin */
+  bone:   linear-gradient(135deg, rgb(222,218,200), rgb(170,160,132)),
+  /* peachy flesh (kept) */
   flesh:  linear-gradient(135deg, rgb(245,195,181), rgb(217,143,128))
 );
 
 $gradients-celestial: (
+  /* black → violet eclipse (kept) */
   eclipse: linear-gradient(135deg, rgb(25,25,25),   rgb(74,59,94)),
+  /* flare orange (kept) */
   nova:    linear-gradient(135deg, rgb(255,138,0),  rgb(255,61,0)),
+  /* sky blue → ice (kept) */
   comet:   linear-gradient(135deg, rgb(75,143,210), rgb(197,223,255)),
-  orbit:   linear-gradient(135deg, rgb(67,74,92),   rgb(119,130,161)),
-  umbra:   linear-gradient(135deg, rgb(13,12,27),   rgb(59,58,98)),
+  /* push toward teal to escape comet/glass/silver */
+  orbit:   linear-gradient(135deg, rgb(54,90,100),  rgb(120,170,180)),
+  /* deep navy-indigo instead of purple-near eclipse */
+  umbra:   linear-gradient(135deg, rgb(8,16,32),    rgb(32,64,112)),
+  /* bright solar yellow (kept) */
   zenith:  linear-gradient(135deg, rgb(246,229,141),rgb(249,202,36))
 );
 
 $gradients-flora: (
+  /* dark teal-green (kept) */
   hemlock:    linear-gradient(135deg, rgb(28,59,50),  rgb(61,102,86)),
+  /* moody violet (kept to balance velvet’s new wine) */
   nightshade: linear-gradient(135deg, rgb(59,26,74),  rgb(113,59,134)),
-  yew:        linear-gradient(135deg, rgb(20,61,38),  rgb(50,105,74)),
+  /* shift to blue-spruce to separate from hemlock/ivy */
+  yew:        linear-gradient(135deg, rgb(16,52,73),  rgb(46,104,138)),
+  /* clean mid-green (kept) */
   ivy:        linear-gradient(135deg, rgb(38,77,53),  rgb(108,169,127)),
-  rowan:      linear-gradient(135deg, rgb(93,23,20),  rgb(156,59,46)),
-  thorn:      linear-gradient(135deg, rgb(115,46,46), rgb(182,75,75))
+  /* rusted red to avoid blood */
+  rowan:      linear-gradient(135deg, rgb(128,49,22), rgb(176,94,52)),
+  /* dusty rose vs. rowan’s rust & blood’s crimson */
+  thorn:      linear-gradient(135deg, rgb(120,56,56), rgb(168,96,96))
 );
 
 $gradients-trade: (
+  /* warm cream (kept) vs cooler bone */
   ivory:  linear-gradient(135deg, rgb(255,248,238), rgb(217,203,176)),
-  velvet: linear-gradient(135deg, rgb(56,27,63),    rgb(106,46,103)),
-  spice:  linear-gradient(135deg, rgb(196,122,52),  rgb(255,177,94)),
-  smoke:  linear-gradient(135deg, rgb(46,46,46),    rgb(154,154,154)),
-  glass:  linear-gradient(135deg, rgb(227,238,243), rgb(163,184,194)),
+  /* wine-magenta so it’s distinct from nightshade */
+  velvet: linear-gradient(135deg, rgb(76,21,38),    rgb(140,34,78)),
+  /* saffron-cinnamon to sit apart from nova/amber */
+  spice:  linear-gradient(135deg, rgb(186,108,43),  rgb(219,147,64)),
+  /* warm ash (not another neutral grey/blue) */
+  smoke:  linear-gradient(135deg, rgb(60,54,52),    rgb(170,160,150)),
+  /* frosted mint (away from comet’s sky blue) */
+  glass:  linear-gradient(135deg, rgb(208,236,229), rgb(160,210,196)),
+  /* gold (kept) */
   gold:   linear-gradient(135deg, rgb(212,175,55),  rgb(245,215,110))
 );
+
 
 /* Master map (merge all). Order determines cascade if names ever collide. */
 $gradients-all: map-merge(
@@ -131,6 +162,22 @@ $gradients-all: map-merge(
   @include mg-outline($map, $prefix);
   @include mg-text($map, $prefix);
 }
+
+/* Emit --mg-gradient via [data-mg="..."] */
+@mixin mg-emit-data-vars($map) {
+  @each $name, $grad in $map {
+    [data-mg="#{$name}"] { --mg-gradient: #{$grad}; }
+  }
+}
+
+/* Call it for each set (or just once with $gradients-all) */
+@include mg-emit-data-vars($gradients-precious);
+@include mg-emit-data-vars($gradients-anatomy);
+@include mg-emit-data-vars($gradients-celestial);
+@include mg-emit-data-vars($gradients-flora);
+@include mg-emit-data-vars($gradients-trade);
+/* or: @include mg-emit-data-vars($gradients-all); */
+
 
 /* ── 4) CALLS — generate per-set or all at once ─ */
 @include membergroups-generate($gradients-precious);
@@ -259,4 +306,72 @@ $gradients-all: map-merge(
 @mixin mg-apply-overlay($name, $alpha: .35, $radius: inherit) {
   @include mg-set($name);
   @include mg-overlay($alpha, $radius);
+}
+
+/* Pill (filled chip) */
+[data-variant="pill"] {
+  background: var(--mg-gradient);
+  color: var(--mg-text, rgb(28,28,28));
+  border-radius: var(--mg-radius, 999px);
+  padding: .3rem .65rem;
+  display: inline-flex; align-items: center; gap: .4rem;
+  border: 1px solid rgba(0,0,0,.12);
+  box-shadow: 0 0 0 1px rgba(255,255,255,.06) inset;
+}
+
+/* Outline (gradient border) */
+[data-variant="outline"] {
+  background: transparent;
+  color: inherit;
+  border: var(--mg-border-w, 2px) solid transparent;
+  border-radius: var(--mg-radius, 999px);
+  padding: .25rem .6rem;
+  border-image: var(--mg-gradient) 1;
+}
+
+/* Text (gradient-filled text) */
+[data-variant="text"] {
+  background: var(--mg-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-stroke: var(--mg-stroke, .5px) var(--mg-stroke-color, rgba(0,0,0,.25));
+}
+
+/* Rule (divider bar) */
+[data-variant="rule"] {
+  display: block;
+  height: var(--mg-rule-h, 4px);
+  border-radius: var(--mg-radius, 999px);
+  background: var(--mg-gradient);
+}
+
+/* Border (card with gradient border + solid fill) */
+[data-variant="border"] {
+  --_bg: var(--mg-bg, color-mix(in srgb, var(--bg-2) 85%, transparent));
+  border: var(--mg-border-w, 2px) solid transparent;
+  border-radius: var(--mg-radius, 10px);
+  padding: var(--mg-pad, 1rem);
+  background:
+    linear-gradient(var(--_bg), var(--_bg)) padding-box,
+    var(--mg-gradient) border-box;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--text-loCon) 12%, transparent);
+}
+
+/* Overlay (tinted panel using ::after) */
+[data-variant="overlay"] {
+  position: relative;
+  border-radius: var(--mg-radius, 10px);
+  padding: var(--mg-pad, 1rem);
+  background: var(--mg-bg, color-mix(in srgb, var(--bg-2) 85%, transparent));
+  overflow: hidden;
+}
+[data-variant="overlay"]::after {
+  content: "";
+  position: absolute; inset: 0;
+  border-radius: inherit;
+  background: var(--mg-gradient);
+  mix-blend-mode: var(--mg-blend, multiply); /* try 'screen' for light themes */
+  opacity: var(--mg-alpha, .35);
+  pointer-events: none;
 }

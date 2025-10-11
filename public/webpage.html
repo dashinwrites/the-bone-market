@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>the bone market</title>
+  <head>
+    <title>the bone market</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!--Styles-->
@@ -27,11 +27,11 @@
 
 <!--Settings-->
 <script type='text/javascript' src='../dist/js/settings.js'></script>
-<link rel="stylesheet" href="../dist/css/settings.css" />  
-    </head>
-    <body id="Pages" class="g-4">
-        <div class="bm-container">
-        <header class="bm-head">
+<link rel="stylesheet" href="../dist/css/settings.css" />
+  </head>
+  <body id="Pages" class="g-4">
+    <div class="bm-container">
+      <header class="bm-head">
   <div class="plate-meta left">Pl. VII</div>
   <div class="plate-info">
     <label for="site-blurb" class="sr-only">Site information</label>
@@ -151,110 +151,1163 @@ Magic is currency, and the black market thrives on blood.
 <div id="sidebar-scrim" hidden></div>
 
 
-        <!--Main Body-->
-        <main>
-            <a name="top"></a>
-		
-            
-            <!--Webpage-->
-            <section class="webpage content-flow">
+      <!--Main Body-->
+      <main>
+        <a name="top"></a>
 
-                <!-- HEADINGS -->
+        <!--Webpage-->
+        <section class="webpage content-flow" aria-label="Style Testbed">
+          <!-- =========================
+              HEADINGS
+          ========================== -->
+            <section aria-labelledby="t-headings">
+              <h2 id="t-headings">Headings</h2>
 
-                <h2>heading 2</h2>
+              <h3 data-uw="36">h3 — data-uw="36"</h3>
+              <h3 data-uw="80" data-caps>
+                <span class="hcap" aria-hidden="true"></span>h3 — caps +
+                data-uw="80"
+              </h3>
+              <h3 data-uw="50" data-align="center" data-caps>
+                <span class="hcap" aria-hidden="true"></span>h3 — center + caps
+              </h3>
+              <h3 data-uw="40" data-align="end" data-caps>
+                <span class="hcap" aria-hidden="true"></span>h3 — end + caps
+              </h3>
 
-                <h3 data-uw="36">heading 3</h3>
-                <h3 data-uw="80" data-caps><span class="hcap" aria-hidden="true"></span>Title</h3>
-                <h3 data-uw="50" data-align="center" data-caps><span class="hcap"></span>Title</h3>
-                <h3 data-uw="40" data-align="end" data-caps><span class="hcap"></span>Title</h3>
-                
-                <h4>heading 4</h4>
-                <h5>heading 5</h5>
-                <h6>heading 6</h6>
-                <h7>heading 7</h7>
-                <h8>heading 8</h8>
-
-  
-  <p>Some <strong>bold</strong>, <em>italic</em>, <u>underline</u>, <s>strikethrough</s>, and a <a href="#">hyperlink</a>.</p>
-  <p>Inline translation: <ruby>骨<rt>bone</rt> 市<rt>market</rt></ruby> or <span class="tr" data-tr="bone market">骨市</span>.</p>
-  <p>Inline spoiler: <span class="spoiler-inline">hidden text</span>. Add <code>.is-open</code> to reveal.</p>
-
-  <!-- SPOILER -->
-  <details class="spoiler">
-    <summary>Spoiler summary (click to open)</summary>
-    <p>Hidden content revealed on click. Can contain lists, quotes, etc.</p>
-  </details>
-
-  <!-- LISTS -->
-  <h3>Lists</h3>
-  <p>Default lists (safe for navs):</p>
-  <ul>
-    <li>Unordered item one</li>
-    <li>Unordered item two
-      <ul>
-        <li>Nested item</li>
-      </ul>
-    </li>
-  </ul>
-
-  <ol>
-    <li>Ordered item one</li>
-    <li>Ordered item two</li>
-  </ol>
-
-  <p>Dashed list (opt-in):</p>
-  <ul class="dash-list">
-    <li>Dash bullet one</li>
-    <li>Dash bullet two</li>
-  </ul>
-
-  <!-- BLOCKQUOTE -->
-
-  <blockquote>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis consequat erat vel dui pulvinar bibendum. Nulla accumsan sapien magna. Duis fringilla ullamcorper pretium. Vestibulum et bibendum enim, eu dapibus lorem. Vivamus sagittis enim ante, a vestibulum velit accumsan quis. Integer laoreet pulvinar augue eu accumsan. Curabitur auctor imperdiet fringilla. Pellentesque at tristique mi. Ut placerat in nunc quis laoreet. Donec at enim porta, ullamcorper nisi sit amet, tincidunt velit. Nam eget venenatis sapien. Nunc maximus eros purus, ut rhoncus augue iaculis sed. Cras sed viverra ex, non fermentum velit. Aliquam erat volutpat. Vivamus maximus, diam vitae bibendum tempor, libero erat.
-
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis consequat erat vel dui pulvinar bibendum. Nulla accumsan sapien magna. Duis fringilla ullamcorper pretium. Vestibulum et bibendum enim, eu dapibus lorem. Vivamus sagittis enim ante, a vestibulum velit accumsan quis. Integer laoreet pulvinar augue eu accumsan. Curabitur auctor imperdiet fringilla. Pellentesque at tristique mi. Ut placerat in nunc quis laoreet. Donec at enim porta, ullamcorper nisi sit amet, tincidunt velit. Nam eget venenatis sapien. Nunc maximus eros purus, ut rhoncus augue iaculis sed. Cras sed viverra ex, non fermentum velit. Aliquam erat volutpat. Vivamus maximus, diam vitae bibendum tempor, libero erat.
-  </blockquote>
-
-  <blockquote>
-  <p><span class="bq-mark" aria-hidden="true">❝</span> Debts are the city’s native tongue. The market just writes them down.</p>
-  <cite>— the Archivist</cite>
-</blockquote>
-
-<blockquote data-rule data-tone="accent">
-  <p>Portents are due by the next moon. Pay in bone, not coin.</p>
-</blockquote>
-
-
-  <!-- QUOTE -->
-  <h3>Dev Quote</h3>
-  <bm-quote>
-    <p>Debts are the city’s native tongue. The market just writes them down.</p>
-    <cite>— the Archivist</cite>
-  </bm-quote>
-
-  <!-- CALLOUTS -->
-  <h3>Callouts</h3>
-  <div class="tw">
-    <strong>content warning</strong>
-    medical imagery; coercion themes.
-  </div>
-
-  <div class="note">
-    <strong>note</strong>
-    replies may be slow during tourney week.
-  </div>
-
-  <!-- RULES -->
-  <h3>Rules</h3>
-  <p>Text on the left <span class="vr" aria-hidden="true"></span> text on the right.</p>
-  <hr>
-  <p>Content after a horizontal rule.</p>
-
+              <h4>heading 4</h4>
+              <h5>heading 5</h5>
+              <h6>heading 6</h6>
+              <h7>heading 7</h7>
+              <h8>heading 8</h8>
             </section>
-        </main>
-        
-        <script src="../dist/js/scripts.js"></script>   
-        </div>
-    </body>
+
+          <hr />
+
+          <!-- =========================
+              INLINE TEXT & LISTS
+          ========================== -->
+          <section aria-labelledby="t-inline">
+            <h3 id="t-inline">Inline, i18n & Lists</h3>
+
+            <p>
+              Some <strong>bold</strong>, <em>italic</em>, <u>underline</u>,
+              <s>strikethrough</s>, and a <a href="#">hyperlink</a>.
+            </p>
+            <p>
+              Inline translation:
+              <ruby>骨<rt>bone</rt> 市<rt>market</rt></ruby> or
+              <span class="tr" data-tr="bone market">骨市</span>.
+            </p>
+            <p>
+              Inline spoiler:
+              <span class="spoiler-inline">hidden text</span> (add
+              <code>.is-open</code> to reveal).
+            </p>
+
+            <details class="spoiler">
+              <summary>Spoiler summary (click to open)</summary>
+              <p>
+                Hidden content revealed on click. Can contain lists, quotes,
+                etc.
+              </p>
+            </details>
+
+            <h4>Lists</h4>
+            <ul>
+              <li>Unordered item one</li>
+              <li>
+                Unordered item two
+                <ul>
+                  <li>Nested item</li>
+                </ul>
+              </li>
+            </ul>
+
+            <ol>
+              <li>Ordered item one</li>
+              <li>Ordered item two</li>
+            </ol>
+
+            <p>Dashed list (opt-in):</p>
+            <ul class="dash-list">
+              <li>Dash bullet one</li>
+              <li>Dash bullet two</li>
+            </ul>
+          </section>
+
+          <hr />
+
+          <!-- =========================
+              GROUP HEAD (title + desc)
+          ========================== -->
+          <section aria-labelledby="t-groups">
+            <h3 id="t-groups">Group Head</h3>
+
+            <div class="group-head" role="heading" aria-level="2">
+              <span class="group-head__title">Nadir</span>
+              <span class="group-head__desc"
+                >the lowest point in the fortunes of a person or
+                organization.</span
+              >
+            </div>
+
+            <div
+              class="group-head"
+              role="heading"
+              aria-level="2"
+              data-gradient="accent"
+            >
+              <span class="group-head__title">Zenith</span>
+              <span class="group-head__desc"
+                >the time at which something is most powerful or
+                successful.</span
+              >
+            </div>
+
+            <div
+              class="group-head"
+              role="heading"
+              aria-level="2"
+              data-line="dash"
+            >
+              <span class="group-head__title">Perigee</span>
+              <span class="group-head__desc"
+                >the point closest to earth in an orbit.</span
+              >
+            </div>
+
+            <div
+              class="group-head"
+              role="heading"
+              aria-level="2"
+              data-gradient="duo"
+              style="--gh-thickness: 3px; --gh-alpha: 0.5"
+            >
+              <span class="group-head__title">Apogee</span>
+              <span class="group-head__desc"
+                >the farthest or most distant point.</span
+              >
+            </div>
+          </section>
+
+          <hr />
+
+          <!-- =========================
+              QUOTES
+          ========================== -->
+          <section aria-labelledby="t-quotes">
+            <h3 id="t-quotes">Quotes</h3>
+
+            <blockquote>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
+                consequat erat vel dui pulvinar bibendum. Nulla accumsan sapien
+                magna.
+              </p>
+              <p>Vivamus maximus, diam vitae bibendum tempor, libero erat.</p>
+            </blockquote>
+
+            <blockquote>
+              <p>
+                <span class="bq-mark" aria-hidden="true">❝</span> Debts are the
+                city’s native tongue. The market just writes them down.
+              </p>
+              <cite>— the Archivist</cite>
+            </blockquote>
+
+            <blockquote data-rule data-tone="accent">
+              <p>Portents are due by the next moon. Pay in bone, not coin.</p>
+            </blockquote>
+
+            <h4>Dev Quote</h4>
+            <bm-quote>
+              <p>
+                Debts are the city’s native tongue. The market just writes them
+                down.
+              </p>
+              <cite>— the Archivist</cite>
+            </bm-quote>
+          </section>
+
+          <hr />
+
+          <!-- =========================
+              CALLOUTS
+          ========================== -->
+          <section aria-labelledby="t-callouts">
+            <h3 id="t-callouts">Callouts</h3>
+
+            <div class="tw">
+              <strong>content warning</strong>
+              medical imagery; coercion themes.
+            </div>
+
+            <div class="note">
+              <strong>note</strong>
+              replies may be slow during tourney week.
+            </div>
+          </section>
+
+          <hr />
+
+          <!-- =========================
+              RULES
+          ========================== -->
+          <section aria-labelledby="t-rules">
+            <h3 id="t-rules">Rules</h3>
+            <p>Text on the left <vr></vr> text on the right.</p>
+            <hr />
+            <p>Content after a horizontal rule.</p>
+          </section>
+
+          <hr />
+
+          <!-- =========================
+              MEMBERGROUP VARIANTS
+              (class-based + data-attr)
+          ========================== -->
+          <section class="mg-gallery" aria-labelledby="t-mg">
+            <h3 id="t-mg">Membergroup Variants</h3>
+
+            <!-- Small helper styles for the demo layout only -->
+            <style>
+              .mg-gallery {
+                display: grid;
+                gap: 1.5rem;
+                margin: 1.5rem 0;
+              }
+              .mg-section {
+                background: color-mix(in srgb, var(--bg-2) 85%, transparent);
+                border-radius: 8px;
+                padding: 1rem;
+                box-shadow: inset 0 0 0 1px
+                  color-mix(in srgb, var(--text-loCon) 12%, transparent);
+              }
+              .mg-head {
+                display: flex;
+                justify-content: space-between;
+                align-items: baseline;
+                gap: 1rem;
+                margin-bottom: 0.75rem;
+              }
+              .mg-head h4 {
+                margin: 0;
+                font: 700 1rem/1 var(--font-sans);
+                letter-spacing: 0.04em;
+                text-transform: uppercase;
+                color: var(--text-clear);
+              }
+              .mg-list {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.5rem 0.6rem;
+                align-items: center;
+              }
+              .mg-demo-contrast {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 0.75rem;
+                margin-top: 0.5rem;
+              }
+              .demo-dark,
+              .demo-light {
+                border-radius: 8px;
+                padding: 0.75rem;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.5rem 0.6rem;
+                align-items: center;
+              }
+              .demo-dark {
+                background: #111;
+                color: #eee;
+              }
+              .demo-light {
+                background: #f5f5f5;
+                color: #222;
+              }
+              .mg-row {
+                display: grid;
+                grid-template-columns: repeat(5, minmax(0, 1fr));
+                gap: 0.75rem;
+              }
+              .mg-card {
+                --mg-card-bg: color-mix(in srgb, var(--bg-2) 85%, transparent);
+                border-radius: 10px;
+                padding: 1rem;
+                border: 2px solid transparent;
+                background: linear-gradient(
+                      var(--mg-card-bg),
+                      var(--mg-card-bg)
+                    )
+                    padding-box,
+                  var(--mg-gradient) border-box;
+                box-shadow: inset 0 0 0 1px
+                  color-mix(in srgb, var(--text-loCon) 12%, transparent);
+              }
+              .mg-rule {
+                height: 6px;
+                border-radius: 999px;
+                background: var(--mg-gradient);
+              }
+              .mg-overlay {
+                position: relative;
+                border-radius: 10px;
+                padding: 1rem;
+                background: color-mix(in srgb, var(--bg-2) 85%, transparent);
+                overflow: hidden;
+              }
+              .mg-overlay::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                border-radius: inherit;
+                background: var(--mg-gradient);
+                mix-blend-mode: multiply;
+                opacity: 0.35;
+                pointer-events: none;
+              }
+            </style>
+
+            <!-- CLASS-BASED API -->
+            <section class="mg-section" aria-label="Class-based">
+              <div class="mg-head">
+                <h4>Class-based</h4>
+                <small>membergroup--* + is-pill | is-outline | is-text</small>
+              </div>
+              <div class="mg-list">
+                <span class="membergroup--obsidian is-pill">Obsidian</span>
+                <span class="membergroup--quartz is-outline">Quartz</span>
+                <span class="membergroup--nova is-text">Nova</span>
+                <span class="membergroup--ivy is-pill">Ivy</span>
+                <span class="membergroup--gold is-outline">Gold</span>
+              </div>
+
+              <div class="mg-demo-contrast">
+                <div class="demo-dark">
+                  <span class="membergroup--jade is-pill on-dark">Jade</span>
+                  <span class="membergroup--glass is-text on-dark">Glass</span>
+                </div>
+                <div class="demo-light">
+                  <span class="membergroup--obsidian is-text on-light"
+                    >Obsidian</span
+                  >
+                  <span class="membergroup--smoke is-outline">Smoke</span>
+                </div>
+              </div>
+            </section>
+
+            <!-- DATA-ATTRIBUTE API -->
+            <section class="mg-section" aria-label="Data-attribute">
+              <div class="mg-head">
+                <h4>Data-attribute</h4>
+                <small
+                  >data-mg="…" +
+                  data-variant="pill|outline|text|rule|border|overlay"</small
+                >
+              </div>
+
+              <div class="mg-list">
+                <span data-mg="obsidian" data-variant="pill">Obsidian</span>
+                <span data-mg="blood" data-variant="outline">Blood</span>
+                <span data-mg="nova" data-variant="text">Nova</span>
+                <span data-mg="ivy" data-variant="pill" style="--mg-text: #fff"
+                  >Ivy (white text)</span
+                >
+              </div>
+
+              <div class="mg-row" style="margin-top: 0.75rem">
+                <div data-mg="obsidian">
+                  <div class="mg-rule" title="obsidian"></div>
+                </div>
+                <div data-mg="blood">
+                  <div class="mg-rule" title="blood"></div>
+                </div>
+                <div data-mg="nova">
+                  <div class="mg-rule" title="nova"></div>
+                </div>
+                <div data-mg="ivy"><div class="mg-rule" title="ivy"></div></div>
+                <div data-mg="gold">
+                  <div class="mg-rule" title="gold"></div>
+                </div>
+              </div>
+
+              <div class="mg-row" style="margin-top: 0.75rem">
+                <div data-mg="obsidian">
+                  <div class="mg-card">Obsidian — border</div>
+                </div>
+                <div data-mg="blood">
+                  <div class="mg-card">Blood — border</div>
+                </div>
+                <div data-mg="nova">
+                  <div class="mg-card">Nova — border</div>
+                </div>
+                <div data-mg="ivy"><div class="mg-card">Ivy — border</div></div>
+                <div data-mg="gold">
+                  <div class="mg-card">Gold — border</div>
+                </div>
+              </div>
+
+              <div class="mg-row" style="margin-top: 0.75rem">
+                <div data-mg="obsidian">
+                  <div class="mg-overlay">Obsidian — overlay</div>
+                </div>
+                <div data-mg="blood">
+                  <div class="mg-overlay">Blood — overlay</div>
+                </div>
+                <div data-mg="nova">
+                  <div class="mg-overlay">Nova — overlay</div>
+                </div>
+                <div data-mg="ivy">
+                  <div class="mg-overlay">Ivy — overlay</div>
+                </div>
+                <div data-mg="gold">
+                  <div class="mg-overlay">Gold — overlay</div>
+                </div>
+              </div>
+            </section>
+
+          </section>
+
+          <!-- =========================
+            GRID MATRIX HELPERS (ADD ONCE)
+          ========================= -->
+          <style>
+            /* 2-up wrapping grid of category panels, collapses to 1 on small screens */
+            .mg-gridwrap {
+              display: grid;
+              grid-template-columns: repeat(2, minmax(320px, 1fr));
+              gap: 1rem;
+            }
+            @media (max-width: 900px) {
+              .mg-gridwrap { grid-template-columns: 1fr; }
+            }
+
+            /* category panel header */
+            .mg-category .mg-head {
+              display:flex; justify-content:space-between; align-items:baseline; gap:1rem; margin-bottom:.5rem;
+            }
+            .mg-category .mg-head h5 {
+              margin:0; font: 700 .95rem/1 var(--font-sans); letter-spacing:.04em; text-transform:uppercase; color:var(--text-clear);
+            }
+            .mg-category .mg-head small {
+              color: var(--text-medCon); font: 600 .9rem/1.2 var(--font-sans);
+            }
+
+            /* keep your existing per-section demo helpers */
+            .mg-matrix { display:grid; gap: 1rem; }
+            .mg-rowline { display:grid; grid-template-columns: 160px 1fr; gap:.75rem; align-items:center; }
+            .mg-name { font: 700 .95rem/1 var(--font-sans); color: var(--text-medCon); letter-spacing:.04em; }
+            .mg-variants { display:flex; flex-wrap:wrap; gap:.5rem .6rem; align-items:center; }
+          </style>
+
+          <!-- =========================
+            ALL MEMBERGROUPS — FULL MATRIX (CLASS API)
+          ========================= -->
+          <section class="mg-section" aria-label="All Membergroups — Full Matrix">
+            <div class="mg-head">
+              <h4>All Membergroups</h4>
+              <small>every name × variants: pill · outline · text</small>
+            </div>
+
+            <div class="mg-gridwrap">
+              <!-- PRECIOUS -->
+              <section class="mg-section mg-category" aria-label="Precious">
+                <div class="mg-head">
+                  <h5>Precious</h5>
+                  <small>obsidian · quartz · onyx · amber · jade · silver</small>
+                </div>
+                <div class="mg-matrix">
+                  <div class="mg-rowline">
+                    <div class="mg-name">Obsidian</div>
+                    <div class="mg-variants">
+                      <span class="membergroup--obsidian is-pill">Obsidian</span>
+                      <span class="membergroup--obsidian is-outline">Obsidian</span>
+                      <span class="membergroup--obsidian is-text">Obsidian</span>
+                    </div>
+                  </div>
+                  <div class="mg-rowline">
+                    <div class="mg-name">Quartz</div>
+                    <div class="mg-variants">
+                      <span class="membergroup--quartz is-pill">Quartz</span>
+                      <span class="membergroup--quartz is-outline">Quartz</span>
+                      <span class="membergroup--quartz is-text">Quartz</span>
+                    </div>
+                  </div>
+                  <div class="mg-rowline">
+                    <div class="mg-name">Onyx</div>
+                    <div class="mg-variants">
+                      <span class="membergroup--onyx is-pill">Onyx</span>
+                      <span class="membergroup--onyx is-outline">Onyx</span>
+                      <span class="membergroup--onyx is-text">Onyx</span>
+                    </div>
+                  </div>
+                  <div class="mg-rowline">
+                    <div class="mg-name">Amber</div>
+                    <div class="mg-variants">
+                      <span class="membergroup--amber is-pill">Amber</span>
+                      <span class="membergroup--amber is-outline">Amber</span>
+                      <span class="membergroup--amber is-text">Amber</span>
+                    </div>
+                  </div>
+                  <div class="mg-rowline">
+                    <div class="mg-name">Jade</div>
+                    <div class="mg-variants">
+                      <span class="membergroup--jade is-pill">Jade</span>
+                      <span class="membergroup--jade is-outline">Jade</span>
+                      <span class="membergroup--jade is-text">Jade</span>
+                    </div>
+                  </div>
+                  <div class="mg-rowline">
+                    <div class="mg-name">Silver</div>
+                    <div class="mg-variants">
+                      <span class="membergroup--silver is-pill">Silver</span>
+                      <span class="membergroup--silver is-outline">Silver</span>
+                      <span class="membergroup--silver is-text">Silver</span>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <!-- ANATOMY -->
+              <section class="mg-section mg-category" aria-label="Anatomy">
+                <div class="mg-head">
+                  <h5>Anatomy</h5>
+                  <small>marrow · sinew · blood · vein · bone · flesh</small>
+                </div>
+                <div class="mg-matrix">
+                  <div class="mg-rowline">
+                    <div class="mg-name">Marrow</div>
+                    <div class="mg-variants">
+                      <span class="membergroup--marrow is-pill">Marrow</span>
+                      <span class="membergroup--marrow is-outline">Marrow</span>
+                      <span class="membergroup--marrow is-text">Marrow</span>
+                    </div>
+                  </div>
+                  <div class="mg-rowline">
+                    <div class="mg-name">Sinew</div>
+                    <div class="mg-variants">
+                      <span class="membergroup--sinew is-pill">Sinew</span>
+                      <span class="membergroup--sinew is-outline">Sinew</span>
+                      <span class="membergroup--sinew is-text">Sinew</span>
+                    </div>
+                  </div>
+                  <div class="mg-rowline">
+                    <div class="mg-name">Blood</div>
+                    <div class="mg-variants">
+                      <span class="membergroup--blood is-pill">Blood</span>
+                      <span class="membergroup--blood is-outline">Blood</span>
+                      <span class="membergroup--blood is-text">Blood</span>
+                    </div>
+                  </div>
+                  <div class="mg-rowline">
+                    <div class="mg-name">Vein</div>
+                    <div class="mg-variants">
+                      <span class="membergroup--vein is-pill">Vein</span>
+                      <span class="membergroup--vein is-outline">Vein</span>
+                      <span class="membergroup--vein is-text">Vein</span>
+                    </div>
+                  </div>
+                  <div class="mg-rowline">
+                    <div class="mg-name">Bone</div>
+                    <div class="mg-variants">
+                      <span class="membergroup--bone is-pill">Bone</span>
+                      <span class="membergroup--bone is-outline">Bone</span>
+                      <span class="membergroup--bone is-text">Bone</span>
+                    </div>
+                  </div>
+                  <div class="mg-rowline">
+                    <div class="mg-name">Flesh</div>
+                    <div class="mg-variants">
+                      <span class="membergroup--flesh is-pill">Flesh</span>
+                      <span class="membergroup--flesh is-outline">Flesh</span>
+                      <span class="membergroup--flesh is-text">Flesh</span>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <!-- CELESTIAL -->
+              <section class="mg-section mg-category" aria-label="Celestial">
+                <div class="mg-head">
+                  <h5>Celestial</h5>
+                  <small>eclipse · nova · comet · orbit · umbra · zenith</small>
+                </div>
+                <div class="mg-matrix">
+                  <div class="mg-rowline">
+                    <div class="mg-name">Eclipse</div>
+                    <div class="mg-variants">
+                      <span class="membergroup--eclipse is-pill">Eclipse</span>
+                      <span class="membergroup--eclipse is-outline">Eclipse</span>
+                      <span class="membergroup--eclipse is-text">Eclipse</span>
+                    </div>
+                  </div>
+                  <div class="mg-rowline">
+                    <div class="mg-name">Nova</div>
+                    <div class="mg-variants">
+                      <span class="membergroup--nova is-pill">Nova</span>
+                      <span class="membergroup--nova is-outline">Nova</span>
+                      <span class="membergroup--nova is-text">Nova</span>
+                    </div>
+                  </div>
+                  <div class="mg-rowline">
+                    <div class="mg-name">Comet</div>
+                    <div class="mg-variants">
+                      <span class="membergroup--comet is-pill">Comet</span>
+                      <span class="membergroup--comet is-outline">Comet</span>
+                      <span class="membergroup--comet is-text">Comet</span>
+                    </div>
+                  </div>
+                  <div class="mg-rowline">
+                    <div class="mg-name">Orbit</div>
+                    <div class="mg-variants">
+                      <span class="membergroup--orbit is-pill">Orbit</span>
+                      <span class="membergroup--orbit is-outline">Orbit</span>
+                      <span class="membergroup--orbit is-text">Orbit</span>
+                    </div>
+                  </div>
+                  <div class="mg-rowline">
+                    <div class="mg-name">Umbra</div>
+                    <div class="mg-variants">
+                      <span class="membergroup--umbra is-pill">Umbra</span>
+                      <span class="membergroup--umbra is-outline">Umbra</span>
+                      <span class="membergroup--umbra is-text">Umbra</span>
+                    </div>
+                  </div>
+                  <div class="mg-rowline">
+                    <div class="mg-name">Zenith</div>
+                    <div class="mg-variants">
+                      <span class="membergroup--zenith is-pill">Zenith</span>
+                      <span class="membergroup--zenith is-outline">Zenith</span>
+                      <span class="membergroup--zenith is-text">Zenith</span>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <!-- FLORA -->
+              <section class="mg-section mg-category" aria-label="Flora">
+                <div class="mg-head">
+                  <h5>Flora</h5>
+                  <small>hemlock · nightshade · yew · ivy · rowan · thorn</small>
+                </div>
+                <div class="mg-matrix">
+                  <div class="mg-rowline">
+                    <div class="mg-name">Hemlock</div>
+                    <div class="mg-variants">
+                      <span class="membergroup--hemlock is-pill">Hemlock</span>
+                      <span class="membergroup--hemlock is-outline">Hemlock</span>
+                      <span class="membergroup--hemlock is-text">Hemlock</span>
+                    </div>
+                  </div>
+                  <div class="mg-rowline">
+                    <div class="mg-name">Nightshade</div>
+                    <div class="mg-variants">
+                      <span class="membergroup--nightshade is-pill">Nightshade</span>
+                      <span class="membergroup--nightshade is-outline">Nightshade</span>
+                      <span class="membergroup--nightshade is-text">Nightshade</span>
+                    </div>
+                  </div>
+                  <div class="mg-rowline">
+                    <div class="mg-name">Yew</div>
+                    <div class="mg-variants">
+                      <span class="membergroup--yew is-pill">Yew</span>
+                      <span class="membergroup--yew is-outline">Yew</span>
+                      <span class="membergroup--yew is-text">Yew</span>
+                    </div>
+                  </div>
+                  <div class="mg-rowline">
+                    <div class="mg-name">Ivy</div>
+                    <div class="mg-variants">
+                      <span class="membergroup--ivy is-pill">Ivy</span>
+                      <span class="membergroup--ivy is-outline">Ivy</span>
+                      <span class="membergroup--ivy is-text">Ivy</span>
+                    </div>
+                  </div>
+                  <div class="mg-rowline">
+                    <div class="mg-name">Rowan</div>
+                    <div class="mg-variants">
+                      <span class="membergroup--rowan is-pill">Rowan</span>
+                      <span class="membergroup--rowan is-outline">Rowan</span>
+                      <span class="membergroup--rowan is-text">Rowan</span>
+                    </div>
+                  </div>
+                  <div class="mg-rowline">
+                    <div class="mg-name">Thorn</div>
+                    <div class="mg-variants">
+                      <span class="membergroup--thorn is-pill">Thorn</span>
+                      <span class="membergroup--thorn is-outline">Thorn</span>
+                      <span class="membergroup--thorn is-text">Thorn</span>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <!-- TRADE -->
+              <section class="mg-section mg-category" aria-label="Trade">
+                <div class="mg-head">
+                  <h5>Trade</h5>
+                  <small>ivory · velvet · spice · smoke · glass · gold</small>
+                </div>
+                <div class="mg-matrix">
+                  <div class="mg-rowline">
+                    <div class="mg-name">Ivory</div>
+                    <div class="mg-variants">
+                      <span class="membergroup--ivory is-pill">Ivory</span>
+                      <span class="membergroup--ivory is-outline">Ivory</span>
+                      <span class="membergroup--ivory is-text">Ivory</span>
+                    </div>
+                  </div>
+                  <div class="mg-rowline">
+                    <div class="mg-name">Velvet</div>
+                    <div class="mg-variants">
+                      <span class="membergroup--velvet is-pill">Velvet</span>
+                      <span class="membergroup--velvet is-outline">Velvet</span>
+                      <span class="membergroup--velvet is-text">Velvet</span>
+                    </div>
+                  </div>
+                  <div class="mg-rowline">
+                    <div class="mg-name">Spice</div>
+                    <div class="mg-variants">
+                      <span class="membergroup--spice is-pill">Spice</span>
+                      <span class="membergroup--spice is-outline">Spice</span>
+                      <span class="membergroup--spice is-text">Spice</span>
+                    </div>
+                  </div>
+                  <div class="mg-rowline">
+                    <div class="mg-name">Smoke</div>
+                    <div class="mg-variants">
+                      <span class="membergroup--smoke is-pill">Smoke</span>
+                      <span class="membergroup--smoke is-outline">Smoke</span>
+                      <span class="membergroup--smoke is-text">Smoke</span>
+                    </div>
+                  </div>
+                  <div class="mg-rowline">
+                    <div class="mg-name">Glass</div>
+                    <div class="mg-variants">
+                      <span class="membergroup--glass is-pill">Glass</span>
+                      <span class="membergroup--glass is-outline">Glass</span>
+                      <span class="membergroup--glass is-text">Glass</span>
+                    </div>
+                  </div>
+                  <div class="mg-rowline">
+                    <div class="mg-name">Gold</div>
+                    <div class="mg-variants">
+                      <span class="membergroup--gold is-pill">Gold</span>
+                      <span class="membergroup--gold is-outline">Gold</span>
+                      <span class="membergroup--gold is-text">Gold</span>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </section>
+
+          <!-- =========================
+            ALL MEMBERGROUPS — DATA ATTR MATRIX (DATA API)
+          ========================= -->
+          <section class="mg-section" aria-label="All Membergroups (data-attributes)">
+            <div class="mg-head">
+              <h4>All Membergroups (Data API)</h4>
+              <small>every name × variants: <code>pill</code> · <code>outline</code> · <code>text</code></small>
+            </div>
+
+            <div class="mg-gridwrap">
+              <!-- PRECIOUS -->
+              <section class="mg-section mg-category" aria-label="Precious (data)">
+                <div class="mg-head">
+                  <h5>Precious</h5>
+                  <small>obsidian · quartz · onyx · amber · jade · silver</small>
+                </div>
+                <div class="mg-matrix">
+                  <div class="mg-rowline">
+                    <div class="mg-name">Obsidian</div>
+                    <div class="mg-variants">
+                      <span data-mg="obsidian" data-variant="pill">Obsidian</span>
+                      <span data-mg="obsidian" data-variant="outline">Obsidian</span>
+                      <span data-mg="obsidian" data-variant="text">Obsidian</span>
+                    </div>
+                  </div>
+                  <div class="mg-rowline">
+                    <div class="mg-name">Quartz</div>
+                    <div class="mg-variants">
+                      <span data-mg="quartz" data-variant="pill">Quartz</span>
+                      <span data-mg="quartz" data-variant="outline">Quartz</span>
+                      <span data-mg="quartz" data-variant="text">Quartz</span>
+                    </div>
+                  </div>
+                  <div class="mg-rowline">
+                    <div class="mg-name">Onyx</div>
+                    <div class="mg-variants">
+                      <span data-mg="onyx" data-variant="pill">Onyx</span>
+                      <span data-mg="onyx" data-variant="outline">Onyx</span>
+                      <span data-mg="onyx" data-variant="text">Onyx</span>
+                    </div>
+                  </div>
+                  <div class="mg-rowline">
+                    <div class="mg-name">Amber</div>
+                    <div class="mg-variants">
+                      <span data-mg="amber" data-variant="pill">Amber</span>
+                      <span data-mg="amber" data-variant="outline">Amber</span>
+                      <span data-mg="amber" data-variant="text">Amber</span>
+                    </div>
+                  </div>
+                  <div class="mg-rowline">
+                    <div class="mg-name">Jade</div>
+                    <div class="mg-variants">
+                      <span data-mg="jade" data-variant="pill">Jade</span>
+                      <span data-mg="jade" data-variant="outline">Jade</span>
+                      <span data-mg="jade" data-variant="text">Jade</span>
+                    </div>
+                  </div>
+                  <div class="mg-rowline">
+                    <div class="mg-name">Silver</div>
+                    <div class="mg-variants">
+                      <span data-mg="silver" data-variant="pill">Silver</span>
+                      <span data-mg="silver" data-variant="outline">Silver</span>
+                      <span data-mg="silver" data-variant="text">Silver</span>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <!-- ANATOMY -->
+              <section class="mg-section mg-category" aria-label="Anatomy (data)">
+                <div class="mg-head">
+                  <h5>Anatomy</h5>
+                  <small>marrow · sinew · blood · vein · bone · flesh</small>
+                </div>
+                <div class="mg-matrix">
+                  <div class="mg-rowline">
+                    <div class="mg-name">Marrow</div>
+                    <div class="mg-variants">
+                      <span data-mg="marrow" data-variant="pill">Marrow</span>
+                      <span data-mg="marrow" data-variant="outline">Marrow</span>
+                      <span data-mg="marrow" data-variant="text">Marrow</span>
+                    </div>
+                  </div>
+                  <div class="mg-rowline">
+                    <div class="mg-name">Sinew</div>
+                    <div class="mg-variants">
+                      <span data-mg="sinew" data-variant="pill">Sinew</span>
+                      <span data-mg="sinew" data-variant="outline">Sinew</span>
+                      <span data-mg="sinew" data-variant="text">Sinew</span>
+                    </div>
+                  </div>
+                  <div class="mg-rowline">
+                    <div class="mg-name">Blood</div>
+                    <div class="mg-variants">
+                      <span data-mg="blood" data-variant="pill">Blood</span>
+                      <span data-mg="blood" data-variant="outline">Blood</span>
+                      <span data-mg="blood" data-variant="text">Blood</span>
+                    </div>
+                  </div>
+                  <div class="mg-rowline">
+                    <div class="mg-name">Vein</div>
+                    <div class="mg-variants">
+                      <span data-mg="vein" data-variant="pill">Vein</span>
+                      <span data-mg="vein" data-variant="outline">Vein</span>
+                      <span data-mg="vein" data-variant="text">Vein</span>
+                    </div>
+                  </div>
+                  <div class="mg-rowline">
+                    <div class="mg-name">Bone</div>
+                    <div class="mg-variants">
+                      <span data-mg="bone" data-variant="pill">Bone</span>
+                      <span data-mg="bone" data-variant="outline">Bone</span>
+                      <span data-mg="bone" data-variant="text">Bone</span>
+                    </div>
+                  </div>
+                  <div class="mg-rowline">
+                    <div class="mg-name">Flesh</div>
+                    <div class="mg-variants">
+                      <span data-mg="flesh" data-variant="pill">Flesh</span>
+                      <span data-mg="flesh" data-variant="outline">Flesh</span>
+                      <span data-mg="flesh" data-variant="text">Flesh</span>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <!-- CELESTIAL -->
+              <section class="mg-section mg-category" aria-label="Celestial (data)">
+                <div class="mg-head">
+                  <h5>Celestial</h5>
+                  <small>eclipse · nova · comet · orbit · umbra · zenith</small>
+                </div>
+                <div class="mg-matrix">
+                  <div class="mg-rowline">
+                    <div class="mg-name">Eclipse</div>
+                    <div class="mg-variants">
+                      <span data-mg="eclipse" data-variant="pill">Eclipse</span>
+                      <span data-mg="eclipse" data-variant="outline">Eclipse</span>
+                      <span data-mg="eclipse" data-variant="text">Eclipse</span>
+                    </div>
+                  </div>
+                  <div class="mg-rowline">
+                    <div class="mg-name">Nova</div>
+                    <div class="mg-variants">
+                      <span data-mg="nova" data-variant="pill">Nova</span>
+                      <span data-mg="nova" data-variant="outline">Nova</span>
+                      <span data-mg="nova" data-variant="text">Nova</span>
+                    </div>
+                  </div>
+                  <div class="mg-rowline">
+                    <div class="mg-name">Comet</div>
+                    <div class="mg-variants">
+                      <span data-mg="comet" data-variant="pill">Comet</span>
+                      <span data-mg="comet" data-variant="outline">Comet</span>
+                      <span data-mg="comet" data-variant="text">Comet</span>
+                    </div>
+                  </div>
+                  <div class="mg-rowline">
+                    <div class="mg-name">Orbit</div>
+                    <div class="mg-variants">
+                      <span data-mg="orbit" data-variant="pill">Orbit</span>
+                      <span data-mg="orbit" data-variant="outline">Orbit</span>
+                      <span data-mg="orbit" data-variant="text">Orbit</span>
+                    </div>
+                  </div>
+                  <div class="mg-rowline">
+                    <div class="mg-name">Umbra</div>
+                    <div class="mg-variants">
+                      <span data-mg="umbra" data-variant="pill">Umbra</span>
+                      <span data-mg="umbra" data-variant="outline">Umbra</span>
+                      <span data-mg="umbra" data-variant="text">Umbra</span>
+                    </div>
+                  </div>
+                  <div class="mg-rowline">
+                    <div class="mg-name">Zenith</div>
+                    <div class="mg-variants">
+                      <span data-mg="zenith" data-variant="pill">Zenith</span>
+                      <span data-mg="zenith" data-variant="outline">Zenith</span>
+                      <span data-mg="zenith" data-variant="text">Zenith</span>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <!-- FLORA -->
+              <section class="mg-section mg-category" aria-label="Flora (data)">
+                <div class="mg-head">
+                  <h5>Flora</h5>
+                  <small>hemlock · nightshade · yew · ivy · rowan · thorn</small>
+                </div>
+                <div class="mg-matrix">
+                  <div class="mg-rowline">
+                    <div class="mg-name">Hemlock</div>
+                    <div class="mg-variants">
+                      <span data-mg="hemlock" data-variant="pill">Hemlock</span>
+                      <span data-mg="hemlock" data-variant="outline">Hemlock</span>
+                      <span data-mg="hemlock" data-variant="text">Hemlock</span>
+                    </div>
+                  </div>
+                  <div class="mg-rowline">
+                    <div class="mg-name">Nightshade</div>
+                    <div class="mg-variants">
+                      <span data-mg="nightshade" data-variant="pill">Nightshade</span>
+                      <span data-mg="nightshade" data-variant="outline">Nightshade</span>
+                      <span data-mg="nightshade" data-variant="text">Nightshade</span>
+                    </div>
+                  </div>
+                  <div class="mg-rowline">
+                    <div class="mg-name">Yew</div>
+                    <div class="mg-variants">
+                      <span data-mg="yew" data-variant="pill">Yew</span>
+                      <span data-mg="yew" data-variant="outline">Yew</span>
+                      <span data-mg="yew" data-variant="text">Yew</span>
+                    </div>
+                  </div>
+                  <div class="mg-rowline">
+                    <div class="mg-name">Ivy</div>
+                    <div class="mg-variants">
+                      <span data-mg="ivy" data-variant="pill">Ivy</span>
+                      <span data-mg="ivy" data-variant="outline">Ivy</span>
+                      <span data-mg="ivy" data-variant="text">Ivy</span>
+                    </div>
+                  </div>
+                  <div class="mg-rowline">
+                    <div class="mg-name">Rowan</div>
+                    <div class="mg-variants">
+                      <span data-mg="rowan" data-variant="pill">Rowan</span>
+                      <span data-mg="rowan" data-variant="outline">Rowan</span>
+                      <span data-mg="rowan" data-variant="text">Rowan</span>
+                    </div>
+                  </div>
+                  <div class="mg-rowline">
+                    <div class="mg-name">Thorn</div>
+                    <div class="mg-variants">
+                      <span data-mg="thorn" data-variant="pill">Thorn</span>
+                      <span data-mg="thorn" data-variant="outline">Thorn</span>
+                      <span data-mg="thorn" data-variant="text">Thorn</span>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <!-- TRADE -->
+              <section class="mg-section mg-category" aria-label="Trade (data)">
+                <div class="mg-head">
+                  <h5>Trade</h5>
+                  <small>ivory · velvet · spice · smoke · glass · gold</small>
+                </div>
+                <div class="mg-matrix">
+                  <div class="mg-rowline">
+                    <div class="mg-name">Ivory</div>
+                    <div class="mg-variants">
+                      <span data-mg="ivory" data-variant="pill">Ivory</span>
+                      <span data-mg="ivory" data-variant="outline">Ivory</span>
+                      <span data-mg="ivory" data-variant="text">Ivory</span>
+                    </div>
+                  </div>
+                  <div class="mg-rowline">
+                    <div class="mg-name">Velvet</div>
+                    <div class="mg-variants">
+                      <span data-mg="velvet" data-variant="pill">Velvet</span>
+                      <span data-mg="velvet" data-variant="outline">Velvet</span>
+                      <span data-mg="velvet" data-variant="text">Velvet</span>
+                    </div>
+                  </div>
+                  <div class="mg-rowline">
+                    <div class="mg-name">Spice</div>
+                    <div class="mg-variants">
+                      <span data-mg="spice" data-variant="pill">Spice</span>
+                      <span data-mg="spice" data-variant="outline">Spice</span>
+                      <span data-mg="spice" data-variant="text">Spice</span>
+                    </div>
+                  </div>
+                  <div class="mg-rowline">
+                    <div class="mg-name">Smoke</div>
+                    <div class="mg-variants">
+                      <span data-mg="smoke" data-variant="pill">Smoke</span>
+                      <span data-mg="smoke" data-variant="outline">Smoke</span>
+                      <span data-mg="smoke" data-variant="text">Smoke</span>
+                    </div>
+                  </div>
+                  <div class="mg-rowline">
+                    <div class="mg-name">Glass</div>
+                    <div class="mg-variants">
+                      <span data-mg="glass" data-variant="pill">Glass</span>
+                      <span data-mg="glass" data-variant="outline">Glass</span>
+                      <span data-mg="glass" data-variant="text">Glass</span>
+                    </div>
+                  </div>
+                  <div class="mg-rowline">
+                    <div class="mg-name">Gold</div>
+                    <div class="mg-variants">
+                      <span data-mg="gold" data-variant="pill">Gold</span>
+                      <span data-mg="gold" data-variant="outline">Gold</span>
+                      <span data-mg="gold" data-variant="text">Gold</span>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </section>
+
+
+          <!-- House Black Salt — parchment, sepia ink, bottom-right wax seal, 3 fold marks -->
+          <article class="rp-letter"
+                  data-mode="letter"
+                  data-stationery="parchment"
+                  data-ink="sepia"
+                  data-seal="wax-br"
+                  data-folds="3"
+                  data-age="worn"
+                  data-watermark="crest"
+                  style="--crest-url:url(/img/crests/black-salt.svg)">
+
+            <header class="rp-head" data-house="black-salt">
+              <img class="rp-crest" src="/img/crests/black-salt.svg" alt="" aria-hidden="true">
+              <div class="rp-from">
+                <h1>House Black Salt</h1>
+                <p>Catacomb Row, The Bone Market</p>
+              </div>
+              <div class="rp-meta">
+                <time datetime="1887-10-14">14th of Frostfall</time>
+                <span>By night courier</span>
+              </div>
+            </header>
+
+            <hr class="rp-rule">
+
+            <address class="rp-address">
+              <strong>To:</strong> Master Ferrin<br>
+              Guild of Appraisers<br>
+              Wharf Quarter
+            </address>
+
+            <p class="rp-greeting">Master Ferrin,</p>
+
+            <section class="rp-body">
+              <p>Debts are the city’s native tongue; the market merely writes them down. Enclosed the ledgers you requested…</p>
+              <p>Should the council demand provenance, cite the tally below and the seal impressed at foot.</p>
+            </section>
+
+            <p class="rp-closing">With measured regard,</p>
+
+            <div class="rp-signature" data-emboss>
+              <span class="sig-name">The Archivist</span>
+              <span class="sig-mark" aria-hidden="true"></span>
+            </div>
+
+            <aside class="rp-ps"><strong>P.S.</strong> The marrow-tithe doubles at next moonrise.</aside>
+
+            <ul class="rp-enclosures" aria-label="Enclosures">
+              <li>Ledger fragment (Lots B-13 to B-21)</li>
+              <li>Receipt bearing Ferrin’s countersign</li>
+            </ul>
+
+            <span class="rp-courier" data-courier="raven">Raven Dispatch</span>
+          </article>
+
+          <!-- House Glass Guild — clean paper, black ink, ribbon seal, top-left -->
+          <article class="rp-letter"
+                  data-mode="letter"
+                  data-stationery="plain"
+                  data-ink="black"
+                  data-seal="ribbon-tl"
+                  data-folds="2"
+                  style="--crest-url:url(/img/crests/glass-guild.svg)">
+            <header class="rp-head" data-house="glass-guild">
+              <img class="rp-crest" src="/img/crests/glass-guild.svg" alt="" aria-hidden="true">
+              <div class="rp-from"><h1>Glass Guild Syndic</h1><p>Spire Terrace</p></div>
+              <div class="rp-meta"><time datetime="1887-10-16">16 Frostfall</time><span>Hand-carried</span></div>
+            </header>
+            <hr class="rp-rule">
+            <p class="rp-greeting">Syndic Valera,</p>
+            <section class="rp-body"><p>Regarding the shipment…</p></section>
+            <div class="rp-signature"><span class="sig-name">Valera</span><span class="sig-mark"></span></div>
+            <span class="rp-courier" data-courier="stag">Stag Relay</span>
+          </article>
+
+          <!-- ENVELOPE MODE: front-facing address w/ watermark & stamp only -->
+          <article class="rp-letter"
+                  data-mode="envelope"
+                  data-stationery="parchment"
+                  data-ink="sepia"
+                  data-seal="stamp-tr"
+                  data-folds="0"
+                  data-watermark="crest"
+                  style="--crest-url:url(/img/crests/orbit.svg)">
+            <address class="rp-address--front">
+              <span class="to">Master Ferrin</span>
+              <span>Guild of Appraisers</span>
+              <span>Wharf Quarter</span>
+            </address>
+            <span class="rp-courier" data-courier="night">Night Post</span>
+          </article>
+
+
+
+
+
+
+        </section>
+      </main>
+
+      <script src="../dist/js/scripts.js"></script>
+    </div>
+  </body>
 </html>

@@ -11,15 +11,108 @@
 /* Outline style (transparent fill; gradient border) */
 /* Text gradient style (keeps container transparent) */
 /* ── 3) ONE-LINE API TO GENERATE EVERYTHING ─── */
+/* Emit --mg-gradient via [data-mg="..."] */
+/* Call it for each set (or just once with $gradients-all) */
+[data-mg="obsidian"] {
+  --mg-gradient: linear-gradient(135deg, #0b0b0c, #3a3a3d); }
+
+[data-mg="quartz"] {
+  --mg-gradient: linear-gradient(135deg, #d8efff, #cabfff); }
+
+[data-mg="onyx"] {
+  --mg-gradient: linear-gradient(135deg, #161210, #4a3834); }
+
+[data-mg="amber"] {
+  --mg-gradient: linear-gradient(135deg, #ffb347, #ffcc33); }
+
+[data-mg="jade"] {
+  --mg-gradient: linear-gradient(135deg, #3fa374, #a1d19d); }
+
+[data-mg="silver"] {
+  --mg-gradient: linear-gradient(135deg, #b0c4d2, #7890a0); }
+
+[data-mg="marrow"] {
+  --mg-gradient: linear-gradient(135deg, #f1e6dc, #bba998); }
+
+[data-mg="sinew"] {
+  --mg-gradient: linear-gradient(135deg, #d5a981, #8c5b3c); }
+
+[data-mg="blood"] {
+  --mg-gradient: linear-gradient(135deg, #7a0d1d, #d92b2b); }
+
+[data-mg="vein"] {
+  --mg-gradient: linear-gradient(135deg, #21334d, #486b94); }
+
+[data-mg="bone"] {
+  --mg-gradient: linear-gradient(135deg, #dedac8, #aaa084); }
+
+[data-mg="flesh"] {
+  --mg-gradient: linear-gradient(135deg, #f5c3b5, #d98f80); }
+
+[data-mg="eclipse"] {
+  --mg-gradient: linear-gradient(135deg, #191919, #4a3b5e); }
+
+[data-mg="nova"] {
+  --mg-gradient: linear-gradient(135deg, #ff8a00, #ff3d00); }
+
+[data-mg="comet"] {
+  --mg-gradient: linear-gradient(135deg, #4b8fd2, #c5dfff); }
+
+[data-mg="orbit"] {
+  --mg-gradient: linear-gradient(135deg, #365a64, #78aab4); }
+
+[data-mg="umbra"] {
+  --mg-gradient: linear-gradient(135deg, #081020, #204070); }
+
+[data-mg="zenith"] {
+  --mg-gradient: linear-gradient(135deg, #f6e58d, #f9ca24); }
+
+[data-mg="hemlock"] {
+  --mg-gradient: linear-gradient(135deg, #1c3b32, #3d6656); }
+
+[data-mg="nightshade"] {
+  --mg-gradient: linear-gradient(135deg, #3b1a4a, #713b86); }
+
+[data-mg="yew"] {
+  --mg-gradient: linear-gradient(135deg, #103449, #2e688a); }
+
+[data-mg="ivy"] {
+  --mg-gradient: linear-gradient(135deg, #264d35, #6ca97f); }
+
+[data-mg="rowan"] {
+  --mg-gradient: linear-gradient(135deg, #803116, #b05e34); }
+
+[data-mg="thorn"] {
+  --mg-gradient: linear-gradient(135deg, #783838, #a86060); }
+
+[data-mg="ivory"] {
+  --mg-gradient: linear-gradient(135deg, #fff8ee, #d9cbb0); }
+
+[data-mg="velvet"] {
+  --mg-gradient: linear-gradient(135deg, #4c1526, #8c224e); }
+
+[data-mg="spice"] {
+  --mg-gradient: linear-gradient(135deg, #ba6c2b, #db9340); }
+
+[data-mg="smoke"] {
+  --mg-gradient: linear-gradient(135deg, #3c3634, #aaa096); }
+
+[data-mg="glass"] {
+  --mg-gradient: linear-gradient(135deg, #d0ece5, #a0d2c4); }
+
+[data-mg="gold"] {
+  --mg-gradient: linear-gradient(135deg, #d4af37, #f5d76e); }
+
+/* or: @include mg-emit-data-vars($gradients-all); */
 /* ── 4) CALLS — generate per-set or all at once ─ */
 .membergroup--obsidian {
   --mg-gradient: linear-gradient(135deg, #0b0b0c, #3a3a3d); }
 
 .membergroup--quartz {
-  --mg-gradient: linear-gradient(135deg, #e6e2dd, #cfc9c4); }
+  --mg-gradient: linear-gradient(135deg, #d8efff, #cabfff); }
 
 .membergroup--onyx {
-  --mg-gradient: linear-gradient(135deg, #1b1b1b, #404040); }
+  --mg-gradient: linear-gradient(135deg, #161210, #4a3834); }
 
 .membergroup--amber {
   --mg-gradient: linear-gradient(135deg, #ffb347, #ffcc33); }
@@ -28,7 +121,7 @@
   --mg-gradient: linear-gradient(135deg, #3fa374, #a1d19d); }
 
 .membergroup--silver {
-  --mg-gradient: linear-gradient(135deg, #d7d7d7, #9ea4ad); }
+  --mg-gradient: linear-gradient(135deg, #b0c4d2, #7890a0); }
 
 .membergroup--obsidian.is-pill {
   --mg-gradient: linear-gradient(135deg, #0b0b0c, #3a3a3d);
@@ -47,7 +140,7 @@
     color: whitesmoke; }
 
 .membergroup--quartz.is-pill {
-  --mg-gradient: linear-gradient(135deg, #e6e2dd, #cfc9c4);
+  --mg-gradient: linear-gradient(135deg, #d8efff, #cabfff);
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
@@ -63,7 +156,7 @@
     color: whitesmoke; }
 
 .membergroup--onyx.is-pill {
-  --mg-gradient: linear-gradient(135deg, #1b1b1b, #404040);
+  --mg-gradient: linear-gradient(135deg, #161210, #4a3834);
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
@@ -111,7 +204,7 @@
     color: whitesmoke; }
 
 .membergroup--silver.is-pill {
-  --mg-gradient: linear-gradient(135deg, #d7d7d7, #9ea4ad);
+  --mg-gradient: linear-gradient(135deg, #b0c4d2, #7890a0);
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
@@ -137,7 +230,7 @@
   border-image: var(--mg-gradient) 1; }
 
 .membergroup--quartz.is-outline {
-  --mg-gradient: linear-gradient(135deg, #e6e2dd, #cfc9c4);
+  --mg-gradient: linear-gradient(135deg, #d8efff, #cabfff);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
@@ -147,7 +240,7 @@
   border-image: var(--mg-gradient) 1; }
 
 .membergroup--onyx.is-outline {
-  --mg-gradient: linear-gradient(135deg, #1b1b1b, #404040);
+  --mg-gradient: linear-gradient(135deg, #161210, #4a3834);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
@@ -177,7 +270,7 @@
   border-image: var(--mg-gradient) 1; }
 
 .membergroup--silver.is-outline {
-  --mg-gradient: linear-gradient(135deg, #d7d7d7, #9ea4ad);
+  --mg-gradient: linear-gradient(135deg, #b0c4d2, #7890a0);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
@@ -200,7 +293,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .membergroup--quartz.is-text {
-  --mg-gradient: linear-gradient(135deg, #e6e2dd, #cfc9c4);
+  --mg-gradient: linear-gradient(135deg, #d8efff, #cabfff);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -213,7 +306,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .membergroup--onyx.is-text {
-  --mg-gradient: linear-gradient(135deg, #1b1b1b, #404040);
+  --mg-gradient: linear-gradient(135deg, #161210, #4a3834);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -252,7 +345,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .membergroup--silver.is-text {
-  --mg-gradient: linear-gradient(135deg, #d7d7d7, #9ea4ad);
+  --mg-gradient: linear-gradient(135deg, #b0c4d2, #7890a0);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -277,7 +370,7 @@
   --mg-gradient: linear-gradient(135deg, #21334d, #486b94); }
 
 .membergroup--bone {
-  --mg-gradient: linear-gradient(135deg, #e7dfd3, #b6a99a); }
+  --mg-gradient: linear-gradient(135deg, #dedac8, #aaa084); }
 
 .membergroup--flesh {
   --mg-gradient: linear-gradient(135deg, #f5c3b5, #d98f80); }
@@ -347,7 +440,7 @@
     color: whitesmoke; }
 
 .membergroup--bone.is-pill {
-  --mg-gradient: linear-gradient(135deg, #e7dfd3, #b6a99a);
+  --mg-gradient: linear-gradient(135deg, #dedac8, #aaa084);
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
@@ -419,7 +512,7 @@
   border-image: var(--mg-gradient) 1; }
 
 .membergroup--bone.is-outline {
-  --mg-gradient: linear-gradient(135deg, #e7dfd3, #b6a99a);
+  --mg-gradient: linear-gradient(135deg, #dedac8, #aaa084);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
@@ -491,7 +584,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .membergroup--bone.is-text {
-  --mg-gradient: linear-gradient(135deg, #e7dfd3, #b6a99a);
+  --mg-gradient: linear-gradient(135deg, #dedac8, #aaa084);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -526,10 +619,10 @@
   --mg-gradient: linear-gradient(135deg, #4b8fd2, #c5dfff); }
 
 .membergroup--orbit {
-  --mg-gradient: linear-gradient(135deg, #434a5c, #7782a1); }
+  --mg-gradient: linear-gradient(135deg, #365a64, #78aab4); }
 
 .membergroup--umbra {
-  --mg-gradient: linear-gradient(135deg, #0d0c1b, #3b3a62); }
+  --mg-gradient: linear-gradient(135deg, #081020, #204070); }
 
 .membergroup--zenith {
   --mg-gradient: linear-gradient(135deg, #f6e58d, #f9ca24); }
@@ -583,7 +676,7 @@
     color: whitesmoke; }
 
 .membergroup--orbit.is-pill {
-  --mg-gradient: linear-gradient(135deg, #434a5c, #7782a1);
+  --mg-gradient: linear-gradient(135deg, #365a64, #78aab4);
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
@@ -599,7 +692,7 @@
     color: whitesmoke; }
 
 .membergroup--umbra.is-pill {
-  --mg-gradient: linear-gradient(135deg, #0d0c1b, #3b3a62);
+  --mg-gradient: linear-gradient(135deg, #081020, #204070);
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
@@ -661,7 +754,7 @@
   border-image: var(--mg-gradient) 1; }
 
 .membergroup--orbit.is-outline {
-  --mg-gradient: linear-gradient(135deg, #434a5c, #7782a1);
+  --mg-gradient: linear-gradient(135deg, #365a64, #78aab4);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
@@ -671,7 +764,7 @@
   border-image: var(--mg-gradient) 1; }
 
 .membergroup--umbra.is-outline {
-  --mg-gradient: linear-gradient(135deg, #0d0c1b, #3b3a62);
+  --mg-gradient: linear-gradient(135deg, #081020, #204070);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
@@ -730,7 +823,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .membergroup--orbit.is-text {
-  --mg-gradient: linear-gradient(135deg, #434a5c, #7782a1);
+  --mg-gradient: linear-gradient(135deg, #365a64, #78aab4);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -743,7 +836,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .membergroup--umbra.is-text {
-  --mg-gradient: linear-gradient(135deg, #0d0c1b, #3b3a62);
+  --mg-gradient: linear-gradient(135deg, #081020, #204070);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -775,16 +868,16 @@
   --mg-gradient: linear-gradient(135deg, #3b1a4a, #713b86); }
 
 .membergroup--yew {
-  --mg-gradient: linear-gradient(135deg, #143d26, #32694a); }
+  --mg-gradient: linear-gradient(135deg, #103449, #2e688a); }
 
 .membergroup--ivy {
   --mg-gradient: linear-gradient(135deg, #264d35, #6ca97f); }
 
 .membergroup--rowan {
-  --mg-gradient: linear-gradient(135deg, #5d1714, #9c3b2e); }
+  --mg-gradient: linear-gradient(135deg, #803116, #b05e34); }
 
 .membergroup--thorn {
-  --mg-gradient: linear-gradient(135deg, #732e2e, #b64b4b); }
+  --mg-gradient: linear-gradient(135deg, #783838, #a86060); }
 
 .membergroup--hemlock.is-pill {
   --mg-gradient: linear-gradient(135deg, #1c3b32, #3d6656);
@@ -819,7 +912,7 @@
     color: whitesmoke; }
 
 .membergroup--yew.is-pill {
-  --mg-gradient: linear-gradient(135deg, #143d26, #32694a);
+  --mg-gradient: linear-gradient(135deg, #103449, #2e688a);
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
@@ -851,7 +944,7 @@
     color: whitesmoke; }
 
 .membergroup--rowan.is-pill {
-  --mg-gradient: linear-gradient(135deg, #5d1714, #9c3b2e);
+  --mg-gradient: linear-gradient(135deg, #803116, #b05e34);
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
@@ -867,7 +960,7 @@
     color: whitesmoke; }
 
 .membergroup--thorn.is-pill {
-  --mg-gradient: linear-gradient(135deg, #732e2e, #b64b4b);
+  --mg-gradient: linear-gradient(135deg, #783838, #a86060);
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
@@ -903,7 +996,7 @@
   border-image: var(--mg-gradient) 1; }
 
 .membergroup--yew.is-outline {
-  --mg-gradient: linear-gradient(135deg, #143d26, #32694a);
+  --mg-gradient: linear-gradient(135deg, #103449, #2e688a);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
@@ -923,7 +1016,7 @@
   border-image: var(--mg-gradient) 1; }
 
 .membergroup--rowan.is-outline {
-  --mg-gradient: linear-gradient(135deg, #5d1714, #9c3b2e);
+  --mg-gradient: linear-gradient(135deg, #803116, #b05e34);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
@@ -933,7 +1026,7 @@
   border-image: var(--mg-gradient) 1; }
 
 .membergroup--thorn.is-outline {
-  --mg-gradient: linear-gradient(135deg, #732e2e, #b64b4b);
+  --mg-gradient: linear-gradient(135deg, #783838, #a86060);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
@@ -969,7 +1062,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .membergroup--yew.is-text {
-  --mg-gradient: linear-gradient(135deg, #143d26, #32694a);
+  --mg-gradient: linear-gradient(135deg, #103449, #2e688a);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -995,7 +1088,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .membergroup--rowan.is-text {
-  --mg-gradient: linear-gradient(135deg, #5d1714, #9c3b2e);
+  --mg-gradient: linear-gradient(135deg, #803116, #b05e34);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -1008,7 +1101,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .membergroup--thorn.is-text {
-  --mg-gradient: linear-gradient(135deg, #732e2e, #b64b4b);
+  --mg-gradient: linear-gradient(135deg, #783838, #a86060);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -1024,16 +1117,16 @@
   --mg-gradient: linear-gradient(135deg, #fff8ee, #d9cbb0); }
 
 .membergroup--velvet {
-  --mg-gradient: linear-gradient(135deg, #381b3f, #6a2e67); }
+  --mg-gradient: linear-gradient(135deg, #4c1526, #8c224e); }
 
 .membergroup--spice {
-  --mg-gradient: linear-gradient(135deg, #c47a34, #ffb15e); }
+  --mg-gradient: linear-gradient(135deg, #ba6c2b, #db9340); }
 
 .membergroup--smoke {
-  --mg-gradient: linear-gradient(135deg, #2e2e2e, #9a9a9a); }
+  --mg-gradient: linear-gradient(135deg, #3c3634, #aaa096); }
 
 .membergroup--glass {
-  --mg-gradient: linear-gradient(135deg, #e3eef3, #a3b8c2); }
+  --mg-gradient: linear-gradient(135deg, #d0ece5, #a0d2c4); }
 
 .membergroup--gold {
   --mg-gradient: linear-gradient(135deg, #d4af37, #f5d76e); }
@@ -1055,7 +1148,7 @@
     color: whitesmoke; }
 
 .membergroup--velvet.is-pill {
-  --mg-gradient: linear-gradient(135deg, #381b3f, #6a2e67);
+  --mg-gradient: linear-gradient(135deg, #4c1526, #8c224e);
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
@@ -1071,7 +1164,7 @@
     color: whitesmoke; }
 
 .membergroup--spice.is-pill {
-  --mg-gradient: linear-gradient(135deg, #c47a34, #ffb15e);
+  --mg-gradient: linear-gradient(135deg, #ba6c2b, #db9340);
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
@@ -1087,7 +1180,7 @@
     color: whitesmoke; }
 
 .membergroup--smoke.is-pill {
-  --mg-gradient: linear-gradient(135deg, #2e2e2e, #9a9a9a);
+  --mg-gradient: linear-gradient(135deg, #3c3634, #aaa096);
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
@@ -1103,7 +1196,7 @@
     color: whitesmoke; }
 
 .membergroup--glass.is-pill {
-  --mg-gradient: linear-gradient(135deg, #e3eef3, #a3b8c2);
+  --mg-gradient: linear-gradient(135deg, #d0ece5, #a0d2c4);
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
@@ -1145,7 +1238,7 @@
   border-image: var(--mg-gradient) 1; }
 
 .membergroup--velvet.is-outline {
-  --mg-gradient: linear-gradient(135deg, #381b3f, #6a2e67);
+  --mg-gradient: linear-gradient(135deg, #4c1526, #8c224e);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
@@ -1155,7 +1248,7 @@
   border-image: var(--mg-gradient) 1; }
 
 .membergroup--spice.is-outline {
-  --mg-gradient: linear-gradient(135deg, #c47a34, #ffb15e);
+  --mg-gradient: linear-gradient(135deg, #ba6c2b, #db9340);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
@@ -1165,7 +1258,7 @@
   border-image: var(--mg-gradient) 1; }
 
 .membergroup--smoke.is-outline {
-  --mg-gradient: linear-gradient(135deg, #2e2e2e, #9a9a9a);
+  --mg-gradient: linear-gradient(135deg, #3c3634, #aaa096);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
@@ -1175,7 +1268,7 @@
   border-image: var(--mg-gradient) 1; }
 
 .membergroup--glass.is-outline {
-  --mg-gradient: linear-gradient(135deg, #e3eef3, #a3b8c2);
+  --mg-gradient: linear-gradient(135deg, #d0ece5, #a0d2c4);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
@@ -1208,7 +1301,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .membergroup--velvet.is-text {
-  --mg-gradient: linear-gradient(135deg, #381b3f, #6a2e67);
+  --mg-gradient: linear-gradient(135deg, #4c1526, #8c224e);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -1221,7 +1314,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .membergroup--spice.is-text {
-  --mg-gradient: linear-gradient(135deg, #c47a34, #ffb15e);
+  --mg-gradient: linear-gradient(135deg, #ba6c2b, #db9340);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -1234,7 +1327,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .membergroup--smoke.is-text {
-  --mg-gradient: linear-gradient(135deg, #2e2e2e, #9a9a9a);
+  --mg-gradient: linear-gradient(135deg, #3c3634, #aaa096);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -1247,7 +1340,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .membergroup--glass.is-text {
-  --mg-gradient: linear-gradient(135deg, #e3eef3, #a3b8c2);
+  --mg-gradient: linear-gradient(135deg, #d0ece5, #a0d2c4);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -1297,3 +1390,66 @@
    Creates an inset frame using ::before so it plays nice with your own mixin. */
 /* 8) One-liners to scope by name (sugar helpers)
    Usage: @include mg-apply-border(blood); etc. */
+/* Pill (filled chip) */
+[data-variant="pill"] {
+  background: var(--mg-gradient);
+  color: var(--mg-text, #1c1c1c);
+  border-radius: var(--mg-radius, 999px);
+  padding: .3rem .65rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
+
+/* Outline (gradient border) */
+[data-variant="outline"] {
+  background: transparent;
+  color: inherit;
+  border: var(--mg-border-w, 2px) solid transparent;
+  border-radius: var(--mg-radius, 999px);
+  padding: .25rem .6rem;
+  border-image: var(--mg-gradient) 1; }
+
+/* Text (gradient-filled text) */
+[data-variant="text"] {
+  background: var(--mg-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-stroke: var(--mg-stroke, 0.5px) var(--mg-stroke-color, rgba(0, 0, 0, 0.25)); }
+
+/* Rule (divider bar) */
+[data-variant="rule"] {
+  display: block;
+  height: var(--mg-rule-h, 4px);
+  border-radius: var(--mg-radius, 999px);
+  background: var(--mg-gradient); }
+
+/* Border (card with gradient border + solid fill) */
+[data-variant="border"] {
+  --_bg: var(--mg-bg, color-mix(in srgb, var(--bg-2) 85%, transparent));
+  border: var(--mg-border-w, 2px) solid transparent;
+  border-radius: var(--mg-radius, 10px);
+  padding: var(--mg-pad, 1rem);
+  background: linear-gradient(var(--_bg), var(--_bg)) padding-box, var(--mg-gradient) border-box;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--text-loCon) 12%, transparent); }
+
+/* Overlay (tinted panel using ::after) */
+[data-variant="overlay"] {
+  position: relative;
+  border-radius: var(--mg-radius, 10px);
+  padding: var(--mg-pad, 1rem);
+  background: var(--mg-bg, color-mix(in srgb, var(--bg-2) 85%, transparent));
+  overflow: hidden; }
+
+[data-variant="overlay"]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--mg-gradient);
+  mix-blend-mode: var(--mg-blend, multiply);
+  /* try 'screen' for light themes */
+  opacity: var(--mg-alpha, 0.35);
+  pointer-events: none; }
