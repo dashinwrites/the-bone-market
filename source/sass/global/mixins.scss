@@ -379,4 +379,40 @@ $size-xxl: 1900px !default;
   }
 }
 
+/* Gradient underline mixin */
+@mixin gradient-underline(
+  $w: 100%,                 // underline width
+  $h: 1px,                 // thickness
+  $offset: .2em,           // gap under text
+  $from: var(--accent-1),  // left color
+  $to:   var(--accent-2),  // right color
+  $radius: 2px,             // corner radius
+  $s-op: 0.85,           // start opacity
+  $h-op: 1                  // hover opacity
+){
+  position: relative;
+  &::after{
+    content: "";
+    position: absolute;
+    left: 0; right: 0;
+    bottom: calc(-#{$offset} - #{$h});
+    margin-inline: auto;
+    width: $w;
+    height: $h;
+    border-radius: $radius;
+    background: linear-gradient(90deg, $from, $to);
+    /* subtle shine */
+    box-shadow: 0 0 0 1px color-mix(in srgb, #000 6%, transparent),
+                0 2px 6px rgba(0,0,0,.15);
+    transform: scaleX(0.9);
+    opacity: $s-op;
+    transform-origin: center;
+    transition: transform .25s ease, opacity .25s ease, width .25s ease;
+  }
 
+  /* grow on hover/focus (optional) */
+  &:where(:hover, :focus-visible)::after{
+    transform: scaleX(1);
+    opacity: $h-op;
+  }
+}

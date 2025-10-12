@@ -1,0 +1,36 @@
+[
+  {
+    "POST_ID": "101",
+    "AUTHOR_ID": "7",
+    "AUTHOR_NAME": "A. Curator",
+    "GROUP_TITLE": "crown",
+    "POST_COUNT": "324",
+    "JOINED_DATE": "Mar 2024",
+    "POST_INDEX": "1",
+    "POST_DATE": "Oct 11, 2025, 7:42 PM",
+    "POST_ISO": "2025-10-11T19:42:00-06:00",
+    "FORUM_ID": "1",
+    "TOPIC_ID": "1556",
+    "AVATAR": "<img src=\"https://picsum.photos/240?random=1\" alt=\"Avatar of A. Curator\">",
+    "POST_BUTTONS": "<a class=\"macro--button\" href=\"#\">edit</a> <a class=\"macro--button\" href=\"#\">quote</a>",
+    "POST": "<p>Magic is currency. Debt keeps the market breathing. <em>Don’t</em> ask what we pay with.</p>",
+    "SIGNATURE": "<p><small>— Pl. VII • mercatus ossium</small></p>"
+  },
+  {
+    "POST_ID": "102",
+    "AUTHOR_ID": "12",
+    "AUTHOR_NAME": "B. Archivist",
+    "GROUP_TITLE": "core",
+    "POST_COUNT": "87",
+    "JOINED_DATE": "Jun 2025",
+    "POST_INDEX": "2",
+    "POST_DATE": "Oct 11, 2025, 7:54 PM",
+    "POST_ISO": "2025-10-11T19:54:00-06:00",
+    "FORUM_ID": "1",
+    "TOPIC_ID": "1556",
+    "AVATAR": "<img src=\"https://picsum.photos/240?random=2\" alt=\"Avatar of B. Archivist\">",
+    "POST_BUTTONS": "<a class=\"macro--button\" href=\"#\">edit</a> <a class=\"macro--button\" href=\"#\">quote</a>",
+    "POST": "<p>Check the ledger twice: blood in, bone out. Balances aren’t always arithmetic.</p><blockquote>a note pinned with a bone needle</blockquote>",
+    "SIGNATURE": "<p><small>Filed under: plate xiii</small></p>"
+  }
+]

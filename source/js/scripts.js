@@ -360,90 +360,157 @@ if(pageType === 'store') {
   }
 })();
 
-// Main Profile Tabs
 
+// Main Profile Tabs (defensive)
 (() => {
-  /* ---------- helpers ---------- */
-  const $ = (s, r=document) => r.querySelector(s);
-  const $$= (s, r=document) => Array.from(r.querySelectorAll(s));
+  /* ---------- tiny utils ---------- */
+  const $  = (s, r) => (r || document).querySelector(s);
+  const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
 
-  function moveBar(bar, btn) {
-    if (!bar || !btn) return;
-    const r = btn.getBoundingClientRect();
-    const p = btn.parentElement.getBoundingClientRect();
-    bar.style.inlineSize = r.width + 'px';
-    bar.style.transform  = `translateX(${r.left - p.left}px)`;
+  function moveBar(bar, btn, container) {
+    if (!bar || !btn || !container) return;
+    const br = btn.getBoundingClientRect();
+    const cr = container.getBoundingClientRect();
+    const left = (br.left - cr.left) + container.scrollLeft;
+    bar.style.inlineSize = `${br.width}px`;
+    bar.style.transform  = `translateX(${left}px)`;
   }
 
-  /* ---------- top-level tabs ---------- */
-  const tabs   = $$('.bm-tab');
-  const panels = $$('.bm-panel');
-  const bar    = $('.bm-tab__active-bar');
+  /* =================================
+     TOP-LEVEL TABS (uses aria-controls)
+     ================================= */
+  const tabsWrap = $('.bm-tabs');
+  const tabs     = $$('.bm-tab', tabsWrap);
+  const panels   = $$('.bm-panel'); // global panels are fine
+  const bar      = $('.bm-tab__active-bar', tabsWrap);
 
-  function activateTop(id) {
-    tabs.forEach(b => {
-      const on = b.dataset.tab === id;
-      b.classList.toggle('is-active', on);
-      b.setAttribute('aria-selected', String(on));
+  // If there are no tabs on this page, do nothing.
+  if (!tabsWrap || tabs.length === 0 || panels.length === 0) return;
+
+  // Map friendly hash aliases -> actual panel IDs
+  const HASH_TO_PANEL = {
+    cover: 'tab-cover',
+    basic: 'tab-basics', basics: 'tab-basics',
+    cheats: 'tab-cheats', cheatsheet: 'tab-cheats',
+    freeform: 'tab-freeform',
+    plotting: 'tab-plotting',
+    ooc: 'tab-ooc'
+  };
+
+  function activateTop(panelId, { pushHash = true } = {}) {
+    // buttons
+    tabs.forEach(btn => {
+      const target = btn.getAttribute('aria-controls');
+      const on = (target === panelId);
+      btn.classList.toggle('is-active', on);
+      btn.setAttribute('aria-selected', on ? 'true' : 'false');
     });
-    panels.forEach(p => p.hidden = p.id !== `tab-${id}`);
-    moveBar(bar, $(`.bm-tab[data-tab="${id}"]`));
+    // panels
+    panels.forEach(p => (p.hidden = p.id !== panelId));
+    // bar
+    const activeBtn = tabs.find(b => b.getAttribute('aria-controls') === panelId);
+    moveBar(bar, activeBtn, tabsWrap);
+
+    // hash
+    if (pushHash) {
+      const alias =
+        Object.entries(HASH_TO_PANEL).find(([, v]) => v === panelId)?.[0] || 'cover';
+      const sub =
+        panelId === 'tab-plotting'
+          ? ($('.bm-subtab[aria-selected="true"]')?.dataset.hash || 'interested')
+          : null;
+      history.replaceState(null, '', `#${alias}${sub ? `/${sub}` : ''}`);
+    }
   }
 
-  /* ---------- nested plotting tabs ---------- */
-  const subtabs   = $$('.bm-subtab');
-  const subpanels = $$('.bm-subpanel');
-  const subbar    = $('.bm-subtab__active-bar');
+  /* ===============================
+     SUBTABS (Plotting) — optional
+     =============================== */
+  const plotRoot  = $('#tab-plotting');
+  const subWrap   = plotRoot ? $('.bm-subtabs', plotRoot) : null;
+  const subtabs   = subWrap ? $$('.bm-subtab', subWrap) : [];
+  const subbar    = subWrap ? $('.bm-subtab__active-bar', subWrap) : null;
+  const subpanels = plotRoot ? $$('.bm-subpanel', plotRoot) : [];
 
-  function activateSub(id) {
-    subtabs.forEach(b => {
-      const on = b.dataset.subtab === id;
-      b.classList.toggle('is-active', on);
-      b.setAttribute('aria-selected', String(on));
+  function activateSub(subId, { pushHash = true } = {}) {
+    if (!subtabs.length || !subpanels.length) return;
+    // buttons
+    subtabs.forEach(btn => {
+      const target = btn.getAttribute('aria-controls'); // e.g. "sub-interested"
+      const on = target === subId;
+      btn.classList.toggle('is-active', on);
+      btn.setAttribute('aria-selected', on ? 'true' : 'false');
     });
-    subpanels.forEach(p => p.hidden = p.id !== `sub-${id}`);
-    moveBar(subbar, $(`.bm-subtab[data-subtab="${id}"]`));
+    // panels
+    subpanels.forEach(p => (p.hidden = p.id !== subId));
+    // bar
+    const activeBtn = subtabs.find(b => b.getAttribute('aria-controls') === subId);
+    moveBar(subbar, activeBtn, subWrap);
+
+    if (pushHash) {
+      const topAlias = 'plotting';
+      const subAlias = activeBtn?.dataset.hash || subId.replace(/^sub-/, '');
+      history.replaceState(null, '', `#${topAlias}/${subAlias}`);
+    }
   }
 
-  /* ---------- deep-link routing ---------- */
-  // hashes: #cover, #basic, #cheats, #freeform, #plotting, #ooc
-  // nested: #plotting/interested or #plotting/not
+  /* ===============================
+     ROUTER (hash -> state)
+     =============================== */
   function routeFromHash() {
-    const hash = (location.hash || '#cover').slice(1);  // remove '#'
-    const [top, sub] = hash.split('/');
-    const topId = ['cover','basic','cheats','freeform','plotting','ooc'].includes(top) ? top : 'cover';
-    activateTop(topId);
-    if (topId === 'plotting') {
-      activateSub(sub === 'not' ? 'not' : 'interested');
+    const raw = (location.hash || '#cover').slice(1);
+    const [topAlias, subAlias] = raw.split('/');
+    const topId = HASH_TO_PANEL[topAlias] || 'tab-cover';
+
+    activateTop(topId, { pushHash: false });
+
+    if (topId === 'tab-plotting' && subtabs.length) {
+      const targetSub =
+        subtabs.find(b => (b.dataset.hash || b.getAttribute('aria-controls').replace(/^sub-/,''))
+                          === (subAlias || 'interested')) || subtabs[0];
+      if (targetSub) activateSub(targetSub.getAttribute('aria-controls'), { pushHash: false });
     }
   }
 
-  /* ---------- events ---------- */
-  tabs.forEach(b => b.addEventListener('click', () => {
-    const id = b.dataset.tab;
-    activateTop(id);
-    // set hash (keep nested sub if on plotting)
-    if (id === 'plotting') {
-      const sub = $('.bm-subtab.is-active')?.dataset.subtab || 'interested';
-      history.replaceState(null, '', `#${id}/${sub}`);
-    } else {
-      history.replaceState(null, '', `#${id}`);
-    }
-  }));
+  /* ===============================
+     EVENTS (only bind what exists)
+     =============================== */
+  tabs.forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      const pid = btn.getAttribute('aria-controls');
+      if (pid) activateTop(pid);
+    });
+  });
 
-  subtabs.forEach(b => b.addEventListener('click', () => {
-    const id = b.dataset.subtab;
-    activateSub(id);
-    history.replaceState(null, '', `#plotting/${id}`);
-  }));
+  if (subtabs.length) {
+    subtabs.forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.preventDefault();
+        const sid = btn.getAttribute('aria-controls');
+        if (sid) activateSub(sid);
+        activateTop('tab-plotting');
+      });
+    });
+  }
 
-  window.addEventListener('resize', () => {
-    moveBar(bar, $('.bm-tab.is-active'));
-    moveBar(subbar, $('.bm-subtab.is-active'));
+  addEventListener('resize', () => {
+    moveBar(bar, $('.bm-tab[aria-selected="true"]', tabsWrap), tabsWrap);
+    moveBar(subbar, $('.bm-subtab[aria-selected="true"]', subWrap), subWrap);
   }, { passive: true });
 
-  window.addEventListener('hashchange', routeFromHash);
+  addEventListener('hashchange', routeFromHash, { passive: true });
 
-  /* ---------- init ---------- */
-  routeFromHash();
+  // initial mount
+  if (document.readyState === 'complete') {
+    routeFromHash();
+    moveBar(bar, $('.bm-tab[aria-selected="true"]', tabsWrap), tabsWrap);
+    moveBar(subbar, $('.bm-subtab[aria-selected="true"]', subWrap), subWrap);
+  } else {
+    addEventListener('load', () => {
+      routeFromHash();
+      moveBar(bar, $('.bm-tab[aria-selected="true"]', tabsWrap), tabsWrap);
+      moveBar(subbar, $('.bm-subtab[aria-selected="true"]', subWrap), subWrap);
+    }, { once: true });
+  }
 })();
