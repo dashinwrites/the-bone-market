@@ -62,9 +62,10 @@ body {
 
 .bm-container {
   position: relative;
-  padding-block-start: var(--nav-h);
-  padding-inline-start: var(--leftbar-w);
-  min-block-size: 100dvb; }
+  margin-block-start: var(--nav-h);
+  margin-inline-start: var(--leftbar-w);
+  min-block-size: 100dvb;
+  padding: 1rem; }
 
 .bm-head {
   margin-block-start: calc(-1 * var(--frame-join)) !important; }
@@ -867,9 +868,6 @@ s, del {
 
 a {
   color: var(--link);
-  text-decoration: underline;
-  text-decoration-thickness: .06em;
-  text-underline-offset: .18em;
   transition: color .15s ease; }
   a:hover {
     color: var(--accent-1); }
