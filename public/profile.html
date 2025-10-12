@@ -341,74 +341,64 @@ You move on, because you don't really have a choice. But you don't forget.</bloc
     </section>
 
     <!-- PLOTTING (NESTED TABS) -->
-    <section id="tab-plotting" class="bm-panel" role="tabpanel" aria-labelledby="tabbtn-plotting" hidden>
-      <!-- Subtabs -->
-      <div class="bm-subtabs" role="tablist" aria-label="Plotting">
-        <button class="bm-subtab" id="subbtn-overview" role="tab"
-          aria-selected="false" aria-controls="sub-overview" data-subtab="overview">character overview</button>
+    <section id="tab-plotting" class="bm-panel" role="tabpanel" aria-labelledby="tabbtn-plotting">
+      <div class="plot-grid">
+        <!-- LEFT: Full-height overview -->
+        <section class="plot-overview bm-block" aria-labelledby="plot-overview-title">
+          <h3 id="plot-overview-title" class="bm-h has-caps">
+            character overview <span class="hcap" aria-hidden="true"></span>
+          </h3>
 
-        <button class="bm-subtab is-active" id="subbtn-interested" role="tab"
-          aria-selected="true" aria-controls="sub-interested" data-subtab="interested">interested</button>
+          <div class="plot-overview__scroll">
+            <div class="grid-2">
+              <article class="bm-block prose">
+                Unlike the trajectory of his shockingly successful little flower shop, Fanxing's path in life has been rather downhill. Once a Seelie prince of China's Song Dynasty, he fell from grace very quickly and very <i>hard</i>. He's had more near-death experiences than he cares to remember and to this day isn't entirely sure <i>how</i> he's still alive in the first place.
 
-        <button class="bm-subtab" id="subbtn-not" role="tab"
-          aria-selected="false" aria-controls="sub-not" data-subtab="not">not interested</button>
+                Despite all that he's still a kind soul—or, he is <i>now</i>, there was a period where that wasn't so much the case (and we don't really <i>talk</i> about that anyway, unpleasant memories and all)—with a big heart and probably too much empathy for others. Fanxing has had a lot of time to reflect, both on himself and his past at large and has reached a certain level of acceptance even if he's not necessarily <i>proud</i> of himself. 
 
-        
+                It's very hard for him to say no, even when he does people tend to run right over it as if he never said it at all, and he frankly doesn't care enough to push the subject if he can help it.
 
-        <span class="bm-subtab__active-bar" aria-hidden="true"></span>
-      </div>
+                Despite being exceptionally perceptive, Fanxing has a tendency to be a little…<i>head empty</i> when it comes to things people so clearly don't want him to notice. He's just as likely to ignore it as he is to notice it in the first place, and he's generally a good enough actor to get away with it until it's time to give up the ghost.
+              </article>
+            </div>
+          </div>
+        </section>
 
-      <!-- Panels -->
-      <div class="bm-subpanels">
-        <!-- Character overview -->
-        <section id="sub-overview" class="bm-subpanel" role="tabpanel" aria-labelledby="subbtn-overview" hidden>
-          <div class="grid-2">
-            <article class="bm-block">
-              <h3 class="bm-h has-caps">summary <span class="hcap" aria-hidden="true"></span></h3>
-              <ul class="stack">
-                <li><b>Name:</b> Fanxing (Xīngchén Huángzǐ / “Prince of the Stars”)</li>
-                <li><b>Era ties:</b> Southern Song → Yuan</li>
-                <li><b>Current:</b> Florist, owner of <i>Lóng Mén</i> (龙门)</li>
-                <li><b>Vibe:</b> charming, distant, nine lives, stubborn survivor</li>
-              </ul>
-            </article>
+        <!-- RIGHT: Two half-height stacks -->
+        <div class="plot-stacks">
+          <!-- Interested -->
+          <section class="plot-card bm-block" aria-labelledby="plot-int-title">
+            <h3 id="plot-int-title" class="bm-h has-caps">
+              interested <span class="hcap" aria-hidden="true"></span>
+            </h3>
 
-            <aside class="bm-block">
-              <h3 class="bm-h has-caps">threads i want <span class="hcap" aria-hidden="true"></span></h3>
+            <div class="plot-card__scroll">
               <ul class="tick">
-                <li>Old court entanglements surfacing in the modern world</li>
-                <li>Masked guardian reveal arc</li>
-                <li>Patron regular → confidant slow burn</li>
+                <li><b>Figures of the past.</b> People who knew him, but don't <i>know him,</i> if you get my drift. Most likely individuals from either court during the (Southern) Song Dynasty, 1127-1279 AD, I'm more than happy to work out details and any specifics—and there are <i>plenty</i> of options for TGCF-inspired characters to slot in here!</li>
+                <li><b>Figures of the present.</b> There's some leeway here, almost definitely room for crossover between this group and the former, and just about as much flexibility in terms of <i>who</i> they are. This also covers any <i>friends</i> Fanxing might have made in the modern day, though that might be a bit of a generous term to give those relationships. He's friendly to a fault, but does his best to keep people at a certain distance even if <i>they'd</i> rather like to bridge that gap.</li>
+                <li><b>Patrons.</b> Every business needs customers to survive, and Fanxing's is no different!</li>
+                <li>He doesn't currently have or particularly need any additional employees at Dragon Gate, <i>but</i> I'd definitely be open to discussing it if there's any particular interest in having someone work at the shop on occasion—<i>especially</i> as his love life begins to take shape.</li>
+                <li>On a similar note to option 1, I'd absolutely <i>love</i> to incorporate pretty much any <b>TGCF-inspired</b> characters into Fanxing's life.</li>
               </ul>
-            </aside>
-          </div>
-        </section>
-        
-        <!-- Interested -->
-        <section id="sub-interested" class="bm-subpanel" role="tabpanel" aria-labelledby="subbtn-interested">
-          <div class="bm-block">
-            <ul class="tick">
-              <li><b>Figures of the past.</b> People who knew him, but don't <i>know him,</i> if you get my drift. Most likely individuals from either court during the (Southern) Song Dynasty, 1127-1279 AD, I'm more than happy to work out details and any specifics—and there are <i>plenty</i> of options for TGCF-inspired characters to slot in here!</li>
-              <li><b>Figures of the present.</b> There's some leeway here, almost definitely room for crossover between this group and the former, and just about as much flexibility in terms of <i>who</i> they are. This also covers any <i>friends</i> Fanxing might have made in the modern day, though that might be a bit of a generous term to give those relationships. He's friendly to a fault, but does his best to keep people at a certain distance even if <i>they'd</i> rather like to bridge that gap.</li>
-              <li><b>Patrons.</b> Every business needs customers to survive, and Fanxing's is no different!</li>
-              <li>He doesn't currently have or particularly need any additional employees at Dragon Gate, <i>but</i> I'd definitely be open to discussing it if there's any particular interest in having someone work at the shop on occasion—<i>especially</i> as his love life begins to take shape.</li>
-              <li>On a similar note to option 1, I'd absolutely <i>love</i> to incorporate pretty much any <b>TGCF-inspired</b> characters into Fanxing's life.</li>
-            </ul>
-          </div>
-        </section>
+            </div>
+          </section>
 
-        <!-- Not interested -->
-        <section id="sub-not" class="bm-subpanel" role="tabpanel" aria-labelledby="subbtn-not" hidden>
-          <div class="bm-block">
-            <ul class="tick">
-              <li><b>Romance.</b> There are plans in place and beyond that Fanxing's never really been <i>interested</i> in other people that way. Or maybe he's just yet to meet the right one...</li>
-            </ul>
-          </div>
-        </section>
+          <!-- Not interested -->
+          <section class="plot-card bm-block" aria-labelledby="plot-not-title">
+            <h3 id="plot-not-title" class="bm-h has-caps">
+              not interested <span class="hcap" aria-hidden="true"></span>
+            </h3>
 
-        
+            <div class="plot-card__scroll">
+              <ul class="tick">
+                <li><b>Romance.</b> There are plans in place and beyond that Fanxing's never really been <i>interested</i> in other people that way. Or maybe he's just yet to meet the right one...</li>
+              </ul>
+            </div>
+          </section>
+        </div>
       </div>
     </section>
+
 
 
     <!-- OOC INFO -->

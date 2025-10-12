@@ -1719,10 +1719,11 @@ h8[data-underline="wide"] {
 ================================ */
 strong, b {
   font-weight: 700;
-  color: var(--text-clear); }
+  color: var(--accent-1); }
 
 em, i {
-  font-style: italic; }
+  font-style: italic;
+  color: var(--accent-1); }
 
 u {
   text-underline-offset: .14em; }
@@ -3717,7 +3718,7 @@ body[id="idx"] .bm-head {
 /* Optional: respect prefers-reduced-motion on anything you include this on */
 /* Gradient underline mixin */
 /* ================================================
-   Bone Market — Post Row (condensed)
+   Bone Market — Post Row (condensed, cleaned)
    ================================================ */
 /* ---------- Layout ---------- */
 .bm-post {
@@ -3732,7 +3733,10 @@ body[id="idx"] .bm-head {
           box-shadow: var(--plate-shadow);
   overflow: hidden;
   margin-block: 1.25rem;
-  position: relative; }
+  position: relative;
+  block-size: calc(100vh - var(--nav-h, 64px) - var(--post-gap, 2rem));
+  min-block-size: 0;
+  /* allow inner grid to shrink */ }
   .bm-post::before {
     content: "";
     position: absolute;
@@ -3831,7 +3835,69 @@ body[id="idx"] .bm-head {
     transition: transform .12s ease, box-shadow .12s ease;
     transition: transform .12s ease, box-shadow .12s ease, -webkit-transform .12s ease, -webkit-box-shadow .12s ease;
     -webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-            box-shadow: 0 0 0 rgba(0, 0, 0, 0); }
+            box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    position: relative;
+    pointer-events: auto;
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    gap: 0.5rem;
+    padding: 0.4rem;
+    background: var(--plate-bg);
+    border: var(--plate-border);
+    border-radius: 6px;
+    font-family: var(--font-serif);
+    font-size: var(--size-md);
+    letter-spacing: 0.03em;
+    color: var(--plate-text, var(--text-clear));
+    line-height: 1;
+    cursor: pointer;
+    isolation: isolate;
+    -webkit-transition: var(--transi-quick);
+    -o-transition: var(--transi-quick);
+    transition: var(--transi-quick);
+    -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15), inset 0 0 0 999px rgba(0, 0, 0, 0);
+            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15), inset 0 0 0 999px rgba(0, 0, 0, 0);
+    color: var(--text-medCon); }
+    .bm-post__controls a::before, .bm-post__controls .macro--button::before {
+      content: "";
+      position: absolute;
+      inset: 2px;
+      border: var(--bdash);
+      opacity: 0.35;
+      pointer-events: none;
+      border-radius: 4px; }
+    .bm-post__controls a i, .bm-post__controls .macro--button i {
+      font-size: 0.75rem;
+      line-height: 1;
+      color: currentColor;
+      display: inline-block; }
+    .bm-post__controls a:hover, .bm-post__controls .macro--button:hover {
+      -webkit-transform: translateY(-1px);
+          -ms-transform: translateY(-1px);
+              transform: translateY(-1px);
+      -webkit-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18), inset 0 0 0 999px rgba(0, 0, 0, 0.02);
+              box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18), inset 0 0 0 999px rgba(0, 0, 0, 0.02);
+      color: var(--accent-1); }
+    .bm-post__controls a:active, .bm-post__controls .macro--button:active {
+      -webkit-transform: translateY(0);
+          -ms-transform: translateY(0);
+              transform: translateY(0);
+      -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), inset 0 0 0 999px rgba(0, 0, 0, 0.04);
+              box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), inset 0 0 0 999px rgba(0, 0, 0, 0.04); }
+    .bm-post__controls a:focus-visible, .bm-post__controls .macro--button:focus-visible {
+      outline: none;
+      -webkit-box-shadow: 0 0 0 2px var(--accent-3), 0 0 0 4px rgba(0, 0, 0, 0.15);
+              box-shadow: 0 0 0 2px var(--accent-3), 0 0 0 4px rgba(0, 0, 0, 0.15); }
     .bm-post__controls a:hover, .bm-post__controls .macro--button:hover {
       -webkit-transform: translateY(-1px);
           -ms-transform: translateY(-1px);
@@ -3917,7 +3983,10 @@ a[href*="showuser"][data-mention] {
   border-radius: .25rem;
   padding-inline: .25rem; }
 
-.badge, .label, .chip {
+/* badges inside posts */
+.bm-post .badge,
+.bm-post .label,
+.bm-post .chip {
   --pill-bg: var(--bg-1-rgb);
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -3996,7 +4065,8 @@ a[href*="showuser"][data-mention] {
 @media (max-width: 900px) {
   .bm-post {
     -ms-grid-columns: 1fr;
-    grid-template-columns: 1fr; }
+    grid-template-columns: 1fr;
+    block-size: auto; }
   .bm-post__aside {
     -webkit-border-end: 0;
             border-inline-end: 0;
@@ -4021,7 +4091,8 @@ a[href*="showuser"][data-mention] {
   .bm-post__head {
     padding: .75rem .9rem; }
   .bm-post__content {
-    padding: 1rem; } }
+    padding: 1rem;
+    overflow: visible; } }
 
 /* ---------- Focus / anchor target ---------- */
 .bm-post:target {
@@ -4036,7 +4107,8 @@ a[href*="showuser"][data-mention] {
   --flow: 0.85rem;
   font-size: var(--size-md);
   line-height: 1.65;
-  color: var(--text-clear); }
+  color: var(--text-clear);
+  margin: 0 auto; }
   .bm-post__content > * + * {
     -webkit-margin-before: var(--flow);
             margin-block-start: var(--flow); }
@@ -4139,11 +4211,11 @@ a[href*="showuser"][data-mention] {
   .bm-post__content .alignleft {
     float: left;
     margin: .2rem 1rem .8rem 0;
-    max-width: calc(45%, 320px); }
+    max-width: clamp(0px, 45%, 320px); }
   .bm-post__content .alignright {
     float: right;
     margin: .2rem 0 .8rem 1rem;
-    max-width: calc(45%, 320px); }
+    max-width: clamp(0px, 45%, 320px); }
   .bm-post__content .aligncenter {
     margin-inline: auto;
     display: block; }
@@ -4206,130 +4278,72 @@ a[href*="showuser"][data-mention] {
   background: rgba(196, 67, 88, 0.25); }
 
 /* ================================================
-   Topic Top Bar — Pagination + Actions (segmented)
+   Topic Top Bar — Pagination (clean text links)
    ================================================ */
-/* Plate button comes from your global mixin: `@include plate-button();` */
 .pagination {
-  /* hide stray text nodes like &nbsp; / ... that JCink inserts */
-  font-size: 0;
+  font-size: 0.75rem;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: 0.15rem;
-  vertical-align: middle; }
+  -webkit-box-align: baseline;
+  -webkit-align-items: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  gap: .25rem;
+  vertical-align: middle;
+  font-family: var(--font-hand); }
 
 .pagination_pagetxt {
-  font-size: .95rem;
-  /* restore size for element text */
-  margin-right: 0.15rem;
-  font-family: var(--font-serif);
   font-variant: small-caps;
   letter-spacing: .04em;
-  opacity: .85; }
+  opacity: .85;
+  margin-right: .5rem; }
 
-/* individual page buttons */
+/* reset any buttony styles */
 .pagination_page,
 .pagination_last,
 .pagination_current {
-  /* restore size for element text */
-  font-size: .95rem;
-  line-height: 1.1;
-  /* your global plate look */
-  position: relative;
-  pointer-events: auto;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  gap: 0.5rem;
-  padding: 0.4rem;
-  background: var(--plate-bg);
-  border: var(--plate-border);
-  border-radius: 6px;
-  font-family: var(--font-serif);
-  font-size: var(--size-lg);
-  letter-spacing: 0.03em;
-  color: var(--plate-text, var(--text-clear));
-  line-height: 1;
+  all: unset;
+  display: inline;
   cursor: pointer;
-  isolation: isolate;
-  -webkit-transition: var(--transi-quick);
-  -o-transition: var(--transi-quick);
-  transition: var(--transi-quick);
-  -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15), inset 0 0 0 999px rgba(0, 0, 0, 0);
-          box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15), inset 0 0 0 999px rgba(0, 0, 0, 0);
-  /* small rounded corners, not full pills */
-  border-radius: 6px;
-  /* comfortable padding */
-  padding: .45rem .9rem;
-  /* basic link treatment */
-  color: var(--text-clear);
+  color: var(--text-clear); }
+
+.pagination_page,
+.pagination_last {
   text-decoration: none; }
-  .pagination_page::before,
-  .pagination_last::before,
-  .pagination_current::before {
-    content: "";
-    position: absolute;
-    inset: 2px;
-    border: var(--bdash);
-    opacity: 0.35;
-    pointer-events: none;
-    border-radius: 4px; }
-  .pagination_page i,
-  .pagination_last i,
-  .pagination_current i {
-    font-size: 0.75rem;
-    line-height: 1;
-    color: currentColor;
-    display: inline-block; }
-  .pagination_page:hover,
-  .pagination_last:hover,
-  .pagination_current:hover {
-    -webkit-transform: translateY(-1px);
-        -ms-transform: translateY(-1px);
-            transform: translateY(-1px);
-    -webkit-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18), inset 0 0 0 999px rgba(0, 0, 0, 0.02);
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18), inset 0 0 0 999px rgba(0, 0, 0, 0.02);
-    color: var(--accent-1); }
-  .pagination_page:active,
-  .pagination_last:active,
-  .pagination_current:active {
-    -webkit-transform: translateY(0);
-        -ms-transform: translateY(0);
-            transform: translateY(0);
-    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), inset 0 0 0 999px rgba(0, 0, 0, 0.04);
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), inset 0 0 0 999px rgba(0, 0, 0, 0.04); }
-  .pagination_page:focus-visible,
-  .pagination_last:focus-visible,
-  .pagination_current:focus-visible {
-    outline: none;
-    -webkit-box-shadow: 0 0 0 2px var(--accent-3), 0 0 0 4px rgba(0, 0, 0, 0.15);
-            box-shadow: 0 0 0 2px var(--accent-3), 0 0 0 4px rgba(0, 0, 0, 0.15); }
 
-/* active page (pressed/selected look) */
-.pagination_current {
+.pagination_page:hover,
+.pagination_last:hover {
+  text-decoration: underline; }
+
+.pagination_current b {
   font-weight: 700;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(142, 124, 99, 0.22)), to(rgba(142, 124, 99, 0.06))), var(--bg-1-rgb);
-  background: -o-linear-gradient(top, rgba(142, 124, 99, 0.22), rgba(142, 124, 99, 0.06)), var(--bg-1-rgb);
-  background: linear-gradient(180deg, rgba(142, 124, 99, 0.22), rgba(142, 124, 99, 0.06)), var(--bg-1-rgb); }
+  border-bottom: 2px solid currentColor;
+  padding-bottom: .05em; }
 
-/* First unread → also a plate button; hide literal parentheses from markup */
+.pagination_last {
+  white-space: nowrap; }
+
+/* Keyboard focus */
+:where(.pagination a, .pagination_current, .macro--button):focus-visible {
+  outline: 2px dashed currentColor;
+  outline-offset: 2px; }
+
+/* Mobile tighten */
+@media (max-width: 720px) {
+  .pagination {
+    gap: .35rem .45rem; }
+  .pagination_pagetxt {
+    display: none; } }
+
+/* =========================================================
+   Restore plate-button look for specific actions only
+   ========================================================= */
+/* 1) Go to first unread → plate button */
 .goto-firstunread {
   font-size: 0;
-  /* kills "(" and ")" text nodes */
+  /* hide stray '(' and ')' */
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -4338,14 +4352,16 @@ a[href*="showuser"][data-mention] {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-left: 0.15rem; }
+  gap: .5rem;
+  text-transform: lowercase; }
 
 .goto-firstunread::before,
 .goto-firstunread::after {
   display: none; }
 
 .goto-firstunread a {
-  font-size: .95rem;
+  font-size: 0.75rem;
+  line-height: 1.2;
   text-decoration: none;
   position: relative;
   pointer-events: auto;
@@ -4367,7 +4383,7 @@ a[href*="showuser"][data-mention] {
   border: var(--plate-border);
   border-radius: 6px;
   font-family: var(--font-serif);
-  font-size: var(--size-lg);
+  font-size: var(--size-md);
   letter-spacing: 0.03em;
   color: var(--plate-text, var(--text-clear));
   line-height: 1;
@@ -4379,7 +4395,7 @@ a[href*="showuser"][data-mention] {
   -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15), inset 0 0 0 999px rgba(0, 0, 0, 0);
           box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15), inset 0 0 0 999px rgba(0, 0, 0, 0);
   border-radius: 6px;
-  padding: .5rem 1rem; }
+  padding: .45rem .9rem; }
   .goto-firstunread a::before {
     content: "";
     position: absolute;
@@ -4410,10 +4426,11 @@ a[href*="showuser"][data-mention] {
     outline: none;
     -webkit-box-shadow: 0 0 0 2px var(--accent-3), 0 0 0 4px rgba(0, 0, 0, 0.15);
             box-shadow: 0 0 0 2px var(--accent-3), 0 0 0 4px rgba(0, 0, 0, 0.15); }
+  .goto-firstunread a:hover {
+    text-decoration: none; }
 
-/* Right-side actions to match */
-.macro--button {
-  text-transform: lowercase;
+/* 2) Topic action buttons (Add Reply / New Topic / Fast Reply) */
+:where(.postlinksbar, .topic-options, .topic-buttons, .pagelinks, .tableborder) a[href*="act=Post"] {
   position: relative;
   pointer-events: auto;
   display: -webkit-inline-box;
@@ -4434,7 +4451,7 @@ a[href*="showuser"][data-mention] {
   border: var(--plate-border);
   border-radius: 6px;
   font-family: var(--font-serif);
-  font-size: var(--size-lg);
+  font-size: var(--size-md);
   letter-spacing: 0.03em;
   color: var(--plate-text, var(--text-clear));
   line-height: 1;
@@ -4446,8 +4463,11 @@ a[href*="showuser"][data-mention] {
   -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15), inset 0 0 0 999px rgba(0, 0, 0, 0);
           box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15), inset 0 0 0 999px rgba(0, 0, 0, 0);
   border-radius: 6px;
-  padding: .5rem 1rem; }
-  .macro--button::before {
+  padding: .5rem 1rem;
+  text-decoration: none;
+  font-weight: 600;
+  line-height: 1.1; }
+  :where(.postlinksbar, .topic-options, .topic-buttons, .pagelinks, .tableborder) a[href*="act=Post"]::before {
     content: "";
     position: absolute;
     inset: 2px;
@@ -4455,108 +4475,36 @@ a[href*="showuser"][data-mention] {
     opacity: 0.35;
     pointer-events: none;
     border-radius: 4px; }
-  .macro--button i {
+  :where(.postlinksbar, .topic-options, .topic-buttons, .pagelinks, .tableborder) a[href*="act=Post"] i {
     font-size: 0.75rem;
     line-height: 1;
     color: currentColor;
     display: inline-block; }
-  .macro--button:hover {
+  :where(.postlinksbar, .topic-options, .topic-buttons, .pagelinks, .tableborder) a[href*="act=Post"]:hover {
     -webkit-transform: translateY(-1px);
         -ms-transform: translateY(-1px);
             transform: translateY(-1px);
     -webkit-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18), inset 0 0 0 999px rgba(0, 0, 0, 0.02);
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18), inset 0 0 0 999px rgba(0, 0, 0, 0.02);
     color: var(--accent-1); }
-  .macro--button:active {
+  :where(.postlinksbar, .topic-options, .topic-buttons, .pagelinks, .tableborder) a[href*="act=Post"]:active {
     -webkit-transform: translateY(0);
         -ms-transform: translateY(0);
             transform: translateY(0);
     -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), inset 0 0 0 999px rgba(0, 0, 0, 0.04);
             box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), inset 0 0 0 999px rgba(0, 0, 0, 0.04); }
-  .macro--button:focus-visible {
+  :where(.postlinksbar, .topic-options, .topic-buttons, .pagelinks, .tableborder) a[href*="act=Post"]:focus-visible {
     outline: none;
     -webkit-box-shadow: 0 0 0 2px var(--accent-3), 0 0 0 4px rgba(0, 0, 0, 0.15);
             box-shadow: 0 0 0 2px var(--accent-3), 0 0 0 4px rgba(0, 0, 0, 0.15); }
 
-/* Mobile tighten */
-@media (max-width: 720px) {
-  .pagination_pagetxt {
-    display: none; }
-  .pagination_page, .pagination_last, .pagination_current {
-    padding: .35rem .7rem; }
-  .goto-firstunread {
-    margin: .35rem 0 0; } }
-
-/* Keyboard focus */
-:where(.pagination a, .pagination_current, .macro--button):focus-visible {
-  outline: 2px dashed currentColor;
-  outline-offset: 2px; }
-
-/* ================================================
-   Pagination — strip “plate” styling (clean text links)
-   Drop this AFTER any previous pagination rules.
-   ================================================ */
-.pagination {
-  /* restore normal text flow (no hiding of stray nodes) */
-  font-size: 1rem;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-align: baseline;
-  -webkit-align-items: baseline;
-      -ms-flex-align: baseline;
-          align-items: baseline;
-  gap: .5rem .6rem;
-  vertical-align: middle; }
-
-.pagination_pagetxt {
-  font-family: var(--font-serif);
-  font-variant: small-caps;
-  letter-spacing: .04em;
-  opacity: .85;
-  margin-right: .5rem; }
-
-/* reset all prior button/plate rules */
-.pagination_page,
-.pagination_last,
-.pagination_current {
-  all: unset;
-  /* hard reset */
-  display: inline;
-  /* text-like */
-  cursor: pointer;
-  color: var(--text-clear); }
-
-/* remove any pseudo from earlier styles */
-.pagination_page::before,
-.pagination_page::after,
-.pagination_last::before,
-.pagination_last::after,
-.pagination_current::before,
-.pagination_current::after {
-  content: none !important; }
-
-/* links */
-.pagination_page,
-.pagination_last {
-  text-decoration: none; }
-
-.pagination_page:hover,
-.pagination_last:hover {
-  text-decoration: underline; }
-
-/* current page = bold with a thin underline */
-.pagination_current b {
-  font-weight: 700;
-  border-bottom: 2px solid currentColor;
-  padding-bottom: .05em; }
-
-.pagination_last {
-  white-space: nowrap; }
-
-.goto-firstunread {
-  font-size: 0;
+/* Tighter targeting for common codes */
+a[href*="act=Post"][href*="CODE=00"],
+a[href*="act=Post"][href*="CODE=01"],
+a[href*="act=Post"][href*="CODE=02"],
+a[href*="act=Post"][href*="CODE=03"] {
+  position: relative;
+  pointer-events: auto;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -4565,22 +4513,206 @@ a[href*="showuser"][data-mention] {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: .5rem; }
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 0.5rem;
+  padding: 0.4rem;
+  background: var(--plate-bg);
+  border: var(--plate-border);
+  border-radius: 6px;
+  font-family: var(--font-serif);
+  font-size: var(--size-md);
+  letter-spacing: 0.03em;
+  color: var(--plate-text, var(--text-clear));
+  line-height: 1;
+  cursor: pointer;
+  isolation: isolate;
+  -webkit-transition: var(--transi-quick);
+  -o-transition: var(--transi-quick);
+  transition: var(--transi-quick);
+  -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15), inset 0 0 0 999px rgba(0, 0, 0, 0);
+          box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15), inset 0 0 0 999px rgba(0, 0, 0, 0);
+  border-radius: 6px;
+  padding: .5rem 1rem;
+  text-decoration: none;
+  font-weight: 700; }
+  a[href*="act=Post"][href*="CODE=00"]::before,
+  a[href*="act=Post"][href*="CODE=01"]::before,
+  a[href*="act=Post"][href*="CODE=02"]::before,
+  a[href*="act=Post"][href*="CODE=03"]::before {
+    content: "";
+    position: absolute;
+    inset: 2px;
+    border: var(--bdash);
+    opacity: 0.35;
+    pointer-events: none;
+    border-radius: 4px; }
+  a[href*="act=Post"][href*="CODE=00"] i,
+  a[href*="act=Post"][href*="CODE=01"] i,
+  a[href*="act=Post"][href*="CODE=02"] i,
+  a[href*="act=Post"][href*="CODE=03"] i {
+    font-size: 0.75rem;
+    line-height: 1;
+    color: currentColor;
+    display: inline-block; }
+  a[href*="act=Post"][href*="CODE=00"]:hover,
+  a[href*="act=Post"][href*="CODE=01"]:hover,
+  a[href*="act=Post"][href*="CODE=02"]:hover,
+  a[href*="act=Post"][href*="CODE=03"]:hover {
+    -webkit-transform: translateY(-1px);
+        -ms-transform: translateY(-1px);
+            transform: translateY(-1px);
+    -webkit-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18), inset 0 0 0 999px rgba(0, 0, 0, 0.02);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18), inset 0 0 0 999px rgba(0, 0, 0, 0.02);
+    color: var(--accent-1); }
+  a[href*="act=Post"][href*="CODE=00"]:active,
+  a[href*="act=Post"][href*="CODE=01"]:active,
+  a[href*="act=Post"][href*="CODE=02"]:active,
+  a[href*="act=Post"][href*="CODE=03"]:active {
+    -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+            transform: translateY(0);
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), inset 0 0 0 999px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), inset 0 0 0 999px rgba(0, 0, 0, 0.04); }
+  a[href*="act=Post"][href*="CODE=00"]:focus-visible,
+  a[href*="act=Post"][href*="CODE=01"]:focus-visible,
+  a[href*="act=Post"][href*="CODE=02"]:focus-visible,
+  a[href*="act=Post"][href*="CODE=03"]:focus-visible {
+    outline: none;
+    -webkit-box-shadow: 0 0 0 2px var(--accent-3), 0 0 0 4px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 0 0 2px var(--accent-3), 0 0 0 4px rgba(0, 0, 0, 0.15); }
 
-.goto-firstunread a {
-  font-size: 1rem;
-  line-height: 1.2;
-  text-decoration: none; }
+/* Optional spacing when next to pagination */
+.pagelinks a[href*="act=Post"] {
+  -webkit-margin-start: .35rem;
+          margin-inline-start: .35rem; }
 
-.goto-firstunread a:hover {
-  text-decoration: underline; }
+/* Keyboard focus parity */
+:where(.goto-firstunread a, a[href*="act=Post"][href*="CODE="]):focus-visible {
+  outline: 2px dashed currentColor;
+  outline-offset: 2px; }
 
-/* Mobile: nothing special; just reduce gaps a touch */
+/* Mobile tighten */
 @media (max-width: 720px) {
-  .pagination {
-    gap: .35rem .45rem; }
-  .pagination_pagetxt {
-    display: none; } }
+  .goto-firstunread a {
+    padding: .4rem .7rem; }
+  a[href*="act=Post"][href*="CODE="] {
+    padding: .45rem .75rem; } }
+
+/* ================================================
+  Topic header = group-head (accent) — no HTML changes
+==================================================*/
+.tableborder .maintitle {
+  /* group-head knobs */
+  --gh-thickness: 2px;
+  --gh-alpha: .35;
+  --gh-gap-x: 1rem;
+  --gh-gap-y: .25rem;
+  --gh-pad-b: .5rem;
+  --gh-max-desc: 52ch;
+  /* accent gradient */
+  --gh-grad: linear-gradient(90deg,
+    color-mix(in srgb, var(--accent-1) 0%,  transparent) 0%,
+    color-mix(in srgb, var(--accent-1) 70%, transparent) 50%,
+    color-mix(in srgb, var(--accent-1) 0%,  transparent) 100%
+  );
+  background: var(--bg-2);
+  border-radius: 8px 8px 0 0;
+  -webkit-box-shadow: var(--plate-shadow);
+          box-shadow: var(--plate-shadow);
+  position: relative;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto minmax(0, 1fr);
+  grid-template-columns: auto minmax(0, 1fr);
+  -webkit-box-align: end;
+  -webkit-align-items: end;
+      -ms-flex-align: end;
+          align-items: end;
+  -webkit-column-gap: var(--gh-gap-x);
+     -moz-column-gap: var(--gh-gap-x);
+          column-gap: var(--gh-gap-x);
+  row-gap: var(--gh-gap-y);
+  padding: 0.85rem 1rem calc(.9rem + var(--gh-thickness));
+  color: var(--text-clear);
+  isolation: isolate; }
+  .tableborder .maintitle::after {
+    content: "";
+    position: absolute;
+    inset-inline: 1rem;
+    inset-block-end: .45rem;
+    height: var(--gh-thickness);
+    background: var(--gh-grad);
+    opacity: var(--gh-alpha);
+    pointer-events: none; }
+  .tableborder .maintitle .topic-title-space {
+    display: none; }
+  .tableborder .maintitle .topic-title {
+    min-width: 0;
+    margin: 0;
+    font-family: var(--font-serif);
+    font-weight: 800;
+    font-size: 4vw;
+    line-height: 1.05;
+    white-space: nowrap;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+       text-overflow: ellipsis;
+    font-variant: all-petite-caps; }
+  .tableborder .maintitle .topic-desc {
+    min-width: 0;
+    -ms-grid-column-align: end;
+        justify-self: end;
+    text-align: end;
+    font: 600 1rem/1.2 var(--font-serif);
+    color: var(--text-medCon);
+    max-inline-size: var(--gh-max-desc);
+    white-space: nowrap;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+       text-overflow: ellipsis;
+    text-transform: lowercase; }
+
+@media (max-width: 900px) {
+  .tableborder .maintitle {
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+    row-gap: .35rem; }
+    .tableborder .maintitle .topic-desc {
+      -ms-grid-column-align: start;
+          justify-self: start;
+      text-align: start;
+      white-space: normal;
+      overflow: visible;
+      -o-text-overflow: clip;
+         text-overflow: clip; } }
+
+/* Plate the table only when it contains .pagination */
+table:has(.pagination) {
+  background: var(--bg-2);
+  border-radius: 8px;
+  -webkit-box-shadow: var(--plate-shadow);
+          box-shadow: var(--plate-shadow);
+  /* Make rounded corners actually show on tables */
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: clip;
+  /* or hidden; clip avoids accidental rounding issues */ }
+
+/* Optional: add some breathing room if the table spans full-width */
+table:has(.pagination) td {
+  padding: .5rem .75rem; }
+
+.postlinksbar {
+  background: var(--bg-2);
+  padding-right: 0.5rem; }
+  .postlinksbar strong, .postlinksbar b {
+    color: var(--link);
+    font-family: var(--font-sans);
+    font-size: var(--size-sm);
+    font-variant: all-small-caps; }
 
 /* =========================================
    Plate Button Mixin (theme-toggle style)
@@ -4914,10 +5046,11 @@ a[href*="showuser"][data-mention] {
 ========================================= */
 .bm-block {
   position: relative;
-  background: var(--bg-1-rgb);
+  background: var(--bg-2);
   border: 0;
   border-radius: 6px;
-  padding: .9rem 1rem; }
+  padding: .9rem 1rem;
+  text-align: justify; }
 
 .bm-h {
   position: relative;
@@ -5014,8 +5147,8 @@ a[href*="showuser"][data-mention] {
 .grid-2 {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 1fr;
-  grid-template-columns: 1fr 1fr;
+  -ms-grid-columns: 1fr;
+  grid-template-columns: 1fr;
   gap: 1rem; }
 
 .grid-3 {
@@ -5566,69 +5699,218 @@ a[href*="showuser"][data-mention] {
 /* =========================================
    Plotting Subtabs
 ========================================= */
-.bm-subtabs {
-  position: relative;
+/* =========================================
+   Plotting (two-column, full-height)
+   Replaces the old .bm-subtabs / .bm-subpanels setup
+========================================= */
+/* ✅ Respect global panel visibility */
+#tab-plotting.bm-panel {
+  min-block-size: 0;
+  /* keep the sizing tweak */
+  /* no display here */ }
+
+/* hide when JS sets [hidden] */
+#tab-plotting.bm-panel[hidden] {
+  display: none; }
+
+/* show only when active */
+#tab-plotting.bm-panel:not([hidden]) {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  gap: .5rem;
-  padding: .6rem 1rem .4rem;
-  border-bottom: 1px solid color-mix(in srgb, var(--text-loCon) 16%, transparent); }
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column; }
 
-.bm-subtab {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  background: transparent;
-  border: 0;
-  cursor: pointer;
-  padding: .5rem .7rem;
+/* limit pre-wrap to prose only */
+.prose {
+  white-space: pre-line; }
+
+/* optional: fine-tune line flow for prose blocks */
+.prose li {
+  white-space: normal;
+  /* reset inside child tags */ }
+
+#tab-plotting .plot-grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1.25fr 1fr;
+  grid-template-columns: 1.25fr 1fr;
+  /* overview wider */
+  gap: 1rem;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 auto;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  min-block-size: 0;
+  /* critical for inner scrollers */ }
+
+/* LEFT: Overview column */
+#tab-plotting .plot-overview {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-block-size: 0; }
+
+#tab-plotting .plot-overview .bm-h {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--bg-1-rgb);
+  padding-block: .25rem .45rem;
+  -webkit-margin-after: .5rem;
+          margin-block-end: .5rem; }
+
+#tab-plotting .plot-overview__scroll {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 auto;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  min-block-size: 0;
+  overflow: auto;
+  -webkit-padding-start: .2rem;
+          padding-inline-start: .2rem;
+  /* optical balance with right column */
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--text-loCon) 35%, transparent) transparent; }
+
+#tab-plotting .plot-overview__scroll::-webkit-scrollbar {
+  width: 8px; }
+
+#tab-plotting .plot-overview__scroll::-webkit-scrollbar-thumb {
   border-radius: 6px;
-  color: var(--text-medCon);
-  font: 600 0.9rem/1 var(--font-sans);
-  position: relative; }
-  .bm-subtab::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border: 1px dashed transparent;
-    border-radius: 6px;
-    -webkit-transition: border-color 160ms ease;
-    -o-transition: border-color 160ms ease;
-    transition: border-color 160ms ease; }
-  .bm-subtab:hover {
-    background: color-mix(in srgb, var(--bg-3) 60%, transparent);
-    color: var(--text-clear); }
-    .bm-subtab:hover::before {
-      border-color: color-mix(in srgb, var(--text-loCon) 25%, transparent); }
-  .bm-subtab[aria-selected="true"], .bm-subtab.is-active {
-    color: var(--text-clear); }
-    .bm-subtab[aria-selected="true"]::before, .bm-subtab.is-active::before {
-      border-color: color-mix(in srgb, var(--accent-2) 45%, transparent); }
-  .bm-subtab:focus-visible {
-    outline: none;
-    -webkit-box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--accent-2) 60%, transparent);
-            box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--accent-2) 60%, transparent); }
+  background: color-mix(in srgb, var(--text-loCon) 35%, transparent); }
 
-.bm-subtab__active-bar {
-  position: absolute;
-  inset-block-end: 0;
-  inline-size: 0;
-  block-size: 2px;
-  border-radius: 2px;
-  background: var(--accent-2);
-  -webkit-transition: inline-size 220ms, -webkit-transform 220ms cubic-bezier(0.22, 0.61, 0.36, 1);
-  transition: inline-size 220ms, -webkit-transform 220ms cubic-bezier(0.22, 0.61, 0.36, 1);
-  -o-transition: transform 220ms cubic-bezier(0.22, 0.61, 0.36, 1), inline-size 220ms;
-  transition: transform 220ms cubic-bezier(0.22, 0.61, 0.36, 1), inline-size 220ms;
-  transition: transform 220ms cubic-bezier(0.22, 0.61, 0.36, 1), inline-size 220ms, -webkit-transform 220ms cubic-bezier(0.22, 0.61, 0.36, 1); }
+/* RIGHT: Stacked halves */
+#tab-plotting .plot-stacks {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1rem;
+  min-block-size: 0; }
 
-.bm-subpanels {
-  padding: 1rem; }
+/* Each card takes half height and hosts its own scroller */
+#tab-plotting .plot-card {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 50%;
+      -ms-flex: 1 1 50%;
+          flex: 1 1 50%;
+  min-block-size: 0; }
 
-.bm-subpanel[hidden] {
-  display: none; }
+#tab-plotting .plot-card .bm-h {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--bg-1-rgb);
+  padding-block: .25rem .45rem;
+  -webkit-margin-after: .5rem;
+          margin-block-end: .5rem; }
+
+#tab-plotting .plot-card__scroll {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 auto;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  min-block-size: 0;
+  overflow: auto;
+  -webkit-padding-start: .2rem;
+          padding-inline-start: .2rem;
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--text-loCon) 35%, transparent) transparent; }
+
+#tab-plotting .plot-card__scroll::-webkit-scrollbar {
+  width: 8px; }
+
+#tab-plotting .plot-card__scroll::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--text-loCon) 35%, transparent); }
+
+/* Responsive: stack columns; remove fixed half-heights */
+@media (max-width: 900px) {
+  #tab-plotting .plot-grid {
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr; }
+  #tab-plotting .plot-stacks {
+    /* when stacked vertically, let each section size naturally */
+    min-block-size: auto; }
+  #tab-plotting .plot-card {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+    /* no forced half-height */
+    min-block-size: auto; }
+  /* relax inner scrolls when stacked; allow page scroll instead */
+  #tab-plotting .plot-overview__scroll,
+  #tab-plotting .plot-card__scroll {
+    overflow: visible; }
+  /* sticky headers are fine stacked; if you want them non-sticky, uncomment:
+  #tab-plotting .plot-overview .bm-h,
+  #tab-plotting .plot-card .bm-h{ position: static; }
+  */ }
+
+#tab-plotting .plot-card {
+  border: 1px solid color-mix(in srgb, var(--text-loCon) 16%, transparent); }
+
+/* --- Fix stacked mobile view for Plotting --- */
+#tab-plotting .bm-block {
+  isolation: isolate; }
+
+/* prevent overlay bleed */
+/* Make sticky headers non-sticky and remove inner scrollers when stacked */
+@media (max-width: 900px) {
+  #tab-plotting .plot-grid {
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr; }
+  /* let each section size naturally */
+  #tab-plotting .plot-overview,
+  #tab-plotting .plot-card,
+  #tab-plotting .plot-stacks {
+    min-block-size: auto; }
+  /* disable stickies so they don’t ride over next blocks */
+  #tab-plotting .plot-overview .bm-h,
+  #tab-plotting .plot-card .bm-h {
+    position: relative;
+    top: auto;
+    background: transparent;
+    /* no opaque bar on top of following text */
+    -webkit-margin-after: .5rem;
+            margin-block-end: .5rem; }
+  /* hand scrolling back to the page */
+  #tab-plotting .plot-overview__scroll,
+  #tab-plotting .plot-card__scroll {
+    overflow: visible;
+    -webkit-padding-start: 0;
+            padding-inline-start: 0; }
+  /* a little more breathing room between stacked cards */
+  #tab-plotting .plot-stacks {
+    gap: 1.25rem; } }
 
 /* =========================================
    Basics & Aesthetics (two-column)
@@ -5755,7 +6037,7 @@ a[href*="showuser"][data-mention] {
 
 /* Motion safety */
 @media (prefers-reduced-motion: reduce) {
-  .mood-grid > img, .bm-tab__active-bar, .bm-subtab__active-bar {
+  .mood-grid > img, .bm-tab__active-bar {
     -webkit-transition: none;
     -o-transition: none;
     transition: none; } }
@@ -5861,6 +6143,7 @@ a[href*="showuser"][data-mention] {
   /* headings no longer sticky when stacked */
   #tab-basics .bm-basics__info .bm-h,
   #tab-basics .bm-basics__mood .bm-h {
-    position: static;
+    position: relative;
+    top: auto;
     -webkit-margin-after: .5rem;
             margin-block-end: .5rem; } }

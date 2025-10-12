@@ -250,10 +250,11 @@
 ========================================= */
 .bm-block {
   position: relative;
-  background: var(--bg-1-rgb);
+  background: var(--bg-2);
   border: 0;
   border-radius: 6px;
-  padding: .9rem 1rem; }
+  padding: .9rem 1rem;
+  text-align: justify; }
 
 .bm-h {
   position: relative;
@@ -341,7 +342,7 @@
 
 .grid-2 {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 1rem; }
 
 .grid-3 {
@@ -725,57 +726,163 @@
 /* =========================================
    Plotting Subtabs
 ========================================= */
-.bm-subtabs {
-  position: relative;
-  display: flex;
-  gap: .5rem;
-  padding: .6rem 1rem .4rem;
-  border-bottom: 1px solid color-mix(in srgb, var(--text-loCon) 16%, transparent); }
+/* =========================================
+   Plotting (two-column, full-height)
+   Replaces the old .bm-subtabs / .bm-subpanels setup
+========================================= */
+/* ✅ Respect global panel visibility */
+#tab-plotting.bm-panel {
+  min-block-size: 0;
+  /* keep the sizing tweak */
+  /* no display here */ }
 
-.bm-subtab {
-  appearance: none;
-  background: transparent;
-  border: 0;
-  cursor: pointer;
-  padding: .5rem .7rem;
-  border-radius: 6px;
-  color: var(--text-medCon);
-  font: 600 0.9rem/1 var(--font-sans);
-  position: relative; }
-  .bm-subtab::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border: 1px dashed transparent;
-    border-radius: 6px;
-    transition: border-color 160ms ease; }
-  .bm-subtab:hover {
-    background: color-mix(in srgb, var(--bg-3) 60%, transparent);
-    color: var(--text-clear); }
-    .bm-subtab:hover::before {
-      border-color: color-mix(in srgb, var(--text-loCon) 25%, transparent); }
-  .bm-subtab[aria-selected="true"], .bm-subtab.is-active {
-    color: var(--text-clear); }
-    .bm-subtab[aria-selected="true"]::before, .bm-subtab.is-active::before {
-      border-color: color-mix(in srgb, var(--accent-2) 45%, transparent); }
-  .bm-subtab:focus-visible {
-    outline: none;
-    box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--accent-2) 60%, transparent); }
-
-.bm-subtab__active-bar {
-  position: absolute;
-  inset-block-end: 0;
-  inline-size: 0;
-  block-size: 2px;
-  border-radius: 2px;
-  background: var(--accent-2);
-  transition: transform 220ms cubic-bezier(0.22, 0.61, 0.36, 1), inline-size 220ms; }
-
-.bm-subpanels {
-  padding: 1rem; }
-
-.bm-subpanel[hidden] {
+/* hide when JS sets [hidden] */
+#tab-plotting.bm-panel[hidden] {
   display: none; }
+
+/* show only when active */
+#tab-plotting.bm-panel:not([hidden]) {
+  display: flex;
+  flex-direction: column; }
+
+/* limit pre-wrap to prose only */
+.prose {
+  white-space: pre-line; }
+
+/* optional: fine-tune line flow for prose blocks */
+.prose li {
+  white-space: normal;
+  /* reset inside child tags */ }
+
+#tab-plotting .plot-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  /* overview wider */
+  gap: 1rem;
+  flex: 1 1 auto;
+  min-block-size: 0;
+  /* critical for inner scrollers */ }
+
+/* LEFT: Overview column */
+#tab-plotting .plot-overview {
+  display: flex;
+  flex-direction: column;
+  min-block-size: 0; }
+
+#tab-plotting .plot-overview .bm-h {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--bg-1-rgb);
+  padding-block: .25rem .45rem;
+  margin-block-end: .5rem; }
+
+#tab-plotting .plot-overview__scroll {
+  flex: 1 1 auto;
+  min-block-size: 0;
+  overflow: auto;
+  padding-inline-start: .2rem;
+  /* optical balance with right column */
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--text-loCon) 35%, transparent) transparent; }
+
+#tab-plotting .plot-overview__scroll::-webkit-scrollbar {
+  width: 8px; }
+
+#tab-plotting .plot-overview__scroll::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--text-loCon) 35%, transparent); }
+
+/* RIGHT: Stacked halves */
+#tab-plotting .plot-stacks {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-block-size: 0; }
+
+/* Each card takes half height and hosts its own scroller */
+#tab-plotting .plot-card {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 50%;
+  min-block-size: 0; }
+
+#tab-plotting .plot-card .bm-h {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--bg-1-rgb);
+  padding-block: .25rem .45rem;
+  margin-block-end: .5rem; }
+
+#tab-plotting .plot-card__scroll {
+  flex: 1 1 auto;
+  min-block-size: 0;
+  overflow: auto;
+  padding-inline-start: .2rem;
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--text-loCon) 35%, transparent) transparent; }
+
+#tab-plotting .plot-card__scroll::-webkit-scrollbar {
+  width: 8px; }
+
+#tab-plotting .plot-card__scroll::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--text-loCon) 35%, transparent); }
+
+/* Responsive: stack columns; remove fixed half-heights */
+@media (max-width: 900px) {
+  #tab-plotting .plot-grid {
+    grid-template-columns: 1fr; }
+  #tab-plotting .plot-stacks {
+    /* when stacked vertically, let each section size naturally */
+    min-block-size: auto; }
+  #tab-plotting .plot-card {
+    flex: 0 0 auto;
+    /* no forced half-height */
+    min-block-size: auto; }
+  /* relax inner scrolls when stacked; allow page scroll instead */
+  #tab-plotting .plot-overview__scroll,
+  #tab-plotting .plot-card__scroll {
+    overflow: visible; }
+  /* sticky headers are fine stacked; if you want them non-sticky, uncomment:
+  #tab-plotting .plot-overview .bm-h,
+  #tab-plotting .plot-card .bm-h{ position: static; }
+  */ }
+
+#tab-plotting .plot-card {
+  border: 1px solid color-mix(in srgb, var(--text-loCon) 16%, transparent); }
+
+/* --- Fix stacked mobile view for Plotting --- */
+#tab-plotting .bm-block {
+  isolation: isolate; }
+
+/* prevent overlay bleed */
+/* Make sticky headers non-sticky and remove inner scrollers when stacked */
+@media (max-width: 900px) {
+  #tab-plotting .plot-grid {
+    grid-template-columns: 1fr; }
+  /* let each section size naturally */
+  #tab-plotting .plot-overview,
+  #tab-plotting .plot-card,
+  #tab-plotting .plot-stacks {
+    min-block-size: auto; }
+  /* disable stickies so they don’t ride over next blocks */
+  #tab-plotting .plot-overview .bm-h,
+  #tab-plotting .plot-card .bm-h {
+    position: relative;
+    top: auto;
+    background: transparent;
+    /* no opaque bar on top of following text */
+    margin-block-end: .5rem; }
+  /* hand scrolling back to the page */
+  #tab-plotting .plot-overview__scroll,
+  #tab-plotting .plot-card__scroll {
+    overflow: visible;
+    padding-inline-start: 0; }
+  /* a little more breathing room between stacked cards */
+  #tab-plotting .plot-stacks {
+    gap: 1.25rem; } }
 
 /* =========================================
    Basics & Aesthetics (two-column)
@@ -874,7 +981,7 @@
 
 /* Motion safety */
 @media (prefers-reduced-motion: reduce) {
-  .mood-grid > img, .bm-tab__active-bar, .bm-subtab__active-bar {
+  .mood-grid > img, .bm-tab__active-bar {
     transition: none; } }
 
 /* Make the basics grid consume the panel’s full height */
@@ -953,5 +1060,6 @@
   /* headings no longer sticky when stacked */
   #tab-basics .bm-basics__info .bm-h,
   #tab-basics .bm-basics__mood .bm-h {
-    position: static;
+    position: relative;
+    top: auto;
     margin-block-end: .5rem; } }

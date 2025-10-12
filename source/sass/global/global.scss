@@ -193,8 +193,8 @@ h8[data-underline="wide"]   { --uw: 30%; }
 /* ================================
    INLINE TEXT + LINKS
 ================================ */
-strong, b { font-weight: 700; color: var(--text-clear); }
-em, i     { font-style: italic; }
+strong, b { font-weight: 700; color: var(--accent-1); }
+em, i     { font-style: italic; color: var(--accent-1);}
 u         { text-underline-offset: .14em; }
 s, del    { opacity: .85; text-decoration-thickness: .08em; }
 

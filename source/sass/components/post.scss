@@ -1,10 +1,8 @@
 @import '../global/mixins.scss';
 
 /* ================================================
-   Bone Market — Post Row (condensed)
+   Bone Market — Post Row (condensed, cleaned)
    ================================================ */
-
-$seg-radius: 22px;
 
 /* ---------- Layout ---------- */
 .bm-post {
@@ -17,6 +15,8 @@ $seg-radius: 22px;
   overflow: hidden;
   margin-block: 1.25rem;
   position: relative;
+  block-size: calc(100vh - var(--nav-h, 64px) - var(--post-gap, 2rem));
+  min-block-size: 0; /* allow inner grid to shrink */
 
   &::before {
     content: "";
@@ -81,6 +81,9 @@ $seg-radius: 22px;
     transition: transform .12s ease, box-shadow .12s ease;
     box-shadow: 0 0 0 rgba(0,0,0,0);
 
+    @include plate-button($font-size: var(--size-md));
+    color: var(--text-medCon);
+
     &:hover { transform: translateY(-1px); box-shadow: 0 2px 6px rgba(0,0,0,.15); }
   }
 }
@@ -104,9 +107,16 @@ $seg-radius: 22px;
 .bm-post__sig     { opacity: .95; max-height: 260px; overflow: auto; mask-image: linear-gradient(180deg, #000 80%, transparent); }
 
 /* ---------- Mentions / badges / sets ---------- */
-a[href*="showuser"][data-mention] { background: color-mix(in srgb, var(--accent-2, #8e7c63) 20%, transparent); border-radius: .25rem; padding-inline: .25rem; }
+a[href*="showuser"][data-mention] {
+  background: color-mix(in srgb, var(--accent-2, #8e7c63) 20%, transparent);
+  border-radius: .25rem;
+  padding-inline: .25rem;
+}
 
-.badge, .label, .chip {
+/* badges inside posts */
+.bm-post .badge,
+.bm-post .label,
+.bm-post .chip{
   --pill-bg: var(--bg-1-rgb);
   display: inline-flex; align-items: center; gap: .35ch;
   padding: .15rem .55rem; border: 1px solid currentColor; border-radius: 999px;
@@ -125,19 +135,23 @@ a[href*="showuser"][data-mention] { background: color-mix(in srgb, var(--accent-
 .bm-post[data-set="material"]  .bm-post__avatar { box-shadow: 0 0 0 2px rgba(160,130,90,.35),  var(--plate-shadow); }
 
 /* ---------- Reactions ---------- */
-.bm-post__reactions { display: flex; flex-wrap: wrap; gap: .35rem .5rem;
+.bm-post__reactions {
+  display: flex; flex-wrap: wrap; gap: .35rem .5rem;
   .chip { font-size: .78rem; background: var(--bg-1-rgb); border: var(--border-1); &:hover { transform: translateY(-1px); } }
 }
 
 /* ---------- Mobile ---------- */
 @media (max-width: 900px) {
-  .bm-post { grid-template-columns: 1fr; }
-  .bm-post__aside { border-inline-end: 0; border-bottom: var(--border-1); position: static;
-    grid-template-columns: 72px 1fr; grid-template-rows: auto auto; grid-auto-flow: column; align-items: center; gap: .75rem 1rem; }
+  .bm-post { grid-template-columns: 1fr; block-size:auto;}
+  .bm-post__aside {
+    border-inline-end: 0; border-bottom: var(--border-1); position: static;
+    grid-template-columns: 72px 1fr; grid-template-rows: auto auto;
+    grid-auto-flow: column; align-items: center; gap: .75rem 1rem;
+  }
   .bm-post__avatar { grid-row: 1 / span 2; }
   .bm-post__controls--mobile { margin-top: .25rem; }
   .bm-post__head { padding: .75rem .9rem; }
-  .bm-post__content { padding: 1rem; }
+  .bm-post__content { padding: 1rem; overflow: visible; }
 }
 
 /* ---------- Focus / anchor target ---------- */
@@ -155,6 +169,7 @@ a[href*="showuser"][data-mention] { background: color-mix(in srgb, var(--accent-
   font-size: var(--size-md);
   line-height: 1.65;
   color: var(--text-clear);
+  margin: 0 auto;
 
   > * + * { margin-block-start: var(--flow); }
 
@@ -196,8 +211,8 @@ a[href*="showuser"][data-mention] { background: color-mix(in srgb, var(--accent-
   .quotemain, .codemain { background: var(--bg-2); border: 1px solid rgba(0,0,0,.2); border-radius: 0 0 4px 4px; padding: .8rem 1rem; }
 
   img { max-width: 100%; height: auto; display: block; }
-  .alignleft  { float: left;  margin: .2rem 1rem .8rem 0;  max-width: calc(45%, 320px); }
-  .alignright { float: right; margin: .2rem 0 .8rem 1rem;  max-width: calc(45%, 320px); }
+  .alignleft  { float: left;  margin: .2rem 1rem .8rem 0;  max-width: clamp(0px, 45%, 320px); }
+  .alignright { float: right; margin: .2rem 0 .8rem 1rem;  max-width: clamp(0px, 45%, 320px); }
   .aligncenter { margin-inline: auto; display: block; }
 
   figure { margin: 0; border: var(--border-1); border-radius: 6px; overflow: hidden; box-shadow: var(--plate-shadow); background: var(--bg-1-rgb); }
@@ -219,148 +234,40 @@ a[href*="showuser"][data-mention] { background: color-mix(in srgb, var(--accent-
 .bm-post__content ::selection { background: rgba(196,67,88,.25); }
 
 /* ================================================
-   Topic Top Bar — Pagination + Actions (segmented)
-   ================================================ */
-
-/* Plate button comes from your global mixin: `@include plate-button();` */
-$pg-radius: 6px;  // tweak to match your sidebar/toggle corners
-$pg-gap: .15rem;
-
-.pagination {
-  /* hide stray text nodes like &nbsp; / ... that JCink inserts */
-  font-size: 0;
-  display: inline-flex;
-  align-items: center;
-  gap: $pg-gap;
-  vertical-align: middle;
-}
-
-.pagination_pagetxt {
-  font-size: .95rem; /* restore size for element text */
-  margin-right: $pg-gap;
-  font-family: var(--font-serif);
-  font-variant: small-caps;
-  letter-spacing: .04em;
-  opacity: .85;
-}
-
-/* individual page buttons */
-.pagination_page,
-.pagination_last,
-.pagination_current {
-  /* restore size for element text */
-  font-size: .95rem;
-  line-height: 1.1;
-
-  /* your global plate look */
-  @include plate-button();
-
-  /* small rounded corners, not full pills */
-  border-radius: $pg-radius;
-
-  /* comfortable padding */
-  padding: .45rem .9rem;
-
-  /* basic link treatment */
-  color: var(--text-clear);
-  text-decoration: none;
-}
-
-/* active page (pressed/selected look) */
-.pagination_current {
-  font-weight: 700;
-  background:
-    linear-gradient(180deg, rgba(142,124,99,.22), rgba(142,124,99,.06)),
-    var(--bg-1-rgb);
-}
-
-/* First unread → also a plate button; hide literal parentheses from markup */
-.goto-firstunread {
-  font-size: 0; /* kills "(" and ")" text nodes */
-  display: inline-flex;
-  align-items: center;
-  margin-left: $pg-gap;
-}
-.goto-firstunread::before,
-.goto-firstunread::after { display: none; }
-.goto-firstunread a {
-  font-size: .95rem;
-  text-decoration: none;
-  @include plate-button();
-  border-radius: $pg-radius;
-  padding: .5rem 1rem;
-}
-
-/* Right-side actions to match */
-.macro--button {
-  text-transform: lowercase;
-  @include plate-button();
-  border-radius: $pg-radius;
-  padding: .5rem 1rem;
-}
-
-/* Mobile tighten */
-@media (max-width: 720px) {
-  .pagination_pagetxt { display: none; }
-  .pagination_page, .pagination_last, .pagination_current { padding: .35rem .7rem; }
-  .goto-firstunread { margin: .35rem 0 0; }
-}
-
-/* Keyboard focus */
-:where(.pagination a, .pagination_current, .macro--button):focus-visible {
-  outline: 2px dashed currentColor;
-  outline-offset: 2px;
-}
-
-/* ================================================
-   Pagination — strip “plate” styling (clean text links)
-   Drop this AFTER any previous pagination rules.
+   Topic Top Bar — Pagination (clean text links)
    ================================================ */
 
 .pagination {
-  /* restore normal text flow (no hiding of stray nodes) */
-  font-size: 1rem;
+  font-size: 0.75rem;
   display: inline-flex;
   align-items: baseline;
-  gap: .5rem .6rem;
+  gap: .25rem;
   vertical-align: middle;
+  font-family: var(--font-hand);
 }
 
 .pagination_pagetxt {
-  font-family: var(--font-serif);
   font-variant: small-caps;
   letter-spacing: .04em;
   opacity: .85;
   margin-right: .5rem;
 }
 
-/* reset all prior button/plate rules */
+/* reset any buttony styles */
 .pagination_page,
 .pagination_last,
 .pagination_current {
-  all: unset;                    /* hard reset */
-  display: inline;               /* text-like */
+  all: unset;
+  display: inline;
   cursor: pointer;
   color: var(--text-clear);
 }
 
-/* remove any pseudo from earlier styles */
-.pagination_page::before,
-.pagination_page::after,
-.pagination_last::before,
-.pagination_last::after,
-.pagination_current::before,
-.pagination_current::after { content: none !important; }
-
-/* links */
 .pagination_page,
-.pagination_last {
-  text-decoration: none;
-}
+.pagination_last { text-decoration: none; }
 .pagination_page:hover,
 .pagination_last:hover { text-decoration: underline; }
 
-/* current page = bold with a thin underline */
 .pagination_current b {
   font-weight: 700;
   border-bottom: 2px solid currentColor;
@@ -369,23 +276,195 @@ $pg-gap: .15rem;
 
 .pagination_last { white-space: nowrap; }
 
-.goto-firstunread {
-  font-size: 0;
-  display: inline-flex;
-  align-items: center;
-  gap: .5rem;
+/* Keyboard focus */
+:where(.pagination a, .pagination_current, .macro--button):focus-visible {
+  outline: 2px dashed currentColor;
+  outline-offset: 2px;
 }
 
-.goto-firstunread a {
-  font-size: 1rem;
-  line-height: 1.2;
-  text-decoration: none;
-}
-
-.goto-firstunread a:hover { text-decoration: underline;}
-
-/* Mobile: nothing special; just reduce gaps a touch */
+/* Mobile tighten */
 @media (max-width: 720px) {
   .pagination { gap: .35rem .45rem; }
   .pagination_pagetxt { display: none; }
+}
+
+/* =========================================================
+   Restore plate-button look for specific actions only
+   ========================================================= */
+
+/* 1) Go to first unread → plate button */
+.goto-firstunread {
+  font-size: 0;                  /* hide stray '(' and ')' */
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  text-transform:lowercase;
+}
+.goto-firstunread::before,
+.goto-firstunread::after { display: none; }
+
+.goto-firstunread a{
+  font-size: 0.75rem;
+  line-height: 1.2;
+  text-decoration: none;
+  @include plate-button($font-size: var(--size-md));
+  border-radius: 6px;
+  padding: .45rem .9rem;
+
+  &:hover{ text-decoration: none; }
+}
+
+/* 2) Topic action buttons (Add Reply / New Topic / Fast Reply) */
+:where(.postlinksbar, .topic-options, .topic-buttons, .pagelinks, .tableborder) a[
+  href*="act=Post"
+]{
+  @include plate-button($font-size: var(--size-md));
+  border-radius: 6px;
+  padding: .5rem 1rem;
+  text-decoration: none;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+/* Tighter targeting for common codes */
+a[href*="act=Post"][href*="CODE=00"], /* New Topic */
+a[href*="act=Post"][href*="CODE=01"], /* Add Reply */
+a[href*="act=Post"][href*="CODE=02"], /* Reply variants */
+a[href*="act=Post"][href*="CODE=03"]  /* other reply forms */
+{
+  @include plate-button($font-size: var(--size-md));
+  border-radius: 6px;
+  padding: .5rem 1rem;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+/* Optional spacing when next to pagination */
+.pagelinks a[href*="act=Post"]{ margin-inline-start: .35rem; }
+
+/* Keyboard focus parity */
+:where(.goto-firstunread a, a[href*="act=Post"][href*="CODE="]):focus-visible{
+  outline: 2px dashed currentColor;
+  outline-offset: 2px;
+}
+
+/* Mobile tighten */
+@media (max-width: 720px){
+  .goto-firstunread a{ padding: .4rem .7rem; }
+  a[href*="act=Post"][href*="CODE="]{ padding: .45rem .75rem; }
+}
+
+/* ================================================
+  Topic header = group-head (accent) — no HTML changes
+==================================================*/
+.tableborder .maintitle{
+  /* group-head knobs */
+  --gh-thickness: 2px;
+  --gh-alpha: .35;
+  --gh-gap-x: 1rem;
+  --gh-gap-y: .25rem;
+  --gh-pad-b: .5rem;
+  --gh-max-desc: 52ch;
+
+  /* accent gradient */
+  --gh-grad: linear-gradient(90deg,
+    color-mix(in srgb, var(--accent-1) 0%,  transparent) 0%,
+    color-mix(in srgb, var(--accent-1) 70%, transparent) 50%,
+    color-mix(in srgb, var(--accent-1) 0%,  transparent) 100%
+  );
+
+  background: var(--bg-2);
+  border-radius: 8px 8px 0 0;
+  box-shadow: var(--plate-shadow);
+
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0,1fr);
+  align-items: end;
+  column-gap: var(--gh-gap-x);
+  row-gap: var(--gh-gap-y);
+  padding: .85rem 1rem calc(.9rem + var(--gh-thickness));
+  color: var(--text-clear);
+  isolation: isolate;
+
+  &::after{
+    content:"";
+    position:absolute;
+    inset-inline: 1rem;
+    inset-block-end: .45rem;
+    height: var(--gh-thickness);
+    background: var(--gh-grad);
+    opacity: var(--gh-alpha);
+    pointer-events: none;
+  }
+
+  .topic-title-space{ display:none; }
+
+  .topic-title{
+    min-width: 0;
+    margin: 0;
+    font-family: var(--font-serif);
+    font-weight: 800;
+    font-size: 4vw;
+    line-height: 1.05;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-variant: all-petite-caps;
+  }
+
+  .topic-desc{
+    min-width: 0;
+    justify-self: end;
+    text-align: end;
+    font: 600 1rem/1.2 var(--font-serif);
+    color: var(--text-medCon);
+    max-inline-size: var(--gh-max-desc);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-transform: lowercase;
+  }
+}
+
+@media (max-width: 900px){
+  .tableborder .maintitle{
+    grid-template-columns: 1fr;
+    row-gap: .35rem;
+
+    .topic-desc{
+      justify-self: start;
+      text-align: start;
+      white-space: normal;
+      overflow: visible;
+      text-overflow: clip;
+    }
+  }
+}
+
+/* Plate the table only when it contains .pagination */
+table:has(.pagination){
+  background: var(--bg-2);
+  border-radius: 8px;
+  box-shadow: var(--plate-shadow);
+
+  /* Make rounded corners actually show on tables */
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: clip; /* or hidden; clip avoids accidental rounding issues */
+}
+
+/* Optional: add some breathing room if the table spans full-width */
+table:has(.pagination) td{ padding: .5rem .75rem; }
+
+.postlinksbar {
+  background:var(--bg-2);
+  padding-right: 0.5rem;
+
+  & strong, b {
+    color: var(--link);
+    font-family: var(--font-sans);
+    font-size: var(--size-sm);
+    font-variant: all-small-caps;
+  }
 }
