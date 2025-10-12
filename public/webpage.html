@@ -11,6 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Inconsolata:wght@200..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cookie&family=Lavishly+Yours&family=Lugrasimo&display=swap" rel="stylesheet">
 
 <link href="https://files.jcink.net/uploads2/thebonemarket/fonts/ghosthey_Regular.ttf" rel="stylesheet">
 
@@ -156,40 +157,120 @@ Magic is currency, and the black market thrives on blood.
         <a name="top"></a>
 
         <!--Webpage-->
+
+        <style>
+          /* Accordion shell */
+          .demo-drop{
+            border: 1px solid color-mix(in srgb, var(--text-loCon) 18%, transparent);
+            border-radius: 8px;
+            background: color-mix(in srgb, var(--bg-2) 85%, transparent);
+            box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--text-loCon) 10%, transparent);
+            overflow: clip;
+            padding: 1rem;
+          }
+          .demo-drop + .demo-drop{ margin-top: 1rem; }
+
+          /* Summary (click target) */
+          .demo-drop > summary{
+            display: grid;
+            grid-template-columns: 1.25rem 1fr auto;
+            gap: .5rem;
+            align-items: center;
+            padding: .7rem .85rem;
+            cursor: pointer;
+            list-style: none;
+            user-select: none;
+            font: 700 .95rem/1 var(--font-sans);
+            letter-spacing: .04em;
+            text-transform: uppercase;
+            color: var(--text-clear);
+            position: relative;
+          }
+          /* remove default marker */
+          .demo-drop > summary::-webkit-details-marker{ display:none; }
+          .demo-drop > summary::marker{ content:""; }
+
+          /* Caret */
+          .demo-drop > summary::before{
+            content: "▸";
+            inline-size: 1.25rem;
+            text-align: center;
+            transform-origin: 50% 50%;
+            transition: transform .18s ease;
+            color: var(--text-loCon);
+          }
+          .demo-drop[open] > summary::before{ transform: rotate(90deg); color: var(--text-medCon); }
+
+          /* Right-side meta (optional small note) */
+          .demo-drop > summary > small{
+            color: var(--text-medCon);
+            font: 600 .85rem/1.2 var(--font-sans);
+            text-transform: none;
+            letter-spacing: 0;
+          }
+
+          /* Divider under summary */
+          .demo-drop > summary::after{
+            content:"";
+            grid-column: 1 / -1;
+            height: 1px;
+            margin-top: .65rem;
+            background: linear-gradient(90deg,#0000 0%,
+              color-mix(in srgb, var(--text-loCon) 35%, transparent) 12% 88%,
+              #0000 100%);
+            opacity: .6;
+          }
+
+          /* Panel content */
+          .demo-panel{
+            padding: .9rem .95rem 1rem;
+            display: grid;
+            gap: .75rem;
+          }
+
+          /* Make inner section headers lighter since summary is the “real” title */
+          .demo-panel > h2,
+          .demo-panel > h3{ margin: .25rem 0 .25rem; color: var(--text-medCon); }
+
+          /* Keep your <hr> visible inside panels */
+          .demo-panel hr{ margin: .65rem 0; }
+        </style>
+
         <section class="webpage content-flow" aria-label="Style Testbed">
           <!-- =========================
               HEADINGS
           ========================== -->
-            <section aria-labelledby="t-headings">
-              <h2 id="t-headings">Headings</h2>
+            <details class="demo-drop">
+              <summary>Rules & Dividers</summary>
+              <section aria-labelledby="t-headings">
+                <h3 data-uw="36">h3 — data-uw="36"</h3>
+                <h3 data-uw="80" data-caps>
+                  <span class="hcap" aria-hidden="true"></span>h3 — caps +
+                  data-uw="80"
+                </h3>
+                <h3 data-uw="50" data-align="center" data-caps>
+                  <span class="hcap" aria-hidden="true"></span>h3 — center + caps
+                </h3>
+                <h3 data-uw="40" data-align="end" data-caps>
+                  <span class="hcap" aria-hidden="true"></span>h3 — end + caps
+                </h3>
 
-              <h3 data-uw="36">h3 — data-uw="36"</h3>
-              <h3 data-uw="80" data-caps>
-                <span class="hcap" aria-hidden="true"></span>h3 — caps +
-                data-uw="80"
-              </h3>
-              <h3 data-uw="50" data-align="center" data-caps>
-                <span class="hcap" aria-hidden="true"></span>h3 — center + caps
-              </h3>
-              <h3 data-uw="40" data-align="end" data-caps>
-                <span class="hcap" aria-hidden="true"></span>h3 — end + caps
-              </h3>
-
-              <h4>heading 4</h4>
-              <h5>heading 5</h5>
-              <h6>heading 6</h6>
-              <h7>heading 7</h7>
-              <h8>heading 8</h8>
-            </section>
+                <h4>heading 4</h4>
+                <h5>heading 5</h5>
+                <h6>heading 6</h6>
+                <h7>heading 7</h7>
+                <h8>heading 8</h8>
+              </section>
+            </details>
 
           <hr />
 
           <!-- =========================
               INLINE TEXT & LISTS
           ========================== -->
-          <section aria-labelledby="t-inline">
-            <h3 id="t-inline">Inline, i18n & Lists</h3>
-
+          <details class="demo-drop">
+            <summary>Inline, i18n & Lists</summary>
+            <section aria-labelledby="t-inline">
             <p>
               Some <strong>bold</strong>, <em>italic</em>, <u>underline</u>,
               <s>strikethrough</s>, and a <a href="#">hyperlink</a>.
@@ -234,16 +315,17 @@ Magic is currency, and the black market thrives on blood.
               <li>Dash bullet one</li>
               <li>Dash bullet two</li>
             </ul>
-          </section>
+            </section>
+          </details>
 
           <hr />
 
           <!-- =========================
               GROUP HEAD (title + desc)
           ========================== -->
-          <section aria-labelledby="t-groups">
-            <h3 id="t-groups">Group Head</h3>
-
+          <details class="demo-drop">
+            <summary>Group Head</summary>
+            <section aria-labelledby="t-groups">
             <div class="group-head" role="heading" aria-level="2">
               <span class="group-head__title">Nadir</span>
               <span class="group-head__desc"
@@ -289,16 +371,17 @@ Magic is currency, and the black market thrives on blood.
                 >the farthest or most distant point.</span
               >
             </div>
-          </section>
+            </section>
+          </details>
 
           <hr />
 
           <!-- =========================
               QUOTES
           ========================== -->
-          <section aria-labelledby="t-quotes">
-            <h3 id="t-quotes">Quotes</h3>
-
+          <details class="demo-drop">
+            <summary>Quotes</summary>
+            <section aria-labelledby="t-quotes">
             <blockquote>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
@@ -328,16 +411,17 @@ Magic is currency, and the black market thrives on blood.
               </p>
               <cite>— the Archivist</cite>
             </bm-quote>
-          </section>
+            </section>
+          </details>
 
           <hr />
 
           <!-- =========================
               CALLOUTS
           ========================== -->
-          <section aria-labelledby="t-callouts">
-            <h3 id="t-callouts">Callouts</h3>
-
+          <details class="demo-drop">
+            <summary>Callouts</summary>
+            <section aria-labelledby="t-callouts">
             <div class="tw">
               <strong>content warning</strong>
               medical imagery; coercion themes.
@@ -347,19 +431,22 @@ Magic is currency, and the black market thrives on blood.
               <strong>note</strong>
               replies may be slow during tourney week.
             </div>
-          </section>
+            </section>
+          </details>
 
           <hr />
 
           <!-- =========================
               RULES
           ========================== -->
-          <section aria-labelledby="t-rules">
-            <h3 id="t-rules">Rules</h3>
-            <p>Text on the left <vr></vr> text on the right.</p>
-            <hr />
-            <p>Content after a horizontal rule.</p>
-          </section>
+          <details class="demo-drop">  
+            <summary>Rules</summary>
+            <section aria-labelledby="t-rules">
+              <p>Text on the left <vr></vr> text on the right.</p>
+              <hr />
+              <p>Content after a horizontal rule.</p>
+            </section>
+          </details>
 
           <hr />
 
@@ -367,9 +454,9 @@ Magic is currency, and the black market thrives on blood.
               MEMBERGROUP VARIANTS
               (class-based + data-attr)
           ========================== -->
-          <section class="mg-gallery" aria-labelledby="t-mg">
-            <h3 id="t-mg">Membergroup Variants</h3>
-
+          <details class="demo-drop">
+            <summary>Membergroup Variants</summary>
+            <section class="mg-gallery" aria-labelledby="t-mg">
             <!-- Small helper styles for the demo layout only -->
             <style>
               .mg-gallery {
@@ -568,7 +655,10 @@ Magic is currency, and the black market thrives on blood.
               </div>
             </section>
 
-          </section>
+            </section>
+          </details>
+
+          <hr />
 
           <!-- =========================
             GRID MATRIX HELPERS (ADD ONCE)
@@ -605,7 +695,9 @@ Magic is currency, and the black market thrives on blood.
           <!-- =========================
             ALL MEMBERGROUPS — FULL MATRIX (CLASS API)
           ========================= -->
-          <section class="mg-section" aria-label="All Membergroups — Full Matrix">
+          <details class="demo-drop">
+            <summary>All Membergroups (Class API)</summary>
+            <section class="mg-section" aria-label="All Membergroups — Full Matrix">
             <div class="mg-head">
               <h4>All Membergroups</h4>
               <small>every name × variants: pill · outline · text</small>
@@ -902,14 +994,19 @@ Magic is currency, and the black market thrives on blood.
                 </div>
               </section>
             </div>
-          </section>
+            </section>
+          </details>
+
+          <hr />
 
           <!-- =========================
             ALL MEMBERGROUPS — DATA ATTR MATRIX (DATA API)
           ========================= -->
-          <section class="mg-section" aria-label="All Membergroups (data-attributes)">
+          <details class="demo-drop">
+            <summary>All Membergroups (Data API)</summary>
+            <section class="mg-section" aria-label="All Membergroups (data-attributes)">
             <div class="mg-head">
-              <h4>All Membergroups (Data API)</h4>
+              
               <small>every name × variants: <code>pill</code> · <code>outline</code> · <code>text</code></small>
             </div>
 
@@ -1204,105 +1301,121 @@ Magic is currency, and the black market thrives on blood.
                 </div>
               </section>
             </div>
-          </section>
-
-
-          <!-- House Black Salt — parchment, sepia ink, bottom-right wax seal, 3 fold marks -->
-          <article class="rp-letter"
-                  data-mode="letter"
-                  data-stationery="parchment"
-                  data-ink="sepia"
-                  data-seal="wax-br"
-                  data-folds="3"
-                  data-age="worn"
-                  data-watermark="crest"
-                  style="--crest-url:url(/img/crests/black-salt.svg)">
-
-            <header class="rp-head" data-house="black-salt">
-              <img class="rp-crest" src="/img/crests/black-salt.svg" alt="" aria-hidden="true">
-              <div class="rp-from">
-                <h1>House Black Salt</h1>
-                <p>Catacomb Row, The Bone Market</p>
-              </div>
-              <div class="rp-meta">
-                <time datetime="1887-10-14">14th of Frostfall</time>
-                <span>By night courier</span>
-              </div>
-            </header>
-
-            <hr class="rp-rule">
-
-            <address class="rp-address">
-              <strong>To:</strong> Master Ferrin<br>
-              Guild of Appraisers<br>
-              Wharf Quarter
-            </address>
-
-            <p class="rp-greeting">Master Ferrin,</p>
-
-            <section class="rp-body">
-              <p>Debts are the city’s native tongue; the market merely writes them down. Enclosed the ledgers you requested…</p>
-              <p>Should the council demand provenance, cite the tally below and the seal impressed at foot.</p>
             </section>
+          </details>
 
-            <p class="rp-closing">With measured regard,</p>
+          <hr />
 
-            <div class="rp-signature" data-emboss>
-              <span class="sig-name">The Archivist</span>
-              <span class="sig-mark" aria-hidden="true"></span>
-            </div>
+          <!-- =========================
+            LETTERS
+          ========================= -->
+          <details class="demo-drop">
+            <summary>Letters</summary>
+          <!-- House Black Salt — parchment, sepia ink, bottom-right wax seal, 3 fold marks -->
+            <article class="rp-letter"
+                    data-mode="letter"
+                    data-stationery="parchment"
+                    data-ink="sepia"
+                    data-seal="wax-br"
+                    data-folds="3"
+                    data-age="worn"
+                    data-watermark="crest"
+                    style="--crest-url:url(https://files.jcink.net/uploads2/thebonemarket/svgs/ashen_lodge_stag.svg)">
 
-            <aside class="rp-ps"><strong>P.S.</strong> The marrow-tithe doubles at next moonrise.</aside>
+              <header class="rp-head" data-house="black-salt">
+                <img class="rp-crest" src="/img/crests/black-salt.svg" alt="" aria-hidden="true">
+                <div class="rp-from">
+                  <h1>House Black Salt</h1>
+                  <p>Catacomb Row, The Bone Market</p>
+                </div>
+                <div class="rp-meta">
+                  <time datetime="1887-10-14">14th of Frostfall</time>
+                  <span>By night courier</span>
+                </div>
+              </header>
 
-            <ul class="rp-enclosures" aria-label="Enclosures">
-              <li>Ledger fragment (Lots B-13 to B-21)</li>
-              <li>Receipt bearing Ferrin’s countersign</li>
-            </ul>
+              <hr class="rp-rule">
 
-            <span class="rp-courier" data-courier="raven">Raven Dispatch</span>
-          </article>
+              <address class="rp-address">
+                <strong>To:</strong> Master Ferrin<br>
+                Guild of Appraisers<br>
+                Wharf Quarter
+              </address>
 
-          <!-- House Glass Guild — clean paper, black ink, ribbon seal, top-left -->
-          <article class="rp-letter"
-                  data-mode="letter"
-                  data-stationery="plain"
-                  data-ink="black"
-                  data-seal="ribbon-tl"
-                  data-folds="2"
-                  style="--crest-url:url(/img/crests/glass-guild.svg)">
-            <header class="rp-head" data-house="glass-guild">
-              <img class="rp-crest" src="/img/crests/glass-guild.svg" alt="" aria-hidden="true">
-              <div class="rp-from"><h1>Glass Guild Syndic</h1><p>Spire Terrace</p></div>
-              <div class="rp-meta"><time datetime="1887-10-16">16 Frostfall</time><span>Hand-carried</span></div>
-            </header>
-            <hr class="rp-rule">
-            <p class="rp-greeting">Syndic Valera,</p>
-            <section class="rp-body"><p>Regarding the shipment…</p></section>
-            <div class="rp-signature"><span class="sig-name">Valera</span><span class="sig-mark"></span></div>
-            <span class="rp-courier" data-courier="stag">Stag Relay</span>
-          </article>
+              <p class="rp-greeting">Master Ferrin,</p>
 
-          <!-- ENVELOPE MODE: front-facing address w/ watermark & stamp only -->
-          <article class="rp-letter"
-                  data-mode="envelope"
-                  data-stationery="parchment"
-                  data-ink="sepia"
-                  data-seal="stamp-tr"
-                  data-folds="0"
-                  data-watermark="crest"
-                  style="--crest-url:url(/img/crests/orbit.svg)">
-            <address class="rp-address--front">
-              <span class="to">Master Ferrin</span>
-              <span>Guild of Appraisers</span>
-              <span>Wharf Quarter</span>
-            </address>
-            <span class="rp-courier" data-courier="night">Night Post</span>
-          </article>
+              <section class="rp-body">
+                <p>Debts are the city’s native tongue; the market merely writes them down. Enclosed the ledgers you requested…</p>
+                <p>Should the council demand provenance, cite the tally below and the seal impressed at foot.</p>
+              </section>
 
+              <p class="rp-closing">With measured regard,</p>
 
+              <div class="rp-signature" data-emboss>
+                <span class="sig-name">The Archivist</span>
+                <span class="sig-mark" aria-hidden="true"></span>
+              </div>
 
+              <aside class="rp-ps"><strong>P.S.</strong> The marrow-tithe doubles at next moonrise.</aside>
 
+              <ul class="rp-enclosures" aria-label="Enclosures">
+                <li>Ledger fragment (Lots B-13 to B-21)</li>
+                <li>Receipt bearing Ferrin’s countersign</li>
+              </ul>
 
+              <span class="rp-courier" data-courier="raven">Raven Dispatch</span>
+            </article>
+
+            <!-- House Glass Guild — clean paper, black ink, ribbon seal, top-left -->
+            <article class="rp-letter"
+                    data-mode="letter"
+                    data-stationery="plain"
+                    data-ink="black"
+                    data-seal="ribbon-tl"
+                    data-folds="2"
+                    style="--crest-url:url(https://files.jcink.net/uploads2/thebonemarket/svgs/gilded-quill-quill.svg)">
+              <header class="rp-head" data-house="glass-guild">
+                <img class="rp-crest" src="/img/crests/glass-guild.svg" alt="" aria-hidden="true">
+                <div class="rp-from"><h1>Glass Guild Syndic</h1><p>Spire Terrace</p></div>
+                <div class="rp-meta"><time datetime="1887-10-16">16 Frostfall</time><span>Hand-carried</span></div>
+              </header>
+              <hr class="rp-rule">
+              <p class="rp-greeting">Syndic Valera,</p>
+              <section class="rp-body"><p>Regarding the shipment…</p></section>
+              <div class="rp-signature"><span class="sig-name">Valera</span><span class="sig-mark"></span></div>
+              <span class="rp-courier" data-courier="stag">Stag Relay</span>
+            </article>
+
+            <!-- ENVELOPE MODE: front-facing address w/ watermark & stamp only -->
+            <article class="rp-letter"
+                    data-mode="envelope"
+                    data-stationery="parchment"
+                    data-ink="sepia"
+                    data-seal="stamp-tr"
+                    data-folds="0"
+                    data-watermark="crest"
+                    style="--crest-url:url(https://files.jcink.net/uploads2/thebonemarket/svgs/ashen_lodge_stag.svg)">
+              <address class="rp-address--front">
+                <span class="to">Master Ferrin</span>
+                <span>Guild of Appraisers</span>
+                <span>Wharf Quarter</span>
+              </address>
+              <span class="rp-courier" data-courier="night">Night Post</span>
+            </article>
+
+            <article class="rp-letter" data-script-title>
+              <header class="rp-head">
+                <img class="rp-crest" src="crest.png" alt="">
+                <div class="rp-from">
+                  <h1>The Ashen Lodge</h1>
+                  <p>On Lodge Business</p>
+                </div>
+                <div class="rp-meta">3rd Moon, 103 AE</div>
+              </header>
+              <hr class="rp-rule">
+              …
+            </article>
+          </details>
 
         </section>
       </main>

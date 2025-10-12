@@ -8,6 +8,7 @@ body {
   background: var(--bg-1);
   color: var(--text-bg);
   font-size: var(--size-md);
+  box-sizing: border-box;
 }
 
 /* Scrollbars */
@@ -479,117 +480,30 @@ vr {
    LETTER
 ================================ */
 
-.letter {
-  /* knobs */
-  --paper: var(--bg-1, #1c1b1a);
-  --paper-tex: var(--bg-texture, none);
-  --ink: var(--text-clear, #ede7de);
-  --rule: color-mix(in srgb, var(--ink) 35%, transparent);
-  --accent: var(--accent-2, #8e7c63);
-  --pad: 1.25rem;
-  --radius: 10px;
-  --line: 1.7;
-  --max: 70ch;
-
-  position: relative;
-  display: grid;
-  gap: .65rem;
-  padding: var(--pad);
-  border-radius: var(--radius);
-  max-inline-size: var(--max);
-  color: var(--ink);
-  background: var(--paper);
-  box-shadow:
-    inset 0 0 0 1px color-mix(in srgb, var(--ink) 10%, transparent),
-    0 10px 30px rgba(0,0,0,.18);
-
-  /* optional parchment texture */
-  &::before {
-    content:"";
-    position:absolute; inset:0; border-radius: inherit; pointer-events:none;
-    background: var(--paper-tex) center/cover no-repeat;
-    opacity:.12; mix-blend-mode:multiply;
-  }
-
-  /* data attributes */
-  &[data-stationery="parchment"] { --paper: var(--bg-2, #161514); }
-  &[data-stationery="plain"]     { --paper: color-mix(in srgb, var(--bg-1) 92%, black); }
-  &[data-stationery="grid"]::after {
-    content:""; position:absolute; inset:0; border-radius: inherit; pointer-events:none;
-    background:
-      linear-gradient(#0000 31px, color-mix(in srgb, var(--ink) 10%, transparent) 32px) 0 0/100% 32px,
-      linear-gradient(90deg, #0000 31px, color-mix(in srgb, var(--ink) 10%, transparent) 32px) 0 0/32px 100%;
-    opacity:.18;
-  }
-
-  &[data-ink="black"] { --ink:#222; }
-  &[data-ink="sepia"] { --ink:#e7ddc7; --accent:#c6a77d; }
-  &[data-ink="cream"] { --ink:#f3ede0; }
-
-  &[data-size="sm"] { --pad: .9rem;  --max: 60ch; }
-  &[data-size="md"] { --pad: 1.25rem; --max: 70ch; }
-  &[data-size="lg"] { --pad: 1.5rem; --max: 80ch; }
-
-  /* header */
-  .letter__head { display:grid; gap:.25rem; line-height:1.3; }
-  .letter__head strong { font-weight:700; letter-spacing:.02em; }
-
-  .letter__meta { color: color-mix(in srgb, var(--ink) 65%, transparent); font-style: italic; }
-
-  .letter__rule {
-    border:0; height:2px; background:
-      linear-gradient(90deg,
-        #0000 0%,
-        color-mix(in srgb, var(--ink) 45%, transparent) 12% 88%,
-        #0000 100%);
-    opacity:.6; border-radius: 999px; margin:.25rem 0 .5rem;
-  }
-
-  .letter__greeting,
-  .letter__closing { margin:.35rem 0 0; }
-
-  .letter__body { display:grid; gap:.6rem; line-height: var(--line); }
-
-  .letter__signature {
-    margin-top:.15rem; display:flex; align-items:center; gap:.75rem;
-    .sig-name { font-weight:700; letter-spacing:.02em; }
-    .sig-mark {
-      width: 52px; height: 28px; border-radius: 999px;
-      background: radial-gradient(closest-side at 40% 60%, var(--accent), #0000 70%);
-      opacity:.35;
-    }
-  }
-
-  .letter__ps { margin-top:.35rem; color: color-mix(in srgb, var(--ink) 78%, transparent); }
-  .letter__ps > strong { letter-spacing:.03em; }
-
-  .letter__enclosures {
-    margin-top:.35rem; padding-left: 1.2em;
-    color: color-mix(in srgb, var(--ink) 70%, transparent);
-    li + li { margin-top:.2rem; }
-  }
-
-  /* seal option */
-  &[data-seal="wax"]::after {
-    content:""; position:absolute; inline-size: 46px; block-size: 46px;
-    border-radius: 50%; right: calc(var(--pad) - 6px); bottom: calc(var(--pad) - 2px);
-    background:
-      radial-gradient(closest-side, #b33 0 70%, #0000 71%),
-      conic-gradient(from 0.25turn, #c44, #a22, #d55, #b33);
-    box-shadow: 0 2px 6px rgba(0,0,0,.35), inset 0 2px 8px rgba(255,255,255,.12);
-    opacity:.85;
-  }
-}
-
 .rp-letter {
-  /* knobs */
-  --paper: #1c1b1a;
-  --ink: #ede7de;
-  --accent: #b08b67;
+  /* knobs (base defaults) */
+  --paper: var(--bg-1);
+  --ink:   var(--text-clear);
+  --accent: var(--accent-2);
   --pad: 1.25rem;
   --radius: 12px;
   --maxw: 72ch;
   --rule: color-mix(in srgb, var(--ink) 45%, transparent);
+  --title-script-scale: 1.15;                 /* 1.0–1.3 feels nice */
+  --title-script-stroke: .35px;               /* add a hairline on light bgs */
+  --title-script-stroke-color: rgba(0,0,0,.25);
+
+  /* type tokens */
+  --font-letter-serif: var(--font-serif, ui-serif);
+  --font-letter-sans:  var(--font-sans, ui-sans-serif);
+  /* default script stack (you can override per-letter via data-script) */
+  --font-letter-script: "Lavishly Yours", "Cookie", "Lugrasimo", cursive;
+
+  /* script tuning (per-letter overrideable) */
+  --hand-weight: 400;
+  --hand-size: 1.15rem;
+  --hand-lh: 1.1;
+  --hand-track: .005em;
 
   position: relative;
   display: grid;
@@ -604,13 +518,15 @@ vr {
     0 10px 30px rgba(0,0,0,.18);
   isolation: isolate;
 
-  /* Stationery */
+  /* Stationery options */
   &[data-stationery="parchment"] { --paper: #181716; }
   &[data-stationery="plain"]     { --paper: #121111; }
-  &[data-ink="black"] { --ink:#222; --rule:#2d2d2d; --accent:#6d5a4a; }
-  &[data-ink="sepia"] { --ink:#e7ddc7; --accent:#c6a77d; }
 
-  /* subtle texture + watermark */
+  /* Ink palettes (override theme tokens intentionally) */
+  &[data-ink="black"] { --ink:#222; --rule:#2d2d2d; --accent:#6d5a4a; }
+  &[data-ink="sepia"] { --ink:#2a2317; --accent:#9a7b54; }
+
+  /* subtle texture + optional watermark */
   &::before {
     content:""; position:absolute; inset:0; border-radius:inherit; pointer-events:none;
     background:
@@ -627,11 +543,11 @@ vr {
   /* Header */
   .rp-head{ display:grid; grid-template-columns:auto 1fr auto; gap:.75rem; align-items:center; }
   .rp-crest{ inline-size:42px; block-size:42px; filter: drop-shadow(0 0 1px rgba(0,0,0,.3)); }
-  .rp-from h1{ margin:0; font: 800 1.15rem/1 var(--font-serif, ui-serif); letter-spacing:.01em; }
+  .rp-from h1{ margin:0; font: 800 1.15rem/1 var(--font-letter-serif); letter-spacing:.01em; }
   .rp-from p{ margin:.15rem 0 0; color: color-mix(in srgb, var(--ink) 70%, transparent); }
   .rp-meta{ text-align:end; color: color-mix(in srgb, var(--ink) 70%, transparent); }
 
-  /* Horizontal rule (ink-like gradient) */
+  /* Ink-ish rule */
   .rp-rule{
     border:0; height:2px; margin:.35rem 0 .5rem; border-radius:999px;
     background: linear-gradient(90deg, #0000 0%,
@@ -642,20 +558,37 @@ vr {
   .rp-address{ font-style: normal; line-height:1.5; }
   .rp-address--front{
     margin: 2.5rem 0 0; display:grid; gap:.25rem; place-items:center;
-    text-align:center; font: 700 1.05rem/1.25 var(--font-serif, ui-serif);
+    text-align:center; font: 700 1.05rem/1.25 var(--font-letter-serif);
   }
 
   .rp-greeting, .rp-closing { margin:.35rem 0 0; }
-  .rp-body{ display:grid; gap:.6rem; line-height:1.7; }
 
+  /* Body */
+  .rp-body{ display:grid; gap:.6rem; line-height:1.7; font-family: var(--font-letter-serif); }
+
+  /* Signature + script usage */
   .rp-signature{
     margin-top:.2rem; display:flex; align-items:center; gap:.75rem;
-    .sig-name{ font-weight:700; letter-spacing:.02em; }
+    .sig-name{
+      font-family: var(--font-letter-script);
+      font-weight: var(--hand-weight);
+      font-size: clamp(1.05rem, 2.2vw, var(--hand-size));
+      line-height: var(--hand-lh);
+      letter-spacing: var(--hand-track);
+    }
     .sig-mark{ inline-size:54px; block-size:28px; border-radius:999px;
       background: radial-gradient(closest-side at 40% 60%, var(--accent), #0000 70%);
       opacity:.35; filter: blur(.2px);
     }
     &[data-emboss] .sig-name{ text-shadow: 0 1px 0 rgba(0,0,0,.25); }
+  }
+
+  /* Script by default on greeting/closing too */
+  .rp-greeting, .rp-closing { 
+    font-family: var(--font-letter-script);
+    font-weight: var(--hand-weight);
+    letter-spacing: var(--hand-track);
+    line-height: var(--hand-lh);
   }
 
   .rp-ps{ color: color-mix(in srgb, var(--ink) 78%, transparent); }
@@ -664,19 +597,16 @@ vr {
     li+li{ margin-top:.2rem; }
   }
 
-  /* Courier tag chip */
+  /* Courier chip */
   .rp-courier{
     position:absolute; inset-block-start: .55rem; inset-inline-end: .55rem;
-    font: 700 .7rem/1 var(--font-sans, ui-sans-serif); letter-spacing:.08em;
+    font: 700 .7rem/1 var(--font-letter-sans); letter-spacing:.08em;
     padding:.25rem .45rem; border-radius:999px; text-transform:uppercase;
     background: color-mix(in srgb, var(--ink) 12%, transparent);
     box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ink) 35%, transparent);
   }
-  .rp-courier[data-courier="raven"]{ content:"Raven Dispatch"; }
-  .rp-courier[data-courier="stag"]{ content:"Stag Relay";   }
-  .rp-courier[data-courier="night"]{ content:"Night Post";   }
 
-  /* Seals (wax / ribbon / stamp) + placement */
+  /* Seals + placement */
   &[data-seal^="wax"]::marker, &[data-seal^="ribbon"]::marker, &[data-seal^="stamp"]::marker{ content:""; }
   &[data-seal^="wax"]::before,
   &[data-seal^="ribbon"]::before,
@@ -684,15 +614,12 @@ vr {
     content:""; position:absolute; inline-size:48px; block-size:48px; pointer-events:none;
     transform: translate(0,0); z-index:2; filter: drop-shadow(0 2px 6px rgba(0,0,0,.35));
   }
-
-  /* wax look */
   &[data-seal^="wax"]::before{
     border-radius:50%;
     background:
       radial-gradient(closest-side, #b33 0 70%, #0000 71%),
       conic-gradient(from .25turn, #c44, #a22, #d55, #b33);
   }
-  /* ribbon look */
   &[data-seal^="ribbon"]::before{
     inline-size:56px; block-size:56px; border-radius:10px;
     background:
@@ -701,21 +628,18 @@ vr {
     background-blend-mode:multiply;
     clip-path: polygon(0 0,100% 0,100% 70%,50% 100%,0 70%);
   }
-  /* stamp look */
   &[data-seal^="stamp"]::before{
     inline-size:44px; block-size:44px; border-radius:6px;
     background:
       radial-gradient(closest-side, #333 0 70%, #0000 71%),
       linear-gradient(135deg, #777, #444);
   }
-
-  /* placements: tl / tr / bl / br */
   &[data-seal$="-tl"]::before{ inset: calc(var(--pad) - 6px) auto auto calc(var(--pad) - 6px); }
   &[data-seal$="-tr"]::before{ inset: calc(var(--pad) - 6px) calc(var(--pad) - 6px) auto auto; }
   &[data-seal$="-bl"]::before{ inset: auto auto calc(var(--pad) - 4px) calc(var(--pad) - 6px); }
   &[data-seal$="-br"]::before{ inset: auto calc(var(--pad) - 6px) calc(var(--pad) - 4px) auto; }
 
-  /* Folds: draw faint horizontal creases across the page */
+  /* Folds (default tuned for dark) */
   &[data-folds="1"]{ --folds: linear-gradient(#0000 48%, rgba(255,255,255,.06) 50%, #0000 52%) 0 15%/100% 100% no-repeat; }
   &[data-folds="2"]{ --folds:
       linear-gradient(#0000 48%, rgba(255,255,255,.06) 50%, #0000 52%) 0 38%/100% 100% no-repeat,
@@ -724,45 +648,179 @@ vr {
       linear-gradient(#0000 48%, rgba(255,255,255,.06) 50%, #0000 52%) 0 30%/100% 100% no-repeat,
       linear-gradient(#0000 48%, rgba(255,255,255,.06) 50%, #0000 52%) 0 55%/100% 100% no-repeat,
       linear-gradient(#0000 48%, rgba(255,255,255,.06) 50%, #0000 52%) 0 80%/100% 100% no-repeat; }
-  &[data-folds]::before{ background: var(--folds), linear-gradient(120% 80% at 50% 10%, rgba(255,255,255,.06), #0000 60%); }
+  &[data-folds]::before{ background: var(--folds),
+                         radial-gradient(120% 80% at 50% 10%, rgba(255,255,255,.06), #0000 60%); }
 
-  /* Ageing */
-  &[data-age="worn"]{
-    box-shadow:
-      inset 0 0 0 1px color-mix(in srgb, var(--ink) 12%, transparent),
-      inset 0 0 60px rgba(0,0,0,.25),
-      0 10px 30px rgba(0,0,0,.18);
-    &::before{ opacity:.42; }
-  }
-
-  /* Modes */
-  &[data-mode="envelope"]{
-    display:grid; place-items:center; min-block-size: 280px;
-    .rp-head, .rp-rule, .rp-greeting, .rp-body, .rp-closing, .rp-signature, .rp-ps, .rp-enclosures { display:none !important; }
-  }
-
-  /* House accent helpers (optional quick color shifts) */
+  /* Quick house accents */
   .rp-head[data-house="black-salt"] ~ .rp-signature .sig-mark{ background: radial-gradient(closest-side at 40% 60%, #8d674d, #0000 70%); }
   .rp-head[data-house="glass-guild"] ~ .rp-signature .sig-mark{ background: radial-gradient(closest-side at 40% 60%, #7fb3d5, #0000 70%); }
 }
 
-/* Compact variant for side-notes or index cards */
+/* ===========================
+   SCRIPT SWITCHES (per-letter)
+=========================== */
+.rp-letter[data-script="lavishly"] { --font-letter-script: "Lavishly Yours", cursive; --hand-size: 1.2rem; --hand-lh: 1.05; --hand-track: .005em; }
+.rp-letter[data-script="cookie"]   { --font-letter-script: "Cookie", cursive;          --hand-size: 1.15rem; --hand-lh: 1.1;  --hand-track: .01em; }
+.rp-letter[data-script="lugrasimo"]{ --font-letter-script: "Lugrasimo", cursive;       --hand-size: 1.05rem; --hand-lh: 1.15; --hand-track: 0; }
+
+/* Turn off script usage for greeting/closing/signature */
+.rp-letter[data-hand="none"] .rp-greeting,
+.rp-letter[data-hand="none"] .rp-closing,
+.rp-letter[data-hand="none"] .rp-signature .sig-name { 
+  font-family: var(--font-letter-serif);
+  font-weight: 700;
+  letter-spacing: .01em;
+}
+
+/* Utility: force script anywhere inside a letter */
+.rp-letter .rp-script {
+  font-family: var(--font-letter-script) !important;
+  font-weight: var(--hand-weight);
+  letter-spacing: var(--hand-track);
+  line-height: var(--hand-lh);
+}
+
+/* SIZE VARIANTS */
 .rp-letter[data-size="sm"]{ --pad:.9rem; --maxw:60ch; }
 .rp-letter[data-size="lg"]{ --pad:1.5rem; --maxw:84ch; }
 
-
-/* Small screens: stack title above description */
-@media (max-width: 680px){
-  .group-head{ grid-template-columns: 1fr; align-items: start; }
-  .group-head__title{ white-space: normal; }
-  .group-head__desc{ justify-self: start; text-align: start; max-inline-size: none; }
+/* ===========================
+   TITLE SCRIPT TOGGLE
+   Use: <article class="rp-letter" data-script-title>
+=========================== */
+.rp-letter[data-script-title] .rp-from h1{
+  font-family: var(--font-letter-script);
+  font-weight: var(--hand-weight);
+  letter-spacing: var(--hand-track);
+  line-height: var(--hand-lh);
+  /* scale & finesse knobs just for the title */
+  font-size: clamp(1.1rem, 2.2vw, calc(var(--hand-size) * var(--title-script-scale, 1.15)));
+  -webkit-text-stroke: var(--title-script-stroke, 0) var(--title-script-stroke-color, transparent);
 }
+
+
+/* Accessibility: forced-colors */
+@media (forced-colors: active) {
+  .rp-letter {
+    background: Canvas; color: CanvasText;
+    box-shadow: none; border: 1px solid CanvasText;
+  }
+  .rp-rule { background: CanvasText !important; opacity: .5; }
+}
+
+
+/* =========================================
+   INHERIT FROM BODY[data-theme] IF PRESENT
+   (applies only when the letter doesn’t set its own data-theme)
+========================================= */
+body[data-theme="light"] .rp-letter:not([data-theme]) {
+  --paper:  #f7f4ee;
+  --ink:    #2b2a28;
+  --accent: #8b6a4a;
+  --rule: color-mix(in srgb, var(--ink) 35%, transparent);
+
+  color: var(--ink);
+  background: var(--paper);
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, var(--ink) 10%, transparent),
+    0 8px 22px rgba(0,0,0,.10);
+
+  &::before{
+    background:
+      radial-gradient(120% 80% at 50% 10%, rgba(0,0,0,.06), #0000 60%),
+      repeating-linear-gradient(0deg, #0000 0 30px, rgba(0,0,0,.025) 30px 31px);
+    opacity:.35; mix-blend-mode:multiply;
+  }
+
+  /* light-leaning fold shading */
+  &[data-folds="1"]{ --folds: linear-gradient(#0000 48%, rgba(0,0,0,.06) 50%, #0000 52%) 0 15%/100% 100% no-repeat; }
+  &[data-folds="2"]{ --folds:
+      linear-gradient(#0000 48%, rgba(0,0,0,.06) 50%, #0000 52%) 0 38%/100% 100% no-repeat,
+      linear-gradient(#0000 48%, rgba(0,0,0,.06) 50%, #0000 52%) 0 68%/100% 100% no-repeat; }
+  &[data-folds="3"]{ --folds:
+      linear-gradient(#0000 48%, rgba(0,0,0,.06) 50%, #0000 52%) 0 30%/100% 100% no-repeat,
+      linear-gradient(#0000 48%, rgba(0,0,0,.06) 50%, #0000 52%) 0 55%/100% 100% no-repeat,
+      linear-gradient(#0000 48%, rgba(0,0,0,.06) 50%, #0000 52%) 0 80%/100% 100% no-repeat; }
+}
+
+body[data-theme="dark"] .rp-letter:not([data-theme]) {
+  /* these match the base, included for clarity/priority */
+  --paper:  #1c1b1a;
+  --ink:    #ede7de;
+  --accent: #b08b67;
+  --rule: color-mix(in srgb, var(--ink) 45%, transparent);
+  color: var(--ink); background: var(--paper);
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, var(--ink) 10%, transparent),
+    0 10px 30px rgba(0,0,0,.18);
+  &::before{
+    background:
+      radial-gradient(120% 80% at 50% 10%, rgba(255,255,255,.06), #0000 60%),
+      repeating-linear-gradient(0deg, #0000 0 30px, rgba(255,255,255,.02) 30px 31px);
+    opacity:.35; mix-blend-mode:multiply;
+  }
+}
+
+/* =========================================
+   PER-LETTER MANUAL OVERRIDES (always win)
+========================================= */
+.rp-letter[data-theme="light"] {
+  --paper:#f7f4ee; --ink:#2b2a28; --accent:#8b6a4a;
+  --rule: color-mix(in srgb, var(--ink) 35%, transparent);
+  color: var(--ink); background: var(--paper);
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, var(--ink) 10%, transparent),
+    0 8px 22px rgba(0,0,0,.10);
+  &::before{
+    background:
+      radial-gradient(120% 80% at 50% 10%, rgba(0,0,0,.06), #0000 60%),
+      repeating-linear-gradient(0deg, #0000 0 30px, rgba(0,0,0,.025) 30px 31px);
+    opacity:.35; mix-blend-mode:multiply;
+  }
+}
+.rp-letter[data-theme="dark"] {
+  --paper:#1c1b1a; --ink:#ede7de; --accent:#b08b67;
+  --rule: color-mix(in srgb, var(--ink) 45%, transparent);
+  color: var(--ink); background: var(--paper);
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, var(--ink) 10%, transparent),
+    0 10px 30px rgba(0,0,0,.18);
+  &::before{
+    background:
+      radial-gradient(120% 80% at 50% 10%, rgba(255,255,255,.06), #0000 60%),
+      repeating-linear-gradient(0deg, #0000 0 30px, rgba(255,255,255,.02) 30px 31px);
+    opacity:.35; mix-blend-mode:multiply;
+  }
+}
+
+/* ======================================
+   SIZE VARIANTS (unchanged)
+====================================== */
+.rp-letter[data-size="sm"]{ --pad:.9rem; --maxw:60ch; }
+.rp-letter[data-size="lg"]{ --pad:1.5rem; --maxw:84ch; }
+
+/* Accessibility: forced-colors */
+@media (forced-colors: active) {
+  .rp-letter {
+    background: Canvas; color: CanvasText;
+    box-shadow: none; border: 1px solid CanvasText;
+  }
+  .rp-rule { background: CanvasText !important; opacity: .5; }
+}
+
 
 /* ================================
    MEDIA QUERIES
 ================================ */
 @media (max-width: 720px) {
   blockquote::after { inset-inline: .75rem .75rem; inset-block-start: .55rem; }
+}
+
+/* Small screens: stack title above description */
+@media (max-width: 680px){
+  .group-head{ grid-template-columns: 1fr; align-items: start; }
+  .group-head__title{ white-space: normal; }
+  .group-head__desc{ justify-self: start; text-align: start; max-inline-size: none; }
 }
 
 /* ================================
