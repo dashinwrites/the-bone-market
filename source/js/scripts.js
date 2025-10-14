@@ -514,3 +514,25 @@ if(pageType === 'store') {
     }, { once: true });
   }
 })();
+
+
+// clipboard
+
+document.addEventListener("click", async (e) => {
+  const link = e.target.closest(".permalink");
+  if (!link) return; // only handle clicks on .copy-link elements
+  e.preventDefault();
+
+  const urlToCopy = link.dataset.copy || link.href;
+
+  try {
+    await navigator.clipboard.writeText(urlToCopy);
+    console.log("Copied to clipboard:", urlToCopy);
+    // optional: show a little feedback
+    link.textContent = "copied!";
+    setTimeout(() => link.textContent = "permalink", 1500);
+  } catch (err) {
+    console.error("Failed to copy:", err);
+    alert("Could not copy link, please try again.");
+  }
+});

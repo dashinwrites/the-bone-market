@@ -219,38 +219,34 @@ Magic is currency, and the black market thrives on blood.
 
                 <!-- dev-only template (KEEP JCink tokens) -->
                 <script type="text/template" id="bm-post-template">
-                <article class="bm-post" id="pid-{POST_ID}" data-group="{GROUP_KEY}" data-set="{AESTHETIC_SET}">
+                <article class="bm-post" id="pid-<!-- |pid| -->" data-group="{GROUP_KEY}" data-set="{AESTHETIC_SET}">
                     <aside class="bm-post__aside">
-                    <div class="bm-post__avatar">{AVATAR}</div>
+                    <div class="bm-post__avatar"><!-- |avatar| --></div>
                     <div class="bm-post__identity">
                         <ul class="bm-post__badges">
                             <li class="badge">crown</li>
                             <li class="badge">staff</li>
                         </ul>
-                        <a class="bm-post__author" href="?showuser={AUTHOR_ID}">{AUTHOR_NAME}</a>
-                        <div class="bm-post__role">{GROUP_TITLE}</div>
-                        <div class="bm-post__mini">✶ {POST_COUNT} · Joined {JOINED_DATE}</div>
+                        <a class="bm-post__author" href="?showuser=<!-- |poster_id| -->"><!-- |author_name| --></a>
+                        <div class="bm-post__role"><!-- |group| --></div>
+                        <div class="bm-post__mini">✶ <!-- |posts| --></div>
                     </div>
-                    <nav class="bm-post__controls">{POST_BUTTONS}</nav>
+                    <nav class="bm-post__controls"><!-- |report_link| --> <!-- |delete_button| --> <!-- |edit_button| --> <!-- |quote_button| --></nav>
                     </aside>
 
                     <div class="bm-post__body">
                     <header class="bm-post__head">
                         <h3 class="bm-post__title">
-                            <a href="?act=ST&f={FORUM_ID}&t={TOPIC_ID}&p={POST_ID}">#<!-- |topic_text| --></a>
+                            <a href="?act=ST&f=<!-- |forum_id| -->&t=<!-- |topic_id| -->&p=<!-- |pid| -->">#<!-- |topic_text| --></a>
                         </h3>
                         <div class="bm-post__meta">
-                            <time datetime="{POST_ISO}">{POST_DATE}</time>
+                            <time datetime="<!-- |post_date| -->" class="datetime">posted on <!-- |post_date| --></time>
                             <span class="sep">•</span>
-                            <a href="#pid-{POST_ID}" class="permalink">permalink</a>
+                            <a href="#pid-<!-- |pid| -->" class="permalink">permalink</a>
                         </div>
                     </header>
 
-                    <main class="bm-post__content" id="entry-{POST_ID}">{POST}</main>
-
-                    <footer class="bm-post__foot">
-                        <div class="bm-post__sig">{SIGNATURE}</div>
-                    </footer>
+                    <main class="bm-post__content" id="entry-<!-- |pid| -->">{POST}</main>
                     </div>
                 </article>
                 </script>
