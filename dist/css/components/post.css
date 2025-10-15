@@ -696,7 +696,9 @@ table:has(.pagination) td {
 .topic-options a[href^="javascript:ShowHide"],
 .topic-buttons a[href^="javascript:ShowHide"],
 .pagelinks a[href^="javascript:ShowHide"],
-.tableborder a[href^="javascript:ShowHide"] {
+.tableborder a[href^="javascript:ShowHide"],
+a[href^="javascript:$('#topic_open')"],
+a[title="Open Topic Options"] {
   position: relative;
   pointer-events: auto;
   display: inline-flex;
@@ -730,7 +732,9 @@ table:has(.pagination) td {
   .topic-options a[href^="javascript:ShowHide"]::before,
   .topic-buttons a[href^="javascript:ShowHide"]::before,
   .pagelinks a[href^="javascript:ShowHide"]::before,
-  .tableborder a[href^="javascript:ShowHide"]::before {
+  .tableborder a[href^="javascript:ShowHide"]::before,
+  a[href^="javascript:$('#topic_open')"]::before,
+  a[title="Open Topic Options"]::before {
     content: "";
     position: absolute;
     inset: 2px;
@@ -747,7 +751,9 @@ table:has(.pagination) td {
   .topic-options a[href^="javascript:ShowHide"] i,
   .topic-buttons a[href^="javascript:ShowHide"] i,
   .pagelinks a[href^="javascript:ShowHide"] i,
-  .tableborder a[href^="javascript:ShowHide"] i {
+  .tableborder a[href^="javascript:ShowHide"] i,
+  a[href^="javascript:$('#topic_open')"] i,
+  a[title="Open Topic Options"] i {
     font-size: 0.75rem;
     line-height: 1;
     color: currentColor;
@@ -761,7 +767,9 @@ table:has(.pagination) td {
   .topic-options a[href^="javascript:ShowHide"]:hover,
   .topic-buttons a[href^="javascript:ShowHide"]:hover,
   .pagelinks a[href^="javascript:ShowHide"]:hover,
-  .tableborder a[href^="javascript:ShowHide"]:hover {
+  .tableborder a[href^="javascript:ShowHide"]:hover,
+  a[href^="javascript:$('#topic_open')"]:hover,
+  a[title="Open Topic Options"]:hover {
     transform: translateY(-1px);
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18), inset 0 0 0 999px rgba(0, 0, 0, 0.02);
     color: var(--accent-1); }
@@ -774,7 +782,9 @@ table:has(.pagination) td {
   .topic-options a[href^="javascript:ShowHide"]:active,
   .topic-buttons a[href^="javascript:ShowHide"]:active,
   .pagelinks a[href^="javascript:ShowHide"]:active,
-  .tableborder a[href^="javascript:ShowHide"]:active {
+  .tableborder a[href^="javascript:ShowHide"]:active,
+  a[href^="javascript:$('#topic_open')"]:active,
+  a[title="Open Topic Options"]:active {
     transform: translateY(0);
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), inset 0 0 0 999px rgba(0, 0, 0, 0.04); }
   .postlinksbar a[href*="act=Post"]:focus-visible,
@@ -786,7 +796,9 @@ table:has(.pagination) td {
   .topic-options a[href^="javascript:ShowHide"]:focus-visible,
   .topic-buttons a[href^="javascript:ShowHide"]:focus-visible,
   .pagelinks a[href^="javascript:ShowHide"]:focus-visible,
-  .tableborder a[href^="javascript:ShowHide"]:focus-visible {
+  .tableborder a[href^="javascript:ShowHide"]:focus-visible,
+  a[href^="javascript:$('#topic_open')"]:focus-visible,
+  a[title="Open Topic Options"]:focus-visible {
     outline: none;
     box-shadow: 0 0 0 2px var(--accent-3), 0 0 0 4px rgba(0, 0, 0, 0.15); }
 
@@ -799,56 +811,6 @@ table:has(.pagination) td {
   background: none;
   box-shadow: none;
   padding: 0; }
-
-/* make the quick-reply button look like the others */
-.macro--button {
-  position: relative;
-  pointer-events: auto;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.4rem;
-  background: var(--plate-bg);
-  border: var(--plate-border);
-  border-radius: 6px;
-  font-family: var(--font-serif);
-  font-size: var(--size-md);
-  letter-spacing: 0.03em;
-  color: var(--plate-text, var(--text-clear));
-  line-height: 1;
-  cursor: pointer;
-  isolation: isolate;
-  transition: var(--transi-quick);
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15), inset 0 0 0 999px rgba(0, 0, 0, 0);
-  border-radius: 6px;
-  padding: .5rem 1rem;
-  display: inline-flex;
-  align-items: center;
-  gap: .5rem; }
-  .macro--button::before {
-    content: "";
-    position: absolute;
-    inset: 2px;
-    border: var(--bdash);
-    opacity: 0.35;
-    pointer-events: none;
-    border-radius: 4px; }
-  .macro--button i {
-    font-size: 0.75rem;
-    line-height: 1;
-    color: currentColor;
-    display: inline-block; }
-  .macro--button:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18), inset 0 0 0 999px rgba(0, 0, 0, 0.02);
-    color: var(--accent-1); }
-  .macro--button:active {
-    transform: translateY(0);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), inset 0 0 0 999px rgba(0, 0, 0, 0.04); }
-  .macro--button:focus-visible {
-    outline: none;
-    box-shadow: 0 0 0 2px var(--accent-3), 0 0 0 4px rgba(0, 0, 0, 0.15); }
 
 /* --- ACTION BUTTONS (reply / quick-reply / new topic) --- */
 /* Make the <a> wrap its chip */

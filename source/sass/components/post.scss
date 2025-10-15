@@ -462,7 +462,9 @@ table:has(.pagination) td{ padding: .5rem .75rem; }
 .topic-options a[href^="javascript:ShowHide"],
 .topic-buttons a[href^="javascript:ShowHide"],
 .pagelinks a[href^="javascript:ShowHide"],
-.tableborder a[href^="javascript:ShowHide"] {
+.tableborder a[href^="javascript:ShowHide"],
+a[href^="javascript:$('#topic_open')"],
+a[title="Open Topic Options"] {
   @include plate-button($font-size: var(--size-md));
   border-radius: 6px;
   padding: .5rem 1rem;
@@ -480,16 +482,6 @@ table:has(.pagination) td{ padding: .5rem .75rem; }
   background: none;
   box-shadow: none;
   padding: 0;
-}
-
-/* make the quick-reply button look like the others */
-.macro--button {
-  @include plate-button($font-size: var(--size-md));
-  border-radius: 6px;
-  padding: .5rem 1rem;
-  display: inline-flex;
-  align-items: center;
-  gap: .5rem;
 }
 
 /* --- ACTION BUTTONS (reply / quick-reply / new topic) --- */
