@@ -221,7 +221,7 @@ Magic is currency, and the black market thrives on blood.
                 <script type="text/template" id="bm-post-template">
                 <article class="bm-post" id="pid-<!-- |pid| -->" data-group="{GROUP_KEY}" data-set="{AESTHETIC_SET}">
                     <aside class="bm-post__aside">
-                    <div class="bm-post__avatar"><!-- |avatar| --></div>
+                    <div class="bm-post__avatar">{AVATAR}</div>
                     <div class="bm-post__identity">
                         <ul class="bm-post__badges">
                             <li class="badge">crown</li>
@@ -231,7 +231,7 @@ Magic is currency, and the black market thrives on blood.
                         <div class="bm-post__role"><!-- |group| --></div>
                         <div class="bm-post__mini">✶ <!-- |posts| --></div>
                     </div>
-                    <nav class="bm-post__controls"><!-- |report_link| --> <!-- |delete_button| --> <!-- |edit_button| --> <!-- |quote_button| --></nav>
+                    <nav class="bm-post__controls">{<!-- |report_link| --> <!-- |delete_button| --> <!-- |edit_button| --> <!-- |quote_button| -->}</nav>
                     </aside>
 
                     <div class="bm-post__body">
@@ -289,9 +289,9 @@ Magic is currency, and the black market thrives on blood.
                             <a href="javascript:$('#topic_open').toggle();void(0);" title="Open Topic Options"><span class="macro--button">Topic Options</span></a>
                         </td>
                         <td width="80%" align="right">
-                            <a href="?act=Post&amp;CODE=02&amp;f=1&amp;t=1&amp;st=0"><span class="macro--button">Add Reply</span></a>
-                            <a href="javascript:ShowHide('qr_open','qr_closed');" title="Open Fast Reply Window" accesskey="f"><span class="macro--button">Fast Reply</span></a>
-                            <a href="?act=Post&amp;CODE=00&amp;f=1" title="Start a new topic"><span class="macro--button">New Topic</span></a>
+                            <a href="?act=Post&amp;CODE=02&amp;f=1&amp;t=1&amp;st=0"><span class="macro--button"><i class="fa-solid fa-reply"></i></span></a>
+                            <a href="javascript:ShowHide('qr_open','qr_closed');" title="Open Fast Reply Window" accesskey="f"><span class="macro--button"><i class="fa-solid fa-bolt"></i></span></a>
+                            <a href="?act=Post&amp;CODE=00&amp;f=1" title="Start a new topic"><span class="macro--button"><i class="fa-solid fa-plus"></i></span></a>
                         </td>
                     </tr>
                 </tbody>

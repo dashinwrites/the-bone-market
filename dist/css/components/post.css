@@ -63,7 +63,8 @@
     height: auto;
     border-radius: 6px;
     box-shadow: var(--plate-shadow);
-    filter: sepia(100%) brightness(100%); }
+    filter: sepia(100%) brightness(100%);
+    aspect-ratio: 5 / 8; }
   .bm-post__avatar::after {
     content: "";
     position: absolute;
@@ -95,60 +96,6 @@
   display: flex;
   flex-wrap: wrap;
   gap: .5rem; }
-  .bm-post__controls a, .bm-post__controls .macro--button {
-    border: var(--border-1);
-    padding: .25rem .6rem;
-    border-radius: 999px;
-    background: var(--bg-1-rgb);
-    text-decoration: none;
-    transition: transform .12s ease, box-shadow .12s ease;
-    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-    position: relative;
-    pointer-events: auto;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    padding: 0.4rem;
-    background: var(--plate-bg);
-    border: var(--plate-border);
-    border-radius: 6px;
-    font-family: var(--font-serif);
-    font-size: var(--size-md);
-    letter-spacing: 0.03em;
-    color: var(--plate-text, var(--text-clear));
-    line-height: 1;
-    cursor: pointer;
-    isolation: isolate;
-    transition: var(--transi-quick);
-    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15), inset 0 0 0 999px rgba(0, 0, 0, 0);
-    color: var(--text-medCon); }
-    .bm-post__controls a::before, .bm-post__controls .macro--button::before {
-      content: "";
-      position: absolute;
-      inset: 2px;
-      border: var(--bdash);
-      opacity: 0.35;
-      pointer-events: none;
-      border-radius: 4px; }
-    .bm-post__controls a i, .bm-post__controls .macro--button i {
-      font-size: 0.75rem;
-      line-height: 1;
-      color: currentColor;
-      display: inline-block; }
-    .bm-post__controls a:hover, .bm-post__controls .macro--button:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18), inset 0 0 0 999px rgba(0, 0, 0, 0.02);
-      color: var(--accent-1); }
-    .bm-post__controls a:active, .bm-post__controls .macro--button:active {
-      transform: translateY(0);
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), inset 0 0 0 999px rgba(0, 0, 0, 0.04); }
-    .bm-post__controls a:focus-visible, .bm-post__controls .macro--button:focus-visible {
-      outline: none;
-      box-shadow: 0 0 0 2px var(--accent-3), 0 0 0 4px rgba(0, 0, 0, 0.15); }
-    .bm-post__controls a:hover, .bm-post__controls .macro--button:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); }
 
 /* ---------- Body ---------- */
 .bm-post__body {
@@ -601,73 +548,6 @@ a[href*="showuser"][data-mention] {
     outline: none;
     box-shadow: 0 0 0 2px var(--accent-3), 0 0 0 4px rgba(0, 0, 0, 0.15); }
 
-/* Tighter targeting for common codes */
-a[href*="act=Post"][href*="CODE=00"],
-a[href*="act=Post"][href*="CODE=01"],
-a[href*="act=Post"][href*="CODE=02"],
-a[href*="act=Post"][href*="CODE=03"] {
-  position: relative;
-  pointer-events: auto;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.4rem;
-  background: var(--plate-bg);
-  border: var(--plate-border);
-  border-radius: 6px;
-  font-family: var(--font-serif);
-  font-size: var(--size-md);
-  letter-spacing: 0.03em;
-  color: var(--plate-text, var(--text-clear));
-  line-height: 1;
-  cursor: pointer;
-  isolation: isolate;
-  transition: var(--transi-quick);
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15), inset 0 0 0 999px rgba(0, 0, 0, 0);
-  border-radius: 6px;
-  padding: .5rem 1rem;
-  text-decoration: none;
-  font-weight: 700; }
-  a[href*="act=Post"][href*="CODE=00"]::before,
-  a[href*="act=Post"][href*="CODE=01"]::before,
-  a[href*="act=Post"][href*="CODE=02"]::before,
-  a[href*="act=Post"][href*="CODE=03"]::before {
-    content: "";
-    position: absolute;
-    inset: 2px;
-    border: var(--bdash);
-    opacity: 0.35;
-    pointer-events: none;
-    border-radius: 4px; }
-  a[href*="act=Post"][href*="CODE=00"] i,
-  a[href*="act=Post"][href*="CODE=01"] i,
-  a[href*="act=Post"][href*="CODE=02"] i,
-  a[href*="act=Post"][href*="CODE=03"] i {
-    font-size: 0.75rem;
-    line-height: 1;
-    color: currentColor;
-    display: inline-block; }
-  a[href*="act=Post"][href*="CODE=00"]:hover,
-  a[href*="act=Post"][href*="CODE=01"]:hover,
-  a[href*="act=Post"][href*="CODE=02"]:hover,
-  a[href*="act=Post"][href*="CODE=03"]:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18), inset 0 0 0 999px rgba(0, 0, 0, 0.02);
-    color: var(--accent-1); }
-  a[href*="act=Post"][href*="CODE=00"]:active,
-  a[href*="act=Post"][href*="CODE=01"]:active,
-  a[href*="act=Post"][href*="CODE=02"]:active,
-  a[href*="act=Post"][href*="CODE=03"]:active {
-    transform: translateY(0);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), inset 0 0 0 999px rgba(0, 0, 0, 0.04); }
-  a[href*="act=Post"][href*="CODE=00"]:focus-visible,
-  a[href*="act=Post"][href*="CODE=01"]:focus-visible,
-  a[href*="act=Post"][href*="CODE=02"]:focus-visible,
-  a[href*="act=Post"][href*="CODE=03"]:focus-visible {
-    outline: none;
-    box-shadow: 0 0 0 2px var(--accent-3), 0 0 0 4px rgba(0, 0, 0, 0.15); }
-
 /* Optional spacing when next to pagination */
 .pagelinks a[href*="act=Post"] {
   margin-inline-start: .35rem; }
@@ -805,3 +685,358 @@ table:has(.pagination) td {
   .bm-post__content {
     padding: 1rem;
     overflow: visible; } }
+
+/* Topic action buttons (Add Reply / New Topic / Fast Reply) */
+.postlinksbar a[href*="act=Post"],
+.topic-options a[href*="act=Post"],
+.topic-buttons a[href*="act=Post"],
+.pagelinks a[href*="act=Post"],
+.tableborder a[href*="act=Post"],
+.postlinksbar a[href^="javascript:ShowHide"],
+.topic-options a[href^="javascript:ShowHide"],
+.topic-buttons a[href^="javascript:ShowHide"],
+.pagelinks a[href^="javascript:ShowHide"],
+.tableborder a[href^="javascript:ShowHide"] {
+  position: relative;
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.4rem;
+  background: var(--plate-bg);
+  border: var(--plate-border);
+  border-radius: 6px;
+  font-family: var(--font-serif);
+  font-size: var(--size-md);
+  letter-spacing: 0.03em;
+  color: var(--plate-text, var(--text-clear));
+  line-height: 1;
+  cursor: pointer;
+  isolation: isolate;
+  transition: var(--transi-quick);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15), inset 0 0 0 999px rgba(0, 0, 0, 0);
+  border-radius: 6px;
+  padding: .5rem 1rem;
+  text-decoration: none;
+  font-weight: 600;
+  line-height: 1.1; }
+  .postlinksbar a[href*="act=Post"]::before,
+  .topic-options a[href*="act=Post"]::before,
+  .topic-buttons a[href*="act=Post"]::before,
+  .pagelinks a[href*="act=Post"]::before,
+  .tableborder a[href*="act=Post"]::before,
+  .postlinksbar a[href^="javascript:ShowHide"]::before,
+  .topic-options a[href^="javascript:ShowHide"]::before,
+  .topic-buttons a[href^="javascript:ShowHide"]::before,
+  .pagelinks a[href^="javascript:ShowHide"]::before,
+  .tableborder a[href^="javascript:ShowHide"]::before {
+    content: "";
+    position: absolute;
+    inset: 2px;
+    border: var(--bdash);
+    opacity: 0.35;
+    pointer-events: none;
+    border-radius: 4px; }
+  .postlinksbar a[href*="act=Post"] i,
+  .topic-options a[href*="act=Post"] i,
+  .topic-buttons a[href*="act=Post"] i,
+  .pagelinks a[href*="act=Post"] i,
+  .tableborder a[href*="act=Post"] i,
+  .postlinksbar a[href^="javascript:ShowHide"] i,
+  .topic-options a[href^="javascript:ShowHide"] i,
+  .topic-buttons a[href^="javascript:ShowHide"] i,
+  .pagelinks a[href^="javascript:ShowHide"] i,
+  .tableborder a[href^="javascript:ShowHide"] i {
+    font-size: 0.75rem;
+    line-height: 1;
+    color: currentColor;
+    display: inline-block; }
+  .postlinksbar a[href*="act=Post"]:hover,
+  .topic-options a[href*="act=Post"]:hover,
+  .topic-buttons a[href*="act=Post"]:hover,
+  .pagelinks a[href*="act=Post"]:hover,
+  .tableborder a[href*="act=Post"]:hover,
+  .postlinksbar a[href^="javascript:ShowHide"]:hover,
+  .topic-options a[href^="javascript:ShowHide"]:hover,
+  .topic-buttons a[href^="javascript:ShowHide"]:hover,
+  .pagelinks a[href^="javascript:ShowHide"]:hover,
+  .tableborder a[href^="javascript:ShowHide"]:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18), inset 0 0 0 999px rgba(0, 0, 0, 0.02);
+    color: var(--accent-1); }
+  .postlinksbar a[href*="act=Post"]:active,
+  .topic-options a[href*="act=Post"]:active,
+  .topic-buttons a[href*="act=Post"]:active,
+  .pagelinks a[href*="act=Post"]:active,
+  .tableborder a[href*="act=Post"]:active,
+  .postlinksbar a[href^="javascript:ShowHide"]:active,
+  .topic-options a[href^="javascript:ShowHide"]:active,
+  .topic-buttons a[href^="javascript:ShowHide"]:active,
+  .pagelinks a[href^="javascript:ShowHide"]:active,
+  .tableborder a[href^="javascript:ShowHide"]:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), inset 0 0 0 999px rgba(0, 0, 0, 0.04); }
+  .postlinksbar a[href*="act=Post"]:focus-visible,
+  .topic-options a[href*="act=Post"]:focus-visible,
+  .topic-buttons a[href*="act=Post"]:focus-visible,
+  .pagelinks a[href*="act=Post"]:focus-visible,
+  .tableborder a[href*="act=Post"]:focus-visible,
+  .postlinksbar a[href^="javascript:ShowHide"]:focus-visible,
+  .topic-options a[href^="javascript:ShowHide"]:focus-visible,
+  .topic-buttons a[href^="javascript:ShowHide"]:focus-visible,
+  .pagelinks a[href^="javascript:ShowHide"]:focus-visible,
+  .tableborder a[href^="javascript:ShowHide"]:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--accent-3), 0 0 0 4px rgba(0, 0, 0, 0.15); }
+
+/* reset the default macro look in the topic bars */
+.postlinksbar .macro--button,
+.topic-options .macro--button,
+.topic-buttons .macro--button,
+.pagelinks .macro--button {
+  border: 0;
+  background: none;
+  box-shadow: none;
+  padding: 0; }
+
+/* make the quick-reply button look like the others */
+.macro--button {
+  position: relative;
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.4rem;
+  background: var(--plate-bg);
+  border: var(--plate-border);
+  border-radius: 6px;
+  font-family: var(--font-serif);
+  font-size: var(--size-md);
+  letter-spacing: 0.03em;
+  color: var(--plate-text, var(--text-clear));
+  line-height: 1;
+  cursor: pointer;
+  isolation: isolate;
+  transition: var(--transi-quick);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15), inset 0 0 0 999px rgba(0, 0, 0, 0);
+  border-radius: 6px;
+  padding: .5rem 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem; }
+  .macro--button::before {
+    content: "";
+    position: absolute;
+    inset: 2px;
+    border: var(--bdash);
+    opacity: 0.35;
+    pointer-events: none;
+    border-radius: 4px; }
+  .macro--button i {
+    font-size: 0.75rem;
+    line-height: 1;
+    color: currentColor;
+    display: inline-block; }
+  .macro--button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18), inset 0 0 0 999px rgba(0, 0, 0, 0.02);
+    color: var(--accent-1); }
+  .macro--button:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), inset 0 0 0 999px rgba(0, 0, 0, 0.04); }
+  .macro--button:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--accent-3), 0 0 0 4px rgba(0, 0, 0, 0.15); }
+
+/* --- ACTION BUTTONS (reply / quick-reply / new topic) --- */
+/* Make the <a> wrap its chip */
+.postlinksbar a[href*="act=Post"],
+.topic-options a[href*="act=Post"],
+.topic-buttons a[href*="act=Post"],
+.pagelinks a[href*="act=Post"],
+.tableborder a[href*="act=Post"],
+.postlinksbar a[href^="javascript:ShowHide"],
+.topic-options a[href^="javascript:ShowHide"],
+.topic-buttons a[href^="javascript:ShowHide"],
+.pagelinks a[href^="javascript:ShowHide"],
+.tableborder a[href^="javascript:ShowHide"] {
+  display: inline-flex;
+  text-decoration: none; }
+
+/* Neutralize the default macro look ONLY in these bars */
+.postlinksbar .macro--button,
+.topic-options .macro--button,
+.topic-buttons .macro--button,
+.pagelinks .macro--button {
+  border: 0;
+  background: none;
+  box-shadow: none;
+  padding: 0; }
+
+/* Re-apply the plate to the visible span with HIGHER specificity */
+.postlinksbar a > .macro--button,
+.topic-options a > .macro--button,
+.topic-buttons a > .macro--button,
+.pagelinks a > .macro--button,
+.tableborder a[href*="act=Post"] > .macro--button,
+.tableborder a[href^="javascript:ShowHide"] > .macro--button {
+  position: relative;
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.4rem;
+  background: var(--plate-bg);
+  border: var(--plate-border);
+  border-radius: 6px;
+  font-family: var(--font-serif);
+  font-size: var(--size-md);
+  letter-spacing: 0.03em;
+  color: var(--plate-text, var(--text-clear));
+  line-height: 1;
+  cursor: pointer;
+  isolation: isolate;
+  transition: var(--transi-quick);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15), inset 0 0 0 999px rgba(0, 0, 0, 0);
+  border-radius: 6px;
+  padding: .5rem 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  font-weight: 600;
+  line-height: 1.1; }
+  .postlinksbar a > .macro--button::before,
+  .topic-options a > .macro--button::before,
+  .topic-buttons a > .macro--button::before,
+  .pagelinks a > .macro--button::before,
+  .tableborder a[href*="act=Post"] > .macro--button::before,
+  .tableborder a[href^="javascript:ShowHide"] > .macro--button::before {
+    content: "";
+    position: absolute;
+    inset: 2px;
+    border: var(--bdash);
+    opacity: 0.35;
+    pointer-events: none;
+    border-radius: 4px; }
+  .postlinksbar a > .macro--button i,
+  .topic-options a > .macro--button i,
+  .topic-buttons a > .macro--button i,
+  .pagelinks a > .macro--button i,
+  .tableborder a[href*="act=Post"] > .macro--button i,
+  .tableborder a[href^="javascript:ShowHide"] > .macro--button i {
+    font-size: 0.75rem;
+    line-height: 1;
+    color: currentColor;
+    display: inline-block; }
+  .postlinksbar a > .macro--button:hover,
+  .topic-options a > .macro--button:hover,
+  .topic-buttons a > .macro--button:hover,
+  .pagelinks a > .macro--button:hover,
+  .tableborder a[href*="act=Post"] > .macro--button:hover,
+  .tableborder a[href^="javascript:ShowHide"] > .macro--button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18), inset 0 0 0 999px rgba(0, 0, 0, 0.02);
+    color: var(--accent-1); }
+  .postlinksbar a > .macro--button:active,
+  .topic-options a > .macro--button:active,
+  .topic-buttons a > .macro--button:active,
+  .pagelinks a > .macro--button:active,
+  .tableborder a[href*="act=Post"] > .macro--button:active,
+  .tableborder a[href^="javascript:ShowHide"] > .macro--button:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), inset 0 0 0 999px rgba(0, 0, 0, 0.04); }
+  .postlinksbar a > .macro--button:focus-visible,
+  .topic-options a > .macro--button:focus-visible,
+  .topic-buttons a > .macro--button:focus-visible,
+  .pagelinks a > .macro--button:focus-visible,
+  .tableborder a[href*="act=Post"] > .macro--button:focus-visible,
+  .tableborder a[href^="javascript:ShowHide"] > .macro--button:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--accent-3), 0 0 0 4px rgba(0, 0, 0, 0.15); }
+
+/* Optional spacing next to pagination */
+.pagelinks a[href*="act=Post"] {
+  margin-inline-start: .35rem; }
+
+/* --- FIRST UNREAD: hide parens and style the link --- */
+.pagination_last {
+  font-size: 0; }
+
+/* hides the raw "( ... )" text */
+.pagination_last a {
+  font-size: .75rem;
+  /* restore size for the link */
+  text-decoration: none;
+  position: relative;
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.4rem;
+  background: var(--plate-bg);
+  border: var(--plate-border);
+  border-radius: 6px;
+  font-family: var(--font-serif);
+  font-size: var(--size-md);
+  letter-spacing: 0.03em;
+  color: var(--plate-text, var(--text-clear));
+  line-height: 1;
+  cursor: pointer;
+  isolation: isolate;
+  transition: var(--transi-quick);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15), inset 0 0 0 999px rgba(0, 0, 0, 0);
+  border-radius: 6px;
+  padding: .45rem .9rem; }
+  .pagination_last a::before {
+    content: "";
+    position: absolute;
+    inset: 2px;
+    border: var(--bdash);
+    opacity: 0.35;
+    pointer-events: none;
+    border-radius: 4px; }
+  .pagination_last a i {
+    font-size: 0.75rem;
+    line-height: 1;
+    color: currentColor;
+    display: inline-block; }
+  .pagination_last a:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18), inset 0 0 0 999px rgba(0, 0, 0, 0.02);
+    color: var(--accent-1); }
+  .pagination_last a:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), inset 0 0 0 999px rgba(0, 0, 0, 0.04); }
+  .pagination_last a:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--accent-3), 0 0 0 4px rgba(0, 0, 0, 0.15); }
+
+.activeuserstrip, .row2 {
+  text-align: center;
+  font-family: var(--font-sans);
+  font-size: var(--size-sm);
+  text-transform: uppercase; }
+  .activeuserstrip strong, .row2 strong {
+    font-weight: 800; }
+
+input, select, textarea, option {
+  background: var(--bg-2);
+  color: var(--text-medCon);
+  font-family: var(--font-sans);
+  letter-spacing: 0.05rem;
+  height: 1.75rem;
+  font-size: var(--size-md);
+  border: none; }
+
+input[type="submit"] {
+  color: var(--accent-2);
+  font-weight: 800;
+  letter-spacing: 0.1rem;
+  background: var(--bg-4); }
+
+a[href*="act=Post"][href*="CODE=10"] {
+  display: none; }
