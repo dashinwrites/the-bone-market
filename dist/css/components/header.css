@@ -5,14 +5,12 @@
 /* Optional: tooltip pulled from a data attribute (e.g., data-label) */
 /* Optional: respect prefers-reduced-motion on anything you include this on */
 /* Gradient underline mixin */
-@import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Uncial+Antiqua&family=Caudex:wght@400;700&family=Forum&family=Spectral+SC:wght@400;700&family=Junge&display=swap");
 /*******************************
     Header
 ********************************/
 .bm-head {
   z-index: 1;
   display: grid;
-  inline-size: 100%;
   gap: 1rem;
   padding: 2rem 1.25rem;
   block-size: clamp(320px, 60vh, 7800px);
@@ -136,6 +134,10 @@
         .bm-head .plate-info__staff img:hover {
           transform: translateY(-1px);
           box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18); }
+    .bm-head .plate-info .full-bleed {
+      top: 2px;
+      inline-size: auto;
+      max-inline-size: none; }
   .bm-head .plate-fig {
     position: absolute;
     inset: 0.5rem;

@@ -61,18 +61,15 @@ body {
     opacity: .3; }
 
 .bm-container {
+  padding-inline: var(--container-pad);
   position: relative;
   margin-block-start: var(--nav-h);
   margin-inline-start: var(--leftbar-w);
-  min-block-size: 100dvb;
-  padding: 1rem; }
-
-.bm-head {
-  margin-block-start: calc(-1 * var(--frame-join)) !important; }
-
-.bm-container > :first-child {
-  margin-block-start: 0 !important;
-  padding-block-start: 0 !important; }
+  min-block-size: 100dvb; }
+  .bm-container > .full-bleed {
+    box-sizing: border-box;
+    inline-size: calc(100% + 2 * var(--container-pad));
+    overflow-x: clip; }
 
 /* ================================
    TYPOGRAPHY — HEADINGS (clean)

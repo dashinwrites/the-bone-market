@@ -1,5 +1,4 @@
 @import "../global/mixins.scss";
-@import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Uncial+Antiqua&family=Caudex:wght@400;700&family=Forum&family=Spectral+SC:wght@400;700&family=Junge&display=swap");
 
 /*******************************
     Header
@@ -7,13 +6,13 @@
 .bm-head {
   z-index: 1;
   display: grid;
-  inline-size: 100%;
   gap: 1rem;
   padding: 2rem 1.25rem;
   block-size: clamp(320px, 60vh, 7800px);
   color: var(--text-clear);
   background: var(--bg-1);
   overflow: clip;
+
   grid-template-columns:
     var(--gutter)
     var(--side-col)
@@ -130,6 +129,12 @@
           box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
         }
       }
+    }
+
+    .full-bleed {
+      top: 2px;
+      inline-size: auto;
+      max-inline-size: none;
     }
   }
 

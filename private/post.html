@@ -1,322 +1,526 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        @@include('../source/templates/head.html', {
-            "prefix": "../dist"
-        })  
-    </head>
-    <body id="ST" class="g-4">
-        <div class="bm-container">
-        @@include('../source/templates/header.html', {
-            "prefix": ".."
-        })
-      @@include('../source/templates/nav.html', {
-            "prefix": ".."
-        })
+  <head>
+    @@include('../source/templates/head.html', { "prefix": "../dist" })
+  </head>
+  <body id="ST" class="g-4">
+    <div class="bm-container">
+      @@include('../source/templates/header.html', { "prefix": ".." })
+      @@include('../source/templates/nav.html', { "prefix": ".." })
 
-        <!--Main Body-->
-        <main>
-            <a name="top"></a>
-		
-                
-            <!--Post Row Defaults-->
-            <table width="100%" cellspacing="0" cellpadding="0" border="0">
-                <tbody>
-                    <tr>
-                        <td width="20%" nowrap="nowrap" align="left">
-                            <span class="pagination">
-                                <span class="pagination_pagetxt">
-                                    <a title="Jump to page..." href="javascript:multi_page_jump('?showtopic=1556',69,15);" class="">
-                                        Pages:
-                                    </a> 
-                                    (5)
-                                </span>
-                                &nbsp;
-                                <span class="pagination_current">
-                                    <b>1</b>
-                                </span>
-                                &nbsp;
-                                <a href="?showtopic=1556&amp;st=15" class="pagination_page">2</a>
-                                &nbsp;
-                                <a href="?showtopic=1556&amp;st=30" class="pagination_page">3</a>
-                                &nbsp;...&nbsp;
-                                <a href="?showtopic=1556&amp;st=60" title="Page: 5" class="pagination_last">Last »</a>
-                            </span>
-                            &nbsp;
-                            <span class="goto-firstunread">( 
-                                <a href="?act=ST&amp;f=154&amp;t=1556&amp;view=getnewpost">Go to first unread post</a> 
-                            )</span>
-                        </td>
-                        <td width="80%" align="right">
-                            <a href="?act=Post&amp;CODE=02&amp;f=1&amp;t=1&amp;st=0"><span class="macro--button"><i class="fa-solid fa-reply"></i></span></a>
-                            <a href="?act=Post&amp;CODE=00&amp;f=1" title="Start a new topic"><span class="macro--button"><i class="fa-solid fa-plus"></i></span></a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <br>
+      <!--Main Body-->
+      <main>
+        <a name="top"></a>
 
-            <div class="tableborder">
-                <div class="maintitle">
-                    <span class="topic-title-space">&nbsp;</span>
-                    <span class="topic-title">Topic Title Goes Here</span>
-                    <span class="topic-desc">Topic Description Goes Here</span>
-                </div>
-                <!--{IBF.POLL}-->
-                <div class="postlinksbar" align="right">
-                    <strong>
-                        <!--{IBF.START_NEW_POLL}-->
-                        <a href="?act=Track&amp;f=1&amp;t=1">Track This Topic</a> | 
-                        <a href="?act=Forward&amp;f=1&amp;t=1">Email This Topic</a> | 
-                        <a href="?act=Print&amp;client=printer&amp;f=1&amp;t=1">Print This Topic</a>
-                    </strong>
-                </div>
-                
-                <!--Post Content-->
-                <!-- anchor still useful for scroll targets -->
-                <a name="entry1" class="anchorLink"></a>
+        <!--Post Row Defaults-->
+        <table width="100%" cellspacing="0" cellpadding="0" border="0">
+          <tbody>
+            <tr>
+              <td width="20%" nowrap="nowrap" align="left">
+                <span class="pagination">
+                  <span class="pagination_pagetxt">
+                    <a
+                      title="Jump to page..."
+                      href="javascript:multi_page_jump('?showtopic=1556',69,15);"
+                      class=""
+                    >
+                      Pages:
+                    </a>
+                    (5)
+                  </span>
+                  &nbsp;
+                  <span class="pagination_current">
+                    <b>1</b>
+                  </span>
+                  &nbsp;
+                  <a href="?showtopic=1556&amp;st=15" class="pagination_page"
+                    >2</a
+                  >
+                  &nbsp;
+                  <a href="?showtopic=1556&amp;st=30" class="pagination_page"
+                    >3</a
+                  >
+                  &nbsp;...&nbsp;
+                  <a
+                    href="?showtopic=1556&amp;st=60"
+                    title="Page: 5"
+                    class="pagination_last"
+                    >Last »</a
+                  >
+                </span>
+                &nbsp;
+                <span class="goto-firstunread"
+                  >(
+                  <a href="?act=ST&amp;f=154&amp;t=1556&amp;view=getnewpost"
+                    >Go to first unread post</a
+                  >
+                  )</span
+                >
+              </td>
+              <td width="80%" align="right">
+                <a href="?act=Post&amp;CODE=02&amp;f=1&amp;t=1&amp;st=0"
+                  ><span class="macro--button"
+                    ><i class="fa-solid fa-reply"></i></span
+                ></a>
+                <a
+                  href="?act=Post&amp;CODE=00&amp;f=1"
+                  title="Start a new topic"
+                  ><span class="macro--button"
+                    ><i class="fa-solid fa-plus"></i></span
+                ></a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <br />
 
-                <!-- mount point where the dev harness will render test posts locally -->
-                <section id="bm-post-mount" class="post g-4 p-1"></section>
+        <div class="tableborder">
+          <div class="maintitle">
+            <span class="topic-title-space">&nbsp;</span>
+            <span class="topic-title">Topic Title Goes Here</span>
+            <span class="topic-desc">Topic Description Goes Here</span>
+          </div>
+          <!--{IBF.POLL}-->
+          <div class="postlinksbar" align="right">
+            <strong>
+              <!--{IBF.START_NEW_POLL}-->
+              <a href="?act=Track&amp;f=1&amp;t=1">Track This Topic</a> |
+              <a href="?act=Forward&amp;f=1&amp;t=1">Email This Topic</a> |
+              <a href="?act=Print&amp;client=printer&amp;f=1&amp;t=1"
+                >Print This Topic</a
+              >
+            </strong>
+          </div>
 
-                <!-- dev-only template (KEEP JCink tokens) -->
-                <script type="text/template" id="bm-post-template">
-                <article class="bm-post" id="pid-<!-- |pid| -->" data-group="{GROUP_KEY}" data-set="{AESTHETIC_SET}">
-                    <aside class="bm-post__aside">
-                    <div class="bm-post__avatar">{AVATAR}</div>
-                    <div class="bm-post__identity">
-                        <ul class="bm-post__badges">
-                            <li class="badge">crown</li>
-                            <li class="badge">staff</li>
-                        </ul>
-                        <a class="bm-post__author" href="?showuser=<!-- |poster_id| -->"><!-- |author_name| --></a>
-                        <div class="bm-post__role"><!-- |group| --></div>
-                        <div class="bm-post__mini">✶ <!-- |posts| --></div>
+          <!--Post Content-->
+          <!-- anchor still useful for scroll targets -->
+          <a name="entry1" class="anchorLink"></a>
+
+          <!-- mount point where the dev harness will render test posts locally -->
+          <section id="bm-post-mount" class="post g-4 p-1"></section>
+
+          <!-- dev-only template (KEEP JCink tokens) -->
+          <script type="text/template" id="bm-post-template">
+                                <article class="bm-post bm-post--grid" id="pid-<!--|pid|-->">
+                                <!-- 2: header (full width) -->
+                                <header class="bm-post__head">
+                                    <h3 class="bm-post__title">
+                                    <a href="?act=ST&f=<!--|forum_id|-->&t=<!--|topic_id|-->&p=<!--|pid|-->">#<!--|topic_text|--></a>
+                                    </h3>
+                                    <div class="bm-post__meta">
+                                    <time datetime="<!--|post_date|-->" class="datetime">posted on <!--|post_date|--></time>
+                                    <span class="sep">•</span>
+                                    <a name="entry<!--|pid|-->"></a>
+                                    <a href="#pid-<!--|pid|-->" class="permalink">permalink</a>
+                                    </div>
+                                </header>
+
+                                <!-- 1: mini profile (left column, tall) -->
+                                <section class="ps-slider" aria-label="featured slider">
+                                    <!-- radios -->
+                                    <input type="radio" name="ps-<!--|pid|-->" id="ps-0-<!--|pid|-->" checked>
+                                    <input type="radio" name="ps-<!--|pid|-->" id="ps-1-<!--|pid|-->">
+                                    <input type="radio" name="ps-<!--|pid|-->" id="ps-2-<!--|pid|-->">
+                                    <input type="radio" name="ps-<!--|pid|-->" id="ps-3-<!--|pid|-->">
+
+                                    <!-- arrows (now include for-0) -->
+                                    <div class="ps-arrows">
+                                        <!-- when on 0 (blank): prev -> 3, next -> 1 -->
+                                        <label class="ps-arrow prev for-0" for="ps-3-<!--|pid|-->"><i class="fa-solid fa-angle-up"></i></label>
+                                        <label class="ps-arrow next for-0" for="ps-1-<!--|pid|-->"><i class="fa-solid fa-angle-down"></i></label>
+
+                                        <label class="ps-arrow prev for-1" for="ps-0-<!--|pid|-->"><i class="fa-solid fa-angle-up"></i></label>
+                                        <label class="ps-arrow next for-1" for="ps-2-<!--|pid|-->"><i class="fa-solid fa-angle-down"></i></label>
+
+                                        <label class="ps-arrow prev for-2" for="ps-1-<!--|pid|-->"><i class="fa-solid fa-angle-up"></i></label>
+                                        <label class="ps-arrow next for-2" for="ps-3-<!--|pid|-->"><i class="fa-solid fa-angle-down"></i></label>
+
+                                        <label class="ps-arrow prev for-3" for="ps-2-<!--|pid|-->"><i class="fa-solid fa-angle-up"></i></label>
+                                        <label class="ps-arrow next for-3" for="ps-0-<!--|pid|-->"><i class="fa-solid fa-angle-down"></i></label>
+                                    </div>
+
+                                    <div class="ps-viewport">
+                                        <img src="https://picsum.photos/250/400?random=9" alt="{%topictitle%}" class="ps-image">
+
+                                        <!-- optional: explicit blank plate (kept inert/hidden) -->
+                                        <article class="ps-plate ps-plate--blank" data-i="0" aria-hidden="true"></article>
+
+                                        <article class="ps-plate" data-i="1"><h3 class="ps-title">plate one</h3> <p class="ps-body">text or stats shown on first slide.</p></article>
+                                        <article class="ps-plate" data-i="2"><h3 class="ps-title">plate one</h3> <p class="ps-body">text or stats shown on first slide.</p></article>
+                                        <article class="ps-plate" data-i="3"><h3 class="ps-title">plate one</h3> <p class="ps-body">text or stats shown on first slide.</p></article>
+
+                                        <!-- dots (include one for 0) -->
+                                        <div class="ps-dots">
+                                        <label class="ps-dot" for="ps-0-<!--|pid|-->"></label>
+                                        <label class="ps-dot" for="ps-1-<!--|pid|-->"></label>
+                                        <label class="ps-dot" for="ps-2-<!--|pid|-->"></label>
+                                        <label class="ps-dot" for="ps-3-<!--|pid|-->"></label>
+                                        </div>
+                                    </div>
+                                </section>
+
+              <!-- 3: post content (right, top) -->
+              <div class="bm-post__content">
+                <div id="pid_<!-- |pid| -->">
+                    <!-- THE POST <!-- |pid| --> -->
+                     <div class='postcolor'>
+                        There are very few parts of this arrangement that Lachlan doesn’t enjoy, but this—these quiet moments in the aftermath, when the sun’s all but gone and the only light comes from the half-open bathroom door across the room—these are the ones that catch him off guard. His fingers play idly over the dip and rise of Kenny’s hip, mapping familiar lines without thought, while his other arm is folded beneath his head on the pillow. He listens, half-drowsy, a small smile tugging at his mouth at Kenny’s obvious amusement.
+
+            It’s not so much a surprise that he doesn’t mind hearing Kenny talk about other clients. He’d gone into this with eyes open, knowing very well it was a job to Kenny no matter how it might have started to feel for him. That hasn’t changed, even as what they have now treads close to the edges of friends, if not more.
+
+            Lachlan hopes—and fears, in equal measure—that the more lives in Kenny’s side of it, too. The thought makes his chest ache, equal parts sweet and unbearable.
+
+            His hand slides higher, fingers fitting snugly into the curve of Kenny’s waist, and he leans a little more of his weight into him, shoulders shaking with laughter at some quip he can’t help but find funny. It leaves him with a sudden, overwhelming desire to pull Kenny properly into his arms and kiss him until the world disappears again. He reins it in with effort, channeling the impulse instead into something smaller—he turns just enough to brush a kiss to the crown of Kenny’s head, his breath stirring through soft curls.
+
+            “Mm. Not really. ‘m sure there’s a million reasons for people to do things like this but I’d bet money on my reasons being at the bottom of the list of ‘weird shit people are into’.” The words come with a chuckle, easy on the surface. But as soon as they’re out, he feels the familiar twist in his gut—the whisper that this, whatever this is, shouldn’t mean so much. That he shouldn’t want it like he does, shouldn’t crave the warmth of a man’s body beside him, shouldn’t let himself think it’s more than convenience.
+
+            He tightens his arm briefly around Kenny, as if to cover the thought with closeness, but inside he can feel the sting of shame curling at the edges of the tenderness he can’t quite bring himself to name.
                     </div>
-                    <nav class="bm-post__controls">{<!-- |report_link| --> <!-- |delete_button| --> <!-- |edit_button| --> <!-- |quote_button| -->}</nav>
-                    </aside>
-
-                    <div class="bm-post__body">
-                    <header class="bm-post__head">
-                        <h3 class="bm-post__title">
-                            <a href="?act=ST&f=<!-- |forum_id| -->&t=<!-- |topic_id| -->&p=<!-- |pid| -->">#<!-- |topic_text| --></a>
-                        </h3>
-                        <div class="bm-post__meta">
-                            <time datetime="<!-- |post_date| -->" class="datetime">posted on <!-- |post_date| --></time>
-                            <span class="sep">•</span>
-                            <a name='entry<!-- |pid| -->'></a>
-                            <a href="#pid-<!-- |pid| -->" class="permalink">permalink</a>
-                        </div>
-                    </header>
-
-                    <div class="bm-post__content" id="entry-<!-- |pid| -->"><div id="pid_<!-- |pid| -->"><!-- THE POST <!-- |pid| --> --><div class='postcolor'>It’s a blessing that Kenny knows him well enough to recognize when the conversation is veering into territory Lachlan doesn’t really want to address. <i>He’s</i> self-aware enough to recognize it isn’t <i>fair</i> to leave the onus on Kenny, but awareness isn’t the same as action, and Lachlan can’t quite bring himself to say the words that hang unsaid between them. Not yet. Maybe not ever.
-
-            For now, at least, he can let those thoughts go—let them be drowned out by the here and now. By the way Kenny settles astride his hips with all the easy confidence in the world, by the drag of his fingers tracing light, deliberate paths down Lachlan’s torso. He doesn’t bother trying to stifle the way his body responds; he lets it, grateful for the chance to lose himself in movement, in touch—because it doesn’t take a mind-reader to guess that Kenny wants to move on just as much as <i>he</i> does.
-
-            A moue of a pout ghosts across his face at Kenny’s teasing resistance, his gentle urging growing more insistent as Kenny resists his draw. Then a sharp breath catches in his throat—the soft gasp at the scrape of nails over his chest, followed almost immediately by a louder one when Kenny tweaks at a nipple. Not unexpected, not with Kenny, but still enough to send a shiver running through him, his hips jerking upward into the cradle of Kenny’s thighs as he rolls them down with hungry instinct.
-
-            <b><i>“Ah</i>—of course,”</b> he manages, voice edged with breathless humor, not terribly interested in <i>elaborating</i> when the distraction of Kenny is so much nearer, so much more pressing. His mind is already tangled with the question of what Kenny <i>wants,</i> what might draw out that smile that lights the room like nothing else. Anyone else—not that he would <i>do</i> this with anyone else—and he wouldn’t hesitate, wouldn’t wonder whether it’d be <i>too much,</i> but Kenny’s not anyone else and Lachlan can’t just put him where he wants him without risking <i>hurting</i> him, regardless of Kenny’s claims otherwise.
-
-            Still, even with those self-imposed restraints, there are ways to turn the tables. He finally abandons his coaxing attempts to draw Kenny closer, sliding his hands instead down the strong lines of his back. He is very careful not to linger on the familiar map of scars there—not tonight, though he has traced them before, reverent and unflinching. His smile shifts, grows—mischievous at the edges, but mostly just <i>fond,</i> impossibly so for a man who tells himself he shouldn’t feel this way at all.
-
-            <b>“You always deserve better.”</b> The words are heavier than he makes them sound, carrying more weight than he’ll allow them to show. He doesn’t give Kenny the chance to press into their meaning either; instead he moves, sitting up with an ease that borders on cocky, Kenny still in his lap. Then, with a fluid motion, he upends them, laying Kenny back against the mattress and looming over him with a smile that’s all ease, all distraction. If his heart clenches tight behind it, well—Kenny doesn’t have to know.</div><!-- |signature| --><!-- THE POST --></div>
-                        </div>
-                    </div>
-                </article>
-                </script>
-
-                <!-- tiny loader that only pulls the dev script locally -->
-                <script>
-                (function () {
-                const url = new URL(location.href);
-                const byParam = url.searchParams.get("dev") === "1";
-                const byHost = /(^localhost$)|(^127\\.0\\.0\\.1$)/i.test(location.hostname);
-                if (!(byParam || byHost)) return; // do nothing on JCink/live
-
-                var s = document.createElement("script");
-                s.src = "./dev/bm-post-dev.js";
-                s.defer = true;
-                document.currentScript.after(s);
-                })();
-                </script>
-
-                <!--Remaining Defaults-->
-                <div class="activeuserstrip">1 User(s) are reading this topic (0 Guests and 0 Anonymous Users)</div>
-                <div class="row2" style="padding:6px">
-                    1 Members: 
-                    <a href="?showuser=1">lux</a>
+                        <!-- |signature| -->
+                         <!-- THE POST -->
                 </div>
-                <div class="activeuserstrip" align="center">
-                    <!--SOCIAL_BOOKMARKS-->
-                     « <a href="?showtopic=1&amp;view=old">Next Oldest</a> | 
-                     <strong><a href="?showforum=1">Features: All</a></strong> | 
-                     <a href="?showtopic=1&amp;view=new">Next Newest</a> »
-                </div>
-                      
-            </div>
-                 
-            <br>
-            <table width="100%" cellspacing="0" cellpadding="0" border="0">
-                <tbody>
-                    <tr>
-                        <td width="20%" nowrap="nowrap" align="left">
-                            <a href="javascript:$('#topic_open').toggle();void(0);" title="Open Topic Options"><span class="macro--button">Topic Options</span></a>
-                        </td>
-                        <td width="80%" align="right">
-                            <a href="?act=Post&amp;CODE=02&amp;f=1&amp;t=1&amp;st=0"><span class="macro--button"><i class="fa-solid fa-reply"></i></span></a>
-                            <a href="javascript:ShowHide('qr_open','qr_closed');" title="Open Fast Reply Window" accesskey="f"><span class="macro--button"><i class="fa-solid fa-bolt"></i></span></a>
-                            <a href="?act=Post&amp;CODE=00&amp;f=1" title="Start a new topic"><span class="macro--button"><i class="fa-solid fa-plus"></i></span></a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            
-            <br>
-            <div id="qr_open" style="display:none;position:relative;" align="left">
-                <form name="REPLIER" action="?" method="post">
-                    <input type="hidden" name="act" value="Post">
-                    <input type="hidden" name="CODE" value="03">
-                    <input type="hidden" name="f" value="1">
-                    <input type="hidden" name="t" value="1">
-                    <input type="hidden" name="st" value="0">
-                    <input type="hidden" name="enabletrack" value="0">
-                    <input type="hidden" name="auth_key" value="c2f225f4f7de24d8c997a8cef2a9092e">
-                    <!-- TITLE DIV -->
-                    <div class="tableborder">
-                        <div class="maintitle">&nbsp;Fast Reply</div>
-                        <div class="tablepad" align="center">
-                            <textarea cols="70" rows="8" name="Post" class="textinput" tabindex="1"></textarea>
-                            <br><br>
-                            <a href="javascript:emo_pop();">Show Smilies Pop Up Window</a> |
-                            <input type="checkbox" name="enableemo" value="yes" class="checkbox" checked="checked">
-                            &nbsp;Enable Smilies |
-                            <input type="checkbox" name="enablesig" value="yes" class="checkbox" checked="checked">
-                            &nbsp;Enable Signature
-                            <br><br>
-                            <!--POST AS FIELD-->
-                            <input type="submit" name="submit" value="Add Reply" class="forminput" tabindex="2" accesskey="s">
-                            &nbsp;
-                            <input type="submit" name="preview" value="More Options" class="forminput">
-                            &nbsp;&nbsp; 
-                            <input type="button" name="qrc" onclick="ShowHide('qr_open','qr_closed');" value="Close Fast Reply" class="forminput">
-                        </div>
-                    </div>
-                </form>
-            </div>
-                
-            <div id="topic_open" style="display:none;z-index:2;">
-                <div class="tableborder">
-                    <div class="maintitle">&nbsp;
-                        <a href="javascript:$('#topic_open').toggle();void(0);">Close Topic Options</a>
-                    </div>
-                    <div class="tablepad">
-                        <b><a href="?act=Track&amp;f=1&amp;t=1">Track This Topic</a></b>
-                        <br>
-                        <span class="desc">Receive email notification when a reply has been made to this topic and you are not active on the board.</span>
-                        <br><br>
-                        <b><a href="?act=Track&amp;f=1&amp;type=forum">Subscribe to this forum</a></b>
-                        <br>
-                        <span class="desc">Receive email notification when a new topic is posted in this forum and you are not active on the board.</span>
-                        <br><br>
-                        <b><a href="?act=Print&amp;client=choose&amp;f=1&amp;t=1">Download / Print this Topic</a></b>
-                        <br>
-                        <span class="desc">Download this topic in different formats or view a printer friendly version.</span>
-                    </div>
-                </div>
-            </div>
-            <br>
-                
-            <div class="bar" style="padding: 5px;">
-                <div style="float: right; text-align: right;">
-                    <form name="mod_post_options" method="post" action="?act=Mod&amp;CODE=indvp&amp;f=1&amp;t=1">
-                        <input type="hidden" value="" id="selected_posts" name="selected_posts">
-                        <input type="hidden" name="act" value="Mod">
-                        <input type="hidden" name="auth_key" value="c2f225f4f7de24d8c997a8cef2a9092e">
-                        <input type="hidden" name="st" value="0">
-                        <select class="forminput" name="tact">
-                            <option value="delete">Delete Posts</option>
-                            <option value="split">Split Posts</option>
-                            <option value="approve">Set Visible (Approve Post)</option>
-                            <option value="unapprove">Set Invisible (Unapprove Post)</option>
-                        </select>
-                        <input type="submit" name="go" id="mod_posts_submit" value="With Selected (0)" class="forminput">
-                    </form>
-                </div>
-                <div>
-                    <form method="POST" style="display:inline" name="modform" action="?">
-                        <input type="hidden" name="t" value="1">
-                        <input type="hidden" name="f" value="1">
-                        <input type="hidden" name="st" value="0">
-                        <input type="hidden" name="auth_key" value="c2f225f4f7de24d8c997a8cef2a9092e">
-                        <input type="hidden" name="act" value="Mod">
-                        <select name="CODE" class="forminput">
-                            <option value="-1" style="color:black">Moderation Options</option>
-                            <option value="35">Pin as Announcement</option>
-                            <option value="36">Unpin as Announcement</option>
-                            <option value="02">Move this topic</option>
-                            <option value="00">Close this topic</option>
-                            <option value="03">Delete this topic</option>
-                            <option value="05">Edit Topic Title</option>
-                            <option value="15">Pin this Topic</option>
-                            <option value="30">Unsubscribe all from topic</option>
-                            <option value="60">Merge Topic</option>
-                            <option value="50">Mass Split Topic</option>
-                            <option value="90">View Topic History (Admin Option)</option>
-                        </select>
-                        &nbsp;
-                        <input type="submit" value="Go" class="forminput">
-                    </form>     
-                </div>
-            </div>
-                
-            <br>
-            <div align="right">
-                <form action="?act=SF" method="get" name="jumpmenu">
-                    <input type="hidden" name="act" value="SF">
-                    <input type="hidden" name="s" value="">
-                    <select name="f" class="forminput">
-                        <optgroup label="Site Jump">
-                            <option value="sj_home">Forum Home</option>
-                            <option value="sj_search">Search</option>
-                            <option value="sj_help">Help</option>
-                        </optgroup>
-                        <optgroup label="Forum Jump">
-                            <option value="-1">Three In a Row</option>
-                            <option value="1" selected="selected">&nbsp;&nbsp;- Features: All </option><!--fx:1-->
-                            <option value="7">  ---- Features: Image, Manual Links</option>
-                            <option value="8">  ---- Features: Nothing</option>
-                            <option value="2">&nbsp;&nbsp;- Features: Image, Description </option><!--fx:2-->
-                            <option value="3">&nbsp;&nbsp;- Features: Image Only </option><!--fx:3-->
-                            <option value="-1">Two in a Row</option>
-                            <option value="4">&nbsp;&nbsp;- Features: Description, Manual Links </option><!--fx:4-->
-                            <option value="5">&nbsp;&nbsp;- Features: Description Only </option><!--fx:5-->
-                            <option value="-1">One in a Row</option>
-                            <option value="6">&nbsp;&nbsp;- Features: Manual Links Only </option><!--fx:6-->
-                        </optgroup>
-                    </select>&nbsp;
-                    <input type="submit" value="Go" class="forminput">
-                </form>
-                <br><br>
-                <form action="?" method="post" name="SearchForm">
-                    <input type="hidden" name="act" value="Search">
-                    <input type="hidden" name="CODE" value="01">
-                    <input type="hidden" name="t" value="1">
-                    <input type="hidden" name="forums[]" value="1">
-                    <input type="hidden" name="searchtopic" value="1">
-                    <input type="hidden" name="result_type" value="posts">
-                    <input type="hidden" name="search_in" value="posts">
-                    <input type="hidden" name="sort_key" value="post_date">
-                    <input type="hidden" name="sort_order" value="asc">
-                    <input type="text" name="keywords" value="Search this thread" size="30" maxlength="60" class="textinput" onfocus="this.value=''">&nbsp;
-                    <input type="submit" value="Go" class="forminput">
-                </form>
-            </div>
-            <br>
-        </main>
-        
-        @@include('../source/templates/scripts.html', {
-            "prefix": "../dist"
-        })   
+              </div>
+
+              <!-- 4: footer (right, bottom) -->
+              <footer class="bm-post__foot bm-post__foot--mini">
+                <span class="badge">posted by <!--|author_name|--></span>
+                <span class="sep">•</span>
+                <span>last edited <!--|edit_date|--></span>
+              </footer>
+            </article>
+          </script>
+
+          <!-- tiny loader that only pulls the dev script locally -->
+          <script>
+            (function () {
+              const url = new URL(location.href);
+              const byParam = url.searchParams.get("dev") === "1";
+              const byHost = /(^localhost$)|(^127\\.0\\.0\\.1$)/i.test(
+                location.hostname
+              );
+              if (!(byParam || byHost)) return; // do nothing on JCink/live
+
+              var s = document.createElement("script");
+              s.src = "./dev/bm-post-dev.js";
+              s.defer = true;
+              document.currentScript.after(s);
+            })();
+          </script>
+
+          <!--Remaining Defaults-->
+          <div class="activeuserstrip">
+            1 User(s) are reading this topic (0 Guests and 0 Anonymous Users)
+          </div>
+          <div class="row2" style="padding: 6px">
+            1 Members:
+            <a href="?showuser=1">lux</a>
+          </div>
+          <div class="activeuserstrip" align="center">
+            <!--SOCIAL_BOOKMARKS-->
+            « <a href="?showtopic=1&amp;view=old">Next Oldest</a> |
+            <strong><a href="?showforum=1">Features: All</a></strong> |
+            <a href="?showtopic=1&amp;view=new">Next Newest</a> »
+          </div>
         </div>
-    </body>
+
+        <br />
+        <table width="100%" cellspacing="0" cellpadding="0" border="0">
+          <tbody>
+            <tr>
+              <td width="20%" nowrap="nowrap" align="left">
+                <a
+                  href="javascript:$('#topic_open').toggle();void(0);"
+                  title="Open Topic Options"
+                  ><span class="macro--button">Topic Options</span></a
+                >
+              </td>
+              <td width="80%" align="right">
+                <a href="?act=Post&amp;CODE=02&amp;f=1&amp;t=1&amp;st=0"
+                  ><span class="macro--button"
+                    ><i class="fa-solid fa-reply"></i></span
+                ></a>
+                <a
+                  href="javascript:ShowHide('qr_open','qr_closed');"
+                  title="Open Fast Reply Window"
+                  accesskey="f"
+                  ><span class="macro--button"
+                    ><i class="fa-solid fa-bolt"></i></span
+                ></a>
+                <a
+                  href="?act=Post&amp;CODE=00&amp;f=1"
+                  title="Start a new topic"
+                  ><span class="macro--button"
+                    ><i class="fa-solid fa-plus"></i></span
+                ></a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <br />
+        <div
+          id="qr_open"
+          style="display: none; position: relative"
+          align="left"
+        >
+          <form name="REPLIER" action="?" method="post">
+            <input type="hidden" name="act" value="Post" />
+            <input type="hidden" name="CODE" value="03" />
+            <input type="hidden" name="f" value="1" />
+            <input type="hidden" name="t" value="1" />
+            <input type="hidden" name="st" value="0" />
+            <input type="hidden" name="enabletrack" value="0" />
+            <input
+              type="hidden"
+              name="auth_key"
+              value="c2f225f4f7de24d8c997a8cef2a9092e"
+            />
+            <!-- TITLE DIV -->
+            <div class="tableborder">
+              <div class="maintitle">&nbsp;Fast Reply</div>
+              <div class="tablepad" align="center">
+                <textarea
+                  cols="70"
+                  rows="8"
+                  name="Post"
+                  class="textinput"
+                  tabindex="1"
+                ></textarea>
+                <br /><br />
+                <a href="javascript:emo_pop();">Show Smilies Pop Up Window</a> |
+                <input
+                  type="checkbox"
+                  name="enableemo"
+                  value="yes"
+                  class="checkbox"
+                  checked="checked"
+                />
+                &nbsp;Enable Smilies |
+                <input
+                  type="checkbox"
+                  name="enablesig"
+                  value="yes"
+                  class="checkbox"
+                  checked="checked"
+                />
+                &nbsp;Enable Signature
+                <br /><br />
+                <!--POST AS FIELD-->
+                <input
+                  type="submit"
+                  name="submit"
+                  value="Add Reply"
+                  class="forminput"
+                  tabindex="2"
+                  accesskey="s"
+                />
+                &nbsp;
+                <input
+                  type="submit"
+                  name="preview"
+                  value="More Options"
+                  class="forminput"
+                />
+                &nbsp;&nbsp;
+                <input
+                  type="button"
+                  name="qrc"
+                  onclick="ShowHide('qr_open','qr_closed');"
+                  value="Close Fast Reply"
+                  class="forminput"
+                />
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div id="topic_open" style="display: none; z-index: 2">
+          <div class="tableborder">
+            <div class="maintitle">
+              &nbsp;
+              <a href="javascript:$('#topic_open').toggle();void(0);"
+                >Close Topic Options</a
+              >
+            </div>
+            <div class="tablepad">
+              <b><a href="?act=Track&amp;f=1&amp;t=1">Track This Topic</a></b>
+              <br />
+              <span class="desc"
+                >Receive email notification when a reply has been made to this
+                topic and you are not active on the board.</span
+              >
+              <br /><br />
+              <b
+                ><a href="?act=Track&amp;f=1&amp;type=forum"
+                  >Subscribe to this forum</a
+                ></b
+              >
+              <br />
+              <span class="desc"
+                >Receive email notification when a new topic is posted in this
+                forum and you are not active on the board.</span
+              >
+              <br /><br />
+              <b
+                ><a href="?act=Print&amp;client=choose&amp;f=1&amp;t=1"
+                  >Download / Print this Topic</a
+                ></b
+              >
+              <br />
+              <span class="desc"
+                >Download this topic in different formats or view a printer
+                friendly version.</span
+              >
+            </div>
+          </div>
+        </div>
+        <br />
+
+        <div class="bar" style="padding: 5px">
+          <div style="float: right; text-align: right">
+            <form
+              name="mod_post_options"
+              method="post"
+              action="?act=Mod&amp;CODE=indvp&amp;f=1&amp;t=1"
+            >
+              <input
+                type="hidden"
+                value=""
+                id="selected_posts"
+                name="selected_posts"
+              />
+              <input type="hidden" name="act" value="Mod" />
+              <input
+                type="hidden"
+                name="auth_key"
+                value="c2f225f4f7de24d8c997a8cef2a9092e"
+              />
+              <input type="hidden" name="st" value="0" />
+              <select class="forminput" name="tact">
+                <option value="delete">Delete Posts</option>
+                <option value="split">Split Posts</option>
+                <option value="approve">Set Visible (Approve Post)</option>
+                <option value="unapprove">
+                  Set Invisible (Unapprove Post)
+                </option>
+              </select>
+              <input
+                type="submit"
+                name="go"
+                id="mod_posts_submit"
+                value="With Selected (0)"
+                class="forminput"
+              />
+            </form>
+          </div>
+          <div>
+            <form
+              method="POST"
+              style="display: inline"
+              name="modform"
+              action="?"
+            >
+              <input type="hidden" name="t" value="1" />
+              <input type="hidden" name="f" value="1" />
+              <input type="hidden" name="st" value="0" />
+              <input
+                type="hidden"
+                name="auth_key"
+                value="c2f225f4f7de24d8c997a8cef2a9092e"
+              />
+              <input type="hidden" name="act" value="Mod" />
+              <select name="CODE" class="forminput">
+                <option value="-1" style="color: black">
+                  Moderation Options
+                </option>
+                <option value="35">Pin as Announcement</option>
+                <option value="36">Unpin as Announcement</option>
+                <option value="02">Move this topic</option>
+                <option value="00">Close this topic</option>
+                <option value="03">Delete this topic</option>
+                <option value="05">Edit Topic Title</option>
+                <option value="15">Pin this Topic</option>
+                <option value="30">Unsubscribe all from topic</option>
+                <option value="60">Merge Topic</option>
+                <option value="50">Mass Split Topic</option>
+                <option value="90">View Topic History (Admin Option)</option>
+              </select>
+              &nbsp;
+              <input type="submit" value="Go" class="forminput" />
+            </form>
+          </div>
+        </div>
+
+        <br />
+        <div align="right">
+          <form action="?act=SF" method="get" name="jumpmenu">
+            <input type="hidden" name="act" value="SF" />
+            <input type="hidden" name="s" value="" />
+            <select name="f" class="forminput">
+              <optgroup label="Site Jump">
+                <option value="sj_home">Forum Home</option>
+                <option value="sj_search">Search</option>
+                <option value="sj_help">Help</option>
+              </optgroup>
+              <optgroup label="Forum Jump">
+                <option value="-1">Three In a Row</option>
+                <option value="1" selected="selected">
+                  &nbsp;&nbsp;- Features: All
+                </option>
+                <!--fx:1-->
+                <option value="7">---- Features: Image, Manual Links</option>
+                <option value="8">---- Features: Nothing</option>
+                <option value="2">
+                  &nbsp;&nbsp;- Features: Image, Description
+                </option>
+                <!--fx:2-->
+                <option value="3">&nbsp;&nbsp;- Features: Image Only</option>
+                <!--fx:3-->
+                <option value="-1">Two in a Row</option>
+                <option value="4">
+                  &nbsp;&nbsp;- Features: Description, Manual Links
+                </option>
+                <!--fx:4-->
+                <option value="5">
+                  &nbsp;&nbsp;- Features: Description Only
+                </option>
+                <!--fx:5-->
+                <option value="-1">One in a Row</option>
+                <option value="6">
+                  &nbsp;&nbsp;- Features: Manual Links Only
+                </option>
+                <!--fx:6-->
+              </optgroup></select
+            >&nbsp;
+            <input type="submit" value="Go" class="forminput" />
+          </form>
+          <br /><br />
+          <form action="?" method="post" name="SearchForm">
+            <input type="hidden" name="act" value="Search" />
+            <input type="hidden" name="CODE" value="01" />
+            <input type="hidden" name="t" value="1" />
+            <input type="hidden" name="forums[]" value="1" />
+            <input type="hidden" name="searchtopic" value="1" />
+            <input type="hidden" name="result_type" value="posts" />
+            <input type="hidden" name="search_in" value="posts" />
+            <input type="hidden" name="sort_key" value="post_date" />
+            <input type="hidden" name="sort_order" value="asc" />
+            <input
+              type="text"
+              name="keywords"
+              value="Search this thread"
+              size="30"
+              maxlength="60"
+              class="textinput"
+              onfocus="this.value=''"
+            />&nbsp;
+            <input type="submit" value="Go" class="forminput" />
+          </form>
+        </div>
+        <br />
+      </main>
+
+      @@include('../source/templates/scripts.html', { "prefix": "../dist" })
+    </div>
+  </body>
 </html>

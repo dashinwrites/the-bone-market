@@ -42,14 +42,19 @@ body {
   }
 }
 .bm-container {
+  padding-inline: var(--container-pad);
   position: relative;
   margin-block-start: var(--nav-h);
   margin-inline-start: var(--leftbar-w);
   min-block-size: 100dvb;
-  padding: 1rem;
+
+  > .full-bleed {
+    box-sizing: border-box;
+    // margin-inline: calc(-1 * var(--container-pad));
+    inline-size: calc(100% + 2 * var(--container-pad));
+    overflow-x: clip;
+  }
 }
-.bm-head { margin-block-start: calc(-1 * var(--frame-join)) !important; }
-.bm-container > :first-child { margin-block-start: 0 !important; padding-block-start: 0 !important; }
 
 /* ================================
    TYPOGRAPHY — HEADINGS (clean)

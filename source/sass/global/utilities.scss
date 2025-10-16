@@ -8,6 +8,8 @@
 @function css-max($a,$b){ @return unquote("max(#{$a}, #{$b})"); }
 @function css-clamp($a,$b,$c){ @return unquote("clamp(#{$a}, #{$b}, #{$c})"); }
 
+@import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Uncial+Antiqua&family=Caudex:wght@400;700&family=Forum&family=Spectral+SC:wght@400;700&family=Junge&display=swap");
+
 @font-face {
   font-family: 'Ghosthey';
   src: url('https://files.jcink.net/uploads2/thebonemarket/fonts/ghosthey_Regular.ttf') format('truetype');
