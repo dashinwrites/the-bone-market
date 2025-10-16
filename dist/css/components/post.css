@@ -20,7 +20,6 @@
   overflow: hidden;
   margin-block: 1.25rem;
   position: relative;
-  block-size: calc(100vh - var(--nav-h, 64px) - var(--post-gap, 2rem));
   min-block-size: 0;
   /* allow inner grid to shrink */ }
   .bm-post::before {
@@ -373,6 +372,13 @@ a[href*="showuser"][data-mention] {
     text-decoration: none; }
   .bm-post__content .post-tag, .bm-post__content .label, .bm-post__content .badge {
     /* already styled above; keep for content use */ }
+  .bm-post__content .postcolor {
+    max-width: 60%;
+    margin: auto;
+    text-align: justify;
+    white-space: pre-line;
+    font-family: var(--font-serif);
+    font-size: var(--size-lg); }
 
 .bm-post__content ::selection {
   background: rgba(196, 67, 88, 0.25); }

@@ -536,3 +536,54 @@ document.addEventListener("click", async (e) => {
     alert("Could not copy link, please try again.");
   }
 });
+
+
+// mini profile carousel
+(function(){
+  function setupCarousel(root){
+    const track = root.querySelector('.mini-track');
+    if(!track) return;
+
+    const cards = [...track.querySelectorAll('.mini-card')];
+    const dots  = [...root.querySelectorAll('.mini-dot')];
+    const prev  = root.querySelector('.mini-btn.prev');
+    const next  = root.querySelector('.mini-btn.next');
+
+    let i = 0;
+
+    const setIndex = (n) => {
+      i = (n + cards.length) % cards.length;
+      track.style.setProperty('--i', i);
+      dots.forEach((d, idx) => {
+        const active = idx === i;
+        d.classList.toggle('is-active', active);
+        d.setAttribute('aria-selected', String(active));
+      });
+    };
+
+    prev?.addEventListener('click', () => setIndex(i - 1));
+    next?.addEventListener('click', () => setIndex(i + 1));
+
+    dots.forEach((dot, idx) => dot.addEventListener('click', () => setIndex(idx)));
+
+    // Keyboard: left/right arrows when focus is within the aside
+    root.addEventListener('keydown', (e) => {
+      if(e.key === 'ArrowLeft'){ e.preventDefault(); setIndex(i - 1); }
+      if(e.key === 'ArrowRight'){ e.preventDefault(); setIndex(i + 1); }
+    });
+
+    // Basic swipe (optional, lightweight)
+    let sx = null;
+    track.addEventListener('pointerdown', (e)=>{ sx = e.clientX; });
+    track.addEventListener('pointerup', (e)=>{
+      if(sx == null) return;
+      const dx = e.clientX - sx;
+      if(Math.abs(dx) > 40) setIndex(i + (dx < 0 ? 1 : -1));
+      sx = null;
+    });
+
+    setIndex(0);
+  }
+
+  document.querySelectorAll('.bm-post__aside[data-mini="carousel"]').forEach(setupCarousel);
+})();

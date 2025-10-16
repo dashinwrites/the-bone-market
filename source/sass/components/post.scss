@@ -15,7 +15,7 @@
   overflow: hidden;
   margin-block: 1.25rem;
   position: relative;
-  block-size: calc(100vh - var(--nav-h, 64px) - var(--post-gap, 2rem));
+  // block-size: calc(100vh - var(--nav-h, 64px) - var(--post-gap, 2rem));
   min-block-size: 0; /* allow inner grid to shrink */
 
   &::before {
@@ -211,6 +211,15 @@ a[href*="showuser"][data-mention] {
   .mention, a[data-mention] { background: rgba(142,124,99,.2); border-radius: .25rem; padding-inline: .25rem; text-decoration: none; }
 
   .post-tag, .label, .badge { /* already styled above; keep for content use */ }
+
+  .postcolor {
+    max-width: 60%;
+    margin: auto;
+    text-align: justify;
+    white-space: pre-line;
+    font-family: var(--font-serif);
+    font-size: var(--size-lg);
+  }
 }
 .bm-post__content ::selection { background: rgba(196,67,88,.25); }
 
@@ -568,3 +577,4 @@ input[type="submit"] {
 a[href*="act=Post"][href*="CODE=10"] {
   display: none;
 }
+
