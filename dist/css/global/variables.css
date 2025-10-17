@@ -116,7 +116,8 @@
   --bq-muted: color-mix(in srgb, var(--text-loCon) 20%, transparent);
   --bq-border: 1px solid color-mix(in srgb, var(--text-loCon) 12%, transparent);
   --bq-shadow: 0 10px 30px rgba(0,0,0,.08);
-  --mg-blend: multiply; }
+  --mg-blend: multiply;
+  --stats-pane-h: clamp(220px, 40vh, 360px); }
 
 /* ================================
    Category plate-side

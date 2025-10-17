@@ -785,7 +785,8 @@ a {
   --bq-muted: color-mix(in srgb, var(--text-loCon) 20%, transparent);
   --bq-border: 1px solid color-mix(in srgb, var(--text-loCon) 12%, transparent);
   --bq-shadow: 0 10px 30px rgba(0,0,0,.08);
-  --mg-blend: multiply; }
+  --mg-blend: multiply;
+  --stats-pane-h: clamp(220px, 40vh, 360px); }
 
 /* ================================
    Category plate-side
@@ -3705,6 +3706,413 @@ body[id="idx"] .bm-head {
 @media (prefers-reduced-motion: reduce) {
   .category-title {
     text-shadow: none; } }
+
+/* =========================================
+   Plate Button Mixin (theme-toggle style)
+   ========================================= */
+/* Optional: current/active state helper */
+/* Optional: tooltip pulled from a data attribute (e.g., data-label) */
+/* ================================================
+   Plate-button look for cover tokens
+   ================================================ */
+/* Reusable mixin (oval by default) */
+/* Optional: respect prefers-reduced-motion on anything you include this on */
+/* Gradient underline mixin */
+/*******************************
+   Board Stats (clean)
+********************************/
+/* ---------------- Container ---------------- */
+#boardstats.bm-stats {
+  margin: 2rem auto;
+  padding: 1rem 1rem 1.25rem;
+  max-inline-size: clamp(820px, 80vw, 1280px);
+  position: relative;
+  color: var(--text-clear);
+  background: var(--bg-1-rgb);
+  border: var(--border-1);
+  border-radius: 8px;
+  -webkit-box-shadow: var(--plate-shadow);
+          box-shadow: var(--plate-shadow);
+  /* @include corner-ticks(.6rem, 18px, 2px, .25); */ }
+  #boardstats.bm-stats::before {
+    content: "";
+    position: absolute;
+    inset: .6rem;
+    opacity: .35;
+    pointer-events: none; }
+
+/* ---------------- Header ---------------- */
+.bm-stats__header {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr auto;
+  grid-template-columns: 1fr auto;
+  -webkit-box-align: end;
+  -webkit-align-items: end;
+      -ms-flex-align: end;
+          align-items: end;
+  gap: 1rem;
+  -webkit-margin-after: 1rem;
+          margin-block-end: 1rem; }
+  @media (max-width: 720px) {
+    .bm-stats__header {
+      -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+      -webkit-box-align: start;
+      -webkit-align-items: start;
+          -ms-flex-align: start;
+              align-items: start;
+      gap: .5rem; } }
+
+.bm-stats__title {
+  margin: 0;
+  font-family: var(--font-serif);
+  letter-spacing: .12em;
+  text-transform: lowercase; }
+
+.bm-stats__totals {
+  --pad: .4rem .6rem;
+  display: -ms-grid;
+  display: grid;
+  grid-auto-flow: column;
+  gap: .5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+  .bm-stats__totals li {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-rows: auto auto;
+    grid-template-rows: auto auto;
+    justify-items: center;
+    min-inline-size: 9ch;
+    padding: var(--pad);
+    position: relative;
+    background: var(--bg-2);
+    border: var(--border-1);
+    border-radius: 6px; }
+    .bm-stats__totals li::after {
+      content: "";
+      position: absolute;
+      inset: .35rem;
+      border: var(--bdash);
+      border-radius: 4px;
+      opacity: .25;
+      pointer-events: none; }
+    .bm-stats__totals li span {
+      font-size: .8rem;
+      color: var(--text-loCon);
+      text-transform: lowercase; }
+    .bm-stats__totals li b {
+      font-size: 1.1rem;
+      font-weight: 700; }
+  @media (max-width: 900px) {
+    .bm-stats__totals {
+      grid-auto-flow: row;
+      -ms-grid-columns: (minmax(0, 1fr))[2];
+      grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* ---------------- Grid layout ---------------- */
+.bm-stats__grid {
+  display: -ms-grid;
+  display: grid;
+  gap: 1rem;
+  -ms-grid-columns: (1fr)[12];
+  grid-template-columns: repeat(12, 1fr); }
+  .bm-stats__grid .bm-card--today {
+    -ms-grid-column-span: 6;
+    grid-column: span 6; }
+  .bm-stats__grid .bm-card--now {
+    -ms-grid-column-span: 6;
+    grid-column: span 6; }
+  .bm-stats__grid .bm-card--legend {
+    -ms-grid-column-span: 4;
+    grid-column: span 4; }
+  .bm-stats__grid .bm-card--recent {
+    -ms-grid-column-span: 8;
+    grid-column: span 8; }
+  @media (max-width: 1080px) {
+    .bm-stats__grid .bm-card--today,
+    .bm-stats__grid .bm-card--now,
+    .bm-stats__grid .bm-card--legend,
+    .bm-stats__grid .bm-card--recent {
+      grid-column: 1 / -1; } }
+
+/* ---------------- Card ---------------- */
+.bm-card {
+  position: relative;
+  padding: 1rem;
+  background: var(--bg-2);
+  border: var(--border-1);
+  border-radius: 6px; }
+  .bm-card::after {
+    content: "";
+    position: absolute;
+    inset: .5rem;
+    border: var(--bdash);
+    border-radius: 4px;
+    opacity: .25;
+    pointer-events: none; }
+
+.bm-card__title {
+  margin: 0 0 .5rem;
+  font-family: var(--font-serif);
+  font-size: var(--size-lg, 1.1rem); }
+
+.bm-card__meta,
+.bm-card__hint {
+  margin: 0 0 .5rem;
+  color: var(--text-loCon); }
+
+.bm-card__list {
+  line-height: 1.6; }
+
+.bm-card__list--wrap {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  gap: .4rem .75rem; }
+
+/* Toolbar */
+.bm-toolbar {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  gap: .6rem .9rem;
+  margin-block: .25rem .75rem; }
+  .bm-toolbar a {
+    font-size: .95rem;
+    text-decoration: underline; }
+
+/* ---------------- Legend ---------------- */
+.bm-legend {
+  display: -ms-grid;
+  display: grid;
+  gap: .4rem;
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+  .bm-legend li {
+    display: -ms-grid;
+    display: grid;
+    grid-auto-flow: column;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: start;
+    -webkit-justify-content: start;
+        -ms-flex-pack: start;
+            justify-content: start;
+    gap: .6rem; }
+
+.chip {
+  inline-size: 14px;
+  block-size: 14px;
+  display: inline-block;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 0, 0, 0.25); }
+
+/* Example colors; replace with your tokens */
+.chip--celestial {
+  background: var(--celestial, #a0b4ff); }
+
+.chip--flora {
+  background: var(--flora, #aad7aa); }
+
+.chip--anatomy {
+  background: var(--anatomy, #f0b4b4); }
+
+.chip--material {
+  background: var(--material, #d2bea0); }
+
+/* ---------------- Recent Topics (table → list look) ---------------- */
+.bm-card--recent #recent-topics {
+  /* hide the built-in header row + any HR it injects */
+  /* scroller stays the same */
+  max-block-size: var(--stats-pane-h);
+  overflow: auto;
+  -ms-scroll-chaining: none;
+      overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  padding: .25rem;
+  /* each item becomes a 3-row grid: title / author / date */
+  /* reset legacy cells */
+  /* title (first link > strong) */
+  /* AUTHOR line */
+  /* Optional: keep the author link on one line (or remove if you want wrapping) */
+  /* DATE line */
+  /* the rule lives in column 1, the text in column 2 */
+  /* remove the empty forum link jcink emits */
+  /* link polish */ }
+  .bm-card--recent #recent-topics .maintitle, .bm-card--recent #recent-topics hr,
+  .bm-card--recent #recent-topics table > tbody > tr:first-child {
+    display: none !important; }
+  .bm-card--recent #recent-topics table, .bm-card--recent #recent-topics tbody {
+    display: contents; }
+  .bm-card--recent #recent-topics tr {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-rows: auto auto auto;
+    grid-template-rows: auto auto auto;
+    -webkit-box-align: start;
+    -webkit-align-items: start;
+        -ms-flex-align: start;
+            align-items: start;
+    gap: .05rem;
+    padding: .65rem .75rem;
+    margin-block: .45rem;
+    position: relative;
+    background: var(--bg-2); }
+    .bm-card--recent #recent-topics tr::after {
+      content: "";
+      position: absolute;
+      inset: .45rem;
+      opacity: .25;
+      pointer-events: none; }
+  .bm-card--recent #recent-topics .row4 {
+    background: none;
+    border: 0;
+    padding: 0; }
+  .bm-card--recent #recent-topics .recent-topics-info, .bm-card--recent #recent-topics .recent-topics-date {
+    width: auto;
+    background: none;
+    border: 0;
+    padding: 0; }
+  .bm-card--recent #recent-topics .recent-topics-info > a:first-child strong {
+    display: inline-block;
+    font-weight: 700;
+    text-underline-offset: .12em;
+    max-inline-size: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; }
+  .bm-card--recent #recent-topics #recent-topics .recent-topics-info > .rt-author {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: -webkit-max-content 1fr;
+    -ms-grid-columns: max-content 1fr;
+    grid-template-columns: -webkit-max-content 1fr;
+    grid-template-columns: max-content 1fr;
+    /* label sizes to its content */
+    -webkit-box-align: baseline;
+    -webkit-align-items: baseline;
+        -ms-flex-align: baseline;
+            align-items: baseline;
+    -webkit-column-gap: .5rem;
+       -moz-column-gap: .5rem;
+            column-gap: .5rem;
+    color: var(--text-loCon);
+    font-family: var(--font-sans);
+    font-size: var(--size-md);
+    text-transform: lowercase; }
+  .bm-card--recent #recent-topics #recent-topics .recent-topics-info > .rt-author::before {
+    content: "fig. 01";
+    white-space: nowrap;
+    /* keep it on one line */
+    font-variant: all-small-caps;
+    font-family: var(--font-hand);
+    opacity: .9; }
+  .bm-card--recent #recent-topics #recent-topics .recent-topics-info > .rt-author a {
+    white-space: nowrap; }
+  .bm-card--recent #recent-topics #recent-topics .recent-topics-date {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: minmax(48px, 120px) 1fr;
+    grid-template-columns: minmax(48px, 120px) 1fr;
+    /* rule width then text */
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-column-gap: .75rem;
+       -moz-column-gap: .75rem;
+            column-gap: .75rem;
+    color: var(--text-loCon);
+    font-size: .9rem;
+    -ms-grid-column-align: start;
+        justify-self: start;
+    font-variant: all-small-caps;
+    font-family: var(--font-hand); }
+  .bm-card--recent #recent-topics #recent-topics .recent-topics-date::before {
+    content: "";
+    inline-size: 100%;
+    block-size: 1px;
+    background: var(--accent-1);
+    opacity: .8;
+    display: block; }
+  .bm-card--recent #recent-topics .recent-topics-info > a:empty {
+    display: none; }
+  .bm-card--recent #recent-topics .rt-title {
+    display: inline-block;
+    max-inline-size: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-transform: lowercase;
+    font-size: var(--size-lg); }
+  .bm-card--recent #recent-topics a {
+    text-underline-offset: .15em; }
+
+/* ---------------- Scroll panes (shared) ---------------- */
+.bm-card--today .bm-card__list,
+.bm-card--now .bm-card__list {
+  max-block-size: var(--stats-pane-h);
+  overflow: auto;
+  -ms-scroll-chaining: none;
+      overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  -webkit-padding-end: .25rem;
+          padding-inline-end: .25rem; }
+
+/* Nice thin scrollbars */
+.bm-card--today .bm-card__list,
+.bm-card--now .bm-card__list,
+.bm-card--recent #recent-topics {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.35) transparent; }
+  .bm-card--today .bm-card__list::-webkit-scrollbar,
+  .bm-card--now .bm-card__list::-webkit-scrollbar,
+  .bm-card--recent #recent-topics::-webkit-scrollbar {
+    width: 10px;
+    height: 10px; }
+  .bm-card--today .bm-card__list::-webkit-scrollbar-thumb,
+  .bm-card--now .bm-card__list::-webkit-scrollbar-thumb,
+  .bm-card--recent #recent-topics::-webkit-scrollbar-thumb {
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.35)), to(rgba(0, 0, 0, 0.2)));
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.2));
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    border-radius: 8px; }
+  .bm-card--today .bm-card__list::-webkit-scrollbar-track,
+  .bm-card--now .bm-card__list::-webkit-scrollbar-track,
+  .bm-card--recent #recent-topics::-webkit-scrollbar-track {
+    background: transparent; }
+
+/* Focus visibility inside scrollers */
+.bm-card--today .bm-card__list :focus,
+.bm-card--now .bm-card__list :focus,
+.bm-card--recent #recent-topics :focus {
+  outline: 2px solid currentColor;
+  outline-offset: 2px; }
+
+/* Short viewports: allow a bit taller panes */
+@media (max-height: 720px) {
+  :root {
+    --stats-pane-h: clamp(220px, 50vh, 420px); } }
+
+/* ---------------- Utilities ---------------- */
+.thin {
+  font-size: .95em;
+  opacity: .95; }
 
 /* =========================================
    Plate Button Mixin (theme-toggle style)

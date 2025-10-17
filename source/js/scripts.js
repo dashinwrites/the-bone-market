@@ -673,4 +673,17 @@ document.addEventListener("click", async (e) => {
   }
 })();
 
-console.log('name split active')
+
+/******** "by" cleanout */
+document.querySelectorAll('#recent-topics tr').forEach(tr => {
+  const info = tr.querySelector('.recent-topics-info');
+  if (!info) return;
+  const titleA  = info.querySelector('a:nth-of-type(1)');
+  const authorA = info.querySelector('a:nth-of-type(2)');
+  if (!titleA) return;
+
+  // rebuild left cell: title (line 1) + by author (line 2)
+  const titleHTML  = `<span class="rt-title">${titleA.outerHTML}</span>`;
+  const authorHTML = authorA ? `<span class="rt-author">written by ${authorA.outerHTML}</span>` : "";
+  info.innerHTML = `${titleHTML}<br>${authorHTML}`;
+});
