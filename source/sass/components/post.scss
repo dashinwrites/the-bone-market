@@ -211,7 +211,7 @@
 
   pointer-events: auto;        /* re-enable clicks on the buttons themselves */
 
-  ::after {
+  &::after {
     content:"";
     position:absolute; inset:-8px;
   }
@@ -266,6 +266,12 @@
 .ps-slider:has(> input[id^="ps-3-"]:checked) .ps-arrows .ps-arrow.for-3 {
   display: grid;
 }
+
+.ps-plate{ pointer-events:none; z-index: 1; }
+.ps-plate a, .ps-plate button, .ps-plate [tabindex] { pointer-events:auto; }
+.ps-arrows{ z-index: 3; pointer-events:none; }
+.ps-arrow{  pointer-events:auto; }
+
 
 @media (prefers-reduced-motion: reduce){
   .ps-plate, .ps-arrow{ transition:none; }
