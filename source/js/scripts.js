@@ -674,7 +674,7 @@ document.addEventListener("click", async (e) => {
 })();
 
 
-/******** "by" cleanout */
+/******** "by" cleanout ********/
 document.querySelectorAll('#recent-topics tr').forEach(tr => {
   const info = tr.querySelector('.recent-topics-info');
   if (!info) return;
@@ -684,6 +684,6 @@ document.querySelectorAll('#recent-topics tr').forEach(tr => {
 
   // rebuild left cell: title (line 1) + by author (line 2)
   const titleHTML  = `<span class="rt-title">${titleA.outerHTML}</span>`;
-  const authorHTML = authorA ? `<span class="rt-author">written by ${authorA.outerHTML}</span>` : "";
+  const authorHTML = authorA ? `<span class="rt-author">${authorA.outerHTML}</span>` : "";
   info.innerHTML = `${titleHTML}<br>${authorHTML}`;
 });
