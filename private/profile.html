@@ -19,273 +19,217 @@
             <a name="top"></a>
 		
 
-            <!--Profile-->
-            <section class="bm-profile" data-profile="dossier" data-set="anatomy">
-                <!-- TOP TABS -->
-                <div class="bm-tabs" role="tablist" aria-label="Profile sections">
-                    <button class="bm-tab is-active" id="tabbtn-cover" role="tab"
-                            aria-selected="true" aria-controls="tab-cover" data-tab="cover">cover</button>
+          <!-- ================================================
+            BONE MARKET — CHARACTER DOSSIER TEMPLATE
+            ================================================ -->
+          <section class="bm-profile full-bleed" data-profile="dossier" data-set="anatomy">
+            <!-- TOP TABS -->
+            <div class="bm-tabs" role="tablist" aria-label="Profile sections">
+              <button class="bm-tab is-active" id="tabbtn-cover" role="tab" aria-selected="true" aria-controls="tab-cover" data-tab="cover">cover</button>
+              <button class="bm-tab" id="tabbtn-basics" role="tab" aria-selected="false" aria-controls="tab-basics">basic info & aesthetic</button>
+              <button class="bm-tab" id="tabbtn-cheats" role="tab" aria-selected="false" aria-controls="tab-cheats" data-tab="cheats">cheatsheet & relationships</button>
+              <button class="bm-tab" id="tabbtn-freeform" role="tab" aria-selected="false" aria-controls="tab-freeform" data-tab="freeform">freeform</button>
+              <button class="bm-tab" id="tabbtn-plotting" role="tab" aria-selected="false" aria-controls="tab-plotting" data-tab="plotting">plotting</button>
+              <button class="bm-tab" id="tabbtn-ooc" role="tab" aria-selected="false" aria-controls="tab-ooc" data-tab="ooc">ooc info</button>
+              <span class="bm-tab__active-bar" aria-hidden="true"></span>
+            </div>
 
-                    <button class="bm-tab" id="tabbtn-basics" role="tab"
-                            aria-selected="false" aria-controls="tab-basics">basic info & aesthetic</button>
+            <!-- PANELS -->
+            <div class="bm-panels">
 
-                    <button class="bm-tab" id="tabbtn-cheats" role="tab"
-                            aria-selected="false" aria-controls="tab-cheats" data-tab="cheats">cheatsheet & relationships</button>
+              <!-- COVER -->
+              <section id="tab-cover" class="bm-panel" role="tabpanel" aria-labelledby="tabbtn-cover">
+                <header class="bm-cover">
+                  <div class="bm-cover__portrait">
+                    <img src="https://picsum.photos/1200/1200" alt="Character portrait">
+                  </div>
+                  <figure class="bm-cover__image">
+                    <img src="https://picsum.photos/1600/900" alt="Character cover image">
+                  </figure>
+                  <div class="bm-cover__overlay">
+                    <h1 class="bm-cover__name">
+                      Character Name
+                      <em class="bm-cover__alias">epithet / alias / moniker</em>
+                    </h1>
+                    <div class="bm-cover__links">
+                      <a class="chip" href="#plotting/interested">plots</a>
+                      <a class="chip" href="?act=Msg&CODE=4">message</a>
+                      <a class="chip" href="#ooc">ooc prefs</a>
+                      <a class="chip" href="#freeform">freeform</a>
+                    </div>
+                    <aside class="bm-cover__tw" aria-label="content warnings">
+                      <strong>content warnings</strong>
+                      <p>themes of body horror, ritual sacrifice, and grief</p>
+                    </aside>
 
-                    <button class="bm-tab" id="tabbtn-freeform" role="tab"
-                            aria-selected="false" aria-controls="tab-freeform" data-tab="freeform">freeform</button>
+                    <ul class="bm-cover__tokens">
+                      <!-- relics -->
+                      <li>
+                        <img src="https://i.pinimg.com/736x/ce/49/44/ce49444344049c1451d964379ecdc71d.jpg" alt="ritual knife" title="ritual knife">
+                      </li>
+                      <li>
+                        <img src="https://i.pinimg.com/736x/95/76/0e/95760e88c7772c434b004598da51585e.jpg" alt="feather relic" title="feather relic">
+                      </li>
+                      <li>
+                        <img src="https://i.pinimg.com/736x/f4/97/76/f497760292765388518340b2df90834e.jpg" alt="bone charm" title="bone charm">
+                      </li>
+                      <li>
+                        <img src="https://i.pinimg.com/736x/e3/f0/a3/e3f0a304428372601ecfecc5b5ea9b49.jpg" alt="#anatomy" title="#anatomy">
+                      </li>
+                      <li>
+                        <img src="https://i.pinimg.com/736x/2f/8f/e5/2f8fe5f7cb6b6cb346634a77f02ad2d0.jpg" alt="#nadir" title="#nadir">
+                      </li>
+                    </ul>
 
-                    <button class="bm-tab" id="tabbtn-plotting" role="tab"
-                            aria-selected="false" aria-controls="tab-plotting" data-tab="plotting">plotting</button>
+                  </div>
+                </header>
+              </section>
 
-                    <button class="bm-tab" id="tabbtn-ooc" role="tab"
-                            aria-selected="false" aria-controls="tab-ooc" data-tab="ooc">ooc info</button>
+              <!-- BASIC INFO & AESTHETIC -->
+              <section id="tab-basics" class="bm-panel" role="tabpanel" aria-labelledby="tabbtn-basics" hidden>
+                <div class="bm-basics">
+                  <div class="bm-block bm-basics__info">
+                    <h2 class="bm-h">basic info</h2>
+                    <ul class="bio-grid">
+                      <li><b>name</b> given name | native script | aliases</li>
+                      <li><b>gender & pronouns</b> gender identity, pronouns</li>
+                      <li><b>appears/age</b> apparent age | true age</li>
+                      <li><b>species</b> species or hybrid (faerie, revenant, witch, etc.)</li>
+                      <li><b>orientation</b> sexual & romantic orientation</li>
+                      <li><b>relationship status</b> single / taken / complicated</li>
+                      <li><b>partner(s)</b>name/s here</li>
+                      <li><b>occupation</b> title or trade (florist, surgeon, smuggler)</li>
+                      <li><b>group</b> celestial / flora / anatomy / material</li>
+                      <li><b>orientation</b> apex / median / nadir</li>
+                      <li><b>residence</b> home base or district</li>
+                      <li><b>face claim</b> actor / model / artwork name</li>
+                      <li data-span="full">
+                        <b>defining traits</b>
+                        <span>Distinctive visual details, mannerisms, or anatomical modifications.</span>
+                      </li>
+                    </ul>
+                  </div>
 
-                    <span class="bm-tab__active-bar" aria-hidden="true"></span>
+                  <aside class="bm-block bm-basics__mood" aria-labelledby="mood-title">
+                    <h2 class="bm-h" id="mood-title">aesthetic</h2>
+                    <div class="mood-grid-wrap">
+                      <div class="mood-grid" data-layout="mosaic-a" data-overflow="compact">
+                        <img src="https://picsum.photos/400/500" alt="">
+                        <img src="https://picsum.photos/400/500" alt="">
+                        <img src="https://picsum.photos/400/500" alt="">
+                        <img src="https://picsum.photos/400/500" alt="">
+                        <img src="https://picsum.photos/400/500" alt="">
+                        <img src="https://picsum.photos/400/500" alt="">
+                      </div>
+                    </div>
+                  </aside>
                 </div>
+              </section>
 
-                <!-- PANELS -->
-                <div class="bm-panels">
-                    <!-- COVER -->
-                    <section id="tab-cover" class="bm-panel" role="tabpanel" aria-labelledby="tabbtn-cover">
-                    <header class="bm-cover">
-                        <div class="bm-cover__portrait">
-                          <img src="https://i.pinimg.com/736x/2e/17/4e/2e174e190b63e8c62663cbfcf0126b18.jpg" alt="Character portrait">
-                        </div>
-                        <figure class="bm-cover__image">
-                        <img src="https://picsum.photos/1600/900" alt="Character cover image">
-                        </figure>
-                        <div class="bm-cover__overlay">
-                        <h1 class="bm-cover__name">
-                            Zhao Fanxing
-                            <em class="bm-cover__alias">epithet / alias</em>
-                        </h1>
-                        <div class="bm-cover__links">
-                            <a class="chip" href="#plotting/interested">plots</a>
-                            <a class="chip" href="?act=Msg&CODE=4">message</a>
-                            <a class="chip" href="#ooc">ooc prefs</a>
-                            <a class="chip" href="#freeform">freeform</a>
-                        </div>
-                        <aside class="bm-cover__tw" aria-label="content warnings">
-                            <strong>content warnings</strong>
-                            <p>This profile contains mentions of war, suicide, attempted suicide, general violence and real shitty mental health</p>
-                        </aside>
-                        </div>
-                    </header>
+              <!-- CHEATSHEET & RELATIONSHIPS -->
+              <section id="tab-cheats" class="bm-panel" role="tabpanel" aria-labelledby="tabbtn-cheats" hidden>
+                <div class="bm-cheats">
+                  <article class="bm-block bm-cheats__facts">
+                    <h2 class="bm-h bm-cheats__title">quick facts</h2>
+                    <ul class="tick bm-cheats__scroll">
+                      <li>born in [location], [century/era]</li>
+                      <li>former title or epithet</li>
+                      <li>significant event #1 that shaped their life</li>
+                      <li>significant event #2 (loss, rebirth, betrayal, etc.)</li>
+                      <li>current role within the market</li>
+                      <li>known symbol or relic associated with them</li>
+                      <li>rumored weakness or cost of power</li>
+                    </ul>
+                  </article>
+
+                  <aside class="bm-block bm-cheats__rels">
+                    <h2 class="bm-h">relationships</h2>
+                    <ul class="rel">
+                      <li><span class="tag tag--lover">lover</span> <b>Name</b> — short description of their dynamic.</li>
+                      <li><span class="tag tag--rival">rival</span> <b>Name</b> — one-line vibe summary.</li>
+                      <li><span class="tag tag--kin">kin</span> <b>Name</b> — familial or companion connection.</li>
+                    </ul>
+                  </aside>
+                </div>
+              </section>
+
+              <!-- FREEFORM -->
+              <section id="tab-freeform" class="bm-panel" role="tabpanel" aria-labelledby="tabbtn-freeform" hidden>
+                <article class="bm-block prose">
+                  <h2 class="bm-h">freeform</h2>
+                  <h4 data-box-align="center">title of your scene or prose</h4>
+                  <et-wrap data-width="xl" data-type="imagegrid" data-columns="1">
+                    <et-image data-ratio="16:9">
+                      <img src="https://picsum.photos/1600/900" alt="">
+                    </et-image>
+                  </et-wrap>
+                  <blockquote>
+                    Opening paragraph of your narrative piece. This section can hold vignettes, myth fragments, or dream sequences that expand on their story.
+                  </blockquote>
+                  <h4 data-box-align="center">optional second section</h4>
+                </article>
+              </section>
+
+              <!-- PLOTTING -->
+              <section id="tab-plotting" class="bm-panel" role="tabpanel" aria-labelledby="tabbtn-plotting" hidden>
+                <div class="plot-grid">
+                  <section class="plot-overview bm-block" aria-labelledby="plot-overview-title">
+                    <h3 id="plot-overview-title" class="bm-h has-caps">character overview <span class="hcap" aria-hidden="true"></span></h3>
+                    <div class="plot-overview__scroll">
+                      <article class="bm-block prose">
+                        <p>Brief personality and history summary: tone, moral alignment, or emotional state. Include motives, fears, or hooks for other characters.</p>
+                      </article>
+                    </div>
+                  </section>
+
+                  <div class="plot-stacks">
+                    <section class="plot-card bm-block" aria-labelledby="plot-int-title">
+                      <h3 id="plot-int-title" class="bm-h has-caps">interested <span class="hcap" aria-hidden="true"></span></h3>
+                      <div class="plot-card__scroll">
+                        <ul class="tick">
+                          <li>Allies, patrons, or fellow artisans within the Market.</li>
+                          <li>Those who share a common history, faith, or debt.</li>
+                          <li>Potential rivals turned collaborators.</li>
+                        </ul>
+                      </div>
                     </section>
 
-    <!-- BASIC INFO & AESTHETIC -->
-    <section id="tab-basics" class="bm-panel" role="tabpanel" aria-labelledby="tabbtn-basics" hidden>
-      <div class="bm-basics">
-        <!-- LEFT: Basic info -->
-        <div class="bm-block bm-basics__info">
-          <h2 class="bm-h">basic info</h2>
-          <ul class="bio-grid">
-            <li><b>name</b> zhào fánxīng | 趙繁星</li>
-            <li><b>gender & pronouns</b> cisgender male, he/him</li>
-            <li><b>appears/age</b> 794 years old</li>
-            <li><b>species</b> faerie (seelie)</li>
-            <li><b>orientation</b> homosexual homoromantic</li>
-            <li><b>relationship status</b> it's complicated</li>
-            <li><b>partner(s)</b> <a href="/">zhou zhiyuan</a></li>
-            <li><b>occupation</b> florist</li>
-            <li><b>face claim</b> chen feiyu</li>
-            <li><b>group</b> group</li>
-            <li><b>height/weight</b> 5'8" | 149lbs</li>
-            <li><b>residence</b> location</li>
-            <li><b>orientation</b> nadir</li>
-            <li data-span="full">
-              <b>defining traits</b>
-              <span>Somewhat gruesome scar across his throat courtesy of one of his near-death experiences that he usually obscures with various neck accessories. He can be a <i>little</i> self-conscious about it when it's noticed, but generally not enough to do anything about it unless someone actually brings it up.</span>
-            </li>
-          </ul>
-        </div>
+                    <section class="plot-card bm-block" aria-labelledby="plot-not-title">
+                      <h3 id="plot-not-title" class="bm-h has-caps">not interested <span class="hcap" aria-hidden="true"></span></h3>
+                      <div class="plot-card__scroll">
+                        <ul class="tick">
+                          <li>Types of plots, genres, or dynamics the player prefers to avoid.</li>
+                        </ul>
+                      </div>
+                    </section>
+                  </div>
+                </div>
+              </section>
 
-      <!-- Moodboard stays as-is -->
-      <aside class="bm-block bm-basics__mood" aria-labelledby="mood-title">
-      <div class="mood-grid-wrap">
-        <div class="mood-grid" data-layout="mosaic-a" data-overflow="compact">
-          <img src="https://i.pinimg.com/564x/87/f8/d8/87f8d89aa95dd629b8293f24060aa383.jpg" alt="">
-          <img src="https://i.pinimg.com/564x/3d/59/8a/3d598a482461abc6e00b3c63f4b2fce8.jpg" alt="">
-          <img src="https://i.pinimg.com/736x/e8/4c/03/e84c03097ca9bfb50ff52fcfad98ad97.jpg" alt="">
-          <img src="https://i.pinimg.com/564x/e9/f6/ab/e9f6ab35393a5225a8d9e40374218803.jpg" alt="">
-          <img src="https://i.pinimg.com/564x/ef/9c/d7/ef9cd7764abbd96c8c2a2ccaa4f153ca.jpg" alt="">
-          <img src="https://i.pinimg.com/564x/eb/c8/0e/ebc80e14987b3cfa8319ef8b6c268c28.jpg" alt="">
-        </div>
-      </div>
-    </aside>
-  </div>
-</section>
+              <!-- OOC INFO -->
+              <section id="tab-ooc" class="bm-panel" role="tabpanel" aria-labelledby="tabbtn-ooc" hidden>
+                <div class="bm-block grid-2">
+                  <div>
+                    <h2 class="bm-h">writer</h2>
+                    <ul class="stack">
+                      <li>timezone: …</li>
+                      <li>reply pace: …</li>
+                      <li>contact: PM / Discord …</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h2 class="bm-h">preferences</h2>
+                    <ul class="stack">
+                      <li>3rd or 1st present; average word count …</li>
+                      <li>wants: hurt/comfort, debts, peril</li>
+                      <li>limits: explicit list or “see not interested”</li>
+                    </ul>
+                  </div>
+                </div>
+              </section>
 
-
-    <!-- CHEATSHEET & RELATIONSHIPS -->
-    <section id="tab-cheats" class="bm-panel" role="tabpanel" aria-labelledby="tabbtn-cheats" hidden>
-      <div class="bm-cheats">
-        <!-- Quick facts (scrolls) -->
-        <article class="bm-block bm-cheats__facts">
-          <h2 class="bm-h bm-cheats__title">quick facts</h2>
-          <ul class="tick bm-cheats__scroll">
-            <li>The only child of the rulers of China's Seelie Court during the Southern Song dynasty, Fanxing was raised as the assumed successor to the throne. As a result he always had a very clear path laid out before him; he knew where he was going, what he was supposed to be doing with his life. Unlike many others who might have rebelled against such a pre-defined existence, Fanxing took to it like a fish in water.</li>
-            <li>Comfortable in his role, it was easy to be the perfect prince, to fit the mold his parents—his <i>people</i>—expected from him.</li>
-            <li>Known to the people as <i>Xīngchén Huángzǐ</i> (星辰皇子), meaning 'Prince of the Stars.' There were other names, of course, but this was the most common one to hear.</li>
-            <li>During a border skirmish with the Mongols in 1262, Fanxing is badly injured and the battle almost immediately goes south. He's rushed to safety by a (to him) nameless soldier, fighting all the while to <i>stay.</i></li>
-            <li>His protests fall on deaf ears, no matter how desperate his pleas become, and when the soldier decides to leave, to go back to find medical supplies to treat Fanxing's injuries, nothing Fanxing says seems to sway him. The boy doesn't return, but when Fanxing next wakes it's to those very same supplies laid out beside him.</li>
-            <li>Things, as they're wont to do, go downhill from there. Fanxing survives, but it's a distinctly less <i>optimistic</i> prince that emerges after recovering from his injuries. No less dedicated to the cause, to his people, but it was a different <i>kind</i> of dedication, something that made him <i>feared</i> rather than beloved.</li>
-            <li>Fanxing carries on like this for over a decade; heedless of the danger he puts himself in, almost seeming to <i>chase</i> death even as he refuses to let it claim him.</li>
-            <li>Little does he know that it's not entirely <i>his</i> determination that keeps death's claws from tearing out his throat.</li>
-            <li>After so long of watching his reckless, seemingly suicidal pursuits, and just as long watching him walk away from them (even if he doesn't come out entirely unscathed) the people start to call him <i>Jiǔmìng Wángzǐ</i> (九命王子), or 'The Nine-Lives Prince'.</li>
-            <li>Things get bad. They get <i>worse.</i> As the Song dynasty comes to an end, Fanxing finds himself aligning more and more with the behaviors and morals of the Unseelie court. The Yuan dynasty rises in Song's place, and Fanxing reemerges as a general of the Mongol khanate.</li>
-            <li>His steps are dogged by an individual in a mask—though Fanxing never sees their face and can't really give reason to the belief, he <i>knows</i> it's the same person, no matter where they end up. They are a faithful follower, never once failing to watch Fanxing's back, to cover his weak points when he's too reckless to do so. They never exchange a word, because the masked man never initiates, and Fanxing never cares to.</li>
-            <li>Eventually, though, everyone's luck runs out. Fanxing is no exception to this rule.</li>
-            <li>Bad Things™ happen.</li>
-            <li>This is as close to dying as Fanxing has ever been, but deep down he's pretty convinced he deserves it.</li>
-            <li>Miraculously, he survives. When he wakes up, it's to a wet, slobbering tongue thoroughly coating his face in saliva. Said tongue turns out to be attached to a dog (not a dog) that Fanxing names Baiyun, meaning <i>white cloud.</i> Because he's white, and is as close to an airhead as a dog can get. Fanxing doesn't know where he came from, but he can't bring himself to leave him behind—and there's a good chance Baiyun wouldn't have <i>allowed</i> that, given how determined he seemed to stick to Fanxing like the world's most dedicated limpet.</li>
-            <li>Believed to be dead by anyone that mattered, Fanxing abandons any connection to the faerie courts. He sets out on his own, plus Baiyun (who's <i>definitely</i> not a normal dog), and travels across China for a time, never settling in one place for long. Soon enough, though, the pull of the larger world, along with the memories and regrets of the life he's left behind, sees him leaving China altogether.</li>
-            <li>His luck never really gets any better, but Fanxing has a consistently brave face about it, preferring to face it with a smile rather than feeling sorry for himself. Baiyun helps, of course, a constant companion who does more for his mental state than anything <i>he</i> could do for himself.</li>
-            <li>Given his role in life, he's never really been <i>given</i> nicknames that weren't attached to titles of respect or nods to his station. He is liable to be quite surprised by being addressed by anything other than his name (rarely) or 'hey, you!' (much more common, these days).</li>
-            <li>Never lacked in <i>interested</i> suitors in his youth, but beyond never being particularly interested in that aspect of what was expected of him, things never got to the point of him being pressured into finding a wife—which, in the end, is probably a good thing.</li>
-            <li>Because as it turns out, Fanxing is very, <i>very</i> deep in the closet. What's a closet? He doesn't know what you're talking about!</li>
-            <li>While Fanxing was born a prince of a Seelie court, and later considered himself a part of the Yuan dynasty's <i>Un</i>seelie court, he doesn't currently ascribe himself to any one court, Seelie <i>or</i> Unseelie.</li>
-            <li>Is about as far from in-the-know about modern faerie politics, Seelie or Unseelie, as one can get. Yes, this is intentional, and no, he doesn't have plans to change that any time soon.</li>
-            <li>Generally a very nice person, can't quite bring himself to say no to people who seem like they're <i>genuinely</i> in need but also works to maintain a certain distance with others that leads to him seeming somewhat aloof.</li>
-            <li>His flower shop is named <i>Lóng Mén</i> (龙门), based on the saying <i>Lǐ Yú Yuè Lóng Mén</i> (鲤鱼跃龙门), meaning 'The Carp Leaps Over the Dragon Gate'.</li>
-            <li>The saying is a reference to rising above humble beginnings, based on an ancient Chinese legend. If a carp could leap over the Dragon Gate, it would transform into a real dragon and ascend. For Fanxing, it's a reference to his business's beginning as a literal stand on the side of the road, and the work and dedication that went into making it what it is now—small, but undeniably successful.</li>
-            <li>Cannot cook to save his life, though he's persistent and somewhat dense about the fact that most of what he cooks isn't exactly fit for consumption.</li>
-          </ul>
-        </article>
-
-        <!-- Relationships (side column) -->
-        <aside class="bm-block bm-cheats__rels">
-          <h2 class="bm-h">relationships</h2>
-          <ul class="rel">
-            <li><span class="tag tag--lover">lover</span> <b>zhou zhiyuan</b> — Fanxing is yet to fully realize the significance of Zhiyuan's role in his life, and likely won't for a while.</li>
-            <li><span class="tag tag--rival">rival</span> <b>name</b> — one-line vibe.</li>
-            <li><span class="tag tag--kin">kin</span> <b>Baiyun | 白云 | "white cloud"</b> — Fanxing's dog (he's not a dog). Just kind of showed up one day long ago (it's a long story) and Fanxing's more or less just accepted the fact that he's stuck with him. Don't mind the fact that it's been several hundred years and yes, it is the same dog (he's still not a dog). Sometimes overly protective but in an absurdly endearing kind of way.</li>
-          </ul>
-        </aside>
-      </div>
-    </section>
-
-
-    <!-- FREEFORM -->
-    <section id="tab-freeform" class="bm-panel" role="tabpanel" aria-labelledby="tabbtn-freeform" hidden>
-      <article class="bm-block prose">
-        <h2 class="bm-h">freeform</h2>
-        <h4 data-box-align="center">body in the abyss;</h4><et-wrap data-width="xl" data-type="imagegrid" data-columns="1"><et-image data-ratio="16:9"><img src="https://i.pinimg.com/564x/31/91/89/319189ff641039cb4b27cd090ab5cd20.jpg"></et-image></et-wrap><blockquote>You think, at first, that it's an angel come to take you away from here. <i>He</i>, you decide, after a moment of monumental focus that leaves your head spinning in the aftermath. He is, in a word, beautiful, though you're aware enough to recognize that that might be the head trauma (which is putting it rather lightly) or the blood loss talking more than any kind of critical analysis. There's no way to tell for sure how much time has passed since you'd been left alone here, hours or days or—you don't dare to think about the possibility of it having been any <i>longer</i> than that. <br>
-<br>
-The sun is overhead, when your angel arrives. It halos his head like a crown, and you can't focus your eyes enough to see his face in any detail, but you can <i>feel</i> the otherworldliness that rolls off him in waves as he kneels beside you. You smile, heedless of the fact that it must be a gruesome sight—you distinctly remember coughing up a not-insignificant amount of blood at least once, and at the time wiping the blood off your face had never seemed like such an important thing to be concerned about. It's dried on your lips, your chin, and down your throat, and you can feel it pull, crackling, as your mouth moves.<br>
-<br>
-Your angel does not return that smile. In fact, he looks almost…<i>despondent</i>, as if you're something worth mourning. He appears to be carrying a heavy weight, back bent and shoulders slumped. You're compelled to reach out, to comfort him as much as you can, but when you tell your arm to move, it only does so partway before your strength gives out, a small sound of frustration escaping from between clenched teeth. Before your hand can fall, though, it's caught—carefully, as if your angel is afraid your hand might shatter at the slightest touch.<br>
-<br>
-<i>"Xīngchén Huángzǐ—"</i><br>
-<br>
-You almost miss it. At first, you think it's your hearing, which has been going in and out for the last however long, but the angel says it again and you realize that—no, it's not just you. His voice is barely above a whisper, and it cracks partway through the second time. You think to comfort him, but instead end up choking on your own blood when you try to speak, which only makes the look on his face <i>worse</i>. If you weren't in so much pain it would almost be funny, how he seems to be <i>so</i> much more worried for you than you are for yourself, but it's…confusing, too. Isn't he supposed to be <i>taking you</i> somewhere? Isn't that what angels do?<br>
-<br>
-You want to ask. You try again, but this time the blood goes <i>down</i> instead of out. <br>
-<br>
-Pain is an old companion. There is nothing left <i>but</i> pain. Pain is all you are, all you have. You don't remember what it felt like to not be in pain. To not have iron and rowan wood piercing your flesh in so many places you think you might be more <i>hole</i> than man. Your angel holds you through it all, though you don't remember when he put your head in his lap, or when he started carding his fingers through your hair. It's a comfort, and you allow it to lull you into a deep sleep that, honestly, you don't expect to wake up from.<br>
-<br>
-Time passes, but you do not.<br>
-<br>
-Eventually, awareness returns. There's still pain, too, but it takes longer than it probably should for you to realize that it's <i>less</i>. Both in quantity and in intensity. The weapons that had been left in your body have been removed. Your body still aches, but <i>now</i>, it's the healing kind of pain, which you're all too familiar with.<br>
-<br>
-When you remember how to open your eyes, you're met with a room. It's simple, but clean—and you don't have the slightest clue how you got here. You're laying in a bed, soft sheets pulled nearly to your neck. A few minutes pass, and the door opens to reveal a man. Masked, and he doesn't say a word even as you pull out every trick in your effort to get answers—to get <i>anything</i>—out of him. He is silent, but diligent. <br>
-<br>
-He never leaves your side, not even when you're <i>finally</i> recovered enough to set out for Yuan's capitol, not as you tear a warpath through China's countryside.<br>
-<br>
-Just when you start to think he never will, that you really <i>won't</i> have to be alone anymore, the masked man disappears.<br>
-<br>
-But you're not alone. Bái​yún is there, steadfast and loyal.<br>
-<br>
-You move on, because you don't really have a choice. But you don't forget.</blockquote><br>
-<et-wrap data-width="xl" data-type="imagegrid" data-columns="1"><et-image data-ratio="16:9"><img src="https://i.pinimg.com/736x/dc/76/21/dc76210aab3a2e9f1c0e3ecd50ad569d.jpg"></et-image></et-wrap><h4 data-box-align="center">heart in paradise</h4><style>et-wrap {margin: 10px auto;} </style>
-      </article>
-    </section>
-
-    <!-- PLOTTING (NESTED TABS) -->
-    <section id="tab-plotting" class="bm-panel" role="tabpanel" aria-labelledby="tabbtn-plotting">
-      <div class="plot-grid">
-        <!-- LEFT: Full-height overview -->
-        <section class="plot-overview bm-block" aria-labelledby="plot-overview-title">
-          <h3 id="plot-overview-title" class="bm-h has-caps">
-            character overview <span class="hcap" aria-hidden="true"></span>
-          </h3>
-
-          <div class="plot-overview__scroll">
-            <div class="grid-2">
-              <article class="bm-block prose">
-                Unlike the trajectory of his shockingly successful little flower shop, Fanxing's path in life has been rather downhill. Once a Seelie prince of China's Song Dynasty, he fell from grace very quickly and very <i>hard</i>. He's had more near-death experiences than he cares to remember and to this day isn't entirely sure <i>how</i> he's still alive in the first place.
-
-                Despite all that he's still a kind soul—or, he is <i>now</i>, there was a period where that wasn't so much the case (and we don't really <i>talk</i> about that anyway, unpleasant memories and all)—with a big heart and probably too much empathy for others. Fanxing has had a lot of time to reflect, both on himself and his past at large and has reached a certain level of acceptance even if he's not necessarily <i>proud</i> of himself. 
-
-                It's very hard for him to say no, even when he does people tend to run right over it as if he never said it at all, and he frankly doesn't care enough to push the subject if he can help it.
-
-                Despite being exceptionally perceptive, Fanxing has a tendency to be a little…<i>head empty</i> when it comes to things people so clearly don't want him to notice. He's just as likely to ignore it as he is to notice it in the first place, and he's generally a good enough actor to get away with it until it's time to give up the ghost.
-              </article>
-            </div>
-          </div>
-        </section>
-
-        <!-- RIGHT: Two half-height stacks -->
-        <div class="plot-stacks">
-          <!-- Interested -->
-          <section class="plot-card bm-block" aria-labelledby="plot-int-title">
-            <h3 id="plot-int-title" class="bm-h has-caps">
-              interested <span class="hcap" aria-hidden="true"></span>
-            </h3>
-
-            <div class="plot-card__scroll">
-              <ul class="tick">
-                <li><b>Figures of the past.</b> People who knew him, but don't <i>know him,</i> if you get my drift. Most likely individuals from either court during the (Southern) Song Dynasty, 1127-1279 AD, I'm more than happy to work out details and any specifics—and there are <i>plenty</i> of options for TGCF-inspired characters to slot in here!</li>
-                <li><b>Figures of the present.</b> There's some leeway here, almost definitely room for crossover between this group and the former, and just about as much flexibility in terms of <i>who</i> they are. This also covers any <i>friends</i> Fanxing might have made in the modern day, though that might be a bit of a generous term to give those relationships. He's friendly to a fault, but does his best to keep people at a certain distance even if <i>they'd</i> rather like to bridge that gap.</li>
-                <li><b>Patrons.</b> Every business needs customers to survive, and Fanxing's is no different!</li>
-                <li>He doesn't currently have or particularly need any additional employees at Dragon Gate, <i>but</i> I'd definitely be open to discussing it if there's any particular interest in having someone work at the shop on occasion—<i>especially</i> as his love life begins to take shape.</li>
-                <li>On a similar note to option 1, I'd absolutely <i>love</i> to incorporate pretty much any <b>TGCF-inspired</b> characters into Fanxing's life.</li>
-              </ul>
             </div>
           </section>
-
-          <!-- Not interested -->
-          <section class="plot-card bm-block" aria-labelledby="plot-not-title">
-            <h3 id="plot-not-title" class="bm-h has-caps">
-              not interested <span class="hcap" aria-hidden="true"></span>
-            </h3>
-
-            <div class="plot-card__scroll">
-              <ul class="tick">
-                <li><b>Romance.</b> There are plans in place and beyond that Fanxing's never really been <i>interested</i> in other people that way. Or maybe he's just yet to meet the right one...</li>
-              </ul>
-            </div>
-          </section>
-        </div>
-      </div>
-    </section>
-
-
-
-    <!-- OOC INFO -->
-    <section id="tab-ooc" class="bm-panel" role="tabpanel" aria-labelledby="tabbtn-ooc" hidden>
-      <div class="bm-block grid-2">
-        <div>
-          <h2 class="bm-h">writer</h2>
-          <ul class="stack">
-            <li>timezone: America/Denver</li>
-            <li>reply pace: …</li>
-            <li>contact: PM / Discord …</li>
-          </ul>
-        </div>
-        <div>
-          <h2 class="bm-h">preferences</h2>
-          <ul class="stack">
-            <li>3rd or 1st present; 400–800 words</li>
-            <li>wants: hurt/comfort, debts, peril</li>
-            <li>limits: see Not Interested</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-  </div>
-            </section>
 
         </main>
 

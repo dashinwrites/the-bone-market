@@ -46,14 +46,17 @@ body {
   position: relative;
   margin-block-start: var(--nav-h);
   margin-inline-start: var(--leftbar-w);
-  min-block-size: 100dvb;
+  // min-block-size: 100dvb;
 
-  > .full-bleed {
+  > .full-bleed,
+  > main > .bm-profile.full-bleed {
     box-sizing: border-box;
-    // margin-inline: calc(-1 * var(--container-pad));
+    margin-inline: calc(-1 * var(--container-pad));
     inline-size: calc(100% + 2 * var(--container-pad));
     overflow-x: clip;
   }
+
+
 }
 
 /* ================================

@@ -4,6 +4,10 @@
    ========================================= */
 /* Optional: current/active state helper */
 /* Optional: tooltip pulled from a data attribute (e.g., data-label) */
+/* ================================================
+   Plate-button look for cover tokens
+   ================================================ */
+/* Reusable mixin (oval by default) */
 /* Optional: respect prefers-reduced-motion on anything you include this on */
 /* Gradient underline mixin */
 /* ================================
@@ -64,10 +68,11 @@ body {
   padding-inline: var(--container-pad);
   position: relative;
   margin-block-start: var(--nav-h);
-  margin-inline-start: var(--leftbar-w);
-  min-block-size: 100dvb; }
-  .bm-container > .full-bleed {
+  margin-inline-start: var(--leftbar-w); }
+  .bm-container > .full-bleed,
+  .bm-container > main > .bm-profile.full-bleed {
     box-sizing: border-box;
+    margin-inline: calc(-1 * var(--container-pad));
     inline-size: calc(100% + 2 * var(--container-pad));
     overflow-x: clip; }
 

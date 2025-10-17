@@ -4,6 +4,10 @@
    ========================================= */
 /* Optional: current/active state helper */
 /* Optional: tooltip pulled from a data attribute (e.g., data-label) */
+/* ================================================
+   Plate-button look for cover tokens
+   ================================================ */
+/* Reusable mixin (oval by default) */
 /* Optional: respect prefers-reduced-motion on anything you include this on */
 /* Gradient underline mixin */
 /* =========================================
@@ -168,10 +172,13 @@
   gap: 1rem;
   align-content: start;
   padding-block-start: var(--overlay-top);
-  padding-inline: var(--overlay-left) calc(var(--portrait-offset) + var(--portrait-max-w));
-  color: #fff; }
+  padding-inline: 0 calc(var(--portrait-offset) + var(--portrait-max-w));
+  color: var(--text-clear);
+  block-size: 100%;
+  grid-template-rows: auto auto auto 1fr auto; }
   .bm-cover__overlay .bm-cover__name {
     margin: 0;
+    margin-left: 2rem;
     font-family: var(--font-serif);
     font-size: clamp(2rem, 6vw, 3.4rem);
     letter-spacing: .25rem;
@@ -198,6 +205,10 @@
       margin-block-start: .25rem;
       margin-inline-start: 2rem;
       letter-spacing: .02em; }
+
+.bm-cover__name,
+.bm-cover__links {
+  margin-left: 2rem; }
 
 .bm-cover__links {
   display: flex;
@@ -244,6 +255,119 @@
     margin: 0;
     padding-inline-start: 1.1rem;
     text-align: justify; }
+
+.bm-cover__tokens {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  grid-column: 1 / 2;
+  grid-row: 4 / 5;
+  align-self: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  justify-self: stretch;
+  justify-content: space-around;
+  align-content: center;
+  margin-block: .75rem 1.25rem;
+  padding-inline: .25rem; }
+  .bm-cover__tokens li {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 100px;
+    height: 160px;
+    border-radius: 100%;
+    border: var(--border-1);
+    background: color-mix(in oklab, var(--bg-1) 90%, transparent);
+    box-shadow: var(--plate-shadow);
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    transition: transform var(--transi-slow), background var(--transi-slow);
+    position: relative;
+    inline-size: 100px;
+    block-size: 160px;
+    border-radius: 100%;
+    border: var(--border-1);
+    background: var(--bg-1);
+    box-shadow: var(--plate-shadow);
+    overflow: hidden;
+    isolation: isolate;
+    transition: transform 0.2s var(--transi-quick), filter 0.2s var(--transi-quick);
+    /* dashed inset ring */
+    /* soft specular highlight / vignette */
+    /* hover / pressed */
+    /* keyboard focus if you ever wrap img in a link/button */
+    /* image as plate fill */ }
+    .bm-cover__tokens li:hover {
+      transform: scale(1.08);
+      background: color-mix(in oklab, var(--accent-1) 20%, var(--bg-1)); }
+      .bm-cover__tokens li:hover img {
+        filter: grayscale(0) brightness(1);
+        opacity: 1; }
+    .bm-cover__tokens li img {
+      inline-size: 100%;
+      block-size: 100%;
+      object-fit: cover;
+      border-radius: 100%;
+      filter: grayscale(1) brightness(1.1);
+      opacity: .9;
+      transition: filter 0.25s var(--transi-quick); }
+      .bm-cover__tokens li img[title] {
+        cursor: help; }
+    .bm-cover__tokens li::before {
+      content: "";
+      position: absolute;
+      inset: .45rem;
+      border: 1.5px dashed color-mix(in oklab, var(--accent-1) 85%, #fff 15%);
+      opacity: .85;
+      border-radius: 100%;
+      pointer-events: none;
+      z-index: 2;
+      transition: opacity 0.25s var(--transi-quick); }
+    .bm-cover__tokens li::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(120% 80% at 50% -20%, rgba(255, 255, 255, 0.16), transparent 60%), linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(0, 0, 0, 0.08));
+      mix-blend-mode: soft-light;
+      opacity: .5;
+      pointer-events: none;
+      z-index: 1; }
+    .bm-cover__tokens li:hover {
+      transform: translateY(-2px); }
+    .bm-cover__tokens li:active {
+      transform: translateY(0);
+      filter: saturate(1.05); }
+    .bm-cover__tokens li:focus-within {
+      outline: none;
+      box-shadow: 0 0 0 2px color-mix(in oklab, var(--accent-1) 60%, transparent), var(--plate-shadow); }
+    .bm-cover__tokens li > img {
+      display: block;
+      inline-size: 100%;
+      block-size: 100%;
+      object-fit: cover;
+      /* fill without distortion */
+      object-position: 50% 50%;
+      border-radius: inherit;
+      /* match the plate edge */
+      filter: grayscale(1) brightness(1.05);
+      transition: filter 0.2s var(--transi-quick); }
+    .bm-cover__tokens li:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.05);
+      /* keep visible & slightly brighter */ }
+      .bm-cover__tokens li:hover::before {
+        opacity: 1; }
+      .bm-cover__tokens li:hover > img {
+        filter: grayscale(0) brightness(1.1); }
+
+/* optional modifier for square tokens */
+.bm-cover__tokens--square li {
+  border-radius: 6px; }
 
 /* =========================================
    Blocks / Headings / Small utilities

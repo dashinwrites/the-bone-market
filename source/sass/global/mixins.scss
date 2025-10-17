@@ -371,6 +371,84 @@ $size-xxl: 1900px !default;
   }
 }
 
+/* ================================================
+   Plate-button look for cover tokens
+   ================================================ */
+
+/* Reusable mixin (oval by default) */
+@mixin plate-token($w: 120px, $h: 160px, $radius: 100%) {
+  position: relative;
+  inline-size: $w;
+  block-size: $h;
+  border-radius: $radius;
+  border: var(--border-1);
+  background: var(--bg-1);
+  box-shadow: var(--plate-shadow);
+  overflow: hidden;
+  isolation: isolate;
+  transition: transform .2s var(--transi-quick), filter .2s var(--transi-quick);
+
+  /* dashed inset ring */
+  &::before {
+    content: "";
+    position: absolute;
+    inset: .45rem;                       
+    border: 1.5px dashed color-mix(in oklab, var(--accent-1) 85%, #fff 15%);
+    opacity: .85;
+    border-radius: $radius;
+    pointer-events: none;
+    z-index: 2;
+    transition: opacity .25s var(--transi-quick);
+  }
+
+  /* soft specular highlight / vignette */
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(120% 80% at 50% -20%, rgba(255,255,255,.16), transparent 60%),
+      linear-gradient(180deg, rgba(255,255,255,.06), rgba(0,0,0,.08));
+    mix-blend-mode: soft-light;
+    opacity: .5;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* hover / pressed */
+  &:hover { transform: translateY(-2px); }
+  &:active { transform: translateY(0); filter: saturate(1.05); }
+
+  /* keyboard focus if you ever wrap img in a link/button */
+  &:focus-within {
+    outline: none;
+    box-shadow:
+      0 0 0 2px color-mix(in oklab, var(--accent-1) 60%, transparent),
+      var(--plate-shadow);
+  }
+
+  /* image as plate fill */
+  > img {
+    display: block;
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;           /* fill without distortion */
+    object-position: 50% 50%;
+    border-radius: inherit;      /* match the plate edge */
+    filter: grayscale(1) brightness(1.05);
+    transition: filter .2s var(--transi-quick);
+  }
+
+   &:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.05);
+    
+    &::before { opacity: 1; }  /* keep visible & slightly brighter */
+    > img { filter: grayscale(0) brightness(1.1); }
+  }
+}
+
 /* Optional: respect prefers-reduced-motion on anything you include this on */
 @mixin reduce-motion {
   @media (prefers-reduced-motion: reduce) {

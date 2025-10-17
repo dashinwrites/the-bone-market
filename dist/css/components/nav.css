@@ -4,6 +4,10 @@
    ========================================= */
 /* Optional: current/active state helper */
 /* Optional: tooltip pulled from a data attribute (e.g., data-label) */
+/* ================================================
+   Plate-button look for cover tokens
+   ================================================ */
+/* Reusable mixin (oval by default) */
 /* Optional: respect prefers-reduced-motion on anything you include this on */
 /* Gradient underline mixin */
 /*******************************
@@ -82,7 +86,7 @@
   display: flex;
   align-items: start;
   justify-content: center;
-  padding-block: 20px;
+  padding-block: 20px 0;
   inline-size: var(--leftbar-w);
   block-size: 100dvb;
   z-index: var(--z-leftbar);
