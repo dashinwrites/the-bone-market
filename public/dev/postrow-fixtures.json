@@ -2,7 +2,7 @@
   {
     "pid": "101",
     "poster_id": "7",
-    "author_name": "A. Curator",
+    "author_name": "First Lastname",
     "GROUP_TITLE": "crown",
     "POST_COUNT": "324",
     "JOINED_DATE": "Mar 2024",
@@ -11,7 +11,7 @@
     "POST_ISO": "2025-10-11T19:42:00-06:00",
     "FORUM_ID": "1",
     "topic_id": "1556",
-    "AVATAR": "<img src=\"https://picsum.photos/250/400?random=1\" alt=\"Avatar of A. Curator\">",
+    "AVATAR": "<img src=\"https://picsum.photos/500/800?random=1\" alt=\"Avatar of A. Curator\">",
     "POST_BUTTONS": "<a class=\"macro--button\" href=\"#\">edit</a> <a class=\"macro--button\" href=\"#\">quote</a>",
     "POST": "<p>Magic is currency. Debt keeps the market breathing. <em>Don’t</em> ask what we pay with.</p>"
   },
@@ -27,7 +27,7 @@
     "POST_ISO": "2025-10-11T19:54:00-06:00",
     "FORUM_ID": "1",
     "topic_id": "1556",
-    "AVATAR": "<img src=\"https://picsum.photos/250/400?random=2\" alt=\"Avatar of B. Archivist\">",
+    "AVATAR": "<img src=\"https://picsum.photos/500/800?random=2\" alt=\"Avatar of B. Archivist\">",
     "POST_BUTTONS": "<a class=\"macro--button\" href=\"#\">edit</a> <a class=\"macro--button\" href=\"#\">quote</a>",
     "POST": "<p>Check the ledger twice: blood in, bone out. Balances aren’t always arithmetic.</p><blockquote>a note pinned with a bone needle</blockquote>"
   }

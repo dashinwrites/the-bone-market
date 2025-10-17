@@ -3809,14 +3809,23 @@ body[id="idx"] .bm-head {
     background: linear-gradient(90deg, color-mix(in srgb, var(--accent-1) 0%, transparent) 0%, color-mix(in srgb, var(--accent-1) 70%, transparent) 50%, color-mix(in srgb, var(--accent-1) 0%, transparent) 100%);
     opacity: .35;
     pointer-events: none; }
-  .bm-post__head .bm-post__title {
+  .bm-post__head .bm-author {
     margin: 0;
     font-family: var(--font-serif);
-    font-size: 1rem; }
-  .bm-post__head .bm-post__title a {
+    font-size: 3rem; }
+  .bm-post__head .bm-author a {
     color: var(--text-clear);
     text-decoration: none;
     text-underline-offset: 2px; }
+    .bm-post__head .bm-author a .fn {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      letter-spacing: .02em; }
+    .bm-post__head .bm-author a .ln {
+      font-family: var(--font-sans);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em; }
   .bm-post__head .bm-post__meta {
     display: -webkit-box;
     display: -webkit-flex;
@@ -3831,12 +3840,14 @@ body[id="idx"] .bm-head {
         -ms-flex-wrap: wrap;
             flex-wrap: wrap;
     font-family: var(--font-sans);
-    padding-right: 1rem; }
+    padding-right: 1rem;
+    font-variant: all-small-caps;
+    font-size: var(--size-lg); }
   .bm-post__head .bm-post__meta .permalink {
-    opacity: .8;
-    text-transform: lowercase; }
+    opacity: .8; }
   .bm-post__head .bm-post__meta .sep {
-    opacity: .6; }
+    opacity: .6;
+    color: var(--text-clear); }
 
 /* =========================================================
    (1) MINI PROFILE = PURE-CSS SLIDER (STICKY)

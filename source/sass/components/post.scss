@@ -72,11 +72,29 @@
     opacity:.35; pointer-events:none;
   }
 
-  .bm-post__title{ margin:0; font-family:var(--font-serif); font-size:1rem; }
-  .bm-post__title a{ color:var(--text-clear); text-decoration:none; text-underline-offset:2px; }
-  .bm-post__meta{ display:flex; align-items:center; gap:.5rem; flex-wrap:wrap; font-family: var(--font-sans); padding-right: 1rem; }
-  .bm-post__meta .permalink{ opacity:.8; text-transform:lowercase; }
-  .bm-post__meta .sep{ opacity:.6; }
+  .bm-author{ margin:0; font-family:var(--font-serif); font-size:3rem; }
+  
+  .bm-author a { 
+    color:var(--text-clear); 
+    text-decoration:none; 
+    text-underline-offset:2px; 
+  
+    .fn {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      letter-spacing: .02em;
+    }
+    .ln {
+      font-family: var(--font-sans);
+      font-weight: 700; // bold
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+  }
+
+  .bm-post__meta{ display:flex; align-items:center; gap:.5rem; flex-wrap:wrap; font-family: var(--font-sans); padding-right: 1rem; font-variant:all-small-caps; font-size:var(--size-lg); }
+  .bm-post__meta .permalink{ opacity:.8;}
+  .bm-post__meta .sep{ opacity:.6; color:var(--text-clear); }
 }
 
 /* =========================================================

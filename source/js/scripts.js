@@ -587,3 +587,90 @@ document.addEventListener("click", async (e) => {
 
   document.querySelectorAll('.bm-post__aside[data-mini="carousel"]').forEach(setupCarousel);
 })();
+
+// First/last split
+(function () {
+  const PARTICLES = new Set(["van","von","de","del","della","de la","de-la","di","da","du","bin","al","ibn"]);
+  const SUFFIXES  = new Set(["jr.","sr.","jr","sr","ii","iii","iv","v"]);
+
+  const splitName = (raw) => {
+    let s = (raw || "").replace(/\s+/g, " ").trim();
+    if (!s) return { first: "", last: "" };
+    const parts = s.split(" ");
+    if (parts.length === 1) return { first: s, last: "" };
+
+    let suffix = "";
+    const lastLower = parts[parts.length - 1].toLowerCase().replace(/\.$/,"");
+    if (SUFFIXES.has(lastLower)) suffix = " " + parts.pop();
+
+    let last = parts.pop();
+
+    if (parts.length) {
+      const prev = parts[parts.length - 1];
+      const prev2 = parts.length > 1 ? (parts[parts.length - 2] + " " + prev).toLowerCase() : "";
+      const prev1lower = prev.toLowerCase();
+      if (PARTICLES.has(prev2)) last = parts.splice(parts.length - 2, 2).join(" ") + " " + last;
+      else if (PARTICLES.has(prev1lower)) last = parts.pop() + " " + last;
+    }
+    return { first: parts.join(" "), last: last + suffix };
+  };
+
+  const processAnchor = (a) => {
+    if (!a || a.dataset.nameSplit === "1" || a.querySelector(".fn,.ln")) return;
+    const { first, last } = splitName(a.textContent);
+    a.innerHTML = last
+      ? `<span class="fn">${first}</span> <strong class="ln">${last}</strong>`
+      : `<span class="fn">${first}</span>`;
+    a.dataset.nameSplit = "1";
+  };
+
+  const processAll = () => {
+    document.querySelectorAll(".bm-post__author > a").forEach(processAnchor);
+  };
+
+  const startObserver = () => {
+    // narrow this to your post container if you have one (faster):
+    const root = document.querySelector("#postlist, .tableborder, body");
+    if (!root) return;
+
+    // initial pass
+    processAll();
+
+    // watch for harness re-renders
+    const mo = new MutationObserver((mutations) => {
+      let touched = false;
+      for (const m of mutations) {
+        if (m.type === "childList") {
+          // new anchors
+          m.addedNodes.forEach(node => {
+            if (node.nodeType !== 1) return;
+            if (node.matches?.(".bm-post__author > a")) processAnchor(node);
+            node.querySelectorAll?.(".bm-post__author > a").forEach(processAnchor);
+          });
+          touched = true;
+        } else if (m.type === "characterData") {
+          // text changed under the anchor (harness rewrote textContent)
+          const a = m.target.parentElement?.closest?.(".bm-post__author > a");
+          if (a) { a.dataset.nameSplit = ""; processAnchor(a); }
+          touched = true;
+        }
+      }
+      // safety: if many small changes happen, one more sweep
+      if (touched) processAll();
+    });
+
+    mo.observe(root, {
+      subtree: true,
+      childList: true,
+      characterData: true
+    });
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", startObserver);
+  } else {
+    startObserver();
+  }
+})();
+
+console.log('name split active')

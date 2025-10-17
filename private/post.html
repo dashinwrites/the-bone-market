@@ -104,14 +104,13 @@
                                 <article class="bm-post bm-post--grid" id="pid-<!--|pid|-->">
                                 <!-- 2: header (full width) -->
                                 <header class="bm-post__head">
-                                    <h3 class="bm-post__title">
-                                    <a href="?act=ST&f=<!--|forum_id|-->&t=<!--|topic_id|-->&p=<!--|pid|-->">#<!--|topic_text|--></a>
+                                    <h3 class="bm-post__author">
+                                      <a href="/index.php?showuser=<!-- |id| -->"><!-- |author_name| --></a>
                                     </h3>
                                     <div class="bm-post__meta">
-                                    <time datetime="<!--|post_date|-->" class="datetime">posted on <!--|post_date|--></time>
-                                    <span class="sep">•</span>
-                                    <a name="entry<!--|pid|-->"></a>
-                                    <a href="#pid-<!--|pid|-->" class="permalink">permalink</a>
+                                      <time datetime="<!--|post_date|-->" class="datetime">posted on <!--|post_date|--></time>
+                                      <span class="sep">•</span>
+                                      <a href="#pid-<!--|pid|-->" class="permalink">permalink</a>
                                     </div>
                                 </header>
 
@@ -140,7 +139,7 @@
                                     </div>
 
                                     <div class="ps-viewport">
-                                        <img src="https://picsum.photos/250/400?random=9" alt="{%topictitle%}" class="ps-image">
+                                        <img src="https://picsum.photos/500/800?random=9" alt="{%topictitle%}" class="ps-image">
 
                                         <!-- optional: explicit blank plate (kept inert/hidden) -->
                                         <article class="ps-plate ps-plate--blank" data-i="0" aria-hidden="true"></article>
@@ -520,7 +519,9 @@
         <br />
       </main>
 
-      @@include('../source/templates/scripts.html', { "prefix": "../dist" })
+      
     </div>
+
+    @@include('../source/templates/scripts.html', { "prefix": "../dist" })
   </body>
 </html>
