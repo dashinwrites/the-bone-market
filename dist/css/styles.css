@@ -681,6 +681,7 @@ a {
   --font-fancy: var(--font-serif);
   --font-hand: "Inconsolata", monospace;
   --font-title: "Ghosthey", serif;
+  --font-test: "UnifrakturMaguntia", cursive;
   /* ================================
      Type Scale
   ================================= */
@@ -2164,6 +2165,13 @@ html.debug .bm-head {
 @font-face {
   font-family: 'Obituary';
   src: url("https://files.jcink.net/uploads2/thebonemarket/fonts/Obituary.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap; }
+
+@font-face {
+  font-family: 'UnifrakturMaguntia';
+  src: url("https://files.jcink.net/uploads2/thebonemarket/fonts/UnifrakturMaguntia_Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap; }
@@ -3719,7 +3727,7 @@ body[id="idx"] .bm-head {
 /* Optional: respect prefers-reduced-motion on anything you include this on */
 /* Gradient underline mixin */
 /*******************************
-   Board Stats (clean)
+   Board Stats
 ********************************/
 /* --------------------------------
    Global DX tokens for this module
