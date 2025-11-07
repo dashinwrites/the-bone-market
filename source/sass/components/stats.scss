@@ -83,32 +83,44 @@
   grid-auto-flow: column;
   gap: 0.5rem;
   list-style: none;
-  margin: 0;
+  margin: 0 1rem 0 0;
   padding: 0;
 
   li {
-    display: grid;
-    grid-template-rows: auto auto;
-    justify-items: center;
-    min-inline-size: 8ch; /* was 9ch */
+    margin: 0;
+    display: flex;                /* flex instead of grid */
+    flex-direction: column;
+    justify-content: center;      /* centers label + number */
+    align-items: center;
+    min-inline-size: 17ch;
+    block-size: 3.1rem;       /* ← force same height */
     padding: var(--pad);
-    position: relative;
     background: var(--bg-2);
     border: var(--border-1);
     border-radius: 6px;
+    position: relative;
 
     &::after { @include inset-dash(0.35rem); }
 
     span {
       font-size: 0.8rem;
       color: var(--text-loCon);
-      text-transform: lowercase;
+      font-family: var(--font-serif);
+      text-transform: uppercase;
+      text-decoration: underline dashed;
+      margin-bottom: 0.25rem;
+      letter-spacing: 0.05rem;
     }
     b {
-      font-size: 1.1rem;
+      font-size: 1rem;
       font-weight: 700;
-      /* tabular if font supports it */
+      text-transform: uppercase;
       font-feature-settings: "tnum" 1, "ss01" 1;
+    }
+
+    span, b {
+      display: block;
+      line-height: 1;
     }
   }
 
@@ -127,14 +139,12 @@
   .bm-card--today,
   .bm-card--now { grid-column: span 6; }
 
-  .bm-card--legend { grid-column: span 4; }
-  .bm-card--recent { grid-column: span 8; }
+  .bm-card--legend { grid-column: span 12; }
 
   @media (max-width: 1080px) {
     .bm-card--today,
     .bm-card--now,
-    .bm-card--legend,
-    .bm-card--recent {
+    .bm-card--legend {
       grid-column: 1 / -1;
     }
   }
@@ -161,12 +171,14 @@
   color: var(--text-loCon);
 }
 
-.bm-card__list { line-height: 1.6; }
+.bm-card__list { 
+  line-height: 1.6; 
 
-.bm-card__list--wrap {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem 0.75rem;
+  &--wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+  }
 }
 
 /* Toolbar */
