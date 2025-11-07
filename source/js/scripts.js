@@ -694,3 +694,11 @@ document.querySelectorAll('.spoiler-inline').forEach(spoiler => {
     spoiler.classList.toggle('is-open');
   });
 });
+
+/* move recent topics */
+const recentTopics = document.getElementById('recent-topics');
+const bmRecent = document.getElementById('bm-recent');
+
+if (recentTopics && bmRecent) {
+  bmRecent.appendChild(recentTopics);
+}

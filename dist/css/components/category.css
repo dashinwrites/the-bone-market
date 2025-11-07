@@ -59,7 +59,7 @@
     overflow: hidden; }
     .category .category-head .category-title {
       margin: 0 auto;
-      font: 700 var(--size-title)/1 var(--font-serif);
+      font: 500 var(--size-title)/1 var(--font-subtitle);
       text-transform: lowercase;
       letter-spacing: 0.15rem;
       color: var(--accent-1);
@@ -358,17 +358,6 @@
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25), 0 0 12px color-mix(in oklab, var(--ct-accent-1) 40%, transparent);
   /* decorative underline (centered, not full-width) */
   /* side glyph (inherits currentColor from gradient ink) */ }
-  .category-title--fancy::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    bottom: -0.35em;
-    transform: translateX(-50%);
-    inline-size: min(60%, 22ch);
-    /* ← force CSS min(), avoid unit math */
-    block-size: 1px;
-    background: currentColor;
-    opacity: 0.55; }
   .category-title--fancy::before {
     content: var(--ct-glyph);
     position: absolute;

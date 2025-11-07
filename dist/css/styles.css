@@ -681,7 +681,7 @@ a {
   --font-fancy: var(--font-serif);
   --font-hand: "Inconsolata", monospace;
   --font-title: "Ghosthey", serif;
-  --font-test: "UnifrakturMaguntia", cursive;
+  --font-subtitle: "UnifrakturMaguntia", cursive;
   /* ================================
      Type Scale
   ================================= */
@@ -4939,7 +4939,7 @@ body[id="idx"] .bm-head {
     overflow: hidden; }
     .category .category-head .category-title {
       margin: 0 auto;
-      font: 700 var(--size-title)/1 var(--font-serif);
+      font: 500 var(--size-title)/1 var(--font-subtitle);
       text-transform: lowercase;
       letter-spacing: 0.15rem;
       color: var(--accent-1);
@@ -5349,19 +5349,6 @@ body[id="idx"] .bm-head {
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25), 0 0 12px color-mix(in oklab, var(--ct-accent-1) 40%, transparent);
   /* decorative underline (centered, not full-width) */
   /* side glyph (inherits currentColor from gradient ink) */ }
-  .category-title--fancy::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    bottom: -0.35em;
-    -webkit-transform: translateX(-50%);
-        -ms-transform: translateX(-50%);
-            transform: translateX(-50%);
-    inline-size: min(60%, 22ch);
-    /* ← force CSS min(), avoid unit math */
-    block-size: 1px;
-    background: currentColor;
-    opacity: 0.55; }
   .category-title--fancy::before {
     content: var(--ct-glyph);
     position: absolute;
@@ -5496,10 +5483,13 @@ body[id="idx"] .bm-head {
       gap: 0.5rem; } }
 
 .bm-stats__title {
-  margin: 0;
-  font-family: var(--font-serif);
+  margin: 0 0 0 1rem;
+  font-family: var(--font-subtitle);
+  font-size: var(--size-title);
+  font-weight: 400;
   letter-spacing: 0.12em;
-  text-transform: lowercase; }
+  text-transform: lowercase;
+  color: var(--accent-1); }
 
 /* quick totals */
 .bm-stats__totals {
@@ -5510,7 +5500,20 @@ body[id="idx"] .bm-head {
   gap: 0.5rem;
   list-style: none;
   margin: 0 1rem 0 0;
-  padding: 0; }
+  padding: 0 0.75rem;
+  font-size: 0.75rem;
+  background: var(--bg-2);
+  border: var(--border-1);
+  border-radius: 6px;
+  position: relative; }
+  .bm-stats__totals::after {
+    content: "";
+    position: absolute;
+    inset: 0.35rem;
+    border: var(--bdash);
+    border-radius: 4px;
+    opacity: 0.25;
+    pointer-events: none; }
   .bm-stats__totals li {
     margin: 0;
     display: -webkit-box;
@@ -5518,11 +5521,11 @@ body[id="idx"] .bm-head {
     display: -ms-flexbox;
     display: flex;
     /* flex instead of grid */
-    -webkit-box-orient: vertical;
+    -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
     -webkit-box-pack: center;
     -webkit-justify-content: center;
         -ms-flex-pack: center;
@@ -5532,40 +5535,33 @@ body[id="idx"] .bm-head {
     -webkit-align-items: center;
         -ms-flex-align: center;
             align-items: center;
-    min-inline-size: 17ch;
     block-size: 3.1rem;
     /* ← force same height */
-    padding: var(--pad);
-    background: var(--bg-2);
-    border: var(--border-1);
-    border-radius: 6px;
-    position: relative; }
-    .bm-stats__totals li::after {
-      content: "";
-      position: absolute;
-      inset: 0.35rem;
-      border: var(--bdash);
-      border-radius: 4px;
-      opacity: 0.25;
-      pointer-events: none; }
+    padding: var(--pad); }
     .bm-stats__totals li span {
-      font-size: 0.8rem;
-      color: var(--text-loCon);
+      color: var(--text-clear);
       font-family: var(--font-serif);
       text-transform: uppercase;
-      -webkit-text-decoration: underline dashed;
-              text-decoration: underline dashed;
-      margin-bottom: 0.25rem;
       letter-spacing: 0.05rem; }
     .bm-stats__totals li b {
-      font-size: 1rem;
       font-weight: 700;
       text-transform: uppercase;
       -webkit-font-feature-settings: "tnum" 1, "ss01" 1;
-              font-feature-settings: "tnum" 1, "ss01" 1; }
+              font-feature-settings: "tnum" 1, "ss01" 1;
+      padding-right: 0.25rem; }
+      .bm-stats__totals li b:last-child {
+        margin-left: 0.25rem; }
     .bm-stats__totals li span, .bm-stats__totals li b {
-      display: block;
+      display: inline-block;
       line-height: 1; }
+    .bm-stats__totals li:not(:last-child)::after {
+      content: "";
+      position: relative;
+      height: 1rem;
+      inset-inline: 0.85rem;
+      border-right: var(--bdash);
+      opacity: .35;
+      pointer-events: none; }
   @media (max-width: 900px) {
     .bm-stats__totals {
       grid-auto-flow: row;
@@ -5584,12 +5580,16 @@ body[id="idx"] .bm-head {
     -ms-grid-column-span: 6;
     grid-column: span 6; }
   .bm-stats__grid .bm-card--legend {
-    -ms-grid-column-span: 12;
-    grid-column: span 12; }
+    -ms-grid-column-span: 4;
+    grid-column: span 4; }
+  .bm-stats__grid .bm-card--recent {
+    -ms-grid-column-span: 8;
+    grid-column: span 8; }
   @media (max-width: 1080px) {
     .bm-stats__grid .bm-card--today,
     .bm-stats__grid .bm-card--now,
-    .bm-stats__grid .bm-card--legend {
+    .bm-stats__grid .bm-card--legend,
+    .bm-stats__grid .bm-card--recent {
       grid-column: 1 / -1; } }
 
 /* ---------------- Card ---------------- */
@@ -5603,7 +5603,8 @@ body[id="idx"] .bm-head {
 .bm-card__title {
   margin: 0 0 0.5rem;
   font-family: var(--font-serif);
-  font-size: var(--size-lg, 1.1rem); }
+  font-size: var(--size-lg, 1.1rem);
+  color: var(--text-medCon); }
 
 .bm-card__meta,
 .bm-card__hint {
@@ -5690,7 +5691,7 @@ body[id="idx"] .bm-head {
   -ms-scroll-chaining: none;
       overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
-  padding: 0.25rem;
+  padding: 1rem;
   /* each topic card */
   /* reset jcink legacy */
   /* Title */
@@ -5864,30 +5865,6 @@ body[id="idx"] .bm-head {
   .bm-card--now .bm-card__list,
   .bm-card--recent #recent-topics {
     scrollbar-gutter: stable; } }
-
-/* Nice thin scrollbars (shared) */
-.bm-card--today .bm-card__list,
-.bm-card--now .bm-card__list,
-.bm-card--recent #recent-topics {
-  scrollbar-width: thin;
-  scrollbar-color: rgba(0, 0, 0, 0.35) transparent; }
-  .bm-card--today .bm-card__list::-webkit-scrollbar,
-  .bm-card--now .bm-card__list::-webkit-scrollbar,
-  .bm-card--recent #recent-topics::-webkit-scrollbar {
-    width: 10px;
-    height: 10px; }
-  .bm-card--today .bm-card__list::-webkit-scrollbar-thumb,
-  .bm-card--now .bm-card__list::-webkit-scrollbar-thumb,
-  .bm-card--recent #recent-topics::-webkit-scrollbar-thumb {
-    background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.35)), to(rgba(0, 0, 0, 0.2)));
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.2));
-    border: 2px solid transparent;
-    background-clip: padding-box;
-    border-radius: 8px; }
-  .bm-card--today .bm-card__list::-webkit-scrollbar-track,
-  .bm-card--now .bm-card__list::-webkit-scrollbar-track,
-  .bm-card--recent #recent-topics::-webkit-scrollbar-track {
-    background: transparent; }
 
 /* Focus visibility inside scrollers */
 .bm-card--today .bm-card__list :focus,
