@@ -92,7 +92,7 @@ $gradients-all: map-merge(
 /* ── 2) CORE MIXINS ─────────────────────────── */
 
 /* Utility: create classes like `.membergroup--obsidian` with a CSS var for reuse */
-@mixin mg-emit-vars($map, $prefix: "membergroup") {
+@mixin mg-emit-vars($map, $prefix: "g") {
   @each $name, $grad in $map {
     .#{$prefix}--#{$name} {
       --mg-gradient: #{$grad};
@@ -101,7 +101,7 @@ $gradients-all: map-merge(
 }
 
 /* Pill style (filled chip/badge) */
-@mixin mg-pill($map, $prefix: "membergroup") {
+@mixin mg-pill($map, $prefix: "g") {
   @each $name, $grad in $map {
     .#{$prefix}--#{$name}.is-pill {
       --mg-gradient: #{$grad};
@@ -109,8 +109,8 @@ $gradients-all: map-merge(
       color: rgb(28,28,28); /* readable on most light gradients */
       /* If your theme is dark, force white text: */
       &.on-dark { color: rgb(245,245,245); }
-      border-radius: 999px;
-      padding: .3rem .65rem;
+      border-radius: 5px;
+      padding: 0 .25rem;
       display: inline-flex;
       align-items: center;
       gap: .4rem;
@@ -121,7 +121,7 @@ $gradients-all: map-merge(
 }
 
 /* Outline style (transparent fill; gradient border) */
-@mixin mg-outline($map, $prefix: "membergroup") {
+@mixin mg-outline($map, $prefix: "g") {
   @each $name, $grad in $map {
     .#{$prefix}--#{$name}.is-outline {
       --mg-gradient: #{$grad};
@@ -137,7 +137,7 @@ $gradients-all: map-merge(
 }
 
 /* Text gradient style (keeps container transparent) */
-@mixin mg-text($map, $prefix: "membergroup") {
+@mixin mg-text($map, $prefix: "g") {
   @each $name, $grad in $map {
     .#{$prefix}--#{$name}.is-text {
       --mg-gradient: #{$grad};
@@ -156,7 +156,7 @@ $gradients-all: map-merge(
 }
 
 /* ── 3) ONE-LINE API TO GENERATE EVERYTHING ─── */
-@mixin membergroups-generate($map, $prefix: "membergroup") {
+@mixin membergroups-generate($map, $prefix: "g") {
   @include mg-emit-vars($map, $prefix);
   @include mg-pill($map, $prefix);
   @include mg-outline($map, $prefix);

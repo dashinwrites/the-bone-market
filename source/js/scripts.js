@@ -687,3 +687,18 @@ document.querySelectorAll('#recent-topics tr').forEach(tr => {
   const authorHTML = authorA ? `<span class="rt-author">${authorA.outerHTML}</span>` : "";
   info.innerHTML = `${titleHTML}<br>${authorHTML}`;
 });
+
+/* spoiler toggle */
+document.querySelectorAll('.spoiler-inline').forEach(spoiler => {
+  spoiler.addEventListener('click', () => {
+    spoiler.classList.toggle('is-open');
+  });
+});
+
+/* move recent topics */
+const recentTopics = document.getElementById('recent-topics');
+const bmRecent = document.getElementById('bm-recent');
+
+if (recentTopics && bmRecent) {
+  bmRecent.appendChild(recentTopics);
+}

@@ -272,132 +272,7 @@ Magic is currency, and the black market thrives on blood.
           </div>
         </section>
 
-        <!--Stats-->
-        <section
-          class="bm-stats"
-          id="boardstats"
-          aria-labelledby="bstats-title"
-        >
-          <!-- Title & quick totals -->
-          <header class="bm-stats__header">
-            <h2 id="bstats-title" class="bm-stats__title">board statistics</h2>
-            <ul class="bm-stats__totals" aria-label="site totals">
-              <li>
-                <span>accounts</span><b><!-- |total_mem_reg| --></b>
-              </li>
-              <li>
-                <span>posts</span><b><!-- |total_posts| --></b>
-              </li>
-              <li>
-                <span>online today</span><b><!-- |online_today| --></b>
-              </li>
-              <li>
-                <span>newest</span><b><!-- |newest_member| --></b>
-              </li>
-            </ul>
-          </header>
-
-          <div class="bm-stats__grid">
-            <!-- Online today -->
-            <article
-              class="bm-card bm-card--today"
-              aria-labelledby="card-today-title"
-            >
-              <h3 id="card-today-title" class="bm-card__title">
-                members online today
-              </h3>
-              <p class="bm-card__hint">
-                record: <b><!-- |most_online_oneday| --></b> on
-                <b><!-- |most_online_oneday_date| --></b>
-              </p>
-              <div class="bm-card__list bm-card__list--wrap">
-                <!-- |online_today_list| -->
-                 <a href="https://startafire.jcink.net/index.php?showuser=31"><span class="g-16">Callista Carlisle</span></a>, 
-                <a href="https://startafire.jcink.net/index.php?showuser=31"><span class="g-16">Colton Haywood</span></a>, 
-                <a href="https://startafire.jcink.net/index.php?showuser=31"><span class="g-16">Finore Faulkner</span></a>, 
-                <a href="https://startafire.jcink.net/index.php?showuser=31"><span class="g-16">Lachlan Pryce</span></a>, 
-                <a href="https://startafire.jcink.net/index.php?showuser=31"><span class="g-16">Laurie Dreschner</span></a>, 
-                <a href="https://startafire.jcink.net/index.php?showuser=31"><span class="g-16">Magdalene Marshall</span></a>, 
-                <a href="https://startafire.jcink.net/index.php?showuser=31"><span class="g-16">Quinn Kagami</span></a>, 
-                <a href="https://startafire.jcink.net/index.php?showuser=31"><span class="g-16">Ren Jiayi</span></a>, 
-                <a href="https://startafire.jcink.net/index.php?showuser=31"><span class="g-16">Rhys Carrow</span></a>, 
-                <a href="https://startafire.jcink.net/index.php?showuser=31"><span class="g-16">Teyah Redfern</span></a>, 
-                <a href="https://startafire.jcink.net/index.php?showuser=31"><span class="g-16">Wren Gardner</span></a>
-              </div>
-            </article>
-
-            <!-- Online now -->
-            <article
-              class="bm-card bm-card--now"
-              aria-labelledby="card-now-title"
-            >
-              <h3 id="card-now-title" class="bm-card__title">online now</h3>
-              <p class="bm-card__meta">
-                <b><!-- |total_users| --></b> active ·
-                <b><!-- |total_guests| --></b> guests ·
-                <b><!-- |total_mems| --></b> members ·
-                <b><!-- |total_anons| --></b> anon
-
-              </p>
-
-              <nav class="bm-toolbar" aria-label="online filters">
-                <a
-                  href="index.php?act=Online&amp;CODE=listall&amp;sort_key=click"
-                  >sort by click</a
-                >
-                <a href="index.php?act=Members">memberlist</a>
-                <a href="index.php?act=Search&amp;CODE=getactive"
-                  >today’s topics</a
-                >
-              </nav>
-
-              <div class="bm-card__list thin">
-                
-                <!-- |online_list| -->
-              </div>
-            </article>
-
-            <!-- Group legend -->
-            <aside
-              class="bm-card bm-card--legend"
-              aria-labelledby="card-legend-title"
-            >
-              <h3 id="card-legend-title" class="bm-card__title">
-                group legend
-              </h3>
-              <ul class="bm-legend">
-                <!-- Replace these with your actual groups/classes or a JCink legend var if you use one -->
-                <li>
-                  <i class="chip chip--celestial" aria-hidden="true"></i
-                  ><span>Celestial</span>
-                </li>
-                <li>
-                  <i class="chip chip--flora" aria-hidden="true"></i
-                  ><span>Flora</span>
-                </li>
-                <li>
-                  <i class="chip chip--anatomy" aria-hidden="true"></i
-                  ><span>Anatomy</span>
-                </li>
-                <li>
-                  <i class="chip chip--material" aria-hidden="true"></i
-                  ><span>Material</span>
-                </li>
-              </ul>
-            </aside>
-
-            <!-- Recent topics -->
-            <article
-              class="bm-card bm-card--recent"
-              aria-labelledby="card-recent-title"
-            >
-              <h3 id="card-recent-title" class="bm-card__title">
-                recent topics
-              </h3>
-              <div class="bm-card__list bm-recent">
-                <!-- |recent_topics_list| -->
-
-                <div class="tableborder" id="recent-topics">
+        <div class="tableborder" id="recent-topics">
                   <div class="maintitle">Recent Topic Activity</div>
                   <table
                     cellpadding="4"
@@ -698,7 +573,149 @@ Magic is currency, and the black market thrives on blood.
                     </tbody>
                   </table>
                 </div>
+
+        <!--Stats-->
+        <section
+          class="bm-stats"
+          id="boardstats"
+          aria-labelledby="bstats-title"
+        >
+          <!-- Title & quick totals -->
+          <header class="bm-stats__header">
+            <h2 id="bstats-title" class="bm-stats__title">board statistics</h2>
+            <ul class="bm-stats__totals" aria-label="site totals">
+              <li>
+                <b>20<!-- |total_mem_reg| --></b> <span>accounts</span>
+              </li>
+              <li>
+                <b>5000<!-- |total_posts| --></b> <span>posts</span>
+              </li>
+              <li>
+                <b>5<!-- |online_today| --></b> <span>online today</span>
+              </li>
+              <li>
+                <span>newest</span> <b>magdalene marshall<!-- |newest_member| --></b>
+              </li>
+            </ul>
+          </header>
+
+          <div class="bm-stats__grid">
+            <!-- Online today -->
+            <article
+              class="bm-card bm-card--today"
+              aria-labelledby="card-today-title"
+            >
+              <h3 id="card-today-title" class="bm-card__title">
+                members online today
+              </h3>
+              <p class="bm-card__hint">
+                record: <b><!-- |most_online_oneday| --></b> on
+                <b><!-- |most_online_oneday_date| --></b>
+              </p>
+              <div class="bm-card__list--wrap">
+                <!-- |online_today_list| -->
+                <a href="https://startafire.jcink.net/index.php?showuser=31"
+                  ><span class="g--glass is-pill">Callista Carlisle</span></a
+                >,
+                <a href="https://startafire.jcink.net/index.php?showuser=31"
+                  ><span class="g--quartz is-pill">Colton Haywood</span></a
+                >,
+                <a href="https://startafire.jcink.net/index.php?showuser=31"
+                  ><span class="g--onyx is-pill">Finore Faulkner</span></a
+                >,
+                <a href="https://startafire.jcink.net/index.php?showuser=31"
+                  ><span class="g--amber is-pill">Lachlan Pryce</span></a
+                >,
+                <a href="https://startafire.jcink.net/index.php?showuser=31"
+                  ><span class="g--jade is-pill">Laurie Dreschner</span></a
+                >,
+                <a href="https://startafire.jcink.net/index.php?showuser=31"
+                  ><span class="g--silver is-pill">Magdalene Marshall</span></a
+                >,
+                <a href="https://startafire.jcink.net/index.php?showuser=31"
+                  ><span class="g--marrow is-pill">Quinn Kagami</span></a
+                >,
+                <a href="https://startafire.jcink.net/index.php?showuser=31"
+                  ><span class="g--sinew is-pill">Ren Jiayi</span></a
+                >,
+                <a href="https://startafire.jcink.net/index.php?showuser=31"
+                  ><span class="g--blood is-pill">Rhys Carrow</span></a
+                >,
+                <a href="https://startafire.jcink.net/index.php?showuser=31"
+                  ><span class="g--vein is-pill">Teyah Redfern</span></a
+                >,
+                <a href="https://startafire.jcink.net/index.php?showuser=31"
+                  ><span class="g--bone is-pill">Wren Gardner</span></a
+                >,
+                <a href="https://startafire.jcink.net/index.php?showuser=31"
+                  ><span class="g--flesh is-pill">Aurelian Viremont</span></a
+                >
               </div>
+            </article>
+
+            <!-- Online now -->
+            <article
+              class="bm-card bm-card--now"
+              aria-labelledby="card-now-title"
+            >
+              <h3 id="card-now-title" class="bm-card__title">online now</h3>
+              <p class="bm-card__meta">
+                <b><!-- |total_users| --></b> active ·
+                <b><!-- |total_guests| --></b> guests ·
+                <b><!-- |total_mems| --></b> members ·
+                <b><!-- |total_anons| --></b> anon
+              </p>
+
+              <nav class="bm-toolbar" aria-label="online filters">
+                <a
+                  href="index.php?act=Online&amp;CODE=listall&amp;sort_key=click"
+                  >sort by click</a
+                >
+                <a href="index.php?act=Members">memberlist</a>
+                <a href="index.php?act=Search&amp;CODE=getactive"
+                  >today’s topics</a
+                >
+              </nav>
+
+              <div class="bm-card__list thin"></div>
+            </article>
+
+            <aside
+              class="bm-card bm-card--legend"
+              aria-labelledby="card-legend-title"
+            >
+              <h3 id="card-legend-title" class="bm-card__title">
+                group legend
+              </h3>
+              <ul class="bm-legend">
+                <!-- Replace these with your actual groups/classes or a JCink legend var if you use one -->
+                <li>
+                  <i class="chip chip--celestial" aria-hidden="true"></i
+                  ><span>Celestial</span>
+                </li>
+                <li>
+                  <i class="chip chip--flora" aria-hidden="true"></i
+                  ><span>Flora</span>
+                </li>
+                <li>
+                  <i class="chip chip--anatomy" aria-hidden="true"></i
+                  ><span>Anatomy</span>
+                </li>
+                <li>
+                  <i class="chip chip--material" aria-hidden="true"></i
+                  ><span>Material</span>
+                </li>
+              </ul>
+            </aside>
+
+            <article
+              class="bm-card bm-card--recent"
+              aria-labelledby="card-recent-title"
+            >
+              <h3 id="card-recent-title" class="bm-card__title">
+                recent topics
+              </h3>
+              <div class="bm-card__list bm-recent" id="bm-recent"></div>
             </article>
           </div>
         </section>

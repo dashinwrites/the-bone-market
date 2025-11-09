@@ -70,10 +70,13 @@
 }
 
 .bm-stats__title {
-  margin: 0;
-  font-family: var(--font-serif);
+  margin: 0 0 0 1rem;
+  font-family: var(--font-subtitle);
+  font-size: var(--size-title);
+  font-weight: 400;
   letter-spacing: 0.12em;
   text-transform: lowercase;
+  color: var(--accent-1);
 }
 
 /* quick totals */
@@ -83,32 +86,55 @@
   grid-auto-flow: column;
   gap: 0.5rem;
   list-style: none;
-  margin: 0;
-  padding: 0;
-
-  li {
-    display: grid;
-    grid-template-rows: auto auto;
-    justify-items: center;
-    min-inline-size: 8ch; /* was 9ch */
-    padding: var(--pad);
-    position: relative;
-    background: var(--bg-2);
-    border: var(--border-1);
-    border-radius: 6px;
+  margin: 0 1rem 0 0;
+  padding: 0 0.75rem;
+  font-size: 0.75rem;
+  background: var(--bg-2);
+  border: var(--border-1);
+  border-radius: 6px;
+  position: relative;
 
     &::after { @include inset-dash(0.35rem); }
 
+  li {
+    margin: 0;
+    display: flex;                /* flex instead of grid */
+    flex-direction: row;
+    justify-content: center;      /* centers label + number */
+    align-items: center;
+    block-size: 3.1rem;       /* ← force same height */
+    padding: var(--pad);
+
     span {
-      font-size: 0.8rem;
-      color: var(--text-loCon);
-      text-transform: lowercase;
+      color: var(--text-clear);
+      font-family: var(--font-serif);
+      text-transform: uppercase;
+      letter-spacing: 0.05rem;
     }
     b {
-      font-size: 1.1rem;
       font-weight: 700;
-      /* tabular if font supports it */
+      text-transform: uppercase;
       font-feature-settings: "tnum" 1, "ss01" 1;
+      padding-right: 0.25rem;
+
+      &:last-child {
+        margin-left: 0.25rem;
+      }
+    }
+
+    span, b {
+      display: inline-block;
+      line-height: 1;
+    }
+
+    &:not(:last-child)::after {
+      content: "";
+      position: relative;
+      height: 1rem;
+      inset-inline: 0.85rem;
+      border-right: var(--bdash);
+      opacity: .35;
+      pointer-events: none;
     }
   }
 
@@ -153,6 +179,7 @@
   margin: 0 0 0.5rem;
   font-family: var(--font-serif);
   font-size: var(--size-lg, 1.1rem);
+  color: var(--text-medCon);
 }
 
 .bm-card__meta,
@@ -161,12 +188,14 @@
   color: var(--text-loCon);
 }
 
-.bm-card__list { line-height: 1.6; }
+.bm-card__list { 
+  line-height: 1.6; 
 
-.bm-card__list--wrap {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem 0.75rem;
+  &--wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+  }
 }
 
 /* Toolbar */
@@ -220,7 +249,7 @@
 /* ---------------- Recent Topics (table → list look) ---------------- */
 .bm-card--recent {
   @include scroll-pane;
-  padding: 0.25rem;
+  padding: 1rem;
 
   #recent-topics {
     display: grid;
@@ -387,23 +416,6 @@
   .bm-card--recent #recent-topics {
     scrollbar-gutter: stable;
   }
-}
-
-/* Nice thin scrollbars (shared) */
-.bm-card--today .bm-card__list,
-.bm-card--now  .bm-card__list,
-.bm-card--recent #recent-topics {
-  scrollbar-width: thin;
-  scrollbar-color: rgba(0, 0, 0, 0.35) transparent;
-
-  &::-webkit-scrollbar      { width: 10px; height: 10px; }
-  &::-webkit-scrollbar-thumb{
-    background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.2));
-    border: 2px solid transparent;
-    background-clip: padding-box;
-    border-radius: 8px;
-  }
-  &::-webkit-scrollbar-track{ background: transparent; }
 }
 
 /* Focus visibility inside scrollers */

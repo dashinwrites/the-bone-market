@@ -63,10 +63,13 @@
       gap: 0.5rem; } }
 
 .bm-stats__title {
-  margin: 0;
-  font-family: var(--font-serif);
+  margin: 0 0 0 1rem;
+  font-family: var(--font-subtitle);
+  font-size: var(--size-title);
+  font-weight: 400;
   letter-spacing: 0.12em;
-  text-transform: lowercase; }
+  text-transform: lowercase;
+  color: var(--accent-1); }
 
 /* quick totals */
 .bm-stats__totals {
@@ -75,36 +78,55 @@
   grid-auto-flow: column;
   gap: 0.5rem;
   list-style: none;
-  margin: 0;
-  padding: 0; }
+  margin: 0 1rem 0 0;
+  padding: 0 0.75rem;
+  font-size: 0.75rem;
+  background: var(--bg-2);
+  border: var(--border-1);
+  border-radius: 6px;
+  position: relative; }
+  .bm-stats__totals::after {
+    content: "";
+    position: absolute;
+    inset: 0.35rem;
+    border: var(--bdash);
+    border-radius: 4px;
+    opacity: 0.25;
+    pointer-events: none; }
   .bm-stats__totals li {
-    display: grid;
-    grid-template-rows: auto auto;
-    justify-items: center;
-    min-inline-size: 8ch;
-    /* was 9ch */
-    padding: var(--pad);
-    position: relative;
-    background: var(--bg-2);
-    border: var(--border-1);
-    border-radius: 6px; }
-    .bm-stats__totals li::after {
-      content: "";
-      position: absolute;
-      inset: 0.35rem;
-      border: var(--bdash);
-      border-radius: 4px;
-      opacity: 0.25;
-      pointer-events: none; }
+    margin: 0;
+    display: flex;
+    /* flex instead of grid */
+    flex-direction: row;
+    justify-content: center;
+    /* centers label + number */
+    align-items: center;
+    block-size: 3.1rem;
+    /* ← force same height */
+    padding: var(--pad); }
     .bm-stats__totals li span {
-      font-size: 0.8rem;
-      color: var(--text-loCon);
-      text-transform: lowercase; }
+      color: var(--text-clear);
+      font-family: var(--font-serif);
+      text-transform: uppercase;
+      letter-spacing: 0.05rem; }
     .bm-stats__totals li b {
-      font-size: 1.1rem;
       font-weight: 700;
-      /* tabular if font supports it */
-      font-feature-settings: "tnum" 1, "ss01" 1; }
+      text-transform: uppercase;
+      font-feature-settings: "tnum" 1, "ss01" 1;
+      padding-right: 0.25rem; }
+      .bm-stats__totals li b:last-child {
+        margin-left: 0.25rem; }
+    .bm-stats__totals li span, .bm-stats__totals li b {
+      display: inline-block;
+      line-height: 1; }
+    .bm-stats__totals li:not(:last-child)::after {
+      content: "";
+      position: relative;
+      height: 1rem;
+      inset-inline: 0.85rem;
+      border-right: var(--bdash);
+      opacity: .35;
+      pointer-events: none; }
   @media (max-width: 900px) {
     .bm-stats__totals {
       grid-auto-flow: row;
@@ -140,7 +162,8 @@
 .bm-card__title {
   margin: 0 0 0.5rem;
   font-family: var(--font-serif);
-  font-size: var(--size-lg, 1.1rem); }
+  font-size: var(--size-lg, 1.1rem);
+  color: var(--text-medCon); }
 
 .bm-card__meta,
 .bm-card__hint {
@@ -149,11 +172,10 @@
 
 .bm-card__list {
   line-height: 1.6; }
-
-.bm-card__list--wrap {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem 0.75rem; }
+  .bm-card__list--wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem; }
 
 /* Toolbar */
 .bm-toolbar {
@@ -209,7 +231,7 @@
   overflow: auto;
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
-  padding: 0.25rem;
+  padding: 1rem;
   /* each topic card */
   /* reset jcink legacy */
   /* Title */
@@ -344,29 +366,6 @@
   .bm-card--now .bm-card__list,
   .bm-card--recent #recent-topics {
     scrollbar-gutter: stable; } }
-
-/* Nice thin scrollbars (shared) */
-.bm-card--today .bm-card__list,
-.bm-card--now .bm-card__list,
-.bm-card--recent #recent-topics {
-  scrollbar-width: thin;
-  scrollbar-color: rgba(0, 0, 0, 0.35) transparent; }
-  .bm-card--today .bm-card__list::-webkit-scrollbar,
-  .bm-card--now .bm-card__list::-webkit-scrollbar,
-  .bm-card--recent #recent-topics::-webkit-scrollbar {
-    width: 10px;
-    height: 10px; }
-  .bm-card--today .bm-card__list::-webkit-scrollbar-thumb,
-  .bm-card--now .bm-card__list::-webkit-scrollbar-thumb,
-  .bm-card--recent #recent-topics::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.2));
-    border: 2px solid transparent;
-    background-clip: padding-box;
-    border-radius: 8px; }
-  .bm-card--today .bm-card__list::-webkit-scrollbar-track,
-  .bm-card--now .bm-card__list::-webkit-scrollbar-track,
-  .bm-card--recent #recent-topics::-webkit-scrollbar-track {
-    background: transparent; }
 
 /* Focus visibility inside scrollers */
 .bm-card--today .bm-card__list :focus,
