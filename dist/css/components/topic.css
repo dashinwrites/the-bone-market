@@ -10,5 +10,103 @@
 /* Optional: respect prefers-reduced-motion on anything you include this on */
 /* Gradient underline mixin */
 /*******************************
-    Topic List
+   Topic Row
 ********************************/
+.bm-topics {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; }
+
+.bm-topics__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center; }
+
+.bm-topics__heading {
+  display: flex;
+  align-items: center;
+  gap: .5rem; }
+
+.bm-topics__list {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+.bm-topiccard {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 1rem;
+  padding: 1rem;
+  position: relative;
+  isolation: isolate;
+  border-radius: 4px; }
+  .bm-topiccard::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: var(--border-1);
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: -1; }
+  .bm-topiccard::after {
+    content: "";
+    position: absolute;
+    inset: 0.5rem;
+    pointer-events: none;
+    opacity: 0.25;
+    background: linear-gradient(currentColor, currentColor) left top / 18px 2px no-repeat, linear-gradient(currentColor, currentColor) left top / 2px 18px no-repeat, linear-gradient(currentColor, currentColor) right top / 18px 2px no-repeat, linear-gradient(currentColor, currentColor) right top / 2px 18px no-repeat, linear-gradient(currentColor, currentColor) left bottom / 18px 2px no-repeat, linear-gradient(currentColor, currentColor) left bottom / 2px 18px no-repeat, linear-gradient(currentColor, currentColor) right bottom / 18px 2px no-repeat, linear-gradient(currentColor, currentColor) right bottom / 2px 18px no-repeat;
+    z-index: 2; }
+
+@media (max-width: 500px) {
+  .bm-topiccard {
+    grid-template-columns: minmax(0, 1fr); }
+  .bm-topiccard__side {
+    display: flex;
+    gap: .5rem; }
+  .bm-topiccard__mod {
+    justify-content: flex-start; } }
+
+.bm-topiccard__side {
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+  align-items: center;
+  min-width: 40px; }
+
+.bm-topiccard__body {
+  display: grid;
+  gap: .35rem;
+  min-width: 0; }
+
+.bm-topiccard__title {
+  margin: 0;
+  line-height: 1.2; }
+
+.bm-topiccard__desc {
+  margin: 0;
+  font-size: .85rem;
+  opacity: .8; }
+
+.bm-topiccard__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  font-size: .75rem; }
+
+.bm-topiccard__mod {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+@media (max-width: 768px) {
+  .bm-topiccard {
+    grid-template-columns: minmax(0, 1fr); }
+  .bm-topiccard__side {
+    flex-direction: row;
+    justify-content: flex-start; }
+  .bm-topiccard__mod {
+    justify-content: flex-start; }
+  .bm-topiccard__meta {
+    flex-direction: column;
+    gap: .25rem; } }

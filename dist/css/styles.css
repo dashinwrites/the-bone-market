@@ -5917,8 +5917,181 @@ body[id="idx"] .bm-head {
 /* Optional: respect prefers-reduced-motion on anything you include this on */
 /* Gradient underline mixin */
 /*******************************
-    Topic List
+   Topic Row
 ********************************/
+.bm-topics {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1rem; }
+
+.bm-topics__header {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 1rem;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center; }
+
+.bm-topics__heading {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: .5rem; }
+
+.bm-topics__list {
+  display: -ms-grid;
+  display: grid;
+  gap: 1rem;
+  -ms-grid-columns: (minmax(0, 1fr))[2];
+  grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+.bm-topiccard {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto minmax(0, 1fr) auto;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 1rem;
+  padding: 1rem;
+  position: relative;
+  isolation: isolate;
+  border-radius: 4px; }
+  .bm-topiccard::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: var(--border-1);
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: -1; }
+  .bm-topiccard::after {
+    content: "";
+    position: absolute;
+    inset: 0.5rem;
+    pointer-events: none;
+    opacity: 0.25;
+    background: -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left top / 18px 2px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left top / 2px 18px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) right top / 18px 2px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) right top / 2px 18px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left bottom / 18px 2px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left bottom / 2px 18px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) right bottom / 18px 2px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) right bottom / 2px 18px no-repeat;
+    background: linear-gradient(currentColor, currentColor) left top / 18px 2px no-repeat, linear-gradient(currentColor, currentColor) left top / 2px 18px no-repeat, linear-gradient(currentColor, currentColor) right top / 18px 2px no-repeat, linear-gradient(currentColor, currentColor) right top / 2px 18px no-repeat, linear-gradient(currentColor, currentColor) left bottom / 18px 2px no-repeat, linear-gradient(currentColor, currentColor) left bottom / 2px 18px no-repeat, linear-gradient(currentColor, currentColor) right bottom / 18px 2px no-repeat, linear-gradient(currentColor, currentColor) right bottom / 2px 18px no-repeat;
+    z-index: 2; }
+
+@media (max-width: 500px) {
+  .bm-topiccard {
+    -ms-grid-columns: minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr); }
+  .bm-topiccard__side {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    gap: .5rem; }
+  .bm-topiccard__mod {
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+        -ms-flex-pack: start;
+            justify-content: flex-start; } }
+
+.bm-topiccard__side {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: .35rem;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-width: 40px; }
+
+.bm-topiccard__body {
+  display: -ms-grid;
+  display: grid;
+  gap: .35rem;
+  min-width: 0; }
+
+.bm-topiccard__title {
+  margin: 0;
+  line-height: 1.2; }
+
+.bm-topiccard__desc {
+  margin: 0;
+  font-size: .85rem;
+  opacity: .8; }
+
+.bm-topiccard__meta {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  gap: .75rem;
+  font-size: .75rem; }
+
+.bm-topiccard__mod {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+
+@media (max-width: 768px) {
+  .bm-topiccard {
+    -ms-grid-columns: minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr); }
+  .bm-topiccard__side {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+        -ms-flex-pack: start;
+            justify-content: flex-start; }
+  .bm-topiccard__mod {
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+        -ms-flex-pack: start;
+            justify-content: flex-start; }
+  .bm-topiccard__meta {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: .25rem; } }
+
 /* =========================================
    Plate Button Mixin (theme-toggle style)
    ========================================= */
