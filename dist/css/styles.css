@@ -5971,26 +5971,9 @@ body[id="idx"] .bm-head {
   grid-template-columns: auto minmax(0, 1fr) auto;
   gap: 1rem;
   padding: 1rem;
-  position: relative;
-  isolation: isolate;
-  border-radius: 4px; }
-  .bm-topiccard::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border: var(--border-1);
-    border-radius: inherit;
-    pointer-events: none;
-    z-index: -1; }
-  .bm-topiccard::after {
-    content: "";
-    position: absolute;
-    inset: 0.5rem;
-    pointer-events: none;
-    opacity: 0.25;
-    background: -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left top / 18px 2px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left top / 2px 18px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) right top / 18px 2px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) right top / 2px 18px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left bottom / 18px 2px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left bottom / 2px 18px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) right bottom / 18px 2px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) right bottom / 2px 18px no-repeat;
-    background: linear-gradient(currentColor, currentColor) left top / 18px 2px no-repeat, linear-gradient(currentColor, currentColor) left top / 2px 18px no-repeat, linear-gradient(currentColor, currentColor) right top / 18px 2px no-repeat, linear-gradient(currentColor, currentColor) right top / 2px 18px no-repeat, linear-gradient(currentColor, currentColor) left bottom / 18px 2px no-repeat, linear-gradient(currentColor, currentColor) left bottom / 2px 18px no-repeat, linear-gradient(currentColor, currentColor) right bottom / 18px 2px no-repeat, linear-gradient(currentColor, currentColor) right bottom / 2px 18px no-repeat;
-    z-index: 2; }
+  border: 1px solid var(--accent-2);
+  border-radius: 20px;
+  corner-shape: scoop; }
 
 @media (max-width: 500px) {
   .bm-topiccard {

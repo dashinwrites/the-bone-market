@@ -34,9 +34,12 @@
   grid-template-columns: auto minmax(0, 1fr) auto;
   gap: 1rem;
   padding: 1rem;
+  border: 1px solid var(--accent-2);
+  border-radius: 20px;
+  corner-shape: scoop;
 
-  @include pseudo-border();
-  @include corner-ticks();
+  // @include pseudo-border();
+  // @include corner-ticks();
 }
 
 @media (max-width: 500px) {
