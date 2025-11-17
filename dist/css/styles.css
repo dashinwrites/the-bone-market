@@ -878,7 +878,6 @@ html, body {
   padding: 0; }
 
 body {
-  background: var(--bg-1);
   color: var(--text-bg);
   font-size: var(--size-md);
   -webkit-box-sizing: border-box;
@@ -5929,7 +5928,11 @@ body[id="idx"] .bm-head {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
-  gap: 1rem; }
+  gap: 1rem;
+  background-color: var(--bg-1);
+  padding: var(--size-xs);
+  width: 60vw;
+  margin: 0 auto; }
 
 .bm-topics__header {
   display: -webkit-box;

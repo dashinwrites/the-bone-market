@@ -5,10 +5,11 @@
   </head>
   <body id="SF" class="g-4">
     <div class="bm-container">
-      @@include('../source/templates/header.html', { "prefix": ".." })
       @@include('../source/templates/nav.html', { "prefix": ".." })
+      @@include('../source/templates/header.html', { "prefix": ".." })
 
       <!--Main Body-->
+      <div class="bg" aria-hidden="true"></div>
       <main>
         <a name="top"></a>
 
@@ -81,9 +82,9 @@
             <header class="bm-topics__header">
               <div class="bm-topics__heading">
                 <{CAT_IMG}>
-                <h2><!-- |forum_name| --></h2>
+                <h2><!-- |forum_name| -->Forum Name</h2>
               </div>
-              <div class="bm-topics__actions">
+              <div class="bm-topics__actions">actions
                 <!-- |sort_options| -->
               </div>
             </header>

@@ -15,7 +15,11 @@
 .bm-topics {
   display: flex;
   flex-direction: column;
-  gap: 1rem; }
+  gap: 1rem;
+  background-color: var(--bg-1);
+  padding: var(--size-xs);
+  width: 60vw;
+  margin: 0 auto; }
 
 .bm-topics__header {
   display: flex;
