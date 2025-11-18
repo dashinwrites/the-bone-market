@@ -39,15 +39,17 @@ a[href=""] {
   .input-wrap .fancy-input.radio {
     border-radius: 50%; }
 
-/***** Variables for Defaults *****/
-:root {
-  --spacing-xs: 5px;
-  --spacing-sm: 10px;
-  --spacing-md: 15px;
-  --spacing-lg: 30px;
-  --spacing-xl: 60px;
-  --menuHeight: 0;
-  --storeImageWidth: 16px; }
+/* hides staff links from non-staff users */
+.mcp-0, .acp-0 {
+  display: none; }
+
+/* hides member links from guests */
+.m-2 {
+  display: none; }
+
+/* forces guest links to show for guests */
+.g-2 {
+  display: block !important; }
 
 /***** Online List ******/
 #Online main > .tableborder:nth-of-type(2) .maintitle {

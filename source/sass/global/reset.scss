@@ -1,9 +1,14 @@
 /*******************************
     Reset
 ********************************/
-* {
-    position: relative;
+*,
+*::before,
+*::after {
     box-sizing: border-box;
+}
+html {
+    font-size: var(--size-md);
+    font-family: var(--font-serif);
 }
 body {
     line-height: 200%;
@@ -20,19 +25,10 @@ button,
 textarea,
 select {
     font: inherit;
+    color: inherit;
 }
 a {
     text-decoration: none;
-    color: var(--text-bright);
+    color: var(--link);
+    transition: color .15s ease;
 }
-
-#userlinks { display: none; }
-
- /* hides staff links from non-staff users */
-.mcp-0, .acp-0 { display: none; }
-
-/* hides member links from guests */
-.m-2 { display: none; }
-
-/* forces guest links to show for guests */
-.g-2 { display: block!important; }

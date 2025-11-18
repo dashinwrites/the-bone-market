@@ -3,7 +3,7 @@
 ********************************/
 :root {
   /* ================================
-     Fonts
+     Typography
   ================================= */
   --font-serif: "Cormorant Garamond", serif;
   --font-sans: "Lato", system-ui, sans-serif;
@@ -13,9 +13,7 @@
   --font-title: "Ghosthey", serif;
   --font-subtitle: "UnifrakturMaguntia", cursive;
 
-  /* ================================
-     Type Scale
-  ================================= */
+  /* Type scale */
   --size-xs: 8px;
   --size-sm: 10px;
   --size-md: 12px;
@@ -32,7 +30,7 @@
   --transi-slow:  all 2s ease-in-out;
 
   /* ================================
-     Layout & Z-index
+     Layout
   ================================= */
   --max-w: 100vw;
   --min-w: 610px;
@@ -43,61 +41,49 @@
   --frame-join: 1px;
   --container-pad: 1rem;
 
-  /* initial layer values */
-  --z-nav: 10;
-  --z-leftbar: var(--z-nav);
-  --z-sidebar: calc(var(--z-leftbar) - 1);
-  --z-scrim:   calc(var(--z-leftbar) - 2);
+  /* Global spacing scale */
+  --spacing-xs: 5px;
+  --spacing-sm: 10px;
+  --spacing-md: 15px;
+  --spacing-lg: 30px;
+  --spacing-xl: 60px;
 
-  /* layers (redeclared) */
-  --z-nav: 100;
-  --z-overlay: 400;
-  --z-modal: 1000;
+  /* Jcink layout helpers */
+  --menuHeight: 0;
+  --storeImageWidth: 16px;
 
-  /* ================================
-     Leftbar icon sizing
-  ================================= */
-  --lb-icon-sz: 32px;         /* container size */
-  --lb-icon-font: 0.75rem;    /* glyph font-size */
-
-  /* ================================
-     Component layout tokens
-  ================================= */
+  /* Component layout tokens */
   --gutter: 5vw;
   --side-col: 20vw;
   --center-max: 50vw;
 
-  /* ================================
-     Plate surface tokens
-  ================================= */
-  /* plate defaults block */
-  --plate-bg: var(--bg-2);
-  --plate-text: var(--text-hiCon);
-  --plate-border: var(--border-1);
-  --plate-shadow: 0 1px 0 rgba(0,0,0,.08), 0 2px 6px rgba(0,0,0,.06);
-  --plate-hover-shadow: 0 2px 6px rgba(0,0,0,.18);
+  /* Stats module */
+  --stats-pane-h: clamp(220px, 40vh, 360px);
 
   /* ================================
-     Link tones
+     Z-index stack
   ================================= */
-  /* nav links */
-  --link: var(--text-medCon);
-  --link-sep: var(--text-loCon);
+  --z-nav: 100;
+  --z-leftbar: var(--z-nav);
+  --z-sidebar: calc(var(--z-leftbar) - 1);
+  --z-scrim:   calc(var(--z-leftbar) - 2);
+  --z-overlay: 400;
+  --z-modal: 1000;
 
   /* ================================
-     Backgrounds
+     Background assets
   ================================= */
   --bg-img: url(https://files.jcink.net/uploads2/thebonemarket/images/jr_korpa_mDvtYjZR8QI_unsplash.jpg);
   --bg-texture: url(https://files.jcink.net/uploads2/thebonemarket/images/parchment_bg.jpg);
-  --bg-blend: multiply;
+  --bg-blend: multiply; /* overridden per-theme */
 
   /* ================================
-     Neutral text colors
+     Neutral text colors (legacy)
   ================================= */
-  --text-bg:    rgb(171 171 171);
-  --text-bright:rgb(238 238 238);
-  --text-dark:  rgb(51 51 51);
-  --text-med:   rgb(128 128 128);
+  --text-bg:     rgb(171 171 171);
+  --text-bright: rgb(238 238 238);
+  --text-dark:   rgb(51 51 51);
+  --text-med:    rgb(128 128 128);
 
   /* ================================
      Borders
@@ -110,15 +96,30 @@
   --border-1: 1px solid var(--border-color);
 
   /* ================================
+     Plate surface tokens
+  ================================= */
+  --plate-bg: var(--bg-2);
+  --plate-text: var(--text-hiCon);
+  --plate-border: var(--border-1);
+  --plate-shadow: 0 1px 0 rgba(0,0,0,.08), 0 2px 6px rgba(0,0,0,.06);
+  --plate-hover-shadow: 0 2px 6px rgba(0,0,0,.18);
+
+  /* ================================
+     Link tones
+  ================================= */
+  --link: var(--text-medCon);
+  --link-sep: var(--text-loCon);
+
+  /* ================================
      Headings & content knobs
   ================================= */
-  --h-underline-w: 42%;               /* change to taste: 30%–60% */
-  --profile-vpad: 12px;               /* breathing room around the whole profile */
-  --content-max: 75vw;
-  --text-muted: color-mix(in srgb, var(--text-loCon) 25%, transparent);
+  --h-underline-w: 42%;                /* recommend: 30%–60% */
   --h-underline-alpha: .30;
+  --content-max: 75vw;
+  --profile-vpad: 12px;
+  --text-muted: color-mix(in srgb, var(--text-loCon) 25%, transparent);
 
-  /* blockquote */
+  /* Blockquote styling */
   --bq-pad: .9rem 1rem;
   --bq-radius: 8px;
   --bq-accent: var(--accent-1);
@@ -127,18 +128,16 @@
   --bq-border: 1px solid color-mix(in srgb, var(--text-loCon) 12%, transparent);
   --bq-shadow: 0 10px 30px rgba(0,0,0,.08);
 
+  /* Misc */
   --mg-blend: multiply;
-
-  --stats-pane-h: clamp(220px, 40vh, 360px);
-
 }
 
 /* ================================
    Category plate-side
 ================================ */
 .category--plate-side {
-  --cat-head-h: 8rem;           /* desired header height */
-  --cameo-scale: 1.6;           /* how much taller the cameo is than the header */
+  --cat-head-h: 8rem;         /* desired header height */
+  --cameo-scale: 1.6;         /* how much taller the cameo is than the header */
 }
 
 /* ================================
@@ -165,6 +164,7 @@
   --warn:     rgb(220 73 73);
 
   --bg-1: rgb(243 238 230);
+  --bg-1-rgb: rgba(243, 238, 230, 0.75);
   --bg-2: rgb(236 228 217);
   --bg-3: rgb(217 207 194);
   --bg-4: rgb(188 178 167);
@@ -195,7 +195,7 @@
   --bg-1-rgb: rgba(28, 27, 26, 0.75);
   --bg-2: rgb(22 21 20);
   --bg-3: rgb(35 33 31);
-  --bg-4: rgb(15, 14, 14);
+  --bg-4: rgb(15 14 14);
   --bg-grad:  linear-gradient(rgba(22,21,20,.80), rgba(22,21,20,.94));
   --bg-blend: multiply;
 

@@ -10,17 +10,6 @@
 /* Reusable mixin (oval by default) */
 /* Optional: respect prefers-reduced-motion on anything you include this on */
 /* Gradient underline mixin */
-/* =========================================
-   Plate Button Mixin (theme-toggle style)
-   ========================================= */
-/* Optional: current/active state helper */
-/* Optional: tooltip pulled from a data attribute (e.g., data-label) */
-/* ================================================
-   Plate-button look for cover tokens
-   ================================================ */
-/* Reusable mixin (oval by default) */
-/* Optional: respect prefers-reduced-motion on anything you include this on */
-/* Gradient underline mixin */
 /***************************************
  📐 Bone Market — Responsive Breakpoints
  Lightweight, semantic, SCSS-based
@@ -58,17 +47,197 @@
 /* ────────────────────────────────
    Optional Semantic Shortcuts
 ──────────────────────────────── */
-/* =========================================
-   Plate Button Mixin (theme-toggle style)
-   ========================================= */
-/* Optional: current/active state helper */
-/* Optional: tooltip pulled from a data attribute (e.g., data-label) */
-/* ================================================
-   Plate-button look for cover tokens
-   ================================================ */
-/* Reusable mixin (oval by default) */
-/* Optional: respect prefers-reduced-motion on anything you include this on */
-/* Gradient underline mixin */
+/*******************************
+    Variables
+********************************/
+@import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Uncial+Antiqua&family=Caudex:wght@400;700&family=Forum&family=Spectral+SC:wght@400;700&family=Junge&display=swap");
+:root {
+  /* ================================
+     Typography
+  ================================= */
+  --font-serif: "Cormorant Garamond", serif;
+  --font-sans: "Lato", system-ui, sans-serif;
+  --font-block: var(--font-serif);
+  --font-fancy: var(--font-serif);
+  --font-hand: "Inconsolata", monospace;
+  --font-title: "Ghosthey", serif;
+  --font-subtitle: "UnifrakturMaguntia", cursive;
+  /* Type scale */
+  --size-xs: 8px;
+  --size-sm: 10px;
+  --size-md: 12px;
+  --size-lg: 14px;
+  --size-xl: 16px;
+  --size-forum-title: 24px;
+  --size-title: 36px;
+  /* ================================
+     Motion
+  ================================= */
+  --transi-quick: all .3s ease-in-out;
+  --transi-med:   all .6s ease-in-out;
+  --transi-slow:  all 2s ease-in-out;
+  /* ================================
+     Layout
+  ================================= */
+  --max-w: 100vw;
+  --min-w: 610px;
+  --push-w: 250px;
+  --push-msg: "click to close";
+  --nav-h: clamp(44px, 6vh, 56px);
+  --leftbar-w: clamp(54px, 8vw, 64px);
+  --frame-join: 1px;
+  --container-pad: 1rem;
+  /* Global spacing scale */
+  --spacing-xs: 5px;
+  --spacing-sm: 10px;
+  --spacing-md: 15px;
+  --spacing-lg: 30px;
+  --spacing-xl: 60px;
+  /* Jcink layout helpers */
+  --menuHeight: 0;
+  --storeImageWidth: 16px;
+  /* Component layout tokens */
+  --gutter: 5vw;
+  --side-col: 20vw;
+  --center-max: 50vw;
+  /* Stats module */
+  --stats-pane-h: clamp(220px, 40vh, 360px);
+  /* ================================
+     Z-index stack
+  ================================= */
+  --z-nav: 100;
+  --z-leftbar: var(--z-nav);
+  --z-sidebar: calc(var(--z-leftbar) - 1);
+  --z-scrim:   calc(var(--z-leftbar) - 2);
+  --z-overlay: 400;
+  --z-modal: 1000;
+  /* ================================
+     Background assets
+  ================================= */
+  --bg-img: url(https://files.jcink.net/uploads2/thebonemarket/images/jr_korpa_mDvtYjZR8QI_unsplash.jpg);
+  --bg-texture: url(https://files.jcink.net/uploads2/thebonemarket/images/parchment_bg.jpg);
+  --bg-blend: multiply;
+  /* overridden per-theme */
+  /* ================================
+     Neutral text colors (legacy)
+  ================================= */
+  --text-bg:     rgb(171 171 171);
+  --text-bright: rgb(238 238 238);
+  --text-dark:   rgb(51 51 51);
+  --text-med:    rgb(128 128 128);
+  /* ================================
+     Borders
+  ================================= */
+  --border-color: rgb(86 86 86);
+  --b-1: 1px solid;
+  --b-2: 2px solid;
+  --bdoub: 3px double;
+  --bdash: 1px dashed;
+  --border-1: 1px solid var(--border-color);
+  /* ================================
+     Plate surface tokens
+  ================================= */
+  --plate-bg: var(--bg-2);
+  --plate-text: var(--text-hiCon);
+  --plate-border: var(--border-1);
+  --plate-shadow: 0 1px 0 rgba(0,0,0,.08), 0 2px 6px rgba(0,0,0,.06);
+  --plate-hover-shadow: 0 2px 6px rgba(0,0,0,.18);
+  /* ================================
+     Link tones
+  ================================= */
+  --link: var(--text-medCon);
+  --link-sep: var(--text-loCon);
+  /* ================================
+     Headings & content knobs
+  ================================= */
+  --h-underline-w: 42%;
+  /* recommend: 30%–60% */
+  --h-underline-alpha: .30;
+  --content-max: 75vw;
+  --profile-vpad: 12px;
+  --text-muted: color-mix(in srgb, var(--text-loCon) 25%, transparent);
+  /* Blockquote styling */
+  --bq-pad: .9rem 1rem;
+  --bq-radius: 8px;
+  --bq-accent: var(--accent-1);
+  --bq-dash: var(--bdash);
+  --bq-muted: color-mix(in srgb, var(--text-loCon) 20%, transparent);
+  --bq-border: 1px solid color-mix(in srgb, var(--text-loCon) 12%, transparent);
+  --bq-shadow: 0 10px 30px rgba(0,0,0,.08);
+  /* Misc */
+  --mg-blend: multiply; }
+
+/* ================================
+   Category plate-side
+================================ */
+.category--plate-side {
+  --cat-head-h: 8rem;
+  /* desired header height */
+  --cameo-scale: 1.6;
+  /* how much taller the cameo is than the header */ }
+
+/* ================================
+   BM Profile
+================================ */
+.bm-profile {
+  --portrait-max-h: 100%;
+  --portrait-aspect: 3/4;
+  --portrait-offset: clamp(12px, 3vw, 24px);
+  --portrait-max-w: clamp(0px, 38vw, 520px);
+  --cover-bg-opacity: .65;
+  --cover-bg-blend: multiply;
+  --overlay-top: clamp(12px, 3vh, 48px);
+  --overlay-left: clamp(12px, 4vw, 32px); }
+
+/* ================================
+   Light theme
+================================ */
+[data-theme="light"] {
+  --accent-1: rgb(124 30 47);
+  --accent-2: rgb(142 124 99);
+  --accent-3: rgb(64 58 54);
+  --warn:     rgb(220 73 73);
+  --bg-1: rgb(243 238 230);
+  --bg-1-rgb: rgba(243, 238, 230, 0.75);
+  --bg-2: rgb(236 228 217);
+  --bg-3: rgb(217 207 194);
+  --bg-4: rgb(188 178 167);
+  --bg-grad:  linear-gradient(rgba(0,0,0,.56), rgba(0,0,0,.56));
+  --bg-blend: screen;
+  --text-hiCon: rgb(30 30 30);
+  --text-medCon: rgb(58 54 50);
+  --text-loCon: rgb(106 94 85);
+  --text-clear: rgb(28 26 25);
+  --plate-bg: linear-gradient(rgba(0,0,0,0.03), rgba(0,0,0,0.06)), var(--bg-2);
+  --plate-text: var(--text-hiCon);
+  --link: var(--text-medCon);
+  --link-sep: var(--text-loCon); }
+
+/* ================================
+   Dark theme
+================================ */
+[data-theme="dark"] {
+  --accent-1: rgb(196 67 88);
+  --accent-2: rgb(142 124 99);
+  --accent-3: rgb(106 77 73);
+  --warn:     rgb(220 73 73);
+  --bg-1: rgb(28 27 26);
+  --bg-1-rgb: rgba(28, 27, 26, 0.75);
+  --bg-2: rgb(22 21 20);
+  --bg-3: rgb(35 33 31);
+  --bg-4: rgb(15 14 14);
+  --bg-grad:  linear-gradient(rgba(22,21,20,.80), rgba(22,21,20,.94));
+  --bg-blend: multiply;
+  --text-hiCon: rgb(237 231 222);
+  --text-medCon: rgb(201 191 181);
+  --text-loCon: rgb(155 144 134);
+  --text-clear: rgb(245 239 230);
+  --plate-bg: var(--bg-grad), var(--bg-2);
+  --plate-text: var(--text-clear);
+  --plate-shadow: 0 1px 0 rgba(0,0,0,.25), inset 0 0 0 999px rgba(255,255,255,0);
+  --link: var(--text-loCon);
+  --link-sep: var(--text-medCon); }
+
 /* =========================================
    Plate Button Mixin (theme-toggle style)
    ========================================= */
@@ -124,7 +293,6 @@
 /* ───────────────────────────
    Container
 ─────────────────────────── */
-@import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Uncial+Antiqua&family=Caudex:wght@400;700&family=Forum&family=Spectral+SC:wght@400;700&family=Junge&display=swap");
 .container {
   width: clamp(0px, calc(100% - 2rem), 1200px);
   margin-inline: auto; }
@@ -627,10 +795,15 @@
 /*******************************
     Reset
 ********************************/
-* {
-  position: relative;
+*,
+*::before,
+*::after {
   -webkit-box-sizing: border-box;
           box-sizing: border-box; }
+
+html {
+  font-size: var(--size-md);
+  font-family: var(--font-serif); }
 
 body {
   line-height: 200%;
@@ -647,217 +820,14 @@ input,
 button,
 textarea,
 select {
-  font: inherit; }
+  font: inherit;
+  color: inherit; }
 
 a {
   text-decoration: none;
-  color: var(--text-bright); }
-
-#userlinks {
-  display: none; }
-
-/* hides staff links from non-staff users */
-.mcp-0, .acp-0 {
-  display: none; }
-
-/* hides member links from guests */
-.m-2 {
-  display: none; }
-
-/* forces guest links to show for guests */
-.g-2 {
-  display: block !important; }
-
-/*******************************
-    Variables
-********************************/
-:root {
-  /* ================================
-     Fonts
-  ================================= */
-  --font-serif: "Cormorant Garamond", serif;
-  --font-sans: "Lato", system-ui, sans-serif;
-  --font-block: var(--font-serif);
-  --font-fancy: var(--font-serif);
-  --font-hand: "Inconsolata", monospace;
-  --font-title: "Ghosthey", serif;
-  --font-subtitle: "UnifrakturMaguntia", cursive;
-  /* ================================
-     Type Scale
-  ================================= */
-  --size-xs: 8px;
-  --size-sm: 10px;
-  --size-md: 12px;
-  --size-lg: 14px;
-  --size-xl: 16px;
-  --size-forum-title: 24px;
-  --size-title: 36px;
-  /* ================================
-     Motion
-  ================================= */
-  --transi-quick: all .3s ease-in-out;
-  --transi-med:   all .6s ease-in-out;
-  --transi-slow:  all 2s ease-in-out;
-  /* ================================
-     Layout & Z-index
-  ================================= */
-  --max-w: 100vw;
-  --min-w: 610px;
-  --push-w: 250px;
-  --push-msg: "click to close";
-  --nav-h: clamp(44px, 6vh, 56px);
-  --leftbar-w: clamp(54px, 8vw, 64px);
-  --frame-join: 1px;
-  --container-pad: 1rem;
-  /* initial layer values */
-  --z-nav: 10;
-  --z-leftbar: var(--z-nav);
-  --z-sidebar: calc(var(--z-leftbar) - 1);
-  --z-scrim:   calc(var(--z-leftbar) - 2);
-  /* layers (redeclared) */
-  --z-nav: 100;
-  --z-overlay: 400;
-  --z-modal: 1000;
-  /* ================================
-     Leftbar icon sizing
-  ================================= */
-  --lb-icon-sz: 32px;
-  /* container size */
-  --lb-icon-font: 0.75rem;
-  /* glyph font-size */
-  /* ================================
-     Component layout tokens
-  ================================= */
-  --gutter: 5vw;
-  --side-col: 20vw;
-  --center-max: 50vw;
-  /* ================================
-     Plate surface tokens
-  ================================= */
-  /* plate defaults block */
-  --plate-bg: var(--bg-2);
-  --plate-text: var(--text-hiCon);
-  --plate-border: var(--border-1);
-  --plate-shadow: 0 1px 0 rgba(0,0,0,.08), 0 2px 6px rgba(0,0,0,.06);
-  --plate-hover-shadow: 0 2px 6px rgba(0,0,0,.18);
-  /* ================================
-     Link tones
-  ================================= */
-  /* nav links */
-  --link: var(--text-medCon);
-  --link-sep: var(--text-loCon);
-  /* ================================
-     Backgrounds
-  ================================= */
-  --bg-img: url(https://files.jcink.net/uploads2/thebonemarket/images/jr_korpa_mDvtYjZR8QI_unsplash.jpg);
-  --bg-texture: url(https://files.jcink.net/uploads2/thebonemarket/images/parchment_bg.jpg);
-  --bg-blend: multiply;
-  /* ================================
-     Neutral text colors
-  ================================= */
-  --text-bg:    rgb(171 171 171);
-  --text-bright:rgb(238 238 238);
-  --text-dark:  rgb(51 51 51);
-  --text-med:   rgb(128 128 128);
-  /* ================================
-     Borders
-  ================================= */
-  --border-color: rgb(86 86 86);
-  --b-1: 1px solid;
-  --b-2: 2px solid;
-  --bdoub: 3px double;
-  --bdash: 1px dashed;
-  --border-1: 1px solid var(--border-color);
-  /* ================================
-     Headings & content knobs
-  ================================= */
-  --h-underline-w: 42%;
-  /* change to taste: 30%–60% */
-  --profile-vpad: 12px;
-  /* breathing room around the whole profile */
-  --content-max: 75vw;
-  --text-muted: color-mix(in srgb, var(--text-loCon) 25%, transparent);
-  --h-underline-alpha: .30;
-  /* blockquote */
-  --bq-pad: .9rem 1rem;
-  --bq-radius: 8px;
-  --bq-accent: var(--accent-1);
-  --bq-dash: var(--bdash);
-  --bq-muted: color-mix(in srgb, var(--text-loCon) 20%, transparent);
-  --bq-border: 1px solid color-mix(in srgb, var(--text-loCon) 12%, transparent);
-  --bq-shadow: 0 10px 30px rgba(0,0,0,.08);
-  --mg-blend: multiply;
-  --stats-pane-h: clamp(220px, 40vh, 360px); }
-
-/* ================================
-   Category plate-side
-================================ */
-.category--plate-side {
-  --cat-head-h: 8rem;
-  /* desired header height */
-  --cameo-scale: 1.6;
-  /* how much taller the cameo is than the header */ }
-
-/* ================================
-   BM Profile
-================================ */
-.bm-profile {
-  --portrait-max-h: 100%;
-  --portrait-aspect: 3/4;
-  --portrait-offset: clamp(12px, 3vw, 24px);
-  --portrait-max-w: clamp(0px, 38vw, 520px);
-  --cover-bg-opacity: .65;
-  --cover-bg-blend: multiply;
-  --overlay-top: clamp(12px, 3vh, 48px);
-  --overlay-left: clamp(12px, 4vw, 32px); }
-
-/* ================================
-   Light theme
-================================ */
-[data-theme="light"] {
-  --accent-1: rgb(124 30 47);
-  --accent-2: rgb(142 124 99);
-  --accent-3: rgb(64 58 54);
-  --warn:     rgb(220 73 73);
-  --bg-1: rgb(243 238 230);
-  --bg-2: rgb(236 228 217);
-  --bg-3: rgb(217 207 194);
-  --bg-4: rgb(188 178 167);
-  --bg-grad:  linear-gradient(rgba(0,0,0,.56), rgba(0,0,0,.56));
-  --bg-blend: screen;
-  --text-hiCon: rgb(30 30 30);
-  --text-medCon: rgb(58 54 50);
-  --text-loCon: rgb(106 94 85);
-  --text-clear: rgb(28 26 25);
-  --plate-bg: linear-gradient(rgba(0,0,0,0.03), rgba(0,0,0,0.06)), var(--bg-2);
-  --plate-text: var(--text-hiCon);
-  --link: var(--text-medCon);
-  --link-sep: var(--text-loCon); }
-
-/* ================================
-   Dark theme
-================================ */
-[data-theme="dark"] {
-  --accent-1: rgb(196 67 88);
-  --accent-2: rgb(142 124 99);
-  --accent-3: rgb(106 77 73);
-  --warn:     rgb(220 73 73);
-  --bg-1: rgb(28 27 26);
-  --bg-1-rgb: rgba(28, 27, 26, 0.75);
-  --bg-2: rgb(22 21 20);
-  --bg-3: rgb(35 33 31);
-  --bg-4: rgb(15, 14, 14);
-  --bg-grad:  linear-gradient(rgba(22,21,20,.80), rgba(22,21,20,.94));
-  --bg-blend: multiply;
-  --text-hiCon: rgb(237 231 222);
-  --text-medCon: rgb(201 191 181);
-  --text-loCon: rgb(155 144 134);
-  --text-clear: rgb(245 239 230);
-  --plate-bg: var(--bg-grad), var(--bg-2);
-  --plate-text: var(--text-clear);
-  --plate-shadow: 0 1px 0 rgba(0,0,0,.25), inset 0 0 0 999px rgba(255,255,255,0);
-  --link: var(--text-loCon);
-  --link-sep: var(--text-medCon); }
+  color: var(--link);
+  -webkit-transition: color .15s ease;
+  transition: color .15s ease; }
 
 /* =========================================
    Plate Button Mixin (theme-toggle style)
@@ -873,16 +843,6 @@ a {
 /* ================================
    BASE / RESET
 ================================ */
-html, body {
-  margin: 0;
-  padding: 0; }
-
-body {
-  color: var(--text-bg);
-  font-size: var(--size-md);
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box; }
-
 /* Scrollbars */
 *::-webkit-scrollbar {
   height: 6px;
@@ -2133,17 +2093,6 @@ html.debug .bm-container {
 html.debug .bm-head {
   outline: 2px solid red; }
 
-/* =========================================
-   Plate Button Mixin (theme-toggle style)
-   ========================================= */
-/* Optional: current/active state helper */
-/* Optional: tooltip pulled from a data attribute (e.g., data-label) */
-/* ================================================
-   Plate-button look for cover tokens
-   ================================================ */
-/* Reusable mixin (oval by default) */
-/* Optional: respect prefers-reduced-motion on anything you include this on */
-/* Gradient underline mixin */
 /*******************************
     Utilities
 ********************************/
@@ -4852,11 +4801,6 @@ body[data-sidebar="open"] {
          -moz-user-select: none;
           -ms-user-select: none;
               user-select: none; }
-
-html,
-body {
-  margin: 0;
-  padding: 0; }
 
 .bm-head {
   display: none; }
@@ -8910,15 +8854,17 @@ a[href=""] {
   .input-wrap .fancy-input.radio {
     border-radius: 50%; }
 
-/***** Variables for Defaults *****/
-:root {
-  --spacing-xs: 5px;
-  --spacing-sm: 10px;
-  --spacing-md: 15px;
-  --spacing-lg: 30px;
-  --spacing-xl: 60px;
-  --menuHeight: 0;
-  --storeImageWidth: 16px; }
+/* hides staff links from non-staff users */
+.mcp-0, .acp-0 {
+  display: none; }
+
+/* hides member links from guests */
+.m-2 {
+  display: none; }
+
+/* forces guest links to show for guests */
+.g-2 {
+  display: block !important; }
 
 /***** Online List ******/
 #Online main > .tableborder:nth-of-type(2) .maintitle {

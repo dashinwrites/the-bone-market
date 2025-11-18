@@ -13,15 +13,6 @@
 /* ================================
    BASE / RESET
 ================================ */
-html, body {
-  margin: 0;
-  padding: 0; }
-
-body {
-  color: var(--text-bg);
-  font-size: var(--size-md);
-  box-sizing: border-box; }
-
 /* Scrollbars */
 *::-webkit-scrollbar {
   height: 6px;
