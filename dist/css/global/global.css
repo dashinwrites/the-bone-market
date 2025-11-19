@@ -45,7 +45,9 @@
   inline-size: 100%;
   block-size: 100dvb;
   background: var(--bg-img) center/cover no-repeat fixed;
-  opacity: .25; }
+  opacity: .25;
+  z-index: -1;
+  pointer-events: none; }
   .bg::before {
     content: "";
     position: fixed;
@@ -53,6 +55,12 @@
     background: var(--bg-texture) center/cover no-repeat fixed;
     background-blend-mode: var(--bg-blend);
     opacity: .3; }
+  .bg::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(circle at center, transparent 0, transparent 50%, rgba(0, 0, 0, 0.45) 100%); }
 
 .bm-container {
   padding-inline: var(--container-pad);

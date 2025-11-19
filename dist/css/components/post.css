@@ -886,7 +886,7 @@ a[href*="act=Post"][href*="CODE=14"] {
 
 /* “plate” table look when it contains pagination */
 table:has(.pagination) {
-  background: var(--bg-2);
+  background: var(--bg-1-rgb);
   border-radius: 8px;
   box-shadow: var(--plate-shadow);
   border-collapse: separate;

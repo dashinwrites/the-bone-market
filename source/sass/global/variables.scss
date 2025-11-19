@@ -80,15 +80,15 @@
   /* ================================
      Neutral text colors (legacy)
   ================================= */
-  --text-bg:     rgb(171 171 171);
-  --text-bright: rgb(238 238 238);
-  --text-dark:   rgb(51 51 51);
-  --text-med:    rgb(128 128 128);
+  --text-bg:     rgb(171, 171, 171);
+  --text-bright: rgb(238, 238, 238);
+  --text-dark:   rgb(51, 51, 51);
+  --text-med:    rgb(128, 128, 128);
 
   /* ================================
      Borders
   ================================= */
-  --border-color: rgb(86 86 86);
+  --border-color: rgb(86, 86, 86);
   --b-1: 1px solid;
   --b-2: 2px solid;
   --bdoub: 3px double;
@@ -158,23 +158,23 @@
    Light theme
 ================================ */
 [data-theme="light"] {
-  --accent-1: rgb(124 30 47);
-  --accent-2: rgb(142 124 99);
-  --accent-3: rgb(64 58 54);
-  --warn:     rgb(220 73 73);
+  --accent-1: rgb(124, 30, 47);
+  --accent-2: rgb(142, 124, 99);
+  --accent-3: rgb(64, 58, 54);
+  --warn:     rgb(220, 73, 73);
 
-  --bg-1: rgb(243 238 230);
+  --bg-1: rgb(243, 238, 230);
   --bg-1-rgb: rgba(243, 238, 230, 0.75);
-  --bg-2: rgb(236 228 217);
-  --bg-3: rgb(217 207 194);
-  --bg-4: rgb(188 178 167);
+  --bg-2: rgb(236, 228, 217);
+  --bg-3: rgb(217, 207, 194);
+  --bg-4: rgb(188, 178, 167);
   --bg-grad:  linear-gradient(rgba(0,0,0,.56), rgba(0,0,0,.56));
   --bg-blend: screen;
 
-  --text-hiCon: rgb(30 30 30);
-  --text-medCon: rgb(58 54 50);
-  --text-loCon: rgb(106 94 85);
-  --text-clear: rgb(28 26 25);
+  --text-hiCon: rgb(30, 30, 30);
+  --text-medCon: rgb(58, 54, 50);
+  --text-loCon: rgb(106, 94, 85);
+  --text-clear: rgb(28, 26, 25);
 
   --plate-bg: linear-gradient(rgba(0,0,0,0.03), rgba(0,0,0,0.06)), var(--bg-2);
   --plate-text: var(--text-hiCon);
@@ -186,23 +186,23 @@
    Dark theme
 ================================ */
 [data-theme="dark"] {
-  --accent-1: rgb(196 67 88);
-  --accent-2: rgb(142 124 99);
-  --accent-3: rgb(106 77 73);
-  --warn:     rgb(220 73 73);
+  --accent-1: rgb(196, 67, 88);
+  --accent-2: rgb(142, 124, 99);
+  --accent-3: rgb(106, 77, 73);
+  --warn:     rgb(220, 73, 73);
 
-  --bg-1: rgb(28 27 26);
+  --bg-1: rgb(28, 27, 26);
   --bg-1-rgb: rgba(28, 27, 26, 0.75);
-  --bg-2: rgb(22 21 20);
-  --bg-3: rgb(35 33 31);
-  --bg-4: rgb(15 14 14);
+  --bg-2: rgb(22, 21, 20);
+  --bg-3: rgb(35, 33, 31);
+  --bg-4: rgb(15, 14, 14);
   --bg-grad:  linear-gradient(rgba(22,21,20,.80), rgba(22,21,20,.94));
   --bg-blend: multiply;
 
-  --text-hiCon: rgb(237 231 222);
-  --text-medCon: rgb(201 191 181);
-  --text-loCon: rgb(155 144 134);
-  --text-clear: rgb(245 239 230);
+  --text-hiCon: rgb(237, 231, 222);
+  --text-medCon: rgb(201, 191, 181);
+  --text-loCon: rgb(155, 144, 134);
+  --text-clear: rgb(245, 239, 230);
 
   --plate-bg: var(--bg-grad), var(--bg-2);
   --plate-text: var(--text-clear);

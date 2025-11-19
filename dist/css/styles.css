@@ -121,14 +121,14 @@
   /* ================================
      Neutral text colors (legacy)
   ================================= */
-  --text-bg:     rgb(171 171 171);
-  --text-bright: rgb(238 238 238);
-  --text-dark:   rgb(51 51 51);
-  --text-med:    rgb(128 128 128);
+  --text-bg:     rgb(171, 171, 171);
+  --text-bright: rgb(238, 238, 238);
+  --text-dark:   rgb(51, 51, 51);
+  --text-med:    rgb(128, 128, 128);
   /* ================================
      Borders
   ================================= */
-  --border-color: rgb(86 86 86);
+  --border-color: rgb(86, 86, 86);
   --b-1: 1px solid;
   --b-2: 2px solid;
   --bdoub: 3px double;
@@ -193,21 +193,21 @@
    Light theme
 ================================ */
 [data-theme="light"] {
-  --accent-1: rgb(124 30 47);
-  --accent-2: rgb(142 124 99);
-  --accent-3: rgb(64 58 54);
-  --warn:     rgb(220 73 73);
-  --bg-1: rgb(243 238 230);
+  --accent-1: rgb(124, 30, 47);
+  --accent-2: rgb(142, 124, 99);
+  --accent-3: rgb(64, 58, 54);
+  --warn:     rgb(220, 73, 73);
+  --bg-1: rgb(243, 238, 230);
   --bg-1-rgb: rgba(243, 238, 230, 0.75);
-  --bg-2: rgb(236 228 217);
-  --bg-3: rgb(217 207 194);
-  --bg-4: rgb(188 178 167);
+  --bg-2: rgb(236, 228, 217);
+  --bg-3: rgb(217, 207, 194);
+  --bg-4: rgb(188, 178, 167);
   --bg-grad:  linear-gradient(rgba(0,0,0,.56), rgba(0,0,0,.56));
   --bg-blend: screen;
-  --text-hiCon: rgb(30 30 30);
-  --text-medCon: rgb(58 54 50);
-  --text-loCon: rgb(106 94 85);
-  --text-clear: rgb(28 26 25);
+  --text-hiCon: rgb(30, 30, 30);
+  --text-medCon: rgb(58, 54, 50);
+  --text-loCon: rgb(106, 94, 85);
+  --text-clear: rgb(28, 26, 25);
   --plate-bg: linear-gradient(rgba(0,0,0,0.03), rgba(0,0,0,0.06)), var(--bg-2);
   --plate-text: var(--text-hiCon);
   --link: var(--text-medCon);
@@ -217,21 +217,21 @@
    Dark theme
 ================================ */
 [data-theme="dark"] {
-  --accent-1: rgb(196 67 88);
-  --accent-2: rgb(142 124 99);
-  --accent-3: rgb(106 77 73);
-  --warn:     rgb(220 73 73);
-  --bg-1: rgb(28 27 26);
+  --accent-1: rgb(196, 67, 88);
+  --accent-2: rgb(142, 124, 99);
+  --accent-3: rgb(106, 77, 73);
+  --warn:     rgb(220, 73, 73);
+  --bg-1: rgb(28, 27, 26);
   --bg-1-rgb: rgba(28, 27, 26, 0.75);
-  --bg-2: rgb(22 21 20);
-  --bg-3: rgb(35 33 31);
-  --bg-4: rgb(15 14 14);
+  --bg-2: rgb(22, 21, 20);
+  --bg-3: rgb(35, 33, 31);
+  --bg-4: rgb(15, 14, 14);
   --bg-grad:  linear-gradient(rgba(22,21,20,.80), rgba(22,21,20,.94));
   --bg-blend: multiply;
-  --text-hiCon: rgb(237 231 222);
-  --text-medCon: rgb(201 191 181);
-  --text-loCon: rgb(155 144 134);
-  --text-clear: rgb(245 239 230);
+  --text-hiCon: rgb(237, 231, 222);
+  --text-medCon: rgb(201, 191, 181);
+  --text-loCon: rgb(155, 144, 134);
+  --text-clear: rgb(245, 239, 230);
   --plate-bg: var(--bg-grad), var(--bg-2);
   --plate-text: var(--text-clear);
   --plate-shadow: 0 1px 0 rgba(0,0,0,.25), inset 0 0 0 999px rgba(255,255,255,0);
@@ -875,7 +875,9 @@ a {
   inline-size: 100%;
   block-size: 100dvb;
   background: var(--bg-img) center/cover no-repeat fixed;
-  opacity: .25; }
+  opacity: .25;
+  z-index: -1;
+  pointer-events: none; }
   .bg::before {
     content: "";
     position: fixed;
@@ -883,6 +885,12 @@ a {
     background: var(--bg-texture) center/cover no-repeat fixed;
     background-blend-mode: var(--bg-blend);
     opacity: .3; }
+  .bg::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(circle at center, transparent 0, transparent 50%, rgba(0, 0, 0, 0.45) 100%); }
 
 .bm-container {
   padding-inline: var(--container-pad);
@@ -5874,9 +5882,9 @@ body[id="idx"] .bm-head {
           flex-direction: column;
   gap: 1rem;
   background-color: var(--bg-1);
-  padding: var(--size-xs);
-  width: 60vw;
-  margin: 0 auto; }
+  padding: var(--spacing-sm);
+  max-inline-size: clamp(820px, 80vw, 1280px);
+  margin-inline: auto; }
 
 .bm-topics__header {
   display: -webkit-box;
@@ -5917,9 +5925,12 @@ body[id="idx"] .bm-head {
   -ms-grid-columns: auto minmax(0, 1fr) auto;
   grid-template-columns: auto minmax(0, 1fr) auto;
   gap: 1rem;
-  padding: 1rem;
-  border: 1px solid var(--accent-2);
-  border-radius: 20px;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--border-color);
+  border-radius: 18px;
+  background: var(--plate-bg);
+  -webkit-box-shadow: var(--plate-shadow);
+          box-shadow: var(--plate-shadow);
   corner-shape: scoop; }
 
 @media (max-width: 500px) {
@@ -6021,6 +6032,180 @@ body[id="idx"] .bm-head {
         -ms-flex-direction: column;
             flex-direction: column;
     gap: .25rem; } }
+
+/* ================================
+   Topiclist Ledger (wired to HTML)
+================================ */
+.topiclist--info {
+  max-inline-size: clamp(820px, 80vw, 1280px);
+  margin: var(--spacing-lg) auto var(--spacing-md);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background: color-mix(in srgb, var(--plate-bg) 60%, transparent);
+  border: var(--border-1);
+  -webkit-box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+          box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+  display: -ms-grid;
+  display: grid;
+  gap: var(--spacing-xs);
+  font-size: calc(var(--size-md) * 0.95);
+  line-height: 1.4;
+  position: relative;
+  /* ledger horizontal + vertical rules (desktop / tablet) */
+  /* reset legacy row styles inside this block only */
+  /* ========== 1) Header line: inside the <form> ========== */
+  /* ========== 2) Browsing line: 2nd .darkrow2 ========== */
+  /* ========== 3) Members line: .row2 ========== */
+  /* ---------- Mobile tweaks ---------- */ }
+  .topiclist--info::before {
+    content: "";
+    position: absolute;
+    inset-block: var(--spacing-sm);
+    inset-inline: var(--spacing-lg);
+    pointer-events: none;
+    opacity: .75;
+    background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(color-mix(in srgb, var(--border-color) 60%, transparent)), to(transparent)) top, -webkit-gradient(linear, left top, right top, from(transparent), color-stop(color-mix(in srgb, var(--border-color) 60%, transparent)), to(transparent)) bottom, -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(color-mix(in srgb, var(--border-color) 60%, transparent)), to(transparent)) 25% 0, -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(color-mix(in srgb, var(--border-color) 60%, transparent)), to(transparent)) 75% 0;
+    background: linear-gradient(to right, transparent, color-mix(in srgb, var(--border-color) 60%, transparent), transparent) top, linear-gradient(to right, transparent, color-mix(in srgb, var(--border-color) 60%, transparent), transparent) bottom, linear-gradient(to bottom, transparent, color-mix(in srgb, var(--border-color) 60%, transparent), transparent) 25% 0, linear-gradient(to bottom, transparent, color-mix(in srgb, var(--border-color) 60%, transparent), transparent) 75% 0;
+    background-repeat: no-repeat;
+    background-size: 100% 1px, 100% 1px, 1px 100%, 1px 100%;
+    /* right vertical */ }
+  .topiclist--info .darkrow2,
+  .topiclist--info .row2 {
+    background: none !important;
+    border: 0 !important;
+    padding: 0 !important;
+    margin: 0; }
+  .topiclist--info > form > .darkrow2 {
+    text-transform: uppercase;
+    font-size: .8rem;
+    letter-spacing: .06em;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    gap: .35rem;
+    text-align: center; }
+    .topiclist--info > form > .darkrow2 select,
+    .topiclist--info > form > .darkrow2 input[type="submit"] {
+      margin-left: .25rem;
+      font-size: inherit; }
+  .topiclist--info > .darkrow2 {
+    font-size: .75rem;
+    text-transform: uppercase;
+    letter-spacing: .07em;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    opacity: .9; }
+  .topiclist--info > .row2 {
+    font-size: .75rem;
+    text-transform: uppercase;
+    letter-spacing: .07em;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    opacity: .9; }
+    .topiclist--info > .row2 a {
+      font-weight: 600; }
+  @media (max-width: 640px) {
+    .topiclist--info {
+      /* simplify rules: only top + bottom horizontals */
+      /* header stacks nicely */
+      /* browsing + members stack too */ }
+      .topiclist--info::before {
+        background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(color-mix(in srgb, var(--border-color) 60%, transparent)), to(transparent)) top, -webkit-gradient(linear, left top, right top, from(transparent), color-stop(color-mix(in srgb, var(--border-color) 60%, transparent)), to(transparent)) bottom;
+        background: linear-gradient(to right, transparent, color-mix(in srgb, var(--border-color) 60%, transparent), transparent) top, linear-gradient(to right, transparent, color-mix(in srgb, var(--border-color) 60%, transparent), transparent) bottom;
+        background-repeat: no-repeat;
+        background-size: 100% 1px, 100% 1px; }
+      .topiclist--info > form > .darkrow2 {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-align: start;
+        -webkit-align-items: flex-start;
+            -ms-flex-align: start;
+                align-items: flex-start;
+        text-align: left;
+        gap: .2rem; }
+        .topiclist--info > form > .darkrow2 select,
+        .topiclist--info > form > .darkrow2 input[type="submit"] {
+          margin-left: 0; }
+      .topiclist--info > .darkrow2,
+      .topiclist--info > .row2 {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-align: start;
+        -webkit-align-items: flex-start;
+            -ms-flex-align: start;
+                align-items: flex-start;
+        gap: .25rem; } }
+
+/* ================================
+   Lower Utilities Ledger Strip
+================================ */
+body#SF main > div[align="right"] {
+  max-inline-size: clamp(820px, 80vw, 1280px);
+  margin: var(--spacing-sm) auto var(--spacing-xs);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background: color-mix(in srgb, var(--plate-bg) 40%, transparent);
+  border-inline: var(--border-1);
+  -webkit-border-before: 1px dashed color-mix(in srgb, var(--border-color) 50%, transparent);
+          border-block-start: 1px dashed color-mix(in srgb, var(--border-color) 50%, transparent);
+  -webkit-border-after: 1px dashed color-mix(in srgb, var(--border-color) 40%, transparent);
+          border-block-end: 1px dashed color-mix(in srgb, var(--border-color) 40%, transparent);
+  font-size: calc(var(--size-md) * 0.9);
+  display: -ms-grid;
+  display: grid;
+  gap: var(--spacing-xs); }
+  body#SF main > div[align="right"] form {
+    margin-block: calc(var(--spacing-xs) / 2); }
+
+/* tiny ledger chip */
+body#SF main > div[align="center"] #mark-as-read-subto {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-md);
+  background: color-mix(in srgb, var(--plate-bg) 40%, transparent);
+  border-block: 1px solid color-mix(in srgb, var(--border-color) 60%, transparent);
+  font-size: .75rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  margin-top: var(--spacing-sm); }
+
+body#SF main > .postlinksbar,
+body#SF main > .maintitle + .postlinksbar {
+  background: transparent;
+  border: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  padding: 0; }
+
+@media (max-width: 640px) {
+  ::before {
+    background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(color-mix(in srgb, var(--border-color) 60%, transparent)), to(transparent)) top, -webkit-gradient(linear, left top, right top, from(transparent), color-stop(color-mix(in srgb, var(--border-color) 60%, transparent)), to(transparent)) bottom;
+    background: linear-gradient(to right, transparent, color-mix(in srgb, var(--border-color) 60%, transparent), transparent) top, linear-gradient(to right, transparent, color-mix(in srgb, var(--border-color) 60%, transparent), transparent) bottom;
+    background-repeat: no-repeat;
+    background-size: 100% 1px, 100% 1px; } }
 
 /* =========================================
    Plate Button Mixin (theme-toggle style)
@@ -7117,7 +7302,7 @@ a[href*="act=Post"][href*="CODE=14"] {
 
 /* “plate” table look when it contains pagination */
 table:has(.pagination) {
-  background: var(--bg-2);
+  background: var(--bg-1-rgb);
   border-radius: 8px;
   -webkit-box-shadow: var(--plate-shadow);
           box-shadow: var(--plate-shadow);
