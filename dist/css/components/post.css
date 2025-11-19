@@ -49,12 +49,12 @@
   grid-template-columns: clamp(240px, 26vw, 340px) 1fr;
   grid-template-rows: auto 1fr auto;
   align-items: stretch;
-  grid-template-areas: "head head" "mini content" "mini foot"; }
+  grid-template-areas: "head head" "mini content" "mini foot"; }
   @media (max-width: 900px) {
     .bm-post--grid {
       grid-template-columns: 1fr;
       grid-template-rows: auto auto auto auto;
-      grid-template-areas: "head" "mini" "content" "foot"; } }
+      grid-template-areas: "head" "mini" "content" "foot"; } }
 
 /* =========================================================
    (2) HEADER

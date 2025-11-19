@@ -43,10 +43,27 @@
   gap: 1rem;
   padding: 1rem 1.25rem;
   border: 1px solid var(--border-color);
-  border-radius: 18px;
   background: var(--plate-bg);
   box-shadow: var(--plate-shadow);
-  corner-shape: scoop; }
+  position: relative;
+  isolation: isolate;
+  border-radius: 4px; }
+  .bm-topiccard::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: var(--border-1);
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: -1; }
+  .bm-topiccard::after {
+    content: "";
+    position: absolute;
+    inset: 0.5rem;
+    pointer-events: none;
+    opacity: 0.25;
+    background: linear-gradient(currentColor, currentColor) left top / 18px 2px no-repeat, linear-gradient(currentColor, currentColor) left top / 2px 18px no-repeat, linear-gradient(currentColor, currentColor) right top / 18px 2px no-repeat, linear-gradient(currentColor, currentColor) right top / 2px 18px no-repeat, linear-gradient(currentColor, currentColor) left bottom / 18px 2px no-repeat, linear-gradient(currentColor, currentColor) left bottom / 2px 18px no-repeat, linear-gradient(currentColor, currentColor) right bottom / 18px 2px no-repeat, linear-gradient(currentColor, currentColor) right bottom / 2px 18px no-repeat;
+    z-index: 2; }
 
 @media (max-width: 500px) {
   .bm-topiccard {
@@ -147,7 +164,8 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: .35rem;
-    text-align: center; }
+    text-align: center;
+    align-items: center; }
     .topiclist--info > form > .darkrow2 select,
     .topiclist--info > form > .darkrow2 input[type="submit"] {
       margin-left: .25rem;
@@ -157,14 +175,14 @@
     text-transform: uppercase;
     letter-spacing: .07em;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     opacity: .9; }
   .topiclist--info > .row2 {
     font-size: .75rem;
     text-transform: uppercase;
     letter-spacing: .07em;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     opacity: .9; }
     .topiclist--info > .row2 a {
       font-weight: 600; }

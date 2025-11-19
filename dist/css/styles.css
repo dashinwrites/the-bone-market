@@ -827,6 +827,7 @@ a {
   text-decoration: none;
   color: var(--link);
   -webkit-transition: color .15s ease;
+  -o-transition: color .15s ease;
   transition: color .15s ease; }
 
 /* =========================================
@@ -890,6 +891,7 @@ a {
     position: fixed;
     inset: 0;
     pointer-events: none;
+    background: -o-radial-gradient(center, circle, transparent 0, transparent 50%, rgba(0, 0, 0, 0.45) 100%);
     background: radial-gradient(circle at center, transparent 0, transparent 50%, rgba(0, 0, 0, 0.45) 100%); }
 
 .bm-container {
@@ -1714,6 +1716,7 @@ s, del {
 a {
   color: var(--link);
   -webkit-transition: color .15s ease;
+  -o-transition: color .15s ease;
   transition: color .15s ease; }
   a:hover {
     color: var(--accent-1); }
@@ -1822,6 +1825,7 @@ blockquote {
     inset: 0;
     pointer-events: none;
     background: -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) top 0.5rem left 0.5rem/14px 2px, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) top 0.5rem left 0.5rem/2px 14px, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) bottom 0.5rem right 0.5rem/14px 2px, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) bottom 0.5rem right 0.5rem/2px 14px;
+    background: -o-linear-gradient(currentColor, currentColor) top 0.5rem left 0.5rem/14px 2px, -o-linear-gradient(currentColor, currentColor) top 0.5rem left 0.5rem/2px 14px, -o-linear-gradient(currentColor, currentColor) bottom 0.5rem right 0.5rem/14px 2px, -o-linear-gradient(currentColor, currentColor) bottom 0.5rem right 0.5rem/2px 14px;
     background: linear-gradient(currentColor, currentColor) top 0.5rem left 0.5rem/14px 2px, linear-gradient(currentColor, currentColor) top 0.5rem left 0.5rem/2px 14px, linear-gradient(currentColor, currentColor) bottom 0.5rem right 0.5rem/14px 2px, linear-gradient(currentColor, currentColor) bottom 0.5rem right 0.5rem/2px 14px;
     background-repeat: no-repeat;
     opacity: .18; }
@@ -1885,6 +1889,7 @@ details.spoiler {
   border-radius: 3px;
   padding: 0 .2em;
   -webkit-transition: color .15s;
+  -o-transition: color .15s;
   transition: color .15s; }
   .spoiler-inline.is-open {
     color: inherit;
@@ -3814,6 +3819,7 @@ html.debug .bm-head {
   border-radius: var(--mg-radius, 10px);
   padding: var(--mg-pad, 1rem);
   background: -webkit-gradient(linear, left top, left bottom, from(var(--_bg)), to(var(--_bg))) padding-box, var(--mg-gradient) border-box;
+  background: -o-linear-gradient(var(--_bg), var(--_bg)) padding-box, var(--mg-gradient) border-box;
   background: linear-gradient(var(--_bg), var(--_bg)) padding-box, var(--mg-gradient) border-box;
   -webkit-box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--text-loCon) 12%, transparent);
           box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--text-loCon) 12%, transparent); }
@@ -3878,6 +3884,7 @@ html.debug .bm-head {
   font-size: var(--size-lg);
   color: var(--text-clear);
   -webkit-transition: var(--transi-quick);
+  -o-transition: var(--transi-quick);
   transition: var(--transi-quick);
   block-size: var(--nav-h);
   z-index: var(--z-nav);
@@ -3887,6 +3894,7 @@ html.debug .bm-head {
     text-decoration: none;
     line-height: 1;
     -webkit-transition: var(--transi-quick);
+    -o-transition: var(--transi-quick);
     transition: var(--transi-quick); }
     #navstrip a:hover {
       color: var(--accent-1);
@@ -3896,6 +3904,7 @@ html.debug .bm-head {
       -webkit-box-shadow: inset 0 0 0 2px var(--accent-3);
               box-shadow: inset 0 0 0 2px var(--accent-3);
       -webkit-transition: var(--transi-quick);
+      -o-transition: var(--transi-quick);
       transition: var(--transi-quick); }
   #navstrip a + a::before {
     content: "†";
@@ -3935,6 +3944,7 @@ html.debug .bm-head {
     -webkit-box-shadow: inset 0 0 0 2px var(--accent-3);
             box-shadow: inset 0 0 0 2px var(--accent-3);
     -webkit-transition: var(--transi-quick);
+    -o-transition: var(--transi-quick);
     transition: var(--transi-quick); }
 
 /* ---------------------------
@@ -4059,6 +4069,7 @@ html.debug .bm-head {
       color: currentColor;
       cursor: pointer;
       -webkit-transition: var(--transi-quick);
+      -o-transition: var(--transi-quick);
       transition: var(--transi-quick);
       isolation: isolate;
       /* dashed separator between each static icon */ }
@@ -4161,6 +4172,7 @@ html.debug .bm-head {
         color: currentColor;
         text-decoration: none;
         -webkit-transition: var(--transi-quick);
+        -o-transition: var(--transi-quick);
         transition: var(--transi-quick); }
         #leftbar .lb-plate > [class^="m-"] a i,
         #leftbar .lb-plate > [class^="g-"] a i {
@@ -4228,6 +4240,7 @@ html.debug .bm-head {
   cursor: pointer;
   isolation: isolate;
   -webkit-transition: var(--transi-quick);
+  -o-transition: var(--transi-quick);
   transition: var(--transi-quick);
   -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15), inset 0 0 0 999px rgba(0, 0, 0, 0);
           box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15), inset 0 0 0 999px rgba(0, 0, 0, 0); }
@@ -4264,6 +4277,7 @@ html.debug .bm-head {
   @media (prefers-reduced-motion: reduce) {
     #theme-toggle {
       -webkit-transition: none;
+      -o-transition: none;
       transition: none; }
     #theme-toggle:hover {
       -webkit-transform: none;
@@ -4304,6 +4318,7 @@ body[data-theme="dark"] #icon-sun {
   /* avoids text subpixel shimmer on move */
   -webkit-transition: opacity 320ms cubic-bezier(0.22, 0.61, 0.36, 1), -webkit-transform 320ms cubic-bezier(0.22, 0.61, 0.36, 1);
   transition: opacity 320ms cubic-bezier(0.22, 0.61, 0.36, 1), -webkit-transform 320ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  -o-transition: transform 320ms cubic-bezier(0.22, 0.61, 0.36, 1), opacity 320ms cubic-bezier(0.22, 0.61, 0.36, 1);
   transition: transform 320ms cubic-bezier(0.22, 0.61, 0.36, 1), opacity 320ms cubic-bezier(0.22, 0.61, 0.36, 1);
   transition: transform 320ms cubic-bezier(0.22, 0.61, 0.36, 1), opacity 320ms cubic-bezier(0.22, 0.61, 0.36, 1), -webkit-transform 320ms cubic-bezier(0.22, 0.61, 0.36, 1);
   will-change: transform;
@@ -4340,6 +4355,7 @@ body[data-theme="dark"] #icon-sun {
     cursor: pointer;
     isolation: isolate;
     -webkit-transition: var(--transi-quick);
+    -o-transition: var(--transi-quick);
     transition: var(--transi-quick);
     -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15), inset 0 0 0 999px rgba(0, 0, 0, 0);
             box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15), inset 0 0 0 999px rgba(0, 0, 0, 0);
@@ -4401,6 +4417,7 @@ body[data-theme="dark"] #icon-sun {
           backdrop-filter: blur(1px);
   opacity: 0;
   -webkit-transition: opacity 320ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  -o-transition: opacity 320ms cubic-bezier(0.22, 0.61, 0.36, 1);
   transition: opacity 320ms cubic-bezier(0.22, 0.61, 0.36, 1);
   z-index: var(--z-scrim);
   pointer-events: none;
@@ -4431,6 +4448,7 @@ body[data-sidebar="open"] {
   /* drawer coloring */ }
   [data-theme="light"] #navstrip, [data-theme="light"] #leftbar {
     background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.03)), to(rgba(0, 0, 0, 0.06))), var(--bg-2);
+    background: -o-linear-gradient(rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.06)), var(--bg-2);
     background: linear-gradient(rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.06)), var(--bg-2);
     color: var(--text-hiCon);
     -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.06);
@@ -4477,9 +4495,11 @@ body[data-sidebar="open"] {
 @media (prefers-reduced-motion: reduce) {
   #sidebar, #sidebar-scrim {
     -webkit-transition: none;
+    -o-transition: none;
     transition: none; }
   #leftbar .lb-plate .icon {
     -webkit-transition: none;
+    -o-transition: none;
     transition: none; }
   #leftbar .lb-plate .icon:hover {
     -webkit-transform: none;
@@ -4559,6 +4579,7 @@ body[data-sidebar="open"] {
     pointer-events: none;
     opacity: 0.25;
     background: -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left top / 18px 2px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left top / 2px 18px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) right top / 18px 2px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) right top / 2px 18px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left bottom / 18px 2px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left bottom / 2px 18px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) right bottom / 18px 2px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) right bottom / 2px 18px no-repeat;
+    background: -o-linear-gradient(currentColor, currentColor) left top / 18px 2px no-repeat, -o-linear-gradient(currentColor, currentColor) left top / 2px 18px no-repeat, -o-linear-gradient(currentColor, currentColor) right top / 18px 2px no-repeat, -o-linear-gradient(currentColor, currentColor) right top / 2px 18px no-repeat, -o-linear-gradient(currentColor, currentColor) left bottom / 18px 2px no-repeat, -o-linear-gradient(currentColor, currentColor) left bottom / 2px 18px no-repeat, -o-linear-gradient(currentColor, currentColor) right bottom / 18px 2px no-repeat, -o-linear-gradient(currentColor, currentColor) right bottom / 2px 18px no-repeat;
     background: linear-gradient(currentColor, currentColor) left top / 18px 2px no-repeat, linear-gradient(currentColor, currentColor) left top / 2px 18px no-repeat, linear-gradient(currentColor, currentColor) right top / 18px 2px no-repeat, linear-gradient(currentColor, currentColor) right top / 2px 18px no-repeat, linear-gradient(currentColor, currentColor) left bottom / 18px 2px no-repeat, linear-gradient(currentColor, currentColor) left bottom / 2px 18px no-repeat, linear-gradient(currentColor, currentColor) right bottom / 18px 2px no-repeat, linear-gradient(currentColor, currentColor) right bottom / 2px 18px no-repeat;
     z-index: 2; }
   .bm-head :where(.plate-meta, .plate-info, .plate-bridge) {
@@ -4630,6 +4651,7 @@ body[data-sidebar="open"] {
       -webkit-box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.08);
               box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.08);
       -webkit-transition: var(--transi-quick);
+      -o-transition: var(--transi-quick);
       transition: var(--transi-quick);
       font: 400 var(--size-sm)/1.4 var(--font-sans); }
       .bm-head .plate-info__text:focus-visible {
@@ -4666,6 +4688,7 @@ body[data-sidebar="open"] {
         -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
                 box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
         -webkit-transition: var(--transi-quick) filter var(--transi-slow);
+        -o-transition: var(--transi-quick) filter var(--transi-slow);
         transition: var(--transi-quick) filter var(--transi-slow); }
         .bm-head .plate-info__staff img:hover {
           -webkit-transform: translateY(-1px);
@@ -4735,6 +4758,7 @@ body[data-sidebar="open"] {
       z-index: -1;
       border-radius: 6px;
       background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(32%, currentColor), to(transparent));
+      background: -o-linear-gradient(left, transparent, currentColor 32%, transparent);
       background: linear-gradient(to right, transparent, currentColor 32%, transparent);
       opacity: 0.18; }
     .bm-head .plate-center .plate-rule {
@@ -4796,6 +4820,7 @@ body[data-sidebar="open"] {
       text-decoration: none;
       color: var(--text-medCon);
       -webkit-transition: var(--transi-quick);
+      -o-transition: var(--transi-quick);
       transition: var(--transi-quick); }
       .bm-head .plate-bridge a:hover, .bm-head .plate-bridge a:focus-visible {
         outline: none;
@@ -4865,6 +4890,7 @@ body[id="idx"] .bm-head {
     pointer-events: none;
     opacity: 0.25;
     background: -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left top / 18px 2px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left top / 2px 18px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) right top / 18px 2px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) right top / 2px 18px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left bottom / 18px 2px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left bottom / 2px 18px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) right bottom / 18px 2px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) right bottom / 2px 18px no-repeat;
+    background: -o-linear-gradient(currentColor, currentColor) left top / 18px 2px no-repeat, -o-linear-gradient(currentColor, currentColor) left top / 2px 18px no-repeat, -o-linear-gradient(currentColor, currentColor) right top / 18px 2px no-repeat, -o-linear-gradient(currentColor, currentColor) right top / 2px 18px no-repeat, -o-linear-gradient(currentColor, currentColor) left bottom / 18px 2px no-repeat, -o-linear-gradient(currentColor, currentColor) left bottom / 2px 18px no-repeat, -o-linear-gradient(currentColor, currentColor) right bottom / 18px 2px no-repeat, -o-linear-gradient(currentColor, currentColor) right bottom / 2px 18px no-repeat;
     background: linear-gradient(currentColor, currentColor) left top / 18px 2px no-repeat, linear-gradient(currentColor, currentColor) left top / 2px 18px no-repeat, linear-gradient(currentColor, currentColor) right top / 18px 2px no-repeat, linear-gradient(currentColor, currentColor) right top / 2px 18px no-repeat, linear-gradient(currentColor, currentColor) left bottom / 18px 2px no-repeat, linear-gradient(currentColor, currentColor) left bottom / 2px 18px no-repeat, linear-gradient(currentColor, currentColor) right bottom / 18px 2px no-repeat, linear-gradient(currentColor, currentColor) right bottom / 2px 18px no-repeat;
     z-index: 2; }
   .category .category-head {
@@ -4931,6 +4957,7 @@ body[id="idx"] .bm-head {
       border-radius: 4px;
       overflow: hidden;
       -webkit-transition: var(--transi-quick);
+      -o-transition: var(--transi-quick);
       transition: var(--transi-quick);
       display: -webkit-box;
       display: -webkit-flex;
@@ -4973,15 +5000,18 @@ body[id="idx"] .bm-head {
           bottom: 0;
           right: 0;
           width: 1px;
+          background-image: -o-repeating-linear-gradient(top, color-mix(in oklab, var(--text-loCon), transparent 60%) 0 4px, transparent 4px 8px);
           background-image: repeating-linear-gradient(to bottom, color-mix(in oklab, var(--text-loCon), transparent 60%) 0 4px, transparent 4px 8px);
           pointer-events: none; }
       .category .category-body > .forum .forum-title {
         margin: 0 0 0.25rem;
         font: 800 var(--size-forum-title)/1.2 var(--font-serif);
-        text-overflow: ellipsis; }
+        -o-text-overflow: ellipsis;
+           text-overflow: ellipsis; }
         .category .category-body > .forum .forum-title a {
           color: var(--accent-1);
           -webkit-transition: letter-spacing 0.5s ease-in-out;
+          -o-transition: letter-spacing 0.5s ease-in-out;
           transition: letter-spacing 0.5s ease-in-out;
           text-decoration: none; }
           .category .category-body > .forum .forum-title a:hover {
@@ -5002,6 +5032,7 @@ body[id="idx"] .bm-head {
                     transform-origin: bottom right;
             -webkit-transition: -webkit-transform 0.25s ease-in-out;
             transition: -webkit-transform 0.25s ease-in-out;
+            -o-transition: transform 0.25s ease-in-out;
             transition: transform 0.25s ease-in-out;
             transition: transform 0.25s ease-in-out, -webkit-transform 0.25s ease-in-out; }
           .category .category-body > .forum .forum-title a:hover::after {
@@ -5050,6 +5081,7 @@ body[id="idx"] .bm-head {
             right: 0;
             height: 1px;
             width: 100%;
+            background-image: -o-repeating-linear-gradient(left, color-mix(in oklab, var(--text-loCon), transparent 60%) 0 4px, transparent 4px 8px);
             background-image: repeating-linear-gradient(to right, color-mix(in oklab, var(--text-loCon), transparent 60%) 0 4px, transparent 4px 8px);
             pointer-events: none; }
         .category .category-body > .forum .forum-meta .last-post {
@@ -5093,8 +5125,10 @@ body[id="idx"] .bm-head {
             color: var(--accent-1);
             white-space: nowrap;
             overflow: hidden;
-            text-overflow: ellipsis;
+            -o-text-overflow: ellipsis;
+               text-overflow: ellipsis;
             -webkit-transition: letter-spacing 0.5s ease-in-out;
+            -o-transition: letter-spacing 0.5s ease-in-out;
             transition: letter-spacing 0.5s ease-in-out; }
             .category .category-body > .forum .forum-meta .last-post .last-thread:hover {
               letter-spacing: 0.05rem; }
@@ -5114,6 +5148,7 @@ body[id="idx"] .bm-head {
                       transform-origin: bottom right;
               -webkit-transition: -webkit-transform 0.25s ease-in-out;
               transition: -webkit-transform 0.25s ease-in-out;
+              -o-transition: transform 0.25s ease-in-out;
               transition: transform 0.25s ease-in-out;
               transition: transform 0.25s ease-in-out, -webkit-transform 0.25s ease-in-out; }
             .category .category-body > .forum .forum-meta .last-post .last-thread:hover::after {
@@ -5290,6 +5325,7 @@ body[id="idx"] .bm-head {
 .category-title--fancy {
   /* gradient ink */
   background: -webkit-gradient(linear, left top, right top, from(var(--ct-accent-1)), to(var(--ct-accent-2)));
+  background: -o-linear-gradient(left, var(--ct-accent-1), var(--ct-accent-2));
   background: linear-gradient(90deg, var(--ct-accent-1), var(--ct-accent-2));
   background-clip: text;
   -webkit-background-clip: text;
@@ -5407,6 +5443,7 @@ body[id="idx"] .bm-head {
     pointer-events: none;
     opacity: 0.25;
     background: -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left top / 18px 2px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left top / 2px 18px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) right top / 18px 2px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) right top / 2px 18px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left bottom / 18px 2px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left bottom / 2px 18px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) right bottom / 18px 2px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) right bottom / 2px 18px no-repeat;
+    background: -o-linear-gradient(currentColor, currentColor) left top / 18px 2px no-repeat, -o-linear-gradient(currentColor, currentColor) left top / 2px 18px no-repeat, -o-linear-gradient(currentColor, currentColor) right top / 18px 2px no-repeat, -o-linear-gradient(currentColor, currentColor) right top / 2px 18px no-repeat, -o-linear-gradient(currentColor, currentColor) left bottom / 18px 2px no-repeat, -o-linear-gradient(currentColor, currentColor) left bottom / 2px 18px no-repeat, -o-linear-gradient(currentColor, currentColor) right bottom / 18px 2px no-repeat, -o-linear-gradient(currentColor, currentColor) right bottom / 2px 18px no-repeat;
     background: linear-gradient(currentColor, currentColor) left top / 18px 2px no-repeat, linear-gradient(currentColor, currentColor) left top / 2px 18px no-repeat, linear-gradient(currentColor, currentColor) right top / 18px 2px no-repeat, linear-gradient(currentColor, currentColor) right top / 2px 18px no-repeat, linear-gradient(currentColor, currentColor) left bottom / 18px 2px no-repeat, linear-gradient(currentColor, currentColor) left bottom / 2px 18px no-repeat, linear-gradient(currentColor, currentColor) right bottom / 18px 2px no-repeat, linear-gradient(currentColor, currentColor) right bottom / 2px 18px no-repeat;
     z-index: 2; }
 
@@ -5695,7 +5732,8 @@ body[id="idx"] .bm-head {
     text-underline-offset: 0.12em;
     max-inline-size: 100%;
     overflow: hidden;
-    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+       text-overflow: ellipsis;
     white-space: nowrap; }
   .bm-card--recent .recent-topics-info > .rt-author {
     display: -webkit-box;
@@ -5762,12 +5800,14 @@ body[id="idx"] .bm-head {
   display: inline-block;
   max-inline-size: 100%;
   overflow: hidden;
-  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
   white-space: nowrap;
   text-transform: lowercase;
   font-family: var(--font-serif);
   font-size: calc(var(--size-forum-title) - 4px);
   -webkit-transition: var(--transi-med);
+  -o-transition: var(--transi-med);
   transition: var(--transi-med);
   position: relative;
   /* for underline animation */ }
@@ -5789,6 +5829,7 @@ body[id="idx"] .bm-head {
             transform-origin: bottom right;
     -webkit-transition: -webkit-transform 0.25s ease-in-out;
     transition: -webkit-transform 0.25s ease-in-out;
+    -o-transition: transform 0.25s ease-in-out;
     transition: transform 0.25s ease-in-out;
     transition: transform 0.25s ease-in-out, -webkit-transform 0.25s ease-in-out; }
   .rt-title:hover::after, .rt-title:focus-visible::after {
@@ -5833,9 +5874,11 @@ body[id="idx"] .bm-head {
 @media (prefers-reduced-motion: reduce) {
   .rt-title {
     -webkit-transition: none;
+    -o-transition: none;
     transition: none; }
   .rt-title::after {
     -webkit-transition: none;
+    -o-transition: none;
     transition: none; } }
 
 /* ---------------- Utilities ---------------- */
@@ -5927,11 +5970,30 @@ body[id="idx"] .bm-head {
   gap: 1rem;
   padding: 1rem 1.25rem;
   border: 1px solid var(--border-color);
-  border-radius: 18px;
   background: var(--plate-bg);
   -webkit-box-shadow: var(--plate-shadow);
           box-shadow: var(--plate-shadow);
-  corner-shape: scoop; }
+  position: relative;
+  isolation: isolate;
+  border-radius: 4px; }
+  .bm-topiccard::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: var(--border-1);
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: -1; }
+  .bm-topiccard::after {
+    content: "";
+    position: absolute;
+    inset: 0.5rem;
+    pointer-events: none;
+    opacity: 0.25;
+    background: -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left top / 18px 2px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left top / 2px 18px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) right top / 18px 2px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) right top / 2px 18px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left bottom / 18px 2px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left bottom / 2px 18px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) right bottom / 18px 2px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) right bottom / 2px 18px no-repeat;
+    background: -o-linear-gradient(currentColor, currentColor) left top / 18px 2px no-repeat, -o-linear-gradient(currentColor, currentColor) left top / 2px 18px no-repeat, -o-linear-gradient(currentColor, currentColor) right top / 18px 2px no-repeat, -o-linear-gradient(currentColor, currentColor) right top / 2px 18px no-repeat, -o-linear-gradient(currentColor, currentColor) left bottom / 18px 2px no-repeat, -o-linear-gradient(currentColor, currentColor) left bottom / 2px 18px no-repeat, -o-linear-gradient(currentColor, currentColor) right bottom / 18px 2px no-repeat, -o-linear-gradient(currentColor, currentColor) right bottom / 2px 18px no-repeat;
+    background: linear-gradient(currentColor, currentColor) left top / 18px 2px no-repeat, linear-gradient(currentColor, currentColor) left top / 2px 18px no-repeat, linear-gradient(currentColor, currentColor) right top / 18px 2px no-repeat, linear-gradient(currentColor, currentColor) right top / 2px 18px no-repeat, linear-gradient(currentColor, currentColor) left bottom / 18px 2px no-repeat, linear-gradient(currentColor, currentColor) left bottom / 2px 18px no-repeat, linear-gradient(currentColor, currentColor) right bottom / 18px 2px no-repeat, linear-gradient(currentColor, currentColor) right bottom / 2px 18px no-repeat;
+    z-index: 2; }
 
 @media (max-width: 500px) {
   .bm-topiccard {
@@ -6064,6 +6126,7 @@ body[id="idx"] .bm-head {
     pointer-events: none;
     opacity: .75;
     background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(color-mix(in srgb, var(--border-color) 60%, transparent)), to(transparent)) top, -webkit-gradient(linear, left top, right top, from(transparent), color-stop(color-mix(in srgb, var(--border-color) 60%, transparent)), to(transparent)) bottom, -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(color-mix(in srgb, var(--border-color) 60%, transparent)), to(transparent)) 25% 0, -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(color-mix(in srgb, var(--border-color) 60%, transparent)), to(transparent)) 75% 0;
+    background: -o-linear-gradient(left, transparent, color-mix(in srgb, var(--border-color) 60%, transparent), transparent) top, -o-linear-gradient(left, transparent, color-mix(in srgb, var(--border-color) 60%, transparent), transparent) bottom, -o-linear-gradient(top, transparent, color-mix(in srgb, var(--border-color) 60%, transparent), transparent) 25% 0, -o-linear-gradient(top, transparent, color-mix(in srgb, var(--border-color) 60%, transparent), transparent) 75% 0;
     background: linear-gradient(to right, transparent, color-mix(in srgb, var(--border-color) 60%, transparent), transparent) top, linear-gradient(to right, transparent, color-mix(in srgb, var(--border-color) 60%, transparent), transparent) bottom, linear-gradient(to bottom, transparent, color-mix(in srgb, var(--border-color) 60%, transparent), transparent) 25% 0, linear-gradient(to bottom, transparent, color-mix(in srgb, var(--border-color) 60%, transparent), transparent) 75% 0;
     background-repeat: no-repeat;
     background-size: 100% 1px, 100% 1px, 1px 100%, 1px 100%;
@@ -6090,7 +6153,11 @@ body[id="idx"] .bm-head {
         -ms-flex-pack: center;
             justify-content: center;
     gap: .35rem;
-    text-align: center; }
+    text-align: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center; }
     .topiclist--info > form > .darkrow2 select,
     .topiclist--info > form > .darkrow2 input[type="submit"] {
       margin-left: .25rem;
@@ -6103,10 +6170,10 @@ body[id="idx"] .bm-head {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     opacity: .9; }
   .topiclist--info > .row2 {
     font-size: .75rem;
@@ -6116,10 +6183,10 @@ body[id="idx"] .bm-head {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     opacity: .9; }
     .topiclist--info > .row2 a {
       font-weight: 600; }
@@ -6130,6 +6197,7 @@ body[id="idx"] .bm-head {
       /* browsing + members stack too */ }
       .topiclist--info::before {
         background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(color-mix(in srgb, var(--border-color) 60%, transparent)), to(transparent)) top, -webkit-gradient(linear, left top, right top, from(transparent), color-stop(color-mix(in srgb, var(--border-color) 60%, transparent)), to(transparent)) bottom;
+        background: -o-linear-gradient(left, transparent, color-mix(in srgb, var(--border-color) 60%, transparent), transparent) top, -o-linear-gradient(left, transparent, color-mix(in srgb, var(--border-color) 60%, transparent), transparent) bottom;
         background: linear-gradient(to right, transparent, color-mix(in srgb, var(--border-color) 60%, transparent), transparent) top, linear-gradient(to right, transparent, color-mix(in srgb, var(--border-color) 60%, transparent), transparent) bottom;
         background-repeat: no-repeat;
         background-size: 100% 1px, 100% 1px; }
@@ -6203,6 +6271,7 @@ body#SF main > .maintitle + .postlinksbar {
 @media (max-width: 640px) {
   ::before {
     background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(color-mix(in srgb, var(--border-color) 60%, transparent)), to(transparent)) top, -webkit-gradient(linear, left top, right top, from(transparent), color-stop(color-mix(in srgb, var(--border-color) 60%, transparent)), to(transparent)) bottom;
+    background: -o-linear-gradient(left, transparent, color-mix(in srgb, var(--border-color) 60%, transparent), transparent) top, -o-linear-gradient(left, transparent, color-mix(in srgb, var(--border-color) 60%, transparent), transparent) bottom;
     background: linear-gradient(to right, transparent, color-mix(in srgb, var(--border-color) 60%, transparent), transparent) top, linear-gradient(to right, transparent, color-mix(in srgb, var(--border-color) 60%, transparent), transparent) bottom;
     background-repeat: no-repeat;
     background-size: 100% 1px, 100% 1px; } }
@@ -6249,6 +6318,7 @@ body#SF main > .maintitle + .postlinksbar {
     pointer-events: none;
     opacity: 0.25;
     background: -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left top / 18px 2px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left top / 2px 18px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) right top / 18px 2px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) right top / 2px 18px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left bottom / 18px 2px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left bottom / 2px 18px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) right bottom / 18px 2px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) right bottom / 2px 18px no-repeat;
+    background: -o-linear-gradient(currentColor, currentColor) left top / 18px 2px no-repeat, -o-linear-gradient(currentColor, currentColor) left top / 2px 18px no-repeat, -o-linear-gradient(currentColor, currentColor) right top / 18px 2px no-repeat, -o-linear-gradient(currentColor, currentColor) right top / 2px 18px no-repeat, -o-linear-gradient(currentColor, currentColor) left bottom / 18px 2px no-repeat, -o-linear-gradient(currentColor, currentColor) left bottom / 2px 18px no-repeat, -o-linear-gradient(currentColor, currentColor) right bottom / 18px 2px no-repeat, -o-linear-gradient(currentColor, currentColor) right bottom / 2px 18px no-repeat;
     background: linear-gradient(currentColor, currentColor) left top / 18px 2px no-repeat, linear-gradient(currentColor, currentColor) left top / 2px 18px no-repeat, linear-gradient(currentColor, currentColor) right top / 18px 2px no-repeat, linear-gradient(currentColor, currentColor) right top / 2px 18px no-repeat, linear-gradient(currentColor, currentColor) left bottom / 18px 2px no-repeat, linear-gradient(currentColor, currentColor) left bottom / 2px 18px no-repeat, linear-gradient(currentColor, currentColor) right bottom / 18px 2px no-repeat, linear-gradient(currentColor, currentColor) right bottom / 2px 18px no-repeat;
     z-index: 2; }
 
@@ -6264,14 +6334,14 @@ body#SF main > .maintitle + .postlinksbar {
   -webkit-align-items: stretch;
       -ms-flex-align: stretch;
           align-items: stretch;
-      grid-template-areas: "head head" "mini content" "mini foot"; }
+      grid-template-areas: "head head" "mini content" "mini foot"; }
   @media (max-width: 900px) {
     .bm-post--grid {
       -ms-grid-columns: 1fr;
       grid-template-columns: 1fr;
       -ms-grid-rows: auto auto auto auto;
       grid-template-rows: auto auto auto auto;
-          grid-template-areas: "head" "mini" "content" "foot"; } }
+          grid-template-areas: "head" "mini" "content" "foot"; } }
 
 /* =========================================================
    (2) HEADER
@@ -6307,6 +6377,7 @@ body#SF main > .maintitle + .postlinksbar {
     inset-block-end: .45rem;
     height: 2px;
     background: -webkit-gradient(linear, left top, right top, from(color-mix(in srgb, var(--accent-1) 0%, transparent)), color-stop(50%, color-mix(in srgb, var(--accent-1) 70%, transparent)), to(color-mix(in srgb, var(--accent-1) 0%, transparent)));
+    background: -o-linear-gradient(left, color-mix(in srgb, var(--accent-1) 0%, transparent) 0%, color-mix(in srgb, var(--accent-1) 70%, transparent) 50%, color-mix(in srgb, var(--accent-1) 0%, transparent) 100%);
     background: linear-gradient(90deg, color-mix(in srgb, var(--accent-1) 0%, transparent) 0%, color-mix(in srgb, var(--accent-1) 70%, transparent) 50%, color-mix(in srgb, var(--accent-1) 0%, transparent) 100%);
     opacity: .35;
     pointer-events: none; }
@@ -6414,6 +6485,7 @@ body#SF main > .maintitle + .postlinksbar {
   min-height: 320px;
   /* “track” background */
   background: -webkit-gradient(linear, left top, right top, from(var(--bg-2)), to(var(--bg-4)));
+  background: -o-linear-gradient(left, var(--bg-2) 0%, var(--bg-4) 100%);
   background: linear-gradient(to right, var(--bg-2) 0%, var(--bg-4) 100%);
   /* dashed inset + ticks */
   /* overlay under plates */ }
@@ -6433,6 +6505,7 @@ body#SF main > .maintitle + .postlinksbar {
     pointer-events: none;
     opacity: 0.25;
     background: -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left top / 16px 2px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left top / 2px 16px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) right top / 16px 2px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) right top / 2px 16px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left bottom / 16px 2px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left bottom / 2px 16px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) right bottom / 16px 2px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) right bottom / 2px 16px no-repeat;
+    background: -o-linear-gradient(currentColor, currentColor) left top / 16px 2px no-repeat, -o-linear-gradient(currentColor, currentColor) left top / 2px 16px no-repeat, -o-linear-gradient(currentColor, currentColor) right top / 16px 2px no-repeat, -o-linear-gradient(currentColor, currentColor) right top / 2px 16px no-repeat, -o-linear-gradient(currentColor, currentColor) left bottom / 16px 2px no-repeat, -o-linear-gradient(currentColor, currentColor) left bottom / 2px 16px no-repeat, -o-linear-gradient(currentColor, currentColor) right bottom / 16px 2px no-repeat, -o-linear-gradient(currentColor, currentColor) right bottom / 2px 16px no-repeat;
     background: linear-gradient(currentColor, currentColor) left top / 16px 2px no-repeat, linear-gradient(currentColor, currentColor) left top / 2px 16px no-repeat, linear-gradient(currentColor, currentColor) right top / 16px 2px no-repeat, linear-gradient(currentColor, currentColor) right top / 2px 16px no-repeat, linear-gradient(currentColor, currentColor) left bottom / 16px 2px no-repeat, linear-gradient(currentColor, currentColor) left bottom / 2px 16px no-repeat, linear-gradient(currentColor, currentColor) right bottom / 16px 2px no-repeat, linear-gradient(currentColor, currentColor) right bottom / 2px 16px no-repeat;
     z-index: 2; }
   .ps-viewport::after {
@@ -6440,6 +6513,7 @@ body#SF main > .maintitle + .postlinksbar {
     position: absolute;
     inset: 0;
     background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.1)), to(rgba(0, 0, 0, 0.5)));
+    background: -o-linear-gradient(top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5));
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5));
     z-index: 0; }
 
@@ -6475,6 +6549,7 @@ body#SF main > .maintitle + .postlinksbar {
           transform: translateY(12px);
   -webkit-transition: opacity .35s ease, -webkit-transform .35s ease;
   transition: opacity .35s ease, -webkit-transform .35s ease;
+  -o-transition: opacity .35s ease, transform .35s ease;
   transition: opacity .35s ease, transform .35s ease;
   transition: opacity .35s ease, transform .35s ease, -webkit-transform .35s ease;
   z-index: 2; }
@@ -6536,6 +6611,7 @@ body#SF main > .maintitle + .postlinksbar {
           box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
   -webkit-transition: background .2s ease, -webkit-transform .2s ease;
   transition: background .2s ease, -webkit-transform .2s ease;
+  -o-transition: background .2s ease, transform .2s ease;
   transition: background .2s ease, transform .2s ease;
   transition: background .2s ease, transform .2s ease, -webkit-transform .2s ease;
   pointer-events: auto;
@@ -6590,6 +6666,7 @@ body#SF main > .maintitle + .postlinksbar {
   cursor: pointer;
   -webkit-transition: background .2s ease, -webkit-transform .2s ease;
   transition: background .2s ease, -webkit-transform .2s ease;
+  -o-transition: transform .2s ease, background .2s ease;
   transition: transform .2s ease, background .2s ease;
   transition: transform .2s ease, background .2s ease, -webkit-transform .2s ease; }
 
@@ -6661,6 +6738,7 @@ body#SF main > .maintitle + .postlinksbar {
 @media (prefers-reduced-motion: reduce) {
   .ps-plate, .ps-arrow {
     -webkit-transition: none;
+    -o-transition: none;
     transition: none; } }
 
 /* =========================================================
@@ -6698,6 +6776,7 @@ body#SF main > .maintitle + .postlinksbar {
     text-decoration-thickness: .08em;
     text-underline-offset: .2em;
     -webkit-transition: opacity .15s ease;
+    -o-transition: opacity .15s ease;
     transition: opacity .15s ease; }
     .bm-post__content a:hover {
       opacity: .85; }
@@ -6731,6 +6810,7 @@ body#SF main > .maintitle + .postlinksbar {
     border: 0;
     height: 1px;
     background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(rgba(0, 0, 0, 0.25)), to(transparent));
+    background: -o-linear-gradient(left, transparent, rgba(0, 0, 0, 0.25), transparent);
     background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.25), transparent);
     margin-block: calc(var(--flow) + .25rem); }
   .bm-post__content ul, .bm-post__content ol {
@@ -6926,22 +7006,26 @@ a[href*="showuser"][data-mention] {
   line-height: 1.1;
   font-size: .8rem;
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.08)), to(rgba(0, 0, 0, 0.08))), var(--pill-bg);
+  background: -o-linear-gradient(top, rgba(255, 255, 255, 0.08), rgba(0, 0, 0, 0.08)), var(--pill-bg);
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(0, 0, 0, 0.08)), var(--pill-bg);
   -webkit-box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
           box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06); }
 
 .bm-post[data-group="crown"] .badge {
   background: -webkit-gradient(linear, left top, right top, from(rgba(204, 67, 88, 0.22)), to(rgba(204, 67, 88, 0.05)));
+  background: -o-linear-gradient(left, rgba(204, 67, 88, 0.22), rgba(204, 67, 88, 0.05));
   background: linear-gradient(90deg, rgba(204, 67, 88, 0.22), rgba(204, 67, 88, 0.05));
   color: #cc4358; }
 
 .bm-post[data-group="core"] .badge {
   background: -webkit-gradient(linear, left top, right top, from(rgba(142, 124, 99, 0.22)), to(rgba(142, 124, 99, 0.05)));
+  background: -o-linear-gradient(left, rgba(142, 124, 99, 0.22), rgba(142, 124, 99, 0.05));
   background: linear-gradient(90deg, rgba(142, 124, 99, 0.22), rgba(142, 124, 99, 0.05));
   color: #8e7c63; }
 
 .bm-post[data-group="hollow"] .badge {
   background: -webkit-gradient(linear, left top, right top, from(rgba(106, 77, 73, 0.22)), to(rgba(106, 77, 73, 0.05)));
+  background: -o-linear-gradient(left, rgba(106, 77, 73, 0.22), rgba(106, 77, 73, 0.05));
   background: linear-gradient(90deg, rgba(106, 77, 73, 0.22), rgba(106, 77, 73, 0.05));
   color: #6a4d49; }
 
@@ -7045,6 +7129,7 @@ a[href*="showuser"][data-mention] {
   cursor: pointer;
   isolation: isolate;
   -webkit-transition: var(--transi-quick);
+  -o-transition: var(--transi-quick);
   transition: var(--transi-quick);
   -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15), inset 0 0 0 999px rgba(0, 0, 0, 0);
           box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15), inset 0 0 0 999px rgba(0, 0, 0, 0);
@@ -7118,6 +7203,7 @@ a[title="Open Fast Reply Window"] {
   cursor: pointer;
   isolation: isolate;
   -webkit-transition: var(--transi-quick);
+  -o-transition: var(--transi-quick);
   transition: var(--transi-quick);
   -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15), inset 0 0 0 999px rgba(0, 0, 0, 0);
           box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15), inset 0 0 0 999px rgba(0, 0, 0, 0);
@@ -7272,7 +7358,8 @@ a[href*="act=Post"][href*="CODE=14"] {
     line-height: 1.05;
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+       text-overflow: ellipsis;
     font-variant: all-petite-caps; }
   .tableborder .maintitle .topic-desc {
     min-width: 0;
@@ -7284,7 +7371,8 @@ a[href*="act=Post"][href*="CODE=14"] {
     max-inline-size: var(--gh-max-desc);
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+       text-overflow: ellipsis;
     text-transform: lowercase; }
 
 @media (max-width: 900px) {
@@ -7298,7 +7386,8 @@ a[href*="act=Post"][href*="CODE=14"] {
       text-align: start;
       white-space: normal;
       overflow: visible;
-      text-overflow: clip; } }
+      -o-text-overflow: clip;
+         text-overflow: clip; } }
 
 /* “plate” table look when it contains pagination */
 table:has(.pagination) {
@@ -7397,6 +7486,7 @@ input[type="submit"] {
     pointer-events: none;
     opacity: 0.18;
     background: -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left top / 14px 2px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left top / 2px 14px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) right top / 14px 2px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) right top / 2px 14px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left bottom / 14px 2px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left bottom / 2px 14px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) right bottom / 14px 2px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) right bottom / 2px 14px no-repeat;
+    background: -o-linear-gradient(currentColor, currentColor) left top / 14px 2px no-repeat, -o-linear-gradient(currentColor, currentColor) left top / 2px 14px no-repeat, -o-linear-gradient(currentColor, currentColor) right top / 14px 2px no-repeat, -o-linear-gradient(currentColor, currentColor) right top / 2px 14px no-repeat, -o-linear-gradient(currentColor, currentColor) left bottom / 14px 2px no-repeat, -o-linear-gradient(currentColor, currentColor) left bottom / 2px 14px no-repeat, -o-linear-gradient(currentColor, currentColor) right bottom / 14px 2px no-repeat, -o-linear-gradient(currentColor, currentColor) right bottom / 2px 14px no-repeat;
     background: linear-gradient(currentColor, currentColor) left top / 14px 2px no-repeat, linear-gradient(currentColor, currentColor) left top / 2px 14px no-repeat, linear-gradient(currentColor, currentColor) right top / 14px 2px no-repeat, linear-gradient(currentColor, currentColor) right top / 2px 14px no-repeat, linear-gradient(currentColor, currentColor) left bottom / 14px 2px no-repeat, linear-gradient(currentColor, currentColor) left bottom / 2px 14px no-repeat, linear-gradient(currentColor, currentColor) right bottom / 14px 2px no-repeat, linear-gradient(currentColor, currentColor) right bottom / 2px 14px no-repeat;
     z-index: 2; }
 
@@ -7444,6 +7534,7 @@ input[type="submit"] {
     border: 1px dashed transparent;
     border-radius: 6px;
     -webkit-transition: border-color 160ms ease;
+    -o-transition: border-color 160ms ease;
     transition: border-color 160ms ease; }
   .bm-tab:hover {
     background: color-mix(in srgb, var(--bg-3) 60%, transparent);
@@ -7464,6 +7555,7 @@ input[type="submit"] {
   background: var(--accent-1);
   -webkit-transition: inline-size 260ms, -webkit-transform 260ms cubic-bezier(0.22, 0.61, 0.36, 1);
   transition: inline-size 260ms, -webkit-transform 260ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  -o-transition: transform 260ms cubic-bezier(0.22, 0.61, 0.36, 1), inline-size 260ms;
   transition: transform 260ms cubic-bezier(0.22, 0.61, 0.36, 1), inline-size 260ms;
   transition: transform 260ms cubic-bezier(0.22, 0.61, 0.36, 1), inline-size 260ms, -webkit-transform 260ms cubic-bezier(0.22, 0.61, 0.36, 1); }
 
@@ -7543,6 +7635,7 @@ input[type="submit"] {
     position: absolute;
     inset: 0;
     background: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.45)), color-stop(40%, transparent)), -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.35)), color-stop(35%, transparent));
+    background: -o-linear-gradient(bottom, rgba(0, 0, 0, 0.45), transparent 40%), -o-linear-gradient(top, rgba(0, 0, 0, 0.35), transparent 35%);
     background: linear-gradient(to top, rgba(0, 0, 0, 0.45), transparent 40%), linear-gradient(to bottom, rgba(0, 0, 0, 0.35), transparent 35%); }
 
 .bm-cover__portrait {
@@ -7649,6 +7742,7 @@ input[type="submit"] {
     text-decoration: none;
     line-height: 1;
     -webkit-transition: var(--transi-quick);
+    -o-transition: var(--transi-quick);
     transition: var(--transi-quick); }
     .bm-cover__links .chip:focus-visible {
       outline: none;
@@ -7746,6 +7840,7 @@ input[type="submit"] {
             justify-content: center;
     -webkit-transition: background var(--transi-slow), -webkit-transform var(--transi-slow);
     transition: background var(--transi-slow), -webkit-transform var(--transi-slow);
+    -o-transition: transform var(--transi-slow), background var(--transi-slow);
     transition: transform var(--transi-slow), background var(--transi-slow);
     transition: transform var(--transi-slow), background var(--transi-slow), -webkit-transform var(--transi-slow);
     position: relative;
@@ -7759,6 +7854,7 @@ input[type="submit"] {
     isolation: isolate;
     -webkit-transition: -webkit-transform 0.2s var(--transi-quick), -webkit-filter 0.2s var(--transi-quick);
     transition: -webkit-transform 0.2s var(--transi-quick), -webkit-filter 0.2s var(--transi-quick);
+    -o-transition: transform 0.2s var(--transi-quick), filter 0.2s var(--transi-quick);
     transition: transform 0.2s var(--transi-quick), filter 0.2s var(--transi-quick);
     transition: transform 0.2s var(--transi-quick), filter 0.2s var(--transi-quick), -webkit-transform 0.2s var(--transi-quick), -webkit-filter 0.2s var(--transi-quick);
     /* dashed inset ring */
@@ -7786,6 +7882,7 @@ input[type="submit"] {
       opacity: .9;
       -webkit-transition: -webkit-filter 0.25s var(--transi-quick);
       transition: -webkit-filter 0.25s var(--transi-quick);
+      -o-transition: filter 0.25s var(--transi-quick);
       transition: filter 0.25s var(--transi-quick);
       transition: filter 0.25s var(--transi-quick), -webkit-filter 0.25s var(--transi-quick); }
       .bm-cover__tokens li img[title] {
@@ -7800,6 +7897,7 @@ input[type="submit"] {
       pointer-events: none;
       z-index: 2;
       -webkit-transition: opacity 0.25s var(--transi-quick);
+      -o-transition: opacity 0.25s var(--transi-quick);
       transition: opacity 0.25s var(--transi-quick); }
     .bm-cover__tokens li::after {
       content: "";
@@ -7807,6 +7905,7 @@ input[type="submit"] {
       inset: 0;
       pointer-events: none;
       background: radial-gradient(120% 80% at 50% -20%, rgba(255, 255, 255, 0.16), transparent 60%), -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.06)), to(rgba(0, 0, 0, 0.08)));
+      background: -o-radial-gradient(50% -20%, 120% 80%, rgba(255, 255, 255, 0.16), transparent 60%), -o-linear-gradient(top, rgba(255, 255, 255, 0.06), rgba(0, 0, 0, 0.08));
       background: radial-gradient(120% 80% at 50% -20%, rgba(255, 255, 255, 0.16), transparent 60%), linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(0, 0, 0, 0.08));
       mix-blend-mode: soft-light;
       opacity: .5;
@@ -7841,6 +7940,7 @@ input[type="submit"] {
               filter: grayscale(1) brightness(1.05);
       -webkit-transition: -webkit-filter 0.2s var(--transi-quick);
       transition: -webkit-filter 0.2s var(--transi-quick);
+      -o-transition: filter 0.2s var(--transi-quick);
       transition: filter 0.2s var(--transi-quick);
       transition: filter 0.2s var(--transi-quick), -webkit-filter 0.2s var(--transi-quick); }
     .bm-cover__tokens li:hover {
@@ -8015,6 +8115,7 @@ input[type="submit"] {
     height: 1px;
     border-radius: 2px;
     background: -webkit-gradient(linear, left top, right top, from(var(--accent-1)), to(var(--accent-2)));
+    background: -o-linear-gradient(left, var(--accent-1), var(--accent-2));
     background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
     /* subtle shine */
     -webkit-box-shadow: 0 0 0 1px color-mix(in srgb, #000 6%, transparent), 0 2px 6px rgba(0, 0, 0, 0.15);
@@ -8028,6 +8129,7 @@ input[type="submit"] {
             transform-origin: center;
     -webkit-transition: opacity .25s ease, width .25s ease, -webkit-transform .25s ease;
     transition: opacity .25s ease, width .25s ease, -webkit-transform .25s ease;
+    -o-transition: transform .25s ease, opacity .25s ease, width .25s ease;
     transition: transform .25s ease, opacity .25s ease, width .25s ease;
     transition: transform .25s ease, opacity .25s ease, width .25s ease, -webkit-transform .25s ease; }
   .bio-grid > li:where(:hover, :focus-visible)::after {
@@ -8087,6 +8189,7 @@ input[type="submit"] {
     background: var(--bg-1);
     -webkit-transition: -webkit-transform .35s ease, -webkit-box-shadow .35s ease, -webkit-filter .35s ease;
     transition: -webkit-transform .35s ease, -webkit-box-shadow .35s ease, -webkit-filter .35s ease;
+    -o-transition: transform .35s ease, box-shadow .35s ease, filter .35s ease;
     transition: transform .35s ease, box-shadow .35s ease, filter .35s ease;
     transition: transform .35s ease, box-shadow .35s ease, filter .35s ease, -webkit-transform .35s ease, -webkit-box-shadow .35s ease, -webkit-filter .35s ease;
     -webkit-transform-origin: center;
@@ -8098,6 +8201,7 @@ input[type="submit"] {
       inset: 0;
       border-radius: inherit;
       background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.04), transparent 70%), -webkit-gradient(linear, left top, right bottom, from(rgba(255, 255, 255, 0.03)), to(rgba(0, 0, 0, 0.05)));
+      background: -o-radial-gradient(top left, circle, rgba(255, 255, 255, 0.04), transparent 70%), -o-linear-gradient(top left, rgba(255, 255, 255, 0.03), rgba(0, 0, 0, 0.05));
       background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.04), transparent 70%), linear-gradient(to bottom right, rgba(255, 255, 255, 0.03), rgba(0, 0, 0, 0.05));
       mix-blend-mode: overlay;
       pointer-events: none; }
@@ -8761,6 +8865,7 @@ input[type="submit"] {
   z-index: 1;
   padding-block: .25rem .45rem;
   background: -webkit-gradient(linear, left top, left bottom, from(var(--bg-1-rgb)), to(color-mix(in srgb, var(--bg-1-rgb) 80%, transparent)));
+  background: -o-linear-gradient(top, var(--bg-1-rgb), color-mix(in srgb, var(--bg-1-rgb) 80%, transparent));
   background: linear-gradient(to bottom, var(--bg-1-rgb), color-mix(in srgb, var(--bg-1-rgb) 80%, transparent));
   margin: 0 0 .5rem; }
 
@@ -8853,6 +8958,7 @@ input[type="submit"] {
 @media (prefers-reduced-motion: reduce) {
   .mood-grid > img, .bm-tab__active-bar {
     -webkit-transition: none;
+    -o-transition: none;
     transition: none; } }
 
 /* Make the basics grid consume the panel’s full height */
