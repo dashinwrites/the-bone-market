@@ -92,7 +92,6 @@
     inset: 0;
     border-radius: inherit;
     pointer-events: none;
-    background: -o-radial-gradient(50% 10%, 120% 80%, rgba(255, 255, 255, 0.06), #0000 60%), -o-repeating-linear-gradient(bottom, #0000 0 30px, rgba(255, 255, 255, 0.02) 30px 31px);
     background: radial-gradient(120% 80% at 50% 10%, rgba(255, 255, 255, 0.06), #0000 60%), repeating-linear-gradient(0deg, #0000 0 30px, rgba(255, 255, 255, 0.02) 30px 31px);
     opacity: .35;
     mix-blend-mode: multiply; }
@@ -138,7 +137,6 @@
     margin: .35rem 0 .5rem;
     border-radius: 999px;
     background: -webkit-gradient(linear, left top, right top, from(#0000), color-stop(12%, color-mix(in srgb, var(--ink) 45%, transparent)), to(#0000));
-    background: -o-linear-gradient(left, #0000 0%, color-mix(in srgb, var(--ink) 45%, transparent) 12% 88%, #0000 100%);
     background: linear-gradient(90deg, #0000 0%, color-mix(in srgb, var(--ink) 45%, transparent) 12% 88%, #0000 100%);
     opacity: .7; }
   .rp-letter .rp-address {
@@ -181,7 +179,6 @@
       inline-size: 54px;
       block-size: 28px;
       border-radius: 999px;
-      background: -o-radial-gradient(40% 60%, closest-side, var(--accent), #0000 70%);
       background: radial-gradient(closest-side at 40% 60%, var(--accent), #0000 70%);
       opacity: .35;
       -webkit-filter: blur(0.2px);
@@ -230,14 +227,12 @@
             filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35)); }
   .rp-letter[data-seal^="wax"]::before {
     border-radius: 50%;
-    background: -o-radial-gradient(closest-side, #b33 0 70%, #0000 71%), conic-gradient(from 0.25turn, #c44, #a22, #d55, #b33);
     background: radial-gradient(closest-side, #b33 0 70%, #0000 71%), conic-gradient(from 0.25turn, #c44, #a22, #d55, #b33); }
   .rp-letter[data-seal^="ribbon"]::before {
     inline-size: 56px;
     block-size: 56px;
     border-radius: 10px;
     background: -webkit-gradient(linear, left top, left bottom, from(#b64), to(#923)), repeating-linear-gradient(90deg, #0000 0 6px, rgba(255, 255, 255, 0.15) 6px 8px);
-    background: -o-linear-gradient(#b64, #923), -o-repeating-linear-gradient(left, #0000 0 6px, rgba(255, 255, 255, 0.15) 6px 8px);
     background: linear-gradient(#b64, #923), repeating-linear-gradient(90deg, #0000 0 6px, rgba(255, 255, 255, 0.15) 6px 8px);
     background-blend-mode: multiply;
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 70%, 50% 100%, 0 70%);
@@ -246,7 +241,6 @@
     inline-size: 44px;
     block-size: 44px;
     border-radius: 6px;
-    background: -o-radial-gradient(closest-side, #333 0 70%, #0000 71%), -o-linear-gradient(315deg, #777, #444);
     background: radial-gradient(closest-side, #333 0 70%, #0000 71%), linear-gradient(135deg, #777, #444); }
   .rp-letter[data-seal$="-tl"]::before {
     inset: calc(var(--pad) - 6px) auto auto calc(var(--pad) - 6px); }
@@ -268,13 +262,10 @@
       linear-gradient(#0000 48%, rgba(255,255,255,.06) 50%, #0000 52%) 0 55%/100% 100% no-repeat,
       linear-gradient(#0000 48%, rgba(255,255,255,.06) 50%, #0000 52%) 0 80%/100% 100% no-repeat; }
   .rp-letter[data-folds]::before {
-    background: var(--folds), -o-radial-gradient(50% 10%, 120% 80%, rgba(255, 255, 255, 0.06), #0000 60%);
     background: var(--folds), radial-gradient(120% 80% at 50% 10%, rgba(255, 255, 255, 0.06), #0000 60%); }
   .rp-letter .rp-head[data-house="black-salt"] ~ .rp-signature .sig-mark {
-    background: -o-radial-gradient(40% 60%, closest-side, #8d674d, #0000 70%);
     background: radial-gradient(closest-side at 40% 60%, #8d674d, #0000 70%); }
   .rp-letter .rp-head[data-house="glass-guild"] ~ .rp-signature .sig-mark {
-    background: -o-radial-gradient(40% 60%, closest-side, #7fb3d5, #0000 70%);
     background: radial-gradient(closest-side at 40% 60%, #7fb3d5, #0000 70%); }
 
 /* ===========================
@@ -362,7 +353,6 @@ body[data-theme="light"] .rp-letter:not([data-theme]) {
           box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ink) 10%, transparent), 0 8px 22px rgba(0, 0, 0, 0.1);
   /* light-leaning fold shading */ }
   body[data-theme="light"] .rp-letter:not([data-theme])::before {
-    background: -o-radial-gradient(50% 10%, 120% 80%, rgba(0, 0, 0, 0.06), #0000 60%), -o-repeating-linear-gradient(bottom, #0000 0 30px, rgba(0, 0, 0, 0.025) 30px 31px);
     background: radial-gradient(120% 80% at 50% 10%, rgba(0, 0, 0, 0.06), #0000 60%), repeating-linear-gradient(0deg, #0000 0 30px, rgba(0, 0, 0, 0.025) 30px 31px);
     opacity: .35;
     mix-blend-mode: multiply; }
@@ -389,7 +379,6 @@ body[data-theme="dark"] .rp-letter:not([data-theme]) {
   -webkit-box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ink) 10%, transparent), 0 10px 30px rgba(0, 0, 0, 0.18);
           box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ink) 10%, transparent), 0 10px 30px rgba(0, 0, 0, 0.18); }
   body[data-theme="dark"] .rp-letter:not([data-theme])::before {
-    background: -o-radial-gradient(50% 10%, 120% 80%, rgba(255, 255, 255, 0.06), #0000 60%), -o-repeating-linear-gradient(bottom, #0000 0 30px, rgba(255, 255, 255, 0.02) 30px 31px);
     background: radial-gradient(120% 80% at 50% 10%, rgba(255, 255, 255, 0.06), #0000 60%), repeating-linear-gradient(0deg, #0000 0 30px, rgba(255, 255, 255, 0.02) 30px 31px);
     opacity: .35;
     mix-blend-mode: multiply; }
@@ -407,7 +396,6 @@ body[data-theme="dark"] .rp-letter:not([data-theme]) {
   -webkit-box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ink) 10%, transparent), 0 8px 22px rgba(0, 0, 0, 0.1);
           box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ink) 10%, transparent), 0 8px 22px rgba(0, 0, 0, 0.1); }
   .rp-letter[data-theme="light"]::before {
-    background: -o-radial-gradient(50% 10%, 120% 80%, rgba(0, 0, 0, 0.06), #0000 60%), -o-repeating-linear-gradient(bottom, #0000 0 30px, rgba(0, 0, 0, 0.025) 30px 31px);
     background: radial-gradient(120% 80% at 50% 10%, rgba(0, 0, 0, 0.06), #0000 60%), repeating-linear-gradient(0deg, #0000 0 30px, rgba(0, 0, 0, 0.025) 30px 31px);
     opacity: .35;
     mix-blend-mode: multiply; }
@@ -422,7 +410,6 @@ body[data-theme="dark"] .rp-letter:not([data-theme]) {
   -webkit-box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ink) 10%, transparent), 0 10px 30px rgba(0, 0, 0, 0.18);
           box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ink) 10%, transparent), 0 10px 30px rgba(0, 0, 0, 0.18); }
   .rp-letter[data-theme="dark"]::before {
-    background: -o-radial-gradient(50% 10%, 120% 80%, rgba(255, 255, 255, 0.06), #0000 60%), -o-repeating-linear-gradient(bottom, #0000 0 30px, rgba(255, 255, 255, 0.02) 30px 31px);
     background: radial-gradient(120% 80% at 50% 10%, rgba(255, 255, 255, 0.06), #0000 60%), repeating-linear-gradient(0deg, #0000 0 30px, rgba(255, 255, 255, 0.02) 30px 31px);
     opacity: .35;
     mix-blend-mode: multiply; }

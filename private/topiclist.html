@@ -82,48 +82,15 @@
             <header class="bm-topics__header">
               <div class="bm-topics__heading">
                 <{CAT_IMG}>
-                <h2><!-- |forum_name| -->forum name</h2>
+                <h2><!-- |forum_name| --></h2>
               </div>
-              <div class="bm-topics__actions">actions
+              <div class="bm-topics__actions">
                 <!-- |sort_options| -->
               </div>
             </header>
 
             <div class="bm-topics__list">
-              <article class="bm-topiccard" data-tid="<!-- |tid| -->">
-                <div class="bm-topiccard__side">
-                  <div class="bm-topiccard__status"><!-- |macro_img| --></div>
-                  <div class="bm-topiccard__icon"><!-- |posticon| --></div>
-                </div>
-                <div class="bm-topiccard__body">
-                  <h3 class="bm-topiccard__title">
-                    Topic Title
-                    <!-- |go_new_post| --><!-- |prefix| -->
-                    <!-- |topic| -->
-                    <!-- |pages| -->
-                  </h3>
-                  <p class="bm-topiccard__desc">
-                    Description<!-- |topic_desc| -->
-                  </p>
-                  <div class="bm-topiccard__meta">
-                    <span>by starter<!-- |starter| --></span>
-                    <span
-                      ><!-- |replies| -->
-                      replies ·
-                      <!-- |views| -->
-                      views</span
-                    >
-                    <span>
-                      <a href="<!-- |last_post_url| -->">last post</a> by
-                      <b>last poster<!-- |last_poster| --></b>
-                      <time><!-- |last_post| --></time>
-                    </span>
-                  </div>
-                </div>
-                <div class="bm-topiccard__mod">
-                  <!-- |mod_checkbox| -->
-                </div>
-              </article>
+		          <% TOPIC_ROWS %>
 
               <article class="bm-topiccard" data-tid="<!-- |tid| -->">
                 <div class="bm-topiccard__side">
@@ -132,16 +99,15 @@
                 </div>
                 <div class="bm-topiccard__body">
                   <h3 class="bm-topiccard__title">
-                    Topic Title
                     <!-- |go_new_post| --><!-- |prefix| -->
                     <!-- |topic| -->
                     <!-- |pages| -->
                   </h3>
                   <p class="bm-topiccard__desc">
-                    Description<!-- |topic_desc| -->
+                    <!-- |topic_desc| -->
                   </p>
                   <div class="bm-topiccard__meta">
-                    <span>by starter<!-- |starter| --></span>
+                    <span>by <!-- |starter| --></span>
                     <span
                       ><!-- |replies| -->
                       replies ·
@@ -150,7 +116,7 @@
                     >
                     <span>
                       <a href="<!-- |last_post_url| -->">last post</a> by
-                      <b>last poster<!-- |last_poster| --></b>
+                      <b><!-- |last_poster| --></b>
                       <time><!-- |last_post| --></time>
                     </span>
                   </div>
@@ -159,76 +125,7 @@
                   <!-- |mod_checkbox| -->
                 </div>
               </article>
-
-              <article class="bm-topiccard" data-tid="<!-- |tid| -->">
-                <div class="bm-topiccard__side">
-                  <div class="bm-topiccard__status"><!-- |macro_img| --></div>
-                  <div class="bm-topiccard__icon"><!-- |posticon| --></div>
-                </div>
-                <div class="bm-topiccard__body">
-                  <h3 class="bm-topiccard__title">
-                    Topic Title
-                    <!-- |go_new_post| --><!-- |prefix| -->
-                    <!-- |topic| -->
-                    <!-- |pages| -->
-                  </h3>
-                  <p class="bm-topiccard__desc">
-                    Description<!-- |topic_desc| -->
-                  </p>
-                  <div class="bm-topiccard__meta">
-                    <span>by starter<!-- |starter| --></span>
-                    <span
-                      ><!-- |replies| -->
-                      replies ·
-                      <!-- |views| -->
-                      views</span
-                    >
-                    <span>
-                      <a href="<!-- |last_post_url| -->">last post</a> by
-                      <b>last poster<!-- |last_poster| --></b>
-                      <time><!-- |last_post| --></time>
-                    </span>
-                  </div>
-                </div>
-                <div class="bm-topiccard__mod">
-                  <!-- |mod_checkbox| -->
-                </div>
-              </article>
-
-              <article class="bm-topiccard" data-tid="<!-- |tid| -->">
-                <div class="bm-topiccard__side">
-                  <div class="bm-topiccard__status"><!-- |macro_img| --></div>
-                  <div class="bm-topiccard__icon"><!-- |posticon| --></div>
-                </div>
-                <div class="bm-topiccard__body">
-                  <h3 class="bm-topiccard__title">
-                    Topic Title
-                    <!-- |go_new_post| --><!-- |prefix| -->
-                    <!-- |topic| -->
-                    <!-- |pages| -->
-                  </h3>
-                  <p class="bm-topiccard__desc">
-                    Description<!-- |topic_desc| -->
-                  </p>
-                  <div class="bm-topiccard__meta">
-                    <span>by starter<!-- |starter| --></span>
-                    <span
-                      ><!-- |replies| -->
-                      replies ·
-                      <!-- |views| -->
-                      views</span
-                    >
-                    <span>
-                      <a href="<!-- |last_post_url| -->">last post</a> by
-                      <b>last poster<!-- |last_poster| --></b>
-                      <time><!-- |last_post| --></time>
-                    </span>
-                  </div>
-                </div>
-                <div class="bm-topiccard__mod">
-                  <!-- |mod_checkbox| -->
-                </div>
-              </article>
+              
             </div>
 
             <!-- |mod_form_end| -->
