@@ -39,14 +39,13 @@
   grid-template-columns: auto minmax(0, 1fr) auto;
   gap: 1rem;
   padding: 1rem 1.25rem;
-  border: 1px solid var(--border-color);
   background: var(--plate-bg);
   box-shadow: var(--plate-shadow);
   // corner-shape: scoop;
   // border-radius: 18px;
 
   @include pseudo-border();
-  @include corner-ticks();
+  @include corner-ticks($thick: 1px);
 }
 
 @media (max-width: 500px) {
@@ -117,3 +116,228 @@
   }
 }
 
+/* ================================
+   Topiclist Ledger (top block)
+================================ */
+.topics--info {
+  max-inline-size: clamp(820px, 80vw, 1280px);
+  margin: var(--spacing-lg) auto var(--spacing-md);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background: var(--bg-1);
+  display: grid;
+  gap: var(--spacing-xs);
+  font-size: calc(var(--size-md) * 0.95);
+  line-height: 1.4;
+  position: relative;
+  padding-block-start: calc(var(--spacing-sm) + .35rem);
+  padding-block-end:   calc(var(--spacing-sm) + .35rem);
+
+  /* ledger rules: top / bottom */
+  &::before {
+    content: "";
+    position: absolute;
+    inset-block: calc(var(--spacing-sm) / 2);
+    inset-inline: var(--spacing-lg);
+    pointer-events: none;
+    opacity: .75;
+    background:
+      linear-gradient(
+        to right,
+        transparent,
+        color-mix(in srgb, var(--border-color) 60%, transparent),
+        transparent
+      ) top,
+      linear-gradient(
+        to right,
+        transparent,
+        color-mix(in srgb, var(--border-color) 60%, transparent),
+        transparent
+      ) bottom;
+    background-repeat: no-repeat;
+    background-size: 100% 1px, 100% 1px;
+  }
+
+  /* reset legacy rows */
+  .darkrow2,
+  .row2 {
+    background: none !important;
+    border: 0 !important;
+    padding: 0 !important;
+    margin: 0;
+  }
+
+  /* 1) header line (inside <form>) */
+  > form > .darkrow2 {
+    text-transform: uppercase;
+    font-size: .8rem;
+    letter-spacing: .06em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: .35rem;
+    text-align: center;
+    align-items: center;
+
+    select,
+    input[type="submit"] {
+      margin-left: .25rem;
+      font-size: inherit;
+    }
+  }
+
+  /* 2) browsing line */
+  > .darkrow2 {
+    font-size: .75rem;
+    text-transform: uppercase;
+    letter-spacing: .07em;
+    display: flex;
+    justify-content: center;
+    opacity: .9;
+  }
+
+  /* 3) members line */
+  > .row2 {
+    font-size: .75rem;
+    text-transform: uppercase;
+    letter-spacing: .07em;
+    display: flex;
+    justify-content: center;
+    opacity: .9;
+
+    a {
+      font-weight: 600;
+      margin-left: var(--spacing-xs);
+    }
+  }
+
+  /* small-screen stacking */
+  @media (max-width: 640px) {
+    > form > .darkrow2 {
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+      gap: .2rem;
+
+      select,
+      input[type="submit"] {
+        margin-left: 0;
+      }
+    }
+
+    > .darkrow2,
+    > .row2 {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: .25rem;
+    }
+  }
+}
+
+/* ================================
+   Lower Utilities Ledger Strip
+================================ */
+body#SF main > div[align="right"] {
+  max-inline-size: clamp(520px, 60vw, 900px);
+  margin: var(--spacing-sm) auto var(--spacing-xs);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background: var(--bg-1);
+  font-size: calc(var(--size-md) * 0.9);
+
+  /* match top ledger breathing room */
+  padding-block-start: calc(var(--spacing-sm) + .35rem);
+  padding-block-end:   calc(var(--spacing-sm) + .35rem);
+
+  /* behave like a normal block, everything right-aligned */
+  display: block;
+  text-align: right;
+  position: relative;
+
+  /* horizontal gradient rules top + bottom */
+  &::before {
+    content: "";
+    position: absolute;
+    inset-block: calc(var(--spacing-sm) / 2);
+    inset-inline: var(--spacing-lg);
+    pointer-events: none;
+    opacity: .75;
+    background:
+      linear-gradient(
+        to right,
+        transparent,
+        color-mix(in srgb, var(--border-color) 60%, transparent),
+        transparent
+      ) top,
+      linear-gradient(
+        to right,
+        transparent,
+        color-mix(in srgb, var(--border-color) 60%, transparent),
+        transparent
+      ) bottom;
+    background-repeat: no-repeat;
+    background-size: 100% 1px, 100% 1px;
+  }
+
+  /* we have 4 <br> elements:
+     1 & 2 after the search form
+     3 & 4 after the moderation row
+     -> hide 1st and 3rd so each pair becomes a single line break */
+  > br:nth-of-type(1),
+  > br:nth-of-type(3) {
+    display: none;
+  }
+
+  /* --- ALL FORMS behave like compact inline chips --- */
+  form {
+    display: inline-flex;
+    vertical-align: middle;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .5rem;
+    width: auto;
+    max-width: 100%;
+    margin: .35rem 0;          /* even vertical spacing */
+  }
+
+  /* moderation row: three items on one line */
+  #mod_options,
+  #mod_topics_submit,
+  [name="select_all_submit"] {
+    display: inline-block;
+    vertical-align: middle;
+    white-space: nowrap;
+    width: auto;
+    margin: .35rem 0;          /* match form row spacing */
+  }
+
+  /* spacing between the three moderation controls */
+  #mod_topics_submit,
+  input[name="select_all_submit"] {
+    margin-left: .5rem;
+  }
+
+  /* prevent global .forminput rules making these full-width */
+  input[type="text"],
+  select,
+  input[type="submit"],
+  input[type="button"] {
+    width: auto;
+  }
+}
+
+/* ================================
+   Tiny ledger chip (mark as read)
+================================ */
+body#SF main > div[align="center"] #mark-as-read-subto {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-md);
+  background: color-mix(in srgb, var(--plate-bg) 40%, transparent);
+  border-block: 1px solid color-mix(in srgb, var(--border-color) 60%, transparent);
+  font-size: .75rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  margin-top: var(--spacing-sm);
+
+  a {
+    margin: 0 var(--spacing-xs);
+  }
+}

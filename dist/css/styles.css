@@ -5927,7 +5927,6 @@ body[id="idx"] .bm-head {
   grid-template-columns: auto minmax(0, 1fr) auto;
   gap: 1rem;
   padding: 1rem 1.25rem;
-  border: 1px solid var(--border-color);
   background: var(--plate-bg);
   -webkit-box-shadow: var(--plate-shadow);
           box-shadow: var(--plate-shadow);
@@ -5948,8 +5947,8 @@ body[id="idx"] .bm-head {
     inset: 0.5rem;
     pointer-events: none;
     opacity: 0.25;
-    background: -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left top / 18px 2px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left top / 2px 18px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) right top / 18px 2px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) right top / 2px 18px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left bottom / 18px 2px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left bottom / 2px 18px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) right bottom / 18px 2px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) right bottom / 2px 18px no-repeat;
-    background: linear-gradient(currentColor, currentColor) left top / 18px 2px no-repeat, linear-gradient(currentColor, currentColor) left top / 2px 18px no-repeat, linear-gradient(currentColor, currentColor) right top / 18px 2px no-repeat, linear-gradient(currentColor, currentColor) right top / 2px 18px no-repeat, linear-gradient(currentColor, currentColor) left bottom / 18px 2px no-repeat, linear-gradient(currentColor, currentColor) left bottom / 2px 18px no-repeat, linear-gradient(currentColor, currentColor) right bottom / 18px 2px no-repeat, linear-gradient(currentColor, currentColor) right bottom / 2px 18px no-repeat;
+    background: -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left top / 18px 1px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left top / 1px 18px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) right top / 18px 1px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) right top / 1px 18px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left bottom / 18px 1px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left bottom / 1px 18px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) right bottom / 18px 1px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) right bottom / 1px 18px no-repeat;
+    background: linear-gradient(currentColor, currentColor) left top / 18px 1px no-repeat, linear-gradient(currentColor, currentColor) left top / 1px 18px no-repeat, linear-gradient(currentColor, currentColor) right top / 18px 1px no-repeat, linear-gradient(currentColor, currentColor) right top / 1px 18px no-repeat, linear-gradient(currentColor, currentColor) left bottom / 18px 1px no-repeat, linear-gradient(currentColor, currentColor) left bottom / 1px 18px no-repeat, linear-gradient(currentColor, currentColor) right bottom / 18px 1px no-repeat, linear-gradient(currentColor, currentColor) right bottom / 1px 18px no-repeat;
     z-index: 2; }
 
 @media (max-width: 500px) {
@@ -6051,6 +6050,222 @@ body[id="idx"] .bm-head {
         -ms-flex-direction: column;
             flex-direction: column;
     gap: .25rem; } }
+
+/* ================================
+   Topiclist Ledger (top block)
+================================ */
+.topics--info {
+  max-inline-size: clamp(820px, 80vw, 1280px);
+  margin: var(--spacing-lg) auto var(--spacing-md);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background: var(--bg-1);
+  display: -ms-grid;
+  display: grid;
+  gap: var(--spacing-xs);
+  font-size: calc(var(--size-md) * 0.95);
+  line-height: 1.4;
+  position: relative;
+  -webkit-padding-before: calc(var(--spacing-sm) + .35rem);
+          padding-block-start: calc(var(--spacing-sm) + .35rem);
+  -webkit-padding-after: calc(var(--spacing-sm) + .35rem);
+          padding-block-end: calc(var(--spacing-sm) + .35rem);
+  /* ledger rules: top / bottom */
+  /* reset legacy rows */
+  /* 1) header line (inside <form>) */
+  /* 2) browsing line */
+  /* 3) members line */
+  /* small-screen stacking */ }
+  .topics--info::before {
+    content: "";
+    position: absolute;
+    inset-block: calc(var(--spacing-sm) / 2);
+    inset-inline: var(--spacing-lg);
+    pointer-events: none;
+    opacity: .75;
+    background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(color-mix(in srgb, var(--border-color) 60%, transparent)), to(transparent)) top, -webkit-gradient(linear, left top, right top, from(transparent), color-stop(color-mix(in srgb, var(--border-color) 60%, transparent)), to(transparent)) bottom;
+    background: linear-gradient(to right, transparent, color-mix(in srgb, var(--border-color) 60%, transparent), transparent) top, linear-gradient(to right, transparent, color-mix(in srgb, var(--border-color) 60%, transparent), transparent) bottom;
+    background-repeat: no-repeat;
+    background-size: 100% 1px, 100% 1px; }
+  .topics--info .darkrow2,
+  .topics--info .row2 {
+    background: none !important;
+    border: 0 !important;
+    padding: 0 !important;
+    margin: 0; }
+  .topics--info > form > .darkrow2 {
+    text-transform: uppercase;
+    font-size: .8rem;
+    letter-spacing: .06em;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    gap: .35rem;
+    text-align: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center; }
+    .topics--info > form > .darkrow2 select,
+    .topics--info > form > .darkrow2 input[type="submit"] {
+      margin-left: .25rem;
+      font-size: inherit; }
+  .topics--info > .darkrow2 {
+    font-size: .75rem;
+    text-transform: uppercase;
+    letter-spacing: .07em;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    opacity: .9; }
+  .topics--info > .row2 {
+    font-size: .75rem;
+    text-transform: uppercase;
+    letter-spacing: .07em;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    opacity: .9; }
+    .topics--info > .row2 a {
+      font-weight: 600;
+      margin-left: var(--spacing-xs); }
+  @media (max-width: 640px) {
+    .topics--info > form > .darkrow2 {
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      -webkit-box-align: start;
+      -webkit-align-items: flex-start;
+          -ms-flex-align: start;
+              align-items: flex-start;
+      text-align: left;
+      gap: .2rem; }
+      .topics--info > form > .darkrow2 select,
+      .topics--info > form > .darkrow2 input[type="submit"] {
+        margin-left: 0; }
+    .topics--info > .darkrow2,
+    .topics--info > .row2 {
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      -webkit-box-align: start;
+      -webkit-align-items: flex-start;
+          -ms-flex-align: start;
+              align-items: flex-start;
+      gap: .25rem; } }
+
+/* ================================
+   Lower Utilities Ledger Strip
+================================ */
+body#SF main > div[align="right"] {
+  max-inline-size: clamp(520px, 60vw, 900px);
+  margin: var(--spacing-sm) auto var(--spacing-xs);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background: var(--bg-1);
+  font-size: calc(var(--size-md) * 0.9);
+  /* match top ledger breathing room */
+  -webkit-padding-before: calc(var(--spacing-sm) + .35rem);
+          padding-block-start: calc(var(--spacing-sm) + .35rem);
+  -webkit-padding-after: calc(var(--spacing-sm) + .35rem);
+          padding-block-end: calc(var(--spacing-sm) + .35rem);
+  /* behave like a normal block, everything right-aligned */
+  display: block;
+  text-align: right;
+  position: relative;
+  /* horizontal gradient rules top + bottom */
+  /* we have 4 <br> elements:
+     1 & 2 after the search form
+     3 & 4 after the moderation row
+     -> hide 1st and 3rd so each pair becomes a single line break */
+  /* --- ALL FORMS behave like compact inline chips --- */
+  /* moderation row: three items on one line */
+  /* spacing between the three moderation controls */
+  /* prevent global .forminput rules making these full-width */ }
+  body#SF main > div[align="right"]::before {
+    content: "";
+    position: absolute;
+    inset-block: calc(var(--spacing-sm) / 2);
+    inset-inline: var(--spacing-lg);
+    pointer-events: none;
+    opacity: .75;
+    background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(color-mix(in srgb, var(--border-color) 60%, transparent)), to(transparent)) top, -webkit-gradient(linear, left top, right top, from(transparent), color-stop(color-mix(in srgb, var(--border-color) 60%, transparent)), to(transparent)) bottom;
+    background: linear-gradient(to right, transparent, color-mix(in srgb, var(--border-color) 60%, transparent), transparent) top, linear-gradient(to right, transparent, color-mix(in srgb, var(--border-color) 60%, transparent), transparent) bottom;
+    background-repeat: no-repeat;
+    background-size: 100% 1px, 100% 1px; }
+  body#SF main > div[align="right"] > br:nth-of-type(1),
+  body#SF main > div[align="right"] > br:nth-of-type(3) {
+    display: none; }
+  body#SF main > div[align="right"] form {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    vertical-align: middle;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: .5rem;
+    width: auto;
+    max-width: 100%;
+    margin: .35rem 0;
+    /* even vertical spacing */ }
+  body#SF main > div[align="right"] #mod_options,
+  body#SF main > div[align="right"] #mod_topics_submit,
+  body#SF main > div[align="right"] [name="select_all_submit"] {
+    display: inline-block;
+    vertical-align: middle;
+    white-space: nowrap;
+    width: auto;
+    margin: .35rem 0;
+    /* match form row spacing */ }
+  body#SF main > div[align="right"] #mod_topics_submit,
+  body#SF main > div[align="right"] input[name="select_all_submit"] {
+    margin-left: .5rem; }
+  body#SF main > div[align="right"] input[type="text"],
+  body#SF main > div[align="right"] select,
+  body#SF main > div[align="right"] input[type="submit"],
+  body#SF main > div[align="right"] input[type="button"] {
+    width: auto; }
+
+/* ================================
+   Tiny ledger chip (mark as read)
+================================ */
+body#SF main > div[align="center"] #mark-as-read-subto {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-md);
+  background: color-mix(in srgb, var(--plate-bg) 40%, transparent);
+  border-block: 1px solid color-mix(in srgb, var(--border-color) 60%, transparent);
+  font-size: .75rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  margin-top: var(--spacing-sm); }
+  body#SF main > div[align="center"] #mark-as-read-subto a {
+    margin: 0 var(--spacing-xs); }
 
 /* =========================================
    Plate Button Mixin (theme-toggle style)
