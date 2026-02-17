@@ -10,8 +10,28 @@
   padding: 2rem 1.25rem;
   block-size: clamp(320px, 60vh, 7800px);
   color: var(--text-clear);
-  background: var(--bg-1);
   overflow: clip;
+
+  /* ---------- local tokens (header-only) ---------- */
+  --plate-border: 1px solid color-mix(in oklab, var(--text-loCon) 18%, transparent);
+  --staff-border: 4px solid color-mix(in oklab, var(--accent-2) 90%, transparent);
+  --plate-rim: 1px solid color-mix(in oklab, var(--accent-1) 16%, transparent);
+  --plate-hi: rgba(255, 255, 255, 0.06);
+  --plate-lo: rgba(0, 0, 0, 0.35);
+
+  --plate-shadow-sm: 0 10px 26px rgba(0, 0, 0, 0.18);
+  --plate-shadow-md: 0 12px 30px rgba(0, 0, 0, 0.22);
+  --plate-shadow-lg: 0 16px 34px rgba(0, 0, 0, 0.28);
+
+  /* lacquer / archive depth */
+  background:
+    radial-gradient(1200px 500px at 55% 45%,
+      color-mix(in oklab, var(--bg-2) 18%, transparent),
+      transparent 60%),
+    radial-gradient(900px 420px at 25% 35%,
+      color-mix(in oklab, var(--bg-2) 12%, transparent),
+      transparent 58%),
+    var(--bg-1);
 
   grid-template-columns:
     var(--gutter)
@@ -19,53 +39,66 @@
     minmax(0, var(--center-max))
     var(--side-col)
     var(--gutter);
-  grid-template-areas: "left info center bridge right";
+
+  /* bridge now lives in the center stack */
+  grid-template-areas: "left info center center right";
 
   @include pseudo-frame(false, true, 4px);
-  &::after {
-    inset: 0.5rem;
-  }
+  &::after { inset: 0.5rem; }
   @include corner-ticks(0.5rem, 18px, 2px, 0.25);
-  // margin-block-start: calc(-1 * var(--frame-join));
 
   /* shared small text inside header */
   :where(.plate-meta, .plate-info, .plate-bridge) {
     font-family: var(--font-serif);
     font-size: var(--size-sm);
-    letter-spacing: 0.06em;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
   }
 
-  /* left/right captions */
+  /* ---------- left/right captions ---------- */
   .plate-meta {
     grid-area: left;
     align-self: center;
-    color: var(--text-loCon);
-    font-size: var(--size-md);
-    text-transform: uppercase;
+    color: color-mix(in oklab, var(--text-loCon) 78%, var(--bg-1));
+    font-size: var(--size-sm);
+    opacity: 0.9;
+    position: relative;
 
     &.right {
       grid-area: right;
       justify-self: end;
-      display: inline-flex;
-      gap: 0.5rem;
-      align-items: center;
     }
+
+    /* tiny hairline “registration” */
+    &.left::after,
+    &.right::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      inline-size: 22px;
+      block-size: 1px;
+      background: currentColor;
+      opacity: 0.22;
+      transform: translateY(-50%);
+    }
+    &.left::after { left: calc(100% + 10px); }
+    &.right::before { right: calc(100% + 10px); }
   }
 
-  /* info column (textarea + staff) */
+  /* ---------- info column (blurb + staff) ---------- */
   .plate-info {
     grid-area: info;
     align-self: center;
     justify-self: center;
     display: grid;
     grid-auto-rows: max-content;
-    row-gap: 0.5rem;
+    row-gap: 0.6rem;
     min-inline-size: 220px;
     max-inline-size: 280px;
     color: var(--text-medCon);
     font-family: var(--font-sans);
     text-align: center;
-    z-index: 2;
+    z-index: 3;
 
     .sr-only {
       position: absolute !important;
@@ -79,23 +112,56 @@
 
     &__text {
       inline-size: 100%;
-      resize: vertical;
-      min-block-size: 72px;
-      max-block-size: 240px;
-      padding: 2rem 1.75rem;
+      max-inline-size: 280px;
+      padding: 1.1rem 1.2rem;
       color: var(--text-medCon);
-      background: var(--bg-2);
-      border: var(--border-1);
-      border-radius: 100%;
-      box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.08);
+
+      border-radius: 14px;
+      border: var(--plate-border);
+
+      background:
+        linear-gradient(to bottom,
+          color-mix(in oklab, var(--bg-2) 92%, white),
+          color-mix(in oklab, var(--bg-2) 88%, black)
+        );
+
+      box-shadow:
+        inset 0 1px 0 var(--plate-hi),
+        inset 0 -1px 0 var(--plate-lo),
+        var(--plate-shadow-sm);
+
       transition: var(--transi-quick);
       font: 400 var(--size-sm) / 1.4 var(--font-sans);
+      position: relative;
 
-      &:focus-visible {
-        @include focus-ring(
-          color-mix(in oklab, var(--accent-1) 35%, transparent)
-        );
-        color: var(--text-hiCon);
+      /* inner engraved rim */
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 9px;
+        border-radius: 10px;
+        border: var(--plate-rim);
+        opacity: 0.35;
+        pointer-events: none;
+      }
+
+      /* faint “plate grain” */
+      &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        background:
+          repeating-linear-gradient(
+            0deg,
+            rgba(255,255,255,0.025),
+            rgba(255,255,255,0.025) 1px,
+            transparent 1px,
+            transparent 3px
+          );
+        opacity: 0.18;
+        mix-blend-mode: overlay;
+        pointer-events: none;
       }
     }
 
@@ -104,7 +170,9 @@
       font-family: var(--font-serif);
       color: var(--text-loCon);
       font-weight: 600;
-      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: var(--size-md);
+      opacity: 0.9;
     }
 
     &__staff {
@@ -115,30 +183,37 @@
       justify-content: space-around;
 
       img {
-        inline-size: 48px;
+        inline-size: 52px;
         block-size: 72px;
-        border-radius: 100%;
         object-fit: cover;
-        background: var(--bg-3);
-        border: var(--border-1);
-        box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
+
+        border-radius: 100%;
+        border: var(--staff-border);
+
+        background:
+          radial-gradient(circle at 35% 25%,
+            rgba(255,255,255,0.10),
+            transparent 52%),
+          var(--bg-3);
+
+        box-shadow:
+          inset 0 1px 0 var(--plate-hi),
+          var(--plate-shadow-md);
+
         transition: var(--transi-quick) filter var(--transi-slow);
+        filter: saturate(0.92) contrast(1.05);
 
         &:hover {
           transform: translateY(-1px);
-          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+          box-shadow:
+            inset 0 1px 0 var(--plate-hi),
+            var(--plate-shadow-lg);
         }
       }
     }
-
-    .full-bleed {
-      top: 2px;
-      inline-size: auto;
-      max-inline-size: none;
-    }
   }
 
-  /* decorative cutout figure (behind content) */
+  /* ---------- decorative cutout figure ---------- */
   .plate-fig {
     position: absolute;
     inset: 0.5rem;
@@ -161,17 +236,28 @@
       object-fit: contain;
       transform: translateX(-5vw) translateY(-7vw);
       transform-origin: center;
+
       mix-blend-mode: multiply;
-      filter: sepia(0.28) saturate(0.95) contrast(1.06)
-        drop-shadow(0 2px 0 rgba(0, 0, 0, 0.15))
-        drop-shadow(0 6px 18px rgba(0, 0, 0, 0.18));
-      opacity: 0.62;
+      opacity: 0.72;
+
+      filter: sepia(0.32) saturate(0.92) contrast(1.08)
+        drop-shadow(0 10px 30px rgba(0,0,0,0.28));
     }
   }
 
-  /* centered title block */
+  /* ---------- center stack (title + bridge) ---------- */
+  .plate-stack {
+    place-self: center;
+    display: grid;
+    justify-items: center;
+    row-gap: 0.7rem;
+    position: relative;
+    z-index: 3;
+    inline-size: 100%;
+    max-inline-size: var(--center-max);
+  }
+
   .plate-center {
-    grid-area: center;
     place-self: center;
     display: grid;
     grid-auto-flow: column;
@@ -179,32 +265,41 @@
     gap: 0.75rem;
     text-align: center;
     position: relative;
-    z-index: 3;
-    max-inline-size: var(--center-max);
-    inline-size: 100%;
 
-    /* soft gradient wash behind the title */
+    /* archival spotlight behind the title */
     &::before {
       content: "";
       position: absolute;
-      inset: -0.75rem -10vw;
+      inset: -1.25rem -10vw;
       pointer-events: none;
       z-index: -1;
-      border-radius: 6px;
-      background: linear-gradient(
-        to right,
-        transparent,
-        currentColor 32%,
-        transparent
-      );
-      opacity: 0.18;
+      background:
+        radial-gradient(ellipse at 50% 55%,
+          color-mix(in oklab, var(--text-loCon) 22%, transparent),
+          transparent 62%);
+      opacity: 0.42;
+      filter: blur(0.2px);
+      border-radius: 18px;
     }
 
     .plate-rule {
-      inline-size: clamp(90px, 7vw, 140px);
+      inline-size: clamp(70px, 6vw, 120px);
       block-size: 1px;
       background: currentColor;
-      opacity: 0.25;
+      opacity: 0.22;
+      position: relative;
+
+      /* double hairline */
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 3px;
+        block-size: 1px;
+        background: currentColor;
+        opacity: 0.12;
+      }
     }
 
     .plate-title {
@@ -213,67 +308,103 @@
       font-family: var(--font-title);
       font-size: clamp(28px, 4vw, 64px);
       line-height: 1.05;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.03em;
       padding-top: 1rem;
-      text-shadow: -1px -1px 0 var(--bg-4), 1px -1px 0 var(--bg-4),
-        -1px 1px 0 var(--bg-4), 1px 1px 0 var(--bg-4);
-      text-decoration:none;
+      text-decoration: none;
+
+      text-shadow:
+        -1px -1px 0 color-mix(in oklab, var(--bg-4) 85%, black),
+         1px -1px 0 color-mix(in oklab, var(--bg-4) 85%, black),
+        -1px  1px 0 color-mix(in oklab, var(--bg-4) 85%, black),
+         1px  1px 0 color-mix(in oklab, var(--bg-4) 85%, black),
+         0 10px 26px rgba(0,0,0,0.20);
 
       .plate-sub {
         margin-top: 0.25rem;
         font-family: var(--font-serif);
         font-style: normal;
         font-variant: small-caps;
-        letter-spacing: 0.06em;
+        letter-spacing: 0.22em;
         font-size: clamp(12px, 1.2vw, 16px);
         color: var(--text-medCon);
+        opacity: 0.95;
       }
     }
   }
 
-  /* bridge (quick links) */
   .plate-bridge {
-    grid-area: bridge;
-    align-self: center;
-    justify-self: stretch;
+    align-self: start;
+    justify-self: center;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.75rem;
     color: var(--text-loCon);
     font-weight: 500;
-    text-transform: uppercase;
     position: relative;
-    z-index: 3;
+
+    &::before {
+      content: "";
+      inline-size: clamp(220px, 22vw, 340px);
+      block-size: 1px;
+      background: currentColor;
+      opacity: 0.14;
+      margin-inline-end: 0.25rem;
+      margin-block: 0.2rem;
+      display: none;
+    }
+
+    .sep { display: none; }
 
     a {
-      padding: 1rem;
-      background: var(--bg-2);
-      border: var(--border-1);
-      border-radius: 100%;
       text-decoration: none;
+      letter-spacing: 0.18em;
+      font-size: var(--size-xs);
+      padding: 0.7rem 1rem;
+      min-inline-size: 130px;
+      text-align: center;
+
+      border-radius: 999px;
+      border: var(--plate-border);
+
+      background:
+        radial-gradient(circle at 32% 26%,
+          rgba(255,255,255,0.09),
+          transparent 48%),
+        linear-gradient(to bottom,
+          color-mix(in oklab, var(--bg-2) 84%, black),
+          color-mix(in oklab, var(--bg-3) 86%, black)
+        );
+
+      box-shadow:
+        inset 0 1px 0 var(--plate-hi),
+        inset 0 -1px 0 var(--plate-lo),
+        var(--plate-shadow-md);
+
       color: var(--text-medCon);
+      position: relative;
       transition: var(--transi-quick);
+
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 7px;
+        border-radius: 999px;
+        border: 1px solid color-mix(in oklab, var(--accent-1) 18%, transparent);
+        opacity: 0.35;
+        pointer-events: none;
+      }
 
       &:hover,
       &:focus-visible {
-        @include focus-ring(var(--accent-3));
+        transform: translateY(-1px);
         color: var(--accent-1);
-        text-decoration: underline;
+        @include focus-ring(color-mix(in oklab, var(--accent-1) 28%, transparent));
       }
-    }
-
-    .sep {
-      opacity: 0.45;
-      user-select: none;
     }
   }
 }
 
-.bm-head { 
-  display: none; 
-}
-
-body[id="idx"] .bm-head {
-  display: grid;
-}
+/* idx-only display */
+.bm-head { display: none; }
+body[id="idx"] .bm-head { display: grid; }
