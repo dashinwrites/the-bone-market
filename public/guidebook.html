@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>the bone market</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!--Styles-->
+<link rel="stylesheet" href="../dist/css/styles.css" />
+
+<!--Fonts-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Inconsolata:wght@200..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cookie&family=Lavishly+Yours&family=Lugrasimo&display=swap" rel="stylesheet">
+
+<link href="https://files.jcink.net/uploads2/thebonemarket/fonts/ghosthey_Regular.ttf" rel="stylesheet">
+
+
+<!--Icons-->
+<link href="https://dawneggleton.github.io/css/all.css" rel="stylesheet" />
+
+<!--Script Libraries-->
+<script type='text/javascript' src='https://files.jcink.net/html/jquery-1.7.2.min.js'></script>
+<script type='text/javascript' src='https://files.jcink.net/html/jquery.cookie-1.3.1.js'></script> 
+<script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js"></script>
+<script src="../dist/js/clipboard.js"></script>
+<script src="../dist/js/functions.js"></script>
+
+<!--Settings-->
+<script type='text/javascript' src='../dist/js/settings.js'></script>
+<link rel="stylesheet" href="../dist/css/settings.css" />
+  </head>
+  <body id="Pages" class="g-4">
+    <div class="bm-container">
+      <nav id="navstrip" align="left">
+  &nbsp; <a href="../public/index.html">the bone market</a>
+  <a href="/">more words</a>
+  <span class="theme">
+    <button id="theme-toggle" type="button" aria-label="Toggle theme">
+      <i class="fa-solid fa-moon" id="icon-moon" title="Switch to dark mode"></i>
+      <i class="fa-solid fa-sun" id="icon-sun" title="Switch to light mode"></i>
+    </button>
+  </span>
+</nav>
+
+<nav id="leftbar">
+  <div class="lb-plate" role="navigation" aria-label="Quick actions">
+    <button id="sidebar-toggle" class="icon" type="button" aria-label="Menu">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <a href="/" class="icon" aria-current="page">
+      <i class="fa-solid fa-house"></i>
+    </a>
+    <a href="/" class="icon">
+      <i class="fa-solid fa-book"></i>
+    </a>
+    <div class="m-<!-- |g_id| -->">
+      <a href="/index.php?showuser=<!-- |id| -->">
+        <i class="fa-solid fa-user"></i>
+      </a>
+      <!-- begin subaccounts -->
+      <a>
+        <i class="fa-solid fa-exchange"></i>
+      </a>
+      <!-- end subaccounts -->
+      <a href="/index.php?act=UserCP">
+        <i class="fa-solid fa-pencil"></i>
+      </a>
+      <a href="/index.php?act=Msg&CODE=01" class="icon--pm" data-count-pm="(<!-- |new_msg| -->)">
+        <i class="fa-solid fa-envelope"></i>
+      </a>
+      <a href="/index.php?act=UserCP&CODE=alerts" class="icon--alerts" data-count-alerts="(<!-- |new_alerts| -->)">
+        <i class="fa-solid fa-bell"></i>
+      </a>
+      <a href="index.php?act=Login&CODE=03&key=<!-- |auth_key| -->">
+        <i class="fa-solid fa-sign-out"></i>
+      </a>
+      <a href="admin.php" target="_blank" class="acp-<!-- |g_access_cp| -->">
+        <i class="fa-solid fa-wrench"></i>
+      </a>
+      <a href="/index.php?act=modcp" class="mcp-<!-- |g_is_supmod| -->">
+        <i class="fa-solid fa-cog"></i>
+      </a>
+    </div>
+
+    <div class="g-<!-- |g_id| -->" style="display: none;">
+      <a href='/index.php?act=Login&CODE=00'>
+        <i class="fa-solid fa-sign-in"></i>
+      </a>
+      <a href='/index.php?act=Reg&CODE=00'>
+        <i class="fa-solid fa-user-plus"></i>
+      </a>
+
+    </div>
+  </div>
+</nav>
+
+<aside id="sidebar" hidden>
+  <!-- put whatever you want here: quick links, staff, search, etc. -->
+  <button class="sidebar-close" type="button" aria-label="Close sidebar">
+    <i class="fa-solid fa-xmark"></i>
+  </button>
+  <nav class="sidebar-nav">
+    <a href="/">Home</a>
+    <a href="/forums">Forums</a>
+    <a href="/members">Members</a>
+  </nav>
+</aside>
+
+<!-- backdrop for click-to-close (insert once, anywhere near the end of body) -->
+<div id="sidebar-scrim" hidden></div>
+
+      <header class="bm-head full-bleed">
+  <div class="plate-meta left">Pl. VII</div>
+  <div class="plate-info">
+    <p class="plate-info__text">
+Magic is currency, and the black market thrives on blood.
+    </p>
+    <div class="plate-info__label">Staff</div>
+    <div class="plate-info__staff">
+      <img src="https://picsum.photos/100" alt="Staff: A. Curator">
+      <img src="https://picsum.photos/100" alt="Staff: B. Archivist">
+      <img src="https://picsum.photos/100" alt="Staff: C. Chirurgeon">
+    </div>
+  </div>
+  <div class="plate-stack">
+  <div class="plate-center">
+    <!-- <span class="plate-rule" aria-hidden="true"></span> -->
+    <a href="../public/index.html" class="plate-title">
+      the bone market
+      <em class="plate-sub">mercatus ossium</em>
+    </a>
+    <!-- <span class="plate-rule" aria-hidden="true"></span> -->
+  </div>
+
+    <nav class="plate-bridge" aria-label="Quick links">
+  <a href="?act=Pages&kid=guidebook">Guidebook</a>
+  <span class="sep">†</span>
+  <a href="?act=Members&max_results=0">Claims</a>
+  <span class="sep">†</span>
+  <a href="https://discord.gg/yourinvite">Discord</a>
+</nav>
+</div>
+
+  <div class="plate-meta right">1894</div>
+
+  <figure class="plate-fig" aria-hidden="true">
+    <span class="plate-wrap">
+      <img class="plate-cutout" src="https://files.jcink.net/uploads2/thebonemarket/images/carotid_plate_1_.png" alt="">
+    </span>
+  </figure>
+</header>
+
+
+      <!--Main Body-->
+      <div class="bg" aria-hidden="true"></div>
+      <main>
+        <a name="top"></a>
+
+        <!--Webpage-->
+
+        <style>
+          /* Accordion shell */
+          .demo-drop{
+            border: 1px solid color-mix(in srgb, var(--text-loCon) 18%, transparent);
+            border-radius: 8px;
+            background: color-mix(in srgb, var(--bg-2) 85%, transparent);
+            box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--text-loCon) 10%, transparent);
+            overflow: clip;
+            padding: 1rem;
+          }
+          .demo-drop + .demo-drop{ margin-top: 1rem; }
+
+          /* Summary (click target) */
+          .demo-drop > summary{
+            display: grid;
+            grid-template-columns: 1.25rem 1fr auto;
+            gap: .5rem;
+            align-items: center;
+            padding: .7rem .85rem;
+            cursor: pointer;
+            list-style: none;
+            user-select: none;
+            font: 700 .95rem/1 var(--font-sans);
+            letter-spacing: .04em;
+            text-transform: uppercase;
+            color: var(--text-clear);
+            position: relative;
+          }
+          /* remove default marker */
+          .demo-drop > summary::-webkit-details-marker{ display:none; }
+          .demo-drop > summary::marker{ content:""; }
+
+          /* Caret */
+          .demo-drop > summary::before{
+            content: "▸";
+            inline-size: 1.25rem;
+            text-align: center;
+            transform-origin: 50% 50%;
+            transition: transform .18s ease;
+            color: var(--text-loCon);
+          }
+          .demo-drop[open] > summary::before{ transform: rotate(90deg); color: var(--text-medCon); }
+
+          /* Right-side meta (optional small note) */
+          .demo-drop > summary > small{
+            color: var(--text-medCon);
+            font: 600 .85rem/1.2 var(--font-sans);
+            text-transform: none;
+            letter-spacing: 0;
+          }
+
+          /* Divider under summary */
+          .demo-drop > summary::after{
+            content:"";
+            grid-column: 1 / -1;
+            height: 1px;
+            margin-top: .65rem;
+            background: linear-gradient(90deg,#0000 0%,
+              color-mix(in srgb, var(--text-loCon) 35%, transparent) 12% 88%,
+              #0000 100%);
+            opacity: .6;
+          }
+
+          /* Panel content */
+          .demo-panel{
+            padding: .9rem .95rem 1rem;
+            display: grid;
+            gap: .75rem;
+          }
+
+          /* Make inner section headers lighter since summary is the “real” title */
+          .demo-panel > h2,
+          .demo-panel > h3{ margin: .25rem 0 .25rem; color: var(--text-medCon); }
+
+          /* Keep your <hr> visible inside panels */
+          .demo-panel hr{ margin: .65rem 0; }
+        </style>
+        <section class="bm-guidebook bm-guidebook--tabs">
+
+          <div class="bm-guidebook__head">
+            <p class="bm-guidebook__plate">Pl. VIII</p>
+
+            <div class="bm-guidebook__heading">
+              <p class="bm-guidebook__kicker">Reference Archive</p>
+              <h1 class="bm-guidebook__title">
+                the guidebook
+                <em>mercatus ossium</em>
+              </h1>
+              <p class="bm-guidebook__desc">
+                A collected index of site lore, social structures, magical principles, and other necessary reference material.
+              </p>
+            </div>
+          </div>
+
+          <div class="bm-guidebook__tabs">
+
+            <input type="radio" name="bm-guidebook-tabs" id="bm-tab-01" checked>
+            <input type="radio" name="bm-guidebook-tabs" id="bm-tab-02">
+            <input type="radio" name="bm-guidebook-tabs" id="bm-tab-03">
+            <input type="radio" name="bm-guidebook-tabs" id="bm-tab-04">
+            <input type="radio" name="bm-guidebook-tabs" id="bm-tab-05">
+            <input type="radio" name="bm-guidebook-tabs" id="bm-tab-06">
+
+            <div class="bm-guidebook__tablist">
+              <label for="bm-tab-01">Overview</label>
+              <label for="bm-tab-02">Setting</label>
+              <label for="bm-tab-03">Factions</label>
+              <label for="bm-tab-04">Magic</label>
+              <label for="bm-tab-05">Species</label>
+              <label for="bm-tab-06">FAQ</label>
+            </div>
+
+            <div class="bm-guidebook__panels">
+
+              <section class="bm-guidebook__panel bm-guidebook__panel--01">
+                <div class="bm-guidebook__panel-head">
+                  <p class="bm-guidebook__section-no">I</p>
+                  <div>
+                    <p class="bm-guidebook__section-kicker">General Reference</p>
+                    <h2>Overview</h2>
+                  </div>
+                </div>
+
+                <div class="bm-guidebook__panel-body">
+                  <div class="bm-guidebook__lead">
+                    <p>Introductory copy goes here later.</p>
+                  </div>
+
+                  <div class="bm-guidebook__grid">
+                    <article class="bm-guidebook__card">
+                      <h3>Premise</h3>
+                      <p>Content goes here later.</p>
+                    </article>
+
+                    <article class="bm-guidebook__card">
+                      <h3>Tone</h3>
+                      <p>Content goes here later.</p>
+                    </article>
+
+                    <article class="bm-guidebook__card">
+                      <h3>Important Notes</h3>
+                      <p>Content goes here later.</p>
+                    </article>
+
+                    <article class="bm-guidebook__card">
+                      <h3>Quick Start</h3>
+                      <p>Content goes here later.</p>
+                    </article>
+                  </div>
+                </div>
+              </section>
+
+              <section class="bm-guidebook__panel bm-guidebook__panel--02">
+
+                <div class="bm-guidebook__panel-head">
+                  <p class="bm-guidebook__section-no">II</p>
+                  <div>
+                    <p class="bm-guidebook__section-kicker">World Index</p>
+                    <h2>Setting</h2>
+                  </div>
+                </div>
+
+                <div class="bm-guidebook__subtabs">
+
+                  <input type="radio" name="setting-subtabs" id="setting-01" checked>
+                  <input type="radio" name="setting-subtabs" id="setting-02">
+                  <input type="radio" name="setting-subtabs" id="setting-03">
+
+                  <div class="bm-guidebook__subtablist">
+                    <label for="setting-01">Overview</label>
+                    <label for="setting-02">Locations</label>
+                    <label for="setting-03">History</label>
+                  </div>
+
+                  <div class="bm-guidebook__subpanels">
+
+                    <div class="bm-guidebook__subpanel subpanel--01">
+                      <p>Overview content goes here.</p>
+                    </div>
+
+                    <div class="bm-guidebook__subpanel subpanel--02">
+                      <p>Locations content goes here.</p>
+                    </div>
+
+                    <div class="bm-guidebook__subpanel subpanel--03">
+                      <p>History content goes here.</p>
+                    </div>
+
+                  </div>
+                </div>
+              </section>
+
+              <section class="bm-guidebook__panel bm-guidebook__panel--03">
+
+                <div class="bm-guidebook__panel-head">
+                  <p class="bm-guidebook__section-no">III</p>
+                  <div>
+                    <p class="bm-guidebook__section-kicker">Social Bodies</p>
+                    <h2>Factions</h2>
+                  </div>
+                </div>
+
+                <div class="bm-guidebook__sideindex">
+
+                  <!-- radios -->
+                  <input type="radio" name="faction-index" id="faction-01" checked>
+                  <input type="radio" name="faction-index" id="faction-02">
+                  <input type="radio" name="faction-index" id="faction-03">
+                  <input type="radio" name="faction-index" id="faction-04">
+
+                  <!-- LEFT INDEX -->
+                  <aside class="bm-guidebook__index">
+                    <p class="bm-guidebook__index-title">Index</p>
+
+                    <label for="faction-01">The Market</label>
+                    <label for="faction-02">The Clans</label>
+                    <label for="faction-03">The Hunters</label>
+                    <label for="faction-04">Independents</label>
+                  </aside>
+
+                  <!-- RIGHT CONTENT -->
+                  <div class="bm-guidebook__index-panels">
+
+                    <div class="bm-guidebook__index-panel panel--01">
+                      <h3>The Market</h3>
+                      <p>Content goes here later.</p>
+                    </div>
+
+                    <div class="bm-guidebook__index-panel panel--02">
+                      <h3>The Clans</h3>
+                      <p>Content goes here later.</p>
+                    </div>
+
+                    <div class="bm-guidebook__index-panel panel--03">
+                      <h3>The Hunters</h3>
+                      <p>Content goes here later.</p>
+                    </div>
+
+                    <div class="bm-guidebook__index-panel panel--04">
+                      <h3>Independents</h3>
+                      <p>Content goes here later.</p>
+                    </div>
+
+                  </div>
+
+                </div>
+              </section>
+
+              <section class="bm-guidebook__panel bm-guidebook__panel--04">
+                <div class="bm-guidebook__panel-head">
+                  <p class="bm-guidebook__section-no">IV</p>
+                  <div>
+                    <p class="bm-guidebook__section-kicker">Occult Principles</p>
+                    <h2>Magic</h2>
+                  </div>
+                </div>
+
+                <div class="bm-guidebook__panel-body">
+                  <div class="bm-guidebook__stack">
+                    <article class="bm-guidebook__block">
+                      <h3>System Overview</h3>
+                      <p>Content goes here later.</p>
+                    </article>
+
+                    <article class="bm-guidebook__block">
+                      <h3>Costs & Limits</h3>
+                      <p>Content goes here later.</p>
+                    </article>
+
+                    <article class="bm-guidebook__block">
+                      <h3>Rare Materials</h3>
+                      <p>Content goes here later.</p>
+                    </article>
+                  </div>
+                </div>
+              </section>
+
+              <section class="bm-guidebook__panel bm-guidebook__panel--05">
+                <div class="bm-guidebook__panel-head">
+                  <p class="bm-guidebook__section-no">V</p>
+                  <div>
+                    <p class="bm-guidebook__section-kicker">Living Taxonomy</p>
+                    <h2>Species</h2>
+                  </div>
+                </div>
+
+                <div class="bm-guidebook__panel-body">
+                  <div class="bm-guidebook__grid">
+                    <article class="bm-guidebook__card">
+                      <h3>Species One</h3>
+                      <p>Content goes here later.</p>
+                    </article>
+
+                    <article class="bm-guidebook__card">
+                      <h3>Species Two</h3>
+                      <p>Content goes here later.</p>
+                    </article>
+
+                    <article class="bm-guidebook__card">
+                      <h3>Species Three</h3>
+                      <p>Content goes here later.</p>
+                    </article>
+
+                    <article class="bm-guidebook__card">
+                      <h3>Species Four</h3>
+                      <p>Content goes here later.</p>
+                    </article>
+                  </div>
+                </div>
+              </section>
+
+              <section class="bm-guidebook__panel bm-guidebook__panel--06">
+                <div class="bm-guidebook__panel-head">
+                  <p class="bm-guidebook__section-no">VI</p>
+                  <div>
+                    <p class="bm-guidebook__section-kicker">Clarifications</p>
+                    <h2>FAQ</h2>
+                  </div>
+                </div>
+
+                <div class="bm-guidebook__panel-body">
+                  <div class="bm-guidebook__faq">
+                    <article class="bm-guidebook__faq-item">
+                      <h3>Question one?</h3>
+                      <p>Answer goes here later.</p>
+                    </article>
+
+                    <article class="bm-guidebook__faq-item">
+                      <h3>Question two?</h3>
+                      <p>Answer goes here later.</p>
+                    </article>
+
+                    <article class="bm-guidebook__faq-item">
+                      <h3>Question three?</h3>
+                      <p>Answer goes here later.</p>
+                    </article>
+                  </div>
+                </div>
+              </section>
+
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <script src="../dist/js/scripts.js"></script>
+    </div>
+  </body>
+</html>

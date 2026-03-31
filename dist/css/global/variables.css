@@ -72,14 +72,14 @@
   /* ================================
      Neutral text colors (legacy)
   ================================= */
-  --text-bg:     rgb(171, 171, 171);
-  --text-bright: rgb(238, 238, 238);
-  --text-dark:   rgb(51, 51, 51);
-  --text-med:    rgb(128, 128, 128);
+  --text-bg:     oklch(0.7412 0 0);
+  --text-bright: oklch(0.9491 0 0);
+  --text-dark:   oklch(0.3211 0 0);
+  --text-med:    oklch(0.5999 0 0);
   /* ================================
      Borders
   ================================= */
-  --border-color: rgb(86, 86, 86);
+  --border-color: oklch(0.4532 0 0);
   --b-1: 1px solid;
   --b-2: 2px solid;
   --bdoub: 3px double;
@@ -91,8 +91,8 @@
   --plate-bg: var(--bg-2);
   --plate-text: var(--text-hiCon);
   --plate-border: var(--border-1);
-  --plate-shadow: 0 1px 0 rgba(0,0,0,.08), 0 2px 6px rgba(0,0,0,.06);
-  --plate-hover-shadow: 0 2px 6px rgba(0,0,0,.18);
+  --plate-shadow: 0 1px 0 oklch(0 0 0 / .08), 0 2px 6px oklch(0 0 0 / .06);
+  --plate-hover-shadow: 0 2px 6px oklch(0 0 0 / .18);
   /* ================================
      Link tones
   ================================= */
@@ -106,15 +106,15 @@
   --h-underline-alpha: .30;
   --content-max: 75vw;
   --profile-vpad: 12px;
-  --text-muted: color-mix(in srgb, var(--text-loCon) 25%, transparent);
+  --text-muted: color-mix(in oklch, var(--text-loCon) 25%, transparent);
   /* Blockquote styling */
   --bq-pad: .9rem 1rem;
   --bq-radius: 8px;
   --bq-accent: var(--accent-1);
   --bq-dash: var(--bdash);
-  --bq-muted: color-mix(in srgb, var(--text-loCon) 20%, transparent);
-  --bq-border: 1px solid color-mix(in srgb, var(--text-loCon) 12%, transparent);
-  --bq-shadow: 0 10px 30px rgba(0,0,0,.08);
+  --bq-muted: color-mix(in oklch, var(--text-loCon) 20%, transparent);
+  --bq-border: 1px solid color-mix(in oklch, var(--text-loCon) 12%, transparent);
+  --bq-shadow: 0 10px 30px oklch(0 0 0 / .08);
   /* Misc */
   --mg-blend: multiply; }
 
@@ -123,9 +123,7 @@
 ================================ */
 .category--plate-side {
   --cat-head-h: 8rem;
-  /* desired header height */
-  --cameo-scale: 1.6;
-  /* how much taller the cameo is than the header */ }
+  --cameo-scale: 1.6; }
 
 /* ================================
    BM Profile
@@ -144,22 +142,22 @@
    Light theme
 ================================ */
 [data-theme="light"] {
-  --accent-1: rgb(124, 30, 47);
-  --accent-2: rgb(142, 124, 99);
-  --accent-3: rgb(64, 58, 54);
-  --warn:     rgb(220, 73, 73);
-  --bg-1: rgb(243, 238, 230);
-  --bg-1-rgb: rgba(243, 238, 230, 0.75);
-  --bg-2: rgb(236, 228, 217);
-  --bg-3: rgb(217, 207, 194);
-  --bg-4: rgb(188, 178, 167);
-  --bg-grad:  linear-gradient(rgba(0,0,0,.56), rgba(0,0,0,.56));
+  --accent-1: oklch(0.3945 0.1278 15.22);
+  --accent-2: oklch(0.5961 0.0424 75.85);
+  --accent-3: oklch(0.3532 0.0108 56.01);
+  --warn:     oklch(0.6113 0.1836 24.35);
+  --bg-1: oklch(0.9508 0.0119 79.78);
+  --bg-1-rgb: oklch(0.9508 0.0119 79.78 / 0.75);
+  --bg-2: oklch(0.9222 0.0171 76.11);
+  --bg-3: oklch(0.8590 0.0209 74.64);
+  --bg-4: oklch(0.7688 0.0192 70.18);
+  --bg-grad: linear-gradient(oklch(0 0 0 / .56), oklch(0 0 0 / .56));
   --bg-blend: screen;
-  --text-hiCon: rgb(30, 30, 30);
-  --text-medCon: rgb(58, 54, 50);
-  --text-loCon: rgb(106, 94, 85);
-  --text-clear: rgb(28, 26, 25);
-  --plate-bg: linear-gradient(rgba(0,0,0,0.03), rgba(0,0,0,0.06)), var(--bg-2);
+  --text-hiCon: oklch(0.2350 0 0);
+  --text-medCon: oklch(0.3356 0.0089 67.52);
+  --text-loCon: oklch(0.4907 0.0210 59.14);
+  --text-clear: oklch(0.2197 0.0037 48.55);
+  --plate-bg: linear-gradient(oklch(0 0 0 / 0.03), oklch(0 0 0 / 0.06)), var(--bg-2);
   --plate-text: var(--text-hiCon);
   --link: var(--text-medCon);
   --link-sep: var(--text-loCon); }
@@ -168,23 +166,23 @@
    Dark theme
 ================================ */
 [data-theme="dark"] {
-  --accent-1: rgb(196, 67, 88);
-  --accent-2: rgb(142, 124, 99);
-  --accent-3: rgb(106, 77, 73);
-  --warn:     rgb(220, 73, 73);
-  --bg-1: rgb(28, 27, 26);
-  --bg-1-rgb: rgba(28, 27, 26, 0.75);
-  --bg-2: rgb(22, 21, 20);
-  --bg-3: rgb(35, 33, 31);
-  --bg-4: rgb(15, 14, 14);
-  --bg-grad:  linear-gradient(rgba(22,21,20,.80), rgba(22,21,20,.94));
+  --accent-1: oklch(0.5686 0.1641 14.49);
+  --accent-2: oklch(0.5961 0.0424 75.85);
+  --accent-3: oklch(0.4501 0.0401 27.66);
+  --warn:     oklch(0.6113 0.1836 24.35);
+  --bg-1: oklch(0.2228 0.0025 67.70);
+  --bg-1-rgb: oklch(0.2228 0.0025 67.70 / 0.75);
+  --bg-2: oklch(0.1965 0.0026 67.68);
+  --bg-3: oklch(0.2492 0.0048 67.60);
+  --bg-4: oklch(0.1650 0.0017 17.33);
+  --bg-grad: linear-gradient(oklch(0.1965 0.0026 67.68 / .80), oklch(0.1965 0.0026 67.68 / .94));
   --bg-blend: multiply;
-  --text-hiCon: rgb(237, 231, 222);
-  --text-medCon: rgb(201, 191, 181);
-  --text-loCon: rgb(155, 144, 134);
-  --text-clear: rgb(245, 239, 230);
+  --text-hiCon: oklch(0.9302 0.0137 78.26);
+  --text-medCon: oklch(0.8100 0.0179 67.57);
+  --text-loCon: oklch(0.6600 0.0196 64.79);
+  --text-clear: oklch(0.9543 0.0136 78.26);
   --plate-bg: var(--bg-grad), var(--bg-2);
   --plate-text: var(--text-clear);
-  --plate-shadow: 0 1px 0 rgba(0,0,0,.25), inset 0 0 0 999px rgba(255,255,255,0);
+  --plate-shadow: 0 1px 0 oklch(0 0 0 / .25), inset 0 0 0 999px oklch(1 0 0 / 0);
   --link: var(--text-loCon);
   --link-sep: var(--text-medCon); }
