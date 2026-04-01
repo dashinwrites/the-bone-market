@@ -139,6 +139,33 @@
   --overlay-left: clamp(12px, 4vw, 32px); }
 
 /* ================================
+   Guidebook
+================================ */
+.bm-guidebook {
+  --bm-guide-bg: var(--bg--secondary);
+  --bm-guide-bg-soft: var(--bg--tertiary);
+  --bm-guide-text: var(--text);
+  --bm-guide-border: rgba(255, 255, 255, 0.12);
+  --bm-guide-border-soft: rgba(255, 255, 255, 0.08);
+  --bm-guide-rule: rgba(255, 255, 255, 0.14);
+  --bm-guide-accent: var(--accent, #b89a6a);
+  --bm-guide-accent-soft: rgba(184, 154, 106, 0.18);
+  --bm-guide-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
+  --bm-guide-radius: 18px;
+  --bm-guide-gap: 24px;
+  /* backdrop overlay */
+  --bm-guide-overlay-strong: oklch(0 0 0 / 0.18);
+  --bm-guide-overlay-soft:   oklch(0 0 0 / 0.08);
+  /* panel surface */
+  --bm-guide-panel-bg: oklch(0.165 0.0017 17.33 / 0.72);
+  /* based on --bg-4 */
+  --bm-guide-panel-sheen: linear-gradient(
+    to bottom,
+    oklch(1 0 0 / 0.02),
+    transparent 60%
+  ); }
+
+/* ================================
    Light theme
 ================================ */
 [data-theme="light"] {

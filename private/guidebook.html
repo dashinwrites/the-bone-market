@@ -1,366 +1,823 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    @@include('../source/templates/head.html', { "prefix": "../dist" })
-  </head>
-  <body id="Pages" class="g-4">
-    <div class="bm-container">
-      @@include('../source/templates/nav.html', { "prefix": ".." })
-      @@include('../source/templates/header.html', { "prefix": ".." })
 
-      <!--Main Body-->
-      <div class="bg" aria-hidden="true"></div>
-      <main>
-        <a name="top"></a>
+<head>
+  @@include('../source/templates/head.html', { "prefix": "../dist" })
+</head>
 
-        <!--Webpage-->
+<body id="Pages" class="g-4">
+  <div class="bm-container">
+    @@include('../source/templates/nav.html', { "prefix": ".." })
+    @@include('../source/templates/header.html', { "prefix": ".." })
 
-        <style>
-          /* Accordion shell */
-          .demo-drop{
-            border: 1px solid color-mix(in srgb, var(--text-loCon) 18%, transparent);
-            border-radius: 8px;
-            background: color-mix(in srgb, var(--bg-2) 85%, transparent);
-            box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--text-loCon) 10%, transparent);
-            overflow: clip;
-            padding: 1rem;
-          }
-          .demo-drop + .demo-drop{ margin-top: 1rem; }
+    <!--Main Body-->
+    <div class="bg" aria-hidden="true"></div>
+    <main>
+      <a name="top"></a>
 
-          /* Summary (click target) */
-          .demo-drop > summary{
-            display: grid;
-            grid-template-columns: 1.25rem 1fr auto;
-            gap: .5rem;
-            align-items: center;
-            padding: .7rem .85rem;
-            cursor: pointer;
-            list-style: none;
-            user-select: none;
-            font: 700 .95rem/1 var(--font-sans);
-            letter-spacing: .04em;
-            text-transform: uppercase;
-            color: var(--text-clear);
-            position: relative;
-          }
-          /* remove default marker */
-          .demo-drop > summary::-webkit-details-marker{ display:none; }
-          .demo-drop > summary::marker{ content:""; }
+      <!--Guidebook-->
+      <section class="bm-guidebook bm-guidebook--tabs">
 
-          /* Caret */
-          .demo-drop > summary::before{
-            content: "▸";
-            inline-size: 1.25rem;
-            text-align: center;
-            transform-origin: 50% 50%;
-            transition: transform .18s ease;
-            color: var(--text-loCon);
-          }
-          .demo-drop[open] > summary::before{ transform: rotate(90deg); color: var(--text-medCon); }
+        <div class="bm-guidebook__head">
+          <p class="bm-guidebook__plate">Pl. VIII</p>
 
-          /* Right-side meta (optional small note) */
-          .demo-drop > summary > small{
-            color: var(--text-medCon);
-            font: 600 .85rem/1.2 var(--font-sans);
-            text-transform: none;
-            letter-spacing: 0;
-          }
+          <div class="bm-guidebook__heading">
+            <p class="bm-guidebook__kicker">Reference Archive</p>
+            <h1 class="bm-guidebook__title">
+              the guidebook
+              <em>mercatus ossium</em>
+            </h1>
+            <p class="bm-guidebook__desc">
+              A collected index of site lore, social structures, magical principles, and other necessary reference
+              material.
+            </p>
+          </div>
+        </div>
 
-          /* Divider under summary */
-          .demo-drop > summary::after{
-            content:"";
-            grid-column: 1 / -1;
-            height: 1px;
-            margin-top: .65rem;
-            background: linear-gradient(90deg,#0000 0%,
-              color-mix(in srgb, var(--text-loCon) 35%, transparent) 12% 88%,
-              #0000 100%);
-            opacity: .6;
-          }
+        <div class="bm-guidebook__tabs">
 
-          /* Panel content */
-          .demo-panel{
-            padding: .9rem .95rem 1rem;
-            display: grid;
-            gap: .75rem;
-          }
+          <!-- main radios -->
+          <input type="radio" name="bm-guidebook-tabs" id="bm-tab-01" data-tab="overview" checked>
+          <input type="radio" name="bm-guidebook-tabs" id="bm-tab-02" data-tab="setting">
+          <input type="radio" name="bm-guidebook-tabs" id="bm-tab-03" data-tab="factions">
+          <input type="radio" name="bm-guidebook-tabs" id="bm-tab-04" data-tab="member-groups">
 
-          /* Make inner section headers lighter since summary is the “real” title */
-          .demo-panel > h2,
-          .demo-panel > h3{ margin: .25rem 0 .25rem; color: var(--text-medCon); }
-
-          /* Keep your <hr> visible inside panels */
-          .demo-panel hr{ margin: .65rem 0; }
-        </style>
-        <section class="bm-guidebook bm-guidebook--tabs">
-
-          <div class="bm-guidebook__head">
-            <p class="bm-guidebook__plate">Pl. VIII</p>
-
-            <div class="bm-guidebook__heading">
-              <p class="bm-guidebook__kicker">Reference Archive</p>
-              <h1 class="bm-guidebook__title">
-                the guidebook
-                <em>mercatus ossium</em>
-              </h1>
-              <p class="bm-guidebook__desc">
-                A collected index of site lore, social structures, magical principles, and other necessary reference material.
-              </p>
-            </div>
+          <div class="bm-guidebook__tablist">
+            <label for="bm-tab-01" data-tab-label="overview">No Subtabs</label>
+            <label for="bm-tab-02" data-tab-label="setting">H Subtabs</label>
+            <label for="bm-tab-03" data-tab-label="factions">V Subtabs</label>
+            <label for="bm-tab-04" data-tab-label="member-groups">Member Groups</label>
           </div>
 
-          <div class="bm-guidebook__tabs">
+          <div class="bm-guidebook__panels">
 
-            <input type="radio" name="bm-guidebook-tabs" id="bm-tab-01" checked>
-            <input type="radio" name="bm-guidebook-tabs" id="bm-tab-02">
-            <input type="radio" name="bm-guidebook-tabs" id="bm-tab-03">
-            <input type="radio" name="bm-guidebook-tabs" id="bm-tab-04">
-            <input type="radio" name="bm-guidebook-tabs" id="bm-tab-05">
-            <input type="radio" name="bm-guidebook-tabs" id="bm-tab-06">
+            <!-- panel: overview -->
+            <section class="bm-guidebook__panel" data-panel="overview">
+              <div class="bm-guidebook__panel-head">
+                <p class="bm-guidebook__section-no">I</p>
+                <div>
+                  <p class="bm-guidebook__section-kicker">General Reference</p>
+                  <h2>Overview</h2>
+                </div>
+              </div>
 
-            <div class="bm-guidebook__tablist">
-              <label for="bm-tab-01">Overview</label>
-              <label for="bm-tab-02">Setting</label>
-              <label for="bm-tab-03">Factions</label>
-              <label for="bm-tab-04">Magic</label>
-              <label for="bm-tab-05">Species</label>
-              <label for="bm-tab-06">FAQ</label>
-            </div>
-
-            <div class="bm-guidebook__panels">
-
-              <section class="bm-guidebook__panel bm-guidebook__panel--01">
-                <div class="bm-guidebook__panel-head">
-                  <p class="bm-guidebook__section-no">I</p>
-                  <div>
-                    <p class="bm-guidebook__section-kicker">General Reference</p>
-                    <h2>Overview</h2>
-                  </div>
+              <div class="bm-guidebook__panel-body">
+                <div class="bm-guidebook__lead">
+                  <p>Introductory copy goes here later.</p>
                 </div>
 
-                <div class="bm-guidebook__panel-body">
-                  <div class="bm-guidebook__lead">
-                    <p>Introductory copy goes here later.</p>
+                <div class="bm-guidebook__grid">
+                  <article class="bm-guidebook__card">
+                    <h3>Premise</h3>
+                    <p>Content goes here later.</p>
+                  </article>
+
+                  <article class="bm-guidebook__card">
+                    <h3>Tone</h3>
+                    <p>Content goes here later.</p>
+                  </article>
+
+                  <article class="bm-guidebook__card">
+                    <h3>Important Notes</h3>
+                    <p>Content goes here later.</p>
+                  </article>
+
+                  <article class="bm-guidebook__card">
+                    <h3>Quick Start</h3>
+                    <p>Content goes here later.</p>
+                  </article>
+                </div>
+              </div>
+            </section>
+
+            <!-- panel: setting -->
+            <section class="bm-guidebook__panel" data-panel="setting">
+              <div class="bm-guidebook__panel-head">
+                <p class="bm-guidebook__section-no">II</p>
+                <div>
+                  <p class="bm-guidebook__section-kicker">World Index</p>
+                  <h2>Setting</h2>
+                </div>
+              </div>
+
+              <div class="bm-guidebook__subtabs">
+                <input type="radio" name="horizontal-subtabs" id="horizontal-01" data-subtab="overview" checked>
+                <input type="radio" name="horizontal-subtabs" id="horizontal-02" data-subtab="locations">
+                <input type="radio" name="horizontal-subtabs" id="horizontal-03" data-subtab="history">
+
+                <div class="bm-guidebook__subtablist">
+                  <label for="horizontal-01" data-subtab-label="overview">Overview</label>
+                  <label for="horizontal-02" data-subtab-label="locations">Locations</label>
+                  <label for="horizontal-03" data-subtab-label="history">History</label>
+                </div>
+
+                <div class="bm-guidebook__subpanels">
+                  <div class="bm-guidebook__subpanel" data-subpanel="overview">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In porta vel massa in facilisis.
+                      Phasellus libero lectus, volutpat sed ante id, ullamcorper feugiat urna. Duis ut tellus congue
+                      libero suscipit interdum. Fusce cursus sit amet magna at porttitor. Nunc ullamcorper fringilla
+                      ipsum, a euismod nisi ullamcorper vel. Vivamus vitae fermentum odio. Nam ornare euismod est.
+                      Praesent consequat venenatis metus nec consequat. In a sem turpis. Vivamus sit amet sollicitudin
+                      leo. Pellentesque tincidunt purus ex, sit amet tincidunt lacus tincidunt a. Donec non est sit amet
+                      ligula sagittis ornare lobortis sed nisi.
+
+                      Aliquam eu vestibulum ante, vel egestas lacus. Vivamus faucibus varius enim, in eleifend dui.
+                      Praesent ac lorem massa. Mauris sagittis imperdiet quam. Sed nibh magna, rhoncus non ornare quis,
+                      efficitur et mi. Proin at nibh lectus. Nam eu dictum elit, sit amet venenatis sapien.
+
+                      Aliquam ultricies neque nulla, quis lacinia sem rhoncus et. Cras nec feugiat nisi. Aliquam at
+                      tincidunt arcu, nec euismod lacus. Vestibulum luctus est ex, congue pharetra erat pretium vitae.
+                      Nunc lobortis sem at sem condimentum tincidunt. Vivamus eu fringilla velit, vel elementum nulla.
+                      Cras lacus quam, blandit et nisi vel, egestas fermentum ligula. Duis porttitor justo vel elit
+                      aliquet maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+                      Suspendisse quam neque, auctor egestas scelerisque id, laoreet vel massa. Duis a magna nunc. Nunc
+                      luctus nec leo ac laoreet. Suspendisse semper ligula id tortor tempus, eu venenatis dui efficitur.
+                    </p>
                   </div>
 
-                  <div class="bm-guidebook__grid">
-                    <article class="bm-guidebook__card">
-                      <h3>Premise</h3>
-                      <p>Content goes here later.</p>
-                    </article>
+                  <div class="bm-guidebook__subpanel" data-subpanel="locations">
+                    <p>Locations content goes here.</p>
+                  </div>
 
-                    <article class="bm-guidebook__card">
-                      <h3>Tone</h3>
-                      <p>Content goes here later.</p>
-                    </article>
-
-                    <article class="bm-guidebook__card">
-                      <h3>Important Notes</h3>
-                      <p>Content goes here later.</p>
-                    </article>
-
-                    <article class="bm-guidebook__card">
-                      <h3>Quick Start</h3>
-                      <p>Content goes here later.</p>
-                    </article>
+                  <div class="bm-guidebook__subpanel" data-subpanel="history">
+                    <p>History content goes here.</p>
                   </div>
                 </div>
-              </section>
+              </div>
+            </section>
 
-              <section class="bm-guidebook__panel bm-guidebook__panel--02">
+            <!-- panel: factions -->
+            <section class="bm-guidebook__panel" data-panel="factions">
+              <div class="bm-guidebook__panel-head">
+                <p class="bm-guidebook__section-no">III</p>
+                <div>
+                  <p class="bm-guidebook__section-kicker">Social Bodies</p>
+                  <h2>Factions</h2>
+                </div>
+              </div>
 
-                <div class="bm-guidebook__panel-head">
-                  <p class="bm-guidebook__section-no">II</p>
-                  <div>
-                    <p class="bm-guidebook__section-kicker">World Index</p>
-                    <h2>Setting</h2>
+              <div class="bm-guidebook__sideindex">
+                <input type="radio" name="vertical-index" id="vertical-01" data-vtab="market" checked>
+                <input type="radio" name="vertical-index" id="vertical-02" data-vtab="clans">
+                <input type="radio" name="vertical-index" id="vertical-03" data-vtab="hunters">
+                <input type="radio" name="vertical-index" id="vertical-04" data-vtab="independents">
+
+                <aside class="bm-guidebook__index">
+                  <p class="bm-guidebook__index-title">Index</p>
+                  <label for="vertical-01" data-vtab-label="market">The Market</label>
+                  <label for="vertical-02" data-vtab-label="clans">The Clans</label>
+                  <label for="vertical-03" data-vtab-label="hunters">The Hunters</label>
+                  <label for="vertical-04" data-vtab-label="independents">Independents</label>
+                </aside>
+
+                <div class="bm-guidebook__index-panels">
+                  <div class="bm-guidebook__index-panel" data-vpanel="market">
+                    <h3>The Market</h3>
+                    <p>Content goes here later.</p>
+                  </div>
+
+                  <div class="bm-guidebook__index-panel" data-vpanel="clans">
+                    <h3>The Clans</h3>
+                    <p>Content goes here later.</p>
+                  </div>
+
+                  <div class="bm-guidebook__index-panel" data-vpanel="hunters">
+                    <h3>The Hunters</h3>
+                    <p>Content goes here later.</p>
+                  </div>
+
+                  <div class="bm-guidebook__index-panel" data-vpanel="independents">
+                    <h3>Independents</h3>
+                    <p>Content goes here later.</p>
                   </div>
                 </div>
+              </div>
+            </section>
 
-                <div class="bm-guidebook__subtabs">
+            <!-- panel: member groups -->
+            <section class="bm-guidebook__panel" data-panel="member-groups">
+              <div class="bm-guidebook__panel-head">
+                <p class="bm-guidebook__section-no">IV</p>
+                <div>
+                  <p class="bm-guidebook__section-kicker">Social Taxonomy</p>
+                  <h2>Groups</h2>
+                </div>
+              </div>
 
-                  <input type="radio" name="setting-subtabs" id="setting-01" checked>
-                  <input type="radio" name="setting-subtabs" id="setting-02">
-                  <input type="radio" name="setting-subtabs" id="setting-03">
+              <div class="bm-guidebook__sideindex">
+                <!-- radios -->
+                <input type="radio" name="groups-index" id="groups-00" data-vtab="precious" checked>
+                <input type="radio" name="groups-index" id="groups-01" data-vtab="obsidian">
+                <input type="radio" name="groups-index" id="groups-02" data-vtab="quartz">
+                <input type="radio" name="groups-index" id="groups-03" data-vtab="onyx">
+                <input type="radio" name="groups-index" id="groups-04" data-vtab="amber">
+                <input type="radio" name="groups-index" id="groups-05" data-vtab="jade">
+                <input type="radio" name="groups-index" id="groups-06" data-vtab="silver">
 
-                  <div class="bm-guidebook__subtablist">
-                    <label for="setting-01">Overview</label>
-                    <label for="setting-02">Locations</label>
-                    <label for="setting-03">History</label>
+                <!-- sidebar -->
+                <aside class="bm-guidebook__index bm-guidebook__index--groups">
+                  <p class="bm-guidebook__index-title">Taxonomy</p>
+
+                  <label for="groups-00" data-vtab-label="precious" class="is-category">Precious</label>
+                  <button type="button" class="bm-guidebook__jump" data-target-page="precious"
+                    data-target-group="obsidian">Obsidian</button>
+                  <button type="button" class="bm-guidebook__jump" data-target-page="precious"
+                    data-target-group="quartz">Quartz</button>
+                  <button type="button" class="bm-guidebook__jump" data-target-page="precious"
+                    data-target-group="onyx">Onyx</button>
+                  <button type="button" class="bm-guidebook__jump" data-target-page="precious"
+                    data-target-group="amber">Amber</button>
+                  <button type="button" class="bm-guidebook__jump" data-target-page="precious"
+                    data-target-group="jade">Jade</button>
+                  <button type="button" class="bm-guidebook__jump" data-target-page="precious"
+                    data-target-group="silver">Silver</button>
+
+                  <label for="groups-10" data-vtab-label="anatomy" class="is-category">Anatomy</label>
+                  <button type="button" class="bm-guidebook__jump" data-target-page="anatomy"
+                    data-target-group="marrow">marrow</button>
+                  <button type="button" class="bm-guidebook__jump" data-target-page="anatomy"
+                    data-target-group="sinew">sinew</button>
+                </aside>
+
+                <!-- content -->
+                <div class="bm-guidebook__index-panels">
+                  <div class="bm-guidebook__index-panel" data-vpanel="precious">
+                    <section class="bm-taxonomy bm-taxonomy--precious">
+                      <div class="bm-taxonomy__head">
+                        <div class="bm-taxonomy__intro">
+                          <p class="bm-taxonomy__kicker">Objects of Value</p>
+                          <h2 class="bm-taxonomy__title">Precious</h2>
+                          <p class="bm-taxonomy__desc">Rare things, coveted things, things worth bleeding for.</p>
+                        </div>
+
+                        <div class="bm-taxonomy__collage">
+                          <img src="https://i.pinimg.com/736x/1e/b8/5d/1eb85d23fa7cf0339e2c1a1df5ad2163.jpg"
+                            alt="Precious collage image one">
+                          <img src="https://i.pinimg.com/736x/e5/5b/96/e55b964796ea6c3be2d5746cef0b08d0.jpg"
+                            alt="Precious collage image two">
+                          <img src="https://i.pinimg.com/736x/77/40/9c/77409c2cc6367f9ab3601a33a142ce61.jpg"
+                            alt="Precious collage image three">
+                        </div>
+                      </div>
+
+                      <div class="bm-taxonomy__list">
+                        <article class="bm-group-row bm-group-row--border" data-mg="obsidian"
+                          data-target-vtab="obsidian">
+                          <img class="bm-group-row__thumb"
+                            src="https://i.pinimg.com/736x/d3/1f/a1/d31fa1abebc1cbc06d9b5d38ce440e3b.jpg"
+                            alt="Obsidian mood image">
+                          <div class="bm-group-row__text">
+                            <h3 class="bm-group-row__name">Obsidian</h3>
+                            <p class="bm-group-row__desc">volcanic glass / sharp edge / hidden heat</p>
+                          </div>
+                        </article>
+
+                        <article class="bm-group-row bm-group-row--overlay bm-group-row--flip" data-mg="quartz"
+                          data-target-vtab="quartz">
+                          <img class="bm-group-row__thumb"
+                            src="https://i.pinimg.com/736x/4b/d7/fc/4bd7fc4baac5f4dfda7df364b5241e40.jpg"
+                            alt="Quartz mood image">
+                          <div class="bm-group-row__text">
+                            <h3 class="bm-group-row__name">Quartz</h3>
+                            <p class="bm-group-row__desc">clarity / fracture / light caught in stone</p>
+                          </div>
+                        </article>
+
+                        <article class="bm-group-row bm-group-row--border" data-mg="onyx" data-target-vtab="onyx">
+                          <img class="bm-group-row__thumb"
+                            src="https://i.pinimg.com/736x/e0/f5/2a/e0f52a7f9a9fb978997f5f7cecb837f4.jpg"
+                            alt="Onyx mood image">
+                          <div class="bm-group-row__text">
+                            <h3 class="bm-group-row__name">Onyx</h3>
+                            <p class="bm-group-row__desc">depth / polish / darkness made deliberate</p>
+                          </div>
+                        </article>
+
+                        <article class="bm-group-row bm-group-row--overlay bm-group-row--flip" data-mg="amber"
+                          data-target-vtab="amber">
+                          <img class="bm-group-row__thumb"
+                            src="https://i.pinimg.com/736x/99/9f/75/999f75b0d27cb1d7fef5d8b764f0b5f4.jpg"
+                            alt="Amber mood image">
+                          <div class="bm-group-row__text">
+                            <h3 class="bm-group-row__name">Amber</h3>
+                            <p class="bm-group-row__desc">honeyed fire / preservation / sunlight trapped whole</p>
+                          </div>
+                        </article>
+
+                        <article class="bm-group-row bm-group-row--border" data-mg="jade" data-target-vtab="jade">
+                          <img class="bm-group-row__thumb"
+                            src="https://i.pinimg.com/736x/d9/c4/e0/d9c4e0682d5f1f60be55d0d82efc4e6c.jpg"
+                            alt="Jade mood image">
+                          <div class="bm-group-row__text">
+                            <h3 class="bm-group-row__name">Jade</h3>
+                            <p class="bm-group-row__desc">fortune / composure / beauty worn smooth by time</p>
+                          </div>
+                        </article>
+
+                        <article class="bm-group-row bm-group-row--overlay bm-group-row--flip" data-mg="silver"
+                          data-target-vtab="silver">
+                          <img class="bm-group-row__thumb"
+                            src="https://i.pinimg.com/736x/55/f4/34/55f434967d45f815ba4bfb0560a6a0f1.jpg"
+                            alt="Silver mood image">
+                          <div class="bm-group-row__text">
+                            <h3 class="bm-group-row__name">Silver</h3>
+                            <p class="bm-group-row__desc">clean gleam / moonlit edge / value in restraint</p>
+                          </div>
+                        </article>
+                      </div>
+                    </section>
                   </div>
 
-                  <div class="bm-guidebook__subpanels">
-
-                    <div class="bm-guidebook__subpanel subpanel--01">
-                      <p>Overview content goes here.</p>
+                  <!-- SAMPLE DETAIL PANEL -->
+                  <section class="bm-group-detail" id="mg-obsidian" data-group-anchor="obsidian">
+                    <div class="bm-group-profile">
+                      <img class="bm-group-profile__img"
+                        src="https://i.pinimg.com/736x/d3/1f/a1/d31fa1abebc1cbc06d9b5d38ce440e3b.jpg"
+                        alt="Obsidian mood image">
+                      <div class="bm-group-profile__intro">
+                        <p class="bm-guidebook__section-kicker">Precious Classification</p>
+                        <h3 class="bm-group-profile__title">Obsidian</h3>
+                        <p class="bm-group-profile__desc">volcanic glass / sharp edge / hidden heat</p>
+                      </div>
                     </div>
+                    <div class="bm-guidebook__grid">
+                      <article class="bm-guidebook__block">
+                        <h3>Overview</h3>
+                        <p>Obsidian sits at the cutting edge of this taxonomy: severe, coveted, and difficult to handle
+                          without consequence. It suggests heat gone dark, beauty made dangerous, and value that comes
+                          with risk.</p>
+                      </article>
+                      <article class="bm-guidebook__block">
+                        <h3>Known For</h3>
+                        <p>Precision, volatility, appetite, exclusivity, and the kind of presence that leaves marks even
+                          when handled carefully.</p>
+                      </article>
 
-                    <div class="bm-guidebook__subpanel subpanel--02">
-                      <p>Locations content goes here.</p>
+                      <article class="bm-guidebook__block">
+                        <h3>Social Role</h3>
+                        <p>Use this block for how the membergroup functions in-world or on-site: rank, access,
+                          obligations, or who tends to occupy it.</p>
+                      </article>
+
+                      <article class="bm-guidebook__block">
+                        <h3>Notes</h3>
+                        <p>Any OOC or mechanical note can live here too: application status, plot function, permissions,
+                          or whatever players should know at a glance.</p>
+                      </article>
                     </div>
+                  </section>
 
-                    <div class="bm-guidebook__subpanel subpanel--03">
-                      <p>History content goes here.</p>
+                  <!-- STUB DETAIL PANELS -->
+                  <div class="bm-guidebook__index-panel" data-vpanel="quartz">
+                    <div class="bm-group-profile">
+                      <img class="bm-group-profile__img"
+                        src="https://i.pinimg.com/736x/4b/d7/fc/4bd7fc4baac5f4dfda7df364b5241e40.jpg"
+                        alt="Quartz mood image">
+                      <div class="bm-group-profile__intro">
+                        <p class="bm-guidebook__section-kicker">Precious Classification</p>
+                        <h3 class="bm-group-profile__title">Quartz</h3>
+                        <p class="bm-group-profile__desc">clarity / fracture / light caught in stone</p>
+                      </div>
                     </div>
-
                   </div>
-                </div>
-              </section>
 
-              <section class="bm-guidebook__panel bm-guidebook__panel--03">
-
-                <div class="bm-guidebook__panel-head">
-                  <p class="bm-guidebook__section-no">III</p>
-                  <div>
-                    <p class="bm-guidebook__section-kicker">Social Bodies</p>
-                    <h2>Factions</h2>
-                  </div>
-                </div>
-
-                <div class="bm-guidebook__sideindex">
-
-                  <!-- radios -->
-                  <input type="radio" name="faction-index" id="faction-01" checked>
-                  <input type="radio" name="faction-index" id="faction-02">
-                  <input type="radio" name="faction-index" id="faction-03">
-                  <input type="radio" name="faction-index" id="faction-04">
-
-                  <!-- LEFT INDEX -->
-                  <aside class="bm-guidebook__index">
-                    <p class="bm-guidebook__index-title">Index</p>
-
-                    <label for="faction-01">The Market</label>
-                    <label for="faction-02">The Clans</label>
-                    <label for="faction-03">The Hunters</label>
-                    <label for="faction-04">Independents</label>
-                  </aside>
-
-                  <!-- RIGHT CONTENT -->
-                  <div class="bm-guidebook__index-panels">
-
-                    <div class="bm-guidebook__index-panel panel--01">
-                      <h3>The Market</h3>
-                      <p>Content goes here later.</p>
+                  <div class="bm-guidebook__index-panel" data-vpanel="onyx">
+                    <div class="bm-group-profile">
+                      <img class="bm-group-profile__img"
+                        src="https://i.pinimg.com/736x/e0/f5/2a/e0f52a7f9a9fb978997f5f7cecb837f4.jpg"
+                        alt="Onyx mood image">
+                      <div class="bm-group-profile__intro">
+                        <p class="bm-guidebook__section-kicker">Precious Classification</p>
+                        <h3 class="bm-group-profile__title">Onyx</h3>
+                        <p class="bm-group-profile__desc">depth / polish / darkness made deliberate</p>
+                      </div>
                     </div>
+                  </div>
 
-                    <div class="bm-guidebook__index-panel panel--02">
-                      <h3>The Clans</h3>
-                      <p>Content goes here later.</p>
+                  <div class="bm-guidebook__index-panel" data-vpanel="amber">
+                    <div class="bm-group-profile">
+                      <img class="bm-group-profile__img"
+                        src="https://i.pinimg.com/736x/99/9f/75/999f75b0d27cb1d7fef5d8b764f0b5f4.jpg"
+                        alt="Amber mood image">
+                      <div class="bm-group-profile__intro">
+                        <p class="bm-guidebook__section-kicker">Precious Classification</p>
+                        <h3 class="bm-group-profile__title">Amber</h3>
+                        <p class="bm-group-profile__desc">honeyed fire / preservation / sunlight trapped whole</p>
+                      </div>
                     </div>
+                  </div>
 
-                    <div class="bm-guidebook__index-panel panel--03">
-                      <h3>The Hunters</h3>
-                      <p>Content goes here later.</p>
+                  <div class="bm-guidebook__index-panel" data-vpanel="jade">
+                    <div class="bm-group-profile">
+                      <img class="bm-group-profile__img"
+                        src="https://i.pinimg.com/736x/d9/c4/e0/d9c4e0682d5f1f60be55d0d82efc4e6c.jpg"
+                        alt="Jade mood image">
+                      <div class="bm-group-profile__intro">
+                        <p class="bm-guidebook__section-kicker">Precious Classification</p>
+                        <h3 class="bm-group-profile__title">Jade</h3>
+                        <p class="bm-group-profile__desc">fortune / composure / beauty worn smooth by time</p>
+                      </div>
                     </div>
+                  </div>
 
-                    <div class="bm-guidebook__index-panel panel--04">
-                      <h3>Independents</h3>
-                      <p>Content goes here later.</p>
+                  <div class="bm-guidebook__index-panel" data-vpanel="silver">
+                    <div class="bm-group-profile">
+                      <img class="bm-group-profile__img"
+                        src="https://i.pinimg.com/736x/55/f4/34/55f434967d45f815ba4bfb0560a6a0f1.jpg"
+                        alt="Silver mood image">
+                      <div class="bm-group-profile__intro">
+                        <p class="bm-guidebook__section-kicker">Precious Classification</p>
+                        <h3 class="bm-group-profile__title">Silver</h3>
+                        <p class="bm-group-profile__desc">clean gleam / moonlit edge / value in restraint</p>
+                      </div>
                     </div>
-
                   </div>
 
                 </div>
-              </section>
+              </div>
+            </section>
 
-              <section class="bm-guidebook__panel bm-guidebook__panel--04">
-                <div class="bm-guidebook__panel-head">
-                  <p class="bm-guidebook__section-no">IV</p>
-                  <div>
-                    <p class="bm-guidebook__section-kicker">Occult Principles</p>
-                    <h2>Magic</h2>
-                  </div>
-                </div>
-
-                <div class="bm-guidebook__panel-body">
-                  <div class="bm-guidebook__stack">
-                    <article class="bm-guidebook__block">
-                      <h3>System Overview</h3>
-                      <p>Content goes here later.</p>
-                    </article>
-
-                    <article class="bm-guidebook__block">
-                      <h3>Costs & Limits</h3>
-                      <p>Content goes here later.</p>
-                    </article>
-
-                    <article class="bm-guidebook__block">
-                      <h3>Rare Materials</h3>
-                      <p>Content goes here later.</p>
-                    </article>
-                  </div>
-                </div>
-              </section>
-
-              <section class="bm-guidebook__panel bm-guidebook__panel--05">
-                <div class="bm-guidebook__panel-head">
-                  <p class="bm-guidebook__section-no">V</p>
-                  <div>
-                    <p class="bm-guidebook__section-kicker">Living Taxonomy</p>
-                    <h2>Species</h2>
-                  </div>
-                </div>
-
-                <div class="bm-guidebook__panel-body">
-                  <div class="bm-guidebook__grid">
-                    <article class="bm-guidebook__card">
-                      <h3>Species One</h3>
-                      <p>Content goes here later.</p>
-                    </article>
-
-                    <article class="bm-guidebook__card">
-                      <h3>Species Two</h3>
-                      <p>Content goes here later.</p>
-                    </article>
-
-                    <article class="bm-guidebook__card">
-                      <h3>Species Three</h3>
-                      <p>Content goes here later.</p>
-                    </article>
-
-                    <article class="bm-guidebook__card">
-                      <h3>Species Four</h3>
-                      <p>Content goes here later.</p>
-                    </article>
-                  </div>
-                </div>
-              </section>
-
-              <section class="bm-guidebook__panel bm-guidebook__panel--06">
-                <div class="bm-guidebook__panel-head">
-                  <p class="bm-guidebook__section-no">VI</p>
-                  <div>
-                    <p class="bm-guidebook__section-kicker">Clarifications</p>
-                    <h2>FAQ</h2>
-                  </div>
-                </div>
-
-                <div class="bm-guidebook__panel-body">
-                  <div class="bm-guidebook__faq">
-                    <article class="bm-guidebook__faq-item">
-                      <h3>Question one?</h3>
-                      <p>Answer goes here later.</p>
-                    </article>
-
-                    <article class="bm-guidebook__faq-item">
-                      <h3>Question two?</h3>
-                      <p>Answer goes here later.</p>
-                    </article>
-
-                    <article class="bm-guidebook__faq-item">
-                      <h3>Question three?</h3>
-                      <p>Answer goes here later.</p>
-                    </article>
-                  </div>
-                </div>
-              </section>
-
-            </div>
           </div>
-        </section>
-      </main>
+        </div>
+      </section>
 
-      @@include('../source/templates/scripts.html', { "prefix": "../dist" })
-    </div>
-  </body>
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          const guidebook = document.querySelector('.bm-guidebook');
+          if (!guidebook) return;
+
+          const CONFIG = {
+            mainGroupName: 'bm-guidebook-tabs',
+            defaultSection: 'overview',
+
+            sections: {
+              overview: {
+                mainId: 'bm-tab-01'
+              },
+
+              setting: {
+                mainId: 'bm-tab-02',
+                subGroupName: 'horizontal-subtabs',
+                defaultSub: 'overview',
+                subs: {
+                  overview: 'horizontal-01',
+                  locations: 'horizontal-02',
+                  history: 'horizontal-03'
+                }
+              },
+
+              factions: {
+                mainId: 'bm-tab-03',
+                subGroupName: 'vertical-index',
+                defaultSub: 'market',
+                subs: {
+                  market: 'vertical-01',
+                  clans: 'vertical-02',
+                  hunters: 'vertical-03',
+                  independents: 'vertical-04'
+                }
+              },
+
+              'member-groups': {
+                mainId: 'bm-tab-04',
+                subGroupName: 'groups-index',
+                defaultSub: 'precious',
+                subs: {
+                  precious: 'groups-00',
+                  anatomy: 'groups-01',
+                  celestial: 'groups-02',
+                  flora: 'groups-03',
+                  trade: 'groups-04'
+                }
+              }
+            }
+          };
+
+          const sectionEntries = Object.entries(CONFIG.sections);
+
+          const reverseMain = Object.fromEntries(
+            sectionEntries.map(([slug, section]) => [section.mainId, slug])
+          );
+
+          const reverseSubs = Object.fromEntries(
+            sectionEntries
+              .filter(([, section]) => section.subs)
+              .map(([slug, section]) => [
+                slug,
+                Object.fromEntries(
+                  Object.entries(section.subs).map(([subSlug, subId]) => [subId, subSlug])
+                )
+              ])
+          );
+
+          function getRadioById(id) {
+            return id ? document.getElementById(id) : null;
+          }
+
+          function getChecked(groupName) {
+            return guidebook.querySelector(`input[name="${groupName}"]:checked`);
+          }
+
+          function setChecked(id) {
+            const radio = getRadioById(id);
+            if (radio) radio.checked = true;
+          }
+
+          function clearActive(elements) {
+            elements.forEach(el => el.classList.remove('is-active'));
+          }
+
+          function updateMainUI() {
+            const activeMain = getChecked(CONFIG.mainGroupName);
+            if (!activeMain) return;
+
+            const slug = activeMain.dataset.tab;
+            if (!slug) return;
+
+            const labels = guidebook.querySelectorAll('.bm-guidebook__tablist label');
+            const panels = guidebook.querySelectorAll('.bm-guidebook__panel');
+
+            clearActive(labels);
+            clearActive(panels);
+
+            labels.forEach(label => {
+              label.classList.toggle('is-active', label.dataset.tabLabel === slug);
+            });
+
+            panels.forEach(panel => {
+              panel.classList.toggle('is-active', panel.dataset.panel === slug);
+            });
+          }
+
+          function updateSectionSubUI(sectionSlug, section) {
+            if (!section.subGroupName || !section.subs) return;
+
+            const active = getChecked(section.subGroupName);
+            if (!active) return;
+
+            const subId = active.id;
+            const subSlug = reverseSubs[sectionSlug]?.[subId];
+            if (!subSlug) return;
+
+            const radios = guidebook.querySelectorAll(`input[name="${section.subGroupName}"]`);
+            if (!radios.length) return;
+
+            radios.forEach(radio => {
+              const wrapper = radio.closest('.bm-guidebook__subtabs, .bm-guidebook__sideindex');
+              if (!wrapper) return;
+
+              if (wrapper.classList.contains('bm-guidebook__subtabs')) {
+                const labels = wrapper.querySelectorAll('.bm-guidebook__subtablist label');
+                const panels = wrapper.querySelectorAll('.bm-guidebook__subpanel');
+
+                clearActive(labels);
+                clearActive(panels);
+
+                labels.forEach(label => {
+                  label.classList.toggle('is-active', label.dataset.subtabLabel === subSlug);
+                });
+
+                panels.forEach(panel => {
+                  panel.classList.toggle('is-active', panel.dataset.subpanel === subSlug);
+                });
+              }
+
+              if (wrapper.classList.contains('bm-guidebook__sideindex')) {
+                const labels = wrapper.querySelectorAll('.bm-guidebook__index label');
+                const panels = wrapper.querySelectorAll('.bm-guidebook__index-panel');
+
+                clearActive(labels);
+                clearActive(panels);
+
+                labels.forEach(label => {
+                  label.classList.toggle('is-active', label.dataset.vtabLabel === subSlug);
+                });
+
+                panels.forEach(panel => {
+                  panel.classList.toggle('is-active', panel.dataset.vpanel === subSlug);
+                });
+              }
+            });
+          }
+
+          const groupJumpLinks = guidebook.querySelectorAll('.bm-guidebook__jump');
+
+groupJumpLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    const pageSlug = link.dataset.targetPage;
+    const groupSlug = link.dataset.targetGroup;
+
+    const section = CONFIG.sections['member-groups'];
+    if (!section?.subs?.[pageSlug]) return;
+
+    setChecked(section.mainId);
+    setChecked(section.subs[pageSlug]);
+    updateAllUI();
+    syncHash(true);
+    animateActivePanel(false);
+
+    requestAnimationFrame(() => {
+      const activePanel = guidebook.querySelector(
+        `.bm-guidebook__index-panel.is-active [data-group-anchor="${groupSlug}"]`
+      );
+
+      if (activePanel) {
+        activePanel.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+});
+
+          function updateAllUI() {
+            updateMainUI();
+
+            sectionEntries.forEach(([sectionSlug, section]) => {
+              updateSectionSubUI(sectionSlug, section);
+            });
+          }
+
+          function parseHash() {
+            const raw = window.location.hash.replace(/^#/, '').trim();
+
+            if (!raw) {
+              return {
+                sectionSlug: CONFIG.defaultSection,
+                subSlug: null
+              };
+            }
+
+            const [sectionSlug, subSlug] = raw.split('/');
+
+            return {
+              sectionSlug: sectionSlug || CONFIG.defaultSection,
+              subSlug: subSlug || null
+            };
+          }
+
+          function getCurrentState() {
+            const activeMain = getChecked(CONFIG.mainGroupName);
+
+            if (!activeMain) {
+              return {
+                sectionSlug: CONFIG.defaultSection,
+                subSlug: null
+              };
+            }
+
+            const sectionSlug = reverseMain[activeMain.id] || CONFIG.defaultSection;
+            const section = CONFIG.sections[sectionSlug];
+
+            if (section?.subs && section.subGroupName) {
+              const activeSub = getChecked(section.subGroupName);
+              const subSlug = activeSub ? reverseSubs[sectionSlug]?.[activeSub.id] || null : null;
+              return { sectionSlug, subSlug };
+            }
+
+            return { sectionSlug, subSlug: null };
+          }
+
+          function buildHashFromState() {
+            const { sectionSlug, subSlug } = getCurrentState();
+            return subSlug ? `#${sectionSlug}/${subSlug}` : `#${sectionSlug}`;
+          }
+
+          function syncHash(push = true) {
+            const newHash = buildHashFromState();
+            if (window.location.hash === newHash) return;
+
+            if (push) {
+              history.pushState(null, '', newHash);
+            } else {
+              history.replaceState(null, '', newHash);
+            }
+          }
+
+          function setSection(sectionSlug, subSlug = null) {
+            const section = CONFIG.sections[sectionSlug];
+            if (!section) return;
+
+            setChecked(section.mainId);
+
+            if (section.subs && section.subGroupName) {
+              const resolvedSubSlug =
+                subSlug && section.subs[subSlug] ? subSlug : section.defaultSub;
+
+              const subId = section.subs[resolvedSubSlug];
+              if (subId) setChecked(subId);
+            }
+
+            updateAllUI();
+          }
+
+          function animateActivePanel(shouldAnimate = true) {
+            const panels = guidebook.querySelectorAll('.bm-guidebook__panel');
+
+            panels.forEach(panel => {
+              panel.classList.remove('is-visible', 'no-anim');
+            });
+
+            const activePanel = guidebook.querySelector('.bm-guidebook__panel.is-active');
+            if (!activePanel) return;
+
+            if (!shouldAnimate) {
+              activePanel.classList.add('no-anim');
+            }
+
+            void activePanel.offsetWidth;
+            activePanel.classList.add('is-visible');
+          }
+
+          function scrollGuidebookIntoView() {
+            guidebook.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+
+          function applyHash(shouldScroll = false) {
+            const { sectionSlug, subSlug } = parseHash();
+            const section = CONFIG.sections[sectionSlug];
+
+            if (!section) {
+              setSection(CONFIG.defaultSection);
+              syncHash(false);
+              animateActivePanel(true);
+              return;
+            }
+
+            const current = getCurrentState();
+            const isSameSection = current.sectionSlug === sectionSlug;
+
+            setSection(sectionSlug, subSlug);
+            animateActivePanel(!isSameSection);
+
+            if (shouldScroll) {
+              scrollGuidebookIntoView();
+            }
+          }
+
+          const mainTabs = guidebook.querySelectorAll(`input[name="${CONFIG.mainGroupName}"]`);
+          mainTabs.forEach(tab => {
+            tab.addEventListener('change', () => {
+              updateMainUI();
+              syncHash(true);
+              animateActivePanel(true);
+            });
+          });
+
+          sectionEntries.forEach(([sectionSlug, section]) => {
+            if (!section.subGroupName) return;
+
+            const subTabs = guidebook.querySelectorAll(`input[name="${section.subGroupName}"]`);
+
+            subTabs.forEach(tab => {
+              tab.addEventListener('change', () => {
+                setChecked(section.mainId);
+                updateAllUI();
+                syncHash(true);
+                animateActivePanel(false);
+              });
+            });
+          });
+
+          const taxonomyRows = guidebook.querySelectorAll('[data-target-vtab]');
+          taxonomyRows.forEach(row => {
+            row.addEventListener('click', () => {
+              const slug = row.dataset.targetVtab;
+              const sectionSlug = 'member-groups';
+              const section = CONFIG.sections[sectionSlug];
+
+              if (!section?.subs?.[slug]) return;
+
+              setChecked(section.mainId);
+              setChecked(section.subs[slug]);
+              updateAllUI();
+              syncHash(true);
+              animateActivePanel(false);
+            });
+          });
+
+          window.addEventListener('hashchange', () => {
+            applyHash(true);
+          });
+
+          if (window.location.hash) {
+            applyHash(false);
+          } else {
+            setSection(CONFIG.defaultSection);
+            syncHash(false);
+            animateActivePanel(true);
+          }
+        });
+      </script>
+    </main>
+
+    @@include('../source/templates/scripts.html', { "prefix": "../dist" })
+  </div>
+</body>
+
 </html>
