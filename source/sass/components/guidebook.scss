@@ -14,7 +14,7 @@ body#Pages .bm-guidebook--tabs {
 
 .bm-guidebook--tabs {
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   padding: clamp(20px, 2.4vw, 34px);
   border: var(--border--primary, 1px solid var(--bm-guide-border));
   border-radius: var(--bm-guide-radius);
@@ -247,6 +247,10 @@ body#Pages .bm-guidebook--tabs {
   background-size: 100% 32px;
 }
 
+/* ================================
+   Content Surface Placeholders
+================================ */
+
 %bm-guidebook-surface {
   position: relative;
   min-width: 0;
@@ -266,6 +270,10 @@ body#Pages .bm-guidebook--tabs {
   padding-top: 14px;
 }
 
+/* ================================
+   Content Blocks
+================================ */
+
 .bm-guidebook__lead,
 .bm-guidebook__block,
 .bm-guidebook__faq-item {
@@ -280,12 +288,22 @@ body#Pages .bm-guidebook--tabs {
   @extend %bm-guidebook-surface-card;
 }
 
+.bm-group-detail {
+  @extend %bm-guidebook-surface;
+
+  margin-top: 36px;
+  padding-top: 28px;
+  border-top: 1px solid var(--bm-guide-border-soft);
+  scroll-margin-top: 28px;
+}
+
 .bm-guidebook__lead p,
 .bm-guidebook__block p,
 .bm-guidebook__card p,
 .bm-guidebook__faq-item p,
 .bm-guidebook__index-panel p,
-.bm-guidebook__subpanel p {
+.bm-guidebook__subpanel p,
+.bm-group-detail p {
   margin: 0;
   font: 400 var(--size-lg, 14px)/1.8 var(--font-sans, sans-serif);
   opacity: 0.82;
@@ -423,12 +441,22 @@ body#Pages .bm-guidebook--tabs {
 }
 
 .bm-guidebook__index {
-  position: relative;
+  position: sticky;
+  top: calc(var(--nav-h) + 24px);
+  align-self: start;
   display: grid;
   align-content: start;
   gap: 6px;
   padding-right: 12px;
   border-right: 1px solid var(--bm-guide-rule);
+  transition: var(--transi-quick);
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+}
+
+.bm-guidebook__index:has(:focus),
+.bm-guidebook__index:hover {
+  opacity: 1;
 }
 
 .bm-guidebook__index::after {
@@ -588,7 +616,6 @@ body#Pages .bm-guidebook--tabs {
   }
 }
 
-/* taxonomy nested inside guidebook */
 .bm-guidebook__index-panel .bm-taxonomy {
   padding: clamp(20px, 2.2vw, 30px);
   border: 1px solid var(--bm-guide-border-soft);
@@ -602,12 +629,143 @@ body#Pages .bm-guidebook--tabs {
   margin-bottom: 24px;
 }
 
-/* clickable taxonomy rows */
-.bm-group-row[data-target-vtab] {
+.bm-group-row {
+  position: relative;
+  transition: var(--transi-quick);
+}
+
+.bm-group-row::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid transparent;
+  pointer-events: none;
+  transition: var(--transi-quick);
+}
+
+.bm-group-row:hover {
+  transform: translateY(-2px);
+}
+
+.bm-group-row:hover::after {
+  border-color: var(--bm-guide-accent-soft);
+}
+
+.bm-group-row[data-target-page][data-target-group] {
   cursor: pointer;
 }
 
-/* detail profile */
+.bm-group-row[data-target-page][data-target-group] {
+  cursor: pointer;
+}
+
+.bm-guidebook__index-panel .bm-taxonomy {
+  padding: clamp(20px, 2.2vw, 30px);
+  border: 1px solid var(--bm-guide-border-soft);
+  border-radius: calc(var(--bm-guide-radius) - 6px);
+  background:
+    var(--bm-guide-panel-sheen),
+    var(--bm-guide-panel-bg);
+}
+
+.bm-guidebook__index-panel .bm-taxonomy__head {
+  margin-bottom: 24px;
+}
+
+/* group sidebar (member groups) */
+.bm-guidebook__index--groups {
+  gap: 4px;
+}
+
+.bm-guidebook__index--groups .is-category {
+  margin-top: 10px;
+}
+
+.bm-guidebook__index::-webkit-scrollbar {
+  width: 4px;
+}
+
+.bm-guidebook__index::-webkit-scrollbar-thumb {
+  background: var(--bm-guide-accent-soft);
+}
+
+/* sidebar jump links */
+.bm-guidebook__jump {
+  display: block;
+  padding: 4px 6px 4px 18px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  font: 400 var(--size-sm, 10px)/1.4 var(--font-hand, monospace);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.6;
+  cursor: pointer;
+  transition: var(--transi-quick);
+}
+
+.bm-guidebook__jump:hover {
+  opacity: 1;
+  transform: translateX(2px);
+}
+
+.bm-guidebook__jump.is-active {
+  opacity: 1;
+  transform: translateX(2px);
+  color: var(--bm-guide-text);
+}
+
+.bm-guidebook__jump.is-active::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 1px;
+  margin-right: 6px;
+  vertical-align: middle;
+  background: var(--bm-guide-accent);
+}
+
+/* group detail sections */
+
+.bm-taxonomy + .bm-group-detail {
+  margin-top: 48px;
+  position: relative;
+}
+
+.bm-taxonomy + .bm-group-detail::before {
+  content: "";
+  position: absolute;
+  top: -24px;
+  left: 0;
+  width: 72px;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    var(--bm-guide-accent),
+    transparent
+  );
+  opacity: 0.7;
+}
+
+.bm-group-detail.is-targeted {
+  animation: bmGroupTargetFlash 1.2s ease;
+}
+
+@keyframes bmGroupTargetFlash {
+  0% {
+    background: oklch(1 0 0 / 0.07);
+    box-shadow:
+      0 0 0 1px var(--bm-guide-accent-soft),
+      inset 3px 0 0 var(--bm-guide-accent);
+  }
+  100% {
+    background: transparent;
+    box-shadow: none;
+  }
+}
+
+/* group profile layout */
 .bm-group-profile {
   display: grid;
   grid-template-columns: 220px minmax(0, 1fr);
@@ -629,6 +787,8 @@ body#Pages .bm-guidebook--tabs {
   display: grid;
   gap: 10px;
   min-width: 0;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--bm-guide-border-soft);
 }
 
 .bm-group-profile__title {
@@ -644,50 +804,7 @@ body#Pages .bm-guidebook--tabs {
   opacity: 0.82;
 }
 
-.bm-guidebook__index--groups {
-  gap: 4px;
-}
-
-.bm-guidebook__index--groups .is-category {
-  margin-top: 10px;
-}
-
-.bm-guidebook__jump {
-  display: block;
-  padding: 4px 6px 4px 18px;
-  border: 0;
-  background: transparent;
-  color: inherit;
-  text-align: left;
-  font: 400 var(--size-sm, 10px)/1.4 var(--font-hand, monospace);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  opacity: 0.6;
-  cursor: pointer;
-  transition: var(--transi-quick);
-}
-
-.bm-guidebook__jump:hover {
-  opacity: 1;
-  transform: translateX(2px);
-}
-
-.bm-group-detail {
-  margin-top: 28px;
-  scroll-margin-top: 24px;
-}
-
-.bm-group-detail + .bm-group-detail {
-  padding-top: 28px;
-  border-top: 1px solid var(--bm-guide-border-soft);
-}
-
-/* taxonomy rows now jump to anchors, not subtabs */
-.bm-group-row[data-target-page][data-target-group] {
-  cursor: pointer;
-}
-
-/* mobile */
+/* responsive */
 @media (max-width: 680px) {
   .bm-group-profile {
     grid-template-columns: 1fr;

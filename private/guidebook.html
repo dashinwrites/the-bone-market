@@ -206,16 +206,13 @@
               </div>
 
               <div class="bm-guidebook__sideindex">
-                <!-- radios -->
+                <!-- category radios only -->
                 <input type="radio" name="groups-index" id="groups-00" data-vtab="precious" checked>
-                <input type="radio" name="groups-index" id="groups-01" data-vtab="obsidian">
-                <input type="radio" name="groups-index" id="groups-02" data-vtab="quartz">
-                <input type="radio" name="groups-index" id="groups-03" data-vtab="onyx">
-                <input type="radio" name="groups-index" id="groups-04" data-vtab="amber">
-                <input type="radio" name="groups-index" id="groups-05" data-vtab="jade">
-                <input type="radio" name="groups-index" id="groups-06" data-vtab="silver">
+                <input type="radio" name="groups-index" id="groups-01" data-vtab="anatomy">
+                <input type="radio" name="groups-index" id="groups-02" data-vtab="celestial">
+                <input type="radio" name="groups-index" id="groups-03" data-vtab="flora">
+                <input type="radio" name="groups-index" id="groups-04" data-vtab="trade">
 
-                <!-- sidebar -->
                 <aside class="bm-guidebook__index bm-guidebook__index--groups">
                   <p class="bm-guidebook__index-title">Taxonomy</p>
 
@@ -233,15 +230,19 @@
                   <button type="button" class="bm-guidebook__jump" data-target-page="precious"
                     data-target-group="silver">Silver</button>
 
-                  <label for="groups-10" data-vtab-label="anatomy" class="is-category">Anatomy</label>
+                  <label for="groups-01" data-vtab-label="anatomy" class="is-category">Anatomy</label>
                   <button type="button" class="bm-guidebook__jump" data-target-page="anatomy"
-                    data-target-group="marrow">marrow</button>
+                    data-target-group="marrow">Marrow</button>
                   <button type="button" class="bm-guidebook__jump" data-target-page="anatomy"
-                    data-target-group="sinew">sinew</button>
+                    data-target-group="sinew">Sinew</button>
+
+                  <label for="groups-02" data-vtab-label="celestial" class="is-category">Celestial</label>
+                  <label for="groups-03" data-vtab-label="flora" class="is-category">Flora</label>
+                  <label for="groups-04" data-vtab-label="trade" class="is-category">Trade</label>
                 </aside>
 
-                <!-- content -->
                 <div class="bm-guidebook__index-panels">
+                  <!-- PRECIOUS PAGE -->
                   <div class="bm-guidebook__index-panel" data-vpanel="precious">
                     <section class="bm-taxonomy bm-taxonomy--precious">
                       <div class="bm-taxonomy__head">
@@ -263,7 +264,7 @@
 
                       <div class="bm-taxonomy__list">
                         <article class="bm-group-row bm-group-row--border" data-mg="obsidian"
-                          data-target-vtab="obsidian">
+                          data-target-page="precious" data-target-group="obsidian">
                           <img class="bm-group-row__thumb"
                             src="https://i.pinimg.com/736x/d3/1f/a1/d31fa1abebc1cbc06d9b5d38ce440e3b.jpg"
                             alt="Obsidian mood image">
@@ -274,7 +275,7 @@
                         </article>
 
                         <article class="bm-group-row bm-group-row--overlay bm-group-row--flip" data-mg="quartz"
-                          data-target-vtab="quartz">
+                          data-target-page="precious" data-target-group="quartz">
                           <img class="bm-group-row__thumb"
                             src="https://i.pinimg.com/736x/4b/d7/fc/4bd7fc4baac5f4dfda7df364b5241e40.jpg"
                             alt="Quartz mood image">
@@ -284,7 +285,8 @@
                           </div>
                         </article>
 
-                        <article class="bm-group-row bm-group-row--border" data-mg="onyx" data-target-vtab="onyx">
+                        <article class="bm-group-row bm-group-row--border" data-mg="onyx" data-target-page="precious"
+                          data-target-group="onyx">
                           <img class="bm-group-row__thumb"
                             src="https://i.pinimg.com/736x/e0/f5/2a/e0f52a7f9a9fb978997f5f7cecb837f4.jpg"
                             alt="Onyx mood image">
@@ -295,7 +297,7 @@
                         </article>
 
                         <article class="bm-group-row bm-group-row--overlay bm-group-row--flip" data-mg="amber"
-                          data-target-vtab="amber">
+                          data-target-page="precious" data-target-group="amber">
                           <img class="bm-group-row__thumb"
                             src="https://i.pinimg.com/736x/99/9f/75/999f75b0d27cb1d7fef5d8b764f0b5f4.jpg"
                             alt="Amber mood image">
@@ -305,7 +307,8 @@
                           </div>
                         </article>
 
-                        <article class="bm-group-row bm-group-row--border" data-mg="jade" data-target-vtab="jade">
+                        <article class="bm-group-row bm-group-row--border" data-mg="jade" data-target-page="precious"
+                          data-target-group="jade">
                           <img class="bm-group-row__thumb"
                             src="https://i.pinimg.com/736x/d9/c4/e0/d9c4e0682d5f1f60be55d0d82efc4e6c.jpg"
                             alt="Jade mood image">
@@ -316,7 +319,7 @@
                         </article>
 
                         <article class="bm-group-row bm-group-row--overlay bm-group-row--flip" data-mg="silver"
-                          data-target-vtab="silver">
+                          data-target-page="precious" data-target-group="silver">
                           <img class="bm-group-row__thumb"
                             src="https://i.pinimg.com/736x/55/f4/34/55f434967d45f815ba4bfb0560a6a0f1.jpg"
                             alt="Silver mood image">
@@ -327,113 +330,135 @@
                         </article>
                       </div>
                     </section>
+
+                    <section class="bm-group-detail" data-group-anchor="obsidian" id="mg-obsidian">
+                      <div class="bm-group-profile">
+                        <img class="bm-group-profile__img"
+                          src="https://i.pinimg.com/736x/d3/1f/a1/d31fa1abebc1cbc06d9b5d38ce440e3b.jpg"
+                          alt="Obsidian mood image">
+                        <div class="bm-group-profile__intro">
+                          <p class="bm-guidebook__section-kicker">Precious Classification</p>
+                          <h3 class="bm-group-profile__title">Obsidian</h3>
+                          <p class="bm-group-profile__desc">volcanic glass / sharp edge / hidden heat</p>
+                        </div>
+                      </div>
+
+                      <div class="bm-guidebook__grid">
+                        <article class="bm-guidebook__block">
+                          <h3>Overview</h3>
+                          <p>Obsidian sits at the cutting edge of this taxonomy: severe, coveted, and difficult to
+                            handle without consequence.</p>
+                        </article>
+                        <article class="bm-guidebook__block">
+                          <h3>Known For</h3>
+                          <p>Precision, volatility, appetite, exclusivity, and the kind of presence that leaves marks
+                            even when handled carefully.</p>
+                        </article>
+                      </div>
+                    </section>
+
+                    <section class="bm-group-detail" data-group-anchor="quartz" id="mg-quartz">
+                      <div class="bm-group-profile">
+                        <img class="bm-group-profile__img"
+                          src="https://i.pinimg.com/736x/4b/d7/fc/4bd7fc4baac5f4dfda7df364b5241e40.jpg"
+                          alt="Quartz mood image">
+                        <div class="bm-group-profile__intro">
+                          <p class="bm-guidebook__section-kicker">Precious Classification</p>
+                          <h3 class="bm-group-profile__title">Quartz</h3>
+                          <p class="bm-group-profile__desc">clarity / fracture / light caught in stone</p>
+                        </div>
+                      </div>
+                    </section>
+
+                    <section class="bm-group-detail" data-group-anchor="onyx" id="mg-onyx">
+                      <div class="bm-group-profile">
+                        <img class="bm-group-profile__img"
+                          src="https://i.pinimg.com/736x/e0/f5/2a/e0f52a7f9a9fb978997f5f7cecb837f4.jpg"
+                          alt="Onyx mood image">
+                        <div class="bm-group-profile__intro">
+                          <p class="bm-guidebook__section-kicker">Precious Classification</p>
+                          <h3 class="bm-group-profile__title">Onyx</h3>
+                          <p class="bm-group-profile__desc">depth / polish / darkness made deliberate</p>
+                        </div>
+                      </div>
+                    </section>
+
+                    <section class="bm-group-detail" data-group-anchor="amber" id="mg-amber">
+                      <div class="bm-group-profile">
+                        <img class="bm-group-profile__img"
+                          src="https://i.pinimg.com/736x/99/9f/75/999f75b0d27cb1d7fef5d8b764f0b5f4.jpg"
+                          alt="Amber mood image">
+                        <div class="bm-group-profile__intro">
+                          <p class="bm-guidebook__section-kicker">Precious Classification</p>
+                          <h3 class="bm-group-profile__title">Amber</h3>
+                          <p class="bm-group-profile__desc">honeyed fire / preservation / sunlight trapped whole</p>
+                        </div>
+                      </div>
+                    </section>
+
+                    <section class="bm-group-detail" data-group-anchor="jade" id="mg-jade">
+                      <div class="bm-group-profile">
+                        <img class="bm-group-profile__img"
+                          src="https://i.pinimg.com/736x/d9/c4/e0/d9c4e0682d5f1f60be55d0d82efc4e6c.jpg"
+                          alt="Jade mood image">
+                        <div class="bm-group-profile__intro">
+                          <p class="bm-guidebook__section-kicker">Precious Classification</p>
+                          <h3 class="bm-group-profile__title">Jade</h3>
+                          <p class="bm-group-profile__desc">fortune / composure / beauty worn smooth by time</p>
+                        </div>
+                      </div>
+                    </section>
+
+                    <section class="bm-group-detail" data-group-anchor="silver" id="mg-silver">
+                      <div class="bm-group-profile">
+                        <img class="bm-group-profile__img"
+                          src="https://i.pinimg.com/736x/55/f4/34/55f434967d45f815ba4bfb0560a6a0f1.jpg"
+                          alt="Silver mood image">
+                        <div class="bm-group-profile__intro">
+                          <p class="bm-guidebook__section-kicker">Precious Classification</p>
+                          <h3 class="bm-group-profile__title">Silver</h3>
+                          <p class="bm-group-profile__desc">clean gleam / moonlit edge / value in restraint</p>
+                        </div>
+                      </div>
+                    </section>
                   </div>
 
-                  <!-- SAMPLE DETAIL PANEL -->
-                  <section class="bm-group-detail" id="mg-obsidian" data-group-anchor="obsidian">
-                    <div class="bm-group-profile">
-                      <img class="bm-group-profile__img"
-                        src="https://i.pinimg.com/736x/d3/1f/a1/d31fa1abebc1cbc06d9b5d38ce440e3b.jpg"
-                        alt="Obsidian mood image">
-                      <div class="bm-group-profile__intro">
-                        <p class="bm-guidebook__section-kicker">Precious Classification</p>
-                        <h3 class="bm-group-profile__title">Obsidian</h3>
-                        <p class="bm-group-profile__desc">volcanic glass / sharp edge / hidden heat</p>
+                  <!-- ANATOMY PAGE -->
+                  <div class="bm-guidebook__index-panel" data-vpanel="anatomy">
+                    <section class="bm-group-detail" data-group-anchor="marrow" id="mg-marrow">
+                      <div class="bm-group-profile">
+                        <div class="bm-group-profile__intro">
+                          <p class="bm-guidebook__section-kicker">Anatomy Classification</p>
+                          <h3 class="bm-group-profile__title">Marrow</h3>
+                          <p class="bm-group-profile__desc">core / reservoir / what remains after everything else is
+                            stripped away</p>
+                        </div>
                       </div>
-                    </div>
-                    <div class="bm-guidebook__grid">
-                      <article class="bm-guidebook__block">
-                        <h3>Overview</h3>
-                        <p>Obsidian sits at the cutting edge of this taxonomy: severe, coveted, and difficult to handle
-                          without consequence. It suggests heat gone dark, beauty made dangerous, and value that comes
-                          with risk.</p>
-                      </article>
-                      <article class="bm-guidebook__block">
-                        <h3>Known For</h3>
-                        <p>Precision, volatility, appetite, exclusivity, and the kind of presence that leaves marks even
-                          when handled carefully.</p>
-                      </article>
+                    </section>
 
-                      <article class="bm-guidebook__block">
-                        <h3>Social Role</h3>
-                        <p>Use this block for how the membergroup functions in-world or on-site: rank, access,
-                          obligations, or who tends to occupy it.</p>
-                      </article>
-
-                      <article class="bm-guidebook__block">
-                        <h3>Notes</h3>
-                        <p>Any OOC or mechanical note can live here too: application status, plot function, permissions,
-                          or whatever players should know at a glance.</p>
-                      </article>
-                    </div>
-                  </section>
-
-                  <!-- STUB DETAIL PANELS -->
-                  <div class="bm-guidebook__index-panel" data-vpanel="quartz">
-                    <div class="bm-group-profile">
-                      <img class="bm-group-profile__img"
-                        src="https://i.pinimg.com/736x/4b/d7/fc/4bd7fc4baac5f4dfda7df364b5241e40.jpg"
-                        alt="Quartz mood image">
-                      <div class="bm-group-profile__intro">
-                        <p class="bm-guidebook__section-kicker">Precious Classification</p>
-                        <h3 class="bm-group-profile__title">Quartz</h3>
-                        <p class="bm-group-profile__desc">clarity / fracture / light caught in stone</p>
+                    <section class="bm-group-detail" data-group-anchor="sinew" id="mg-sinew">
+                      <div class="bm-group-profile">
+                        <div class="bm-group-profile__intro">
+                          <p class="bm-guidebook__section-kicker">Anatomy Classification</p>
+                          <h3 class="bm-group-profile__title">Sinew</h3>
+                          <p class="bm-group-profile__desc">tension / tether / the connective force that keeps things
+                            from coming apart</p>
+                        </div>
                       </div>
-                    </div>
+                    </section>
                   </div>
 
-                  <div class="bm-guidebook__index-panel" data-vpanel="onyx">
-                    <div class="bm-group-profile">
-                      <img class="bm-group-profile__img"
-                        src="https://i.pinimg.com/736x/e0/f5/2a/e0f52a7f9a9fb978997f5f7cecb837f4.jpg"
-                        alt="Onyx mood image">
-                      <div class="bm-group-profile__intro">
-                        <p class="bm-guidebook__section-kicker">Precious Classification</p>
-                        <h3 class="bm-group-profile__title">Onyx</h3>
-                        <p class="bm-group-profile__desc">depth / polish / darkness made deliberate</p>
-                      </div>
-                    </div>
+                  <div class="bm-guidebook__index-panel" data-vpanel="celestial">
+                    <p>Celestial content goes here.</p>
                   </div>
 
-                  <div class="bm-guidebook__index-panel" data-vpanel="amber">
-                    <div class="bm-group-profile">
-                      <img class="bm-group-profile__img"
-                        src="https://i.pinimg.com/736x/99/9f/75/999f75b0d27cb1d7fef5d8b764f0b5f4.jpg"
-                        alt="Amber mood image">
-                      <div class="bm-group-profile__intro">
-                        <p class="bm-guidebook__section-kicker">Precious Classification</p>
-                        <h3 class="bm-group-profile__title">Amber</h3>
-                        <p class="bm-group-profile__desc">honeyed fire / preservation / sunlight trapped whole</p>
-                      </div>
-                    </div>
+                  <div class="bm-guidebook__index-panel" data-vpanel="flora">
+                    <p>Flora content goes here.</p>
                   </div>
 
-                  <div class="bm-guidebook__index-panel" data-vpanel="jade">
-                    <div class="bm-group-profile">
-                      <img class="bm-group-profile__img"
-                        src="https://i.pinimg.com/736x/d9/c4/e0/d9c4e0682d5f1f60be55d0d82efc4e6c.jpg"
-                        alt="Jade mood image">
-                      <div class="bm-group-profile__intro">
-                        <p class="bm-guidebook__section-kicker">Precious Classification</p>
-                        <h3 class="bm-group-profile__title">Jade</h3>
-                        <p class="bm-group-profile__desc">fortune / composure / beauty worn smooth by time</p>
-                      </div>
-                    </div>
+                  <div class="bm-guidebook__index-panel" data-vpanel="trade">
+                    <p>Trade content goes here.</p>
                   </div>
-
-                  <div class="bm-guidebook__index-panel" data-vpanel="silver">
-                    <div class="bm-group-profile">
-                      <img class="bm-group-profile__img"
-                        src="https://i.pinimg.com/736x/55/f4/34/55f434967d45f815ba4bfb0560a6a0f1.jpg"
-                        alt="Silver mood image">
-                      <div class="bm-group-profile__intro">
-                        <p class="bm-guidebook__section-kicker">Precious Classification</p>
-                        <h3 class="bm-group-profile__title">Silver</h3>
-                        <p class="bm-group-profile__desc">clean gleam / moonlit edge / value in restraint</p>
-                      </div>
-                    </div>
-                  </div>
-
                 </div>
               </div>
             </section>
@@ -601,37 +626,6 @@
             });
           }
 
-          const groupJumpLinks = guidebook.querySelectorAll('.bm-guidebook__jump');
-
-groupJumpLinks.forEach(link => {
-  link.addEventListener('click', () => {
-    const pageSlug = link.dataset.targetPage;
-    const groupSlug = link.dataset.targetGroup;
-
-    const section = CONFIG.sections['member-groups'];
-    if (!section?.subs?.[pageSlug]) return;
-
-    setChecked(section.mainId);
-    setChecked(section.subs[pageSlug]);
-    updateAllUI();
-    syncHash(true);
-    animateActivePanel(false);
-
-    requestAnimationFrame(() => {
-      const activePanel = guidebook.querySelector(
-        `.bm-guidebook__index-panel.is-active [data-group-anchor="${groupSlug}"]`
-      );
-
-      if (activePanel) {
-        activePanel.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
-      }
-    });
-  });
-});
-
           function updateAllUI() {
             updateMainUI();
 
@@ -711,6 +705,7 @@ groupJumpLinks.forEach(link => {
             }
 
             updateAllUI();
+            requestScrollSpyUpdate();
           }
 
           function animateActivePanel(shouldAnimate = true) {
@@ -738,6 +733,91 @@ groupJumpLinks.forEach(link => {
             });
           }
 
+          function clearJumpActive() {
+            guidebook.querySelectorAll('.bm-guidebook__jump').forEach(link => {
+              link.classList.remove('is-active');
+            });
+          }
+
+          function setActiveJump(groupSlug) {
+            clearJumpActive();
+
+            guidebook.querySelectorAll('.bm-guidebook__jump').forEach(link => {
+              const isMatch = link.dataset.targetGroup === groupSlug;
+              link.classList.toggle('is-active', isMatch);
+            });
+          }
+
+          function getActiveMemberGroupsPage() {
+            const memberGroupsSection = CONFIG.sections['member-groups'];
+            if (!memberGroupsSection) return null;
+
+            const activeMain = getChecked(CONFIG.mainGroupName);
+            if (!activeMain || activeMain.id !== memberGroupsSection.mainId) return null;
+
+            const activeSub = getChecked(memberGroupsSection.subGroupName);
+            if (!activeSub) return null;
+
+            return reverseSubs['member-groups']?.[activeSub.id] || null;
+          }
+
+          function updateGroupScrollSpy() {
+            const activePage = getActiveMemberGroupsPage();
+            if (!activePage) {
+              clearJumpActive();
+              return;
+            }
+
+            const activePanel = guidebook.querySelector(
+              `.bm-guidebook__index-panel.is-active[data-vpanel="${activePage}"]`
+            );
+
+            if (!activePanel) {
+              clearJumpActive();
+              return;
+            }
+
+            const anchors = [...activePanel.querySelectorAll('[data-group-anchor]')];
+            if (!anchors.length) {
+              clearJumpActive();
+              return;
+            }
+
+            const viewportOffset = 140;
+            let current = anchors[0];
+
+            anchors.forEach(anchor => {
+              const rect = anchor.getBoundingClientRect();
+              if (rect.top <= viewportOffset) {
+                current = anchor;
+              }
+            });
+
+            const slug = current.dataset.groupAnchor;
+            if (slug) setActiveJump(slug);
+          }
+
+          function scrollToGroupAnchor(groupSlug) {
+            requestAnimationFrame(() => {
+              const target = guidebook.querySelector(
+                `.bm-guidebook__index-panel.is-active [data-group-anchor="${groupSlug}"]`
+              );
+
+              if (!target) return;
+
+              target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+              });
+
+              target.classList.remove('is-targeted');
+              void target.offsetWidth;
+              target.classList.add('is-targeted');
+
+              setActiveJump(groupSlug);
+            });
+          }
+
           function applyHash(shouldScroll = false) {
             const { sectionSlug, subSlug } = parseHash();
             const section = CONFIG.sections[sectionSlug];
@@ -758,6 +838,21 @@ groupJumpLinks.forEach(link => {
             if (shouldScroll) {
               scrollGuidebookIntoView();
             }
+
+            requestScrollSpyUpdate();
+          }
+
+          let scrollSpyTicking = false;
+
+          function requestScrollSpyUpdate() {
+            if (scrollSpyTicking) return;
+
+            scrollSpyTicking = true;
+
+            requestAnimationFrame(() => {
+              updateGroupScrollSpy();
+              scrollSpyTicking = false;
+            });
           }
 
           const mainTabs = guidebook.querySelectorAll(`input[name="${CONFIG.mainGroupName}"]`);
@@ -766,6 +861,7 @@ groupJumpLinks.forEach(link => {
               updateMainUI();
               syncHash(true);
               animateActivePanel(true);
+              requestScrollSpyUpdate();
             });
           });
 
@@ -780,26 +876,49 @@ groupJumpLinks.forEach(link => {
                 updateAllUI();
                 syncHash(true);
                 animateActivePanel(false);
+                requestScrollSpyUpdate();
               });
             });
           });
 
-          const taxonomyRows = guidebook.querySelectorAll('[data-target-vtab]');
-          taxonomyRows.forEach(row => {
-            row.addEventListener('click', () => {
-              const slug = row.dataset.targetVtab;
-              const sectionSlug = 'member-groups';
-              const section = CONFIG.sections[sectionSlug];
+          const groupJumpLinks = guidebook.querySelectorAll('.bm-guidebook__jump');
+          groupJumpLinks.forEach(link => {
+            link.addEventListener('click', () => {
+              const pageSlug = link.dataset.targetPage;
+              const groupSlug = link.dataset.targetGroup;
 
-              if (!section?.subs?.[slug]) return;
+              const section = CONFIG.sections['member-groups'];
+              if (!section?.subs?.[pageSlug]) return;
 
               setChecked(section.mainId);
-              setChecked(section.subs[slug]);
+              setChecked(section.subs[pageSlug]);
               updateAllUI();
               syncHash(true);
               animateActivePanel(false);
+              scrollToGroupAnchor(groupSlug);
             });
           });
+
+          const taxonomyRows = guidebook.querySelectorAll('.bm-group-row[data-target-page][data-target-group]');
+          taxonomyRows.forEach(row => {
+            row.addEventListener('click', () => {
+              const pageSlug = row.dataset.targetPage;
+              const groupSlug = row.dataset.targetGroup;
+
+              const section = CONFIG.sections['member-groups'];
+              if (!section?.subs?.[pageSlug]) return;
+
+              setChecked(section.mainId);
+              setChecked(section.subs[pageSlug]);
+              updateAllUI();
+              syncHash(true);
+              animateActivePanel(false);
+              scrollToGroupAnchor(groupSlug);
+            });
+          });
+
+          window.addEventListener('scroll', requestScrollSpyUpdate, { passive: true });
+          window.addEventListener('resize', requestScrollSpyUpdate);
 
           window.addEventListener('hashchange', () => {
             applyHash(true);
@@ -812,6 +931,8 @@ groupJumpLinks.forEach(link => {
             syncHash(false);
             animateActivePanel(true);
           }
+
+          requestScrollSpyUpdate();
         });
       </script>
     </main>
