@@ -644,6 +644,49 @@ body#Pages .bm-guidebook--tabs {
   opacity: 0.82;
 }
 
+.bm-guidebook__index--groups {
+  gap: 4px;
+}
+
+.bm-guidebook__index--groups .is-category {
+  margin-top: 10px;
+}
+
+.bm-guidebook__jump {
+  display: block;
+  padding: 4px 6px 4px 18px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  font: 400 var(--size-sm, 10px)/1.4 var(--font-hand, monospace);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.6;
+  cursor: pointer;
+  transition: var(--transi-quick);
+}
+
+.bm-guidebook__jump:hover {
+  opacity: 1;
+  transform: translateX(2px);
+}
+
+.bm-group-detail {
+  margin-top: 28px;
+  scroll-margin-top: 24px;
+}
+
+.bm-group-detail + .bm-group-detail {
+  padding-top: 28px;
+  border-top: 1px solid var(--bm-guide-border-soft);
+}
+
+/* taxonomy rows now jump to anchors, not subtabs */
+.bm-group-row[data-target-page][data-target-group] {
+  cursor: pointer;
+}
+
 /* mobile */
 @media (max-width: 680px) {
   .bm-group-profile {
