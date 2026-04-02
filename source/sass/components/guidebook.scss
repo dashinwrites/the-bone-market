@@ -247,10 +247,6 @@ body#Pages .bm-guidebook--tabs {
   background-size: 100% 32px;
 }
 
-/* ================================
-   Content Surface Placeholders
-================================ */
-
 %bm-guidebook-surface {
   position: relative;
   min-width: 0;
@@ -269,10 +265,6 @@ body#Pages .bm-guidebook--tabs {
   border-top: 1px dashed rgba(255, 255, 255, 0.08);
   padding-top: 14px;
 }
-
-/* ================================
-   Content Blocks
-================================ */
 
 .bm-guidebook__lead,
 .bm-guidebook__block,
@@ -359,7 +351,6 @@ body#Pages .bm-guidebook--tabs {
   text-underline-offset: 3px;
 }
 
-/* main tab active state */
 .bm-guidebook__tablist label.is-active {
   color: var(--bm-guide-text);
   border-color: var(--bm-guide-accent);
@@ -672,7 +663,6 @@ body#Pages .bm-guidebook--tabs {
   margin-bottom: 24px;
 }
 
-/* group sidebar (member groups) */
 .bm-guidebook__index--groups {
   gap: 4px;
 }
@@ -689,7 +679,6 @@ body#Pages .bm-guidebook--tabs {
   background: var(--bm-guide-accent-soft);
 }
 
-/* sidebar jump links */
 .bm-guidebook__jump {
   display: block;
   padding: 4px 6px 4px 18px;
@@ -725,8 +714,6 @@ body#Pages .bm-guidebook--tabs {
   vertical-align: middle;
   background: var(--bm-guide-accent);
 }
-
-/* group detail sections */
 
 .bm-taxonomy + .bm-group-detail {
   margin-top: 48px;
@@ -765,7 +752,6 @@ body#Pages .bm-guidebook--tabs {
   }
 }
 
-/* group profile layout */
 .bm-group-profile {
   display: grid;
   grid-template-columns: 220px minmax(0, 1fr);
