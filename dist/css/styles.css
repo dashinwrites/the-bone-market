@@ -6674,7 +6674,6 @@ body#Pages .bm-guidebook--tabs {
   overflow: visible;
   padding: clamp(20px, 2.4vw, 34px);
   border: var(--border--primary, 1px solid var(--bm-guide-border));
-  border-radius: var(--bm-guide-radius);
   -webkit-box-shadow: var(--bm-guide-shadow);
           box-shadow: var(--bm-guide-shadow);
   background: var(--bg-1-rgb); }
