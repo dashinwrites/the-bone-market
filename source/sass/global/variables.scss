@@ -12,13 +12,14 @@
   --font-hand: "Inconsolata", monospace;
   --font-title: "Ghosthey", serif;
   --font-subtitle: "UnifrakturMaguntia", cursive;
+  --font-cinzel: "Cinzel", serif;
 
   /* Type scale */
-  --size-xs: 8px;
-  --size-sm: 10px;
-  --size-md: 12px;
-  --size-lg: 14px;
-  --size-xl: 16px;
+  --size-xs: 10px;
+  --size-sm: 12px;
+  --size-md: 14px;
+  --size-lg: 16px;
+  --size-xl: 18px;
   --size-forum-title: 24px;
   --size-title: 36px;
 
@@ -55,7 +56,7 @@
   /* Component layout tokens */
   --gutter: 5vw;
   --side-col: 20vw;
-  --center-max: 50vw;
+  --center-max: 1fr;
 
   /* Stats module */
   --stats-pane-h: clamp(220px, 40vh, 360px);
@@ -186,7 +187,7 @@
 
   // accent — maps to your site accent
   --bm-guide-accent: var(--accent-1);
-  --bm-guide-accent-soft: oklch(0.3945 0.1278 15.22 / 0.25);
+  --bm-guide-accent-soft: color-mix(in oklch, var(--accent-1) 25%, transparent);
 
   // taxonomy block vars
   --tax-accent: var(--accent-1);
@@ -196,6 +197,18 @@
 
   --bm-mg-row-opacity: 0.12;
   --bm-mg-row-opacity-overlay: 0.14;
+
+  .bm-head {
+    background:
+      radial-gradient(1200px 500px at 55% 45%,
+        color-mix(in oklab, var(--bg-2) 18%, transparent),
+        transparent 60%),
+      radial-gradient(900px 420px at 25% 35%,
+        color-mix(in oklab, var(--bg-2) 12%, transparent),
+        transparent 58%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Cline x1='0' y1='20' x2='20' y2='0' stroke='black' stroke-width='0.4' stroke-opacity='0.06'/%3E%3C/svg%3E"),
+      var(--bg-1);
+  }
 
   // these groups have gradients too light to read as text on light bg
   // darken them by shifting to the darker endpoint only
@@ -314,7 +327,7 @@
 
   // accent — maps to your site accent
   --bm-guide-accent: var(--accent-1);
-  --bm-guide-accent-soft: oklch(0.5686 0.1641 14.49 / 0.25);
+  --bm-guide-accent-soft: color-mix(in oklch, var(--accent-1) 25%, transparent);
 
   // taxonomy block vars
   --tax-accent: oklch(0.78 0.13 75);

@@ -1,86 +1,88 @@
+// ── PAGE TYPE ROUTING ────────────────────────
+
 let pageType = document.querySelector('body').id;
 let pageClasses = document.querySelector('body').classList;
 
 /********** Login **********/
-if(pageType === 'Login') {
-    let textNodes = getAllTextNodes(document.querySelector('main'));
-    textNodes.forEach(node => {
-        const paragraph = document.createElement('p');
-        node.after(paragraph);
-        paragraph.appendChild(node);
-    });
-    $("main > p").nextUntil("div.tableborder").andSelf().wrapAll(`<div class="textNodes"></div>`);
-    $(`input[name="UserName"]`).attr('placeholder','Username');
-    $(`input[name="PassWord"]`).attr('placeholder','Password');
+if (pageType === 'Login') {
+  let textNodes = getAllTextNodes(document.querySelector('main'));
+  textNodes.forEach(node => {
+    const paragraph = document.createElement('p');
+    node.after(paragraph);
+    paragraph.appendChild(node);
+  });
+  $("main > p").nextUntil("div.tableborder").andSelf().wrapAll(`<div class="textNodes"></div>`);
+  $(`input[name="UserName"]`).attr('placeholder', 'Username');
+  $(`input[name="PassWord"]`).attr('placeholder', 'Password');
 }
 
 /********** Registration **********/
-if(pageType === 'Reg') {
-    let textNodes = getAllTextNodes(document.querySelector('.tablepad > table > tbody > tr:first-child > td:last-child fieldset:first-child'));
-    if(textNodes) {
-        textNodes.forEach(node => {
-            const paragraph = document.createElement('p');
-            node.after(paragraph);
-            paragraph.appendChild(node);
-        });
-    }
-    inputWrap(`label[for="agree_cbox"] input[name="read_tos"]`);
-    inputWrap(`fieldset input[name="allow_admin_mail"]`);
-    inputWrap(`fieldset input[name="allow_member_mail"]`);
-    fancyBoxes();
-    if(document.querySelector('input[name="agree"][type="checkbox"]')) {
-        $('input[name="agree"][type="checkbox"]').wrap('<label class="input-wrap tos"></label>');
-        $('.input-wrap.tos').append('<div class="fancy-input checkbox"><i class="fa-solid fa-check"></i></div> <p>I agree to the terms of this registration, <b>I am at least 18 years of age,</b> and wish to proceed.</p>');
-    }
-}
-
-/********** Topic View **********/
-if(pageType === 'ST') {
-    let descript = $('.topic-desc').html();
-    if (descript != undefined) {
-        var newDescript = descript.replace(", ", "");
-        $('.topic-desc').html(newDescript);
-    }
-    
-    //input clean up
-    document.querySelector('#qr_open .tablepad').innerHTML = document.querySelector('#qr_open .tablepad').innerHTML.replace('|', '');
-    let textNodes = getAllTextNodes(document.querySelector('#qr_open .tablepad'));
+if (pageType === 'Reg') {
+  let textNodes = getAllTextNodes(document.querySelector('.tablepad > table > tbody > tr:first-child > td:last-child fieldset:first-child'));
+  if (textNodes) {
     textNodes.forEach(node => {
-        const paragraph = document.createElement('p');
-        node.after(paragraph);
-        paragraph.appendChild(node);
-        paragraph.innerText = paragraph.innerText.replace(`|`, ``).trim();
+      const paragraph = document.createElement('p');
+      node.after(paragraph);
+      paragraph.appendChild(node);
     });
-    document.querySelectorAll(`#qr_open input[type="checkbox"]`).forEach(input => inputWrap(input));
-    document.querySelectorAll('#qr_open .input-wrap').forEach(label => {
-        label.querySelector('input').insertAdjacentHTML('afterend', `<div class="fancy-input checkbox">x</div>`);
-    });
-    $('#qr_open .tablepad > input').wrapAll('<div class="qr_buttons"></div>');
+  }
+  inputWrap(`label[for="agree_cbox"] input[name="read_tos"]`);
+  inputWrap(`fieldset input[name="allow_admin_mail"]`);
+  inputWrap(`fieldset input[name="allow_member_mail"]`);
+  fancyBoxes();
+  if (document.querySelector('input[name="agree"][type="checkbox"]')) {
+    $('input[name="agree"][type="checkbox"]').wrap('<label class="input-wrap tos"></label>');
+    $('.input-wrap.tos').append('<div class="fancy-input checkbox"><i class="fa-solid fa-check"></i></div> <p>I agree to the terms of this registration, <b>I am at least 18 years of age,</b> and wish to proceed.</p>');
+  }
 }
 
 /********** Topic View **********/
-if(pageType === 'Post') {
-    let textNodes = getAllTextNodes(document.querySelector('#post-options .pformright'));
-    if(textNodes) {
-        textNodes.forEach(node => {
-            const paragraph = document.createElement('p');
-            node.after(paragraph);
-            paragraph.appendChild(node);
-        });
-    }
-    inputWrap(`input[name="enableemo"]`, 'br');
-    inputWrap(`input[name="enablesig"]`, 'br');
-    inputWrap(`input[name="enabletrack"]`, 'br');
-    document.querySelectorAll('input[name="iconid"]').forEach(icon => {
-        inputWrap(icon, `input`, 'radio');
+if (pageType === 'ST') {
+  let descript = $('.topic-desc').html();
+  if (descript != undefined) {
+    var newDescript = descript.replace(", ", "");
+    $('.topic-desc').html(newDescript);
+  }
+
+  //input clean up
+  document.querySelector('#qr_open .tablepad').innerHTML = document.querySelector('#qr_open .tablepad').innerHTML.replace('|', '');
+  let textNodes = getAllTextNodes(document.querySelector('#qr_open .tablepad'));
+  textNodes.forEach(node => {
+    const paragraph = document.createElement('p');
+    node.after(paragraph);
+    paragraph.appendChild(node);
+    paragraph.innerText = paragraph.innerText.replace(`|`, ``).trim();
+  });
+  document.querySelectorAll(`#qr_open input[type="checkbox"]`).forEach(input => inputWrap(input));
+  document.querySelectorAll('#qr_open .input-wrap').forEach(label => {
+    label.querySelector('input').insertAdjacentHTML('afterend', `<div class="fancy-input checkbox">x</div>`);
+  });
+  $('#qr_open .tablepad > input').wrapAll('<div class="qr_buttons"></div>');
+}
+
+/********** Topic View **********/
+if (pageType === 'Post') {
+  let textNodes = getAllTextNodes(document.querySelector('#post-options .pformright'));
+  if (textNodes) {
+    textNodes.forEach(node => {
+      const paragraph = document.createElement('p');
+      node.after(paragraph);
+      paragraph.appendChild(node);
     });
-    fancyBoxes();
+  }
+  inputWrap(`input[name="enableemo"]`, 'br');
+  inputWrap(`input[name="enablesig"]`, 'br');
+  inputWrap(`input[name="enabletrack"]`, 'br');
+  document.querySelectorAll('input[name="iconid"]').forEach(icon => {
+    inputWrap(icon, `input`, 'radio');
+  });
+  fancyBoxes();
 }
 
 /********** User CP & Messages **********/
-if(pageType === 'UserCP' || pageType === 'Msg') {
-    /* Remove on Jcink; leave present on local */
-    document.querySelector('#ucpmenu').innerHTML = `<div class="sticky"><b>Account</b>
+if (pageType === 'UserCP' || pageType === 'Msg') {
+  /* Remove on Jcink; leave present on local */
+  document.querySelector('#ucpmenu').innerHTML = `<div class="sticky"><b>Account</b>
     <div class="menu-section">
     <a href="./user-edit.html">Edit Profile</a>
     <a href="./user-avatar.html">Update Avatar</a>
@@ -111,81 +113,81 @@ if(pageType === 'UserCP' || pageType === 'Msg') {
     </div>
     </div>`;
 
-    /* Uncomment on Jcink; leave commented on local
-    document.querySelector('#ucpmenu').innerHTML = `<div class="sticky"><b>Account</b>
-    <div class="menu-section">
-    <a href="?act=UserCP&CODE=01">Edit Profile</a>
-    <a href="?act=UserCP&CODE=24">Update Avatar</a>
-    <a href="?act=UserCP&CODE=54">Sub-accounts</a>
-    <a href="?act=UserCP&CODE=52">Edit Username</a>
-    <a href="?act=UserCP&CODE=28">Change Password</a>
-    <a href="?act=UserCP&CODE=08">Update Email</a>
-    </div>
-    <b class="is-closed">Messages</b>
-    <div class="menu-section">
-    <a href="?act=Msg&CODE=01">Inbox</a>
-    <a href="?act=Msg&CODE=04">Send Message</a>
-    </div>
-    <b class="is-closed">Tracking</b>
-    <div class="menu-section">
-    <a href="?act=UserCP&CODE=alerts">Alerts</a>
-    <a href="?act=UserCP&CODE=50">Forums</a>
-    <a href="?act=UserCP&CODE=26">Topics</a>
-    </div>
-    <b class="is-closed">Settings</b>
-    <div class="menu-section">
-    <a href="?act=UserCP&CODE=04">Board</a>
-    <a href="?act=UserCP&CODE=alerts_settings">Alerts</a>
-    <a href="?act=UserCP&CODE=02">Emails</a></div></div>`;
-    */
+  /* Uncomment on Jcink; leave commented on local
+  document.querySelector('#ucpmenu').innerHTML = `<div class="sticky"><b>Account</b>
+  <div class="menu-section">
+  <a href="?act=UserCP&CODE=01">Edit Profile</a>
+  <a href="?act=UserCP&CODE=24">Update Avatar</a>
+  <a href="?act=UserCP&CODE=54">Sub-accounts</a>
+  <a href="?act=UserCP&CODE=52">Edit Username</a>
+  <a href="?act=UserCP&CODE=28">Change Password</a>
+  <a href="?act=UserCP&CODE=08">Update Email</a>
+  </div>
+  <b class="is-closed">Messages</b>
+  <div class="menu-section">
+  <a href="?act=Msg&CODE=01">Inbox</a>
+  <a href="?act=Msg&CODE=04">Send Message</a>
+  </div>
+  <b class="is-closed">Tracking</b>
+  <div class="menu-section">
+  <a href="?act=UserCP&CODE=alerts">Alerts</a>
+  <a href="?act=UserCP&CODE=50">Forums</a>
+  <a href="?act=UserCP&CODE=26">Topics</a>
+  </div>
+  <b class="is-closed">Settings</b>
+  <div class="menu-section">
+  <a href="?act=UserCP&CODE=04">Board</a>
+  <a href="?act=UserCP&CODE=alerts_settings">Alerts</a>
+  <a href="?act=UserCP&CODE=02">Emails</a></div></div>`;
+  */
 
-    //subaccounts
-    if($('body.code-54').length > 0) {
-        document.querySelectorAll('input[name="sub_ids[]"]').forEach(input => {
-            inputWrap(input);
-        });
-        fancyBoxes();
-    }
+  //subaccounts
+  if ($('body.code-54').length > 0) {
+    document.querySelectorAll('input[name="sub_ids[]"]').forEach(input => {
+      inputWrap(input);
+    });
+    fancyBoxes();
+  }
 
-    //alerts
-    if($('body.code-alerts').length > 0) {
-        document.querySelectorAll('input[name="alert_id[]"]').forEach(input => {
-            inputWrap(input);
-        });
-        fancyBoxes();
-    }
+  //alerts
+  if ($('body.code-alerts').length > 0) {
+    document.querySelectorAll('input[name="alert_id[]"]').forEach(input => {
+      inputWrap(input);
+    });
+    fancyBoxes();
+  }
 
-    //forum and topic subscriptions
-    if (pageClasses.contains('code-50') || pageClasses.contains('code-26')) {
-        document.querySelectorAll('.tableborder > table > tbody > tr').forEach(row => {
-            if(row.querySelectorAll('th, td').length === 1) {
-                row.classList.add('ucp--header', 'pformstrip');
-            }
-        });
+  //forum and topic subscriptions
+  if (pageClasses.contains('code-50') || pageClasses.contains('code-26')) {
+    document.querySelectorAll('.tableborder > table > tbody > tr').forEach(row => {
+      if (row.querySelectorAll('th, td').length === 1) {
+        row.classList.add('ucp--header', 'pformstrip');
+      }
+    });
 
-        if(pageClasses.contains('code-26')) {
-            document.querySelectorAll(`.tableborder input[type="checkbox"]`).forEach(input => inputWrap(input));
-            fancyBoxes();
-        }
+    if (pageClasses.contains('code-26')) {
+      document.querySelectorAll(`.tableborder input[type="checkbox"]`).forEach(input => inputWrap(input));
+      fancyBoxes();
     }
-    
-    //board settings
-    if (pageClasses.contains('code-04')) {
-        inputWrap(document.querySelector(`input[name="DST"]`));
-        fancyBoxes();
-    }
-    
-    //alert settings
-    if (pageClasses.contains('code-alerts_settings') || pageClasses.contains('code-02')) {
-        document.querySelectorAll(`input[type="checkbox"]`).forEach(input => inputWrap(input));
-        fancyBoxes();
-    }
+  }
+
+  //board settings
+  if (pageClasses.contains('code-04')) {
+    inputWrap(document.querySelector(`input[name="DST"]`));
+    fancyBoxes();
+  }
+
+  //alert settings
+  if (pageClasses.contains('code-alerts_settings') || pageClasses.contains('code-02')) {
+    document.querySelectorAll(`input[type="checkbox"]`).forEach(input => inputWrap(input));
+    fancyBoxes();
+  }
 }
 
 /********** Store **********/
-if(pageType === 'store') {
-    /* Remove on Jcink; leave present on local */
-    document.querySelector('#ucpmenu').innerHTML = `<div class="sticky"><b>Shop</b>
+if (pageType === 'store') {
+  /* Remove on Jcink; leave present on local */
+  document.querySelector('#ucpmenu').innerHTML = `<div class="sticky"><b>Shop</b>
     <div class="menu-section">
     <a href="./store.html">Home</a>
     <a href="./store-category.html">Category</a>
@@ -206,41 +208,41 @@ if(pageType === 'store') {
     </div>
     </div>`;
 
-    /* Uncomment on Jcink; leave commented on local
-    document.querySelector('#ucpmenu').innerHTML = `<div class="sticky"><b>Shop</b>
-    <div class="menu-section">
-    <a href="?act=store&code=shop&category=1">Manually</a>
-    <a href="?act=store&code=shop&category=2">Add</a>
-    <a href="?act=store&code=shop&category=3">Categories</a>
-    </div>
-    <b>Personal</b>
-    <div class="menu-section">
-    <a href="?act=store&CODE=inventory">Inventory</a>
-    <a href="?act=store&code=donate_money">Send Money</a>
-    <a href="?act=store&code=donate_item">Send Item</a>
-    </div>
-    <b class="is-closed staffOnly">Staff</b>
-    <div class="menu-section">
-    <a href="?act=store&code=fine" class="staffOnly">Fine</a>
-    <a href="?act=store&code=edit_points" class="staffOnly">Edit Points</a>
-    <a href="?act=store&code=edit_inventory" class="staffOnly">Edit Inventory</a></div></div>`;
-    */
+  /* Uncomment on Jcink; leave commented on local
+  document.querySelector('#ucpmenu').innerHTML = `<div class="sticky"><b>Shop</b>
+  <div class="menu-section">
+  <a href="?act=store&code=shop&category=1">Manually</a>
+  <a href="?act=store&code=shop&category=2">Add</a>
+  <a href="?act=store&code=shop&category=3">Categories</a>
+  </div>
+  <b>Personal</b>
+  <div class="menu-section">
+  <a href="?act=store&CODE=inventory">Inventory</a>
+  <a href="?act=store&code=donate_money">Send Money</a>
+  <a href="?act=store&code=donate_item">Send Item</a>
+  </div>
+  <b class="is-closed staffOnly">Staff</b>
+  <div class="menu-section">
+  <a href="?act=store&code=fine" class="staffOnly">Fine</a>
+  <a href="?act=store&code=edit_points" class="staffOnly">Edit Points</a>
+  <a href="?act=store&code=edit_inventory" class="staffOnly">Edit Inventory</a></div></div>`;
+  */
 }
 
 // Sidebar Toggle
 (() => {
   const body = document.body;
-  const btn  = document.getElementById('sidebar-toggle');
+  const btn = document.getElementById('sidebar-toggle');
   const pane = document.getElementById('sidebar');
-  const scrim= document.getElementById('sidebar-scrim');
+  const scrim = document.getElementById('sidebar-scrim');
   const closeBtn = document.querySelector('#sidebar .sidebar-close');
 
   if (!btn || !pane || !scrim) return;
 
   const STORAGE_KEY = 'sidebarOpen';
   const qsFocusable = [
-    'a[href]','button:not([disabled])','input:not([disabled])',
-    'select:not([disabled])','textarea:not([disabled])','[tabindex]:not([tabindex="-1"])'
+    'a[href]', 'button:not([disabled])', 'input:not([disabled])',
+    'select:not([disabled])', 'textarea:not([disabled])', '[tabindex]:not([tabindex="-1"])'
   ].join(',');
 
   function focusFirst() {
@@ -249,44 +251,44 @@ if(pageType === 'store') {
   }
 
   function setState(open, { skipFocus = false } = {}) {
-  if (open) {
-    pane.hidden = false;
-    scrim.hidden = false;
-    // next frame -> animate in
-    requestAnimationFrame(() => {
-      body.dataset.sidebar = 'open';
-      try { localStorage.setItem(STORAGE_KEY, '1'); } catch {}
-      if (!skipFocus) {
-        const first = pane.querySelector(qsFocusable) || pane;
-        first.focus({ preventScroll: true });
-      }
-    });
-    return;
+    if (open) {
+      pane.hidden = false;
+      scrim.hidden = false;
+      // next frame -> animate in
+      requestAnimationFrame(() => {
+        body.dataset.sidebar = 'open';
+        try { localStorage.setItem(STORAGE_KEY, '1'); } catch { }
+        if (!skipFocus) {
+          const first = pane.querySelector(qsFocusable) || pane;
+          first.focus({ preventScroll: true });
+        }
+      });
+      return;
+    }
+
+    // animate out
+    body.dataset.sidebar = 'closed';
+    try { localStorage.setItem(STORAGE_KEY, '0'); } catch { }
+    if (!skipFocus) btn.focus({ preventScroll: true });
+
+    // slightly longer than the CSS transition (320ms) to ensure it completes
+    const DONE_MS = 340;
+    let done = false;
+
+    const onEnd = (e) => {
+      if (e.propertyName !== 'transform') return; // only after the slide
+      if (done) return;
+      done = true;
+      pane.hidden = true;
+      scrim.hidden = true;
+      pane.removeEventListener('transitionend', onEnd);
+    };
+
+    pane.addEventListener('transitionend', onEnd);
+
+    // safety: if transitionend doesn’t fire (tab switch, etc)
+    setTimeout(() => { if (!done) onEnd({ propertyName: 'transform' }); }, DONE_MS);
   }
-
-  // animate out
-  body.dataset.sidebar = 'closed';
-  try { localStorage.setItem(STORAGE_KEY, '0'); } catch {}
-  if (!skipFocus) btn.focus({ preventScroll: true });
-
-  // hide AFTER the slide finishes
-  const DONE_MS = 340; // a hair > CSS duration
-  let done = false;
-
-  const onEnd = (e) => {
-    if (e.propertyName !== 'transform') return; // only after the slide
-    if (done) return;
-    done = true;
-    pane.hidden = true;
-    scrim.hidden = true;
-    pane.removeEventListener('transitionend', onEnd);
-  };
-
-  pane.addEventListener('transitionend', onEnd);
-
-  // safety: if transitionend doesn’t fire (tab switch, etc)
-  setTimeout(() => { if (!done) onEnd({ propertyName: 'transform' }); }, DONE_MS);
-}
 
   function toggle() {
     const open = body.dataset.sidebar !== 'open';
@@ -295,15 +297,15 @@ if(pageType === 'store') {
 
   // restore previous state (default: closed)
   try {
-  if (localStorage.getItem(STORAGE_KEY) === '1') {
-    // reopen visually but skip autofocus on page load
-    setState(true, { skipFocus: true });
-  } else {
+    if (localStorage.getItem(STORAGE_KEY) === '1') {
+      // reopen visually but skip autofocus on page load
+      setState(true, { skipFocus: true });
+    } else {
+      setState(false, { skipFocus: true });
+    }
+  } catch {
     setState(false, { skipFocus: true });
   }
-} catch {
-  setState(false, { skipFocus: true });
-}
 
   // events
   btn.addEventListener('click', toggle);
@@ -364,7 +366,7 @@ if(pageType === 'store') {
 // Main Profile Tabs (defensive)
 (() => {
   /* ---------- tiny utils ---------- */
-  const $  = (s, r) => (r || document).querySelector(s);
+  const $ = (s, r) => (r || document).querySelector(s);
   const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
 
   function moveBar(bar, btn, container) {
@@ -373,16 +375,16 @@ if(pageType === 'store') {
     const cr = container.getBoundingClientRect();
     const left = (br.left - cr.left) + container.scrollLeft;
     bar.style.inlineSize = `${br.width}px`;
-    bar.style.transform  = `translateX(${left}px)`;
+    bar.style.transform = `translateX(${left}px)`;
   }
 
   /* =================================
      TOP-LEVEL TABS (uses aria-controls)
      ================================= */
   const tabsWrap = $('.bm-tabs');
-  const tabs     = $$('.bm-tab', tabsWrap);
-  const panels   = $$('.bm-panel'); // global panels are fine
-  const bar      = $('.bm-tab__active-bar', tabsWrap);
+  const tabs = $$('.bm-tab', tabsWrap);
+  const panels = $$('.bm-panel'); // global panels are fine
+  const bar = $('.bm-tab__active-bar', tabsWrap);
 
   // If there are no tabs on this page, do nothing.
   if (!tabsWrap || tabs.length === 0 || panels.length === 0) return;
@@ -426,10 +428,10 @@ if(pageType === 'store') {
   /* ===============================
      SUBTABS (Plotting) — optional
      =============================== */
-  const plotRoot  = $('#tab-plotting');
-  const subWrap   = plotRoot ? $('.bm-subtabs', plotRoot) : null;
-  const subtabs   = subWrap ? $$('.bm-subtab', subWrap) : [];
-  const subbar    = subWrap ? $('.bm-subtab__active-bar', subWrap) : null;
+  const plotRoot = $('#tab-plotting');
+  const subWrap = plotRoot ? $('.bm-subtabs', plotRoot) : null;
+  const subtabs = subWrap ? $$('.bm-subtab', subWrap) : [];
+  const subbar = subWrap ? $('.bm-subtab__active-bar', subWrap) : null;
   const subpanels = plotRoot ? $$('.bm-subpanel', plotRoot) : [];
 
   function activateSub(subId, { pushHash = true } = {}) {
@@ -466,8 +468,8 @@ if(pageType === 'store') {
 
     if (topId === 'tab-plotting' && subtabs.length) {
       const targetSub =
-        subtabs.find(b => (b.dataset.hash || b.getAttribute('aria-controls').replace(/^sub-/,''))
-                          === (subAlias || 'interested')) || subtabs[0];
+        subtabs.find(b => (b.dataset.hash || b.getAttribute('aria-controls').replace(/^sub-/, ''))
+          === (subAlias || 'interested')) || subtabs[0];
       if (targetSub) activateSub(targetSub.getAttribute('aria-controls'), { pushHash: false });
     }
   }
@@ -539,15 +541,15 @@ document.addEventListener("click", async (e) => {
 
 
 // mini profile carousel
-(function(){
-  function setupCarousel(root){
+(function () {
+  function setupCarousel(root) {
     const track = root.querySelector('.mini-track');
-    if(!track) return;
+    if (!track) return;
 
     const cards = [...track.querySelectorAll('.mini-card')];
-    const dots  = [...root.querySelectorAll('.mini-dot')];
-    const prev  = root.querySelector('.mini-btn.prev');
-    const next  = root.querySelector('.mini-btn.next');
+    const dots = [...root.querySelectorAll('.mini-dot')];
+    const prev = root.querySelector('.mini-btn.prev');
+    const next = root.querySelector('.mini-btn.next');
 
     let i = 0;
 
@@ -568,17 +570,17 @@ document.addEventListener("click", async (e) => {
 
     // Keyboard: left/right arrows when focus is within the aside
     root.addEventListener('keydown', (e) => {
-      if(e.key === 'ArrowLeft'){ e.preventDefault(); setIndex(i - 1); }
-      if(e.key === 'ArrowRight'){ e.preventDefault(); setIndex(i + 1); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); setIndex(i - 1); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); setIndex(i + 1); }
     });
 
     // Basic swipe (optional, lightweight)
     let sx = null;
-    track.addEventListener('pointerdown', (e)=>{ sx = e.clientX; });
-    track.addEventListener('pointerup', (e)=>{
-      if(sx == null) return;
+    track.addEventListener('pointerdown', (e) => { sx = e.clientX; });
+    track.addEventListener('pointerup', (e) => {
+      if (sx == null) return;
       const dx = e.clientX - sx;
-      if(Math.abs(dx) > 40) setIndex(i + (dx < 0 ? 1 : -1));
+      if (Math.abs(dx) > 40) setIndex(i + (dx < 0 ? 1 : -1));
       sx = null;
     });
 
@@ -590,8 +592,8 @@ document.addEventListener("click", async (e) => {
 
 // First/last split
 (function () {
-  const PARTICLES = new Set(["van","von","de","del","della","de la","de-la","di","da","du","bin","al","ibn"]);
-  const SUFFIXES  = new Set(["jr.","sr.","jr","sr","ii","iii","iv","v"]);
+  const PARTICLES = new Set(["van", "von", "de", "del", "della", "de la", "de-la", "di", "da", "du", "bin", "al", "ibn"]);
+  const SUFFIXES = new Set(["jr.", "sr.", "jr", "sr", "ii", "iii", "iv", "v"]);
 
   const splitName = (raw) => {
     let s = (raw || "").replace(/\s+/g, " ").trim();
@@ -600,7 +602,7 @@ document.addEventListener("click", async (e) => {
     if (parts.length === 1) return { first: s, last: "" };
 
     let suffix = "";
-    const lastLower = parts[parts.length - 1].toLowerCase().replace(/\.$/,"");
+    const lastLower = parts[parts.length - 1].toLowerCase().replace(/\.$/, "");
     if (SUFFIXES.has(lastLower)) suffix = " " + parts.pop();
 
     let last = parts.pop();
@@ -678,12 +680,12 @@ document.addEventListener("click", async (e) => {
 document.querySelectorAll('#recent-topics tr').forEach(tr => {
   const info = tr.querySelector('.recent-topics-info');
   if (!info) return;
-  const titleA  = info.querySelector('a:nth-of-type(1)');
+  const titleA = info.querySelector('a:nth-of-type(1)');
   const authorA = info.querySelector('a:nth-of-type(2)');
   if (!titleA) return;
 
   // rebuild left cell: title (line 1) + by author (line 2)
-  const titleHTML  = `<span class="rt-title">${titleA.outerHTML}</span>`;
+  const titleHTML = `<span class="rt-title">${titleA.outerHTML}</span>`;
   const authorHTML = authorA ? `<span class="rt-author">${authorA.outerHTML}</span>` : "";
   info.innerHTML = `${titleHTML}<br>${authorHTML}`;
 });
@@ -702,3 +704,37 @@ const bmRecent = document.getElementById('bm-recent');
 if (recentTopics && bmRecent) {
   bmRecent.appendChild(recentTopics);
 }
+
+// GROUP TESTING
+
+(function () {
+  const switcher = document.getElementById('dev-group');
+  if (!switcher) return;
+
+  const GUEST_VALUE = 'guest';
+
+  function applyGroup(val) {
+    // strip all existing g-* classes from body
+    document.body.className = document.body.className
+      .split(' ')
+      .filter(c => !c.startsWith('g-'))
+      .join(' ')
+      .trim();
+
+    if (!val) return;
+
+    document.body.classList.add(`g-${val}`);
+  }
+
+  switcher.addEventListener('change', function () {
+    applyGroup(this.value);
+    sessionStorage.setItem('dev-group', this.value);
+  });
+
+  // restore on page load
+  const saved = sessionStorage.getItem('dev-group');
+  if (saved) {
+    switcher.value = saved;
+    applyGroup(saved);
+  }
+})();

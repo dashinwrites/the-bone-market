@@ -3,26 +3,43 @@
 	<head>
 		<title>the bone market</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<script>
+  (function () {
+    try {
+      const t = localStorage.getItem('theme') ||
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.dataset.theme = t;
+      document.documentElement.style.colorScheme = t;
+    } catch (e) { }
+  })();
+</script>
 <!--Styles-->
 <link rel="stylesheet" href="../../dist/css/styles.css" />
 
 <!--Fonts-->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Inconsolata:wght@200..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Cookie&family=Lavishly+Yours&family=Lugrasimo&display=swap" rel="stylesheet">
+<link
+  href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Inconsolata:wght@200..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+  rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cookie&family=Lavishly+Yours&family=Lugrasimo&display=swap"
+  rel="stylesheet">
 
 <link href="https://files.jcink.net/uploads2/thebonemarket/fonts/ghosthey_Regular.ttf" rel="stylesheet">
 
 
 <!--Icons-->
 <link href="https://dawneggleton.github.io/css/all.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css"
+  href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/thin/style.css" />
+  <link rel="stylesheet" type="text/css"
+  href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
 
 <!--Script Libraries-->
 <script type='text/javascript' src='https://files.jcink.net/html/jquery-1.7.2.min.js'></script>
-<script type='text/javascript' src='https://files.jcink.net/html/jquery.cookie-1.3.1.js'></script> 
-<script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js"></script>
+<script type='text/javascript' src='https://files.jcink.net/html/jquery.cookie-1.3.1.js'></script>
+<script type='text/javascript'
+  src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js"></script>
 <script src="../../dist/js/clipboard.js"></script>
 <script src="../../dist/js/functions.js"></script>
 
@@ -34,122 +51,233 @@
 		<header class="bm-head full-bleed">
   <div class="plate-meta left">Pl. VII</div>
   <div class="plate-info">
-    <p class="plate-info__text">
-Magic is currency, and the black market thrives on blood.
-    </p>
-    <div class="plate-info__label">Staff</div>
+    <div class="plate-info__text">
+      <span class="plate-info__hole" aria-hidden="true"></span>
+      Magic is currency, and the black market thrives on blood.<span class="plate-info__line" aria-hidden="true"></span>
+    </div>
     <div class="plate-info__staff">
-      <img src="https://picsum.photos/100" alt="Staff: A. Curator">
-      <img src="https://picsum.photos/100" alt="Staff: B. Archivist">
-      <img src="https://picsum.photos/100" alt="Staff: C. Chirurgeon">
+      <div class="plate-info__staff-head">Staff</div>
+      <div class="plate-info__entry">
+        <img src="https://picsum.photos/100" alt="A. Curator">
+        <span class="plate-info__name">A. Curator</span>
+      </div>
+      <div class="plate-info__entry">
+        <img src="https://picsum.photos/100" alt="B. Archivist">
+        <span class="plate-info__name">B. Archivist</span>
+      </div>
+      <div class="plate-info__entry">
+        <img src="https://picsum.photos/100" alt="C. Chirurgeon">
+        <span class="plate-info__name">C. Chirurgeon</span>
+      </div>
     </div>
   </div>
   <div class="plate-stack">
-  <div class="plate-center">
-    <!-- <span class="plate-rule" aria-hidden="true"></span> -->
-    <a href="../../public/index.html" class="plate-title">
-      the bone market
-      <em class="plate-sub">mercatus ossium</em>
-    </a>
-    <!-- <span class="plate-rule" aria-hidden="true"></span> -->
-  </div>
+    <div class="plate-center">
+      <!-- <span class="plate-rule" aria-hidden="true"></span> -->
+      <a href="../../public/index.html" class="plate-title">
+        the bone market
+        <em class="plate-sub">mercatus ossium</em>
+      </a>
+      <!-- <span class="plate-rule" aria-hidden="true"></span> -->
+    </div>
 
     <nav class="plate-bridge" aria-label="Quick links">
-  <a href="?act=Pages&kid=guidebook">Guidebook</a>
-  <span class="sep">†</span>
-  <a href="?act=Members&max_results=0">Claims</a>
-  <span class="sep">†</span>
-  <a href="https://discord.gg/yourinvite">Discord</a>
-</nav>
-</div>
+      <a href="?act=Pages&kid=guidebook">Guidebook</a>
+      <span class="sep" aria-hidden="true">❧</span>
+      <a href="?act=Members&max_results=0">Claims</a>
+      <span class="sep" aria-hidden="true">❧</span>
+      <a href="https://discord.gg/yourinvite">Discord</a> <!-- replace with real invite -->
+    </nav>
+  </div>
 
   <div class="plate-meta right">1894</div>
 
-  <figure class="plate-fig" aria-hidden="true">
+  <div class="plate-fig" aria-hidden="true">
     <span class="plate-wrap">
-      <img class="plate-cutout" src="https://files.jcink.net/uploads2/thebonemarket/images/carotid_plate_1_.png" alt="">
+      <img class="plate-cutout" src="https://files.jcink.net/uploads2/thebonemarket/images/carotid_plate_1_.png">
     </span>
-  </figure>
+  </div>
 </header>
+      <nav id="navstrip">
 
-      <nav id="navstrip" align="left">
-  &nbsp; <a href="../../public/index.html">the bone market</a>
-  <a href="/">more words</a>
-  <span class="theme">
-    <button id="theme-toggle" type="button" aria-label="Toggle theme">
-      <i class="fa-solid fa-moon" id="icon-moon" title="Switch to dark mode"></i>
-      <i class="fa-solid fa-sun" id="icon-sun" title="Switch to light mode"></i>
-    </button>
-  </span>
+  <div class="nav-welcome member-only">
+    <a href="/index.php?showuser=<!-- |id| -->" class="nav-welcome__avatar">
+      <img src="https://i.pinimg.com/736x/82/6e/76/826e76b932b901fe47541a7ea29c100c.jpg" alt="<!-- |name| -->">
+    </a>
+    <span class="nav-welcome__text">welcome to the bone market,</span>
+    <a href="/index.php?showuser=<!-- |id| -->" class="nav-welcome__tag">
+      <span class="nav-welcome__hole" aria-hidden="true"></span>
+      aurelian viremont
+    </a>
+  </div>
+
+  <div class="nav-welcome guest-only">
+    <span class="nav-welcome__tag nav-welcome__tag--unknown">
+      <span class="nav-welcome__hole" aria-hidden="true"></span>
+      unidentified specimen
+    </span>
+  </div>
+
+  <div class="nav-utils">
+    <span class="dev-switcher" id="dev-switcher">
+      <label for="dev-group" class="sr-only">Preview group</label>
+      <select id="dev-group">
+        <option value="">— group —</option>
+        <option value="2">Guest</option>
+        <option value="4">Admin</option>
+
+        <optgroup label="──────────────────">
+          <option value="obsidian">Obsidian</option>
+          <option value="quartz">Quartz</option>
+          <option value="onyx">Onyx</option>
+          <option value="amber">Amber</option>
+          <option value="jade">Jade</option>
+          <option value="silver">Silver</option>
+        </optgroup>
+
+        <optgroup label="──────────────────">
+          <option value="marrow">Marrow</option>
+          <option value="sinew">Sinew</option>
+          <option value="blood">Blood</option>
+          <option value="vein">Vein</option>
+          <option value="bone">Bone</option>
+          <option value="flesh">Flesh</option>
+        </optgroup>
+
+        <optgroup label="──────────────────">
+          <option value="eclipse">Eclipse</option>
+          <option value="nova">Nova</option>
+          <option value="comet">Comet</option>
+          <option value="orbit">Orbit</option>
+          <option value="umbra">Umbra</option>
+          <option value="zenith">Zenith</option>
+        </optgroup>
+
+        <optgroup label="──────────────────">
+          <option value="hemlock">Hemlock</option>
+          <option value="nightshade">Nightshade</option>
+          <option value="yew">Yew</option>
+          <option value="ivy">Ivy</option>
+          <option value="rowan">Rowan</option>
+          <option value="thorn">Thorn</option>
+        </optgroup>
+
+        <optgroup label="──────────────────">
+          <option value="ivory">Ivory</option>
+          <option value="velvet">Velvet</option>
+          <option value="spice">Spice</option>
+          <option value="smoke">Smoke</option>
+          <option value="glass">Glass</option>
+          <option value="gold">Gold</option>
+        </optgroup>
+      </select>
+    </span>
+    <span class="theme">
+      <button id="theme-toggle" type="button" aria-label="Toggle theme" data-tooltip="Switch to dark mode">
+        <i class="fa-solid fa-moon" id="icon-moon"></i>
+        <i class="fa-solid fa-sun" id="icon-sun"></i>
+      </button>
+    </span>
+  </div>
 </nav>
 
 <nav id="leftbar">
-  <div class="lb-plate" role="navigation" aria-label="Quick actions">
-    <button id="sidebar-toggle" class="icon" type="button" aria-label="Menu">
-      <i class="fa-solid fa-bars"></i>
+  <div class="lb-plate" aria-label="Quick actions">
+    <button id="sidebar-toggle" class="icon" type="button" aria-label="Menu" data-tooltip="Toggle Menu">
+      <i class="ph ph-list"></i>
     </button>
-    <a href="/" class="icon" aria-current="page">
-      <i class="fa-solid fa-house"></i>
+    <a href="/" class="icon" aria-current="page" data-tooltip="Home">
+      <i class="ph ph-house-line"></i>
     </a>
-    <a href="/" class="icon">
-      <i class="fa-solid fa-book"></i>
+    <a href="/" class="icon" data-tooltip="Guidebook">
+      <i class="ph ph-book"></i>
     </a>
-    <div class="m-<!-- |g_id| -->">
-      <a href="/index.php?showuser=<!-- |id| -->">
-        <i class="fa-solid fa-user"></i>
-      </a>
-      <!-- begin subaccounts -->
-      <a>
-        <i class="fa-solid fa-exchange"></i>
-      </a>
-      <!-- end subaccounts -->
-      <a href="/index.php?act=UserCP">
-        <i class="fa-solid fa-pencil"></i>
-      </a>
-      <a href="/index.php?act=Msg&CODE=01" class="icon--pm" data-count-pm="(<!-- |new_msg| -->)">
-        <i class="fa-solid fa-envelope"></i>
-      </a>
-      <a href="/index.php?act=UserCP&CODE=alerts" class="icon--alerts" data-count-alerts="(<!-- |new_alerts| -->)">
-        <i class="fa-solid fa-bell"></i>
-      </a>
-      <a href="index.php?act=Login&CODE=03&key=<!-- |auth_key| -->">
-        <i class="fa-solid fa-sign-out"></i>
-      </a>
-      <a href="admin.php" target="_blank" class="acp-<!-- |g_access_cp| -->">
-        <i class="fa-solid fa-wrench"></i>
-      </a>
-      <a href="/index.php?act=modcp" class="mcp-<!-- |g_is_supmod| -->">
-        <i class="fa-solid fa-cog"></i>
-      </a>
-    </div>
 
-    <div class="g-<!-- |g_id| -->" style="display: none;">
-      <a href='/index.php?act=Login&CODE=00'>
-        <i class="fa-solid fa-sign-in"></i>
-      </a>
-      <a href='/index.php?act=Reg&CODE=00'>
-        <i class="fa-solid fa-user-plus"></i>
-      </a>
+    <!-- member-only icons -->
+    <a href="/index.php?showuser=<!-- |id| -->" class="icon member-only" data-tooltip="View Profile">
+      <i class="ph ph-user"></i>
+    </a>
+    <a href="/index.php?act=UserCP&CODE=54" class="icon member-only" aria-label="Switch account"
+      data-tooltip="Switch Account">
+      <i class="ph ph-arrows-left-right"></i>
+    </a>
+    <a href="/index.php?act=UserCP" class="icon member-only" data-tooltip="Edit Profile">
+      <i class="ph ph-feather"></i>
+    </a>
+    <a href="/index.php?act=Msg&CODE=01" class="icon member-only icon--pm" data-tooltip="Messages">
+      <i class="ph ph-envelope"></i>
+    </a>
+    <a href="/index.php?act=UserCP&CODE=alerts" class="icon member-only icon--alerts" data-tooltip="Alerts">
+      <i class="ph ph-bell"></i>
+    </a>
+    <a href="index.php?act=Login&CODE=03&key=<!-- |auth_key| -->" class="icon member-only" data-tooltip="Log Out">
+      <i class="ph ph-prohibit-inset"></i>
+    </a>
 
-    </div>
+    <!-- admin-only icons -->
+    <a href="admin.php" target="_blank" class="icon admin-only" data-tooltip="Admin CP">
+      <i class="ph ph-vault"></i>
+    </a>
+    <a href="/index.php?act=modcp" class="icon admin-only" data-tooltip="Mod CP">
+      <i class="ph ph-gavel"></i>
+    </a>
+
+    <!-- guest-only icons -->
+    <a href='/index.php?act=Login&CODE=00' class="icon guest-only" data-tooltip="Log In">
+      <i class="ph ph-fingerprint-simple"></i>
+    </a>
+    <a href='/index.php?act=Reg&CODE=00' class="icon guest-only" data-tooltip="Register">
+      <i class="ph ph-signature"></i>
+    </a>
+  </div>
+  <div class="lb-breadcrumb">
+    <a href="../../public/index.html">the bone market</a>
+    <span class="lb-breadcrumb__sep" aria-hidden="true">†</span>
+    <span class="lb-breadcrumb__current">breadcrumbin'</span>
   </div>
 </nav>
 
 <aside id="sidebar" hidden>
-  <!-- put whatever you want here: quick links, staff, search, etc. -->
   <button class="sidebar-close" type="button" aria-label="Close sidebar">
     <i class="fa-solid fa-xmark"></i>
   </button>
-  <nav class="sidebar-nav">
-    <a href="/">Home</a>
-    <a href="/forums">Forums</a>
-    <a href="/members">Members</a>
-  </nav>
+
+  <div class="sidebar-section">
+    <div class="sidebar-head">Navigate</div>
+    <nav class="sidebar-nav">
+      <a href="/">Home</a>
+      <a href="/">Forums</a>
+      <a href="/">Members</a>
+      <a href="/">Guidebook</a>
+    </nav>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-head">Community</div>
+    <nav class="sidebar-nav">
+      <a href="https://discord.gg/yourinvite">Discord</a>
+      <a href="/">Advertise</a>
+      <!-- UCP custom links dropped in here -->
+    </nav>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-head">Account</div>
+    <nav class="sidebar-nav">
+      <a href="/index.php?showuser=<!-- |id| -->" class="member-only">Profile</a>
+      <a href="/index.php?act=UserCP" class="member-only">Control Panel</a>
+      <a href="/index.php?act=Msg&CODE=01" class="member-only">Messages</a>
+      <a href="index.php?act=Login&CODE=03&key=<!-- |auth_key| -->" class="member-only">Log Out</a>
+      <a href="admin.php" class="admin-only">Admin Panel</a>
+      <a href="/index.php?act=modcp" class="admin-only">Mod Panel</a>
+      <a href='/index.php?act=Login&CODE=00' class="guest-only">Log In</a>
+      <a href='/index.php?act=Reg&CODE=00' class="guest-only">Register</a>
+    </nav>
+  </div>
 </aside>
 
 <!-- backdrop for click-to-close (insert once, anywhere near the end of body) -->
 <div id="sidebar-scrim" hidden></div>
-
 
         <!--Main Body-->
         <main class="mainBox">				

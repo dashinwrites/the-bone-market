@@ -866,3 +866,89 @@ $gradients-all: map-merge(
     height: var(--thumb-size);
   }
 }
+
+// ── GROUP ACCENT OVERRIDES ───────────────────
+// Must come AFTER [data-theme] blocks in the cascade
+
+@mixin mg-accents($map) {
+  @each $name, $values in $map {
+    $start: map-get($values, start);
+    $end: map-get($values, end);
+
+    :is([data-theme="light"], [data-theme="dark"]) body.g-#{$name},
+    body.g-#{$name} {
+      --accent-1: #{$end};
+      --accent-2: #{$start};
+      --accent-3: color-mix(in oklch, #{$start} 55%, #{$end});
+
+      // explicitly re-declare guidebook tokens so they
+      // resolve in the correct scope
+      --bm-guide-accent: #{$end};
+      --bm-guide-accent-soft: color-mix(in oklch, #{$end} 25%, transparent);
+      --bm-guide-border: color-mix(in oklch, #{$end} 35%, transparent);
+      --bm-guide-border-soft: color-mix(in oklch, #{$end} 18%, transparent);
+    }
+  }
+}
+
+@include mg-accents($gradients-precious);
+@include mg-accents($gradients-anatomy);
+@include mg-accents($gradients-celestial);
+@include mg-accents($gradients-flora);
+@include mg-accents($gradients-trade);
+
+// ── EDGE CASE OVERRIDES ──────────────────────
+:is([data-theme="light"], [data-theme="dark"]) body.g-obsidian,
+body.g-obsidian {
+  --accent-1: rgb(140, 140, 148);
+  --accent-2: rgb(90, 90, 96);
+  --accent-3: rgb(60, 60, 64);
+  --bm-guide-accent: rgb(140, 140, 148);
+  --bm-guide-accent-soft: color-mix(in oklch, rgb(140, 140, 148) 25%, transparent);
+  --bm-guide-border: color-mix(in oklch, rgb(140, 140, 148) 35%, transparent);
+  --bm-guide-border-soft: color-mix(in oklch, rgb(140, 140, 148) 18%, transparent);
+}
+
+:is([data-theme="light"], [data-theme="dark"]) body.g-ivory,
+body.g-ivory {
+  --accent-1: rgb(180, 160, 120);
+  --accent-2: rgb(150, 130, 95);
+  --accent-3: rgb(120, 105, 78);
+  --bm-guide-accent: rgb(180, 160, 120);
+  --bm-guide-accent-soft: color-mix(in oklch, rgb(180, 160, 120) 25%, transparent);
+  --bm-guide-border: color-mix(in oklch, rgb(180, 160, 120) 35%, transparent);
+  --bm-guide-border-soft: color-mix(in oklch, rgb(180, 160, 120) 18%, transparent);
+}
+
+// :is([data-theme="light"], [data-theme="dark"]) body.g-quartz,
+// body.g-quartz {
+//   --accent-1: rgb(160, 148, 220);
+//   --accent-2: rgb(130, 160, 210);
+//   --accent-3: rgb(110, 100, 180);
+//   --bm-guide-accent: rgb(160, 148, 220);
+//   --bm-guide-accent-soft: color-mix(in oklch, rgb(160, 148, 220) 25%, transparent);
+//   --bm-guide-border: color-mix(in oklch, rgb(160, 148, 220) 35%, transparent);
+//   --bm-guide-border-soft: color-mix(in oklch, rgb(160, 148, 220) 18%, transparent);
+// }
+
+:is([data-theme="light"], [data-theme="dark"]) body.g-bone,
+body.g-bone {
+  --accent-1: rgb(140, 130, 100);
+  --accent-2: rgb(170, 160, 132);
+  --accent-3: rgb(110, 100, 78);
+  --bm-guide-accent: rgb(140, 130, 100);
+  --bm-guide-accent-soft: color-mix(in oklch, rgb(140, 130, 100) 25%, transparent);
+  --bm-guide-border: color-mix(in oklch, rgb(140, 130, 100) 35%, transparent);
+  --bm-guide-border-soft: color-mix(in oklch, rgb(140, 130, 100) 18%, transparent);
+}
+
+:is([data-theme="light"], [data-theme="dark"]) body.g-marrow,
+body.g-marrow {
+  --accent-1: rgb(160, 140, 120);
+  --accent-2: rgb(187, 169, 152);
+  --accent-3: rgb(130, 112, 96);
+  --bm-guide-accent: rgb(160, 140, 120);
+  --bm-guide-accent-soft: color-mix(in oklch, rgb(160, 140, 120) 25%, transparent);
+  --bm-guide-border: color-mix(in oklch, rgb(160, 140, 120) 35%, transparent);
+  --bm-guide-border-soft: color-mix(in oklch, rgb(160, 140, 120) 18%, transparent);
+}
