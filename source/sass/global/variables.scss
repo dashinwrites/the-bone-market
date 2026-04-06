@@ -25,9 +25,9 @@
   /* ================================
      Motion
   ================================= */
-  --transi-quick: all .3s ease-in-out;
-  --transi-med:   all .6s ease-in-out;
-  --transi-slow:  all 2s ease-in-out;
+  --transi-quick: all 0.3s ease-in-out;
+  --transi-med: all 0.6s ease-in-out;
+  --transi-slow: all 2s ease-in-out;
 
   /* ================================
      Layout
@@ -66,7 +66,7 @@
   --z-nav: 100;
   --z-leftbar: var(--z-nav);
   --z-sidebar: calc(var(--z-leftbar) - 1);
-  --z-scrim:   calc(var(--z-leftbar) - 2);
+  --z-scrim: calc(var(--z-leftbar) - 2);
   --z-overlay: 400;
   --z-modal: 1000;
 
@@ -75,15 +75,6 @@
   ================================= */
   --bg-img: url(https://files.jcink.net/uploads2/thebonemarket/images/jr_korpa_mDvtYjZR8QI_unsplash.jpg);
   --bg-texture: url(https://files.jcink.net/uploads2/thebonemarket/images/parchment_bg.jpg);
-  --bg-blend: multiply; /* overridden per-theme */
-
-  /* ================================
-     Neutral text colors (legacy)
-  ================================= */
-  --text-bg:     oklch(0.7412 0 0);
-  --text-bright: oklch(0.9491 0 0);
-  --text-dark:   oklch(0.3211 0 0);
-  --text-med:    oklch(0.5999 0 0);
 
   /* ================================
      Borders
@@ -98,144 +89,239 @@
   /* ================================
      Plate surface tokens
   ================================= */
-  --plate-bg: var(--bg-2);
-  --plate-text: var(--text-hiCon);
   --plate-border: var(--border-1);
-  --plate-shadow: 0 1px 0 oklch(0 0 0 / .08), 0 2px 6px oklch(0 0 0 / .06);
-  --plate-hover-shadow: 0 2px 6px oklch(0 0 0 / .18);
-
-  /* ================================
-     Link tones
-  ================================= */
-  --link: var(--text-medCon);
-  --link-sep: var(--text-loCon);
+  --plate-hover-shadow: 0 2px 6px oklch(0 0 0 / 0.18);
 
   /* ================================
      Headings & content knobs
   ================================= */
-  --h-underline-w: 42%;                /* recommend: 30%–60% */
-  --h-underline-alpha: .30;
+  --h-underline-w: 42%; /* recommend: 30%–60% */
+  --h-underline-alpha: 0.3;
   --content-max: 75vw;
   --profile-vpad: 12px;
   --text-muted: color-mix(in oklch, var(--text-loCon) 25%, transparent);
 
   /* Blockquote styling */
-  --bq-pad: .9rem 1rem;
+  --bq-pad: 0.9rem 1rem;
   --bq-radius: 8px;
   --bq-accent: var(--accent-1);
   --bq-dash: var(--bdash);
   --bq-muted: color-mix(in oklch, var(--text-loCon) 20%, transparent);
   --bq-border: 1px solid color-mix(in oklch, var(--text-loCon) 12%, transparent);
-  --bq-shadow: 0 10px 30px oklch(0 0 0 / .08);
+  --bq-shadow: 0 10px 30px oklch(0 0 0 / 0.08);
 
-  /* Misc */
-  --mg-blend: multiply;
+  --bm-guide-gap: 20px;
+  --bm-guide-radius: 12px;
 }
 
-/* ================================
-   Category plate-side
-================================ */
 .category--plate-side {
   --cat-head-h: 8rem;
   --cameo-scale: 1.6;
 }
 
-/* ================================
-   BM Profile
-================================ */
 .bm-profile {
   --portrait-max-h: 100%;
   --portrait-aspect: 3/4;
   --portrait-offset: clamp(12px, 3vw, 24px);
   --portrait-max-w: clamp(0px, 38vw, 520px);
-  --cover-bg-opacity: .65;
+  --cover-bg-opacity: 0.65;
   --cover-bg-blend: multiply;
   --overlay-top: clamp(12px, 3vh, 48px);
   --overlay-left: clamp(12px, 4vw, 32px);
 }
 
-/* ================================
-   Guidebook
-================================ */
-.bm-guidebook {
-  --bm-guide-bg: var(--bg--secondary);
-  --bm-guide-bg-soft: var(--bg--tertiary);
-  --bm-guide-text: var(--text);
-  --bm-guide-border: rgba(255, 255, 255, 0.12);
-  --bm-guide-border-soft: rgba(255, 255, 255, 0.08);
-  --bm-guide-rule: rgba(255, 255, 255, 0.14);
-  --bm-guide-accent: var(--accent, #b89a6a);
-  --bm-guide-accent-soft: rgba(184, 154, 106, 0.18);
-  --bm-guide-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
-  --bm-guide-radius: 18px;
-  --bm-guide-gap: 24px;
-
-/* backdrop overlay */
-  --bm-guide-overlay-strong: oklch(0 0 0 / 0.18);
-  --bm-guide-overlay-soft:   oklch(0 0 0 / 0.08);
-
-  /* panel surface */
-  --bm-guide-panel-bg: oklch(0.165 0.0017 17.33 / 0.72); /* based on --bg-4 */
-  --bm-guide-panel-sheen: linear-gradient(
-    to bottom,
-    oklch(1 0 0 / 0.02),
-    transparent 60%
-  );
-}
-
-/* ================================
-   Light theme
-================================ */
 [data-theme="light"] {
   --accent-1: oklch(0.3945 0.1278 15.22);
   --accent-2: oklch(0.5961 0.0424 75.85);
   --accent-3: oklch(0.3532 0.0108 56.01);
-  --warn:     oklch(0.6113 0.1836 24.35);
+  --warn: oklch(0.6113 0.1836 24.35);
 
   --bg-1: oklch(0.9508 0.0119 79.78);
   --bg-1-rgb: oklch(0.9508 0.0119 79.78 / 0.75);
   --bg-2: oklch(0.9222 0.0171 76.11);
-  --bg-3: oklch(0.8590 0.0209 74.64);
+  --bg-3: oklch(0.859 0.0209 74.64);
   --bg-4: oklch(0.7688 0.0192 70.18);
-  --bg-grad: linear-gradient(oklch(0 0 0 / .56), oklch(0 0 0 / .56));
+  --bg-grad: linear-gradient(oklch(0 0 0 / 0.56), oklch(0 0 0 / 0.56));
   --bg-blend: screen;
 
-  --text-hiCon: oklch(0.2350 0 0);
+  --mg-blend: screen;
+
+  --text-hiCon: oklch(0.235 0 0);
   --text-medCon: oklch(0.3356 0.0089 67.52);
-  --text-loCon: oklch(0.4907 0.0210 59.14);
+  --text-loCon: oklch(0.4907 0.021 59.14);
   --text-clear: oklch(0.2197 0.0037 48.55);
 
-  --plate-bg: linear-gradient(oklch(0 0 0 / 0.03), oklch(0 0 0 / 0.06)), var(--bg-2);
+  --plate-bg:
+    linear-gradient(oklch(0 0 0 / 0.03), oklch(0 0 0 / 0.06)), var(--bg-2);
+  --plate-shadow: 0 1px 0 oklch(0 0 0 / 0.06), 0 2px 6px oklch(0 0 0 / 0.08);
   --plate-text: var(--text-hiCon);
   --link: var(--text-medCon);
   --link-sep: var(--text-loCon);
+
+  // ── GUIDEBOOK ───────────────────────────
+  --bm-guide-text: var(--text-hiCon);
+  --bm-guide-text-stroke: rgba(255, 255, 255, 0.25);
+
+  // borders & rules
+  --bm-guide-border: oklch(0.3532 0.0108 56.01 / 0.35);
+  --bm-guide-border-soft: oklch(0.3532 0.0108 56.01 / 0.18);
+  --bm-guide-rule: oklch(0.3532 0.0108 56.01 / 0.14);
+
+  // backgrounds
+  --bm-guide-bg-soft: oklch(0.9222 0.0171 76.11 / 0.6);
+  --bm-guide-panel-bg: oklch(0.9508 0.0119 79.78);
+  --bm-guide-panel-sheen: linear-gradient(
+    135deg,
+    oklch(1 0 0 / 0.4) 0%,
+    transparent 60%
+  );
+
+  // overlays
+  --bm-guide-overlay-strong: oklch(0 0 0 / 0.04);
+  --bm-guide-overlay-soft: oklch(0 0 0 / 0.02);
+
+  // shadow
+  --bm-guide-shadow:
+    0 2px 12px oklch(0 0 0 / 0.08), 0 1px 3px oklch(0 0 0 / 0.06);
+
+  // accent — maps to your site accent
+  --bm-guide-accent: var(--accent-1);
+  --bm-guide-accent-soft: oklch(0.3945 0.1278 15.22 / 0.25);
+
+  // taxonomy block vars
+  --tax-accent: var(--accent-1);
+  --tax-text: var(--text-hiCon);
+  --tax-soft: var(--text-medCon);
+  --tax-dim: var(--text-loCon);
+
+  --bm-mg-row-opacity: 0.12;
+  --bm-mg-row-opacity-overlay: 0.14;
+
+  // these groups have gradients too light to read as text on light bg
+  // darken them by shifting to the darker endpoint only
+  [data-mg="quartz"] {
+    --mg-gradient: linear-gradient(
+      135deg,
+      rgb(160, 180, 210),
+      rgb(140, 120, 200)
+    );
+    --mg-start: rgb(160, 180, 210);
+    --mg-end: rgb(140, 120, 200);
+  }
+  [data-mg="silver"] {
+    --mg-gradient: linear-gradient(
+      135deg,
+      rgb(100, 120, 140),
+      rgb(70, 90, 110)
+    );
+  }
+  [data-mg="ivory"] {
+    --mg-gradient: linear-gradient(
+      135deg,
+      rgb(180, 140, 80),
+      rgb(140, 110, 60)
+    );
+  }
+  [data-mg="bone"] {
+    --mg-gradient: linear-gradient(
+      135deg,
+      rgb(140, 130, 100),
+      rgb(110, 100, 75)
+    );
+  }
+  [data-mg="glass"] {
+    --mg-gradient: linear-gradient(
+      135deg,
+      rgb(100, 160, 150),
+      rgb(70, 130, 120)
+    );
+  }
+  [data-mg="marrow"] {
+    --mg-gradient: linear-gradient(135deg, rgb(160, 120, 90), rgb(130, 90, 70));
+  }
+  [data-mg="zenith"] {
+    --mg-gradient: linear-gradient(
+      135deg,
+      rgb(160, 130, 30),
+      rgb(140, 110, 20)
+    );
+  }
+  [data-mg="comet"] {
+    --mg-gradient: linear-gradient(
+      135deg,
+      rgb(50, 100, 170),
+      rgb(100, 150, 210)
+    );
+  }
 }
 
-/* ================================
-   Dark theme
-================================ */
 [data-theme="dark"] {
   --accent-1: oklch(0.5686 0.1641 14.49);
   --accent-2: oklch(0.5961 0.0424 75.85);
   --accent-3: oklch(0.4501 0.0401 27.66);
-  --warn:     oklch(0.6113 0.1836 24.35);
+  --warn: oklch(0.6113 0.1836 24.35);
 
-  --bg-1: oklch(0.2228 0.0025 67.70);
-  --bg-1-rgb: oklch(0.2228 0.0025 67.70 / 0.75);
+  --bg-1: oklch(0.2228 0.0025 67.7);
+  --bg-1-rgb: oklch(0.2228 0.0025 67.7 / 0.75);
   --bg-2: oklch(0.1965 0.0026 67.68);
-  --bg-3: oklch(0.2492 0.0048 67.60);
-  --bg-4: oklch(0.1650 0.0017 17.33);
-  --bg-grad: linear-gradient(oklch(0.1965 0.0026 67.68 / .80), oklch(0.1965 0.0026 67.68 / .94));
+  --bg-3: oklch(0.2492 0.0048 67.6);
+  --bg-4: oklch(0.165 0.0017 17.33);
+  --bg-grad: linear-gradient(
+    oklch(0.1965 0.0026 67.68 / 0.8),
+    oklch(0.1965 0.0026 67.68 / 0.94)
+  );
   --bg-blend: multiply;
 
+  --mg-blend: multiply;
+
   --text-hiCon: oklch(0.9302 0.0137 78.26);
-  --text-medCon: oklch(0.8100 0.0179 67.57);
-  --text-loCon: oklch(0.6600 0.0196 64.79);
+  --text-medCon: oklch(0.81 0.0179 67.57);
+  --text-loCon: oklch(0.66 0.0196 64.79);
   --text-clear: oklch(0.9543 0.0136 78.26);
 
   --plate-bg: var(--bg-grad), var(--bg-2);
   --plate-text: var(--text-clear);
-  --plate-shadow: 0 1px 0 oklch(0 0 0 / .25), inset 0 0 0 999px oklch(1 0 0 / 0);
+  --plate-shadow:
+    0 1px 0 oklch(0 0 0 / 0.25), inset 0 0 0 999px oklch(1 0 0 / 0);
   --link: var(--text-loCon);
   --link-sep: var(--text-medCon);
+
+  // ── GUIDEBOOK ───────────────────────────
+  --bm-guide-text: var(--text-hiCon);
+  --bm-guide-text-stroke: rgba(0, 0, 0, 0.15);
+
+  // borders & rules
+  --bm-guide-border: oklch(1 0 0 / 0.12);
+  --bm-guide-border-soft: oklch(1 0 0 / 0.06);
+  --bm-guide-rule: oklch(1 0 0 / 0.08);
+
+  // backgrounds
+  --bm-guide-bg-soft: oklch(1 0 0 / 0.03);
+  --bm-guide-panel-bg: oklch(0.1965 0.0026 67.68);
+  --bm-guide-panel-sheen: linear-gradient(
+    135deg,
+    oklch(1 0 0 / 0.03) 0%,
+    transparent 60%
+  );
+
+  // overlays
+  --bm-guide-overlay-strong: oklch(0.1965 0.0026 67.68 / 0.9);
+  --bm-guide-overlay-soft: oklch(0.1965 0.0026 67.68 / 0.4);
+
+  // shadow
+  --bm-guide-shadow:
+    0 2px 12px oklch(0 0 0 / 0.3), 0 1px 3px oklch(0 0 0 / 0.2);
+
+  // accent — maps to your site accent
+  --bm-guide-accent: var(--accent-1);
+  --bm-guide-accent-soft: oklch(0.5686 0.1641 14.49 / 0.25);
+
+  // taxonomy block vars
+  --tax-accent: oklch(0.78 0.13 75);
+  --tax-text: oklch(0.95 0.018 75);
+  --tax-soft: oklch(0.8 0.02 70);
+  --tax-dim: oklch(0.66 0.02 65);
+
+  --bm-mg-row-opacity: 0.18;
+  --bm-mg-row-opacity-overlay: 0.2;
 }

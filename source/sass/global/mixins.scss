@@ -495,3 +495,9 @@ $size-xxl: 1900px !default;
   }
 }
 
+@mixin bm-guidebook-surface {
+  position: relative;
+  min-width: 0;
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.018);
+}

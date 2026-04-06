@@ -14,273 +14,345 @@
 /* Emit --mg-gradient via [data-mg="..."] */
 /* Call it for each set (or just once with $gradients-all) */
 [data-mg="obsidian"] {
-  --mg-gradient: linear-gradient(135deg, #0b0b0c, #3a3a3d); }
+  --mg-gradient: linear-gradient(135deg, #0b0b0c, #3a3a3d);
+  --mg-start: #0b0b0c;
+  --mg-end: #3a3a3d; }
 
 [data-mg="quartz"] {
-  --mg-gradient: linear-gradient(135deg, #d8efff, #cabfff); }
+  --mg-gradient: linear-gradient(135deg, #d8efff, #cabfff);
+  --mg-start: #d8efff;
+  --mg-end: #cabfff; }
 
 [data-mg="onyx"] {
-  --mg-gradient: linear-gradient(135deg, #161210, #4a3834); }
+  --mg-gradient: linear-gradient(135deg, #161210, #4a3834);
+  --mg-start: #161210;
+  --mg-end: #4a3834; }
 
 [data-mg="amber"] {
-  --mg-gradient: linear-gradient(135deg, #ffb347, #ffcc33); }
+  --mg-gradient: linear-gradient(135deg, #ffb347, #ffcc33);
+  --mg-start: #ffb347;
+  --mg-end: #ffcc33; }
 
 [data-mg="jade"] {
-  --mg-gradient: linear-gradient(135deg, #3fa374, #a1d19d); }
+  --mg-gradient: linear-gradient(135deg, #3fa374, #a1d19d);
+  --mg-start: #3fa374;
+  --mg-end: #a1d19d; }
 
 [data-mg="silver"] {
-  --mg-gradient: linear-gradient(135deg, #b0c4d2, #7890a0); }
+  --mg-gradient: linear-gradient(135deg, #b0c4d2, #7890a0);
+  --mg-start: #b0c4d2;
+  --mg-end: #7890a0; }
 
 [data-mg="marrow"] {
-  --mg-gradient: linear-gradient(135deg, #f1e6dc, #bba998); }
+  --mg-gradient: linear-gradient(135deg, #f1e6dc, #bba998);
+  --mg-start: #f1e6dc;
+  --mg-end: #bba998; }
 
 [data-mg="sinew"] {
-  --mg-gradient: linear-gradient(135deg, #d5a981, #8c5b3c); }
+  --mg-gradient: linear-gradient(135deg, #d5a981, #8c5b3c);
+  --mg-start: #d5a981;
+  --mg-end: #8c5b3c; }
 
 [data-mg="blood"] {
-  --mg-gradient: linear-gradient(135deg, #7a0d1d, #d92b2b); }
+  --mg-gradient: linear-gradient(135deg, #7a0d1d, #d92b2b);
+  --mg-start: #7a0d1d;
+  --mg-end: #d92b2b; }
 
 [data-mg="vein"] {
-  --mg-gradient: linear-gradient(135deg, #21334d, #486b94); }
+  --mg-gradient: linear-gradient(135deg, #21334d, #486b94);
+  --mg-start: #21334d;
+  --mg-end: #486b94; }
 
 [data-mg="bone"] {
-  --mg-gradient: linear-gradient(135deg, #dedac8, #aaa084); }
+  --mg-gradient: linear-gradient(135deg, #dedac8, #aaa084);
+  --mg-start: #dedac8;
+  --mg-end: #aaa084; }
 
 [data-mg="flesh"] {
-  --mg-gradient: linear-gradient(135deg, #f5c3b5, #d98f80); }
+  --mg-gradient: linear-gradient(135deg, #f5c3b5, #d98f80);
+  --mg-start: #f5c3b5;
+  --mg-end: #d98f80; }
 
 [data-mg="eclipse"] {
-  --mg-gradient: linear-gradient(135deg, #191919, #4a3b5e); }
+  --mg-gradient: linear-gradient(135deg, #191919, #4a3b5e);
+  --mg-start: #191919;
+  --mg-end: #4a3b5e; }
 
 [data-mg="nova"] {
-  --mg-gradient: linear-gradient(135deg, #ff8a00, #ff3d00); }
+  --mg-gradient: linear-gradient(135deg, #ff8a00, #ff3d00);
+  --mg-start: #ff8a00;
+  --mg-end: #ff3d00; }
 
 [data-mg="comet"] {
-  --mg-gradient: linear-gradient(135deg, #4b8fd2, #c5dfff); }
+  --mg-gradient: linear-gradient(135deg, #4b8fd2, #c5dfff);
+  --mg-start: #4b8fd2;
+  --mg-end: #c5dfff; }
 
 [data-mg="orbit"] {
-  --mg-gradient: linear-gradient(135deg, #365a64, #78aab4); }
+  --mg-gradient: linear-gradient(135deg, #365a64, #78aab4);
+  --mg-start: #365a64;
+  --mg-end: #78aab4; }
 
 [data-mg="umbra"] {
-  --mg-gradient: linear-gradient(135deg, #081020, #204070); }
+  --mg-gradient: linear-gradient(135deg, #081020, #204070);
+  --mg-start: #081020;
+  --mg-end: #204070; }
 
 [data-mg="zenith"] {
-  --mg-gradient: linear-gradient(135deg, #f6e58d, #f9ca24); }
+  --mg-gradient: linear-gradient(135deg, #f6e58d, #f9ca24);
+  --mg-start: #f6e58d;
+  --mg-end: #f9ca24; }
 
 [data-mg="hemlock"] {
-  --mg-gradient: linear-gradient(135deg, #1c3b32, #3d6656); }
+  --mg-gradient: linear-gradient(135deg, #1c3b32, #3d6656);
+  --mg-start: #1c3b32;
+  --mg-end: #3d6656; }
 
 [data-mg="nightshade"] {
-  --mg-gradient: linear-gradient(135deg, #3b1a4a, #713b86); }
+  --mg-gradient: linear-gradient(135deg, #3b1a4a, #713b86);
+  --mg-start: #3b1a4a;
+  --mg-end: #713b86; }
 
 [data-mg="yew"] {
-  --mg-gradient: linear-gradient(135deg, #103449, #2e688a); }
+  --mg-gradient: linear-gradient(135deg, #103449, #2e688a);
+  --mg-start: #103449;
+  --mg-end: #2e688a; }
 
 [data-mg="ivy"] {
-  --mg-gradient: linear-gradient(135deg, #264d35, #6ca97f); }
+  --mg-gradient: linear-gradient(135deg, #264d35, #6ca97f);
+  --mg-start: #264d35;
+  --mg-end: #6ca97f; }
 
 [data-mg="rowan"] {
-  --mg-gradient: linear-gradient(135deg, #803116, #b05e34); }
+  --mg-gradient: linear-gradient(135deg, #803116, #b05e34);
+  --mg-start: #803116;
+  --mg-end: #b05e34; }
 
 [data-mg="thorn"] {
-  --mg-gradient: linear-gradient(135deg, #783838, #a86060); }
+  --mg-gradient: linear-gradient(135deg, #783838, #a86060);
+  --mg-start: #783838;
+  --mg-end: #a86060; }
 
 [data-mg="ivory"] {
-  --mg-gradient: linear-gradient(135deg, #fff8ee, #d9cbb0); }
+  --mg-gradient: linear-gradient(135deg, #fff8ee, #d9cbb0);
+  --mg-start: #fff8ee;
+  --mg-end: #d9cbb0; }
 
 [data-mg="velvet"] {
-  --mg-gradient: linear-gradient(135deg, #4c1526, #8c224e); }
+  --mg-gradient: linear-gradient(135deg, #4c1526, #8c224e);
+  --mg-start: #4c1526;
+  --mg-end: #8c224e; }
 
 [data-mg="spice"] {
-  --mg-gradient: linear-gradient(135deg, #ba6c2b, #db9340); }
+  --mg-gradient: linear-gradient(135deg, #ba6c2b, #db9340);
+  --mg-start: #ba6c2b;
+  --mg-end: #db9340; }
 
 [data-mg="smoke"] {
-  --mg-gradient: linear-gradient(135deg, #3c3634, #aaa096); }
+  --mg-gradient: linear-gradient(135deg, #3c3634, #aaa096);
+  --mg-start: #3c3634;
+  --mg-end: #aaa096; }
 
 [data-mg="glass"] {
-  --mg-gradient: linear-gradient(135deg, #d0ece5, #a0d2c4); }
+  --mg-gradient: linear-gradient(135deg, #d0ece5, #a0d2c4);
+  --mg-start: #d0ece5;
+  --mg-end: #a0d2c4; }
 
 [data-mg="gold"] {
-  --mg-gradient: linear-gradient(135deg, #d4af37, #f5d76e); }
+  --mg-gradient: linear-gradient(135deg, #d4af37, #f5d76e);
+  --mg-start: #d4af37;
+  --mg-end: #f5d76e; }
 
 /* or: @include mg-emit-data-vars($gradients-all); */
 /* ── 4) CALLS — generate per-set or all at once ─ */
 .g--obsidian {
-  --mg-gradient: linear-gradient(135deg, #0b0b0c, #3a3a3d); }
+  --mg-gradient: linear-gradient(135deg, #0b0b0c, #3a3a3d);
+  --mg-start: #0b0b0c;
+  --mg-end: #3a3a3d; }
 
 .g--quartz {
-  --mg-gradient: linear-gradient(135deg, #d8efff, #cabfff); }
+  --mg-gradient: linear-gradient(135deg, #d8efff, #cabfff);
+  --mg-start: #d8efff;
+  --mg-end: #cabfff; }
 
 .g--onyx {
-  --mg-gradient: linear-gradient(135deg, #161210, #4a3834); }
+  --mg-gradient: linear-gradient(135deg, #161210, #4a3834);
+  --mg-start: #161210;
+  --mg-end: #4a3834; }
 
 .g--amber {
-  --mg-gradient: linear-gradient(135deg, #ffb347, #ffcc33); }
+  --mg-gradient: linear-gradient(135deg, #ffb347, #ffcc33);
+  --mg-start: #ffb347;
+  --mg-end: #ffcc33; }
 
 .g--jade {
-  --mg-gradient: linear-gradient(135deg, #3fa374, #a1d19d); }
+  --mg-gradient: linear-gradient(135deg, #3fa374, #a1d19d);
+  --mg-start: #3fa374;
+  --mg-end: #a1d19d; }
 
 .g--silver {
-  --mg-gradient: linear-gradient(135deg, #b0c4d2, #7890a0); }
+  --mg-gradient: linear-gradient(135deg, #b0c4d2, #7890a0);
+  --mg-start: #b0c4d2;
+  --mg-end: #7890a0; }
 
 .g--obsidian.is-pill {
-  --mg-gradient: linear-gradient(135deg, #0b0b0c, #3a3a3d);
+  --mg-gradient: (start: #0b0b0c, end: #3a3a3d, gradient: linear-gradient(135deg, #0b0b0c, #3a3a3d));
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
   /* If your theme is dark, force white text: */
   border-radius: 5px;
-  padding: 0 .25rem;
+  padding: 0 0.25rem;
   display: inline-flex;
   align-items: center;
-  gap: .4rem;
+  gap: 0.4rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
   .g--obsidian.is-pill.on-dark {
     color: whitesmoke; }
 
 .g--quartz.is-pill {
-  --mg-gradient: linear-gradient(135deg, #d8efff, #cabfff);
+  --mg-gradient: (start: #d8efff, end: #cabfff, gradient: linear-gradient(135deg, #d8efff, #cabfff));
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
   /* If your theme is dark, force white text: */
   border-radius: 5px;
-  padding: 0 .25rem;
+  padding: 0 0.25rem;
   display: inline-flex;
   align-items: center;
-  gap: .4rem;
+  gap: 0.4rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
   .g--quartz.is-pill.on-dark {
     color: whitesmoke; }
 
 .g--onyx.is-pill {
-  --mg-gradient: linear-gradient(135deg, #161210, #4a3834);
+  --mg-gradient: (start: #161210, end: #4a3834, gradient: linear-gradient(135deg, #161210, #4a3834));
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
   /* If your theme is dark, force white text: */
   border-radius: 5px;
-  padding: 0 .25rem;
+  padding: 0 0.25rem;
   display: inline-flex;
   align-items: center;
-  gap: .4rem;
+  gap: 0.4rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
   .g--onyx.is-pill.on-dark {
     color: whitesmoke; }
 
 .g--amber.is-pill {
-  --mg-gradient: linear-gradient(135deg, #ffb347, #ffcc33);
+  --mg-gradient: (start: #ffb347, end: #ffcc33, gradient: linear-gradient(135deg, #ffb347, #ffcc33));
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
   /* If your theme is dark, force white text: */
   border-radius: 5px;
-  padding: 0 .25rem;
+  padding: 0 0.25rem;
   display: inline-flex;
   align-items: center;
-  gap: .4rem;
+  gap: 0.4rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
   .g--amber.is-pill.on-dark {
     color: whitesmoke; }
 
 .g--jade.is-pill {
-  --mg-gradient: linear-gradient(135deg, #3fa374, #a1d19d);
+  --mg-gradient: (start: #3fa374, end: #a1d19d, gradient: linear-gradient(135deg, #3fa374, #a1d19d));
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
   /* If your theme is dark, force white text: */
   border-radius: 5px;
-  padding: 0 .25rem;
+  padding: 0 0.25rem;
   display: inline-flex;
   align-items: center;
-  gap: .4rem;
+  gap: 0.4rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
   .g--jade.is-pill.on-dark {
     color: whitesmoke; }
 
 .g--silver.is-pill {
-  --mg-gradient: linear-gradient(135deg, #b0c4d2, #7890a0);
+  --mg-gradient: (start: #b0c4d2, end: #7890a0, gradient: linear-gradient(135deg, #b0c4d2, #7890a0));
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
   /* If your theme is dark, force white text: */
   border-radius: 5px;
-  padding: 0 .25rem;
+  padding: 0 0.25rem;
   display: inline-flex;
   align-items: center;
-  gap: .4rem;
+  gap: 0.4rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
   .g--silver.is-pill.on-dark {
     color: whitesmoke; }
 
 .g--obsidian.is-outline {
-  --mg-gradient: linear-gradient(135deg, #0b0b0c, #3a3a3d);
+  --mg-gradient: (start: #0b0b0c, end: #3a3a3d, gradient: linear-gradient(135deg, #0b0b0c, #3a3a3d));
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
   border-radius: 999px;
-  padding: .25rem .6rem;
+  padding: 0.25rem 0.6rem;
   /* border-image supports gradients nicely */
   border-image: var(--mg-gradient) 1; }
 
 .g--quartz.is-outline {
-  --mg-gradient: linear-gradient(135deg, #d8efff, #cabfff);
+  --mg-gradient: (start: #d8efff, end: #cabfff, gradient: linear-gradient(135deg, #d8efff, #cabfff));
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
   border-radius: 999px;
-  padding: .25rem .6rem;
+  padding: 0.25rem 0.6rem;
   /* border-image supports gradients nicely */
   border-image: var(--mg-gradient) 1; }
 
 .g--onyx.is-outline {
-  --mg-gradient: linear-gradient(135deg, #161210, #4a3834);
+  --mg-gradient: (start: #161210, end: #4a3834, gradient: linear-gradient(135deg, #161210, #4a3834));
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
   border-radius: 999px;
-  padding: .25rem .6rem;
+  padding: 0.25rem 0.6rem;
   /* border-image supports gradients nicely */
   border-image: var(--mg-gradient) 1; }
 
 .g--amber.is-outline {
-  --mg-gradient: linear-gradient(135deg, #ffb347, #ffcc33);
+  --mg-gradient: (start: #ffb347, end: #ffcc33, gradient: linear-gradient(135deg, #ffb347, #ffcc33));
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
   border-radius: 999px;
-  padding: .25rem .6rem;
+  padding: 0.25rem 0.6rem;
   /* border-image supports gradients nicely */
   border-image: var(--mg-gradient) 1; }
 
 .g--jade.is-outline {
-  --mg-gradient: linear-gradient(135deg, #3fa374, #a1d19d);
+  --mg-gradient: (start: #3fa374, end: #a1d19d, gradient: linear-gradient(135deg, #3fa374, #a1d19d));
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
   border-radius: 999px;
-  padding: .25rem .6rem;
+  padding: 0.25rem 0.6rem;
   /* border-image supports gradients nicely */
   border-image: var(--mg-gradient) 1; }
 
 .g--silver.is-outline {
-  --mg-gradient: linear-gradient(135deg, #b0c4d2, #7890a0);
+  --mg-gradient: (start: #b0c4d2, end: #7890a0, gradient: linear-gradient(135deg, #b0c4d2, #7890a0));
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
   border-radius: 999px;
-  padding: .25rem .6rem;
+  padding: 0.25rem 0.6rem;
   /* border-image supports gradients nicely */
   border-image: var(--mg-gradient) 1; }
 
 .g--obsidian.is-text {
-  --mg-gradient: linear-gradient(135deg, #0b0b0c, #3a3a3d);
+  --mg-gradient: (start: #0b0b0c, end: #3a3a3d, gradient: linear-gradient(135deg, #0b0b0c, #3a3a3d));
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -293,7 +365,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .g--quartz.is-text {
-  --mg-gradient: linear-gradient(135deg, #d8efff, #cabfff);
+  --mg-gradient: (start: #d8efff, end: #cabfff, gradient: linear-gradient(135deg, #d8efff, #cabfff));
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -306,7 +378,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .g--onyx.is-text {
-  --mg-gradient: linear-gradient(135deg, #161210, #4a3834);
+  --mg-gradient: (start: #161210, end: #4a3834, gradient: linear-gradient(135deg, #161210, #4a3834));
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -319,7 +391,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .g--amber.is-text {
-  --mg-gradient: linear-gradient(135deg, #ffb347, #ffcc33);
+  --mg-gradient: (start: #ffb347, end: #ffcc33, gradient: linear-gradient(135deg, #ffb347, #ffcc33));
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -332,7 +404,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .g--jade.is-text {
-  --mg-gradient: linear-gradient(135deg, #3fa374, #a1d19d);
+  --mg-gradient: (start: #3fa374, end: #a1d19d, gradient: linear-gradient(135deg, #3fa374, #a1d19d));
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -345,7 +417,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .g--silver.is-text {
-  --mg-gradient: linear-gradient(135deg, #b0c4d2, #7890a0);
+  --mg-gradient: (start: #b0c4d2, end: #7890a0, gradient: linear-gradient(135deg, #b0c4d2, #7890a0));
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -358,181 +430,193 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .g--marrow {
-  --mg-gradient: linear-gradient(135deg, #f1e6dc, #bba998); }
+  --mg-gradient: linear-gradient(135deg, #f1e6dc, #bba998);
+  --mg-start: #f1e6dc;
+  --mg-end: #bba998; }
 
 .g--sinew {
-  --mg-gradient: linear-gradient(135deg, #d5a981, #8c5b3c); }
+  --mg-gradient: linear-gradient(135deg, #d5a981, #8c5b3c);
+  --mg-start: #d5a981;
+  --mg-end: #8c5b3c; }
 
 .g--blood {
-  --mg-gradient: linear-gradient(135deg, #7a0d1d, #d92b2b); }
+  --mg-gradient: linear-gradient(135deg, #7a0d1d, #d92b2b);
+  --mg-start: #7a0d1d;
+  --mg-end: #d92b2b; }
 
 .g--vein {
-  --mg-gradient: linear-gradient(135deg, #21334d, #486b94); }
+  --mg-gradient: linear-gradient(135deg, #21334d, #486b94);
+  --mg-start: #21334d;
+  --mg-end: #486b94; }
 
 .g--bone {
-  --mg-gradient: linear-gradient(135deg, #dedac8, #aaa084); }
+  --mg-gradient: linear-gradient(135deg, #dedac8, #aaa084);
+  --mg-start: #dedac8;
+  --mg-end: #aaa084; }
 
 .g--flesh {
-  --mg-gradient: linear-gradient(135deg, #f5c3b5, #d98f80); }
+  --mg-gradient: linear-gradient(135deg, #f5c3b5, #d98f80);
+  --mg-start: #f5c3b5;
+  --mg-end: #d98f80; }
 
 .g--marrow.is-pill {
-  --mg-gradient: linear-gradient(135deg, #f1e6dc, #bba998);
+  --mg-gradient: (start: #f1e6dc, end: #bba998, gradient: linear-gradient(135deg, #f1e6dc, #bba998));
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
   /* If your theme is dark, force white text: */
   border-radius: 5px;
-  padding: 0 .25rem;
+  padding: 0 0.25rem;
   display: inline-flex;
   align-items: center;
-  gap: .4rem;
+  gap: 0.4rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
   .g--marrow.is-pill.on-dark {
     color: whitesmoke; }
 
 .g--sinew.is-pill {
-  --mg-gradient: linear-gradient(135deg, #d5a981, #8c5b3c);
+  --mg-gradient: (start: #d5a981, end: #8c5b3c, gradient: linear-gradient(135deg, #d5a981, #8c5b3c));
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
   /* If your theme is dark, force white text: */
   border-radius: 5px;
-  padding: 0 .25rem;
+  padding: 0 0.25rem;
   display: inline-flex;
   align-items: center;
-  gap: .4rem;
+  gap: 0.4rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
   .g--sinew.is-pill.on-dark {
     color: whitesmoke; }
 
 .g--blood.is-pill {
-  --mg-gradient: linear-gradient(135deg, #7a0d1d, #d92b2b);
+  --mg-gradient: (start: #7a0d1d, end: #d92b2b, gradient: linear-gradient(135deg, #7a0d1d, #d92b2b));
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
   /* If your theme is dark, force white text: */
   border-radius: 5px;
-  padding: 0 .25rem;
+  padding: 0 0.25rem;
   display: inline-flex;
   align-items: center;
-  gap: .4rem;
+  gap: 0.4rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
   .g--blood.is-pill.on-dark {
     color: whitesmoke; }
 
 .g--vein.is-pill {
-  --mg-gradient: linear-gradient(135deg, #21334d, #486b94);
+  --mg-gradient: (start: #21334d, end: #486b94, gradient: linear-gradient(135deg, #21334d, #486b94));
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
   /* If your theme is dark, force white text: */
   border-radius: 5px;
-  padding: 0 .25rem;
+  padding: 0 0.25rem;
   display: inline-flex;
   align-items: center;
-  gap: .4rem;
+  gap: 0.4rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
   .g--vein.is-pill.on-dark {
     color: whitesmoke; }
 
 .g--bone.is-pill {
-  --mg-gradient: linear-gradient(135deg, #dedac8, #aaa084);
+  --mg-gradient: (start: #dedac8, end: #aaa084, gradient: linear-gradient(135deg, #dedac8, #aaa084));
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
   /* If your theme is dark, force white text: */
   border-radius: 5px;
-  padding: 0 .25rem;
+  padding: 0 0.25rem;
   display: inline-flex;
   align-items: center;
-  gap: .4rem;
+  gap: 0.4rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
   .g--bone.is-pill.on-dark {
     color: whitesmoke; }
 
 .g--flesh.is-pill {
-  --mg-gradient: linear-gradient(135deg, #f5c3b5, #d98f80);
+  --mg-gradient: (start: #f5c3b5, end: #d98f80, gradient: linear-gradient(135deg, #f5c3b5, #d98f80));
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
   /* If your theme is dark, force white text: */
   border-radius: 5px;
-  padding: 0 .25rem;
+  padding: 0 0.25rem;
   display: inline-flex;
   align-items: center;
-  gap: .4rem;
+  gap: 0.4rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
   .g--flesh.is-pill.on-dark {
     color: whitesmoke; }
 
 .g--marrow.is-outline {
-  --mg-gradient: linear-gradient(135deg, #f1e6dc, #bba998);
+  --mg-gradient: (start: #f1e6dc, end: #bba998, gradient: linear-gradient(135deg, #f1e6dc, #bba998));
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
   border-radius: 999px;
-  padding: .25rem .6rem;
+  padding: 0.25rem 0.6rem;
   /* border-image supports gradients nicely */
   border-image: var(--mg-gradient) 1; }
 
 .g--sinew.is-outline {
-  --mg-gradient: linear-gradient(135deg, #d5a981, #8c5b3c);
+  --mg-gradient: (start: #d5a981, end: #8c5b3c, gradient: linear-gradient(135deg, #d5a981, #8c5b3c));
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
   border-radius: 999px;
-  padding: .25rem .6rem;
+  padding: 0.25rem 0.6rem;
   /* border-image supports gradients nicely */
   border-image: var(--mg-gradient) 1; }
 
 .g--blood.is-outline {
-  --mg-gradient: linear-gradient(135deg, #7a0d1d, #d92b2b);
+  --mg-gradient: (start: #7a0d1d, end: #d92b2b, gradient: linear-gradient(135deg, #7a0d1d, #d92b2b));
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
   border-radius: 999px;
-  padding: .25rem .6rem;
+  padding: 0.25rem 0.6rem;
   /* border-image supports gradients nicely */
   border-image: var(--mg-gradient) 1; }
 
 .g--vein.is-outline {
-  --mg-gradient: linear-gradient(135deg, #21334d, #486b94);
+  --mg-gradient: (start: #21334d, end: #486b94, gradient: linear-gradient(135deg, #21334d, #486b94));
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
   border-radius: 999px;
-  padding: .25rem .6rem;
+  padding: 0.25rem 0.6rem;
   /* border-image supports gradients nicely */
   border-image: var(--mg-gradient) 1; }
 
 .g--bone.is-outline {
-  --mg-gradient: linear-gradient(135deg, #dedac8, #aaa084);
+  --mg-gradient: (start: #dedac8, end: #aaa084, gradient: linear-gradient(135deg, #dedac8, #aaa084));
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
   border-radius: 999px;
-  padding: .25rem .6rem;
+  padding: 0.25rem 0.6rem;
   /* border-image supports gradients nicely */
   border-image: var(--mg-gradient) 1; }
 
 .g--flesh.is-outline {
-  --mg-gradient: linear-gradient(135deg, #f5c3b5, #d98f80);
+  --mg-gradient: (start: #f5c3b5, end: #d98f80, gradient: linear-gradient(135deg, #f5c3b5, #d98f80));
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
   border-radius: 999px;
-  padding: .25rem .6rem;
+  padding: 0.25rem 0.6rem;
   /* border-image supports gradients nicely */
   border-image: var(--mg-gradient) 1; }
 
 .g--marrow.is-text {
-  --mg-gradient: linear-gradient(135deg, #f1e6dc, #bba998);
+  --mg-gradient: (start: #f1e6dc, end: #bba998, gradient: linear-gradient(135deg, #f1e6dc, #bba998));
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -545,7 +629,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .g--sinew.is-text {
-  --mg-gradient: linear-gradient(135deg, #d5a981, #8c5b3c);
+  --mg-gradient: (start: #d5a981, end: #8c5b3c, gradient: linear-gradient(135deg, #d5a981, #8c5b3c));
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -558,7 +642,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .g--blood.is-text {
-  --mg-gradient: linear-gradient(135deg, #7a0d1d, #d92b2b);
+  --mg-gradient: (start: #7a0d1d, end: #d92b2b, gradient: linear-gradient(135deg, #7a0d1d, #d92b2b));
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -571,7 +655,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .g--vein.is-text {
-  --mg-gradient: linear-gradient(135deg, #21334d, #486b94);
+  --mg-gradient: (start: #21334d, end: #486b94, gradient: linear-gradient(135deg, #21334d, #486b94));
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -584,7 +668,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .g--bone.is-text {
-  --mg-gradient: linear-gradient(135deg, #dedac8, #aaa084);
+  --mg-gradient: (start: #dedac8, end: #aaa084, gradient: linear-gradient(135deg, #dedac8, #aaa084));
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -597,7 +681,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .g--flesh.is-text {
-  --mg-gradient: linear-gradient(135deg, #f5c3b5, #d98f80);
+  --mg-gradient: (start: #f5c3b5, end: #d98f80, gradient: linear-gradient(135deg, #f5c3b5, #d98f80));
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -610,181 +694,193 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .g--eclipse {
-  --mg-gradient: linear-gradient(135deg, #191919, #4a3b5e); }
+  --mg-gradient: linear-gradient(135deg, #191919, #4a3b5e);
+  --mg-start: #191919;
+  --mg-end: #4a3b5e; }
 
 .g--nova {
-  --mg-gradient: linear-gradient(135deg, #ff8a00, #ff3d00); }
+  --mg-gradient: linear-gradient(135deg, #ff8a00, #ff3d00);
+  --mg-start: #ff8a00;
+  --mg-end: #ff3d00; }
 
 .g--comet {
-  --mg-gradient: linear-gradient(135deg, #4b8fd2, #c5dfff); }
+  --mg-gradient: linear-gradient(135deg, #4b8fd2, #c5dfff);
+  --mg-start: #4b8fd2;
+  --mg-end: #c5dfff; }
 
 .g--orbit {
-  --mg-gradient: linear-gradient(135deg, #365a64, #78aab4); }
+  --mg-gradient: linear-gradient(135deg, #365a64, #78aab4);
+  --mg-start: #365a64;
+  --mg-end: #78aab4; }
 
 .g--umbra {
-  --mg-gradient: linear-gradient(135deg, #081020, #204070); }
+  --mg-gradient: linear-gradient(135deg, #081020, #204070);
+  --mg-start: #081020;
+  --mg-end: #204070; }
 
 .g--zenith {
-  --mg-gradient: linear-gradient(135deg, #f6e58d, #f9ca24); }
+  --mg-gradient: linear-gradient(135deg, #f6e58d, #f9ca24);
+  --mg-start: #f6e58d;
+  --mg-end: #f9ca24; }
 
 .g--eclipse.is-pill {
-  --mg-gradient: linear-gradient(135deg, #191919, #4a3b5e);
+  --mg-gradient: (start: #191919, end: #4a3b5e, gradient: linear-gradient(135deg, #191919, #4a3b5e));
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
   /* If your theme is dark, force white text: */
   border-radius: 5px;
-  padding: 0 .25rem;
+  padding: 0 0.25rem;
   display: inline-flex;
   align-items: center;
-  gap: .4rem;
+  gap: 0.4rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
   .g--eclipse.is-pill.on-dark {
     color: whitesmoke; }
 
 .g--nova.is-pill {
-  --mg-gradient: linear-gradient(135deg, #ff8a00, #ff3d00);
+  --mg-gradient: (start: #ff8a00, end: #ff3d00, gradient: linear-gradient(135deg, #ff8a00, #ff3d00));
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
   /* If your theme is dark, force white text: */
   border-radius: 5px;
-  padding: 0 .25rem;
+  padding: 0 0.25rem;
   display: inline-flex;
   align-items: center;
-  gap: .4rem;
+  gap: 0.4rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
   .g--nova.is-pill.on-dark {
     color: whitesmoke; }
 
 .g--comet.is-pill {
-  --mg-gradient: linear-gradient(135deg, #4b8fd2, #c5dfff);
+  --mg-gradient: (start: #4b8fd2, end: #c5dfff, gradient: linear-gradient(135deg, #4b8fd2, #c5dfff));
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
   /* If your theme is dark, force white text: */
   border-radius: 5px;
-  padding: 0 .25rem;
+  padding: 0 0.25rem;
   display: inline-flex;
   align-items: center;
-  gap: .4rem;
+  gap: 0.4rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
   .g--comet.is-pill.on-dark {
     color: whitesmoke; }
 
 .g--orbit.is-pill {
-  --mg-gradient: linear-gradient(135deg, #365a64, #78aab4);
+  --mg-gradient: (start: #365a64, end: #78aab4, gradient: linear-gradient(135deg, #365a64, #78aab4));
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
   /* If your theme is dark, force white text: */
   border-radius: 5px;
-  padding: 0 .25rem;
+  padding: 0 0.25rem;
   display: inline-flex;
   align-items: center;
-  gap: .4rem;
+  gap: 0.4rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
   .g--orbit.is-pill.on-dark {
     color: whitesmoke; }
 
 .g--umbra.is-pill {
-  --mg-gradient: linear-gradient(135deg, #081020, #204070);
+  --mg-gradient: (start: #081020, end: #204070, gradient: linear-gradient(135deg, #081020, #204070));
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
   /* If your theme is dark, force white text: */
   border-radius: 5px;
-  padding: 0 .25rem;
+  padding: 0 0.25rem;
   display: inline-flex;
   align-items: center;
-  gap: .4rem;
+  gap: 0.4rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
   .g--umbra.is-pill.on-dark {
     color: whitesmoke; }
 
 .g--zenith.is-pill {
-  --mg-gradient: linear-gradient(135deg, #f6e58d, #f9ca24);
+  --mg-gradient: (start: #f6e58d, end: #f9ca24, gradient: linear-gradient(135deg, #f6e58d, #f9ca24));
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
   /* If your theme is dark, force white text: */
   border-radius: 5px;
-  padding: 0 .25rem;
+  padding: 0 0.25rem;
   display: inline-flex;
   align-items: center;
-  gap: .4rem;
+  gap: 0.4rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
   .g--zenith.is-pill.on-dark {
     color: whitesmoke; }
 
 .g--eclipse.is-outline {
-  --mg-gradient: linear-gradient(135deg, #191919, #4a3b5e);
+  --mg-gradient: (start: #191919, end: #4a3b5e, gradient: linear-gradient(135deg, #191919, #4a3b5e));
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
   border-radius: 999px;
-  padding: .25rem .6rem;
+  padding: 0.25rem 0.6rem;
   /* border-image supports gradients nicely */
   border-image: var(--mg-gradient) 1; }
 
 .g--nova.is-outline {
-  --mg-gradient: linear-gradient(135deg, #ff8a00, #ff3d00);
+  --mg-gradient: (start: #ff8a00, end: #ff3d00, gradient: linear-gradient(135deg, #ff8a00, #ff3d00));
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
   border-radius: 999px;
-  padding: .25rem .6rem;
+  padding: 0.25rem 0.6rem;
   /* border-image supports gradients nicely */
   border-image: var(--mg-gradient) 1; }
 
 .g--comet.is-outline {
-  --mg-gradient: linear-gradient(135deg, #4b8fd2, #c5dfff);
+  --mg-gradient: (start: #4b8fd2, end: #c5dfff, gradient: linear-gradient(135deg, #4b8fd2, #c5dfff));
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
   border-radius: 999px;
-  padding: .25rem .6rem;
+  padding: 0.25rem 0.6rem;
   /* border-image supports gradients nicely */
   border-image: var(--mg-gradient) 1; }
 
 .g--orbit.is-outline {
-  --mg-gradient: linear-gradient(135deg, #365a64, #78aab4);
+  --mg-gradient: (start: #365a64, end: #78aab4, gradient: linear-gradient(135deg, #365a64, #78aab4));
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
   border-radius: 999px;
-  padding: .25rem .6rem;
+  padding: 0.25rem 0.6rem;
   /* border-image supports gradients nicely */
   border-image: var(--mg-gradient) 1; }
 
 .g--umbra.is-outline {
-  --mg-gradient: linear-gradient(135deg, #081020, #204070);
+  --mg-gradient: (start: #081020, end: #204070, gradient: linear-gradient(135deg, #081020, #204070));
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
   border-radius: 999px;
-  padding: .25rem .6rem;
+  padding: 0.25rem 0.6rem;
   /* border-image supports gradients nicely */
   border-image: var(--mg-gradient) 1; }
 
 .g--zenith.is-outline {
-  --mg-gradient: linear-gradient(135deg, #f6e58d, #f9ca24);
+  --mg-gradient: (start: #f6e58d, end: #f9ca24, gradient: linear-gradient(135deg, #f6e58d, #f9ca24));
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
   border-radius: 999px;
-  padding: .25rem .6rem;
+  padding: 0.25rem 0.6rem;
   /* border-image supports gradients nicely */
   border-image: var(--mg-gradient) 1; }
 
 .g--eclipse.is-text {
-  --mg-gradient: linear-gradient(135deg, #191919, #4a3b5e);
+  --mg-gradient: (start: #191919, end: #4a3b5e, gradient: linear-gradient(135deg, #191919, #4a3b5e));
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -797,7 +893,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .g--nova.is-text {
-  --mg-gradient: linear-gradient(135deg, #ff8a00, #ff3d00);
+  --mg-gradient: (start: #ff8a00, end: #ff3d00, gradient: linear-gradient(135deg, #ff8a00, #ff3d00));
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -810,7 +906,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .g--comet.is-text {
-  --mg-gradient: linear-gradient(135deg, #4b8fd2, #c5dfff);
+  --mg-gradient: (start: #4b8fd2, end: #c5dfff, gradient: linear-gradient(135deg, #4b8fd2, #c5dfff));
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -823,7 +919,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .g--orbit.is-text {
-  --mg-gradient: linear-gradient(135deg, #365a64, #78aab4);
+  --mg-gradient: (start: #365a64, end: #78aab4, gradient: linear-gradient(135deg, #365a64, #78aab4));
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -836,7 +932,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .g--umbra.is-text {
-  --mg-gradient: linear-gradient(135deg, #081020, #204070);
+  --mg-gradient: (start: #081020, end: #204070, gradient: linear-gradient(135deg, #081020, #204070));
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -849,7 +945,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .g--zenith.is-text {
-  --mg-gradient: linear-gradient(135deg, #f6e58d, #f9ca24);
+  --mg-gradient: (start: #f6e58d, end: #f9ca24, gradient: linear-gradient(135deg, #f6e58d, #f9ca24));
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -862,181 +958,193 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .g--hemlock {
-  --mg-gradient: linear-gradient(135deg, #1c3b32, #3d6656); }
+  --mg-gradient: linear-gradient(135deg, #1c3b32, #3d6656);
+  --mg-start: #1c3b32;
+  --mg-end: #3d6656; }
 
 .g--nightshade {
-  --mg-gradient: linear-gradient(135deg, #3b1a4a, #713b86); }
+  --mg-gradient: linear-gradient(135deg, #3b1a4a, #713b86);
+  --mg-start: #3b1a4a;
+  --mg-end: #713b86; }
 
 .g--yew {
-  --mg-gradient: linear-gradient(135deg, #103449, #2e688a); }
+  --mg-gradient: linear-gradient(135deg, #103449, #2e688a);
+  --mg-start: #103449;
+  --mg-end: #2e688a; }
 
 .g--ivy {
-  --mg-gradient: linear-gradient(135deg, #264d35, #6ca97f); }
+  --mg-gradient: linear-gradient(135deg, #264d35, #6ca97f);
+  --mg-start: #264d35;
+  --mg-end: #6ca97f; }
 
 .g--rowan {
-  --mg-gradient: linear-gradient(135deg, #803116, #b05e34); }
+  --mg-gradient: linear-gradient(135deg, #803116, #b05e34);
+  --mg-start: #803116;
+  --mg-end: #b05e34; }
 
 .g--thorn {
-  --mg-gradient: linear-gradient(135deg, #783838, #a86060); }
+  --mg-gradient: linear-gradient(135deg, #783838, #a86060);
+  --mg-start: #783838;
+  --mg-end: #a86060; }
 
 .g--hemlock.is-pill {
-  --mg-gradient: linear-gradient(135deg, #1c3b32, #3d6656);
+  --mg-gradient: (start: #1c3b32, end: #3d6656, gradient: linear-gradient(135deg, #1c3b32, #3d6656));
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
   /* If your theme is dark, force white text: */
   border-radius: 5px;
-  padding: 0 .25rem;
+  padding: 0 0.25rem;
   display: inline-flex;
   align-items: center;
-  gap: .4rem;
+  gap: 0.4rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
   .g--hemlock.is-pill.on-dark {
     color: whitesmoke; }
 
 .g--nightshade.is-pill {
-  --mg-gradient: linear-gradient(135deg, #3b1a4a, #713b86);
+  --mg-gradient: (start: #3b1a4a, end: #713b86, gradient: linear-gradient(135deg, #3b1a4a, #713b86));
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
   /* If your theme is dark, force white text: */
   border-radius: 5px;
-  padding: 0 .25rem;
+  padding: 0 0.25rem;
   display: inline-flex;
   align-items: center;
-  gap: .4rem;
+  gap: 0.4rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
   .g--nightshade.is-pill.on-dark {
     color: whitesmoke; }
 
 .g--yew.is-pill {
-  --mg-gradient: linear-gradient(135deg, #103449, #2e688a);
+  --mg-gradient: (start: #103449, end: #2e688a, gradient: linear-gradient(135deg, #103449, #2e688a));
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
   /* If your theme is dark, force white text: */
   border-radius: 5px;
-  padding: 0 .25rem;
+  padding: 0 0.25rem;
   display: inline-flex;
   align-items: center;
-  gap: .4rem;
+  gap: 0.4rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
   .g--yew.is-pill.on-dark {
     color: whitesmoke; }
 
 .g--ivy.is-pill {
-  --mg-gradient: linear-gradient(135deg, #264d35, #6ca97f);
+  --mg-gradient: (start: #264d35, end: #6ca97f, gradient: linear-gradient(135deg, #264d35, #6ca97f));
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
   /* If your theme is dark, force white text: */
   border-radius: 5px;
-  padding: 0 .25rem;
+  padding: 0 0.25rem;
   display: inline-flex;
   align-items: center;
-  gap: .4rem;
+  gap: 0.4rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
   .g--ivy.is-pill.on-dark {
     color: whitesmoke; }
 
 .g--rowan.is-pill {
-  --mg-gradient: linear-gradient(135deg, #803116, #b05e34);
+  --mg-gradient: (start: #803116, end: #b05e34, gradient: linear-gradient(135deg, #803116, #b05e34));
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
   /* If your theme is dark, force white text: */
   border-radius: 5px;
-  padding: 0 .25rem;
+  padding: 0 0.25rem;
   display: inline-flex;
   align-items: center;
-  gap: .4rem;
+  gap: 0.4rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
   .g--rowan.is-pill.on-dark {
     color: whitesmoke; }
 
 .g--thorn.is-pill {
-  --mg-gradient: linear-gradient(135deg, #783838, #a86060);
+  --mg-gradient: (start: #783838, end: #a86060, gradient: linear-gradient(135deg, #783838, #a86060));
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
   /* If your theme is dark, force white text: */
   border-radius: 5px;
-  padding: 0 .25rem;
+  padding: 0 0.25rem;
   display: inline-flex;
   align-items: center;
-  gap: .4rem;
+  gap: 0.4rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
   .g--thorn.is-pill.on-dark {
     color: whitesmoke; }
 
 .g--hemlock.is-outline {
-  --mg-gradient: linear-gradient(135deg, #1c3b32, #3d6656);
+  --mg-gradient: (start: #1c3b32, end: #3d6656, gradient: linear-gradient(135deg, #1c3b32, #3d6656));
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
   border-radius: 999px;
-  padding: .25rem .6rem;
+  padding: 0.25rem 0.6rem;
   /* border-image supports gradients nicely */
   border-image: var(--mg-gradient) 1; }
 
 .g--nightshade.is-outline {
-  --mg-gradient: linear-gradient(135deg, #3b1a4a, #713b86);
+  --mg-gradient: (start: #3b1a4a, end: #713b86, gradient: linear-gradient(135deg, #3b1a4a, #713b86));
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
   border-radius: 999px;
-  padding: .25rem .6rem;
+  padding: 0.25rem 0.6rem;
   /* border-image supports gradients nicely */
   border-image: var(--mg-gradient) 1; }
 
 .g--yew.is-outline {
-  --mg-gradient: linear-gradient(135deg, #103449, #2e688a);
+  --mg-gradient: (start: #103449, end: #2e688a, gradient: linear-gradient(135deg, #103449, #2e688a));
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
   border-radius: 999px;
-  padding: .25rem .6rem;
+  padding: 0.25rem 0.6rem;
   /* border-image supports gradients nicely */
   border-image: var(--mg-gradient) 1; }
 
 .g--ivy.is-outline {
-  --mg-gradient: linear-gradient(135deg, #264d35, #6ca97f);
+  --mg-gradient: (start: #264d35, end: #6ca97f, gradient: linear-gradient(135deg, #264d35, #6ca97f));
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
   border-radius: 999px;
-  padding: .25rem .6rem;
+  padding: 0.25rem 0.6rem;
   /* border-image supports gradients nicely */
   border-image: var(--mg-gradient) 1; }
 
 .g--rowan.is-outline {
-  --mg-gradient: linear-gradient(135deg, #803116, #b05e34);
+  --mg-gradient: (start: #803116, end: #b05e34, gradient: linear-gradient(135deg, #803116, #b05e34));
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
   border-radius: 999px;
-  padding: .25rem .6rem;
+  padding: 0.25rem 0.6rem;
   /* border-image supports gradients nicely */
   border-image: var(--mg-gradient) 1; }
 
 .g--thorn.is-outline {
-  --mg-gradient: linear-gradient(135deg, #783838, #a86060);
+  --mg-gradient: (start: #783838, end: #a86060, gradient: linear-gradient(135deg, #783838, #a86060));
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
   border-radius: 999px;
-  padding: .25rem .6rem;
+  padding: 0.25rem 0.6rem;
   /* border-image supports gradients nicely */
   border-image: var(--mg-gradient) 1; }
 
 .g--hemlock.is-text {
-  --mg-gradient: linear-gradient(135deg, #1c3b32, #3d6656);
+  --mg-gradient: (start: #1c3b32, end: #3d6656, gradient: linear-gradient(135deg, #1c3b32, #3d6656));
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -1049,7 +1157,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .g--nightshade.is-text {
-  --mg-gradient: linear-gradient(135deg, #3b1a4a, #713b86);
+  --mg-gradient: (start: #3b1a4a, end: #713b86, gradient: linear-gradient(135deg, #3b1a4a, #713b86));
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -1062,7 +1170,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .g--yew.is-text {
-  --mg-gradient: linear-gradient(135deg, #103449, #2e688a);
+  --mg-gradient: (start: #103449, end: #2e688a, gradient: linear-gradient(135deg, #103449, #2e688a));
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -1075,7 +1183,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .g--ivy.is-text {
-  --mg-gradient: linear-gradient(135deg, #264d35, #6ca97f);
+  --mg-gradient: (start: #264d35, end: #6ca97f, gradient: linear-gradient(135deg, #264d35, #6ca97f));
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -1088,7 +1196,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .g--rowan.is-text {
-  --mg-gradient: linear-gradient(135deg, #803116, #b05e34);
+  --mg-gradient: (start: #803116, end: #b05e34, gradient: linear-gradient(135deg, #803116, #b05e34));
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -1101,7 +1209,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .g--thorn.is-text {
-  --mg-gradient: linear-gradient(135deg, #783838, #a86060);
+  --mg-gradient: (start: #783838, end: #a86060, gradient: linear-gradient(135deg, #783838, #a86060));
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -1114,181 +1222,193 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .g--ivory {
-  --mg-gradient: linear-gradient(135deg, #fff8ee, #d9cbb0); }
+  --mg-gradient: linear-gradient(135deg, #fff8ee, #d9cbb0);
+  --mg-start: #fff8ee;
+  --mg-end: #d9cbb0; }
 
 .g--velvet {
-  --mg-gradient: linear-gradient(135deg, #4c1526, #8c224e); }
+  --mg-gradient: linear-gradient(135deg, #4c1526, #8c224e);
+  --mg-start: #4c1526;
+  --mg-end: #8c224e; }
 
 .g--spice {
-  --mg-gradient: linear-gradient(135deg, #ba6c2b, #db9340); }
+  --mg-gradient: linear-gradient(135deg, #ba6c2b, #db9340);
+  --mg-start: #ba6c2b;
+  --mg-end: #db9340; }
 
 .g--smoke {
-  --mg-gradient: linear-gradient(135deg, #3c3634, #aaa096); }
+  --mg-gradient: linear-gradient(135deg, #3c3634, #aaa096);
+  --mg-start: #3c3634;
+  --mg-end: #aaa096; }
 
 .g--glass {
-  --mg-gradient: linear-gradient(135deg, #d0ece5, #a0d2c4); }
+  --mg-gradient: linear-gradient(135deg, #d0ece5, #a0d2c4);
+  --mg-start: #d0ece5;
+  --mg-end: #a0d2c4; }
 
 .g--gold {
-  --mg-gradient: linear-gradient(135deg, #d4af37, #f5d76e); }
+  --mg-gradient: linear-gradient(135deg, #d4af37, #f5d76e);
+  --mg-start: #d4af37;
+  --mg-end: #f5d76e; }
 
 .g--ivory.is-pill {
-  --mg-gradient: linear-gradient(135deg, #fff8ee, #d9cbb0);
+  --mg-gradient: (start: #fff8ee, end: #d9cbb0, gradient: linear-gradient(135deg, #fff8ee, #d9cbb0));
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
   /* If your theme is dark, force white text: */
   border-radius: 5px;
-  padding: 0 .25rem;
+  padding: 0 0.25rem;
   display: inline-flex;
   align-items: center;
-  gap: .4rem;
+  gap: 0.4rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
   .g--ivory.is-pill.on-dark {
     color: whitesmoke; }
 
 .g--velvet.is-pill {
-  --mg-gradient: linear-gradient(135deg, #4c1526, #8c224e);
+  --mg-gradient: (start: #4c1526, end: #8c224e, gradient: linear-gradient(135deg, #4c1526, #8c224e));
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
   /* If your theme is dark, force white text: */
   border-radius: 5px;
-  padding: 0 .25rem;
+  padding: 0 0.25rem;
   display: inline-flex;
   align-items: center;
-  gap: .4rem;
+  gap: 0.4rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
   .g--velvet.is-pill.on-dark {
     color: whitesmoke; }
 
 .g--spice.is-pill {
-  --mg-gradient: linear-gradient(135deg, #ba6c2b, #db9340);
+  --mg-gradient: (start: #ba6c2b, end: #db9340, gradient: linear-gradient(135deg, #ba6c2b, #db9340));
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
   /* If your theme is dark, force white text: */
   border-radius: 5px;
-  padding: 0 .25rem;
+  padding: 0 0.25rem;
   display: inline-flex;
   align-items: center;
-  gap: .4rem;
+  gap: 0.4rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
   .g--spice.is-pill.on-dark {
     color: whitesmoke; }
 
 .g--smoke.is-pill {
-  --mg-gradient: linear-gradient(135deg, #3c3634, #aaa096);
+  --mg-gradient: (start: #3c3634, end: #aaa096, gradient: linear-gradient(135deg, #3c3634, #aaa096));
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
   /* If your theme is dark, force white text: */
   border-radius: 5px;
-  padding: 0 .25rem;
+  padding: 0 0.25rem;
   display: inline-flex;
   align-items: center;
-  gap: .4rem;
+  gap: 0.4rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
   .g--smoke.is-pill.on-dark {
     color: whitesmoke; }
 
 .g--glass.is-pill {
-  --mg-gradient: linear-gradient(135deg, #d0ece5, #a0d2c4);
+  --mg-gradient: (start: #d0ece5, end: #a0d2c4, gradient: linear-gradient(135deg, #d0ece5, #a0d2c4));
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
   /* If your theme is dark, force white text: */
   border-radius: 5px;
-  padding: 0 .25rem;
+  padding: 0 0.25rem;
   display: inline-flex;
   align-items: center;
-  gap: .4rem;
+  gap: 0.4rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
   .g--glass.is-pill.on-dark {
     color: whitesmoke; }
 
 .g--gold.is-pill {
-  --mg-gradient: linear-gradient(135deg, #d4af37, #f5d76e);
+  --mg-gradient: (start: #d4af37, end: #f5d76e, gradient: linear-gradient(135deg, #d4af37, #f5d76e));
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
   /* If your theme is dark, force white text: */
   border-radius: 5px;
-  padding: 0 .25rem;
+  padding: 0 0.25rem;
   display: inline-flex;
   align-items: center;
-  gap: .4rem;
+  gap: 0.4rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
   .g--gold.is-pill.on-dark {
     color: whitesmoke; }
 
 .g--ivory.is-outline {
-  --mg-gradient: linear-gradient(135deg, #fff8ee, #d9cbb0);
+  --mg-gradient: (start: #fff8ee, end: #d9cbb0, gradient: linear-gradient(135deg, #fff8ee, #d9cbb0));
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
   border-radius: 999px;
-  padding: .25rem .6rem;
+  padding: 0.25rem 0.6rem;
   /* border-image supports gradients nicely */
   border-image: var(--mg-gradient) 1; }
 
 .g--velvet.is-outline {
-  --mg-gradient: linear-gradient(135deg, #4c1526, #8c224e);
+  --mg-gradient: (start: #4c1526, end: #8c224e, gradient: linear-gradient(135deg, #4c1526, #8c224e));
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
   border-radius: 999px;
-  padding: .25rem .6rem;
+  padding: 0.25rem 0.6rem;
   /* border-image supports gradients nicely */
   border-image: var(--mg-gradient) 1; }
 
 .g--spice.is-outline {
-  --mg-gradient: linear-gradient(135deg, #ba6c2b, #db9340);
+  --mg-gradient: (start: #ba6c2b, end: #db9340, gradient: linear-gradient(135deg, #ba6c2b, #db9340));
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
   border-radius: 999px;
-  padding: .25rem .6rem;
+  padding: 0.25rem 0.6rem;
   /* border-image supports gradients nicely */
   border-image: var(--mg-gradient) 1; }
 
 .g--smoke.is-outline {
-  --mg-gradient: linear-gradient(135deg, #3c3634, #aaa096);
+  --mg-gradient: (start: #3c3634, end: #aaa096, gradient: linear-gradient(135deg, #3c3634, #aaa096));
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
   border-radius: 999px;
-  padding: .25rem .6rem;
+  padding: 0.25rem 0.6rem;
   /* border-image supports gradients nicely */
   border-image: var(--mg-gradient) 1; }
 
 .g--glass.is-outline {
-  --mg-gradient: linear-gradient(135deg, #d0ece5, #a0d2c4);
+  --mg-gradient: (start: #d0ece5, end: #a0d2c4, gradient: linear-gradient(135deg, #d0ece5, #a0d2c4));
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
   border-radius: 999px;
-  padding: .25rem .6rem;
+  padding: 0.25rem 0.6rem;
   /* border-image supports gradients nicely */
   border-image: var(--mg-gradient) 1; }
 
 .g--gold.is-outline {
-  --mg-gradient: linear-gradient(135deg, #d4af37, #f5d76e);
+  --mg-gradient: (start: #d4af37, end: #f5d76e, gradient: linear-gradient(135deg, #d4af37, #f5d76e));
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
   border-radius: 999px;
-  padding: .25rem .6rem;
+  padding: 0.25rem 0.6rem;
   /* border-image supports gradients nicely */
   border-image: var(--mg-gradient) 1; }
 
 .g--ivory.is-text {
-  --mg-gradient: linear-gradient(135deg, #fff8ee, #d9cbb0);
+  --mg-gradient: (start: #fff8ee, end: #d9cbb0, gradient: linear-gradient(135deg, #fff8ee, #d9cbb0));
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -1301,7 +1421,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .g--velvet.is-text {
-  --mg-gradient: linear-gradient(135deg, #4c1526, #8c224e);
+  --mg-gradient: (start: #4c1526, end: #8c224e, gradient: linear-gradient(135deg, #4c1526, #8c224e));
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -1314,7 +1434,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .g--spice.is-text {
-  --mg-gradient: linear-gradient(135deg, #ba6c2b, #db9340);
+  --mg-gradient: (start: #ba6c2b, end: #db9340, gradient: linear-gradient(135deg, #ba6c2b, #db9340));
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -1327,7 +1447,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .g--smoke.is-text {
-  --mg-gradient: linear-gradient(135deg, #3c3634, #aaa096);
+  --mg-gradient: (start: #3c3634, end: #aaa096, gradient: linear-gradient(135deg, #3c3634, #aaa096));
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -1340,7 +1460,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .g--glass.is-text {
-  --mg-gradient: linear-gradient(135deg, #d0ece5, #a0d2c4);
+  --mg-gradient: (start: #d0ece5, end: #a0d2c4, gradient: linear-gradient(135deg, #d0ece5, #a0d2c4));
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -1353,7 +1473,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .g--gold.is-text {
-  --mg-gradient: linear-gradient(135deg, #d4af37, #f5d76e);
+  --mg-gradient: (start: #d4af37, end: #f5d76e, gradient: linear-gradient(135deg, #d4af37, #f5d76e));
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -1395,10 +1515,10 @@
   background: var(--mg-gradient);
   color: var(--mg-text, #1c1c1c);
   border-radius: var(--mg-radius, 999px);
-  padding: .3rem .65rem;
+  padding: 0.3rem 0.65rem;
   display: inline-flex;
   align-items: center;
-  gap: .4rem;
+  gap: 0.4rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
 
@@ -1408,7 +1528,7 @@
   color: inherit;
   border: var(--mg-border-w, 2px) solid transparent;
   border-radius: var(--mg-radius, 999px);
-  padding: .25rem .6rem;
+  padding: 0.25rem 0.6rem;
   border-image: var(--mg-gradient) 1; }
 
 /* Text (gradient-filled text) */
@@ -1455,16 +1575,12 @@
   pointer-events: none; }
 
 .bm-taxonomy {
-  --tax-accent: oklch(0.78 0.13 75);
-  --tax-text: oklch(0.95 0.018 75);
-  --tax-soft: oklch(0.80 0.02 70);
-  --tax-dim: oklch(0.66 0.02 65);
   position: relative;
   padding: clamp(24px, 3vw, 40px);
-  border: 1px solid oklch(0.85 0.01 70/0.08);
+  border: 1px solid var(--bm-tax-border, oklch(0.85 0.01 70/0.08));
   color: var(--tax-text);
   overflow: hidden;
-  background: linear-gradient(135deg, oklch(0.12 0.01 60), oklch(0.08 0.01 55)); }
+  background: var(--bm-tax-bg, linear-gradient(135deg, oklch(0.12 0.01 60), oklch(0.08 0.01 55))); }
 
 .bm-taxonomy::before {
   content: "";
@@ -1520,9 +1636,9 @@
   object-fit: cover;
   display: block;
   border-radius: 12px;
-  border: 1px solid oklch(1 0 0/0.08);
-  box-shadow: 0 8px 20px oklch(0 0 0/0.18);
-  background: oklch(0.18 0.01 60); }
+  border: 1px solid var(--bm-guide-border-soft);
+  background: var(--bm-guide-bg-soft);
+  box-shadow: 0 8px 20px oklch(0 0 0/0.18); }
 
 .bm-taxonomy__collage img:nth-child(1) {
   transform: translateY(4px); }
@@ -1532,7 +1648,7 @@
 
 .bm-taxonomy__collage img:nth-child(3) {
   transform: translate(12px, -2px);
-  grid-column: 1/span 2;
+  grid-column: 1 / span 2;
   justify-self: center; }
 
 .bm-taxonomy__list {
@@ -1570,7 +1686,8 @@
   padding-left: var(--left-slot);
   padding-right: var(--row-pad-x);
   border-radius: 14px;
-  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease; }
+  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  overflow: hidden; }
 
 .bm-group-row:hover {
   transform: translateX(3px); }
@@ -1595,9 +1712,10 @@
   object-fit: cover;
   display: block;
   border-radius: 10px;
-  border: 1px solid oklch(1 0 0/0.12);
-  background: oklch(0.2 0.01 60);
-  box-shadow: 0 6px 14px oklch(0 0 0/0.14); }
+  border: 1px solid var(--bm-guide-border-soft);
+  background: var(--bm-guide-bg-soft);
+  box-shadow: 0 6px 14px oklch(0 0 0/0.14);
+  z-index: 1; }
 
 .bm-group-row__text {
   min-width: 0;
@@ -1605,7 +1723,9 @@
   grid-template-columns: minmax(120px, 220px) minmax(0, 1fr);
   gap: 14px;
   align-items: center;
-  min-height: var(--thumb-size); }
+  min-height: var(--thumb-size);
+  position: relative;
+  z-index: 1; }
 
 .bm-group-row__name {
   margin: 0;
@@ -1622,13 +1742,53 @@
   text-align: right; }
 
 .bm-group-row--border {
-  border: 1px solid oklch(1 0 0/0.1);
-  background: linear-gradient(135deg, color-mix(in srgb, var(--mg-gradient) 16%, transparent), transparent 72%);
+  border: 1px dashed var(--bm-guide-border);
   box-shadow: inset 0 1px 0 oklch(1 0 0/0.03), 0 0 0 1px oklch(1 0 0/0.02); }
 
 .bm-group-row--overlay {
-  border: 1px solid oklch(1 0 0/0.05);
-  background: linear-gradient(90deg, color-mix(in srgb, var(--mg-gradient) 18%, transparent), transparent 65%); }
+  border: 1px dashed var(--bm-guide-border-soft); }
+
+.bm-group-row--border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--mg-gradient);
+  opacity: var(--bm-mg-row-opacity, 0.18);
+  pointer-events: none;
+  border-radius: inherit; }
+
+.bm-group-row--overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--mg-gradient);
+  opacity: var(--bm-mg-row-opacity-overlay, 0.2);
+  pointer-events: none;
+  border-radius: inherit; }
+
+.bm-group-row[data-plate]::after {
+  content: attr(data-plate);
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  bottom: auto;
+  left: auto;
+  height: auto;
+  width: auto;
+  background: none;
+  font: 700 var(--size-sm, 10px)/1 var(--font-hand, monospace);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.35;
+  pointer-events: none;
+  transition: opacity 0.25s ease; }
+
+.bm-group-row--flip.bm-group-row--flip[data-plate]::after {
+  right: auto;
+  left: 10px; }
+
+.bm-group-row:hover[data-plate]::after {
+  opacity: 0.6; }
 
 .bm-group-row--flip {
   padding-left: var(--row-pad-x);
@@ -1689,7 +1849,7 @@
     height: var(--thumb-size); }
   .bm-group-row--flip {
     padding-left: var(--row-pad-x);
-    padding-right: calc(var(--row-pad-x) + var(--thumb-size) + var(--thumb-gap)); }
+    padding-right: calc( var(--row-pad-x) + var(--thumb-size) + var(--thumb-gap)); }
   .bm-group-row--flip .bm-group-row__thumb {
     left: auto;
     right: var(--row-pad-x);
