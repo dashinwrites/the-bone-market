@@ -1,87 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    @@include('../source/templates/head.html', { "prefix": "../dist" })
-  </head>
-  <body
-    id="idx"
-    class="g-<!-- |g_id| --> account-<!-- |id| --> parent-<!-- |parent_id| -->"
-  >
-    <div class="bm-container">
-      @@include('../source/templates/nav.html', { "prefix": ".." })
-      @@include('../source/templates/header.html', { "prefix": ".." })
 
-      <!--Main Body-->
-      <div class="bg" aria-hidden="true"></div>
-      <main>
-        <a name="top"></a>
+<head>
+  @@include('../source/templates/head.html', { "prefix": "../dist" })
+</head>
 
-        <!--Category-->
-        <section class="category category--plate-anchor is-heart">
-          <div class="category-head">
-            <h2 class="category-title category-title--fancy">Category Title</h2>
-            <span class="category-meta">fig. 01</span>
-          </div>
+<body id="idx" class="g-<!-- |g_id| --> account-<!-- |id| --> parent-<!-- |parent_id| -->">
+  <div class="bm-container">
+    @@include('../source/templates/nav.html', { "prefix": ".." })
+    @@include('../source/templates/header.html', { "prefix": ".." })
 
-          <div class="category-body">
-            <article class="forum">
+    <!--Main Body-->
+    <div class="bg" aria-hidden="true"></div>
+    <main>
+      <a name="top"></a>
+
+      <!--Category-->
+
+      <section class="category category--plate-anchor is-heart">
+
+        <article class="forum redirect">
+          <a href="#" class="redirect-title">The Guidebook</a>
+          <span class="redirect-rule" aria-hidden="true"></span>
+          <nav class="redirect-links" aria-label="Guidebook sections">
+            <a href="#" class="redirect-link">Premise</a>
+            <a href="#" class="redirect-link">Rules</a>
+            <a href="#" class="redirect-link">Setting</a>
+            <a href="#" class="redirect-link">Magic</a>
+            <a href="#" class="redirect-link">Groups</a>
+          </nav>
+        </article>
+
+        <div class="category-head">
+          <h2 class="category-title category-title--fancy">Category Title</h2>
+          <span class="category-meta">fig. 01</span>
+        </div>
+
+        <div class="category-body">
+          <article class="forum">
+            <div class="forum-main">
               <div class="forum-info">
                 <h3 class="forum-title"><a href="#">Forum Title</a></h3>
-                <div class="forum-desc">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-                  consequat erat vel dui pulvinar bibendum. Nulla accumsan
-                  sapien magna. Duis fringilla ullamcorper pretium. Vestibulum
-                  et bibendum enim, eu dapibus lorem. Vivamus sagittis enim
-                  ante, a vestibulum velit accumsan quis. Integer laoreet
-                  pulvinar augue eu accumsan. Curabitur auctor imperdiet
-                  fringilla. Pellentesque at tristique mi. Ut placerat in nunc
-                  quis laoreet. Donec at enim porta, ullamcorper nisi sit amet,
-                  tincidunt velit. Nam eget venenatis sapien. Nunc maximus eros
-                  purus, ut rhoncus augue iaculis sed. Cras sed viverra ex, non
-                  fermentum velit. Aliquam erat volutpat. Vivamus maximus, diam
-                  vitae bibendum tempor, libero erat.
-                </div>
+                <p class="forum-desc">Forum description text here.</p>
               </div>
               <div class="forum-meta">
                 <div class="last-post">
-                  <img
-                    src="https://picsum.photos/100"
-                    alt="Admin avatar"
-                    class="last-avatar"
-                  />
+                  <img src="https://picsum.photos/100" alt="avatar" class="last-avatar">
                   <div class="last-details">
-                    <a
-                      class="last-thread"
-                      href="?showtopic=<!-- |last_topic_id| -->&view=getnewpost"
-                      >thread title
-                      <!-- |last_topic_fulltext| --></a
-                    >
+                    <a href="#" class="last-thread">Latest Thread Title</a>
                     <span class="last-info">Oct 3 by Admin</span>
                   </div>
                 </div>
                 <div class="forum-stats">
-                  <p class="forum-stat">
-                    <b><!-- |topics| --></b> topics
-                  </p>
-                  <p class="forum-stat">
-                    <b><!-- |replies| --></b> replies
-                  </p>
+                  <p class="forum-stat"><b>0</b> topics</p>
+                  <p class="forum-stat"><b>0</b> replies</p>
                 </div>
               </div>
-            </article>
+            </div>
+            <div class="forum-subforums">
+              <a href="#" class="forum-subforum">Subforum One</a>
+              <a href="#" class="forum-subforum">Subforum Two</a>
+              <a href="#" class="forum-subforum">Subforum Three</a>
+              <a href="#" class="forum-subforum">Subforum Four</a>
+              <a href="#" class="forum-subforum">Subforum Five</a>
+              <button class="forum-subforum-more" type="button" aria-expanded="false">
+                <span class="forum-subforum-more__label">+2 more</span>
+              </button>
+            </div>
+          </article>
 
-            <article class="forum">
+          <article class="forum">
+            <div class="forum-main">
               <div class="forum-info">
                 <h3 class="forum-title"><a href="#">Forum Title</a></h3>
                 <p class="forum-desc">Forum Description</p>
               </div>
               <div class="forum-meta">
                 <div class="last-post">
-                  <img
-                    src="https://picsum.photos/100"
-                    alt="Admin avatar"
-                    class="last-avatar"
-                  />
+                  <img src="https://picsum.photos/100" alt="Admin avatar" class="last-avatar" />
                   <div class="last-details">
                     <a href="#" class="last-thread">Latest Thread Title</a>
                     <span class="last-info">Oct 3 by Admin</span>
@@ -96,20 +92,18 @@
                   </p>
                 </div>
               </div>
-            </article>
+            </div>
+          </article>
 
-            <article class="forum">
+          <article class="forum">
+            <div class="forum-main">
               <div class="forum-info">
                 <h3 class="forum-title"><a href="#">Forum Title</a></h3>
                 <p class="forum-desc">Forum Description</p>
               </div>
               <div class="forum-meta">
                 <div class="last-post">
-                  <img
-                    src="https://picsum.photos/100"
-                    alt="Admin avatar"
-                    class="last-avatar"
-                  />
+                  <img src="https://picsum.photos/100" alt="Admin avatar" class="last-avatar" />
                   <div class="last-details">
                     <a href="#" class="last-thread">Latest Thread Title</a>
                     <span class="last-info">Oct 3 by Admin</span>
@@ -124,498 +118,342 @@
                   </p>
                 </div>
               </div>
-            </article>
-          </div>
-        </section>
+            </div>
+          </article>
+        </div>
+      </section>
 
-        <div class="tableborder" id="recent-topics">
-                  <div class="maintitle">Recent Topic Activity</div>
-                  <table
-                    cellpadding="4"
-                    cellspacing="1"
-                    border="0"
-                    width="100%"
-                  >
-                    <tbody>
-                      <tr>
-                        <td class="row4 recent-topics-info" width="80%">
-                          <a
-                            href="https://startafire.jcink.net/index.php?showtopic=183&amp;view=getnewpost"
-                            ><strong>better off alone</strong></a
-                          >
-                          - by
-                          <a
-                            href="https://startafire.jcink.net/index.php?showuser=59"
-                            >Athena Davenport</a
-                          >
-                          <a
-                            href="https://startafire.jcink.net/index.php?showforum=79"
-                          ></a>
-                        </td>
-                        <td class="row4 recent-topics-date" width="20%">
-                          October 15 2025, 4:50 PM
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="row4 recent-topics-info" width="80%">
-                          <a
-                            href="https://startafire.jcink.net/index.php?showtopic=184&amp;view=getnewpost"
-                            ><strong>caught in the rain</strong></a
-                          >
-                          - by
-                          <a
-                            href="https://startafire.jcink.net/index.php?showuser=31"
-                            >Alexander Demirci</a
-                          >
-                          <a
-                            href="https://startafire.jcink.net/index.php?showforum=77"
-                          ></a>
-                        </td>
-                        <td class="row4 recent-topics-date" width="20%">
-                          October 15 2025, 4:10 PM
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="row4 recent-topics-info" width="80%">
-                          <a
-                            href="https://startafire.jcink.net/index.php?showtopic=401&amp;view=getnewpost"
-                            ><strong
-                              >the heart of my temple of thought</strong
-                            ></a
-                          >
-                          - by
-                          <a
-                            href="https://startafire.jcink.net/index.php?showuser=120"
-                            >Stephen Harris</a
-                          >
-                          <a
-                            href="https://startafire.jcink.net/index.php?showforum=53"
-                          ></a>
-                        </td>
-                        <td class="row4 recent-topics-date" width="20%">
-                          October 14 2025, 10:39 PM
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="row4 recent-topics-info" width="80%">
-                          <a
-                            href="https://startafire.jcink.net/index.php?showtopic=400&amp;view=getnewpost"
-                            ><strong>you can let go of your fears</strong></a
-                          >
-                          - by
-                          <a
-                            href="https://startafire.jcink.net/index.php?showuser=120"
-                            >Stephen Harris</a
-                          >
-                          <a
-                            href="https://startafire.jcink.net/index.php?showforum=60"
-                          ></a>
-                        </td>
-                        <td class="row4 recent-topics-date" width="20%">
-                          October 14 2025, 10:32 PM
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="row4 recent-topics-info" width="80%">
-                          <a
-                            href="https://startafire.jcink.net/index.php?showtopic=76&amp;view=getnewpost"
-                            ><strong>character mosaics</strong></a
-                          >
-                          - by
-                          <a
-                            href="https://startafire.jcink.net/index.php?showuser=120"
-                            >Stephen Harris</a
-                          >
-                          <a
-                            href="https://startafire.jcink.net/index.php?showforum=41"
-                          ></a>
-                        </td>
-                        <td class="row4 recent-topics-date" width="20%">
-                          October 14 2025, 10:30 PM
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="row4 recent-topics-info" width="80%">
-                          <a
-                            href="https://startafire.jcink.net/index.php?showtopic=399&amp;view=getnewpost"
-                            ><strong
-                              >after the boys of summer have gone</strong
-                            ></a
-                          >
-                          - by
-                          <a
-                            href="https://startafire.jcink.net/index.php?showuser=120"
-                            >Stephen Harris</a
-                          >
-                          <a
-                            href="https://startafire.jcink.net/index.php?showforum=30"
-                          ></a>
-                        </td>
-                        <td class="row4 recent-topics-date" width="20%">
-                          October 14 2025, 10:25 PM
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="row4 recent-topics-info" width="80%">
-                          <a
-                            href="https://startafire.jcink.net/index.php?showtopic=398&amp;view=getnewpost"
-                            ><strong>hollywood</strong></a
-                          >
-                          - by
-                          <a
-                            href="https://startafire.jcink.net/index.php?showuser=3"
-                            >Spyder</a
-                          >
-                          <a
-                            href="https://startafire.jcink.net/index.php?showforum=44"
-                          ></a>
-                        </td>
-                        <td class="row4 recent-topics-date" width="20%">
-                          October 14 2025, 4:03 PM
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="row4 recent-topics-info" width="80%">
-                          <a
-                            href="https://startafire.jcink.net/index.php?showtopic=397&amp;view=getnewpost"
-                            ><strong>where the wild things are (JC)</strong></a
-                          >
-                          - by
-                          <a
-                            href="https://startafire.jcink.net/index.php?showuser=3"
-                            >Spyder</a
-                          >
-                          <a
-                            href="https://startafire.jcink.net/index.php?showforum=44"
-                          ></a>
-                        </td>
-                        <td class="row4 recent-topics-date" width="20%">
-                          October 14 2025, 9:24 AM
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="row4 recent-topics-info" width="80%">
-                          <a
-                            href="https://startafire.jcink.net/index.php?showtopic=366&amp;view=getnewpost"
-                            ><strong>leave the light on</strong></a
-                          >
-                          - by
-                          <a
-                            href="https://startafire.jcink.net/index.php?showuser=88"
-                            >Maverick Brennan</a
-                          >
-                          <a
-                            href="https://startafire.jcink.net/index.php?showforum=28"
-                          ></a>
-                        </td>
-                        <td class="row4 recent-topics-date" width="20%">
-                          October 14 2025, 9:20 AM
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="row4 recent-topics-info" width="80%">
-                          <a
-                            href="https://startafire.jcink.net/index.php?showtopic=396&amp;view=getnewpost"
-                            ><strong>Cool kids</strong></a
-                          >
-                          - by
-                          <a
-                            href="https://startafire.jcink.net/index.php?showuser=3"
-                            >Spyder</a
-                          >
-                          <a
-                            href="https://startafire.jcink.net/index.php?showforum=44"
-                          ></a>
-                        </td>
-                        <td class="row4 recent-topics-date" width="20%">
-                          October 13 2025, 4:47 PM
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="row4 recent-topics-info" width="80%">
-                          <a
-                            href="https://startafire.jcink.net/index.php?showtopic=395&amp;view=getnewpost"
-                            ><strong>i will be the death of you</strong></a
-                          >
-                          - by
-                          <a
-                            href="https://startafire.jcink.net/index.php?showuser=102"
-                            >Ashton Ryan</a
-                          >
-                          <a
-                            href="https://startafire.jcink.net/index.php?showforum=60"
-                          ></a>
-                        </td>
-                        <td class="row4 recent-topics-date" width="20%">
-                          October 13 2025, 7:19 AM
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="row4 recent-topics-info" width="80%">
-                          <a
-                            href="https://startafire.jcink.net/index.php?showtopic=394&amp;view=getnewpost"
-                            ><strong>Montana Sky [jcink prem]</strong></a
-                          >
-                          - by
-                          <a
-                            href="https://startafire.jcink.net/index.php?showuser=3"
-                            >Spyder</a
-                          >
-                          <a
-                            href="https://startafire.jcink.net/index.php?showforum=44"
-                          ></a>
-                        </td>
-                        <td class="row4 recent-topics-date" width="20%">
-                          October 13 2025, 5:57 AM
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="row4 recent-topics-info" width="80%">
-                          <a
-                            href="https://startafire.jcink.net/index.php?showtopic=393&amp;view=getnewpost"
-                            ><strong>spyder</strong></a
-                          >
-                          - by
-                          <a
-                            href="https://startafire.jcink.net/index.php?showuser=3"
-                            >Spyder</a
-                          >
-                          <a
-                            href="https://startafire.jcink.net/index.php?showforum=46"
-                          ></a>
-                        </td>
-                        <td class="row4 recent-topics-date" width="20%">
-                          October 13 2025, 5:07 AM
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="row4 recent-topics-info" width="80%">
-                          <a
-                            href="https://startafire.jcink.net/index.php?showtopic=392&amp;view=getnewpost"
-                            ><strong>🏝️ SO DAMN NONCHALANT!</strong></a
-                          >
-                          - by
-                          <a
-                            href="https://startafire.jcink.net/index.php?showuser=3"
-                            >Spyder</a
-                          >
-                          <a
-                            href="https://startafire.jcink.net/index.php?showforum=44"
-                          ></a>
-                        </td>
-                        <td class="row4 recent-topics-date" width="20%">
-                          October 12 2025, 7:45 PM
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="row4 recent-topics-info" width="80%">
-                          <a
-                            href="https://startafire.jcink.net/index.php?showtopic=308&amp;view=getnewpost"
-                            ><strong>on my way to you</strong></a
-                          >
-                          - by
-                          <a
-                            href="https://startafire.jcink.net/index.php?showuser=58"
-                            >Rafael Ortega</a
-                          >
-                          <a
-                            href="https://startafire.jcink.net/index.php?showforum=23"
-                          ></a>
-                        </td>
-                        <td class="row4 recent-topics-date" width="20%">
-                          October 12 2025, 4:46 PM
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
+      <div class="tableborder" id="recent-topics">
+        <div class="maintitle">Recent Topic Activity</div>
+        <table cellpadding="4" cellspacing="1" border="0" width="100%">
+          <tbody>
+            <tr>
+              <td class="row4 recent-topics-info" width="80%">
+                <a href="https://startafire.jcink.net/index.php?showtopic=183&amp;view=getnewpost"><strong>better off
+                    alone</strong></a>
+                - by
+                <a href="https://startafire.jcink.net/index.php?showuser=59">Athena Davenport</a>
+                <a href="https://startafire.jcink.net/index.php?showforum=79"></a>
+              </td>
+              <td class="row4 recent-topics-date" width="20%">
+                October 15 2025, 4:50 PM
+              </td>
+            </tr>
+            <tr>
+              <td class="row4 recent-topics-info" width="80%">
+                <a href="https://startafire.jcink.net/index.php?showtopic=184&amp;view=getnewpost"><strong>caught in the
+                    rain</strong></a>
+                - by
+                <a href="https://startafire.jcink.net/index.php?showuser=31">Alexander Demirci</a>
+                <a href="https://startafire.jcink.net/index.php?showforum=77"></a>
+              </td>
+              <td class="row4 recent-topics-date" width="20%">
+                October 15 2025, 4:10 PM
+              </td>
+            </tr>
+            <tr>
+              <td class="row4 recent-topics-info" width="80%">
+                <a href="https://startafire.jcink.net/index.php?showtopic=401&amp;view=getnewpost"><strong>the heart of
+                    my temple of thought</strong></a>
+                - by
+                <a href="https://startafire.jcink.net/index.php?showuser=120">Stephen Harris</a>
+                <a href="https://startafire.jcink.net/index.php?showforum=53"></a>
+              </td>
+              <td class="row4 recent-topics-date" width="20%">
+                October 14 2025, 10:39 PM
+              </td>
+            </tr>
+            <tr>
+              <td class="row4 recent-topics-info" width="80%">
+                <a href="https://startafire.jcink.net/index.php?showtopic=400&amp;view=getnewpost"><strong>you can let
+                    go of your fears</strong></a>
+                - by
+                <a href="https://startafire.jcink.net/index.php?showuser=120">Stephen Harris</a>
+                <a href="https://startafire.jcink.net/index.php?showforum=60"></a>
+              </td>
+              <td class="row4 recent-topics-date" width="20%">
+                October 14 2025, 10:32 PM
+              </td>
+            </tr>
+            <tr>
+              <td class="row4 recent-topics-info" width="80%">
+                <a href="https://startafire.jcink.net/index.php?showtopic=76&amp;view=getnewpost"><strong>character
+                    mosaics</strong></a>
+                - by
+                <a href="https://startafire.jcink.net/index.php?showuser=120">Stephen Harris</a>
+                <a href="https://startafire.jcink.net/index.php?showforum=41"></a>
+              </td>
+              <td class="row4 recent-topics-date" width="20%">
+                October 14 2025, 10:30 PM
+              </td>
+            </tr>
+            <tr>
+              <td class="row4 recent-topics-info" width="80%">
+                <a href="https://startafire.jcink.net/index.php?showtopic=399&amp;view=getnewpost"><strong>after the
+                    boys of summer have gone</strong></a>
+                - by
+                <a href="https://startafire.jcink.net/index.php?showuser=120">Stephen Harris</a>
+                <a href="https://startafire.jcink.net/index.php?showforum=30"></a>
+              </td>
+              <td class="row4 recent-topics-date" width="20%">
+                October 14 2025, 10:25 PM
+              </td>
+            </tr>
+            <tr>
+              <td class="row4 recent-topics-info" width="80%">
+                <a
+                  href="https://startafire.jcink.net/index.php?showtopic=398&amp;view=getnewpost"><strong>hollywood</strong></a>
+                - by
+                <a href="https://startafire.jcink.net/index.php?showuser=3">Spyder</a>
+                <a href="https://startafire.jcink.net/index.php?showforum=44"></a>
+              </td>
+              <td class="row4 recent-topics-date" width="20%">
+                October 14 2025, 4:03 PM
+              </td>
+            </tr>
+            <tr>
+              <td class="row4 recent-topics-info" width="80%">
+                <a href="https://startafire.jcink.net/index.php?showtopic=397&amp;view=getnewpost"><strong>where the
+                    wild things are (JC)</strong></a>
+                - by
+                <a href="https://startafire.jcink.net/index.php?showuser=3">Spyder</a>
+                <a href="https://startafire.jcink.net/index.php?showforum=44"></a>
+              </td>
+              <td class="row4 recent-topics-date" width="20%">
+                October 14 2025, 9:24 AM
+              </td>
+            </tr>
+            <tr>
+              <td class="row4 recent-topics-info" width="80%">
+                <a href="https://startafire.jcink.net/index.php?showtopic=366&amp;view=getnewpost"><strong>leave the
+                    light on</strong></a>
+                - by
+                <a href="https://startafire.jcink.net/index.php?showuser=88">Maverick Brennan</a>
+                <a href="https://startafire.jcink.net/index.php?showforum=28"></a>
+              </td>
+              <td class="row4 recent-topics-date" width="20%">
+                October 14 2025, 9:20 AM
+              </td>
+            </tr>
+            <tr>
+              <td class="row4 recent-topics-info" width="80%">
+                <a href="https://startafire.jcink.net/index.php?showtopic=396&amp;view=getnewpost"><strong>Cool
+                    kids</strong></a>
+                - by
+                <a href="https://startafire.jcink.net/index.php?showuser=3">Spyder</a>
+                <a href="https://startafire.jcink.net/index.php?showforum=44"></a>
+              </td>
+              <td class="row4 recent-topics-date" width="20%">
+                October 13 2025, 4:47 PM
+              </td>
+            </tr>
+            <tr>
+              <td class="row4 recent-topics-info" width="80%">
+                <a href="https://startafire.jcink.net/index.php?showtopic=395&amp;view=getnewpost"><strong>i will be the
+                    death of you</strong></a>
+                - by
+                <a href="https://startafire.jcink.net/index.php?showuser=102">Ashton Ryan</a>
+                <a href="https://startafire.jcink.net/index.php?showforum=60"></a>
+              </td>
+              <td class="row4 recent-topics-date" width="20%">
+                October 13 2025, 7:19 AM
+              </td>
+            </tr>
+            <tr>
+              <td class="row4 recent-topics-info" width="80%">
+                <a href="https://startafire.jcink.net/index.php?showtopic=394&amp;view=getnewpost"><strong>Montana Sky
+                    [jcink prem]</strong></a>
+                - by
+                <a href="https://startafire.jcink.net/index.php?showuser=3">Spyder</a>
+                <a href="https://startafire.jcink.net/index.php?showforum=44"></a>
+              </td>
+              <td class="row4 recent-topics-date" width="20%">
+                October 13 2025, 5:57 AM
+              </td>
+            </tr>
+            <tr>
+              <td class="row4 recent-topics-info" width="80%">
+                <a
+                  href="https://startafire.jcink.net/index.php?showtopic=393&amp;view=getnewpost"><strong>spyder</strong></a>
+                - by
+                <a href="https://startafire.jcink.net/index.php?showuser=3">Spyder</a>
+                <a href="https://startafire.jcink.net/index.php?showforum=46"></a>
+              </td>
+              <td class="row4 recent-topics-date" width="20%">
+                October 13 2025, 5:07 AM
+              </td>
+            </tr>
+            <tr>
+              <td class="row4 recent-topics-info" width="80%">
+                <a href="https://startafire.jcink.net/index.php?showtopic=392&amp;view=getnewpost"><strong>🏝️ SO DAMN
+                    NONCHALANT!</strong></a>
+                - by
+                <a href="https://startafire.jcink.net/index.php?showuser=3">Spyder</a>
+                <a href="https://startafire.jcink.net/index.php?showforum=44"></a>
+              </td>
+              <td class="row4 recent-topics-date" width="20%">
+                October 12 2025, 7:45 PM
+              </td>
+            </tr>
+            <tr>
+              <td class="row4 recent-topics-info" width="80%">
+                <a href="https://startafire.jcink.net/index.php?showtopic=308&amp;view=getnewpost"><strong>on my way to
+                    you</strong></a>
+                - by
+                <a href="https://startafire.jcink.net/index.php?showuser=58">Rafael Ortega</a>
+                <a href="https://startafire.jcink.net/index.php?showforum=23"></a>
+              </td>
+              <td class="row4 recent-topics-date" width="20%">
+                October 12 2025, 4:46 PM
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-        <!--Stats-->
-        <section
-          class="bm-stats"
-          id="boardstats"
-          aria-labelledby="bstats-title"
-        >
-          <!-- Title & quick totals -->
-          <header class="bm-stats__header">
-            <h2 id="bstats-title" class="bm-stats__title">board statistics</h2>
-            <ul class="bm-stats__totals" aria-label="site totals">
-              <li>
-                <b>20<!-- |total_mem_reg| --></b> <span>accounts</span>
-              </li>
-              <li>
-                <b>5000<!-- |total_posts| --></b> <span>posts</span>
-              </li>
-              <li>
-                <b>5<!-- |online_today| --></b> <span>online today</span>
-              </li>
-              <li>
-                <span>newest</span> <b>magdalene marshall<!-- |newest_member| --></b>
-              </li>
-            </ul>
-          </header>
+      <!--Stats-->
+      <section class="bm-stats" id="boardstats" aria-labelledby="bstats-title">
+        <!-- Title & quick totals -->
+        <header class="bm-stats__header">
+          <h2 id="bstats-title" class="bm-stats__title">board statistics</h2>
+          <ul class="bm-stats__totals" aria-label="site totals">
+            <li>
+              <b>20<!-- |total_mem_reg| --></b> <span>accounts</span>
+            </li>
+            <li>
+              <b>5000<!-- |total_posts| --></b> <span>posts</span>
+            </li>
+            <li>
+              <b>5<!-- |online_today| --></b> <span>online today</span>
+            </li>
+            <li>
+              <span>newest</span> <b>magdalene marshall<!-- |newest_member| --></b>
+            </li>
+          </ul>
+        </header>
 
-          <div class="bm-stats__grid">
-            <!-- Online today -->
-            <article
-              class="bm-card bm-card--today"
-              aria-labelledby="card-today-title"
-            >
-              <h3 id="card-today-title" class="bm-card__title">
-                members online today
-              </h3>
-              <p class="bm-card__hint">
+        <div class="bm-stats__grid">
+          <!-- Online today -->
+          <article class="bm-card bm-card--today" aria-labelledby="card-today-title">
+            <h3 id="card-today-title" class="bm-card__title">
+              members online today
+            </h3>
+            <p class="bm-card__hint">
                 record: <b><!-- |most_online_oneday| --></b> on
                 <b><!-- |most_online_oneday_date| --></b>
               </p>
-              <div class="bm-card__list--wrap">
-                <!-- |online_today_list| -->
-                <a href="https://startafire.jcink.net/index.php?showuser=31"
-                  ><span class="g--glass is-pill">Callista Carlisle</span></a
-                >,
-                <a href="https://startafire.jcink.net/index.php?showuser=31"
-                  ><span class="g--quartz is-pill">Colton Haywood</span></a
-                >,
-                <a href="https://startafire.jcink.net/index.php?showuser=31"
-                  ><span class="g--onyx is-pill">Finore Faulkner</span></a
-                >,
-                <a href="https://startafire.jcink.net/index.php?showuser=31"
-                  ><span class="g--amber is-pill">Lachlan Pryce</span></a
-                >,
-                <a href="https://startafire.jcink.net/index.php?showuser=31"
-                  ><span class="g--jade is-pill">Laurie Dreschner</span></a
-                >,
-                <a href="https://startafire.jcink.net/index.php?showuser=31"
-                  ><span class="g--silver is-pill">Magdalene Marshall</span></a
-                >,
-                <a href="https://startafire.jcink.net/index.php?showuser=31"
-                  ><span class="g--marrow is-pill">Quinn Kagami</span></a
-                >,
-                <a href="https://startafire.jcink.net/index.php?showuser=31"
-                  ><span class="g--sinew is-pill">Ren Jiayi</span></a
-                >,
-                <a href="https://startafire.jcink.net/index.php?showuser=31"
-                  ><span class="g--blood is-pill">Rhys Carrow</span></a
-                >,
-                <a href="https://startafire.jcink.net/index.php?showuser=31"
-                  ><span class="g--vein is-pill">Teyah Redfern</span></a
-                >,
-                <a href="https://startafire.jcink.net/index.php?showuser=31"
-                  ><span class="g--bone is-pill">Wren Gardner</span></a
-                >,
-                <a href="https://startafire.jcink.net/index.php?showuser=31"
-                  ><span class="g--flesh is-pill">Aurelian Viremont</span></a
-                >
-              </div>
-            </article>
+            <div class="bm-card__list--wrap">
+              <!-- |online_today_list| -->
+              <a href="https://startafire.jcink.net/index.php?showuser=31"><span class="g--glass is-pill">Callista
+                  Carlisle</span></a>,
+              <a href="https://startafire.jcink.net/index.php?showuser=31"><span class="g--quartz is-pill">Colton
+                  Haywood</span></a>,
+              <a href="https://startafire.jcink.net/index.php?showuser=31"><span class="g--onyx is-pill">Finore
+                  Faulkner</span></a>,
+              <a href="https://startafire.jcink.net/index.php?showuser=31"><span class="g--amber is-pill">Lachlan
+                  Pryce</span></a>,
+              <a href="https://startafire.jcink.net/index.php?showuser=31"><span class="g--jade is-pill">Laurie
+                  Dreschner</span></a>,
+              <a href="https://startafire.jcink.net/index.php?showuser=31"><span class="g--silver is-pill">Magdalene
+                  Marshall</span></a>,
+              <a href="https://startafire.jcink.net/index.php?showuser=31"><span class="g--marrow is-pill">Quinn
+                  Kagami</span></a>,
+              <a href="https://startafire.jcink.net/index.php?showuser=31"><span class="g--sinew is-pill">Ren
+                  Jiayi</span></a>,
+              <a href="https://startafire.jcink.net/index.php?showuser=31"><span class="g--blood is-pill">Rhys
+                  Carrow</span></a>,
+              <a href="https://startafire.jcink.net/index.php?showuser=31"><span class="g--vein is-pill">Teyah
+                  Redfern</span></a>,
+              <a href="https://startafire.jcink.net/index.php?showuser=31"><span class="g--bone is-pill">Wren
+                  Gardner</span></a>,
+              <a href="https://startafire.jcink.net/index.php?showuser=31"><span class="g--flesh is-pill">Aurelian
+                  Viremont</span></a>
+            </div>
+          </article>
 
-            <!-- Online now -->
-            <article
-              class="bm-card bm-card--now"
-              aria-labelledby="card-now-title"
-            >
-              <h3 id="card-now-title" class="bm-card__title">online now</h3>
-              <p class="bm-card__meta">
+          <!-- Online now -->
+          <article class="bm-card bm-card--now" aria-labelledby="card-now-title">
+            <h3 id="card-now-title" class="bm-card__title">online now</h3>
+            <p class="bm-card__meta">
                 <b><!-- |total_users| --></b> active ·
                 <b><!-- |total_guests| --></b> guests ·
                 <b><!-- |total_mems| --></b> members ·
                 <b><!-- |total_anons| --></b> anon
               </p>
 
-              <nav class="bm-toolbar" aria-label="online filters">
-                <a
-                  href="index.php?act=Online&amp;CODE=listall&amp;sort_key=click"
-                  >sort by click</a
-                >
-                <a href="index.php?act=Members">memberlist</a>
-                <a href="index.php?act=Search&amp;CODE=getactive"
-                  >today’s topics</a
-                >
-              </nav>
+            <nav class="bm-toolbar" aria-label="online filters">
+              <a href="index.php?act=Online&amp;CODE=listall&amp;sort_key=click">sort by click</a>
+              <a href="index.php?act=Members">memberlist</a>
+              <a href="index.php?act=Search&amp;CODE=getactive">today’s topics</a>
+            </nav>
 
-              <div class="bm-card__list thin"></div>
-            </article>
+            <div class="bm-card__list thin"></div>
+          </article>
 
-            <aside
-              class="bm-card bm-card--legend"
-              aria-labelledby="card-legend-title"
-            >
-              <h3 id="card-legend-title" class="bm-card__title">
-                group legend
-              </h3>
-              <ul class="bm-legend">
-                <!-- Replace these with your actual groups/classes or a JCink legend var if you use one -->
-                <li>
-                  <i class="chip chip--celestial" aria-hidden="true"></i
-                  ><span>Celestial</span>
-                </li>
-                <li>
-                  <i class="chip chip--flora" aria-hidden="true"></i
-                  ><span>Flora</span>
-                </li>
-                <li>
-                  <i class="chip chip--anatomy" aria-hidden="true"></i
-                  ><span>Anatomy</span>
-                </li>
-                <li>
-                  <i class="chip chip--material" aria-hidden="true"></i
-                  ><span>Material</span>
-                </li>
-              </ul>
-            </aside>
+          <aside class="bm-card bm-card--legend" aria-labelledby="card-legend-title">
+            <h3 id="card-legend-title" class="bm-card__title">
+              group legend
+            </h3>
+            <ul class="bm-legend">
+              <!-- Replace these with your actual groups/classes or a JCink legend var if you use one -->
+              <li>
+                <i class="chip chip--celestial" aria-hidden="true"></i><span>Celestial</span>
+              </li>
+              <li>
+                <i class="chip chip--flora" aria-hidden="true"></i><span>Flora</span>
+              </li>
+              <li>
+                <i class="chip chip--anatomy" aria-hidden="true"></i><span>Anatomy</span>
+              </li>
+              <li>
+                <i class="chip chip--material" aria-hidden="true"></i><span>Material</span>
+              </li>
+            </ul>
+          </aside>
 
-            <article
-              class="bm-card bm-card--recent"
-              aria-labelledby="card-recent-title"
-            >
-              <h3 id="card-recent-title" class="bm-card__title">
-                recent topics
-              </h3>
-              <div class="bm-card__list bm-recent" id="bm-recent"></div>
-            </article>
-          </div>
-        </section>
-
-        <!--Defaults-->
-        <br />
-        <div id="delcookiesrow" align="right">
-          <a href="?act=Login&amp;CODE=06">Delete cookies set by this board</a>
-          ·
-          <a href="?act=Login&amp;CODE=05">Mark all posts as read</a>
+          <article class="bm-card bm-card--recent" aria-labelledby="card-recent-title">
+            <h3 id="card-recent-title" class="bm-card__title">
+              recent topics
+            </h3>
+            <div class="bm-card__list bm-recent" id="bm-recent"></div>
+          </article>
         </div>
-        <!-- Copyright Information -->
-        <div class="tableborder" align="center">
-          <div
-            class="row4"
-            style="
+      </section>
+
+      <!--Defaults-->
+      <br />
+      <div id="delcookiesrow" align="right">
+        <a href="?act=Login&amp;CODE=06">Delete cookies set by this board</a>
+        ·
+        <a href="?act=Login&amp;CODE=05">Mark all posts as read</a>
+      </div>
+      <!-- Copyright Information -->
+      <div class="tableborder" align="center">
+        <div class="row4" style="
               font-size: 7.5pt;
               padding-top: 1px;
               padding-bottom: 1px;
               line-height: 8pt;
-            "
-          >
-            <div class="copyright" align="center">
-              Powered by
-              <a href="https://www.invisionboard.com" target="_blank"
-                >Invision Power Board</a
-              >
-              (<a href="http://jcink.com" target="_blank">Jcink.com </a>
-              <a href="https://jcink.com" target="_blank">Forum Hosting</a>
-              ) © 2020 &nbsp;
-              <a href="https://www.invisionpower.com" target="_blank"
-                >IPS, Inc.</a
-              >
-              <br />
-              Page creation time: 0.0054
-              <!-- http://luxtradition.b1.jcink.com -->
-              · <a href="index.php?act=Mobile">Mobile Version</a> ·
-              <a href="index.php?act=privacy">Privacy Policy</a>
-            </div>
+            ">
+          <div class="copyright" align="center">
+            Powered by
+            <a href="https://www.invisionboard.com" target="_blank">Invision Power Board</a>
+            (<a href="http://jcink.com" target="_blank">Jcink.com </a>
+            <a href="https://jcink.com" target="_blank">Forum Hosting</a>
+            ) © 2020 &nbsp;
+            <a href="https://www.invisionpower.com" target="_blank">IPS, Inc.</a>
+            <br />
+            Page creation time: 0.0054
+            <!-- http://luxtradition.b1.jcink.com -->
+            · <a href="index.php?act=Mobile">Mobile Version</a> ·
+            <a href="index.php?act=privacy">Privacy Policy</a>
           </div>
         </div>
-      </main>
-    </div>
+      </div>
+    </main>
+  </div>
 
-    @@include('../source/templates/scripts.html', { "prefix": "../dist" })
-  </body>
+  @@include('../source/templates/scripts.html', { "prefix": "../dist" })
+</body>
+
 </html>

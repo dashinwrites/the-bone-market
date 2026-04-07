@@ -218,6 +218,7 @@ $size-xxl: 1900px !default;
     background-image: var(--plate-img);
     opacity: var(--plate-alpha, .75);
     z-index: 1;
+    top: -35%;
   }
 }
 
