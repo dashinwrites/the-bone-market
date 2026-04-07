@@ -4,6 +4,8 @@
    Categories and Forums
 ********************************/
 
+// ── base category ──────────────────────────────
+
 .category {
   margin: 12rem auto;
   box-shadow: var(--plate-shadow);
@@ -13,10 +15,12 @@
   width: clamp(520px, 60vw, 1920px);
   position: relative;
 
-  // ── redirect row ───────────────────────────
-  // direct child of .category, placed before .category-head in HTML
-  // HTML: <article class="forum redirect"> inside <section class="category">
+  @media (max-width: 768px) {
+    width: 100%;
+    margin-inline: 0;
+  }
 
+  // ── redirect row ─────────────────────────
   > .forum.redirect {
     display: flex;
     flex-direction: row;
@@ -34,12 +38,11 @@
       var(--bg-2);
     border: 1px dashed color-mix(in oklab, var(--accent-2) 35%, transparent);
     border-radius: 6px;
-    margin-bottom: 0.5rem; // gap between redirect and the category box
+    margin-bottom: 0.5rem;
     text-transform: lowercase;
     transition: background var(--transi-quick), border-color var(--transi-quick);
     z-index: 2;
 
-    // left-anchored accent bar
     &::before {
       content: "";
       position: absolute;
@@ -53,7 +56,7 @@
       transition: width var(--transi-quick), opacity var(--transi-quick);
     }
 
-    &::after { 
+    &::after {
       content: "";
       display: block;
       position: absolute;
@@ -62,7 +65,7 @@
       width: 1px;
       height: 0.5rem;
       background: color-mix(in oklab, var(--accent-2) 35%, transparent);
-      pointer-events: none; 
+      pointer-events: none;
     }
 
     &:hover {
@@ -82,9 +85,27 @@
       }
     }
 
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+      padding: 0.75rem 1.25rem;
+
+      &::before { width: clamp(40px, 20%, 80px); }
+      .redirect-rule { display: none; }
+      .redirect-links { padding-inline-start: 0; }
+      .forum--links { padding-inline-start: 0; }
+    }
+
+    @media (max-width: 480px) {
+      padding: 0.6rem 1rem;
+      border-radius: 4px;
+      margin-bottom: 0.4rem;
+    }
+
     .forum--decor { display: none; }
 
-    // ── Jcink HTML structure ────────────────
+    // Jcink HTML structure
     .forum--title {
       flex-shrink: 0;
       margin: 0;
@@ -99,6 +120,8 @@
         transition: letter-spacing var(--transi-quick);
 
         &:hover { letter-spacing: 0.25em; }
+
+        @media (max-width: 480px) { font-size: var(--size-sm); }
       }
     }
 
@@ -145,7 +168,7 @@
       }
     }
 
-    // ── custom HTML structure ───────────────
+    // custom HTML structure
     .redirect-title {
       font: 400 var(--size-forum-title) / 1 var(--font-cinzel);
       letter-spacing: 0.2em;
@@ -157,6 +180,8 @@
       transition: letter-spacing var(--transi-quick);
 
       &:hover { letter-spacing: 0.25em; }
+
+      @media (max-width: 480px) { font-size: var(--size-sm); }
     }
 
     .redirect-rule {
@@ -198,7 +223,7 @@
     }
   }
 
-  // ── category head ──────────────────────────
+  // ── category head ─────────────────────────
   .category-head {
     padding: 1rem 1.25rem;
     display: flex;
@@ -207,12 +232,10 @@
     position: relative;
     z-index: 2;
     overflow: hidden;
-
     background: var(--bg-2);
     border: var(--border-1);
     border-bottom: none;
     border-radius: 6px 6px 0 0;
-    position: relative;
 
     &::before {
       content: "";
@@ -227,6 +250,8 @@
 
     @include corner-ticks(0.5rem, 18px, 2px, 0.25);
 
+    @media (max-width: 480px) { padding: 0.75rem 1rem; }
+
     .category-title {
       margin: 0 auto;
       font: 500 var(--size-title) / 1 var(--font-subtitle);
@@ -235,6 +260,8 @@
       color: var(--accent-1);
       position: relative;
       z-index: 2;
+
+      @media (max-width: 480px) { font-size: clamp(18px, 5vw, 28px); }
     }
 
     .category-meta {
@@ -247,7 +274,7 @@
     }
   }
 
-  // ── category body ──────────────────────────
+  // ── category body ─────────────────────────
   .category-body {
     display: grid;
     gap: 1rem;
@@ -255,10 +282,9 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
     position: relative;
     z-index: 2;
-
     background: var(--bg-1-rgb);
     border: var(--border-1);
-    border-top: var(--border-1); // the border between head and body
+    border-top: var(--border-1);
     border-radius: 0 0 6px 6px;
     box-shadow: var(--plate-shadow);
 
@@ -266,12 +292,15 @@
       grid-column: 1 / -1;
     }
 
-    @media (max-width: 720px) {
+    @media (max-width: 1280px) {
       grid-template-columns: 1fr;
 
-      > .forum:last-child:nth-child(odd) {
-        grid-column: auto;
-      }
+      > .forum:last-child:nth-child(odd) { grid-column: auto; }
+    }
+
+    @media (max-width: 480px) {
+      padding: 0.75rem;
+      gap: 0.75rem;
     }
 
     // ── forum card ──────────────────────────
@@ -289,7 +318,6 @@
       flex-direction: column;
       text-transform: lowercase;
 
-      /* accent bar at top */
       &::before {
         content: "";
         position: absolute;
@@ -306,7 +334,6 @@
           width var(--transi-quick);
       }
 
-      /* punch hole */
       &::after {
         content: "";
         position: absolute;
@@ -326,13 +353,9 @@
         border-color: color-mix(in oklab, var(--accent-1) 40%, transparent);
         transform: translateY(-1px);
 
-        &::before {
-          opacity: 0.55;
-          width: 40%;
-        }
+        &::before { opacity: 0.55; width: 40%; }
       }
 
-      // ── forum main (info + meta) ───────────
       .forum-main {
         display: flex;
         justify-content: space-between;
@@ -340,9 +363,14 @@
         gap: 1rem;
         padding: 1.25rem;
         flex: 1;
+
+        @media (max-width: 480px) {
+          flex-direction: column;
+          padding: 1rem;
+          gap: 0.75rem;
+        }
       }
 
-      // ── forum info ─────────────────────────
       .forum-info {
         flex: 1;
         min-width: 0;
@@ -366,9 +394,13 @@
           );
           pointer-events: none;
         }
+
+        @media (max-width: 480px) {
+          padding-right: 0;
+          &::after { display: none; }
+        }
       }
 
-      // ── forum title ────────────────────────
       .forum-title {
         margin: 0;
         font: 400 var(--size-lg) / 1.1 var(--font-cinzel);
@@ -406,7 +438,6 @@
         }
       }
 
-      // ── forum description ──────────────────
       .forum-desc {
         margin: 0;
         font: 400 var(--size-sm) / 1.6 var(--font-hand);
@@ -418,16 +449,13 @@
         letter-spacing: 0.04em;
 
         &::-webkit-scrollbar { width: 3px; }
-
         &::-webkit-scrollbar-thumb {
           background: color-mix(in oklab, var(--accent-1) 30%, transparent);
           border-radius: 999px;
         }
-
         &::-webkit-scrollbar-track { background: transparent; }
       }
 
-      // ── subforum list ──────────────────────
       .forum-subforums {
         display: flex;
         flex-wrap: wrap;
@@ -483,7 +511,6 @@
         &[aria-expanded="true"] { display: none; }
       }
 
-      // ── forum meta ─────────────────────────
       .forum-meta {
         flex: 0 0 auto;
         display: grid;
@@ -492,6 +519,15 @@
         color: var(--text-loCon);
         width: clamp(160px, 35%, 280px);
         align-content: space-between;
+
+        @media (max-width: 480px) {
+          width: 100%;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+          gap: 1rem;
+        }
       }
 
       .forum-stats {
@@ -506,6 +542,13 @@
         }
 
         &::before { display: none; }
+
+        @media (max-width: 480px) {
+          display: flex;
+          flex-direction: row;
+          gap: 1rem;
+          text-align: left;
+        }
       }
 
       .last-post {
@@ -573,27 +616,165 @@
         }
       }
     }
+  }
 
-    // ── responsive ──────────────────────────
-    @media (max-width: 680px) {
-      .forum { flex-direction: column; align-items: stretch; }
+  // ── 1024px: unified head/body collapse ─────
+  // applies to both horizontal and vertical (collapsed) layouts
 
-      .forum .forum-meta {
-        align-items: flex-start;
-        text-align: left;
-        margin-top: 0.75rem;
-        flex: 1 1 auto;
+  @media (max-width: 1024px) {
+    .category-head {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.25rem;
+      block-size: auto;
+      border-radius: 6px 6px 0 0;
+      border-top: var(--border-1);
+      border-right: var(--border-1);
+      border-bottom: none;
+      border-left: var(--border-1);
 
-        .last-post { flex-direction: row; align-items: center; }
+      &::after {
+        background:
+          linear-gradient(currentColor, currentColor) left  top    / 18px 2px no-repeat,
+          linear-gradient(currentColor, currentColor) left  top    / 2px 18px no-repeat,
+          linear-gradient(currentColor, currentColor) right top    / 18px 2px no-repeat,
+          linear-gradient(currentColor, currentColor) right top    / 2px 18px no-repeat,
+          linear-gradient(currentColor, currentColor) left  bottom / 18px 2px no-repeat,
+          linear-gradient(currentColor, currentColor) left  bottom / 2px 18px no-repeat,
+          linear-gradient(currentColor, currentColor) right bottom / 18px 2px no-repeat,
+          linear-gradient(currentColor, currentColor) right bottom / 2px 18px no-repeat;
+        opacity: 0.25;
+      }
+
+      &::before {
+        inset: 0.5rem;
+        border-right: var(--bdash);
+        border-radius: 4px;
+      }
+
+      .category-title {
+        writing-mode: horizontal-tb;
+        transform: none;
+        letter-spacing: 0.15rem;
+        margin: 0 auto;
+        left: unset;
+      }
+
+      .category-meta {
+        position: static;
+        writing-mode: horizontal-tb;
+        transform: none;
+        font-size: var(--size-sm);
+        letter-spacing: 0.06em;
       }
     }
 
-    @media (max-width: 920px) and (min-width: 681px) {
-      .forum { align-items: stretch; }
-      .forum .forum-meta { align-self: start; }
+    .category-body {
+      border-left: var(--border-1);
+      border-top: var(--border-1);
+      border-radius: 0 0 6px 6px;
     }
   }
 } // end .category
+
+// ── vertical layout modifier ───────────────────
+// usage: .category--vertical
+// left spine + right forum stack
+// redirect spans full width above both columns
+
+.category--vertical {
+  grid-template-rows: auto 1fr;
+  grid-template-columns: clamp(56px, 8vw, 80px) 1fr;
+  grid-template-areas:
+    "redirect redirect"
+    "head     body";
+  align-items: stretch;
+  overflow: visible;
+
+  > .forum.redirect {
+    grid-area: redirect;
+  }
+
+  .category-head {
+    grid-area: head;
+    align-self: stretch;
+    padding: 1.25rem 0.6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    overflow: hidden;
+
+    border-radius: 0 0 0 6px;
+    border-top: none;
+    border-right: var(--border-1);
+    border-bottom: var(--border-1);
+
+    // left-only corner ticks
+    &::after {
+      background:
+        linear-gradient(currentColor, currentColor) left top    / 18px 2px no-repeat,
+        linear-gradient(currentColor, currentColor) left top    / 2px 18px no-repeat,
+        linear-gradient(currentColor, currentColor) left bottom / 18px 2px no-repeat,
+        linear-gradient(currentColor, currentColor) left bottom / 2px 18px no-repeat;
+      opacity: 0.25;
+    }
+
+    // dashed inset — left/bottom only, no right
+    &::before {
+      inset: 0.5rem 0 0.5rem 0.5rem;
+      border-right: none;
+      border-radius: 4px 0 0 4px;
+    }
+
+    .category-title {
+      margin: 0;
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      letter-spacing: 0.18em;
+      white-space: nowrap;
+      text-align: center;
+      left: 50%;
+      width: fit-content;
+    }
+
+    .category-meta {
+      position: absolute;
+      bottom: 1.25rem;
+      left: 50%;
+      writing-mode: vertical-rl;
+      transform: translate(-50%) rotate(180deg);
+      font-size: var(--size-xs);
+      letter-spacing: 0.14em;
+      opacity: 0.6;
+    }
+  }
+
+  .category-body {
+    grid-area: body;
+    grid-template-columns: 1fr;
+    border-radius: 0 0 6px 0;
+    border-left: none;
+    border-top: none;
+
+    > .forum:last-child:nth-child(odd) { grid-column: auto; }
+  }
+
+  // ── 1024px: collapse to stacked layout ─────
+  // head/body visual styles handled by .category @media block above
+  // only grid changes needed here
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr;
+    grid-template-areas:
+      "redirect"
+      "head"
+      "body";
+  }
+}
 
 /* -------------------------------------------------
    Anatomy plate system
@@ -617,6 +798,33 @@
   --plate-h: 168px;
   --plate-size: cover;
   --plate-pos: right 35% center;
+}
+
+// ── plate-side block-size fix for vertical layout ──
+// plate-side mixin sets a fixed block-size on .category-head
+// which prevents grid stretching — must come AFTER mixin includes
+
+.category--vertical.category--plate-side .category-head {
+  block-size: 100%;
+
+  &::before {
+    block-size: 100%;
+    inline-size: 100%;
+    background-size: contain;
+    background-position: center top;
+  }
+
+  @media (max-width: 1024px) {
+    block-size: auto;
+    display: flex;
+  }
+}
+
+.category--vertical.category--plate-watermark .category-head,
+.category--vertical.category--plate-anchor .category-head {
+  block-size: 100%;
+
+  @media (max-width: 1024px) { block-size: auto; }
 }
 
 /* -------------------------------------------------
@@ -654,6 +862,8 @@
     opacity: 0.65;
     color: var(--ct-accent-1);
   }
+
+  &::after { border-bottom: none; }
 }
 
 /* 2) Etched */
