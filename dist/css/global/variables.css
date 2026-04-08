@@ -164,7 +164,7 @@
   --bm-mg-row-opacity: 0.12;
   --bm-mg-row-opacity-overlay: 0.14; }
   [data-theme="light"] .bm-head {
-    background: radial-gradient(1200px 500px at 55% 45%, color-mix(in oklab, var(--bg-2) 18%, transparent), transparent 60%), radial-gradient(900px 420px at 25% 35%, color-mix(in oklab, var(--bg-2) 12%, transparent), transparent 58%), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Cline x1='0' y1='20' x2='20' y2='0' stroke='black' stroke-width='0.4' stroke-opacity='0.06'/%3E%3C/svg%3E"), var(--bg-1); }
+    background: radial-gradient(1200px 500px at 55% 45%, color-mix(in oklab, var(--bg-2) 18%, transparent), transparent 60%), radial-gradient(900px 420px at 25% 35%, color-mix(in oklab, var(--bg-2) 12%, transparent), transparent 58%), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Cline x1='0' y1='20' x2='20' y2='0' stroke='black' stroke-width='0.4' stroke-opacity='0.1'/%3E%3C/svg%3E"), var(--bg-1); }
   [data-theme="light"] [data-mg="quartz"] {
     --mg-gradient: linear-gradient(
       135deg,

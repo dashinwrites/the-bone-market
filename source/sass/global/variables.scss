@@ -206,7 +206,7 @@
       radial-gradient(900px 420px at 25% 35%,
         color-mix(in oklab, var(--bg-2) 12%, transparent),
         transparent 58%),
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Cline x1='0' y1='20' x2='20' y2='0' stroke='black' stroke-width='0.4' stroke-opacity='0.06'/%3E%3C/svg%3E"),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Cline x1='0' y1='20' x2='20' y2='0' stroke='black' stroke-width='0.4' stroke-opacity='0.1'/%3E%3C/svg%3E"),
       var(--bg-1);
   }
 
