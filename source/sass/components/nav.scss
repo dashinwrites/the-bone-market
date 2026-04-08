@@ -11,19 +11,26 @@
   overflow: visible;
   position: fixed;
   inset-block-start: 0;
-  inset-inline: var(--leftbar-w) 0;
+  inset-inline: 0; // spans full width now, leftbar sits on top
   display: flex;
   align-items: center;
-  justify-content: flex-end; // utilities push to the right
+  justify-content: flex-end;
   gap: 0.75rem;
-  padding: 0 1.25rem;
+  padding: 0 1.25rem 0 calc(var(--leftbar-w) + 1.25rem); // left padding clears the leftbar column
   block-size: var(--nav-h);
   z-index: var(--z-nav);
-  background: color-mix(in oklab, var(--bg-1) 72%, transparent);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  border-block-end: 1px solid
-    color-mix(in oklab, var(--text-loCon) 10%, transparent);
+  border-block-end: none;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset-block-end: 0;
+    inset-inline-start: var(--leftbar-w); // starts at leftbar's right edge
+    inset-inline-end: 0;
+    height: 1px;
+    background: color-mix(in oklab, var(--text-loCon) 10%, transparent);
+    pointer-events: none;
+  }
 
   .nav-welcome {
     display: flex;
@@ -217,23 +224,34 @@
    --------------------------- */
 #leftbar {
   position: fixed;
-  inset-block-start: 0;
+  inset-block-start: 0; 
   inset-inline-start: 0;
   display: flex;
-  flex-direction: column; // stack plate and breadcrumb vertically
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between; // plate at top, breadcrumb at bottom
-  padding-block: 20px 1.5rem; // top padding for plate, bottom for breadcrumb
+  justify-content: space-between;
+  padding-block: 0.25rem 1.5rem; 
   inline-size: var(--leftbar-w);
-  block-size: 100dvb;
+  block-size: 100dvb; // subtract navstrip height
   z-index: var(--z-leftbar);
-  background: transparent;
-  color: var(--text-clear);
+  border-inline-end: none;
+  overflow: hidden;
 
   // 100dvb = block-axis dynamic viewport — equivalent to 100dvh in horizontal writing modes
   // fallback to 100vh for browsers that don't support dvb units
   @supports not (height: 100dvb) {
     block-size: 100vh;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset-block-start: var(--nav-h); // starts below navstrip
+    inset-block-end: 0;
+    inset-inline-end: 0;
+    width: 1px;
+    background: color-mix(in oklab, var(--text-loCon) 10%, transparent);
+    pointer-events: none;
   }
 
   .icon--pm,
@@ -266,23 +284,7 @@
     z-index: calc(var(--z-nav) * 2);
     gap: 0.5rem; /* vertical rhythm */
     padding: 6px; /* room so separators don't touch border */
-
-    background: var(--plate-bg);
-    border: var(--plate-border);
-    border-radius: 8px;
-    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
     color: var(--plate-text, var(--text-clear));
-
-    /* dashed inset like the theme toggle */
-    &::before {
-      content: "";
-      position: absolute;
-      inset: 4px;
-      border: var(--bdash);
-      opacity: 0.35;
-      pointer-events: none;
-      border-radius: 6px;
-    }
 
     /* separator tuning tokens */
     --sep-inset: 8px; /* left/right inset of the dashed rule */
@@ -469,10 +471,10 @@
       font-family: var(--font-serif);
       font-size: var(--size-md); // larger so the glyph reads in vertical mode
       color: var(--accent-1);
-      opacity: 0.35;
+      opacity: 1;
       user-select: none;
       writing-mode: vertical-lr;
-      transform: rotate(180deg);
+      transform: rotate(-90deg);
     }
 
     .lb-breadcrumb__current {
@@ -708,20 +710,14 @@ body[data-sidebar="open"] {
   #navstrip,
   #leftbar {
     background:
-      linear-gradient(rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.06)), var(--bg-2);
+      linear-gradient(rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.03)), // reversed — lighter at bottom
+      var(--bg-2);
     color: var(--text-hiCon);
     box-shadow:
       0 1px 0 rgba(0, 0, 0, 0.08),
       0 2px 6px rgba(0, 0, 0, 0.06);
   }
 
-  #navstrip a {
-    color: var(--text-medCon);
-  }
-  #navstrip a + a::before {
-    color: var(--text-loCon);
-    opacity: 0.85;
-  }
 
   /* plate tokens (toggle + leftbar panel) */
   #theme-toggle,
@@ -747,14 +743,6 @@ body[data-sidebar="open"] {
     box-shadow:
       0 1px 0 rgba(0, 0, 0, 0.25),
       inset 0 0 0 999px rgba(255, 255, 255, 0);
-  }
-
-  #navstrip a {
-    color: var(--text-loCon);
-  }
-  #navstrip a + a::before {
-    color: var(--text-medCon);
-    opacity: 0.75;
   }
 
   /* plate tokens (toggle + leftbar panel) */

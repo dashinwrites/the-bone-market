@@ -58,7 +58,7 @@
      Z-index stack
   ================================= */
   --z-nav: 100;
-  --z-leftbar: var(--z-nav);
+  --z-leftbar: calc(var(--z-nav) + 1);
   --z-sidebar: calc(var(--z-leftbar) - 1);
   --z-scrim: calc(var(--z-leftbar) - 2);
   --z-overlay: 400;

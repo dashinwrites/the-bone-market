@@ -108,7 +108,7 @@
      Z-index stack
   ================================= */
   --z-nav: 100;
-  --z-leftbar: var(--z-nav);
+  --z-leftbar: calc(var(--z-nav) + 1);
   --z-sidebar: calc(var(--z-leftbar) - 1);
   --z-scrim: calc(var(--z-leftbar) - 2);
   --z-overlay: 400;
@@ -4723,7 +4723,7 @@ body.g-marrow {
   overflow: visible;
   position: fixed;
   inset-block-start: 0;
-  inset-inline: var(--leftbar-w) 0;
+  inset-inline: 0;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -4737,14 +4737,20 @@ body.g-marrow {
       -ms-flex-pack: end;
           justify-content: flex-end;
   gap: 0.75rem;
-  padding: 0 1.25rem;
+  padding: 0 1.25rem 0 calc(var(--leftbar-w) + 1.25rem);
   block-size: var(--nav-h);
   z-index: var(--z-nav);
-  background: color-mix(in oklab, var(--bg-1) 72%, transparent);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  -webkit-border-after: 1px solid color-mix(in oklab, var(--text-loCon) 10%, transparent);
-          border-block-end: 1px solid color-mix(in oklab, var(--text-loCon) 10%, transparent); }
+  -webkit-border-after: none;
+          border-block-end: none; }
+  #navstrip::after {
+    content: "";
+    position: absolute;
+    inset-block-end: 0;
+    inset-inline-start: var(--leftbar-w);
+    inset-inline-end: 0;
+    height: 1px;
+    background: color-mix(in oklab, var(--text-loCon) 10%, transparent);
+    pointer-events: none; }
   #navstrip .nav-welcome {
     display: -webkit-box;
     display: -webkit-flex;
@@ -4960,16 +4966,26 @@ body.g-marrow {
   -webkit-justify-content: space-between;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding-block: 20px 1.5rem;
+  padding-block: 0.25rem 1.5rem;
   inline-size: var(--leftbar-w);
   block-size: 100dvb;
   z-index: var(--z-leftbar);
-  background: transparent;
-  color: var(--text-clear);
+  -webkit-border-end: none;
+          border-inline-end: none;
+  overflow: hidden;
   /* one-and-only plate container for all icons */ }
   @supports not (height: 100dvb) {
     #leftbar {
       block-size: 100vh; } }
+  #leftbar::after {
+    content: "";
+    position: absolute;
+    inset-block-start: var(--nav-h);
+    inset-block-end: 0;
+    inset-inline-end: 0;
+    width: 1px;
+    background: color-mix(in oklab, var(--text-loCon) 10%, transparent);
+    pointer-events: none; }
   #leftbar .icon--pm,
   #leftbar .icon--alerts {
     position: relative;
@@ -5014,13 +5030,7 @@ body.g-marrow {
     /* vertical rhythm */
     padding: 6px;
     /* room so separators don't touch border */
-    background: var(--plate-bg);
-    border: var(--plate-border);
-    border-radius: 8px;
-    -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
-            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
     color: var(--plate-text, var(--text-clear));
-    /* dashed inset like the theme toggle */
     /* separator tuning tokens */
     --sep-inset: 8px;
     /* left/right inset of the dashed rule */
@@ -5032,14 +5042,6 @@ body.g-marrow {
     /* ─────────────────────────────
        MEMBER (m-<g_id>) & GUEST (g-<g_id>) sections
        ───────────────────────────── */ }
-    #leftbar .lb-plate::before {
-      content: "";
-      position: absolute;
-      inset: 4px;
-      border: var(--bdash);
-      opacity: 0.35;
-      pointer-events: none;
-      border-radius: 6px; }
     #leftbar .lb-plate > .icon {
       position: relative;
       display: -webkit-inline-box;
@@ -5244,7 +5246,7 @@ body.g-marrow {
       font-family: var(--font-serif);
       font-size: var(--size-md);
       color: var(--accent-1);
-      opacity: 0.35;
+      opacity: 1;
       -webkit-user-select: none;
          -moz-user-select: none;
           -ms-user-select: none;
@@ -5252,9 +5254,9 @@ body.g-marrow {
       -webkit-writing-mode: vertical-lr;
           -ms-writing-mode: tb-lr;
               writing-mode: vertical-lr;
-      -webkit-transform: rotate(180deg);
-          -ms-transform: rotate(180deg);
-              transform: rotate(180deg); }
+      -webkit-transform: rotate(-90deg);
+          -ms-transform: rotate(-90deg);
+              transform: rotate(-90deg); }
     #leftbar .lb-breadcrumb .lb-breadcrumb__current {
       color: var(--text-medCon);
       opacity: 0.8;
@@ -5591,16 +5593,11 @@ body[data-sidebar="open"] {
   /* drawer coloring */ }
   [data-theme="light"] #navstrip,
   [data-theme="light"] #leftbar {
-    background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.03)), to(rgba(0, 0, 0, 0.06))), var(--bg-2);
-    background: linear-gradient(rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.06)), var(--bg-2);
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.06)), to(rgba(0, 0, 0, 0.03))), var(--bg-2);
+    background: linear-gradient(rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.03)), var(--bg-2);
     color: var(--text-hiCon);
     -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.06);
             box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.06); }
-  [data-theme="light"] #navstrip a {
-    color: var(--text-medCon); }
-  [data-theme="light"] #navstrip a + a::before {
-    color: var(--text-loCon);
-    opacity: 0.85; }
   [data-theme="light"] #theme-toggle,
   [data-theme="light"] #leftbar .lb-plate {
     --plate-bg: var(--bg-2);
@@ -5620,11 +5617,6 @@ body[data-sidebar="open"] {
     color: var(--text-clear);
     -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25), inset 0 0 0 999px rgba(255, 255, 255, 0);
             box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25), inset 0 0 0 999px rgba(255, 255, 255, 0); }
-  [data-theme="dark"] #navstrip a {
-    color: var(--text-loCon); }
-  [data-theme="dark"] #navstrip a + a::before {
-    color: var(--text-medCon);
-    opacity: 0.75; }
   [data-theme="dark"] #theme-toggle,
   [data-theme="dark"] #leftbar .lb-plate {
     --plate-bg: var(--bg-3);
