@@ -5206,10 +5206,10 @@ body.g-marrow {
     display: -ms-flexbox;
     display: flex;
     -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    -webkit-box-direction: reverse;
+    -webkit-flex-direction: column-reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
     -webkit-box-align: center;
     -webkit-align-items: center;
         -ms-flex-align: center;
@@ -5229,9 +5229,9 @@ body.g-marrow {
       text-decoration: none;
       white-space: nowrap;
       opacity: 0.6;
-      -webkit-writing-mode: vertical-rl;
-          -ms-writing-mode: tb-rl;
-              writing-mode: vertical-rl;
+      -webkit-writing-mode: vertical-lr;
+          -ms-writing-mode: tb-lr;
+              writing-mode: vertical-lr;
       -webkit-transform: rotate(180deg);
           -ms-transform: rotate(180deg);
               transform: rotate(180deg);
@@ -5249,18 +5249,18 @@ body.g-marrow {
          -moz-user-select: none;
           -ms-user-select: none;
               user-select: none;
-      -webkit-writing-mode: vertical-rl;
-          -ms-writing-mode: tb-rl;
-              writing-mode: vertical-rl;
+      -webkit-writing-mode: vertical-lr;
+          -ms-writing-mode: tb-lr;
+              writing-mode: vertical-lr;
       -webkit-transform: rotate(180deg);
           -ms-transform: rotate(180deg);
               transform: rotate(180deg); }
     #leftbar .lb-breadcrumb .lb-breadcrumb__current {
       color: var(--text-medCon);
       opacity: 0.8;
-      -webkit-writing-mode: vertical-rl;
-          -ms-writing-mode: tb-rl;
-              writing-mode: vertical-rl;
+      -webkit-writing-mode: vertical-lr;
+          -ms-writing-mode: tb-lr;
+              writing-mode: vertical-lr;
       -webkit-transform: rotate(180deg);
           -ms-transform: rotate(180deg);
               transform: rotate(180deg); }
@@ -6405,8 +6405,6 @@ body[id="idx"] .bm-head {
         padding: 0.75rem 1.25rem; }
         .category > .forum.redirect::before {
           width: clamp(40px, 20%, 80px); }
-        .category > .forum.redirect .redirect-rule {
-          display: none; }
         .category > .forum.redirect .redirect-links {
           -webkit-padding-start: 0;
                   padding-inline-start: 0; }
@@ -6516,6 +6514,12 @@ body[id="idx"] .bm-head {
           -ms-flex-negative: 0;
               flex-shrink: 0;
       margin-inline: 1.5rem; }
+      @media (max-width: 768px) {
+        .category > .forum.redirect .redirect-rule {
+          inline-size: 6rem;
+          block-size: 1px;
+          margin-inline: 0;
+          margin-block: 0.25rem; } }
     .category > .forum.redirect .redirect-links {
       display: -webkit-box;
       display: -webkit-flex;
@@ -6716,11 +6720,6 @@ body[id="idx"] .bm-head {
                 flex: 1; }
         @media (max-width: 480px) {
           .category .category-body > .forum .forum-main {
-            -webkit-box-orient: vertical;
-            -webkit-box-direction: normal;
-            -webkit-flex-direction: column;
-                -ms-flex-direction: column;
-                    flex-direction: column;
             padding: 1rem;
             gap: 0.75rem; } }
       .category .category-body > .forum .forum-info {
@@ -6883,27 +6882,6 @@ body[id="idx"] .bm-head {
         -webkit-align-content: space-between;
             -ms-flex-line-pack: justify;
                 align-content: space-between; }
-        @media (max-width: 480px) {
-          .category .category-body > .forum .forum-meta {
-            width: 100%;
-            display: -webkit-box;
-            display: -webkit-flex;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-orient: horizontal;
-            -webkit-box-direction: normal;
-            -webkit-flex-direction: row;
-                -ms-flex-direction: row;
-                    flex-direction: row;
-            -webkit-box-align: center;
-            -webkit-align-items: center;
-                -ms-flex-align: center;
-                    align-items: center;
-            -webkit-box-pack: justify;
-            -webkit-justify-content: space-between;
-                -ms-flex-pack: justify;
-                    justify-content: space-between;
-            gap: 1rem; } }
       .category .category-body > .forum .forum-stats {
         display: -ms-grid;
         display: grid;
@@ -6915,19 +6893,6 @@ body[id="idx"] .bm-head {
           font-weight: 600; }
         .category .category-body > .forum .forum-stats::before {
           display: none; }
-        @media (max-width: 480px) {
-          .category .category-body > .forum .forum-stats {
-            display: -webkit-box;
-            display: -webkit-flex;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-orient: horizontal;
-            -webkit-box-direction: normal;
-            -webkit-flex-direction: row;
-                -ms-flex-direction: row;
-                    flex-direction: row;
-            gap: 1rem;
-            text-align: left; } }
       .category .category-body > .forum .last-post {
         display: -webkit-box;
         display: -webkit-flex;
@@ -7013,60 +6978,71 @@ body[id="idx"] .bm-head {
           letter-spacing: 0.08em;
           text-transform: uppercase;
           opacity: 0.7; }
-  @media (max-width: 1024px) {
-    .category .category-head {
-      -webkit-box-orient: horizontal;
-      -webkit-box-direction: normal;
-      -webkit-flex-direction: row;
-          -ms-flex-direction: row;
-              flex-direction: row;
-      -webkit-box-align: center;
-      -webkit-align-items: center;
-          -ms-flex-align: center;
-              align-items: center;
-      -webkit-box-pack: justify;
-      -webkit-justify-content: space-between;
-          -ms-flex-pack: justify;
-              justify-content: space-between;
-      padding: 1rem 1.25rem;
-      block-size: auto;
-      border-radius: 6px 6px 0 0;
-      border-top: var(--border-1);
-      border-right: var(--border-1);
-      border-bottom: none;
-      border-left: var(--border-1); }
-      .category .category-head::after {
-        background: -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left top/18px 2px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left top/2px 18px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) right top/18px 2px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) right top/2px 18px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left bottom/18px 2px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left bottom/2px 18px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) right bottom/18px 2px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) right bottom/2px 18px no-repeat;
-        background: linear-gradient(currentColor, currentColor) left top/18px 2px no-repeat, linear-gradient(currentColor, currentColor) left top/2px 18px no-repeat, linear-gradient(currentColor, currentColor) right top/18px 2px no-repeat, linear-gradient(currentColor, currentColor) right top/2px 18px no-repeat, linear-gradient(currentColor, currentColor) left bottom/18px 2px no-repeat, linear-gradient(currentColor, currentColor) left bottom/2px 18px no-repeat, linear-gradient(currentColor, currentColor) right bottom/18px 2px no-repeat, linear-gradient(currentColor, currentColor) right bottom/2px 18px no-repeat;
-        opacity: 0.25; }
-      .category .category-head::before {
-        inset: 0.5rem;
-        border-right: var(--bdash);
-        border-radius: 4px; }
-      .category .category-head .category-title {
-        -webkit-writing-mode: horizontal-tb;
-            -ms-writing-mode: lr-tb;
-                writing-mode: horizontal-tb;
-        -webkit-transform: none;
-            -ms-transform: none;
-                transform: none;
-        letter-spacing: 0.15rem;
-        margin: 0 auto;
-        left: unset; }
-      .category .category-head .category-meta {
-        position: static;
-        -webkit-writing-mode: horizontal-tb;
-            -ms-writing-mode: lr-tb;
-                writing-mode: horizontal-tb;
-        -webkit-transform: none;
-            -ms-transform: none;
-                transform: none;
-        font-size: var(--size-sm);
-        letter-spacing: 0.06em; }
-    .category .category-body {
-      border-left: var(--border-1);
-      border-top: var(--border-1);
-      border-radius: 0 0 6px 6px; } }
+      @media (max-width: 1280px) {
+        .category .category-body > .forum .forum-main {
+          -webkit-flex-wrap: wrap;
+              -ms-flex-wrap: wrap;
+                  flex-wrap: wrap;
+          -webkit-box-align: stretch;
+          -webkit-align-items: stretch;
+              -ms-flex-align: stretch;
+                  align-items: stretch; }
+        .category .category-body > .forum .forum-info {
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 100%;
+              -ms-flex: 0 0 100%;
+                  flex: 0 0 100%;
+          padding-right: 0; }
+          .category .category-body > .forum .forum-info::after {
+            display: none; }
+        .category .category-body > .forum .forum-meta {
+          -webkit-box-flex: 1;
+          -webkit-flex: 1 1 100%;
+              -ms-flex: 1 1 100%;
+                  flex: 1 1 100%;
+          width: auto;
+          display: -webkit-box;
+          display: -webkit-flex;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-orient: horizontal;
+          -webkit-box-direction: normal;
+          -webkit-flex-direction: row;
+              -ms-flex-direction: row;
+                  flex-direction: row;
+          -webkit-box-align: center;
+          -webkit-align-items: center;
+              -ms-flex-align: center;
+                  align-items: center;
+          -webkit-box-pack: justify;
+          -webkit-justify-content: space-between;
+              -ms-flex-pack: justify;
+                  justify-content: space-between;
+          gap: 1rem;
+          border-top: 1px solid color-mix(in oklab, var(--text-loCon) 12%, transparent);
+          padding-top: 0.75rem; }
+        .category .category-body > .forum .forum-stats {
+          text-align: left; }
+        .category .category-body > .forum .last-post {
+          -webkit-flex-shrink: 0;
+              -ms-flex-negative: 0;
+                  flex-shrink: 0; } }
+      @media (max-width: 480px) {
+        .category .category-body > .forum .forum-main {
+          padding: 0.75rem;
+          gap: 0.5rem; }
+        .category .category-body > .forum .forum-info {
+          padding-right: 0; }
+          .category .category-body > .forum .forum-info::after {
+            display: none; }
+        .category .category-body > .forum .forum-meta {
+          gap: 0.75rem;
+          padding-top: 0.5rem; }
+        .category .category-body > .forum .forum-stats {
+          gap: 0.75rem; }
+        .category .category-body > .forum .last-post .last-avatar {
+          width: 36px;
+          height: 36px; } }
 
 .category--vertical {
   -ms-grid-rows: auto 1fr;
@@ -7110,10 +7086,12 @@ body[id="idx"] .bm-head {
             justify-content: space-between;
     gap: 1rem;
     overflow: hidden;
-    border-radius: 0 0 0 6px;
+    border: var(--border-1);
     border-top: none;
     border-right: var(--border-1);
-    border-bottom: var(--border-1); }
+    border-bottom: var(--border-1);
+    border-left: var(--border-1);
+    border-radius: 0 0 0 6px; }
     .category--vertical .category-head::after {
       background: -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left top/18px 2px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left top/2px 18px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left bottom/18px 2px no-repeat, -webkit-gradient(linear, left top, left bottom, from(currentColor), to(currentColor)) left bottom/2px 18px no-repeat;
       background: linear-gradient(currentColor, currentColor) left top/18px 2px no-repeat, linear-gradient(currentColor, currentColor) left top/2px 18px no-repeat, linear-gradient(currentColor, currentColor) left bottom/18px 2px no-repeat, linear-gradient(currentColor, currentColor) left bottom/2px 18px no-repeat;
@@ -7161,23 +7139,6 @@ body[id="idx"] .bm-head {
     border-top: none; }
     .category--vertical .category-body > .forum:last-child:nth-child(odd) {
       grid-column: auto; }
-  @media (max-width: 1024px) {
-    .category--vertical {
-      -ms-grid-columns: 1fr;
-      grid-template-columns: 1fr;
-      -ms-grid-rows: auto auto 1fr;
-      grid-template-rows: auto auto 1fr;
-          grid-template-areas: "redirect" "head" "body"; }
-    .category--vertical > .forum.redirect {
-    -ms-grid-row: 1;
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 1; }
-    .category--vertical .category-head {
-    -ms-grid-row: 2;
-    -ms-grid-column: 1; }
-    .category--vertical .category-body {
-    -ms-grid-row: 3;
-    -ms-grid-column: 1; } }
 
 /* -------------------------------------------------
    Anatomy plate system
@@ -7281,21 +7242,10 @@ body[id="idx"] .bm-head {
     inline-size: 100%;
     background-size: contain;
     background-position: center top; }
-  @media (max-width: 1024px) {
-    .category--vertical.category--plate-side .category-head {
-      block-size: auto;
-      display: -webkit-box;
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: flex; } }
 
 .category--vertical.category--plate-watermark .category-head,
 .category--vertical.category--plate-anchor .category-head {
   block-size: 100%; }
-  @media (max-width: 1024px) {
-    .category--vertical.category--plate-watermark .category-head,
-    .category--vertical.category--plate-anchor .category-head {
-      block-size: auto; } }
 
 /* -------------------------------------------------
    Category title variants
@@ -10649,10 +10599,6 @@ body#Pages .bm-guidebook--tabs {
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
           flex-wrap: wrap; }
-@media (max-width: 1024px){
-    .bm-post__head {
-    -ms-grid-row: 2;
-    -ms-grid-column: 1; } }
 @media (max-width: 900px){
     .bm-post--grid > .bm-post__head {
     -ms-grid-row: 1;
