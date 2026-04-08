@@ -195,7 +195,6 @@ $gradients-all: map-merge(
 @mixin mg-pill($map, $prefix: "g") {
   @each $name, $grad in $map {
     .#{$prefix}--#{$name}.is-pill {
-      --mg-gradient: #{$grad};
       background: var(--mg-gradient);
       color: rgb(28, 28, 28); /* readable on most light gradients */
       /* If your theme is dark, force white text: */
@@ -217,7 +216,7 @@ $gradients-all: map-merge(
 @mixin mg-outline($map, $prefix: "g") {
   @each $name, $grad in $map {
     .#{$prefix}--#{$name}.is-outline {
-      --mg-gradient: #{$grad};
+      --mg-gradient: #{map-get($grad, gradient)};
       background: transparent;
       color: inherit;
       border: 2px solid transparent;
@@ -233,7 +232,7 @@ $gradients-all: map-merge(
 @mixin mg-text($map, $prefix: "g") {
   @each $name, $grad in $map {
     .#{$prefix}--#{$name}.is-text {
-      --mg-gradient: #{$grad};
+      --mg-gradient: #{map-get($grad, gradient)};
       background: var(--mg-gradient);
       -webkit-background-clip: text;
       background-clip: text;

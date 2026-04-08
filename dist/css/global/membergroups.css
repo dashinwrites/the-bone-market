@@ -196,7 +196,6 @@
   --mg-end: #7890a0; }
 
 .g--obsidian.is-pill {
-  --mg-gradient: (start: #0b0b0c, end: #3a3a3d, gradient: linear-gradient(135deg, #0b0b0c, #3a3a3d));
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
@@ -212,7 +211,6 @@
     color: whitesmoke; }
 
 .g--quartz.is-pill {
-  --mg-gradient: (start: #d8efff, end: #cabfff, gradient: linear-gradient(135deg, #d8efff, #cabfff));
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
@@ -228,7 +226,6 @@
     color: whitesmoke; }
 
 .g--onyx.is-pill {
-  --mg-gradient: (start: #161210, end: #4a3834, gradient: linear-gradient(135deg, #161210, #4a3834));
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
@@ -244,7 +241,6 @@
     color: whitesmoke; }
 
 .g--amber.is-pill {
-  --mg-gradient: (start: #ffb347, end: #ffcc33, gradient: linear-gradient(135deg, #ffb347, #ffcc33));
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
@@ -260,7 +256,6 @@
     color: whitesmoke; }
 
 .g--jade.is-pill {
-  --mg-gradient: (start: #3fa374, end: #a1d19d, gradient: linear-gradient(135deg, #3fa374, #a1d19d));
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
@@ -276,7 +271,6 @@
     color: whitesmoke; }
 
 .g--silver.is-pill {
-  --mg-gradient: (start: #b0c4d2, end: #7890a0, gradient: linear-gradient(135deg, #b0c4d2, #7890a0));
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
@@ -292,7 +286,7 @@
     color: whitesmoke; }
 
 .g--obsidian.is-outline {
-  --mg-gradient: (start: #0b0b0c, end: #3a3a3d, gradient: linear-gradient(135deg, #0b0b0c, #3a3a3d));
+  --mg-gradient: linear-gradient(135deg, #0b0b0c, #3a3a3d);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
@@ -302,7 +296,7 @@
   border-image: var(--mg-gradient) 1; }
 
 .g--quartz.is-outline {
-  --mg-gradient: (start: #d8efff, end: #cabfff, gradient: linear-gradient(135deg, #d8efff, #cabfff));
+  --mg-gradient: linear-gradient(135deg, #d8efff, #cabfff);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
@@ -312,7 +306,7 @@
   border-image: var(--mg-gradient) 1; }
 
 .g--onyx.is-outline {
-  --mg-gradient: (start: #161210, end: #4a3834, gradient: linear-gradient(135deg, #161210, #4a3834));
+  --mg-gradient: linear-gradient(135deg, #161210, #4a3834);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
@@ -322,7 +316,7 @@
   border-image: var(--mg-gradient) 1; }
 
 .g--amber.is-outline {
-  --mg-gradient: (start: #ffb347, end: #ffcc33, gradient: linear-gradient(135deg, #ffb347, #ffcc33));
+  --mg-gradient: linear-gradient(135deg, #ffb347, #ffcc33);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
@@ -332,7 +326,7 @@
   border-image: var(--mg-gradient) 1; }
 
 .g--jade.is-outline {
-  --mg-gradient: (start: #3fa374, end: #a1d19d, gradient: linear-gradient(135deg, #3fa374, #a1d19d));
+  --mg-gradient: linear-gradient(135deg, #3fa374, #a1d19d);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
@@ -342,7 +336,7 @@
   border-image: var(--mg-gradient) 1; }
 
 .g--silver.is-outline {
-  --mg-gradient: (start: #b0c4d2, end: #7890a0, gradient: linear-gradient(135deg, #b0c4d2, #7890a0));
+  --mg-gradient: linear-gradient(135deg, #b0c4d2, #7890a0);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
@@ -352,7 +346,7 @@
   border-image: var(--mg-gradient) 1; }
 
 .g--obsidian.is-text {
-  --mg-gradient: (start: #0b0b0c, end: #3a3a3d, gradient: linear-gradient(135deg, #0b0b0c, #3a3a3d));
+  --mg-gradient: linear-gradient(135deg, #0b0b0c, #3a3a3d);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -365,7 +359,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .g--quartz.is-text {
-  --mg-gradient: (start: #d8efff, end: #cabfff, gradient: linear-gradient(135deg, #d8efff, #cabfff));
+  --mg-gradient: linear-gradient(135deg, #d8efff, #cabfff);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -378,7 +372,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .g--onyx.is-text {
-  --mg-gradient: (start: #161210, end: #4a3834, gradient: linear-gradient(135deg, #161210, #4a3834));
+  --mg-gradient: linear-gradient(135deg, #161210, #4a3834);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -391,7 +385,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .g--amber.is-text {
-  --mg-gradient: (start: #ffb347, end: #ffcc33, gradient: linear-gradient(135deg, #ffb347, #ffcc33));
+  --mg-gradient: linear-gradient(135deg, #ffb347, #ffcc33);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -404,7 +398,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .g--jade.is-text {
-  --mg-gradient: (start: #3fa374, end: #a1d19d, gradient: linear-gradient(135deg, #3fa374, #a1d19d));
+  --mg-gradient: linear-gradient(135deg, #3fa374, #a1d19d);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -417,7 +411,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .g--silver.is-text {
-  --mg-gradient: (start: #b0c4d2, end: #7890a0, gradient: linear-gradient(135deg, #b0c4d2, #7890a0));
+  --mg-gradient: linear-gradient(135deg, #b0c4d2, #7890a0);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -460,7 +454,6 @@
   --mg-end: #d98f80; }
 
 .g--marrow.is-pill {
-  --mg-gradient: (start: #f1e6dc, end: #bba998, gradient: linear-gradient(135deg, #f1e6dc, #bba998));
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
@@ -476,7 +469,6 @@
     color: whitesmoke; }
 
 .g--sinew.is-pill {
-  --mg-gradient: (start: #d5a981, end: #8c5b3c, gradient: linear-gradient(135deg, #d5a981, #8c5b3c));
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
@@ -492,7 +484,6 @@
     color: whitesmoke; }
 
 .g--blood.is-pill {
-  --mg-gradient: (start: #7a0d1d, end: #d92b2b, gradient: linear-gradient(135deg, #7a0d1d, #d92b2b));
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
@@ -508,7 +499,6 @@
     color: whitesmoke; }
 
 .g--vein.is-pill {
-  --mg-gradient: (start: #21334d, end: #486b94, gradient: linear-gradient(135deg, #21334d, #486b94));
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
@@ -524,7 +514,6 @@
     color: whitesmoke; }
 
 .g--bone.is-pill {
-  --mg-gradient: (start: #dedac8, end: #aaa084, gradient: linear-gradient(135deg, #dedac8, #aaa084));
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
@@ -540,7 +529,6 @@
     color: whitesmoke; }
 
 .g--flesh.is-pill {
-  --mg-gradient: (start: #f5c3b5, end: #d98f80, gradient: linear-gradient(135deg, #f5c3b5, #d98f80));
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
@@ -556,7 +544,7 @@
     color: whitesmoke; }
 
 .g--marrow.is-outline {
-  --mg-gradient: (start: #f1e6dc, end: #bba998, gradient: linear-gradient(135deg, #f1e6dc, #bba998));
+  --mg-gradient: linear-gradient(135deg, #f1e6dc, #bba998);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
@@ -566,7 +554,7 @@
   border-image: var(--mg-gradient) 1; }
 
 .g--sinew.is-outline {
-  --mg-gradient: (start: #d5a981, end: #8c5b3c, gradient: linear-gradient(135deg, #d5a981, #8c5b3c));
+  --mg-gradient: linear-gradient(135deg, #d5a981, #8c5b3c);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
@@ -576,7 +564,7 @@
   border-image: var(--mg-gradient) 1; }
 
 .g--blood.is-outline {
-  --mg-gradient: (start: #7a0d1d, end: #d92b2b, gradient: linear-gradient(135deg, #7a0d1d, #d92b2b));
+  --mg-gradient: linear-gradient(135deg, #7a0d1d, #d92b2b);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
@@ -586,7 +574,7 @@
   border-image: var(--mg-gradient) 1; }
 
 .g--vein.is-outline {
-  --mg-gradient: (start: #21334d, end: #486b94, gradient: linear-gradient(135deg, #21334d, #486b94));
+  --mg-gradient: linear-gradient(135deg, #21334d, #486b94);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
@@ -596,7 +584,7 @@
   border-image: var(--mg-gradient) 1; }
 
 .g--bone.is-outline {
-  --mg-gradient: (start: #dedac8, end: #aaa084, gradient: linear-gradient(135deg, #dedac8, #aaa084));
+  --mg-gradient: linear-gradient(135deg, #dedac8, #aaa084);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
@@ -606,7 +594,7 @@
   border-image: var(--mg-gradient) 1; }
 
 .g--flesh.is-outline {
-  --mg-gradient: (start: #f5c3b5, end: #d98f80, gradient: linear-gradient(135deg, #f5c3b5, #d98f80));
+  --mg-gradient: linear-gradient(135deg, #f5c3b5, #d98f80);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
@@ -616,7 +604,7 @@
   border-image: var(--mg-gradient) 1; }
 
 .g--marrow.is-text {
-  --mg-gradient: (start: #f1e6dc, end: #bba998, gradient: linear-gradient(135deg, #f1e6dc, #bba998));
+  --mg-gradient: linear-gradient(135deg, #f1e6dc, #bba998);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -629,7 +617,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .g--sinew.is-text {
-  --mg-gradient: (start: #d5a981, end: #8c5b3c, gradient: linear-gradient(135deg, #d5a981, #8c5b3c));
+  --mg-gradient: linear-gradient(135deg, #d5a981, #8c5b3c);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -642,7 +630,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .g--blood.is-text {
-  --mg-gradient: (start: #7a0d1d, end: #d92b2b, gradient: linear-gradient(135deg, #7a0d1d, #d92b2b));
+  --mg-gradient: linear-gradient(135deg, #7a0d1d, #d92b2b);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -655,7 +643,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .g--vein.is-text {
-  --mg-gradient: (start: #21334d, end: #486b94, gradient: linear-gradient(135deg, #21334d, #486b94));
+  --mg-gradient: linear-gradient(135deg, #21334d, #486b94);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -668,7 +656,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .g--bone.is-text {
-  --mg-gradient: (start: #dedac8, end: #aaa084, gradient: linear-gradient(135deg, #dedac8, #aaa084));
+  --mg-gradient: linear-gradient(135deg, #dedac8, #aaa084);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -681,7 +669,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .g--flesh.is-text {
-  --mg-gradient: (start: #f5c3b5, end: #d98f80, gradient: linear-gradient(135deg, #f5c3b5, #d98f80));
+  --mg-gradient: linear-gradient(135deg, #f5c3b5, #d98f80);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -724,7 +712,6 @@
   --mg-end: #f9ca24; }
 
 .g--eclipse.is-pill {
-  --mg-gradient: (start: #191919, end: #4a3b5e, gradient: linear-gradient(135deg, #191919, #4a3b5e));
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
@@ -740,7 +727,6 @@
     color: whitesmoke; }
 
 .g--nova.is-pill {
-  --mg-gradient: (start: #ff8a00, end: #ff3d00, gradient: linear-gradient(135deg, #ff8a00, #ff3d00));
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
@@ -756,7 +742,6 @@
     color: whitesmoke; }
 
 .g--comet.is-pill {
-  --mg-gradient: (start: #4b8fd2, end: #c5dfff, gradient: linear-gradient(135deg, #4b8fd2, #c5dfff));
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
@@ -772,7 +757,6 @@
     color: whitesmoke; }
 
 .g--orbit.is-pill {
-  --mg-gradient: (start: #365a64, end: #78aab4, gradient: linear-gradient(135deg, #365a64, #78aab4));
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
@@ -788,7 +772,6 @@
     color: whitesmoke; }
 
 .g--umbra.is-pill {
-  --mg-gradient: (start: #081020, end: #204070, gradient: linear-gradient(135deg, #081020, #204070));
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
@@ -804,7 +787,6 @@
     color: whitesmoke; }
 
 .g--zenith.is-pill {
-  --mg-gradient: (start: #f6e58d, end: #f9ca24, gradient: linear-gradient(135deg, #f6e58d, #f9ca24));
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
@@ -820,7 +802,7 @@
     color: whitesmoke; }
 
 .g--eclipse.is-outline {
-  --mg-gradient: (start: #191919, end: #4a3b5e, gradient: linear-gradient(135deg, #191919, #4a3b5e));
+  --mg-gradient: linear-gradient(135deg, #191919, #4a3b5e);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
@@ -830,7 +812,7 @@
   border-image: var(--mg-gradient) 1; }
 
 .g--nova.is-outline {
-  --mg-gradient: (start: #ff8a00, end: #ff3d00, gradient: linear-gradient(135deg, #ff8a00, #ff3d00));
+  --mg-gradient: linear-gradient(135deg, #ff8a00, #ff3d00);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
@@ -840,7 +822,7 @@
   border-image: var(--mg-gradient) 1; }
 
 .g--comet.is-outline {
-  --mg-gradient: (start: #4b8fd2, end: #c5dfff, gradient: linear-gradient(135deg, #4b8fd2, #c5dfff));
+  --mg-gradient: linear-gradient(135deg, #4b8fd2, #c5dfff);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
@@ -850,7 +832,7 @@
   border-image: var(--mg-gradient) 1; }
 
 .g--orbit.is-outline {
-  --mg-gradient: (start: #365a64, end: #78aab4, gradient: linear-gradient(135deg, #365a64, #78aab4));
+  --mg-gradient: linear-gradient(135deg, #365a64, #78aab4);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
@@ -860,7 +842,7 @@
   border-image: var(--mg-gradient) 1; }
 
 .g--umbra.is-outline {
-  --mg-gradient: (start: #081020, end: #204070, gradient: linear-gradient(135deg, #081020, #204070));
+  --mg-gradient: linear-gradient(135deg, #081020, #204070);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
@@ -870,7 +852,7 @@
   border-image: var(--mg-gradient) 1; }
 
 .g--zenith.is-outline {
-  --mg-gradient: (start: #f6e58d, end: #f9ca24, gradient: linear-gradient(135deg, #f6e58d, #f9ca24));
+  --mg-gradient: linear-gradient(135deg, #f6e58d, #f9ca24);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
@@ -880,7 +862,7 @@
   border-image: var(--mg-gradient) 1; }
 
 .g--eclipse.is-text {
-  --mg-gradient: (start: #191919, end: #4a3b5e, gradient: linear-gradient(135deg, #191919, #4a3b5e));
+  --mg-gradient: linear-gradient(135deg, #191919, #4a3b5e);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -893,7 +875,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .g--nova.is-text {
-  --mg-gradient: (start: #ff8a00, end: #ff3d00, gradient: linear-gradient(135deg, #ff8a00, #ff3d00));
+  --mg-gradient: linear-gradient(135deg, #ff8a00, #ff3d00);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -906,7 +888,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .g--comet.is-text {
-  --mg-gradient: (start: #4b8fd2, end: #c5dfff, gradient: linear-gradient(135deg, #4b8fd2, #c5dfff));
+  --mg-gradient: linear-gradient(135deg, #4b8fd2, #c5dfff);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -919,7 +901,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .g--orbit.is-text {
-  --mg-gradient: (start: #365a64, end: #78aab4, gradient: linear-gradient(135deg, #365a64, #78aab4));
+  --mg-gradient: linear-gradient(135deg, #365a64, #78aab4);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -932,7 +914,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .g--umbra.is-text {
-  --mg-gradient: (start: #081020, end: #204070, gradient: linear-gradient(135deg, #081020, #204070));
+  --mg-gradient: linear-gradient(135deg, #081020, #204070);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -945,7 +927,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .g--zenith.is-text {
-  --mg-gradient: (start: #f6e58d, end: #f9ca24, gradient: linear-gradient(135deg, #f6e58d, #f9ca24));
+  --mg-gradient: linear-gradient(135deg, #f6e58d, #f9ca24);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -988,7 +970,6 @@
   --mg-end: #a86060; }
 
 .g--hemlock.is-pill {
-  --mg-gradient: (start: #1c3b32, end: #3d6656, gradient: linear-gradient(135deg, #1c3b32, #3d6656));
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
@@ -1004,7 +985,6 @@
     color: whitesmoke; }
 
 .g--nightshade.is-pill {
-  --mg-gradient: (start: #3b1a4a, end: #713b86, gradient: linear-gradient(135deg, #3b1a4a, #713b86));
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
@@ -1020,7 +1000,6 @@
     color: whitesmoke; }
 
 .g--yew.is-pill {
-  --mg-gradient: (start: #103449, end: #2e688a, gradient: linear-gradient(135deg, #103449, #2e688a));
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
@@ -1036,7 +1015,6 @@
     color: whitesmoke; }
 
 .g--ivy.is-pill {
-  --mg-gradient: (start: #264d35, end: #6ca97f, gradient: linear-gradient(135deg, #264d35, #6ca97f));
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
@@ -1052,7 +1030,6 @@
     color: whitesmoke; }
 
 .g--rowan.is-pill {
-  --mg-gradient: (start: #803116, end: #b05e34, gradient: linear-gradient(135deg, #803116, #b05e34));
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
@@ -1068,7 +1045,6 @@
     color: whitesmoke; }
 
 .g--thorn.is-pill {
-  --mg-gradient: (start: #783838, end: #a86060, gradient: linear-gradient(135deg, #783838, #a86060));
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
@@ -1084,7 +1060,7 @@
     color: whitesmoke; }
 
 .g--hemlock.is-outline {
-  --mg-gradient: (start: #1c3b32, end: #3d6656, gradient: linear-gradient(135deg, #1c3b32, #3d6656));
+  --mg-gradient: linear-gradient(135deg, #1c3b32, #3d6656);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
@@ -1094,7 +1070,7 @@
   border-image: var(--mg-gradient) 1; }
 
 .g--nightshade.is-outline {
-  --mg-gradient: (start: #3b1a4a, end: #713b86, gradient: linear-gradient(135deg, #3b1a4a, #713b86));
+  --mg-gradient: linear-gradient(135deg, #3b1a4a, #713b86);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
@@ -1104,7 +1080,7 @@
   border-image: var(--mg-gradient) 1; }
 
 .g--yew.is-outline {
-  --mg-gradient: (start: #103449, end: #2e688a, gradient: linear-gradient(135deg, #103449, #2e688a));
+  --mg-gradient: linear-gradient(135deg, #103449, #2e688a);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
@@ -1114,7 +1090,7 @@
   border-image: var(--mg-gradient) 1; }
 
 .g--ivy.is-outline {
-  --mg-gradient: (start: #264d35, end: #6ca97f, gradient: linear-gradient(135deg, #264d35, #6ca97f));
+  --mg-gradient: linear-gradient(135deg, #264d35, #6ca97f);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
@@ -1124,7 +1100,7 @@
   border-image: var(--mg-gradient) 1; }
 
 .g--rowan.is-outline {
-  --mg-gradient: (start: #803116, end: #b05e34, gradient: linear-gradient(135deg, #803116, #b05e34));
+  --mg-gradient: linear-gradient(135deg, #803116, #b05e34);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
@@ -1134,7 +1110,7 @@
   border-image: var(--mg-gradient) 1; }
 
 .g--thorn.is-outline {
-  --mg-gradient: (start: #783838, end: #a86060, gradient: linear-gradient(135deg, #783838, #a86060));
+  --mg-gradient: linear-gradient(135deg, #783838, #a86060);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
@@ -1144,7 +1120,7 @@
   border-image: var(--mg-gradient) 1; }
 
 .g--hemlock.is-text {
-  --mg-gradient: (start: #1c3b32, end: #3d6656, gradient: linear-gradient(135deg, #1c3b32, #3d6656));
+  --mg-gradient: linear-gradient(135deg, #1c3b32, #3d6656);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -1157,7 +1133,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .g--nightshade.is-text {
-  --mg-gradient: (start: #3b1a4a, end: #713b86, gradient: linear-gradient(135deg, #3b1a4a, #713b86));
+  --mg-gradient: linear-gradient(135deg, #3b1a4a, #713b86);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -1170,7 +1146,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .g--yew.is-text {
-  --mg-gradient: (start: #103449, end: #2e688a, gradient: linear-gradient(135deg, #103449, #2e688a));
+  --mg-gradient: linear-gradient(135deg, #103449, #2e688a);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -1183,7 +1159,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .g--ivy.is-text {
-  --mg-gradient: (start: #264d35, end: #6ca97f, gradient: linear-gradient(135deg, #264d35, #6ca97f));
+  --mg-gradient: linear-gradient(135deg, #264d35, #6ca97f);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -1196,7 +1172,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .g--rowan.is-text {
-  --mg-gradient: (start: #803116, end: #b05e34, gradient: linear-gradient(135deg, #803116, #b05e34));
+  --mg-gradient: linear-gradient(135deg, #803116, #b05e34);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -1209,7 +1185,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .g--thorn.is-text {
-  --mg-gradient: (start: #783838, end: #a86060, gradient: linear-gradient(135deg, #783838, #a86060));
+  --mg-gradient: linear-gradient(135deg, #783838, #a86060);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -1252,7 +1228,6 @@
   --mg-end: #f5d76e; }
 
 .g--ivory.is-pill {
-  --mg-gradient: (start: #fff8ee, end: #d9cbb0, gradient: linear-gradient(135deg, #fff8ee, #d9cbb0));
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
@@ -1268,7 +1243,6 @@
     color: whitesmoke; }
 
 .g--velvet.is-pill {
-  --mg-gradient: (start: #4c1526, end: #8c224e, gradient: linear-gradient(135deg, #4c1526, #8c224e));
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
@@ -1284,7 +1258,6 @@
     color: whitesmoke; }
 
 .g--spice.is-pill {
-  --mg-gradient: (start: #ba6c2b, end: #db9340, gradient: linear-gradient(135deg, #ba6c2b, #db9340));
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
@@ -1300,7 +1273,6 @@
     color: whitesmoke; }
 
 .g--smoke.is-pill {
-  --mg-gradient: (start: #3c3634, end: #aaa096, gradient: linear-gradient(135deg, #3c3634, #aaa096));
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
@@ -1316,7 +1288,6 @@
     color: whitesmoke; }
 
 .g--glass.is-pill {
-  --mg-gradient: (start: #d0ece5, end: #a0d2c4, gradient: linear-gradient(135deg, #d0ece5, #a0d2c4));
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
@@ -1332,7 +1303,6 @@
     color: whitesmoke; }
 
 .g--gold.is-pill {
-  --mg-gradient: (start: #d4af37, end: #f5d76e, gradient: linear-gradient(135deg, #d4af37, #f5d76e));
   background: var(--mg-gradient);
   color: #1c1c1c;
   /* readable on most light gradients */
@@ -1348,7 +1318,7 @@
     color: whitesmoke; }
 
 .g--ivory.is-outline {
-  --mg-gradient: (start: #fff8ee, end: #d9cbb0, gradient: linear-gradient(135deg, #fff8ee, #d9cbb0));
+  --mg-gradient: linear-gradient(135deg, #fff8ee, #d9cbb0);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
@@ -1358,7 +1328,7 @@
   border-image: var(--mg-gradient) 1; }
 
 .g--velvet.is-outline {
-  --mg-gradient: (start: #4c1526, end: #8c224e, gradient: linear-gradient(135deg, #4c1526, #8c224e));
+  --mg-gradient: linear-gradient(135deg, #4c1526, #8c224e);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
@@ -1368,7 +1338,7 @@
   border-image: var(--mg-gradient) 1; }
 
 .g--spice.is-outline {
-  --mg-gradient: (start: #ba6c2b, end: #db9340, gradient: linear-gradient(135deg, #ba6c2b, #db9340));
+  --mg-gradient: linear-gradient(135deg, #ba6c2b, #db9340);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
@@ -1378,7 +1348,7 @@
   border-image: var(--mg-gradient) 1; }
 
 .g--smoke.is-outline {
-  --mg-gradient: (start: #3c3634, end: #aaa096, gradient: linear-gradient(135deg, #3c3634, #aaa096));
+  --mg-gradient: linear-gradient(135deg, #3c3634, #aaa096);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
@@ -1388,7 +1358,7 @@
   border-image: var(--mg-gradient) 1; }
 
 .g--glass.is-outline {
-  --mg-gradient: (start: #d0ece5, end: #a0d2c4, gradient: linear-gradient(135deg, #d0ece5, #a0d2c4));
+  --mg-gradient: linear-gradient(135deg, #d0ece5, #a0d2c4);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
@@ -1398,7 +1368,7 @@
   border-image: var(--mg-gradient) 1; }
 
 .g--gold.is-outline {
-  --mg-gradient: (start: #d4af37, end: #f5d76e, gradient: linear-gradient(135deg, #d4af37, #f5d76e));
+  --mg-gradient: linear-gradient(135deg, #d4af37, #f5d76e);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
@@ -1408,7 +1378,7 @@
   border-image: var(--mg-gradient) 1; }
 
 .g--ivory.is-text {
-  --mg-gradient: (start: #fff8ee, end: #d9cbb0, gradient: linear-gradient(135deg, #fff8ee, #d9cbb0));
+  --mg-gradient: linear-gradient(135deg, #fff8ee, #d9cbb0);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -1421,7 +1391,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .g--velvet.is-text {
-  --mg-gradient: (start: #4c1526, end: #8c224e, gradient: linear-gradient(135deg, #4c1526, #8c224e));
+  --mg-gradient: linear-gradient(135deg, #4c1526, #8c224e);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -1434,7 +1404,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .g--spice.is-text {
-  --mg-gradient: (start: #ba6c2b, end: #db9340, gradient: linear-gradient(135deg, #ba6c2b, #db9340));
+  --mg-gradient: linear-gradient(135deg, #ba6c2b, #db9340);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -1447,7 +1417,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .g--smoke.is-text {
-  --mg-gradient: (start: #3c3634, end: #aaa096, gradient: linear-gradient(135deg, #3c3634, #aaa096));
+  --mg-gradient: linear-gradient(135deg, #3c3634, #aaa096);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -1460,7 +1430,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .g--glass.is-text {
-  --mg-gradient: (start: #d0ece5, end: #a0d2c4, gradient: linear-gradient(135deg, #d0ece5, #a0d2c4));
+  --mg-gradient: linear-gradient(135deg, #d0ece5, #a0d2c4);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -1473,7 +1443,7 @@
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
 .g--gold.is-text {
-  --mg-gradient: (start: #d4af37, end: #f5d76e, gradient: linear-gradient(135deg, #d4af37, #f5d76e));
+  --mg-gradient: linear-gradient(135deg, #d4af37, #f5d76e);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;

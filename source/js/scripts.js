@@ -807,7 +807,7 @@ document.querySelectorAll(".spoiler-inline").forEach((spoiler) => {
 
 /* move recent topics */
 const recentTopics = document.getElementById("recent-topics");
-const bmRecent = document.getElementById("bm-recent");
+const bmRecent = document.querySelector(".bm-card--recent .bm-card__list")
 
 if (recentTopics && bmRecent) {
   bmRecent.appendChild(recentTopics);
@@ -840,6 +840,109 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+// board stats legend
+
+const LEGEND = [
+  {
+    id: "precious",
+    name: "precious",
+    icon: "ph-diamond",
+    groups: ["obsidian", "quartz", "onyx", "amber", "jade", "silver"]
+  },
+  {
+    id: "anatomy",
+    name: "anatomy",
+    icon: "ph-heartbeat",
+    groups: ["marrow", "sinew", "blood", "vein", "bone", "flesh"]
+  },
+  {
+    id: "celestial",
+    name: "celestial",
+    icon: "ph-star",
+    groups: ["eclipse", "nova", "comet", "orbit", "umbra", "zenith"]
+  },
+  {
+    id: "flora",
+    name: "flora",
+    icon: "ph-leaf",
+    groups: ["hemlock", "nightshade", "yew", "ivy", "rowan", "thorn"]
+  },
+  {
+    id: "trade",
+    name: "trade",
+    icon: "ph-scales",
+    groups: ["ivory", "velvet", "spice", "smoke", "glass", "gold"]
+  }
+];
+
+function buildLegend() {
+  const container = document.querySelector(".bm-legend");
+  if (!container) return;
+
+  container.innerHTML = LEGEND.map(category => `
+    <div class="bm-legend__category" data-category="${category.id}">
+      <button
+        class="bm-legend__header"
+        aria-expanded="false"
+        aria-controls="legend-${category.id}"
+        type="button"
+      >
+        <span class="bm-legend__icon" aria-hidden="true">
+          <i class="ph ${category.icon}"></i>
+        </span>
+        <span class="bm-legend__name">${category.name}</span>
+        <span class="bm-legend__strip" aria-hidden="true">
+          ${category.groups.map(g => `
+            <span class="g--${g}" title="${g}"></span>
+          `).join("")}
+        </span>
+        <span class="bm-legend__chevron" aria-hidden="true">
+          <i class="ph ph-caret-down"></i>
+        </span>
+      </button>
+
+      <div class="bm-legend__panel" id="legend-${category.id}" hidden>
+        <ul class="bm-legend__groups">
+          ${category.groups.map(g => `
+            <li>
+              <span class="g--${g} is-pill">${g}</span>
+            </li>
+          `).join("")}
+        </ul>
+      </div>
+    </div>
+  `).join("");
+
+  initAccordion(container);
+}
+
+function initAccordion(container) {
+  container.querySelectorAll(".bm-legend__header").forEach(button => {
+    button.addEventListener("click", () => {
+      const isOpen = button.getAttribute("aria-expanded") === "true";
+      const panel = document.getElementById(button.getAttribute("aria-controls"));
+
+      // close all
+      container.querySelectorAll(".bm-legend__header").forEach(b => {
+        b.setAttribute("aria-expanded", "false");
+        b.closest(".bm-legend__category").removeAttribute("data-open");
+      });
+      container.querySelectorAll(".bm-legend__panel").forEach(p => {
+        p.hidden = true;
+      });
+
+      // open clicked if it was closed
+      if (!isOpen) {
+        button.setAttribute("aria-expanded", "true");
+        button.closest(".bm-legend__category").setAttribute("data-open", "");
+        panel.hidden = false;
+      }
+    });
+  });
+}
+
+document.addEventListener("DOMContentLoaded", buildLegend);
 
 // GROUP TESTING
 
