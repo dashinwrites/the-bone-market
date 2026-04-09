@@ -1,15 +1,7 @@
 @charset "UTF-8";
-/* =========================================
-   Plate Button Mixin (theme-toggle style)
-   ========================================= */
-/* Optional: current/active state helper */
-/* Optional: tooltip pulled from a data attribute (e.g., data-label) */
 /* ================================================
-   Plate-button look for cover tokens
+   UI Detail Mixins
    ================================================ */
-/* Reusable mixin (oval by default) */
-/* Optional: respect prefers-reduced-motion on anything you include this on */
-/* Gradient underline mixin */
 /*******************************
    Categories and Forums
 ********************************/
@@ -336,6 +328,7 @@
               display: none; } }
       .category .category-body > .forum .forum-title {
         margin: 0;
+        padding-top: 1rem;
         font: 400 var(--size-lg)/1.1 var(--font-cinzel);
         letter-spacing: 0.1em;
         text-transform: uppercase; }
@@ -343,6 +336,7 @@
           color: var(--accent-1);
           text-decoration: none;
           transition: letter-spacing var(--transi-quick);
+          position: relative;
           position: relative; }
           .category .category-body > .forum .forum-title a::after {
             content: "";
@@ -356,11 +350,11 @@
             transform-origin: bottom right;
             transition: transform 0.25s ease-in-out;
             opacity: 0.5; }
+          .category .category-body > .forum .forum-title a:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left; }
           .category .category-body > .forum .forum-title a:hover {
             letter-spacing: 0.16em; }
-            .category .category-body > .forum .forum-title a:hover::after {
-              transform: scaleX(1);
-              transform-origin: bottom left; }
       .category .category-body > .forum .forum-desc {
         margin: 0;
         font: 400 var(--size-sm)/1.6 var(--font-hand);
@@ -394,7 +388,7 @@
         transition: color var(--transi-quick); }
         .category .category-body > .forum .forum-subforum:hover {
           color: var(--accent-1); }
-        .category .category-body > .forum .forum-subforum + .forum-subforum::before {
+        .category .category-body > .forum .forum-subforum + .category .category-body > .forum .forum-subforum::before {
           content: "†";
           font-family: var(--font-serif);
           color: var(--accent-1);
@@ -471,7 +465,8 @@
           text-overflow: ellipsis;
           text-decoration: none;
           position: relative;
-          transition: letter-spacing var(--transi-quick); }
+          transition: letter-spacing var(--transi-quick);
+          position: relative; }
           .category .category-body > .forum .last-post .last-thread::after {
             content: "";
             position: absolute;

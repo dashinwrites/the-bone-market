@@ -102,6 +102,8 @@
 
 // ── totals card ─────────────────────────────
 .bm-card--totals {
+  @include bm-card-base;
+  @include card-top-detail;
   position: relative;
   padding: 0.75rem 1rem;
   background: var(--bg-2);
@@ -109,34 +111,6 @@
   border-radius: 4px 4px 6px 6px;
   overflow: hidden;
 
-  // top accent bar
-  &::before {
-    content: "";
-    position: absolute;
-    top: -1px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 30%;
-    height: 2px;
-    background: var(--accent-1);
-    opacity: 0.3;
-    border-radius: 0 0 2px 2px;
-  }
-
-  // dot detail
-  &::after {
-    content: "";
-    position: absolute;
-    top: 0.6rem;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    border: 1px solid color-mix(in oklab, var(--text-loCon) 28%, transparent);
-    background: var(--bg-1);
-    pointer-events: none;
-  }
 
   // ── list ──────────────────────────────────
   .bm-card__totals-list {
@@ -145,7 +119,7 @@
     gap: 0.5rem;
     list-style: none;
     margin: 0;
-    padding: 0;
+    padding: 1rem 0 0;
 
     @media (min-width: 600px) {
       grid-template-columns: repeat(4, 1fr); // all four in a row
@@ -205,6 +179,7 @@
       font-family: var(--font-hand);
       font-size: var(--size-sm);
       letter-spacing: 0.1em;
+      text-transform: uppercase;
     }
   }
 }
@@ -213,50 +188,15 @@
 // (can extend .bm-card if you keep that class)
 .bm-card--today,
 .bm-card--now {
-  position: relative;
+  @include bm-card-base($display: flex);
+  @include card-top-detail($transition: true);
   padding: 1rem;
-  background: var(--bg-2);
-  border: 1px dashed color-mix(in oklab, var(--text-loCon) 28%, transparent);
-  border-radius: 4px 4px 6px 6px;
-  overflow: hidden;
-  display: flex;
   flex-direction: column;
   gap: 0.75rem;
 
-  // top accent bar
-  &::before {
-    content: "";
-    position: absolute;
-    top: -1px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 30%;
-    height: 2px;
-    background: var(--accent-1);
-    opacity: 0.3;
-    border-radius: 0 0 2px 2px;
-    transition:
-      opacity var(--transi-quick),
-      width var(--transi-quick);
-  }
-
-  // dot detail
-  &::after {
-    content: "";
-    position: absolute;
-    top: 0.6rem;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    border: 1px solid color-mix(in oklab, var(--text-loCon) 28%, transparent);
-    background: var(--bg-1);
-    pointer-events: none;
-  }
-
   .bm-card__title {
     margin: 0;
+    padding-top: 0.5rem;
     font: 400 var(--size-sm) / 1 var(--font-cinzel);
     letter-spacing: 0.18em;
     text-transform: uppercase;
@@ -294,16 +234,7 @@
     padding-inline-end: 0.25rem;
     overscroll-behavior: contain;
 
-    &::-webkit-scrollbar {
-      width: 3px;
-    }
-    &::-webkit-scrollbar-thumb {
-      background: color-mix(in oklab, var(--accent-1) 30%, transparent);
-      border-radius: 999px;
-    }
-    &::-webkit-scrollbar-track {
-      background: transparent;
-    }
+    @include thin-scrollbar;
   }
 }
 
@@ -322,13 +253,8 @@
     }
 
     // dagger separators between items
-    span + span::before {
-      content: "†";
-      font-family: var(--font-serif);
-      color: var(--accent-1);
-      opacity: 0.4;
-      margin-inline: 0.4rem;
-      user-select: none;
+    span {
+      @include dagger-separator($margin: 0.4rem);
     }
   }
 
@@ -351,14 +277,7 @@
         color: var(--accent-1);
       }
 
-      & + a::before {
-        content: "†";
-        font-family: var(--font-serif);
-        color: var(--accent-1);
-        opacity: 0.4;
-        margin-inline: 0.4rem;
-        user-select: none;
-      }
+      @include dagger-separator($margin: 0.4rem);
     }
   }
 
@@ -369,6 +288,7 @@
   }
 }
 
+// ── grid ────────────────────────────────────
 .bm-stats__grid {
   display: grid;
   gap: 1rem;
@@ -407,42 +327,9 @@
 
 // ── legend card ──────────────────────────────
 .bm-card--legend {
-  position: relative;
-  background: var(--bg-2);
-  border: 1px dashed color-mix(in oklab, var(--text-loCon) 28%, transparent);
-  border-radius: 4px 4px 6px 6px;
-  overflow: hidden;
-  display: flex;
+  @include bm-card-base($display: flex);
+  @include card-top-detail;
   flex-direction: column;
-
-  // top accent bar
-  &::before {
-    content: "";
-    position: absolute;
-    top: -1px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 30%;
-    height: 2px;
-    background: var(--accent-1);
-    opacity: 0.3;
-    border-radius: 0 0 2px 2px;
-  }
-
-  // dot detail
-  &::after {
-    content: "";
-    position: absolute;
-    top: 0.6rem;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    border: 1px solid color-mix(in oklab, var(--text-loCon) 28%, transparent);
-    background: var(--bg-1);
-    pointer-events: none;
-  }
 
   .bm-card__title {
     margin: 0;
@@ -451,7 +338,7 @@
     text-transform: uppercase;
     color: var(--text-medCon);
     text-align: center;
-    padding: 1rem 1rem 0.75rem;
+    padding: 1.5rem 1rem 0.75rem;
     border-block-end: 1px dashed
       color-mix(in oklab, var(--text-loCon) 15%, transparent);
     flex-shrink: 0;
@@ -664,43 +551,10 @@
 }
 // ── recent topics card ───────────────────────
 .bm-card--recent {
-  position: relative;
-  background: var(--bg-2);
-  border: 1px dashed color-mix(in oklab, var(--text-loCon) 28%, transparent);
-  border-radius: 4px 4px 6px 6px;
-  overflow: hidden;
-  display: flex;
+  @include bm-card-base($display: flex);
+  @include card-top-detail;
   flex-direction: column;
   gap: 0;
-
-  // top accent bar
-  &::before {
-    content: "";
-    position: absolute;
-    top: -1px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 30%;
-    height: 2px;
-    background: var(--accent-1);
-    opacity: 0.3;
-    border-radius: 0 0 2px 2px;
-  }
-
-  // dot detail
-  &::after {
-    content: "";
-    position: absolute;
-    top: 0.6rem;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    border: 1px solid color-mix(in oklab, var(--text-loCon) 28%, transparent);
-    background: var(--bg-1);
-    pointer-events: none;
-  }
 
   // ── card title ─────────────────────────────
   .bm-card__title {
@@ -710,7 +564,7 @@
     text-transform: uppercase;
     color: var(--text-medCon);
     text-align: center;
-    padding: 1rem 1rem 0.75rem;
+    padding: 1.5rem 1rem 0.75rem;
     border-block-end: 1px dashed
       color-mix(in oklab, var(--text-loCon) 15%, transparent);
     flex-shrink: 0;
@@ -724,25 +578,16 @@
     flex: 1;
     padding: 0;
 
-    &::-webkit-scrollbar {
-      width: 3px;
-    }
-    &::-webkit-scrollbar-thumb {
-      background: color-mix(in oklab, var(--accent-1) 30%, transparent);
-      border-radius: 999px;
-    }
-    &::-webkit-scrollbar-track {
-      background: transparent;
-    }
+    @include thin-scrollbar;
   }
 
   // ── jcink html wrangling ───────────────────
   #recent-topics {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr;
 
     @media (min-width: 600px) {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: 1fr;
     }
 
     // hide jcink chrome
@@ -805,24 +650,7 @@
       letter-spacing: 0.12em;
     }
 
-    &::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -2px;
-      width: 100%;
-      height: 1px;
-      background: var(--accent-1);
-      transform: scaleX(0);
-      transform-origin: bottom right;
-      transition: transform 0.25s ease-in-out;
-      opacity: 0.5;
-    }
-
-    &:hover::after {
-      transform: scaleX(1);
-      transform-origin: bottom left;
-    }
+    @include link-underline-slide;
   }
 
   // remove jcink empty link

@@ -356,36 +356,7 @@
       flex-direction: column;
       text-transform: lowercase;
 
-      &::before {
-        content: "";
-        position: absolute;
-        top: -1px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 30%;
-        height: 2px;
-        background: var(--accent-1);
-        opacity: 0.3;
-        border-radius: 0 0 2px 2px;
-        transition:
-          opacity var(--transi-quick),
-          width var(--transi-quick);
-      }
-
-      &::after {
-        content: "";
-        position: absolute;
-        top: 0.6rem;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        border: 1px solid
-          color-mix(in oklab, var(--text-loCon) 28%, transparent);
-        background: var(--bg-1);
-        pointer-events: none;
-      }
+      @include card-top-detail($transition: true);
 
       &:hover {
         background: rgba(255, 255, 255, 0.035);
@@ -446,6 +417,7 @@
 
       .forum-title {
         margin: 0;
+        padding-top: 1rem;
         font: 400 var(--size-lg) / 1.1 var(--font-cinzel);
         letter-spacing: 0.1em;
         text-transform: uppercase;
@@ -456,27 +428,10 @@
           transition: letter-spacing var(--transi-quick);
           position: relative;
 
-          &::after {
-            content: "";
-            position: absolute;
-            width: 100%;
-            transform: scaleX(0);
-            height: 1px;
-            bottom: -2px;
-            left: 0;
-            background-color: var(--accent-1);
-            transform-origin: bottom right;
-            transition: transform 0.25s ease-in-out;
-            opacity: 0.5;
-          }
+          @include link-underline-slide;
 
           &:hover {
             letter-spacing: 0.16em;
-
-            &::after {
-              transform: scaleX(1);
-              transform-origin: bottom left;
-            }
           }
         }
       }
@@ -491,16 +446,7 @@
         padding-right: 0.5rem;
         letter-spacing: 0.04em;
 
-        &::-webkit-scrollbar {
-          width: 3px;
-        }
-        &::-webkit-scrollbar-thumb {
-          background: color-mix(in oklab, var(--accent-1) 30%, transparent);
-          border-radius: 999px;
-        }
-        &::-webkit-scrollbar-track {
-          background: transparent;
-        }
+        @include thin-scrollbar;
       }
 
       .forum-subforums {
@@ -526,14 +472,7 @@
           color: var(--accent-1);
         }
 
-        & + .forum-subforum::before {
-          content: "†";
-          font-family: var(--font-serif);
-          color: var(--accent-1);
-          opacity: 0.4;
-          margin-inline: 0.4rem;
-          user-select: none;
-        }
+        @include dagger-separator($margin: 0.4rem);
       }
 
       .forum-subforum-more {
@@ -632,24 +571,7 @@
           position: relative;
           transition: letter-spacing var(--transi-quick);
 
-          &::after {
-            content: "";
-            position: absolute;
-            width: 100%;
-            transform: scaleX(0);
-            height: 1px;
-            bottom: -1px;
-            left: 0;
-            background-color: var(--accent-1);
-            transform-origin: bottom right;
-            transition: transform 0.25s ease-in-out;
-            opacity: 0.5;
-          }
-
-          &:hover::after {
-            transform: scaleX(1);
-            transform-origin: bottom left;
-          }
+          @include link-underline-slide($offset: -1px);
         }
 
         .last-info {
@@ -826,15 +748,9 @@
    --plate-pos, --plate-alpha, --plate-blend
 ------------------------------------------------- */
 
-.category--plate-watermark .category-head {
-  @include plate-watermark;
-}
-.category--plate-side .category-head {
-  @include plate-side;
-}
-.category--plate-anchor .category-head {
-  @include plate-anchor;
-}
+.category--plate-watermark .category-head { @include plate-watermark; }
+.category--plate-side .category-head { @include plate-side; }
+.category--plate-anchor .category-head { @include plate-anchor; }
 
 [data-theme="light"] .category[class*="plate-"],
 [data-theme="dark"] .category[class*="plate-"] {
