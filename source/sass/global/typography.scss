@@ -1,0 +1,9 @@
+@import '../global/mixins.scss';
+@import '../global/extensions.scss';
+
+/*******************************
+    Typography
+********************************/
+a {
+    @include link;
+}

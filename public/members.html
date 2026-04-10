@@ -3,18 +3,10 @@
     <head>
         <title>the bone market</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script>
-  (function () {
-    try {
-      const t = localStorage.getItem('theme') ||
-        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-      document.documentElement.dataset.theme = t;
-      document.documentElement.style.colorScheme = t;
-    } catch (e) { }
-  })();
-</script>
+
 <!--Styles-->
 <link rel="stylesheet" href="../dist/css/styles.css" />
+<link rel="stylesheet" href="../dist/css/templates.css" />
 
 <!--Fonts-->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,29 +28,38 @@
   href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
 
 <!--Script Libraries-->
+<!--Script Libraries-->
 <script type='text/javascript' src='https://files.jcink.net/html/jquery-1.7.2.min.js'></script>
-<script type='text/javascript' src='https://files.jcink.net/html/jquery.cookie-1.3.1.js'></script>
-<script type='text/javascript'
-  src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js"></script>
+<script type='text/javascript' src='https://files.jcink.net/html/jquery.cookie-1.3.1.js'></script> 
+<script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js"></script>
 <script src="../dist/js/clipboard.js"></script>
+<script src="../dist/js/utilities.js"></script>
 <script src="../dist/js/functions.js"></script>
+<!-- Remove this next one for live site --><script src="../dist/js/defaultsMenus.js"></script>
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+
+<!--Splide-->
+<script src=" https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js "></script>
+<link href=" https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css " rel="stylesheet">
 
 <!--Settings-->
 <script type='text/javascript' src='../dist/js/settings.js'></script>
+<script type='text/javascript' src='../dist/js/fakeData.js'></script>
 <link rel="stylesheet" href="../dist/css/settings.css" />  
     </head>
     <body id="Members" class="g-4">
         <div class="bm-container">
-      <nav id="navstrip">
+      <div class="invisibleEl"></div>
+<nav id="navstrip">
 
   <div class="nav-welcome member-only">
     <a href="/index.php?showuser=<!-- |id| -->" class="nav-welcome__avatar">
-      <img src="https://i.pinimg.com/736x/82/6e/76/826e76b932b901fe47541a7ea29c100c.jpg" alt="<!-- |name| -->">
+      <!-- |avatar| -->
     </a>
     <span class="nav-welcome__text">welcome to the bone market,</span>
     <a href="/index.php?showuser=<!-- |id| -->" class="nav-welcome__tag">
       <span class="nav-welcome__hole" aria-hidden="true"></span>
-      aurelian viremont
+      <!-- |name| -->
     </a>
   </div>
 
@@ -125,8 +126,8 @@
     </span>
     <span class="theme">
       <button id="theme-toggle" type="button" aria-label="Toggle theme" data-tooltip="Switch to dark mode">
-        <i class="fa-solid fa-moon" id="icon-moon"></i>
-        <i class="fa-solid fa-sun" id="icon-sun"></i>
+        <i class="ph-thin ph-moon" id="icon-moon"></i>
+        <i class="ph-thin ph-sun" id="icon-sun"></i>
       </button>
     </span>
   </div>
@@ -152,7 +153,7 @@
       data-tooltip="Switch Account">
       <i class="ph ph-arrows-left-right"></i>
     </a>
-    <a href="/index.php?act=UserCP" class="icon member-only" data-tooltip="Edit Profile">
+    <a href="/index.php?act=UserCP&CODE=01" class="icon member-only" data-tooltip="Edit Profile">
       <i class="ph ph-feather"></i>
     </a>
     <a href="/index.php?act=Msg&CODE=01" class="icon member-only icon--pm" data-tooltip="Messages">
@@ -160,6 +161,9 @@
     </a>
     <a href="/index.php?act=UserCP&CODE=alerts" class="icon member-only icon--alerts" data-tooltip="Alerts">
       <i class="ph ph-bell"></i>
+    </a>
+    <a href="/index.php?act=store" class="icon member-only icon--store" data-tooltip="store">
+      <i class="ph-thin ph-storefront"></i>
     </a>
     <a href="index.php?act=Login&CODE=03&key=<!-- |auth_key| -->" class="icon member-only" data-tooltip="Log Out">
       <i class="ph ph-prohibit-inset"></i>
@@ -190,7 +194,7 @@
 
 <aside id="sidebar" hidden>
   <button class="sidebar-close" type="button" aria-label="Close sidebar">
-    <i class="fa-solid fa-xmark"></i>
+    <i class="ph-thin ph-x"></i>
   </button>
 
   <div class="sidebar-section">

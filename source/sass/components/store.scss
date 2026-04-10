@@ -1,4 +1,5 @@
-@import "../global/mixins.scss";
+@import '../global/mixins.scss';
+@import '../global/extensions.scss';
 
 /*******************************
     Store
@@ -19,7 +20,7 @@
 
                 & > tr {
                     display: flex;
-                    gap: var(--spacing-lg);
+                    gap: var(--space-lg);
                     
                     & > td {
                         &#ucpmenu {
@@ -28,14 +29,14 @@
                             .sticky {
                                 display: flex;
                                 flex-direction: column;
-                                gap: var(--spacing-sm);
+                                gap: var(--space-sm);
                                 position: sticky;
-                                top: var(--menuHeight);
+                                top: var(--size-menu-height);
                             }
                             .menu-section {
                                 display: flex;
                                 flex-direction: column;
-                                gap: var(--spacing-sm);
+                                gap: var(--space-sm);
                             }
                         }
                         &:nth-child(2) {
@@ -43,10 +44,10 @@
                         }
                         &#ucpcontent {
                             flex-grow: 1;
-                            padding: var(--spacing-md);
+                            padding: var(--space-md);
 
                             @include mq-up(xs) {
-                                padding: var(--spacing-lg);
+                                padding: var(--space-lg);
                             }
 
                             input[type="text"],
@@ -71,15 +72,15 @@
                                         & > tr {
                                             display: flex;
                                             flex-direction: column;
-                                            gap: var(--spacing-sm);
-                                            margin-bottom: var(--spacing-md);
+                                            gap: var(--space-sm);
+                                            margin-bottom: var(--space-md);
                     
                                             @include mq-up(xxs) {
-                                                margin-bottom: var(--spacing-lg);
+                                                margin-bottom: var(--space-lg);
                                             }
                     
                                             @include mq-up(sm) {
-                                                gap: var(--spacing-md);
+                                                gap: var(--space-md);
                                             }
                         
                                             .pformleft {
@@ -89,7 +90,7 @@
                                                     line-height: 160%;
                                                     display: block;
                                                     max-width: max-content;
-                                                    padding: var(--spacing-xs) var(--spacing-sm);
+                                                    padding: var(--space-xs) var(--space-sm);
                     
                                                     & ~ br {
                                                         display: none;
@@ -98,7 +99,7 @@
                                             }
                                             .pformright {
                                                 display: flex;
-                                                gap: var(--spacing-xs);
+                                                gap: var(--space-xs);
                                                 height: max-content;
                                             }
                     
@@ -136,7 +137,7 @@
                     text-align: left;
                     
                     &:not(:nth-child(4)) {
-                        margin-top: var(--spacing-lg);
+                        margin-top: var(--space-lg);
                     }
 
                     td {
@@ -147,7 +148,7 @@
                             display: block;
                             line-height: 160%;
                             max-width: max-content;
-                            margin-bottom: var(--spacing-sm);
+                            margin-bottom: var(--space-sm);
 
                             & + br {
                                 display: none;
@@ -174,7 +175,7 @@
             & > tbody {
                 display: grid;
                 grid-template-columns: repeat(1, 1fr);
-                gap: var(--spacing-md);
+                gap: var(--space-md);
 
                 @include mq-up(sm) {
                     grid-template-columns: repeat(2, 1fr);
@@ -189,16 +190,16 @@
                     flex-wrap: wrap;
 
                     @include mq-up(sm) {
-                        flex: 0 0 calc(50% - calc(var(--spacing-md) / 2));
+                        flex: 0 0 calc(50% - calc(var(--space-md) / 2));
                     }
 
                     @include mq-up(md) {
-                        flex: 0 0 calc((100% / 3) - calc(var(--spacing-md) * 2 / 3));
+                        flex: 0 0 calc((100% / 3) - calc(var(--space-md) * 2 / 3));
                     }
 
                     img {
-                        width: var(--storeImageWidth);
-                        height: var(--storeImageWidth);
+                        width: var(--size-store-image);
+                        height: var(--size-store-image);
                         object-fit: contain;
                         object-position: center;
                     }
@@ -215,7 +216,7 @@
                             display: block;
                             max-width: max-content;
                             margin: 0 0 0 auto;
-                            padding: var(--spacing-sm);
+                            padding: var(--space-sm);
                             z-index: 1;
                         }
 
@@ -233,18 +234,18 @@
                         }
                     }
                     &:not(:first-child):not(:last-child) {
-                        padding: var(--spacing-md);
+                        padding: var(--space-md);
                         display: grid;
-                        grid-template-columns: var(--storeImageWidth) 1fr 1fr var(--storeImageWidth);
+                        grid-template-columns: var(--size-store-image) 1fr 1fr var(--size-store-image);
                         grid-template-rows: repeat(auto-fit, minmax(0, max-content));
-                        gap: var(--spacing-md);
+                        gap: var(--space-md);
 
                         & > td {
                             padding: 0;
                             text-align: left;
 
                             &:first-child {
-                                height: var(--storeImageWidth);
+                                height: var(--size-store-image);
                                 align-self: center;
                             }
     
@@ -252,12 +253,12 @@
                                 grid-column: span 3;
                                 line-height: 160%;
                                 max-width: max-content;
-                                padding: var(--spacing-xs) 0 var(--spacing-xs) var(--spacing-md);
+                                padding: var(--space-xs) 0 var(--space-xs) var(--space-md);
                             }
     
                             &:nth-child(3) {
                                 grid-column: 1 / -1;
-                                padding: var(--spacing-sm) 0 var(--spacing-md);
+                                padding: var(--space-sm) 0 var(--space-md);
                             }
     
                             &:nth-child(4),
@@ -281,13 +282,13 @@
     
                             &:nth-child(6):last-child {
                                 grid-column: 1 / -1;
-                                padding: var(--spacing-md) 0 0;
+                                padding: var(--space-md) 0 0;
     
                                 a {
                                     display: block;
                                     max-width: max-content;
                                     margin: 0 0 0 auto;
-                                    padding: var(--spacing-sm);
+                                    padding: var(--space-sm);
                                     z-index: 1;
                                 }
                             }
@@ -295,15 +296,15 @@
                             &:nth-child(6):not(:last-child),
                             &:nth-child(7):last-child {
                                 grid-column: span 2;
-                                padding: var(--spacing-md) 0 0;
+                                padding: var(--space-md) 0 0;
                                 font-size: 0;
     
                                 a {
                                     max-width: max-content;
                                     margin: 0 0 0 auto;
-                                    padding: var(--spacing-sm);
+                                    padding: var(--space-sm);
                                     z-index: 1;
-                                    font-size: 1rem;
+                                    font-size: var(--text-size-md);
                                 }
                             }
     
@@ -330,7 +331,7 @@
             & > tbody {
                 display: grid;
                 grid-template-columns: repeat(1, 1fr);
-                gap: var(--spacing-md);
+                gap: var(--space-md);
 
                 @include mq-up(sm) {
                     grid-template-columns: repeat(2, 1fr);
@@ -345,15 +346,15 @@
                     flex-wrap: wrap;
 
                     @include mq-up(sm) {
-                        flex: 0 0 calc(50% - calc(var(--spacing-md) / 2));
+                        flex: 0 0 calc(50% - calc(var(--space-md) / 2));
                     }
 
                     @include mq-up(md) {
-                        flex: 0 0 calc((100% / 3) - calc(var(--spacing-md) * 2 / 3));
+                        flex: 0 0 calc((100% / 3) - calc(var(--space-md) * 2 / 3));
                     }
 
                     img {
-                        width: var(--storeImageWidth);
+                        width: var(--size-store-image);
                         height: 24px;
                         object-fit: contain;
                         object-position: center;
@@ -371,7 +372,7 @@
                                 max-width: max-content;
                                 display: block;
                                 max-width: max-content;
-                                padding: var(--spacing-xs) var(--spacing-sm);
+                                padding: var(--space-xs) var(--space-sm);
                             }
                         }
                     }
@@ -380,11 +381,11 @@
                         display: none;
                     }
                     &:not(:first-child):not(:nth-child(2)):not(:nth-child(3)) {
-                        padding: var(--spacing-md);
+                        padding: var(--space-md);
                         display: grid;
-                        grid-template-columns: var(--storeImageWidth) calc(100% - var(--storeImageWidth) - var(--spacing-md));
+                        grid-template-columns: var(--size-store-image) calc(100% - var(--size-store-image) - var(--space-md));
                         grid-template-rows: max-content max-content max-content max-content auto;
-                        gap: var(--spacing-md);
+                        gap: var(--space-md);
 
                         td {
                             padding: 0;
@@ -398,7 +399,7 @@
                                 order: 2;
                                 line-height: 160%;
                                 max-width: max-content;
-                                padding: var(--spacing-xs) 0 var(--spacing-xs) var(--spacing-md);
+                                padding: var(--space-xs) 0 var(--space-xs) var(--space-md);
                             }
 
                             &:not(:first-child):not(:nth-child(2)) {
@@ -408,7 +409,7 @@
                             &:nth-child(3) {
                                 text-align: justify;
                                 order: 4;
-                                padding: var(--spacing-sm) 0 0;
+                                padding: var(--space-sm) 0 0;
 
                                 &:empty {
                                     display: none;
@@ -419,7 +420,7 @@
                                 flex: 0 0 100%;
                                 order: 3;
                                 text-align: left;
-                                margin-bottom: calc(-1 * var(--spacing-xs));
+                                margin-bottom: calc(-1 * var(--space-xs));
     
                                 &::after {
                                     content: ' Owned';
@@ -431,13 +432,13 @@
                                 align-items: end;
                                 flex: 0 0 100%;
                                 order: 5;
-                                padding: var(--spacing-md) 0 0;
+                                padding: var(--space-md) 0 0;
     
                                 a {
                                     display: block;
                                     max-width: max-content;
                                     margin: 0 0 0 auto;
-                                    padding: var(--spacing-sm);
+                                    padding: var(--space-sm);
                                     z-index: 1;
                                 }
     
@@ -480,7 +481,7 @@
                                 display: block;
                                 line-height: 160%;
                                 max-width: max-content;
-                                padding: var(--spacing-xs) var(--spacing-sm);
+                                padding: var(--space-xs) var(--space-sm);
     
                                 & ~ br {
                                     display: none;
@@ -506,10 +507,10 @@
             & > tbody {
                 display: flex;
                 flex-wrap: wrap;
-                gap: var(--spacing-xs);
+                gap: var(--space-xs);
 
                 @include mq-up(xxs) {
-                    gap: var(--spacing-md);
+                    gap: var(--space-md);
                 }
 
                 & > tr {
@@ -519,16 +520,16 @@
                     flex: 0 0 100%;
 
                     @include mq-up(sm) {
-                        flex: 0 0 calc(50% - ( var(--spacing-md) / 2));
+                        flex: 0 0 calc(50% - ( var(--space-md) / 2));
                     }
 
                     @include mq-up(md) {
-                        flex: 0 0 calc((100% / 3) - ( var(--spacing-lg) * 2 / 3));
+                        flex: 0 0 calc((100% / 3) - ( var(--space-lg) * 2 / 3));
                     }
 
                     img {
-                        width: var(--storeImageWidth);
-                        height: var(--storeImageWidth);
+                        width: var(--size-store-image);
+                        height: var(--size-store-image);
                         object-fit: contain;
                         object-position: center;
                     }
@@ -539,24 +540,24 @@
                         text-align: left;
 
                         &:first-child {
-                            flex: 0 0 calc(var(--spacing-lg) + var(--storeImageWidth));
-                            padding: var(--spacing-sm) 0 0 var(--spacing-sm);
+                            flex: 0 0 calc(var(--space-lg) + var(--size-store-image));
+                            padding: var(--space-sm) 0 0 var(--space-sm);
 
                             @include mq-up(xxs) {
-                                padding: var(--spacing-md) 0 0 var(--spacing-md);
+                                padding: var(--space-md) 0 0 var(--space-md);
                             }
                         }
 
                         &:nth-child(2) {
-                            flex: 0 0 calc(100% - (var(--spacing-lg) + var(--storeImageWidth) + 10px));
+                            flex: 0 0 calc(100% - (var(--space-lg) + var(--size-store-image) + 10px));
                         }
 
                         &:nth-child(3) {
-                            flex: 0 0 calc(100% - var(--spacing-sm));
+                            flex: 0 0 calc(100% - var(--space-sm));
                             text-align: justify;
 
                             @include mq-up(xxs) {
-                                flex: 0 0 calc(100% - var(--spacing-md));
+                                flex: 0 0 calc(100% - var(--space-md));
                             }
 
                             &:empty {

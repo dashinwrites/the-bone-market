@@ -1,0 +1,47 @@
+@import '../global/mixins.scss';
+
+/*******************************
+    Extensions
+********************************/
+@mixin heading($size, $color) {
+}
+
+@mixin text($style: xs, $color: var(--text-primary), $weight: 600) {
+    color: $color;
+    font-weight: $weight;
+
+    //styles
+    @if($style == body) {
+        font-size: var(--body-md);
+        font-family: var(--font-body);
+        line-height: 200%;
+    }
+}
+
+@mixin link($style: link) {
+    //styles
+    @if($style == link) {
+        color: var(--text-accent);
+    }
+}
+
+@mixin scroll($color: var(--bg-accent), $spacing: var(--space-md)) {
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: 100%;
+    padding-right: $spacing;
+    margin-right: calc(-1 * $spacing);
+    scrollbar-width: thin;
+    scrollbar-color: $color transparent;
+
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: $color;
+        border: none;
+    }
+}

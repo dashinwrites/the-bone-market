@@ -1,9 +1,11 @@
 @import 'global/mixins';
-@import 'global/breakpoints';
+@import 'global/reset';
+// @import 'global/breakpoints';
 @import 'global/variables';
 @import 'global/grid';
-@import 'global/reset';
+
 @import 'global/global';
+@import 'global/typography';
 @import 'global/utilities';
 @import 'global/membergroups';
 

@@ -64,6 +64,30 @@
 
 }
 
+.invisibleElTagging {
+    &.menu-open + .alert-options .fa-tags,
+    &:not(.menu-open) + .alert-options .fa-xmark {
+        display: none;
+    }
+}
+
+.invisibleElTagging,
+.invisibleEl {
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: var(--bg-overlay);
+    transition-duration: var(--transition-tab-duration);
+
+    &.menu-open {
+        height: 100vh;
+        z-index: 2;
+    }
+}
+
 /* ================================
    TYPOGRAPHY — HEADINGS (clean)
    - h7/h8 as real elements (block)
