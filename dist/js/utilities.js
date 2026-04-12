@@ -400,27 +400,28 @@ function calculateAge(birthday) {
 
 /****** Index ******/
 function initForums() {
-    //manual links
-    document.querySelectorAll('.forum .forum--manual-links').forEach(linkSet => {
-        //subforums exist
-        let subforumEl = linkSet.closest('.forum').querySelector('.subforums');
-        if(subforumEl) {
-            subforumEl.insertAdjacentHTML('beforeend', linkSet.innerHTML);
+    // hoist redirect forums out of category-body and prepend to category
+    document.querySelectorAll('.category-body .forum.redirect').forEach(redirect => {
+        const category = redirect.closest('.category');
+        if (category) {
+            category.insertBefore(redirect, category.firstChild);
         }
-        //subforums don't exist
-        else {
-            linkSet.closest('.forum').querySelector('.forum--links').insertAdjacentHTML('beforeend', linkSet.innerHTML);
-            linkSet.closest('.forum').querySelector('.forum--links').classList.add('manual-only');
-        }
+    });
 
-        linkSet.remove();
-    });
-    document.querySelectorAll('.forum--links .subforums').forEach(linkSet => {
-        if(linkSet.innerText === '') {
-            linkSet.closest('.forum--links').classList.add('hidden');
+    // hide empty subforum containers
+    document.querySelectorAll('.forum-subforums').forEach(subforums => {
+        const links = subforums.querySelectorAll('.forum-subforum');
+        if (links.length === 0) {
+            subforums.remove();
         }
     });
-    document.querySelectorAll('.forum--desc').forEach(el => el.remove());
+
+    // remove empty forum descriptions
+    document.querySelectorAll('.forum-desc').forEach(desc => {
+        if (desc.innerText.trim() === '' || desc.innerText.trim() === 'No Information') {
+            desc.remove();
+        }
+    });
 }
 
 /****** Webpages ******/

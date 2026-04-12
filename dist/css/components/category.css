@@ -653,8 +653,8 @@
   z-index: 1;
   top: -35%; }
 
-[data-theme="light"] .category[class*="plate-"],
-[data-theme="dark"] .category[class*="plate-"] {
+body.light .category[class*="plate-"],
+body.dark .category[class*="plate-"] {
   --plate-alpha: 0.62;
   --plate-blend: multiply; }
 

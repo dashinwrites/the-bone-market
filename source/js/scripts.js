@@ -775,6 +775,12 @@ if (typeof tippy === 'function') {
 setTheme();
 setSize();
 initCopyLink();
+
+const themeToggle = document.getElementById('theme-toggle');
+if (themeToggle) {
+    themeToggle.addEventListener('click', toggleTheme);
+}
+
 //init clipboards
 let clipboards = document.querySelectorAll('tag-code');
 let codes = document.querySelectorAll(`table[id='CODE-WRAP']`);

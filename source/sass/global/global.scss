@@ -21,6 +21,12 @@
 /* ================================
    LAYOUT
 ================================ */
+
+html, body {
+  background-color: var(--bg-1);
+  color: var(--text-hiCon);
+}
+
 .bg {
   position: fixed; inset: 0;
   inline-size: 100%; block-size: 100dvb;
@@ -51,7 +57,6 @@
   position: relative;
   margin-block-start: var(--nav-h);
   margin-inline-start: var(--leftbar-w);
-  // min-block-size: 100dvb;
 
   > .full-bleed,
   > main > .bm-profile.full-bleed {
@@ -195,9 +200,9 @@ $font-keys: (title, serif, sans, block, fancy, hand);
 
 /* ===== Underline width presets via data-uw =====
    Generates: [data-uw="60"] → --uw: 60% */
-$uw-min: 10;  // lowest percent
-$uw-max: 100; // highest percent
-$uw-step: 2;  // step size
+$uw-min: 10; 
+$uw-max: 100; 
+$uw-step: 2;  
 @for $p from $uw-min through $uw-max {
   @if ($p % $uw-step == 0) {
     h2[data-uw="#{$p}"],
@@ -206,7 +211,7 @@ $uw-step: 2;  // step size
     h5[data-uw="#{$p}"],
     h6[data-uw="#{$p}"],
     h7[data-uw="#{$p}"],
-    h8[data-uw="#{$p}"] { --uw: #{$p}% }
+    h8[data-uw="#{$p}"] { --uw: #{$p + '%'}; }
   }
 }
 

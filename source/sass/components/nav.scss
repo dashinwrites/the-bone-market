@@ -235,7 +235,7 @@
   block-size: 100dvb; // subtract navstrip height
   z-index: var(--z-leftbar);
   border-inline-end: none;
-  overflow: hidden;
+  overflow: visible;
 
   // 100dvb = block-axis dynamic viewport — equivalent to 100dvh in horizontal writing modes
   // fallback to 100vh for browsers that don't support dvb units
@@ -526,11 +526,11 @@
 #icon-moon {
   display: none;
 }
-body[data-theme="light"] #icon-moon {
+body.light #icon-moon {
   display: inline-block;
   color: var(--accent-3);
 }
-body[data-theme="dark"] #icon-sun {
+body.dark #icon-sun {
   display: inline-block;
   color: var(--accent-2);
 }
@@ -706,7 +706,7 @@ body[data-sidebar="open"] {
    ========================================================== */
 
 /* Light */
-[data-theme="light"] {
+body.light {
   #navstrip,
   #leftbar {
     background:
@@ -734,7 +734,7 @@ body[data-sidebar="open"] {
 }
 
 /* Dark */
-[data-theme="dark"] {
+body.dark {
   #navstrip,
   #leftbar {
     background: var(--bg-grad), var(--bg-2);

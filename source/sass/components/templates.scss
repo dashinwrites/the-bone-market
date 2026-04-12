@@ -17,14 +17,13 @@
   --radius: 12px;
   --maxw: 72ch;
   --rule: color-mix(in srgb, var(--ink) 45%, transparent);
-  --title-script-scale: 1.15;                 /* 1.0–1.3 feels nice */
-  --title-script-stroke: .35px;               /* add a hairline on light bgs */
+  --title-script-scale: 1.15;
+  --title-script-stroke: .35px;
   --title-script-stroke-color: rgba(0,0,0,.25);
 
   /* type tokens */
   --font-letter-serif: var(--font-serif, ui-serif);
   --font-letter-sans:  var(--font-sans, ui-sans-serif);
-  /* default script stack (you can override per-letter via data-script) */
   --font-letter-script: "Lavishly Yours", "Cookie", "Lugrasimo", cursive;
 
   /* script tuning (per-letter overrideable) */
@@ -50,7 +49,7 @@
   &[data-stationery="parchment"] { --paper: #181716; }
   &[data-stationery="plain"]     { --paper: #121111; }
 
-  /* Ink palettes (override theme tokens intentionally) */
+  /* Ink palettes */
   &[data-ink="black"] { --ink:#222; --rule:#2d2d2d; --accent:#6d5a4a; }
   &[data-ink="sepia"] { --ink:#2a2317; --accent:#9a7b54; }
 
@@ -135,7 +134,6 @@
   }
 
   /* Seals + placement */
-  &[data-seal^="wax"]::marker, &[data-seal^="ribbon"]::marker, &[data-seal^="stamp"]::marker{ content:""; }
   &[data-seal^="wax"]::before,
   &[data-seal^="ribbon"]::before,
   &[data-seal^="stamp"]::before{
@@ -167,7 +165,7 @@
   &[data-seal$="-bl"]::before{ inset: auto auto calc(var(--pad) - 4px) calc(var(--pad) - 6px); }
   &[data-seal$="-br"]::before{ inset: auto calc(var(--pad) - 6px) calc(var(--pad) - 4px) auto; }
 
-  /* Folds (default tuned for dark) */
+  /* Folds */
   &[data-folds="1"]{ --folds: linear-gradient(#0000 48%, rgba(255,255,255,.06) 50%, #0000 52%) 0 15%/100% 100% no-repeat; }
   &[data-folds="2"]{ --folds:
       linear-gradient(#0000 48%, rgba(255,255,255,.06) 50%, #0000 52%) 0 38%/100% 100% no-repeat,
@@ -179,7 +177,7 @@
   &[data-folds]::before{ background: var(--folds),
                          radial-gradient(120% 80% at 50% 10%, rgba(255,255,255,.06), #0000 60%); }
 
-  /* Quick house accents */
+  /* House accents */
   .rp-head[data-house="black-salt"] ~ .rp-signature .sig-mark{ background: radial-gradient(closest-side at 40% 60%, #8d674d, #0000 70%); }
   .rp-head[data-house="glass-guild"] ~ .rp-signature .sig-mark{ background: radial-gradient(closest-side at 40% 60%, #7fb3d5, #0000 70%); }
 }
@@ -191,7 +189,7 @@
 .rp-letter[data-script="cookie"]   { --font-letter-script: "Cookie", cursive;          --hand-size: 1.15rem; --hand-lh: 1.1;  --hand-track: .01em; }
 .rp-letter[data-script="lugrasimo"]{ --font-letter-script: "Lugrasimo", cursive;       --hand-size: 1.05rem; --hand-lh: 1.15; --hand-track: 0; }
 
-/* Turn off script usage for greeting/closing/signature */
+/* Turn off script for greeting/closing/signature */
 .rp-letter[data-hand="none"] .rp-greeting,
 .rp-letter[data-hand="none"] .rp-closing,
 .rp-letter[data-hand="none"] .rp-signature .sig-name { 
@@ -200,7 +198,7 @@
   letter-spacing: .01em;
 }
 
-/* Utility: force script anywhere inside a letter */
+/* Force script anywhere inside a letter */
 .rp-letter .rp-script {
   font-family: var(--font-letter-script) !important;
   font-weight: var(--hand-weight);
@@ -214,34 +212,22 @@
 
 /* ===========================
    TITLE SCRIPT TOGGLE
-   Use: <article class="rp-letter" data-script-title>
 =========================== */
 .rp-letter[data-script-title] .rp-from h1{
   font-family: var(--font-letter-script);
   font-weight: var(--hand-weight);
   letter-spacing: var(--hand-track);
   line-height: var(--hand-lh);
-  /* scale & finesse knobs just for the title */
   font-size: clamp(1.1rem, 2.2vw, calc(var(--hand-size) * var(--title-script-scale, 1.15)));
   -webkit-text-stroke: var(--title-script-stroke, 0) var(--title-script-stroke-color, transparent);
 }
 
-
-/* Accessibility: forced-colors */
-@media (forced-colors: active) {
-  .rp-letter {
-    background: Canvas; color: CanvasText;
-    box-shadow: none; border: 1px solid CanvasText;
-  }
-  .rp-rule { background: CanvasText !important; opacity: .5; }
-}
-
-
 /* =========================================
-   INHERIT FROM BODY[data-theme] IF PRESENT
-   (applies only when the letter doesn’t set its own data-theme)
+   GLOBAL THEME INHERITANCE
+   Applies when the letter has no per-letter data-theme override.
+   Uses body.light / body.dark to match the site's class-based toggle.
 ========================================= */
-body[data-theme="light"] .rp-letter:not([data-theme]) {
+body.light .rp-letter:not([data-theme]) {
   --paper:  #f7f4ee;
   --ink:    #2b2a28;
   --accent: #8b6a4a;
@@ -260,7 +246,6 @@ body[data-theme="light"] .rp-letter:not([data-theme]) {
     opacity:.35; mix-blend-mode:multiply;
   }
 
-  /* light-leaning fold shading */
   &[data-folds="1"]{ --folds: linear-gradient(#0000 48%, rgba(0,0,0,.06) 50%, #0000 52%) 0 15%/100% 100% no-repeat; }
   &[data-folds="2"]{ --folds:
       linear-gradient(#0000 48%, rgba(0,0,0,.06) 50%, #0000 52%) 0 38%/100% 100% no-repeat,
@@ -271,16 +256,18 @@ body[data-theme="light"] .rp-letter:not([data-theme]) {
       linear-gradient(#0000 48%, rgba(0,0,0,.06) 50%, #0000 52%) 0 80%/100% 100% no-repeat; }
 }
 
-body[data-theme="dark"] .rp-letter:not([data-theme]) {
-  /* these match the base, included for clarity/priority */
+body.dark .rp-letter:not([data-theme]) {
   --paper:  #1c1b1a;
   --ink:    #ede7de;
   --accent: #b08b67;
   --rule: color-mix(in srgb, var(--ink) 45%, transparent);
-  color: var(--ink); background: var(--paper);
+
+  color: var(--ink);
+  background: var(--paper);
   box-shadow:
     inset 0 0 0 1px color-mix(in srgb, var(--ink) 10%, transparent),
     0 10px 30px rgba(0,0,0,.18);
+
   &::before{
     background:
       radial-gradient(120% 80% at 50% 10%, rgba(255,255,255,.06), #0000 60%),
@@ -290,7 +277,9 @@ body[data-theme="dark"] .rp-letter:not([data-theme]) {
 }
 
 /* =========================================
-   PER-LETTER MANUAL OVERRIDES (always win)
+   PER-LETTER MANUAL OVERRIDES
+   data-theme on the letter element itself — always win.
+   These are intentional author overrides, not tied to the toggle.
 ========================================= */
 .rp-letter[data-theme="light"] {
   --paper:#f7f4ee; --ink:#2b2a28; --accent:#8b6a4a;
@@ -320,12 +309,6 @@ body[data-theme="dark"] .rp-letter:not([data-theme]) {
     opacity:.35; mix-blend-mode:multiply;
   }
 }
-
-/* ======================================
-   SIZE VARIANTS (unchanged)
-====================================== */
-.rp-letter[data-size="sm"]{ --pad:.9rem; --maxw:60ch; }
-.rp-letter[data-size="lg"]{ --pad:1.5rem; --maxw:84ch; }
 
 /* Accessibility: forced-colors */
 @media (forced-colors: active) {

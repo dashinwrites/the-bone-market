@@ -1826,7 +1826,6 @@
     width: var(--thumb-size);
     height: var(--thumb-size); } }
 
-:is([data-theme="light"], [data-theme="dark"]) body.g-obsidian,
 body.g-obsidian {
   --accent-1: #3a3a3d;
   --accent-2: #0b0b0c;
@@ -1836,7 +1835,6 @@ body.g-obsidian {
   --bm-guide-border: color-mix(in oklch, #3a3a3d 35%, transparent);
   --bm-guide-border-soft: color-mix(in oklch, #3a3a3d 18%, transparent); }
 
-:is([data-theme="light"], [data-theme="dark"]) body.g-quartz,
 body.g-quartz {
   --accent-1: #cabfff;
   --accent-2: #d8efff;
@@ -1846,7 +1844,6 @@ body.g-quartz {
   --bm-guide-border: color-mix(in oklch, #cabfff 35%, transparent);
   --bm-guide-border-soft: color-mix(in oklch, #cabfff 18%, transparent); }
 
-:is([data-theme="light"], [data-theme="dark"]) body.g-onyx,
 body.g-onyx {
   --accent-1: #4a3834;
   --accent-2: #161210;
@@ -1856,7 +1853,6 @@ body.g-onyx {
   --bm-guide-border: color-mix(in oklch, #4a3834 35%, transparent);
   --bm-guide-border-soft: color-mix(in oklch, #4a3834 18%, transparent); }
 
-:is([data-theme="light"], [data-theme="dark"]) body.g-amber,
 body.g-amber {
   --accent-1: #ffcc33;
   --accent-2: #ffb347;
@@ -1866,7 +1862,6 @@ body.g-amber {
   --bm-guide-border: color-mix(in oklch, #ffcc33 35%, transparent);
   --bm-guide-border-soft: color-mix(in oklch, #ffcc33 18%, transparent); }
 
-:is([data-theme="light"], [data-theme="dark"]) body.g-jade,
 body.g-jade {
   --accent-1: #a1d19d;
   --accent-2: #3fa374;
@@ -1876,7 +1871,6 @@ body.g-jade {
   --bm-guide-border: color-mix(in oklch, #a1d19d 35%, transparent);
   --bm-guide-border-soft: color-mix(in oklch, #a1d19d 18%, transparent); }
 
-:is([data-theme="light"], [data-theme="dark"]) body.g-silver,
 body.g-silver {
   --accent-1: #7890a0;
   --accent-2: #b0c4d2;
@@ -1886,7 +1880,6 @@ body.g-silver {
   --bm-guide-border: color-mix(in oklch, #7890a0 35%, transparent);
   --bm-guide-border-soft: color-mix(in oklch, #7890a0 18%, transparent); }
 
-:is([data-theme="light"], [data-theme="dark"]) body.g-marrow,
 body.g-marrow {
   --accent-1: #bba998;
   --accent-2: #f1e6dc;
@@ -1896,7 +1889,6 @@ body.g-marrow {
   --bm-guide-border: color-mix(in oklch, #bba998 35%, transparent);
   --bm-guide-border-soft: color-mix(in oklch, #bba998 18%, transparent); }
 
-:is([data-theme="light"], [data-theme="dark"]) body.g-sinew,
 body.g-sinew {
   --accent-1: #8c5b3c;
   --accent-2: #d5a981;
@@ -1906,7 +1898,6 @@ body.g-sinew {
   --bm-guide-border: color-mix(in oklch, #8c5b3c 35%, transparent);
   --bm-guide-border-soft: color-mix(in oklch, #8c5b3c 18%, transparent); }
 
-:is([data-theme="light"], [data-theme="dark"]) body.g-blood,
 body.g-blood {
   --accent-1: #d92b2b;
   --accent-2: #7a0d1d;
@@ -1916,7 +1907,6 @@ body.g-blood {
   --bm-guide-border: color-mix(in oklch, #d92b2b 35%, transparent);
   --bm-guide-border-soft: color-mix(in oklch, #d92b2b 18%, transparent); }
 
-:is([data-theme="light"], [data-theme="dark"]) body.g-vein,
 body.g-vein {
   --accent-1: #486b94;
   --accent-2: #21334d;
@@ -1926,7 +1916,6 @@ body.g-vein {
   --bm-guide-border: color-mix(in oklch, #486b94 35%, transparent);
   --bm-guide-border-soft: color-mix(in oklch, #486b94 18%, transparent); }
 
-:is([data-theme="light"], [data-theme="dark"]) body.g-bone,
 body.g-bone {
   --accent-1: #aaa084;
   --accent-2: #dedac8;
@@ -1936,7 +1925,6 @@ body.g-bone {
   --bm-guide-border: color-mix(in oklch, #aaa084 35%, transparent);
   --bm-guide-border-soft: color-mix(in oklch, #aaa084 18%, transparent); }
 
-:is([data-theme="light"], [data-theme="dark"]) body.g-flesh,
 body.g-flesh {
   --accent-1: #d98f80;
   --accent-2: #f5c3b5;
@@ -1946,7 +1934,6 @@ body.g-flesh {
   --bm-guide-border: color-mix(in oklch, #d98f80 35%, transparent);
   --bm-guide-border-soft: color-mix(in oklch, #d98f80 18%, transparent); }
 
-:is([data-theme="light"], [data-theme="dark"]) body.g-eclipse,
 body.g-eclipse {
   --accent-1: #4a3b5e;
   --accent-2: #191919;
@@ -1956,7 +1943,6 @@ body.g-eclipse {
   --bm-guide-border: color-mix(in oklch, #4a3b5e 35%, transparent);
   --bm-guide-border-soft: color-mix(in oklch, #4a3b5e 18%, transparent); }
 
-:is([data-theme="light"], [data-theme="dark"]) body.g-nova,
 body.g-nova {
   --accent-1: #ff3d00;
   --accent-2: #ff8a00;
@@ -1966,7 +1952,6 @@ body.g-nova {
   --bm-guide-border: color-mix(in oklch, #ff3d00 35%, transparent);
   --bm-guide-border-soft: color-mix(in oklch, #ff3d00 18%, transparent); }
 
-:is([data-theme="light"], [data-theme="dark"]) body.g-comet,
 body.g-comet {
   --accent-1: #c5dfff;
   --accent-2: #4b8fd2;
@@ -1976,7 +1961,6 @@ body.g-comet {
   --bm-guide-border: color-mix(in oklch, #c5dfff 35%, transparent);
   --bm-guide-border-soft: color-mix(in oklch, #c5dfff 18%, transparent); }
 
-:is([data-theme="light"], [data-theme="dark"]) body.g-orbit,
 body.g-orbit {
   --accent-1: #78aab4;
   --accent-2: #365a64;
@@ -1986,7 +1970,6 @@ body.g-orbit {
   --bm-guide-border: color-mix(in oklch, #78aab4 35%, transparent);
   --bm-guide-border-soft: color-mix(in oklch, #78aab4 18%, transparent); }
 
-:is([data-theme="light"], [data-theme="dark"]) body.g-umbra,
 body.g-umbra {
   --accent-1: #204070;
   --accent-2: #081020;
@@ -1996,7 +1979,6 @@ body.g-umbra {
   --bm-guide-border: color-mix(in oklch, #204070 35%, transparent);
   --bm-guide-border-soft: color-mix(in oklch, #204070 18%, transparent); }
 
-:is([data-theme="light"], [data-theme="dark"]) body.g-zenith,
 body.g-zenith {
   --accent-1: #f9ca24;
   --accent-2: #f6e58d;
@@ -2006,7 +1988,6 @@ body.g-zenith {
   --bm-guide-border: color-mix(in oklch, #f9ca24 35%, transparent);
   --bm-guide-border-soft: color-mix(in oklch, #f9ca24 18%, transparent); }
 
-:is([data-theme="light"], [data-theme="dark"]) body.g-hemlock,
 body.g-hemlock {
   --accent-1: #3d6656;
   --accent-2: #1c3b32;
@@ -2016,7 +1997,6 @@ body.g-hemlock {
   --bm-guide-border: color-mix(in oklch, #3d6656 35%, transparent);
   --bm-guide-border-soft: color-mix(in oklch, #3d6656 18%, transparent); }
 
-:is([data-theme="light"], [data-theme="dark"]) body.g-nightshade,
 body.g-nightshade {
   --accent-1: #713b86;
   --accent-2: #3b1a4a;
@@ -2026,7 +2006,6 @@ body.g-nightshade {
   --bm-guide-border: color-mix(in oklch, #713b86 35%, transparent);
   --bm-guide-border-soft: color-mix(in oklch, #713b86 18%, transparent); }
 
-:is([data-theme="light"], [data-theme="dark"]) body.g-yew,
 body.g-yew {
   --accent-1: #2e688a;
   --accent-2: #103449;
@@ -2036,7 +2015,6 @@ body.g-yew {
   --bm-guide-border: color-mix(in oklch, #2e688a 35%, transparent);
   --bm-guide-border-soft: color-mix(in oklch, #2e688a 18%, transparent); }
 
-:is([data-theme="light"], [data-theme="dark"]) body.g-ivy,
 body.g-ivy {
   --accent-1: #6ca97f;
   --accent-2: #264d35;
@@ -2046,7 +2024,6 @@ body.g-ivy {
   --bm-guide-border: color-mix(in oklch, #6ca97f 35%, transparent);
   --bm-guide-border-soft: color-mix(in oklch, #6ca97f 18%, transparent); }
 
-:is([data-theme="light"], [data-theme="dark"]) body.g-rowan,
 body.g-rowan {
   --accent-1: #b05e34;
   --accent-2: #803116;
@@ -2056,7 +2033,6 @@ body.g-rowan {
   --bm-guide-border: color-mix(in oklch, #b05e34 35%, transparent);
   --bm-guide-border-soft: color-mix(in oklch, #b05e34 18%, transparent); }
 
-:is([data-theme="light"], [data-theme="dark"]) body.g-thorn,
 body.g-thorn {
   --accent-1: #a86060;
   --accent-2: #783838;
@@ -2066,7 +2042,6 @@ body.g-thorn {
   --bm-guide-border: color-mix(in oklch, #a86060 35%, transparent);
   --bm-guide-border-soft: color-mix(in oklch, #a86060 18%, transparent); }
 
-:is([data-theme="light"], [data-theme="dark"]) body.g-ivory,
 body.g-ivory {
   --accent-1: #d9cbb0;
   --accent-2: #fff8ee;
@@ -2076,7 +2051,6 @@ body.g-ivory {
   --bm-guide-border: color-mix(in oklch, #d9cbb0 35%, transparent);
   --bm-guide-border-soft: color-mix(in oklch, #d9cbb0 18%, transparent); }
 
-:is([data-theme="light"], [data-theme="dark"]) body.g-velvet,
 body.g-velvet {
   --accent-1: #8c224e;
   --accent-2: #4c1526;
@@ -2086,7 +2060,6 @@ body.g-velvet {
   --bm-guide-border: color-mix(in oklch, #8c224e 35%, transparent);
   --bm-guide-border-soft: color-mix(in oklch, #8c224e 18%, transparent); }
 
-:is([data-theme="light"], [data-theme="dark"]) body.g-spice,
 body.g-spice {
   --accent-1: #db9340;
   --accent-2: #ba6c2b;
@@ -2096,7 +2069,6 @@ body.g-spice {
   --bm-guide-border: color-mix(in oklch, #db9340 35%, transparent);
   --bm-guide-border-soft: color-mix(in oklch, #db9340 18%, transparent); }
 
-:is([data-theme="light"], [data-theme="dark"]) body.g-smoke,
 body.g-smoke {
   --accent-1: #aaa096;
   --accent-2: #3c3634;
@@ -2106,7 +2078,6 @@ body.g-smoke {
   --bm-guide-border: color-mix(in oklch, #aaa096 35%, transparent);
   --bm-guide-border-soft: color-mix(in oklch, #aaa096 18%, transparent); }
 
-:is([data-theme="light"], [data-theme="dark"]) body.g-glass,
 body.g-glass {
   --accent-1: #a0d2c4;
   --accent-2: #d0ece5;
@@ -2116,7 +2087,6 @@ body.g-glass {
   --bm-guide-border: color-mix(in oklch, #a0d2c4 35%, transparent);
   --bm-guide-border-soft: color-mix(in oklch, #a0d2c4 18%, transparent); }
 
-:is([data-theme="light"], [data-theme="dark"]) body.g-gold,
 body.g-gold {
   --accent-1: #f5d76e;
   --accent-2: #d4af37;
@@ -2126,7 +2096,6 @@ body.g-gold {
   --bm-guide-border: color-mix(in oklch, #f5d76e 35%, transparent);
   --bm-guide-border-soft: color-mix(in oklch, #f5d76e 18%, transparent); }
 
-:is([data-theme="light"], [data-theme="dark"]) body.g-obsidian,
 body.g-obsidian {
   --accent-1: rgb(140, 140, 148);
   --accent-2: rgb(90, 90, 96);
@@ -2136,7 +2105,6 @@ body.g-obsidian {
   --bm-guide-border: color-mix(in oklch, rgb(140, 140, 148) 35%, transparent);
   --bm-guide-border-soft: color-mix(in oklch, rgb(140, 140, 148) 18%, transparent); }
 
-:is([data-theme="light"], [data-theme="dark"]) body.g-ivory,
 body.g-ivory {
   --accent-1: rgb(180, 160, 120);
   --accent-2: rgb(150, 130, 95);
@@ -2146,7 +2114,6 @@ body.g-ivory {
   --bm-guide-border: color-mix(in oklch, rgb(180, 160, 120) 35%, transparent);
   --bm-guide-border-soft: color-mix(in oklch, rgb(180, 160, 120) 18%, transparent); }
 
-:is([data-theme="light"], [data-theme="dark"]) body.g-bone,
 body.g-bone {
   --accent-1: rgb(140, 130, 100);
   --accent-2: rgb(170, 160, 132);
@@ -2156,7 +2123,6 @@ body.g-bone {
   --bm-guide-border: color-mix(in oklch, rgb(140, 130, 100) 35%, transparent);
   --bm-guide-border-soft: color-mix(in oklch, rgb(140, 130, 100) 18%, transparent); }
 
-:is([data-theme="light"], [data-theme="dark"]) body.g-marrow,
 body.g-marrow {
   --accent-1: rgb(160, 140, 120);
   --accent-2: rgb(187, 169, 152);

@@ -31,6 +31,10 @@
 /* ================================
    LAYOUT
 ================================ */
+html, body {
+  background-color: var(--bg-1);
+  color: var(--text-hiCon); }
+
 .bg {
   position: fixed;
   inset: 0;
@@ -410,7 +414,7 @@ h5[data-uw="10"],
 h6[data-uw="10"],
 h7[data-uw="10"],
 h8[data-uw="10"] {
-  --uw: 10% ; }
+  --uw: 10%; }
 
 h2[data-uw="12"],
 h3[data-uw="12"],
@@ -419,7 +423,7 @@ h5[data-uw="12"],
 h6[data-uw="12"],
 h7[data-uw="12"],
 h8[data-uw="12"] {
-  --uw: 12% ; }
+  --uw: 12%; }
 
 h2[data-uw="14"],
 h3[data-uw="14"],
@@ -428,7 +432,7 @@ h5[data-uw="14"],
 h6[data-uw="14"],
 h7[data-uw="14"],
 h8[data-uw="14"] {
-  --uw: 14% ; }
+  --uw: 14%; }
 
 h2[data-uw="16"],
 h3[data-uw="16"],
@@ -437,7 +441,7 @@ h5[data-uw="16"],
 h6[data-uw="16"],
 h7[data-uw="16"],
 h8[data-uw="16"] {
-  --uw: 16% ; }
+  --uw: 16%; }
 
 h2[data-uw="18"],
 h3[data-uw="18"],
@@ -446,7 +450,7 @@ h5[data-uw="18"],
 h6[data-uw="18"],
 h7[data-uw="18"],
 h8[data-uw="18"] {
-  --uw: 18% ; }
+  --uw: 18%; }
 
 h2[data-uw="20"],
 h3[data-uw="20"],
@@ -455,7 +459,7 @@ h5[data-uw="20"],
 h6[data-uw="20"],
 h7[data-uw="20"],
 h8[data-uw="20"] {
-  --uw: 20% ; }
+  --uw: 20%; }
 
 h2[data-uw="22"],
 h3[data-uw="22"],
@@ -464,7 +468,7 @@ h5[data-uw="22"],
 h6[data-uw="22"],
 h7[data-uw="22"],
 h8[data-uw="22"] {
-  --uw: 22% ; }
+  --uw: 22%; }
 
 h2[data-uw="24"],
 h3[data-uw="24"],
@@ -473,7 +477,7 @@ h5[data-uw="24"],
 h6[data-uw="24"],
 h7[data-uw="24"],
 h8[data-uw="24"] {
-  --uw: 24% ; }
+  --uw: 24%; }
 
 h2[data-uw="26"],
 h3[data-uw="26"],
@@ -482,7 +486,7 @@ h5[data-uw="26"],
 h6[data-uw="26"],
 h7[data-uw="26"],
 h8[data-uw="26"] {
-  --uw: 26% ; }
+  --uw: 26%; }
 
 h2[data-uw="28"],
 h3[data-uw="28"],
@@ -491,7 +495,7 @@ h5[data-uw="28"],
 h6[data-uw="28"],
 h7[data-uw="28"],
 h8[data-uw="28"] {
-  --uw: 28% ; }
+  --uw: 28%; }
 
 h2[data-uw="30"],
 h3[data-uw="30"],
@@ -500,7 +504,7 @@ h5[data-uw="30"],
 h6[data-uw="30"],
 h7[data-uw="30"],
 h8[data-uw="30"] {
-  --uw: 30% ; }
+  --uw: 30%; }
 
 h2[data-uw="32"],
 h3[data-uw="32"],
@@ -509,7 +513,7 @@ h5[data-uw="32"],
 h6[data-uw="32"],
 h7[data-uw="32"],
 h8[data-uw="32"] {
-  --uw: 32% ; }
+  --uw: 32%; }
 
 h2[data-uw="34"],
 h3[data-uw="34"],
@@ -518,7 +522,7 @@ h5[data-uw="34"],
 h6[data-uw="34"],
 h7[data-uw="34"],
 h8[data-uw="34"] {
-  --uw: 34% ; }
+  --uw: 34%; }
 
 h2[data-uw="36"],
 h3[data-uw="36"],
@@ -527,7 +531,7 @@ h5[data-uw="36"],
 h6[data-uw="36"],
 h7[data-uw="36"],
 h8[data-uw="36"] {
-  --uw: 36% ; }
+  --uw: 36%; }
 
 h2[data-uw="38"],
 h3[data-uw="38"],
@@ -536,7 +540,7 @@ h5[data-uw="38"],
 h6[data-uw="38"],
 h7[data-uw="38"],
 h8[data-uw="38"] {
-  --uw: 38% ; }
+  --uw: 38%; }
 
 h2[data-uw="40"],
 h3[data-uw="40"],
@@ -545,7 +549,7 @@ h5[data-uw="40"],
 h6[data-uw="40"],
 h7[data-uw="40"],
 h8[data-uw="40"] {
-  --uw: 40% ; }
+  --uw: 40%; }
 
 h2[data-uw="42"],
 h3[data-uw="42"],
@@ -554,7 +558,7 @@ h5[data-uw="42"],
 h6[data-uw="42"],
 h7[data-uw="42"],
 h8[data-uw="42"] {
-  --uw: 42% ; }
+  --uw: 42%; }
 
 h2[data-uw="44"],
 h3[data-uw="44"],
@@ -563,7 +567,7 @@ h5[data-uw="44"],
 h6[data-uw="44"],
 h7[data-uw="44"],
 h8[data-uw="44"] {
-  --uw: 44% ; }
+  --uw: 44%; }
 
 h2[data-uw="46"],
 h3[data-uw="46"],
@@ -572,7 +576,7 @@ h5[data-uw="46"],
 h6[data-uw="46"],
 h7[data-uw="46"],
 h8[data-uw="46"] {
-  --uw: 46% ; }
+  --uw: 46%; }
 
 h2[data-uw="48"],
 h3[data-uw="48"],
@@ -581,7 +585,7 @@ h5[data-uw="48"],
 h6[data-uw="48"],
 h7[data-uw="48"],
 h8[data-uw="48"] {
-  --uw: 48% ; }
+  --uw: 48%; }
 
 h2[data-uw="50"],
 h3[data-uw="50"],
@@ -590,7 +594,7 @@ h5[data-uw="50"],
 h6[data-uw="50"],
 h7[data-uw="50"],
 h8[data-uw="50"] {
-  --uw: 50% ; }
+  --uw: 50%; }
 
 h2[data-uw="52"],
 h3[data-uw="52"],
@@ -599,7 +603,7 @@ h5[data-uw="52"],
 h6[data-uw="52"],
 h7[data-uw="52"],
 h8[data-uw="52"] {
-  --uw: 52% ; }
+  --uw: 52%; }
 
 h2[data-uw="54"],
 h3[data-uw="54"],
@@ -608,7 +612,7 @@ h5[data-uw="54"],
 h6[data-uw="54"],
 h7[data-uw="54"],
 h8[data-uw="54"] {
-  --uw: 54% ; }
+  --uw: 54%; }
 
 h2[data-uw="56"],
 h3[data-uw="56"],
@@ -617,7 +621,7 @@ h5[data-uw="56"],
 h6[data-uw="56"],
 h7[data-uw="56"],
 h8[data-uw="56"] {
-  --uw: 56% ; }
+  --uw: 56%; }
 
 h2[data-uw="58"],
 h3[data-uw="58"],
@@ -626,7 +630,7 @@ h5[data-uw="58"],
 h6[data-uw="58"],
 h7[data-uw="58"],
 h8[data-uw="58"] {
-  --uw: 58% ; }
+  --uw: 58%; }
 
 h2[data-uw="60"],
 h3[data-uw="60"],
@@ -635,7 +639,7 @@ h5[data-uw="60"],
 h6[data-uw="60"],
 h7[data-uw="60"],
 h8[data-uw="60"] {
-  --uw: 60% ; }
+  --uw: 60%; }
 
 h2[data-uw="62"],
 h3[data-uw="62"],
@@ -644,7 +648,7 @@ h5[data-uw="62"],
 h6[data-uw="62"],
 h7[data-uw="62"],
 h8[data-uw="62"] {
-  --uw: 62% ; }
+  --uw: 62%; }
 
 h2[data-uw="64"],
 h3[data-uw="64"],
@@ -653,7 +657,7 @@ h5[data-uw="64"],
 h6[data-uw="64"],
 h7[data-uw="64"],
 h8[data-uw="64"] {
-  --uw: 64% ; }
+  --uw: 64%; }
 
 h2[data-uw="66"],
 h3[data-uw="66"],
@@ -662,7 +666,7 @@ h5[data-uw="66"],
 h6[data-uw="66"],
 h7[data-uw="66"],
 h8[data-uw="66"] {
-  --uw: 66% ; }
+  --uw: 66%; }
 
 h2[data-uw="68"],
 h3[data-uw="68"],
@@ -671,7 +675,7 @@ h5[data-uw="68"],
 h6[data-uw="68"],
 h7[data-uw="68"],
 h8[data-uw="68"] {
-  --uw: 68% ; }
+  --uw: 68%; }
 
 h2[data-uw="70"],
 h3[data-uw="70"],
@@ -680,7 +684,7 @@ h5[data-uw="70"],
 h6[data-uw="70"],
 h7[data-uw="70"],
 h8[data-uw="70"] {
-  --uw: 70% ; }
+  --uw: 70%; }
 
 h2[data-uw="72"],
 h3[data-uw="72"],
@@ -689,7 +693,7 @@ h5[data-uw="72"],
 h6[data-uw="72"],
 h7[data-uw="72"],
 h8[data-uw="72"] {
-  --uw: 72% ; }
+  --uw: 72%; }
 
 h2[data-uw="74"],
 h3[data-uw="74"],
@@ -698,7 +702,7 @@ h5[data-uw="74"],
 h6[data-uw="74"],
 h7[data-uw="74"],
 h8[data-uw="74"] {
-  --uw: 74% ; }
+  --uw: 74%; }
 
 h2[data-uw="76"],
 h3[data-uw="76"],
@@ -707,7 +711,7 @@ h5[data-uw="76"],
 h6[data-uw="76"],
 h7[data-uw="76"],
 h8[data-uw="76"] {
-  --uw: 76% ; }
+  --uw: 76%; }
 
 h2[data-uw="78"],
 h3[data-uw="78"],
@@ -716,7 +720,7 @@ h5[data-uw="78"],
 h6[data-uw="78"],
 h7[data-uw="78"],
 h8[data-uw="78"] {
-  --uw: 78% ; }
+  --uw: 78%; }
 
 h2[data-uw="80"],
 h3[data-uw="80"],
@@ -725,7 +729,7 @@ h5[data-uw="80"],
 h6[data-uw="80"],
 h7[data-uw="80"],
 h8[data-uw="80"] {
-  --uw: 80% ; }
+  --uw: 80%; }
 
 h2[data-uw="82"],
 h3[data-uw="82"],
@@ -734,7 +738,7 @@ h5[data-uw="82"],
 h6[data-uw="82"],
 h7[data-uw="82"],
 h8[data-uw="82"] {
-  --uw: 82% ; }
+  --uw: 82%; }
 
 h2[data-uw="84"],
 h3[data-uw="84"],
@@ -743,7 +747,7 @@ h5[data-uw="84"],
 h6[data-uw="84"],
 h7[data-uw="84"],
 h8[data-uw="84"] {
-  --uw: 84% ; }
+  --uw: 84%; }
 
 h2[data-uw="86"],
 h3[data-uw="86"],
@@ -752,7 +756,7 @@ h5[data-uw="86"],
 h6[data-uw="86"],
 h7[data-uw="86"],
 h8[data-uw="86"] {
-  --uw: 86% ; }
+  --uw: 86%; }
 
 h2[data-uw="88"],
 h3[data-uw="88"],
@@ -761,7 +765,7 @@ h5[data-uw="88"],
 h6[data-uw="88"],
 h7[data-uw="88"],
 h8[data-uw="88"] {
-  --uw: 88% ; }
+  --uw: 88%; }
 
 h2[data-uw="90"],
 h3[data-uw="90"],
@@ -770,7 +774,7 @@ h5[data-uw="90"],
 h6[data-uw="90"],
 h7[data-uw="90"],
 h8[data-uw="90"] {
-  --uw: 90% ; }
+  --uw: 90%; }
 
 h2[data-uw="92"],
 h3[data-uw="92"],
@@ -779,7 +783,7 @@ h5[data-uw="92"],
 h6[data-uw="92"],
 h7[data-uw="92"],
 h8[data-uw="92"] {
-  --uw: 92% ; }
+  --uw: 92%; }
 
 h2[data-uw="94"],
 h3[data-uw="94"],
@@ -788,7 +792,7 @@ h5[data-uw="94"],
 h6[data-uw="94"],
 h7[data-uw="94"],
 h8[data-uw="94"] {
-  --uw: 94% ; }
+  --uw: 94%; }
 
 h2[data-uw="96"],
 h3[data-uw="96"],
@@ -797,7 +801,7 @@ h5[data-uw="96"],
 h6[data-uw="96"],
 h7[data-uw="96"],
 h8[data-uw="96"] {
-  --uw: 96% ; }
+  --uw: 96%; }
 
 h2[data-uw="98"],
 h3[data-uw="98"],
@@ -806,7 +810,7 @@ h5[data-uw="98"],
 h6[data-uw="98"],
 h7[data-uw="98"],
 h8[data-uw="98"] {
-  --uw: 98% ; }
+  --uw: 98%; }
 
 h2[data-uw="100"],
 h3[data-uw="100"],
@@ -815,7 +819,7 @@ h5[data-uw="100"],
 h6[data-uw="100"],
 h7[data-uw="100"],
 h8[data-uw="100"] {
-  --uw: 100% ; }
+  --uw: 100%; }
 
 /* Convenience presets for “narrow/wide” if you still want them */
 h2[data-underline="narrow"] {

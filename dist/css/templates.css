@@ -312,14 +312,11 @@ tag-image[data-ratio="16:9"],
   --maxw: 72ch;
   --rule: color-mix(in srgb, var(--ink) 45%, transparent);
   --title-script-scale: 1.15;
-  /* 1.0–1.3 feels nice */
   --title-script-stroke: .35px;
-  /* add a hairline on light bgs */
   --title-script-stroke-color: rgba(0,0,0,.25);
   /* type tokens */
   --font-letter-serif: var(--font-serif, ui-serif);
   --font-letter-sans:  var(--font-sans, ui-sans-serif);
-  /* default script stack (you can override per-letter via data-script) */
   --font-letter-script: "Lavishly Yours", "Cookie", "Lugrasimo", cursive;
   /* script tuning (per-letter overrideable) */
   --hand-weight: 400;
@@ -339,7 +336,7 @@ tag-image[data-ratio="16:9"],
           box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ink) 10%, transparent), 0 10px 30px rgba(0, 0, 0, 0.18);
   isolation: isolate;
   /* Stationery options */
-  /* Ink palettes (override theme tokens intentionally) */
+  /* Ink palettes */
   /* subtle texture + optional watermark */
   /* Header */
   /* Ink-ish rule */
@@ -348,8 +345,8 @@ tag-image[data-ratio="16:9"],
   /* Script by default on greeting/closing too */
   /* Courier chip */
   /* Seals + placement */
-  /* Folds (default tuned for dark) */
-  /* Quick house accents */ }
+  /* Folds */
+  /* House accents */ }
   .rp-letter[data-stationery="parchment"] {
     --paper: #181716; }
   .rp-letter[data-stationery="plain"] {
@@ -486,8 +483,6 @@ tag-image[data-ratio="16:9"],
     background: color-mix(in srgb, var(--ink) 12%, transparent);
     -webkit-box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ink) 35%, transparent);
             box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ink) 35%, transparent); }
-  .rp-letter[data-seal^="wax"]::marker, .rp-letter[data-seal^="ribbon"]::marker, .rp-letter[data-seal^="stamp"]::marker {
-    content: ""; }
   .rp-letter[data-seal^="wax"]::before, .rp-letter[data-seal^="ribbon"]::before, .rp-letter[data-seal^="stamp"]::before {
     content: "";
     position: absolute;
@@ -564,7 +559,7 @@ tag-image[data-ratio="16:9"],
   --hand-lh: 1.15;
   --hand-track: 0; }
 
-/* Turn off script usage for greeting/closing/signature */
+/* Turn off script for greeting/closing/signature */
 .rp-letter[data-hand="none"] .rp-greeting,
 .rp-letter[data-hand="none"] .rp-closing,
 .rp-letter[data-hand="none"] .rp-signature .sig-name {
@@ -572,7 +567,7 @@ tag-image[data-ratio="16:9"],
   font-weight: 700;
   letter-spacing: .01em; }
 
-/* Utility: force script anywhere inside a letter */
+/* Force script anywhere inside a letter */
 .rp-letter .rp-script {
   font-family: var(--font-letter-script) !important;
   font-weight: var(--hand-weight);
@@ -590,34 +585,21 @@ tag-image[data-ratio="16:9"],
 
 /* ===========================
    TITLE SCRIPT TOGGLE
-   Use: <article class="rp-letter" data-script-title>
 =========================== */
 .rp-letter[data-script-title] .rp-from h1 {
   font-family: var(--font-letter-script);
   font-weight: var(--hand-weight);
   letter-spacing: var(--hand-track);
   line-height: var(--hand-lh);
-  /* scale & finesse knobs just for the title */
   font-size: clamp(1.1rem, 2.2vw, calc(var(--hand-size) * var(--title-script-scale, 1.15)));
   -webkit-text-stroke: var(--title-script-stroke, 0) var(--title-script-stroke-color, transparent); }
 
-/* Accessibility: forced-colors */
-@media (forced-colors: active) {
-  .rp-letter {
-    background: Canvas;
-    color: CanvasText;
-    -webkit-box-shadow: none;
-            box-shadow: none;
-    border: 1px solid CanvasText; }
-  .rp-rule {
-    background: CanvasText !important;
-    opacity: .5; } }
-
 /* =========================================
-   INHERIT FROM BODY[data-theme] IF PRESENT
-   (applies only when the letter doesn’t set its own data-theme)
+   GLOBAL THEME INHERITANCE
+   Applies when the letter has no per-letter data-theme override.
+   Uses body.light / body.dark to match the site's class-based toggle.
 ========================================= */
-body[data-theme="light"] .rp-letter:not([data-theme]) {
+body.light .rp-letter:not([data-theme]) {
   --paper:  #f7f4ee;
   --ink:    #2b2a28;
   --accent: #8b6a4a;
@@ -625,26 +607,24 @@ body[data-theme="light"] .rp-letter:not([data-theme]) {
   color: var(--ink);
   background: var(--paper);
   -webkit-box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ink) 10%, transparent), 0 8px 22px rgba(0, 0, 0, 0.1);
-          box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ink) 10%, transparent), 0 8px 22px rgba(0, 0, 0, 0.1);
-  /* light-leaning fold shading */ }
-  body[data-theme="light"] .rp-letter:not([data-theme])::before {
+          box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ink) 10%, transparent), 0 8px 22px rgba(0, 0, 0, 0.1); }
+  body.light .rp-letter:not([data-theme])::before {
     background: radial-gradient(120% 80% at 50% 10%, rgba(0, 0, 0, 0.06), #0000 60%), repeating-linear-gradient(0deg, #0000 0 30px, rgba(0, 0, 0, 0.025) 30px 31px);
     opacity: .35;
     mix-blend-mode: multiply; }
-  body[data-theme="light"] .rp-letter:not([data-theme])[data-folds="1"] {
+  body.light .rp-letter:not([data-theme])[data-folds="1"] {
     --folds: linear-gradient(#0000 48%, rgba(0,0,0,.06) 50%, #0000 52%) 0 15%/100% 100% no-repeat; }
-  body[data-theme="light"] .rp-letter:not([data-theme])[data-folds="2"] {
+  body.light .rp-letter:not([data-theme])[data-folds="2"] {
     --folds:
       linear-gradient(#0000 48%, rgba(0,0,0,.06) 50%, #0000 52%) 0 38%/100% 100% no-repeat,
       linear-gradient(#0000 48%, rgba(0,0,0,.06) 50%, #0000 52%) 0 68%/100% 100% no-repeat; }
-  body[data-theme="light"] .rp-letter:not([data-theme])[data-folds="3"] {
+  body.light .rp-letter:not([data-theme])[data-folds="3"] {
     --folds:
       linear-gradient(#0000 48%, rgba(0,0,0,.06) 50%, #0000 52%) 0 30%/100% 100% no-repeat,
       linear-gradient(#0000 48%, rgba(0,0,0,.06) 50%, #0000 52%) 0 55%/100% 100% no-repeat,
       linear-gradient(#0000 48%, rgba(0,0,0,.06) 50%, #0000 52%) 0 80%/100% 100% no-repeat; }
 
-body[data-theme="dark"] .rp-letter:not([data-theme]) {
-  /* these match the base, included for clarity/priority */
+body.dark .rp-letter:not([data-theme]) {
   --paper:  #1c1b1a;
   --ink:    #ede7de;
   --accent: #b08b67;
@@ -653,13 +633,15 @@ body[data-theme="dark"] .rp-letter:not([data-theme]) {
   background: var(--paper);
   -webkit-box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ink) 10%, transparent), 0 10px 30px rgba(0, 0, 0, 0.18);
           box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ink) 10%, transparent), 0 10px 30px rgba(0, 0, 0, 0.18); }
-  body[data-theme="dark"] .rp-letter:not([data-theme])::before {
+  body.dark .rp-letter:not([data-theme])::before {
     background: radial-gradient(120% 80% at 50% 10%, rgba(255, 255, 255, 0.06), #0000 60%), repeating-linear-gradient(0deg, #0000 0 30px, rgba(255, 255, 255, 0.02) 30px 31px);
     opacity: .35;
     mix-blend-mode: multiply; }
 
 /* =========================================
-   PER-LETTER MANUAL OVERRIDES (always win)
+   PER-LETTER MANUAL OVERRIDES
+   data-theme on the letter element itself — always win.
+   These are intentional author overrides, not tied to the toggle.
 ========================================= */
 .rp-letter[data-theme="light"] {
   --paper:#f7f4ee;
@@ -688,17 +670,6 @@ body[data-theme="dark"] .rp-letter:not([data-theme]) {
     background: radial-gradient(120% 80% at 50% 10%, rgba(255, 255, 255, 0.06), #0000 60%), repeating-linear-gradient(0deg, #0000 0 30px, rgba(255, 255, 255, 0.02) 30px 31px);
     opacity: .35;
     mix-blend-mode: multiply; }
-
-/* ======================================
-   SIZE VARIANTS (unchanged)
-====================================== */
-.rp-letter[data-size="sm"] {
-  --pad:.9rem;
-  --maxw:60ch; }
-
-.rp-letter[data-size="lg"] {
-  --pad:1.5rem;
-  --maxw:84ch; }
 
 /* Accessibility: forced-colors */
 @media (forced-colors: active) {
