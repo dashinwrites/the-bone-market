@@ -519,106 +519,102 @@
       #field-location,
       #field-interests { display: none; }
 
-      // ── Section headers injected by insertCPHeader ───────────
-      thead.fullWidth {
-        grid-column: 1 / -1;
-        display: block;
-        padding-block-start: var(--space-lg);
-        padding-block-end: var(--space-sm);
-        border-block-end: var(--bdash);
-
-        &:first-of-type { padding-block-start: 0; }
-
-        tr.ucp--header { display: block; }
-
-        td { display: block; padding: 0; }
-
-        .sticky {
-          display: flex;
-          flex-direction: column;
-          gap: var(--space-xs);
-        }
-
-        .ucp--header-title {
-          font: 400 var(--size-sm) / 1 var(--font-cinzel);
-          letter-spacing: 0.18em;
-          text-transform: uppercase;
-          color: var(--text-hiCon);
-          position: relative;
-
-          &::after {
-            content: "";
-            display: block;
-            margin-block-start: 0.4rem;
-            height: 1px;
-            width: 2rem;
-            background: var(--accent-1);
-            opacity: 0.5;
-          }
-        }
-
-        .ucp--description {
-          font: 400 var(--size-sm) / 1.6 var(--font-hand);
-          color: var(--text-loCon);
-          letter-spacing: 0.04em;
-          max-width: 60ch;
-          opacity: 0.8;
-        }
-      }
-
-      // ── Field grid ───────────────────────────────────────────
-      tbody {
+      // grid on the table so splitProfile's tbodys still participate
+      > table {
         display: grid !important;
+        grid-template-columns: repeat(6, 1fr);
         gap: var(--space-lg);
+        width: 100%;
 
-        @include mq-up(sm) {
-          grid-template-columns: repeat(6, 1fr);
-        }
-
-        // section tbodies span full width so headers reset the grid
-        &.fullWidth {
+        // thead section headers span full width
+        thead.fullWidth {
           grid-column: 1 / -1;
-          display: contents !important;
-        }
+          display: block;
+          padding-block-start: var(--space-lg);
+          padding-block-end: var(--space-sm);
+          border-block-end: var(--bdash);
 
-        tr {
-          margin-bottom: 0 !important;
-          grid-column: span 3;
+          &:first-of-type { padding-block-start: 0; }
 
-          &.fullWidth { grid-column: 1 / -1; }
+          tr.ucp--header { display: block; }
+          td { display: block; padding: 0; }
 
-          // submit row
-          &:last-child { grid-column: 1 / -1; }
-
-          .pformleft {
-            font: 400 var(--size-xs) / 1.5 var(--font-hand);
-            color: var(--text-loCon);
-            opacity: 0.6;
-            letter-spacing: 0.04em;
-            text-transform: none;
+          .sticky {
             display: flex;
             flex-direction: column;
             gap: var(--space-xs);
+          }
 
-            br { display: none; }
+          .ucp--header-title {
+            font: 400 var(--size-sm) / 1 var(--font-cinzel);
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--text-hiCon);
 
-            b, strong, label {
-              font: 400 var(--size-xs) / 1 var(--font-hand);
-              letter-spacing: 0.14em;
-              text-transform: uppercase;
-              color: var(--text-loCon);
-              opacity: 1;
+            &::after {
+              content: "";
               display: block;
-              max-width: max-content;
+              margin-block-start: 0.4rem;
+              height: 1px;
+              width: 2rem;
+              background: var(--accent-1);
+              opacity: 0.5;
             }
           }
 
-          .pformright {
+          .ucp--description {
+            font: 400 var(--size-sm) / 1.6 var(--font-hand);
+            color: var(--text-loCon);
+            letter-spacing: 0.04em;
+            max-width: 60ch;
+            opacity: 0.8;
+          }
+        }
+
+        // splitProfile tbodys — display contents so trs join the grid
+        tbody {
+          display: contents !important;
+
+          tr {
+            grid-column: span 3;
+            margin-bottom: 0 !important;
             display: flex;
-            flex-wrap: wrap;
-            gap: var(--space-xs);
-            align-items: flex-start;
-            height: max-content;
+            flex-direction: column;
+            gap: var(--space-sm);
+
+            &.fullWidth { grid-column: 1 / -1; }
+            &:last-child { grid-column: 1 / -1; }
+
+            .pformleft {
+              font: 400 var(--size-xs) / 1.5 var(--font-hand);
+              color: var(--text-loCon);
+              opacity: 0.6;
+              letter-spacing: 0.04em;
+              text-transform: none;
+              display: flex;
+              flex-direction: column;
+              gap: var(--space-xs);
+
+              br { display: none; }
+
+              b, strong, label {
+                font: 400 var(--size-xs) / 1 var(--font-hand);
+                letter-spacing: 0.14em;
+                text-transform: uppercase;
+                color: var(--text-loCon);
+                opacity: 1;
+                display: block;
+                max-width: max-content;
+              }
+            }
+
+            .pformright {
+              display: flex;
+              flex-wrap: wrap;
+              gap: var(--space-xs);
+              align-items: flex-start;
+              height: max-content;
+            }
           }
         }
       }

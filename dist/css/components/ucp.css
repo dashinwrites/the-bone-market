@@ -496,85 +496,84 @@
 #UserCP.code-01 #ucpcontent form #field-interests {
   display: none; }
 
-#UserCP.code-01 #ucpcontent form thead.fullWidth {
-  grid-column: 1 / -1;
-  display: block;
-  padding-block-start: var(--space-lg);
-  padding-block-end: var(--space-sm);
-  border-block-end: var(--bdash); }
-  #UserCP.code-01 #ucpcontent form thead.fullWidth:first-of-type {
-    padding-block-start: 0; }
-  #UserCP.code-01 #ucpcontent form thead.fullWidth tr.ucp--header {
-    display: block; }
-  #UserCP.code-01 #ucpcontent form thead.fullWidth td {
-    display: block;
-    padding: 0; }
-  #UserCP.code-01 #ucpcontent form thead.fullWidth .sticky {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-xs); }
-  #UserCP.code-01 #ucpcontent form thead.fullWidth .ucp--header-title {
-    font: 400 var(--size-sm)/1 var(--font-cinzel);
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--text-hiCon);
-    position: relative; }
-    #UserCP.code-01 #ucpcontent form thead.fullWidth .ucp--header-title::after {
-      content: "";
-      display: block;
-      margin-block-start: 0.4rem;
-      height: 1px;
-      width: 2rem;
-      background: var(--accent-1);
-      opacity: 0.5; }
-  #UserCP.code-01 #ucpcontent form thead.fullWidth .ucp--description {
-    font: 400 var(--size-sm)/1.6 var(--font-hand);
-    color: var(--text-loCon);
-    letter-spacing: 0.04em;
-    max-width: 60ch;
-    opacity: 0.8; }
-
-#UserCP.code-01 #ucpcontent form tbody {
+#UserCP.code-01 #ucpcontent form > table {
   display: grid !important;
-  gap: var(--space-lg); }
-  @media (min-width: 769px) {
-    #UserCP.code-01 #ucpcontent form tbody {
-      grid-template-columns: repeat(6, 1fr); } }
-  #UserCP.code-01 #ucpcontent form tbody.fullWidth {
+  grid-template-columns: repeat(6, 1fr);
+  gap: var(--space-lg);
+  width: 100%; }
+  #UserCP.code-01 #ucpcontent form > table thead.fullWidth {
     grid-column: 1 / -1;
-    display: contents !important; }
-  #UserCP.code-01 #ucpcontent form tbody tr {
-    margin-bottom: 0 !important;
-    grid-column: span 3; }
-    #UserCP.code-01 #ucpcontent form tbody tr.fullWidth {
-      grid-column: 1 / -1; }
-    #UserCP.code-01 #ucpcontent form tbody tr:last-child {
-      grid-column: 1 / -1; }
-    #UserCP.code-01 #ucpcontent form tbody tr .pformleft {
-      font: 400 var(--size-xs)/1.5 var(--font-hand);
-      color: var(--text-loCon);
-      opacity: 0.6;
-      letter-spacing: 0.04em;
-      text-transform: none;
+    display: block;
+    padding-block-start: var(--space-lg);
+    padding-block-end: var(--space-sm);
+    border-block-end: var(--bdash); }
+    #UserCP.code-01 #ucpcontent form > table thead.fullWidth:first-of-type {
+      padding-block-start: 0; }
+    #UserCP.code-01 #ucpcontent form > table thead.fullWidth tr.ucp--header {
+      display: block; }
+    #UserCP.code-01 #ucpcontent form > table thead.fullWidth td {
+      display: block;
+      padding: 0; }
+    #UserCP.code-01 #ucpcontent form > table thead.fullWidth .sticky {
       display: flex;
       flex-direction: column;
       gap: var(--space-xs); }
-      #UserCP.code-01 #ucpcontent form tbody tr .pformleft br {
-        display: none; }
-      #UserCP.code-01 #ucpcontent form tbody tr .pformleft b, #UserCP.code-01 #ucpcontent form tbody tr .pformleft strong, #UserCP.code-01 #ucpcontent form tbody tr .pformleft label {
-        font: 400 var(--size-xs)/1 var(--font-hand);
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-        color: var(--text-loCon);
-        opacity: 1;
+    #UserCP.code-01 #ucpcontent form > table thead.fullWidth .ucp--header-title {
+      font: 400 var(--size-sm)/1 var(--font-cinzel);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-hiCon); }
+      #UserCP.code-01 #ucpcontent form > table thead.fullWidth .ucp--header-title::after {
+        content: "";
         display: block;
-        max-width: max-content; }
-    #UserCP.code-01 #ucpcontent form tbody tr .pformright {
+        margin-block-start: 0.4rem;
+        height: 1px;
+        width: 2rem;
+        background: var(--accent-1);
+        opacity: 0.5; }
+    #UserCP.code-01 #ucpcontent form > table thead.fullWidth .ucp--description {
+      font: 400 var(--size-sm)/1.6 var(--font-hand);
+      color: var(--text-loCon);
+      letter-spacing: 0.04em;
+      max-width: 60ch;
+      opacity: 0.8; }
+  #UserCP.code-01 #ucpcontent form > table tbody {
+    display: contents !important; }
+    #UserCP.code-01 #ucpcontent form > table tbody tr {
+      grid-column: span 3;
+      margin-bottom: 0 !important;
       display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-xs);
-      align-items: flex-start;
-      height: max-content; }
+      flex-direction: column;
+      gap: var(--space-sm); }
+      #UserCP.code-01 #ucpcontent form > table tbody tr.fullWidth {
+        grid-column: 1 / -1; }
+      #UserCP.code-01 #ucpcontent form > table tbody tr:last-child {
+        grid-column: 1 / -1; }
+      #UserCP.code-01 #ucpcontent form > table tbody tr .pformleft {
+        font: 400 var(--size-xs)/1.5 var(--font-hand);
+        color: var(--text-loCon);
+        opacity: 0.6;
+        letter-spacing: 0.04em;
+        text-transform: none;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-xs); }
+        #UserCP.code-01 #ucpcontent form > table tbody tr .pformleft br {
+          display: none; }
+        #UserCP.code-01 #ucpcontent form > table tbody tr .pformleft b, #UserCP.code-01 #ucpcontent form > table tbody tr .pformleft strong, #UserCP.code-01 #ucpcontent form > table tbody tr .pformleft label {
+          font: 400 var(--size-xs)/1 var(--font-hand);
+          letter-spacing: 0.14em;
+          text-transform: uppercase;
+          color: var(--text-loCon);
+          opacity: 1;
+          display: block;
+          max-width: max-content; }
+      #UserCP.code-01 #ucpcontent form > table tbody tr .pformright {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-xs);
+        align-items: flex-start;
+        height: max-content; }
 
 #UserCP.code-24 #ucpcontent .tablepad {
   padding: var(--space-md) 0;
