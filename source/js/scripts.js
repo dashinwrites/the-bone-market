@@ -1185,6 +1185,35 @@ if (pageType === "modcp") {
   initModCPMenu();
 }
 
+(function () {
+  const jcinkNav = document.querySelector(".lb-breadcrumb #navstrip");
+  if (!jcinkNav) return;
+
+  const breadcrumb = jcinkNav.closest(".lb-breadcrumb");
+  jcinkNav.removeAttribute("id");
+
+  const anchors = jcinkNav.querySelectorAll("a");
+
+  let currentText = "";
+  jcinkNav.childNodes.forEach(node => {
+    if (node.nodeType === Node.TEXT_NODE) {
+      const t = node.textContent.replace(/\u00a0/g, "").trim();
+      if (t) currentText = t;
+    }
+  });
+
+  let html = "";
+  anchors.forEach(a => {
+    html += `<a href="${a.href}">${a.textContent.trim()}</a>`;
+    html += `<span class="lb-breadcrumb__sep" aria-hidden="true"><i class="ph-thin ph-caret-right"></i></span>`;
+  });
+  if (currentText) {
+    html += `<span class="lb-breadcrumb__current">${currentText}</span>`;
+  }
+
+  breadcrumb.innerHTML = html;
+})();
+
 
 /**** LOCAL ONLY */
 // GROUP TESTING
