@@ -317,20 +317,36 @@ trackerParams = {
 }
 
 //should be plain numbers in a comma separated list, do not wrap in quotes
-const fullWidthFields = [10]; //for ucp that has been gridded, sets the field to span the full grid width
-const thirdWidthFields = [3, 4, 5, 11, 12, 13]; //for when using manual birthday fields and there are six columns with default being 1/2 width in ucp
-const setHeightFields = []; //for when you want a text area field to allow some coding, apostrophes, etc but want it to look like a standard text input
-const requiredFields = []; //will add an asterisk to required field labels, with the class of 'required'
+const fullWidthFields = [52, 53, 54, 55, 56, 57, 58, 59, 76, 77]; // textareas
+const thirdWidthFields = [3, 4, 5];   // player pronouns, birth year, birth month
+const setHeightFields = [];
+const requiredFields = [1, 2];        // account type, alias
 
 //toggle fields: account type, image type
-const toggleFields = createFieldArray([1, 19], true);
-const characterFields = createFieldArray([11, 12, 13, 14, 15, 16, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28]); //character only fields
+const toggleFields = createFieldArray([1, 67], true);
+const characterFields = createFieldArray([
+    16, 17, 18, 19, 20, // name, nickname, birth year/month/day
+    21, 22, 23, 24, 25, 26, // pronouns, gender, orientation, relationship, partner
+    27,                  // occupation
+    28, 29, 30, 31,      // face claim, portrayed age, height, build
+    32, 33, 34, 35,      // perspective, resonance, species, species specify
+    36, 37,              // dragon element, dragon form
+    38, 39,              // shifter form, shifter specify
+    40, 41,              // vampire bloodline, fae court
+    42, 43, 44, 45, 46,  // magic access, type, abilities, limitations, kin-group
+    47, 48, 49, 50, 51,  // trait tags 1–5
+    52, 53, 54, 55,      // quick facts, overview, freeform, freeform overflow
+    56, 57, 58, 59,      // plot hooks, not interested, relationships, content warnings
+    60, 61, 62, 63, 64,  // dev board, links
+    67, 68, 69, 70, 71, 72, 73, 74, 75, // aesthetics layout + images
+    76,                  // custom menu links
+]);
 
-const defaultImages = createFieldArray([20]); //default aesthetics set up
-const gridImages = createFieldArray([21,23, 24]); //grid style aesthetics set up
-const mosaicImages = createFieldArray([22, 25]); //mosaic style aesthetic set up
+const defaultImages = createFieldArray([65, 66]); //default aesthetics set up
+const gridImages = createFieldArray([68, 69, 70, 71]);   // tall 1+2, wide 1+2
+const mosaicImages = createFieldArray([72, 73, 74, 75]); // square 1–4
 
-const avatarImageFields = createFieldArray([17, 18]); //which images are avatars, not aesthetics?
+const avatarImageFields = createFieldArray([65, 66]); //which images are avatars, not aesthetics?
 
 //shouldn't need to change this
 const aestheticFields = {
@@ -358,29 +374,64 @@ const allHeaders = [
     {
         sectionTitle: `Player`,
         insertBefore: 1,
-        sectionDescription: ``,
+        sectionDescription: `These fields are about you as a writer. They appear on your OOC account and on your characters' profiles.`,
+    },
+    {
+        sectionTitle: `Writing Preferences`,
+        insertBefore: 10,
+        sectionDescription: `Let your writing partners know how you like to write and what pace works for you.`,
     },
     {
         sectionTitle: `Images`,
-        insertBefore: 17,
-        sectionDescription: ``,
+        insertBefore: 65,
+        sectionDescription: `Paste direct image URLs. Tall avatars display at roughly 2:3 ratio; wide at 16:9. Aesthetic images are used on your character profile.`,
+    },
+    {
+        sectionTitle: `Extras`,
+        insertBefore: 76,
+        sectionDescription: `Code storage and custom menu links for your profile.`,
     },
 ];
 const charHeaders = [
     {
-        sectionTitle: `Basics`,
-        insertBefore: 11,
-        sectionDescription: ``,
+        sectionTitle: `Identity`,
+        insertBefore: 16,
+        sectionDescription: `Basic information about your character.`,
     },
     {
-        sectionTitle: `Details`,
-        insertBefore: 26,
-        sectionDescription: ``,
+        sectionTitle: `Appearance`,
+        insertBefore: 28,
+        sectionDescription: `Physical details and face claim information.`,
+    },
+    {
+        sectionTitle: `Lore`,
+        insertBefore: 32,
+        sectionDescription: `Your character's place in the world of The Bone Market.`,
+    },
+    {
+        sectionTitle: `Species`,
+        insertBefore: 34,
+        sectionDescription: `Fill in only the fields relevant to your character's species.`,
+    },
+    {
+        sectionTitle: `Abilities`,
+        insertBefore: 42,
+        sectionDescription: `Magic access and notable powers or limitations.`,
+    },
+    {
+        sectionTitle: `Profile`,
+        insertBefore: 47,
+        sectionDescription: `Content that appears on your character's public profile page.`,
     },
     {
         sectionTitle: `Plotting`,
-        insertBefore: 28,
-        sectionDescription: ``,
+        insertBefore: 56,
+        sectionDescription: `Help other players find you for threads.`,
+    },
+    {
+        sectionTitle: `Aesthetics`,
+        insertBefore: 67,
+        sectionDescription: `Choose a layout and provide image URLs for your character's aesthetic section.`,
     },
 ];
 

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* ================================================
    UI Detail Mixins
    ================================================ */
@@ -22,33 +23,148 @@
     #UserCP main > table:first-of-type > tbody > tr,
     #Msg main > table:first-of-type > tbody > tr {
       display: flex;
-      gap: var(--space-lg); }
+      gap: var(--space-lg);
+      align-items: flex-start; }
       #UserCP main > table:first-of-type > tbody > tr > td#ucpmenu,
       #Msg main > table:first-of-type > tbody > tr > td#ucpmenu {
-        flex: 0 0 150px; }
-        #UserCP main > table:first-of-type > tbody > tr > td#ucpmenu .sticky,
-        #Msg main > table:first-of-type > tbody > tr > td#ucpmenu .sticky {
+        flex: 0 0 160px;
+        align-self: stretch;
+        background-color: var(--bg-2);
+        padding-block-start: var(--space-md);
+        border-inline-end: 1px dashed color-mix(in oklab, var(--text-loCon) 12%, transparent);
+        padding-inline-end: var(--space-md); }
+        #UserCP main > table:first-of-type > tbody > tr > td#ucpmenu .maintitle,
+        #Msg main > table:first-of-type > tbody > tr > td#ucpmenu .maintitle {
+          display: none; }
+        #UserCP main > table:first-of-type > tbody > tr > td#ucpmenu .accordion,
+        #Msg main > table:first-of-type > tbody > tr > td#ucpmenu .accordion {
           display: flex;
           flex-direction: column;
-          gap: var(--space-sm);
           position: sticky;
-          top: var(--size-menu-height); }
-        #UserCP main > table:first-of-type > tbody > tr > td#ucpmenu .menu-section,
-        #Msg main > table:first-of-type > tbody > tr > td#ucpmenu .menu-section {
-          display: flex;
+          top: calc(var(--nav-h) + 1rem); }
+        #UserCP main > table:first-of-type > tbody > tr > td#ucpmenu .accordion--trigger,
+        #Msg main > table:first-of-type > tbody > tr > td#ucpmenu .accordion--trigger {
+          font: 400 var(--size-xs)/1 var(--font-hand);
+          letter-spacing: 0.2em;
+          text-transform: uppercase;
+          color: var(--text-loCon);
+          padding: 0.7rem 0.3rem 0.4rem;
+          border-block-end: var(--bdash);
+          margin-block-end: 0;
+          cursor: pointer;
+          user-select: none;
+          position: relative;
+          transition: color var(--transi-quick), opacity var(--transi-quick); }
+          #UserCP main > table:first-of-type > tbody > tr > td#ucpmenu .accordion--trigger:first-of-type,
+          #Msg main > table:first-of-type > tbody > tr > td#ucpmenu .accordion--trigger:first-of-type {
+            padding-top: 0; }
+          #UserCP main > table:first-of-type > tbody > tr > td#ucpmenu .accordion--trigger b,
+          #Msg main > table:first-of-type > tbody > tr > td#ucpmenu .accordion--trigger b {
+            font-weight: 400; }
+          #UserCP main > table:first-of-type > tbody > tr > td#ucpmenu .accordion--trigger::after,
+          #Msg main > table:first-of-type > tbody > tr > td#ucpmenu .accordion--trigger::after {
+            content: "";
+            position: absolute;
+            inset-inline-end: 0.3rem;
+            inset-block-start: 50%;
+            width: 5px;
+            height: 5px;
+            border-inline-end: 1px solid currentColor;
+            border-block-end: 1px solid currentColor;
+            transform: translateY(-65%) rotate(45deg);
+            opacity: 0.4;
+            transition: transform var(--transi-quick), opacity var(--transi-quick); }
+          #UserCP main > table:first-of-type > tbody > tr > td#ucpmenu .accordion--trigger.is-active,
+          #Msg main > table:first-of-type > tbody > tr > td#ucpmenu .accordion--trigger.is-active {
+            color: var(--accent-1);
+            border-block-end-color: color-mix(in oklab, var(--accent-1) 30%, transparent); }
+            #UserCP main > table:first-of-type > tbody > tr > td#ucpmenu .accordion--trigger.is-active::after,
+            #Msg main > table:first-of-type > tbody > tr > td#ucpmenu .accordion--trigger.is-active::after {
+              transform: translateY(-35%) rotate(225deg);
+              opacity: 0.7; }
+          #UserCP main > table:first-of-type > tbody > tr > td#ucpmenu .accordion--trigger:hover,
+          #Msg main > table:first-of-type > tbody > tr > td#ucpmenu .accordion--trigger:hover {
+            color: var(--accent-1);
+            opacity: 1; }
+        #UserCP main > table:first-of-type > tbody > tr > td#ucpmenu .accordion--content,
+        #Msg main > table:first-of-type > tbody > tr > td#ucpmenu .accordion--content {
+          display: none;
           flex-direction: column;
-          gap: var(--space-sm); }
+          gap: 0;
+          padding: 0.35rem 0 0.5rem 0.5rem;
+          border-block-end: var(--bdash); }
+          #UserCP main > table:first-of-type > tbody > tr > td#ucpmenu .accordion--content.is-active,
+          #Msg main > table:first-of-type > tbody > tr > td#ucpmenu .accordion--content.is-active {
+            display: flex; }
+          #UserCP main > table:first-of-type > tbody > tr > td#ucpmenu .accordion--content a,
+          #Msg main > table:first-of-type > tbody > tr > td#ucpmenu .accordion--content a {
+            display: block;
+            font: 400 var(--size-xs)/1 var(--font-hand);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-loCon);
+            text-decoration: none;
+            padding: 0.28rem 0.3rem 0.28rem 0.65rem;
+            position: relative;
+            transition: color var(--transi-quick); }
+            #UserCP main > table:first-of-type > tbody > tr > td#ucpmenu .accordion--content a::before,
+            #Msg main > table:first-of-type > tbody > tr > td#ucpmenu .accordion--content a::before {
+              content: "·";
+              position: absolute;
+              inset-inline-start: 0.1rem;
+              color: var(--accent-1);
+              opacity: 0;
+              transition: opacity var(--transi-quick); }
+            #UserCP main > table:first-of-type > tbody > tr > td#ucpmenu .accordion--content a.is-active,
+            #Msg main > table:first-of-type > tbody > tr > td#ucpmenu .accordion--content a.is-active {
+              color: var(--accent-1); }
+              #UserCP main > table:first-of-type > tbody > tr > td#ucpmenu .accordion--content a.is-active::before,
+              #Msg main > table:first-of-type > tbody > tr > td#ucpmenu .accordion--content a.is-active::before {
+                opacity: 1; }
+            #UserCP main > table:first-of-type > tbody > tr > td#ucpmenu .accordion--content a:hover,
+            #Msg main > table:first-of-type > tbody > tr > td#ucpmenu .accordion--content a:hover {
+              color: var(--accent-1); }
+              #UserCP main > table:first-of-type > tbody > tr > td#ucpmenu .accordion--content a:hover::before,
+              #Msg main > table:first-of-type > tbody > tr > td#ucpmenu .accordion--content a:hover::before {
+                opacity: 1; }
+        #UserCP main > table:first-of-type > tbody > tr > td#ucpmenu .macro--button,
+        #Msg main > table:first-of-type > tbody > tr > td#ucpmenu .macro--button {
+          display: none; }
       #UserCP main > table:first-of-type > tbody > tr > td:nth-child(2),
       #Msg main > table:first-of-type > tbody > tr > td:nth-child(2) {
         display: none; }
       #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent,
       #Msg main > table:first-of-type > tbody > tr > td#ucpcontent {
         flex-grow: 1;
+        min-width: 0;
         padding: var(--space-md); }
-        @media (min-width: 601px) {
-          #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent,
-          #Msg main > table:first-of-type > tbody > tr > td#ucpcontent {
-            padding: var(--space-lg); } }
+        #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent .maintitle,
+        #Msg main > table:first-of-type > tbody > tr > td#ucpcontent .maintitle {
+          display: none; }
+        #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent > .pformstrip,
+        #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent .pformstrip,
+        #Msg main > table:first-of-type > tbody > tr > td#ucpcontent > .pformstrip,
+        #Msg main > table:first-of-type > tbody > tr > td#ucpcontent .pformstrip {
+          font: 400 var(--size-xs)/1 var(--font-hand);
+          letter-spacing: 0.2em;
+          text-transform: uppercase;
+          color: var(--text-loCon);
+          padding: var(--space-sm) 0 var(--space-xs);
+          border-block-end: var(--bdash);
+          opacity: 0.7;
+          margin-block-end: var(--space-md); }
+          #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent > .pformstrip[align="center"],
+          #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent .pformstrip[align="center"],
+          #Msg main > table:first-of-type > tbody > tr > td#ucpcontent > .pformstrip[align="center"],
+          #Msg main > table:first-of-type > tbody > tr > td#ucpcontent .pformstrip[align="center"] {
+            border: none;
+            opacity: 1;
+            padding: var(--space-md) 0 0;
+            text-align: center;
+            display: flex;
+            gap: var(--space-sm);
+            justify-content: center;
+            flex-wrap: wrap; }
         #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent input[type="text"],
         #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent input[type="file"],
         #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent input[type="password"],
@@ -59,13 +175,102 @@
         #Msg main > table:first-of-type > tbody > tr > td#ucpcontent input[type="password"],
         #Msg main > table:first-of-type > tbody > tr > td#ucpcontent textarea,
         #Msg main > table:first-of-type > tbody > tr > td#ucpcontent select {
-          width: 100%; }
-        #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent .maintitle,
-        #Msg main > table:first-of-type > tbody > tr > td#ucpcontent .maintitle {
-          display: none; }
+          width: 100%;
+          appearance: none;
+          background: color-mix(in oklab, var(--bg-3) 80%, transparent);
+          border: 1px dashed color-mix(in oklab, var(--text-loCon) 28%, transparent);
+          border-radius: 4px;
+          color: var(--text-medCon);
+          font: 400 var(--size-sm)/1.5 var(--font-hand);
+          letter-spacing: 0.06em;
+          padding: 0.4rem 0.6rem;
+          transition: border-color var(--transi-quick), color var(--transi-quick);
+          box-sizing: border-box; }
+          #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent input[type="text"]:focus-visible,
+          #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent input[type="file"]:focus-visible,
+          #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent input[type="password"]:focus-visible,
+          #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent textarea:focus-visible,
+          #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent select:focus-visible,
+          #Msg main > table:first-of-type > tbody > tr > td#ucpcontent input[type="text"]:focus-visible,
+          #Msg main > table:first-of-type > tbody > tr > td#ucpcontent input[type="file"]:focus-visible,
+          #Msg main > table:first-of-type > tbody > tr > td#ucpcontent input[type="password"]:focus-visible,
+          #Msg main > table:first-of-type > tbody > tr > td#ucpcontent textarea:focus-visible,
+          #Msg main > table:first-of-type > tbody > tr > td#ucpcontent select:focus-visible {
+            outline: none;
+            border-color: color-mix(in oklab, var(--accent-1) 55%, transparent);
+            color: var(--text-hiCon); }
+          #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent input[type="text"]:hover,
+          #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent input[type="file"]:hover,
+          #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent input[type="password"]:hover,
+          #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent textarea:hover,
+          #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent select:hover,
+          #Msg main > table:first-of-type > tbody > tr > td#ucpcontent input[type="text"]:hover,
+          #Msg main > table:first-of-type > tbody > tr > td#ucpcontent input[type="file"]:hover,
+          #Msg main > table:first-of-type > tbody > tr > td#ucpcontent input[type="password"]:hover,
+          #Msg main > table:first-of-type > tbody > tr > td#ucpcontent textarea:hover,
+          #Msg main > table:first-of-type > tbody > tr > td#ucpcontent select:hover {
+            border-color: color-mix(in oklab, var(--text-loCon) 45%, transparent); }
+        #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent select,
+        #Msg main > table:first-of-type > tbody > tr > td#ucpcontent select {
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23888'/%3E%3C/svg%3E");
+          background-repeat: no-repeat;
+          background-position: right 0.5rem center;
+          padding-inline-end: 1.75rem; }
+        #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent textarea,
+        #Msg main > table:first-of-type > tbody > tr > td#ucpcontent textarea {
+          resize: vertical;
+          line-height: 1.6;
+          min-height: 80px; }
+        #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent input[type="submit"],
+        #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent input[type="button"],
+        #Msg main > table:first-of-type > tbody > tr > td#ucpcontent input[type="submit"],
+        #Msg main > table:first-of-type > tbody > tr > td#ucpcontent input[type="button"] {
+          appearance: none;
+          background: transparent;
+          border: 1px dashed color-mix(in oklab, var(--accent-1) 45%, transparent);
+          border-radius: 4px;
+          color: var(--accent-1);
+          font: 400 var(--size-xs)/1 var(--font-hand);
+          letter-spacing: 0.18em;
+          text-transform: uppercase;
+          padding: 0.5rem 1.25rem;
+          cursor: pointer;
+          width: auto !important;
+          transition: background var(--transi-quick), border-color var(--transi-quick), color var(--transi-quick);
+          position: relative; }
+          #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent input[type="submit"]::before,
+          #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent input[type="button"]::before,
+          #Msg main > table:first-of-type > tbody > tr > td#ucpcontent input[type="submit"]::before,
+          #Msg main > table:first-of-type > tbody > tr > td#ucpcontent input[type="button"]::before {
+            content: "";
+            position: absolute;
+            top: -1px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30%;
+            height: 2px;
+            background: var(--accent-1);
+            opacity: 0.45;
+            border-radius: 0 0 2px 2px; }
+          #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent input[type="submit"]:hover,
+          #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent input[type="button"]:hover,
+          #Msg main > table:first-of-type > tbody > tr > td#ucpcontent input[type="submit"]:hover,
+          #Msg main > table:first-of-type > tbody > tr > td#ucpcontent input[type="button"]:hover {
+            background: color-mix(in oklab, var(--accent-1) 8%, transparent);
+            border-color: color-mix(in oklab, var(--accent-1) 65%, transparent); }
+          #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent input[type="submit"]:active,
+          #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent input[type="button"]:active,
+          #Msg main > table:first-of-type > tbody > tr > td#ucpcontent input[type="submit"]:active,
+          #Msg main > table:first-of-type > tbody > tr > td#ucpcontent input[type="button"]:active {
+            background: color-mix(in oklab, var(--accent-1) 14%, transparent); }
+        #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent input[type="checkbox"],
+        #Msg main > table:first-of-type > tbody > tr > td#ucpcontent input[type="checkbox"] {
+          width: auto;
+          accent-color: var(--accent-1); }
         #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent form > table,
         #Msg main > table:first-of-type > tbody > tr > td#ucpcontent form > table {
-          display: block; }
+          display: block;
+          width: 100%; }
           #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody,
           #Msg main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody {
             display: block; }
@@ -75,44 +280,212 @@
               flex-direction: column;
               gap: var(--space-sm);
               margin-bottom: var(--space-md); }
-              @media (min-width: 481px) {
-                #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr,
-                #Msg main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr {
-                  margin-bottom: var(--space-lg); } }
-              @media (min-width: 769px) {
-                #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr,
-                #Msg main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr {
-                  gap: var(--space-md); } }
               #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr .pformleft b,
               #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr .pformleft strong,
               #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr .pformleft label,
+              #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr .pformleft td,
               #Msg main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr .pformleft b,
               #Msg main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr .pformleft strong,
-              #Msg main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr .pformleft label {
-                line-height: 160%;
+              #Msg main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr .pformleft label,
+              #Msg main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr .pformleft td {
                 display: block;
-                max-width: max-content;
-                padding: var(--space-xs) var(--space-sm); }
+                font: 400 var(--size-xs)/1 var(--font-hand);
+                letter-spacing: 0.14em;
+                text-transform: uppercase;
+                color: var(--text-loCon);
+                padding: 0.2rem 0;
+                max-width: max-content; }
                 #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr .pformleft b ~ br,
                 #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr .pformleft strong ~ br,
                 #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr .pformleft label ~ br,
+                #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr .pformleft td ~ br,
                 #Msg main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr .pformleft b ~ br,
                 #Msg main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr .pformleft strong ~ br,
-                #Msg main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr .pformleft label ~ br {
+                #Msg main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr .pformleft label ~ br,
+                #Msg main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr .pformleft td ~ br {
                   display: none; }
+              #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr .pformleft a,
+              #Msg main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr .pformleft a {
+                font-size: var(--size-xs);
+                color: var(--text-loCon); }
               #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr .pformright,
               #Msg main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr .pformright {
                 display: flex;
+                flex-wrap: wrap;
                 gap: var(--space-xs);
                 height: max-content; }
-              #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr > :only-child,
-              #Msg main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr > :only-child {
-                grid-column: 1 / -1; }
-              #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr:last-child .pformstrip:only-child,
-              #Msg main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr:last-child .pformstrip:only-child {
-                margin-bottom: 0;
-                padding: 0;
-                text-align: center; }
+              #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr > td.pformstrip[colspan],
+              #Msg main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr > td.pformstrip[colspan] {
+                font: 400 var(--size-xs)/1 var(--font-hand);
+                letter-spacing: 0.18em;
+                text-transform: uppercase;
+                color: var(--accent-1);
+                border: none;
+                opacity: 1;
+                padding: var(--space-md) 0 0;
+                text-align: center;
+                display: flex;
+                gap: var(--space-sm);
+                justify-content: center;
+                flex-wrap: wrap; }
+        #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder,
+        #Msg main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder {
+          border: 1px dashed color-mix(in oklab, var(--text-loCon) 18%, transparent);
+          border-radius: 4px;
+          overflow: hidden;
+          margin-block-end: var(--space-md); }
+          #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder > table,
+          #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder table,
+          #Msg main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder > table,
+          #Msg main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder table {
+            width: 100%;
+            border-collapse: collapse; }
+            #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder > table th.titlemedium,
+            #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder > table td.titlemedium,
+            #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder table th.titlemedium,
+            #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder table td.titlemedium,
+            #Msg main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder > table th.titlemedium,
+            #Msg main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder > table td.titlemedium,
+            #Msg main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder table th.titlemedium,
+            #Msg main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder table td.titlemedium {
+              font: 400 var(--size-xs)/1 var(--font-hand);
+              letter-spacing: 0.16em;
+              text-transform: uppercase;
+              color: var(--text-loCon);
+              padding: var(--space-sm);
+              border-block-end: var(--bdash);
+              background: transparent;
+              text-align: left; }
+            #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder > table td.darkrow3,
+            #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder table td.darkrow3,
+            #Msg main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder > table td.darkrow3,
+            #Msg main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder table td.darkrow3 {
+              font: 400 var(--size-xs)/1 var(--font-hand);
+              letter-spacing: 0.14em;
+              text-transform: uppercase;
+              color: var(--accent-1);
+              padding: var(--space-xs) var(--space-sm);
+              opacity: 0.7; }
+              #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder > table td.darkrow3 b,
+              #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder table td.darkrow3 b,
+              #Msg main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder > table td.darkrow3 b,
+              #Msg main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder table td.darkrow3 b {
+                font-weight: 400; }
+            #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder > table tr.dlight,
+            #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder > table td.row1,
+            #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder > table td.row2,
+            #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder > table td.row3,
+            #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder table tr.dlight,
+            #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder table td.row1,
+            #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder table td.row2,
+            #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder table td.row3,
+            #Msg main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder > table tr.dlight,
+            #Msg main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder > table td.row1,
+            #Msg main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder > table td.row2,
+            #Msg main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder > table td.row3,
+            #Msg main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder table tr.dlight,
+            #Msg main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder table td.row1,
+            #Msg main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder table td.row2,
+            #Msg main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder table td.row3 {
+              padding: var(--space-sm);
+              color: var(--text-medCon);
+              font-size: var(--size-sm);
+              vertical-align: middle;
+              border-block-end: 1px solid color-mix(in oklab, var(--text-loCon) 8%, transparent); }
+              #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder > table tr.dlight a,
+              #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder > table td.row1 a,
+              #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder > table td.row2 a,
+              #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder > table td.row3 a,
+              #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder table tr.dlight a,
+              #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder table td.row1 a,
+              #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder table td.row2 a,
+              #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder table td.row3 a,
+              #Msg main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder > table tr.dlight a,
+              #Msg main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder > table td.row1 a,
+              #Msg main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder > table td.row2 a,
+              #Msg main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder > table td.row3 a,
+              #Msg main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder table tr.dlight a,
+              #Msg main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder table td.row1 a,
+              #Msg main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder table td.row2 a,
+              #Msg main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder table td.row3 a {
+                color: var(--text-medCon);
+                text-decoration: none;
+                transition: color var(--transi-quick); }
+                #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder > table tr.dlight a:hover,
+                #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder > table td.row1 a:hover,
+                #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder > table td.row2 a:hover,
+                #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder > table td.row3 a:hover,
+                #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder table tr.dlight a:hover,
+                #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder table td.row1 a:hover,
+                #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder table td.row2 a:hover,
+                #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder table td.row3 a:hover,
+                #Msg main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder > table tr.dlight a:hover,
+                #Msg main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder > table td.row1 a:hover,
+                #Msg main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder > table td.row2 a:hover,
+                #Msg main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder > table td.row3 a:hover,
+                #Msg main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder table tr.dlight a:hover,
+                #Msg main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder table td.row1 a:hover,
+                #Msg main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder table td.row2 a:hover,
+                #Msg main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder table td.row3 a:hover {
+                  color: var(--accent-1); }
+              #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder > table tr.dlight b,
+              #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder > table td.row1 b,
+              #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder > table td.row2 b,
+              #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder > table td.row3 b,
+              #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder table tr.dlight b,
+              #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder table td.row1 b,
+              #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder table td.row2 b,
+              #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder table td.row3 b,
+              #Msg main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder > table tr.dlight b,
+              #Msg main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder > table td.row1 b,
+              #Msg main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder > table td.row2 b,
+              #Msg main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder > table td.row3 b,
+              #Msg main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder table tr.dlight b,
+              #Msg main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder table td.row1 b,
+              #Msg main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder table td.row2 b,
+              #Msg main > table:first-of-type > tbody > tr > td#ucpcontent .tableborder table td.row3 b {
+                font-weight: 500;
+                color: var(--text-hiCon); }
+
+#UserCP.code-00 #ucpcontent > table {
+  display: block;
+  width: 100%;
+  margin-block-end: var(--space-md); }
+  #UserCP.code-00 #ucpcontent > table > tbody {
+    display: block; }
+    #UserCP.code-00 #ucpcontent > table > tbody > tr {
+      display: flex;
+      gap: var(--space-md);
+      padding: var(--space-xs) 0;
+      border-block-end: 1px solid color-mix(in oklab, var(--text-loCon) 8%, transparent); }
+      #UserCP.code-00 #ucpcontent > table > tbody > tr > td {
+        font: 400 var(--size-sm)/1.5 var(--font-hand);
+        color: var(--text-medCon); }
+        #UserCP.code-00 #ucpcontent > table > tbody > tr > td:first-child {
+          flex: 0 0 60%;
+          color: var(--text-loCon);
+          font-size: var(--size-xs);
+          letter-spacing: 0.08em;
+          text-transform: uppercase; }
+        #UserCP.code-00 #ucpcontent > table > tbody > tr > td:last-child {
+          color: var(--text-hiCon); }
+
+#UserCP.code-00 #ucpcontent > form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm); }
+  #UserCP.code-00 #ucpcontent > form > div[align="center"] {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    align-items: flex-start; }
+    #UserCP.code-00 #ucpcontent > form > div[align="center"] > form {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+      width: 100%; }
+      #UserCP.code-00 #ucpcontent > form > div[align="center"] > form > select {
+        width: auto; }
 
 #UserCP.code-01 #ucpcontent form > .pformstrip {
   display: none; }
@@ -123,139 +496,356 @@
 #UserCP.code-01 #ucpcontent form #field-interests {
   display: none; }
 
+#UserCP.code-01 #ucpcontent form thead.fullWidth {
+  grid-column: 1 / -1;
+  display: block;
+  padding-block-start: var(--space-lg);
+  padding-block-end: var(--space-sm);
+  border-block-end: var(--bdash); }
+  #UserCP.code-01 #ucpcontent form thead.fullWidth:first-of-type {
+    padding-block-start: 0; }
+  #UserCP.code-01 #ucpcontent form thead.fullWidth tr.ucp--header {
+    display: block; }
+  #UserCP.code-01 #ucpcontent form thead.fullWidth td {
+    display: block;
+    padding: 0; }
+  #UserCP.code-01 #ucpcontent form thead.fullWidth .sticky {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs); }
+  #UserCP.code-01 #ucpcontent form thead.fullWidth .ucp--header-title {
+    font: 400 var(--size-sm)/1 var(--font-cinzel);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-hiCon);
+    position: relative; }
+    #UserCP.code-01 #ucpcontent form thead.fullWidth .ucp--header-title::after {
+      content: "";
+      display: block;
+      margin-block-start: 0.4rem;
+      height: 1px;
+      width: 2rem;
+      background: var(--accent-1);
+      opacity: 0.5; }
+  #UserCP.code-01 #ucpcontent form thead.fullWidth .ucp--description {
+    font: 400 var(--size-sm)/1.6 var(--font-hand);
+    color: var(--text-loCon);
+    letter-spacing: 0.04em;
+    max-width: 60ch;
+    opacity: 0.8; }
+
 #UserCP.code-01 #ucpcontent form tbody {
   display: grid !important;
   gap: var(--space-lg); }
   @media (min-width: 769px) {
     #UserCP.code-01 #ucpcontent form tbody {
       grid-template-columns: repeat(6, 1fr); } }
+  #UserCP.code-01 #ucpcontent form tbody.fullWidth {
+    grid-column: 1 / -1;
+    display: contents !important; }
   #UserCP.code-01 #ucpcontent form tbody tr {
     margin-bottom: 0 !important;
     grid-column: span 3; }
+    #UserCP.code-01 #ucpcontent form tbody tr.fullWidth {
+      grid-column: 1 / -1; }
+    #UserCP.code-01 #ucpcontent form tbody tr:last-child {
+      grid-column: 1 / -1; }
     #UserCP.code-01 #ucpcontent form tbody tr .pformleft {
+      font: 400 var(--size-xs)/1.5 var(--font-hand);
+      color: var(--text-loCon);
+      opacity: 0.6;
+      letter-spacing: 0.04em;
+      text-transform: none;
       display: flex;
       flex-direction: column;
-      gap: var(--space-sm); }
+      gap: var(--space-xs); }
+      #UserCP.code-01 #ucpcontent form tbody tr .pformleft br {
+        display: none; }
+      #UserCP.code-01 #ucpcontent form tbody tr .pformleft b, #UserCP.code-01 #ucpcontent form tbody tr .pformleft strong, #UserCP.code-01 #ucpcontent form tbody tr .pformleft label {
+        font: 400 var(--size-xs)/1 var(--font-hand);
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--text-loCon);
+        opacity: 1;
+        display: block;
+        max-width: max-content; }
+    #UserCP.code-01 #ucpcontent form tbody tr .pformright {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-xs);
+      align-items: flex-start;
+      height: max-content; }
 
-#UserCP.code-24 p {
-  text-align: center;
-  padding-bottom: var(--space-md); }
-
-#UserCP.code-24 #gallery_form {
-  display: none; }
-
-#UserCP.code-24 .tablepad {
+#UserCP.code-24 #ucpcontent .tablepad {
+  padding: var(--space-md) 0;
   font-size: 0; }
-  #UserCP.code-24 .tablepad img {
-    max-width: 400px;
-    max-height: 400px; }
+  #UserCP.code-24 #ucpcontent .tablepad img {
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 4px;
+    display: block; }
 
-#UserCP.code-24 .tablebasic + .tablebasic .pformleft {
+#UserCP.code-24 #ucpcontent #gallery_form {
   display: none; }
 
-#UserCP.code-24 .tablebasic + .tablebasic .pformright {
-  grid-column: 1 / -1;
+#UserCP.code-24 #ucpcontent .tablebasic {
   display: block;
-  padding: 0; }
-  #UserCP.code-24 .tablebasic + .tablebasic .pformright b,
-  #UserCP.code-24 .tablebasic + .tablebasic .pformright strong,
-  #UserCP.code-24 .tablebasic + .tablebasic .pformright label {
+  width: 100%;
+  margin-block-end: var(--space-sm); }
+  #UserCP.code-24 #ucpcontent .tablebasic tbody {
     display: block; }
-    #UserCP.code-24 .tablebasic + .tablebasic .pformright b ~ br,
-    #UserCP.code-24 .tablebasic + .tablebasic .pformright strong ~ br,
-    #UserCP.code-24 .tablebasic + .tablebasic .pformright label ~ br {
-      display: none; }
-
-#UserCP.code-24 .tablebasic + .tablebasic + .pformstrip:last-child {
-  margin-bottom: 0;
-  padding: 0; }
-
-#UserCP.code-54 #ucpcontent .tableborder:first-child table > tbody {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-md); }
-  #UserCP.code-54 #ucpcontent .tableborder:first-child table > tbody > tr {
+  #UserCP.code-24 #ucpcontent .tablebasic tr {
     display: flex;
     flex-direction: column;
-    gap: 0;
-    margin: 0; }
+    gap: var(--space-xs); }
+    #UserCP.code-24 #ucpcontent .tablebasic tr .pformleft {
+      font: 400 var(--size-xs)/1 var(--font-hand);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-loCon);
+      padding: 0.2rem 0; }
+      #UserCP.code-24 #ucpcontent .tablebasic tr .pformleft:only-child {
+        display: none; }
+    #UserCP.code-24 #ucpcontent .tablebasic tr .pformright {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-xs); }
+      #UserCP.code-24 #ucpcontent .tablebasic tr .pformright strong {
+        font: 400 var(--size-xs)/1.5 var(--font-hand);
+        color: var(--text-medCon); }
+      #UserCP.code-24 #ucpcontent .tablebasic tr .pformright br {
+        display: none; }
+
+#UserCP.code-54 #ucpcontent > p {
+  font: 400 var(--size-sm)/1.7 var(--font-hand);
+  color: var(--text-medCon);
+  margin-block-end: var(--space-md); }
+  #UserCP.code-54 #ucpcontent > p b {
+    color: var(--text-hiCon);
+    font-weight: 500; }
+
+#UserCP.code-54 #ucpcontent > div[align="center"] {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg); }
+
+#UserCP.code-54 #ucpcontent .tableborder:first-child table {
+  display: block;
+  width: 100%; }
+  #UserCP.code-54 #ucpcontent .tableborder:first-child table > tbody {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-sm);
+    padding: var(--space-sm); }
+    @media (min-width: 1025px) {
+      #UserCP.code-54 #ucpcontent .tableborder:first-child table > tbody {
+        grid-template-columns: repeat(3, 1fr); } }
     #UserCP.code-54 #ucpcontent .tableborder:first-child table > tbody > tr:first-child {
       display: none; }
     #UserCP.code-54 #ucpcontent .tableborder:first-child table > tbody > tr:last-child {
-      flex: 0 0 100%; }
-    #UserCP.code-54 #ucpcontent .tableborder:first-child table > tbody > tr:nth-child(2):nth-last-child(2) {
-      flex: 0 0 100% !important; }
-      #UserCP.code-54 #ucpcontent .tableborder:first-child table > tbody > tr:nth-child(2):nth-last-child(2) td:only-child {
-        position: relative !important;
-        width: 100%; }
-        #UserCP.code-54 #ucpcontent .tableborder:first-child table > tbody > tr:nth-child(2):nth-last-child(2) td:only-child > div {
+      grid-column: 1 / -1;
+      display: flex;
+      justify-content: center;
+      gap: var(--space-sm);
+      padding-block-start: var(--space-sm);
+      border-block-start: var(--bdash); }
+      #UserCP.code-54 #ucpcontent .tableborder:first-child table > tbody > tr:last-child > td > div {
+        display: flex;
+        gap: var(--space-sm);
+        flex-wrap: wrap;
+        justify-content: center; }
+    #UserCP.code-54 #ucpcontent .tableborder:first-child table > tbody > tr.dlight {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-xs);
+      padding: var(--space-xs) var(--space-sm);
+      border: 1px dashed color-mix(in oklab, var(--text-loCon) 18%, transparent);
+      border-radius: 4px;
+      transition: border-color var(--transi-quick); }
+      #UserCP.code-54 #ucpcontent .tableborder:first-child table > tbody > tr.dlight:hover {
+        border-color: color-mix(in oklab, var(--accent-1) 35%, transparent); }
+      #UserCP.code-54 #ucpcontent .tableborder:first-child table > tbody > tr.dlight td {
+        padding: 0;
+        border: none; }
+        #UserCP.code-54 #ucpcontent .tableborder:first-child table > tbody > tr.dlight td:nth-child(1) {
+          flex: 1;
+          min-width: 0;
           text-align: left !important; }
-    #UserCP.code-54 #ucpcontent .tableborder:first-child table > tbody > tr .input-wrap {
-      position: absolute;
-      top: 0;
-      left: 0; }
-    #UserCP.code-54 #ucpcontent .tableborder:first-child table > tbody > tr:not(:first-child):not(:last-child) {
-      flex: 0 0 100%;
-      padding: var(--space-sm); }
-      @media (min-width: 769px) {
-        #UserCP.code-54 #ucpcontent .tableborder:first-child table > tbody > tr:not(:first-child):not(:last-child) {
-          flex: 0 0 calc(50% - (var(--space-md) / 2)); } }
-      #UserCP.code-54 #ucpcontent .tableborder:first-child table > tbody > tr:not(:first-child):not(:last-child) > td {
-        margin: 0;
-        padding: 0 0 0 calc(var(--space-sm) + 20px);
-        text-align: left; }
-        #UserCP.code-54 #ucpcontent .tableborder:first-child table > tbody > tr:not(:first-child):not(:last-child) > td:first-child {
-          padding-bottom: var(--space-sm);
-          margin-top: -5px; }
-        #UserCP.code-54 #ucpcontent .tableborder:first-child table > tbody > tr:not(:first-child):not(:last-child) > td:last-child {
-          position: absolute; }
+          #UserCP.code-54 #ucpcontent .tableborder:first-child table > tbody > tr.dlight td:nth-child(1) a {
+            color: var(--text-hiCon);
+            text-decoration: none;
+            font: 400 var(--size-xs)/1 var(--font-hand);
+            letter-spacing: 0.08em;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: block;
+            transition: color var(--transi-quick); }
+            #UserCP.code-54 #ucpcontent .tableborder:first-child table > tbody > tr.dlight td:nth-child(1) a:hover {
+              color: var(--accent-1); }
+        #UserCP.code-54 #ucpcontent .tableborder:first-child table > tbody > tr.dlight td:nth-child(2) {
+          font-size: var(--size-xs);
+          color: var(--text-loCon); }
+        #UserCP.code-54 #ucpcontent .tableborder:first-child table > tbody > tr.dlight td:nth-child(3) {
+          flex: 0 0 auto;
+          text-align: right !important; }
 
-#UserCP.code-54 #ucpcontent .tableborder:not(:first-child) tr {
-  margin-bottom: 0;
-  margin-top: var(--space-md); }
+#UserCP.code-54 #ucpcontent .tableborder:last-child > .pformstrip {
+  font: 400 var(--size-xs)/1 var(--font-hand);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-loCon);
+  padding: var(--space-sm);
+  border-block-end: var(--bdash);
+  opacity: 0.7; }
 
-#UserCP.code-54 #ucpcontent .tableborder:not(:first-child) .pformleft {
-  line-height: 160%;
-  text-align: left;
+#UserCP.code-54 #ucpcontent .tableborder:last-child form > table > tbody > tr .pformleft {
+  font: 400 var(--size-xs)/1 var(--font-hand);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-loCon); }
+
+#UserCP.code-52 #ucpcontent .row2 {
+  font: 400 var(--size-sm)/1.7 var(--font-hand);
+  color: var(--text-medCon);
+  margin-block-end: var(--space-md);
+  padding: var(--space-sm) 0;
+  border-block-start: var(--bdash); }
+  #UserCP.code-52 #ucpcontent .row2 p {
+    margin: 0 0 var(--space-sm); }
+  #UserCP.code-52 #ucpcontent .row2 ol {
+    padding-inline-start: var(--space-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs); }
+  #UserCP.code-52 #ucpcontent .row2 b {
+    color: var(--text-hiCon);
+    font-weight: 500; }
+
+#UserCP.code-52 #ucpcontent form > table > tbody > tr .pformright {
+  color: var(--text-medCon);
+  font: 400 var(--size-sm)/1 var(--font-hand);
+  align-items: center; }
+
+#UserCP.code-28 #ucpcontent > p,
+#UserCP.code-08 #ucpcontent > p {
+  font: 400 var(--size-sm)/1.7 var(--font-hand);
+  color: var(--text-medCon);
+  margin-block-end: var(--space-md); }
+
+#UserCP.code-28 #ucpcontent form[name="form1"] > table,
+#UserCP.code-28 #ucpcontent form[name="theForm"] > table,
+#UserCP.code-08 #ucpcontent form[name="form1"] > table,
+#UserCP.code-08 #ucpcontent form[name="theForm"] > table {
   display: block;
-  max-width: max-content;
-  padding: var(--space-xs) var(--space-sm); }
-
-#UserCP.code-52 .row2 + table .pformleft {
-  line-height: 160%;
-  text-align: left;
-  display: block;
-  max-width: max-content;
-  padding: var(--space-xs) var(--space-sm); }
-
-#UserCP.code-28 form[name="form1"] > table > tbody > tr > td strong,
-#UserCP.code-28 form[name="form1"] > table > tbody > tr > td b,
-#UserCP.code-08 form[name="form1"] > table > tbody > tr > td strong,
-#UserCP.code-08 form[name="form1"] > table > tbody > tr > td b {
-  line-height: 160%;
-  text-align: left;
-  display: block;
-  max-width: max-content;
-  padding: var(--space-xs) var(--space-sm); }
-
-#UserCP.code-28 form[name="form1"] > table > tbody > tr > td:first-child,
-#UserCP.code-08 form[name="form1"] > table > tbody > tr > td:first-child {
   width: 100%; }
-  #UserCP.code-28 form[name="form1"] > table > tbody > tr > td:first-child b ~ br,
-  #UserCP.code-08 form[name="form1"] > table > tbody > tr > td:first-child b ~ br {
+  #UserCP.code-28 #ucpcontent form[name="form1"] > table > tbody,
+  #UserCP.code-28 #ucpcontent form[name="theForm"] > table > tbody,
+  #UserCP.code-08 #ucpcontent form[name="form1"] > table > tbody,
+  #UserCP.code-08 #ucpcontent form[name="theForm"] > table > tbody {
+    display: block; }
+    #UserCP.code-28 #ucpcontent form[name="form1"] > table > tbody > tr,
+    #UserCP.code-28 #ucpcontent form[name="theForm"] > table > tbody > tr,
+    #UserCP.code-08 #ucpcontent form[name="form1"] > table > tbody > tr,
+    #UserCP.code-08 #ucpcontent form[name="theForm"] > table > tbody > tr {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+      margin-block-end: var(--space-md); }
+      #UserCP.code-28 #ucpcontent form[name="form1"] > table > tbody > tr > td:first-child b,
+      #UserCP.code-28 #ucpcontent form[name="form1"] > table > tbody > tr > td:first-child strong,
+      #UserCP.code-28 #ucpcontent form[name="theForm"] > table > tbody > tr > td:first-child b,
+      #UserCP.code-28 #ucpcontent form[name="theForm"] > table > tbody > tr > td:first-child strong,
+      #UserCP.code-08 #ucpcontent form[name="form1"] > table > tbody > tr > td:first-child b,
+      #UserCP.code-08 #ucpcontent form[name="form1"] > table > tbody > tr > td:first-child strong,
+      #UserCP.code-08 #ucpcontent form[name="theForm"] > table > tbody > tr > td:first-child b,
+      #UserCP.code-08 #ucpcontent form[name="theForm"] > table > tbody > tr > td:first-child strong {
+        display: block;
+        font: 400 var(--size-xs)/1 var(--font-hand);
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--text-loCon);
+        padding: 0.2rem 0; }
+      #UserCP.code-28 #ucpcontent form[name="form1"] > table > tbody > tr > td:first-child:not(:has(b)):not(:has(strong)),
+      #UserCP.code-28 #ucpcontent form[name="theForm"] > table > tbody > tr > td:first-child:not(:has(b)):not(:has(strong)),
+      #UserCP.code-08 #ucpcontent form[name="form1"] > table > tbody > tr > td:first-child:not(:has(b)):not(:has(strong)),
+      #UserCP.code-08 #ucpcontent form[name="theForm"] > table > tbody > tr > td:first-child:not(:has(b)):not(:has(strong)) {
+        font: 400 var(--size-xs)/1 var(--font-hand);
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--text-loCon); }
+      #UserCP.code-28 #ucpcontent form[name="form1"] > table > tbody > tr > td:last-child,
+      #UserCP.code-28 #ucpcontent form[name="theForm"] > table > tbody > tr > td:last-child,
+      #UserCP.code-08 #ucpcontent form[name="form1"] > table > tbody > tr > td:last-child,
+      #UserCP.code-08 #ucpcontent form[name="theForm"] > table > tbody > tr > td:last-child {
+        display: flex;
+        gap: var(--space-xs); }
+        #UserCP.code-28 #ucpcontent form[name="form1"] > table > tbody > tr > td:last-child input,
+        #UserCP.code-28 #ucpcontent form[name="theForm"] > table > tbody > tr > td:last-child input,
+        #UserCP.code-08 #ucpcontent form[name="form1"] > table > tbody > tr > td:last-child input,
+        #UserCP.code-08 #ucpcontent form[name="theForm"] > table > tbody > tr > td:last-child input {
+          width: 100%; }
+
+#UserCP.code-02 #ucpcontent form > .pformstrip {
+  margin-block-end: var(--space-sm); }
+
+#UserCP.code-02 #ucpcontent form > br {
+  display: none; }
+
+#UserCP.code-02 #ucpcontent form > table {
+  display: block;
+  width: 100%;
+  margin-block-end: var(--space-md); }
+  #UserCP.code-02 #ucpcontent form > table > tbody {
+    display: block; }
+    #UserCP.code-02 #ucpcontent form > table > tbody > tr {
+      display: flex;
+      gap: var(--space-sm);
+      align-items: flex-start;
+      padding: var(--space-sm) 0;
+      border-block-end: 1px solid color-mix(in oklab, var(--text-loCon) 8%, transparent); }
+      #UserCP.code-02 #ucpcontent form > table > tbody > tr > td[align="right"] {
+        flex: 0 0 auto;
+        padding-top: 0.15rem; }
+      #UserCP.code-02 #ucpcontent form > table > tbody > tr > td[width="100%"] {
+        flex: 1;
+        font: 400 var(--size-sm)/1.5 var(--font-hand);
+        color: var(--text-medCon); }
+        #UserCP.code-02 #ucpcontent form > table > tbody > tr > td[width="100%"] b {
+          display: block;
+          font: 400 var(--size-xs)/1 var(--font-hand);
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          color: var(--text-hiCon);
+          margin-block-end: 0.25rem;
+          font-weight: 400; }
+        #UserCP.code-02 #ucpcontent form > table > tbody > tr > td[width="100%"] br {
+          display: none; }
+
+#UserCP.code-04 #ucpcontent > form > table > tbody > tr > td:first-child {
+  font: 400 var(--size-xs)/1.6 var(--font-hand);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-loCon);
+  padding: 0.2rem 0;
+  display: block; }
+  #UserCP.code-04 #ucpcontent > form > table > tbody > tr > td:first-child b ~ br {
     display: none; }
 
-#UserCP.code-28 form[name="form1"] > table > tbody > tr > td:last-child,
-#UserCP.code-08 form[name="form1"] > table > tbody > tr > td:last-child {
+#UserCP.code-04 #ucpcontent > form > table > tbody > tr > td:last-child {
   display: flex;
-  gap: 5px;
-  height: max-content; }
-  #UserCP.code-28 form[name="form1"] > table > tbody > tr > td:last-child input,
-  #UserCP.code-08 form[name="form1"] > table > tbody > tr > td:last-child input {
+  gap: var(--space-xs);
+  height: max-content;
+  padding: 0; }
+  #UserCP.code-04 #ucpcontent > form > table > tbody > tr > td:last-child input {
+    margin: 0;
     width: 100%; }
 
-#UserCP.code-28 form[name="form1"] > table + .pformstrip,
-#UserCP.code-08 form[name="form1"] > table + .pformstrip {
+#UserCP.code-04 #ucpcontent .input-wrap + br {
+  display: none; }
+
+#UserCP.code-04 #ucpcontent .pformstrip:last-child {
   margin-bottom: 0;
   padding: 0; }
 
@@ -288,7 +878,7 @@
         #UserCP.code-alerts #ucpcontent > form > .tableborder > table > tbody > tr:last-child td {
           display: flex;
           flex-direction: column;
-          align-items: end;
+          align-items: flex-end;
           gap: var(--space-sm); }
           #UserCP.code-alerts #ucpcontent > form > .tableborder > table > tbody > tr:last-child td input {
             margin: 0;
@@ -328,120 +918,6 @@
 #UserCP.code-alerts #ucpcontent .pagination ~ br {
   display: none; }
 
-#UserCP.code-50 #ucpcontent .tableborder > table,
-#UserCP.code-26 #ucpcontent .tableborder > table {
-  display: block; }
-  #UserCP.code-50 #ucpcontent .tableborder > table > tbody,
-  #UserCP.code-26 #ucpcontent .tableborder > table > tbody {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-md); }
-    #UserCP.code-50 #ucpcontent .tableborder > table > tbody > tr,
-    #UserCP.code-26 #ucpcontent .tableborder > table > tbody > tr {
-      display: flex;
-      flex-wrap: wrap; }
-      #UserCP.code-50 #ucpcontent .tableborder > table > tbody > tr:not(.pformstrip),
-      #UserCP.code-26 #ucpcontent .tableborder > table > tbody > tr:not(.pformstrip) {
-        flex: 0 0 100%;
-        padding: var(--space-sm); }
-        @media (min-width: 769px) {
-          #UserCP.code-50 #ucpcontent .tableborder > table > tbody > tr:not(.pformstrip),
-          #UserCP.code-26 #ucpcontent .tableborder > table > tbody > tr:not(.pformstrip) {
-            flex: 0 0 calc(50% - (var(--space-md) / 2)); } }
-        @media (min-width: 1025px) {
-          #UserCP.code-50 #ucpcontent .tableborder > table > tbody > tr:not(.pformstrip),
-          #UserCP.code-26 #ucpcontent .tableborder > table > tbody > tr:not(.pformstrip) {
-            flex: 0 0 calc((100% / 3) - (var(--space-md) * 2 / 3)); } }
-        #UserCP.code-50 #ucpcontent .tableborder > table > tbody > tr:not(.pformstrip) > td:first-child,
-        #UserCP.code-26 #ucpcontent .tableborder > table > tbody > tr:not(.pformstrip) > td:first-child {
-          display: none; }
-        #UserCP.code-50 #ucpcontent .tableborder > table > tbody > tr:not(.pformstrip) > td:nth-child(2), #UserCP.code-50 #ucpcontent .tableborder > table > tbody > tr:not(.pformstrip) > td:last-child,
-        #UserCP.code-26 #ucpcontent .tableborder > table > tbody > tr:not(.pformstrip) > td:nth-child(2),
-        #UserCP.code-26 #ucpcontent .tableborder > table > tbody > tr:not(.pformstrip) > td:last-child {
-          flex: 0 0 100%; }
-        #UserCP.code-50 #ucpcontent .tableborder > table > tbody > tr:not(.pformstrip) > td:nth-child(2),
-        #UserCP.code-26 #ucpcontent .tableborder > table > tbody > tr:not(.pformstrip) > td:nth-child(2) {
-          display: flex;
-          flex-direction: column;
-          line-height: 200%; }
-          #UserCP.code-50 #ucpcontent .tableborder > table > tbody > tr:not(.pformstrip) > td:nth-child(2) b:first-of-type,
-          #UserCP.code-26 #ucpcontent .tableborder > table > tbody > tr:not(.pformstrip) > td:nth-child(2) b:first-of-type {
-            padding-bottom: var(--space-sm);
-            margin-top: -5px; }
-          #UserCP.code-50 #ucpcontent .tableborder > table > tbody > tr:not(.pformstrip) > td:nth-child(2) br,
-          #UserCP.code-26 #ucpcontent .tableborder > table > tbody > tr:not(.pformstrip) > td:nth-child(2) br {
-            display: none; }
-        #UserCP.code-50 #ucpcontent .tableborder > table > tbody > tr:not(.pformstrip) > td:nth-child(3), #UserCP.code-50 #ucpcontent .tableborder > table > tbody > tr:not(.pformstrip) > td:nth-child(4),
-        #UserCP.code-26 #ucpcontent .tableborder > table > tbody > tr:not(.pformstrip) > td:nth-child(3),
-        #UserCP.code-26 #ucpcontent .tableborder > table > tbody > tr:not(.pformstrip) > td:nth-child(4) {
-          font-weight: 600; }
-        #UserCP.code-50 #ucpcontent .tableborder > table > tbody > tr:not(.pformstrip) > td:nth-child(3)::after,
-        #UserCP.code-26 #ucpcontent .tableborder > table > tbody > tr:not(.pformstrip) > td:nth-child(3)::after {
-          content: ' topics'; }
-        #UserCP.code-50 #ucpcontent .tableborder > table > tbody > tr:not(.pformstrip) > td:nth-child(4)::after,
-        #UserCP.code-26 #ucpcontent .tableborder > table > tbody > tr:not(.pformstrip) > td:nth-child(4)::after {
-          content: ' replies'; }
-      #UserCP.code-50 #ucpcontent .tableborder > table > tbody > tr:first-child,
-      #UserCP.code-26 #ucpcontent .tableborder > table > tbody > tr:first-child {
-        display: none; }
-      #UserCP.code-50 #ucpcontent .tableborder > table > tbody > tr.pformstrip,
-      #UserCP.code-26 #ucpcontent .tableborder > table > tbody > tr.pformstrip {
-        flex: 0 0 100%;
-        padding: var(--space-xs) var(--space-sm) !important; }
-        #UserCP.code-50 #ucpcontent .tableborder > table > tbody > tr.pformstrip:nth-child(2),
-        #UserCP.code-26 #ucpcontent .tableborder > table > tbody > tr.pformstrip:nth-child(2) {
-          border-top: none;
-          margin-top: 0;
-          padding-top: 0 !important; }
-        #UserCP.code-50 #ucpcontent .tableborder > table > tbody > tr.pformstrip td,
-        #UserCP.code-26 #ucpcontent .tableborder > table > tbody > tr.pformstrip td {
-          width: 100%;
-          padding: 0; }
-
-#UserCP.code-26 #ucpcontent > .pformstrip span {
-  display: none; }
-
-#UserCP.code-26 .tableborder > table > tbody {
-  width: 100%; }
-  #UserCP.code-26 .tableborder > table > tbody > tr:not(.pformstrip) > td:nth-child(2) {
-    display: block; }
-    #UserCP.code-26 .tableborder > table > tbody > tr:not(.pformstrip) > td:nth-child(2) br {
-      display: initial; }
-    #UserCP.code-26 .tableborder > table > tbody > tr:not(.pformstrip) > td:nth-child(2) a:first-child {
-      display: block; }
-  #UserCP.code-26 .tableborder > table > tbody > tr:not(.pformstrip) > td:nth-child(5) {
-    flex: 0 0 100%; }
-  #UserCP.code-26 .tableborder > table > tbody > tr:not(.pformstrip) > td:not(:last-child) {
-    padding: 0 0 0 calc(var(--space-sm) + 20px); }
-  #UserCP.code-26 .tableborder > table > tbody > tr:not(.pformstrip) > td:last-child {
-    position: absolute; }
-
-#UserCP.code-04 #ucpcontent > form > table > tbody > tr > td:first-child {
-  line-height: 160%;
-  max-width: max-content;
-  width: 100%;
-  display: block;
-  max-width: max-content;
-  padding: var(--space-xs) var(--space-sm);
-  margin: var(--space-sm) 0 0; }
-  #UserCP.code-04 #ucpcontent > form > table > tbody > tr > td:first-child b ~ br {
-    display: none; }
-
-#UserCP.code-04 #ucpcontent > form > table > tbody > tr > td:last-child {
-  display: flex;
-  height: max-content;
-  padding: 0; }
-  #UserCP.code-04 #ucpcontent > form > table > tbody > tr > td:last-child input {
-    margin: 0;
-    width: 100%; }
-
-#UserCP.code-04 #ucpcontent .input-wrap + br {
-  display: none; }
-
-#UserCP.code-04 #ucpcontent .pformstrip:last-child {
-  margin-bottom: 0;
-  padding: 0; }
-
 #UserCP.code-alerts_settings table .pformstrip {
   padding: 0;
   line-height: 160%;
@@ -462,13 +938,113 @@
 #UserCP.code-alerts_settings tr:nth-last-child(4) .pformstrip {
   padding-top: var(--space-md); }
 
-#UserCP.code-02 #ucpcontent form > table > tbody > tr {
-  display: grid !important;
-  grid-template-columns: max-content auto; }
+#UserCP.code-50 #ucpcontent > .pformstrip {
+  margin-block-end: var(--space-sm); }
 
-#UserCP.code-02 #ucpcontent .pformstrip:last-child {
-  margin-bottom: 0;
-  padding: 0; }
+#UserCP.code-50 #ucpcontent > br {
+  display: none; }
+
+#UserCP.code-50 #ucpcontent .tableborder > table > tbody > tr:first-child th.titlemedium,
+#UserCP.code-50 #ucpcontent .tableborder > table > tbody > tr:first-child td.titlemedium {
+  text-align: left; }
+
+#UserCP.code-50 #ucpcontent .tableborder > table > tbody > tr td.darkrow3[colspan] {
+  padding: var(--space-xs) var(--space-sm); }
+
+#UserCP.code-50 #ucpcontent .tableborder > table > tbody > tr:not(:first-child):not(:last-child):not(:has(td.darkrow3)) td.row1 {
+  vertical-align: top; }
+  #UserCP.code-50 #ucpcontent .tableborder > table > tbody > tr:not(:first-child):not(:last-child):not(:has(td.darkrow3)) td.row1:nth-child(2) a:first-of-type {
+    display: block;
+    font-weight: 500;
+    color: var(--text-hiCon);
+    margin-block-end: var(--space-xs); }
+  #UserCP.code-50 #ucpcontent .tableborder > table > tbody > tr:not(:first-child):not(:last-child):not(:has(td.darkrow3)) td.row1:nth-child(2) .desc {
+    font-size: var(--size-xs);
+    color: var(--text-loCon); }
+  #UserCP.code-50 #ucpcontent .tableborder > table > tbody > tr:not(:first-child):not(:last-child):not(:has(td.darkrow3)) td.row1:nth-child(2) b a {
+    font-size: var(--size-xs); }
+
+#UserCP.code-50 #ucpcontent .tableborder > table > tbody > tr:last-child td.titlemedium {
+  padding: var(--space-sm); }
+  #UserCP.code-50 #ucpcontent .tableborder > table > tbody > tr:last-child td.titlemedium a {
+    color: var(--text-loCon);
+    font-size: var(--size-xs);
+    text-decoration: none;
+    transition: color var(--transi-quick); }
+    #UserCP.code-50 #ucpcontent .tableborder > table > tbody > tr:last-child td.titlemedium a:hover {
+      color: var(--accent-1); }
+
+#UserCP.code-26 #ucpcontent > .pformstrip {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: var(--space-xs); }
+  #UserCP.code-26 #ucpcontent > .pformstrip span {
+    font-size: var(--size-xs);
+    letter-spacing: 0.08em;
+    color: var(--text-loCon);
+    opacity: 0.8; }
+    #UserCP.code-26 #ucpcontent > .pformstrip span a {
+      color: var(--text-loCon);
+      text-decoration: none;
+      transition: color var(--transi-quick); }
+      #UserCP.code-26 #ucpcontent > .pformstrip span a:hover {
+        color: var(--accent-1); }
+
+#UserCP.code-26 #ucpcontent > br {
+  display: none; }
+
+#UserCP.code-26 #ucpcontent form[name="mutliact"] .tableborder > table > tbody > tr:first-child th.titlemedium,
+#UserCP.code-26 #ucpcontent form[name="mutliact"] .tableborder > table > tbody > tr:first-child td.titlemedium {
+  text-align: left; }
+
+#UserCP.code-26 #ucpcontent form[name="mutliact"] .tableborder > table > tbody > tr td.darkrow3[colspan] {
+  padding: var(--space-xs) var(--space-sm); }
+
+#UserCP.code-26 #ucpcontent form[name="mutliact"] .tableborder > table > tbody > tr:not(:first-child):not(:last-child):not(:has(td.darkrow3)) td.row3 {
+  vertical-align: top; }
+  #UserCP.code-26 #ucpcontent form[name="mutliact"] .tableborder > table > tbody > tr:not(:first-child):not(:last-child):not(:has(td.darkrow3)) td.row3:nth-child(2) a:first-of-type {
+    display: block;
+    font-weight: 500;
+    color: var(--text-hiCon);
+    margin-block-end: 0.2rem; }
+  #UserCP.code-26 #ucpcontent form[name="mutliact"] .tableborder > table > tbody > tr:not(:first-child):not(:last-child):not(:has(td.darkrow3)) td.row3:nth-child(2) .desc {
+    font-size: var(--size-xs);
+    color: var(--text-loCon); }
+
+#UserCP.code-26 #ucpcontent form[name="mutliact"] .tableborder > table > tbody > tr:last-child td.titlemedium {
+  padding: var(--space-sm);
+  text-align: center; }
+
+#UserCP.code-26 #ucpcontent > div[align="right"]:has(form) {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) 0;
+  font: 400 var(--size-xs)/1 var(--font-hand);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-loCon); }
+  #UserCP.code-26 #ucpcontent > div[align="right"]:has(form) form {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs); }
+    #UserCP.code-26 #ucpcontent > div[align="right"]:has(form) form select {
+      width: auto; }
+
+#UserCP.code-26 #ucpcontent > div[style*="padding"][align="right"]:not(:has(form)) {
+  font: 400 var(--size-xs)/1.5 var(--font-hand);
+  color: var(--text-loCon);
+  opacity: 0.6;
+  text-align: right;
+  padding: var(--space-xs) 0; }
+  #UserCP.code-26 #ucpcontent > div[style*="padding"][align="right"]:not(:has(form)) i {
+    font-style: normal; }
+
+#Msg main > table:first-of-type > tbody > tr > td#ucpcontent > .pformstrip {
+  margin-block-end: var(--space-md); }
 
 #Msg.code-01 .ucp--inner > table {
   padding: 0 !important; }
@@ -495,7 +1071,7 @@
   padding-left: calc(var(--space-sm) + var(--space-lg));
   padding-bottom: var(--space-md);
   margin: calc(var(--space-xs) / -2) 0 var(--space-md);
-  border-bottom: var(--border-primary); }
+  border-bottom: var(--bdash); }
   #Msg.code-01 .ucp--inner > form > .tableborder > table > tbody > tr:not(:first-child):not(:last-child):nth-child(2) {
     padding-top: var(--space-md); }
     #Msg.code-01 .ucp--inner > form > .tableborder > table > tbody > tr:not(:first-child):not(:last-child):nth-child(2) > td:last-child {
@@ -521,7 +1097,7 @@
         flex-wrap: wrap;
         gap: var(--space-xs); }
         #Msg.code-01 .ucp--inner > form > .tableborder > table > tbody > tr:not(:first-child):not(:last-child) > td:nth-child(3) a:first-of-type::before {
-          content: 'Sent from ';
+          content: "Sent from ";
           width: auto;
           position: relative;
           bottom: auto;
@@ -659,8 +1235,8 @@
       display: block;
       padding: var(--space-lg);
       margin: var(--space-md) 0 var(--space-lg);
-      border-top: var(--border-primary);
-      border-bottom: var(--border-primary); }
+      border-top: var(--bdash);
+      border-bottom: var(--bdash); }
       #Msg.code-03 .ucp--inner .msg-normal > table tbody tr:nth-child(2n) td {
         display: block;
         width: 100%;

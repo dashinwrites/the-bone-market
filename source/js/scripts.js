@@ -686,10 +686,10 @@ function buildLegend() {
   `,
   ).join("");
 
-  initAccordion(container);
+  initLegendAccordion(container);
 }
 
-function initAccordion(container) {
+function initLegendAccordion(container) {
   container.querySelectorAll(".bm-legend__header").forEach((button) => {
     button.addEventListener("click", () => {
       const isOpen = button.getAttribute("aria-expanded") === "true";
@@ -1038,6 +1038,10 @@ if (pageType === "UserCP" || pageType === "Msg") {
   //ucp menu
   initUCPMenu();
 
+  console.log('accordion el:', document.querySelector('#ucpmenu .accordion'));
+  console.log('triggers found:', document.querySelectorAll('#ucpmenu .accordion--trigger').length);
+  console.log('ucpmenu html:', document.querySelector('#ucpmenu').innerHTML);
+
   //Edit Profile Edits
   if ($("body.code-01").length > 0 && pageType === "UserCP") {
     document
@@ -1185,6 +1189,7 @@ if (pageType === "modcp") {
   initModCPMenu();
 }
 
+// breadcrumb fix
 (function () {
   const jcinkNav = document.querySelector(".lb-breadcrumb #navstrip");
   if (!jcinkNav) return;
@@ -1217,7 +1222,6 @@ if (pageType === "modcp") {
 
   breadcrumb.innerHTML = html;
 })();
-
 
 /**** LOCAL ONLY */
 // GROUP TESTING

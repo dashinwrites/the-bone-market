@@ -1,24 +1,3 @@
-function getAllTextNodes(element) {
-    if(element) {
-        return Array.from(element.childNodes).filter(node => node.nodeType === 3 && node.textContent.trim().length > 1);
-    }
-}
-function inputWrap(el, next = null, type = 'checkbox') {
-    if(next) {
-        $(el).nextUntil(next).andSelf().wrapAll(`<label class="input-wrap ${type}"></label>`);
-    } else {
-        $(el).next().andSelf().wrapAll(`<label class="input-wrap ${type}"></label>`);
-    }
-}
-function fancyBoxes() {
-    document.querySelectorAll('.input-wrap.checkbox').forEach(label => {
-        label.querySelector('input').insertAdjacentHTML('afterend', `<div class="fancy-input checkbox">x</div>`);
-    });
-    document.querySelectorAll('.input-wrap.radio').forEach(label => {
-        label.querySelector('input').insertAdjacentHTML('afterend', `<div class="fancy-input radio">x</div>`);
-    });
-}
-
 /***** Profile *****/
 function formatAesthetics(aesthetics, images) {
     let imageHTML;
@@ -38,8 +17,8 @@ function formatAesthetics(aesthetics, images) {
                 <span><img src="${images['square-2']}" title="Square #2" alt="Square #2" loading="lazy" /></span>`;
             break;
         case 'Single':
-        default: 
-        imageHTML = `<span><img src="${images['tall-1']}" title="Tall #1" alt="Tall #1" loading="lazy" /></span>`;
+        default:
+            imageHTML = `<span><img src="${images['tall-1']}" title="Tall #1" alt="Tall #1" loading="lazy" /></span>`;
             break;
     }
     return imageHTML;
@@ -74,35 +53,35 @@ function submitMemberData(e) {
     }
 
     fetch(members)
-    .then((response) => response.json())
-    .then((data) => {
-        let existing = data.filter(item => item.AccountID === accountId);
-        if(existing.length) {
-            sheetData.SubmissionType = 'edit-member';
-            editMember(existing[0], sheetData);
-        } else {
-            sheetData.SubmissionType = 'add-member';
-            sheetData.AccountID = accountId;
-            sheetData.Group = 'writer';
-            sheetData.GroupID = '6';
+        .then((response) => response.json())
+        .then((data) => {
+            let existing = data.filter(item => item.AccountID === accountId);
+            if (existing.length) {
+                sheetData.SubmissionType = 'edit-member';
+                editMember(existing[0], sheetData);
+            } else {
+                sheetData.SubmissionType = 'add-member';
+                sheetData.AccountID = accountId;
+                sheetData.Group = 'writer';
+                sheetData.GroupID = '6';
 
-            let staffDiscord = {
-                title: `New Member Data Added: ${capitalize(sheetData.Member, [' ', '-'])}`,
-                text: `No action required at this time.`,
-                hook: claimLogs,
+                let staffDiscord = {
+                    title: `New Member Data Added: ${capitalize(sheetData.Member, [' ', '-'])}`,
+                    text: `No action required at this time.`,
+                    hook: claimLogs,
+                }
+
+                sendAjax(null, sheetData, staffDiscord);
             }
-
-            sendAjax(null, sheetData, staffDiscord);
-        }
-    });
+        });
 }
 function editMember(existing, data) {
-    let original = {...existing};
+    let original = { ...existing };
     let initialMessage = ``, changeMessage = ``;
 
-    if(data.Alias !== original.Alias) {
+    if (data.Alias !== original.Alias) {
         existing.Member = data.Alias;
-        if(initialMessage !== '') {
+        if (initialMessage !== '') {
             initialMessage += `\n`;
             changeMessage += `\n`;
         }
@@ -110,9 +89,9 @@ function editMember(existing, data) {
         changeMessage += `**Alias:** ${capitalize(existing.Member, [' ', '-'])}`;
     }
 
-    if(data.Pronouns !== original.Pronouns) {
+    if (data.Pronouns !== original.Pronouns) {
         existing.Pronouns = data.Pronouns;
-        if(initialMessage !== '') {
+        if (initialMessage !== '') {
             initialMessage += `\n`;
             changeMessage += `\n`;
         }
@@ -120,9 +99,9 @@ function editMember(existing, data) {
         changeMessage += `**Pronouns:** ${existing.Pronouns}`;
     }
 
-    if(data.Age !== original.Age) {
+    if (data.Age !== original.Age) {
         existing.Age = data.Age;
-        if(initialMessage !== '') {
+        if (initialMessage !== '') {
             initialMessage += `\n`;
             changeMessage += `\n`;
         }
@@ -130,9 +109,9 @@ function editMember(existing, data) {
         changeMessage += `**Age:** ${existing.Age}`;
     }
 
-    if(data.Timezone !== original.Timezone) {
+    if (data.Timezone !== original.Timezone) {
         existing.Timezone = data.Timezone;
-        if(initialMessage !== '') {
+        if (initialMessage !== '') {
             initialMessage += `\n`;
             changeMessage += `\n`;
         }
@@ -140,9 +119,9 @@ function editMember(existing, data) {
         changeMessage += `**Timezone:** ${existing.Timezone}`;
     }
 
-    if(data.Mature !== original.Mature) {
+    if (data.Mature !== original.Mature) {
         existing.Mature = data.Mature;
-        if(initialMessage !== '') {
+        if (initialMessage !== '') {
             initialMessage += `\n`;
             changeMessage += `\n`;
         }
@@ -150,9 +129,9 @@ function editMember(existing, data) {
         changeMessage += `**Mature:** ${existing.Mature}\n`;
     }
 
-    if(data.POV !== original.POV) {
+    if (data.POV !== original.POV) {
         existing.POV = data.POV;
-        if(initialMessage !== '') {
+        if (initialMessage !== '') {
             initialMessage += `\n`;
             changeMessage += `\n`;
         }
@@ -160,9 +139,9 @@ function editMember(existing, data) {
         changeMessage += `**POV:** ${existing.POV}`;
     }
 
-    if(data.Tense !== original.Tense) {
+    if (data.Tense !== original.Tense) {
         existing.Tense = data.Tense;
-        if(initialMessage !== '') {
+        if (initialMessage !== '') {
             initialMessage += `\n`;
             changeMessage += `\n`;
         }
@@ -170,9 +149,9 @@ function editMember(existing, data) {
         changeMessage += `**Tense:** ${existing.Tense}`;
     }
 
-    if(data.Image !== original.Image) {
+    if (data.Image !== original.Image) {
         existing.Image = data.Image;
-        if(initialMessage !== '') {
+        if (initialMessage !== '') {
             initialMessage += `\n`;
             changeMessage += `\n`;
         }
@@ -180,9 +159,9 @@ function editMember(existing, data) {
         changeMessage += `**Image:** <${existing.Image}>`;
     }
 
-    if(data.Triggers !== original.Triggers) {
+    if (data.Triggers !== original.Triggers) {
         existing.Triggers = data.Triggers;
-        if(initialMessage !== '') {
+        if (initialMessage !== '') {
             initialMessage += `\n`;
             changeMessage += `\n`;
         }
@@ -211,64 +190,66 @@ function editMember(existing, data) {
 
 /****** UserCP/Messages ******/
 function cpShift() {
-	let imageType = document.querySelector(toggleFields[1]).value,
-	    account = document.querySelector(toggleFields[0]).value,
-	    showFields = [],
-	    hideFields = characterFields
-                    .concat(defaultImages)
-                    .concat(gridImages)
-                    .concat(mosaicImages),
-	    showHeaders = allHeaders;
+    let imageType = document.querySelector(toggleFields[1]).value,
+        account = document.querySelector(toggleFields[0]).value,
+        showFields = [],
+        hideFields = characterFields
+            .concat(defaultImages)
+            .concat(gridImages)
+            .concat(mosaicImages),
+        showHeaders = allHeaders;
 
-	if(account.toLowerCase() == 'character') {
-        if(imageType.toLowerCase() === 'grid') {
+    if (account.toLowerCase() == 'character') {
+        if (imageType.toLowerCase() === 'grid') {
             showFields = characterFields
-                        .concat(defaultImages)
-                        .concat(gridImages);
+                .concat(defaultImages)
+                .concat(gridImages);
             hideFields = mosaicImages;
             showHeaders = allHeaders
-                        .concat(charHeaders);
+                .concat(charHeaders);
             document.querySelector(defaultImages[0]).classList.remove('fullWidth');
         } else if (imageType.toLowerCase() === 'mosaic') {
             showFields = characterFields
-                        .concat(defaultImages)
-                        .concat(gridImages)
-                        .concat(mosaicImages);
+                .concat(defaultImages)
+                .concat(gridImages)
+                .concat(mosaicImages);
             hideFields = [];
             showHeaders = allHeaders
-                        .concat(charHeaders);
+                .concat(charHeaders);
             document.querySelector(defaultImages[0]).classList.remove('fullWidth');
         } else {
             showFields = characterFields
-                        .concat(defaultImages);
+                .concat(defaultImages);
             hideFields = gridImages
-                        .concat(mosaicImages);
+                .concat(mosaicImages);
             showHeaders = allHeaders
-                        .concat(charHeaders);
+                .concat(charHeaders);
             document.querySelector(defaultImages[0]).classList.add('fullWidth');
         }
     }
-    
+
     adjustCP(showFields, hideFields, showHeaders);
 }
 function setUpAesthetics() {
     let aestheticsObj = {
-        'tall-1': document.querySelector('#field_20_input').value,
-        'tall-2': document.querySelector('#field_21_input').value,
-        'wide-1': document.querySelector('#field_22_input').value,
-        'square-1': document.querySelector('#field_23_input').value,
-        'square-2': document.querySelector('#field_24_input').value,
-        'square-3': document.querySelector('#field_25_input').value,
+        'tall-1': document.querySelector('#field_68_input').value,
+        'tall-2': document.querySelector('#field_69_input').value,
+        'wide-1': document.querySelector('#field_70_input').value,
+        'wide-2': document.querySelector('#field_71_input').value,
+        'square-1': document.querySelector('#field_72_input').value,
+        'square-2': document.querySelector('#field_73_input').value,
+        'square-3': document.querySelector('#field_74_input').value,
+        'square-4': document.querySelector('#field_75_input').value,
     };
-    let aesthetics = getSelectText(document.querySelector('#field_19_input')).replace(' ', '');
-    return {aestheticsObj, aesthetics};
+    let aesthetics = getSelectText(document.querySelector('#field_67_input'));
+    return { aestheticsObj, aesthetics };
 }
 function ucpAesthetics() {
     let imageObj = setUpAesthetics().aestheticsObj;
     let aesthetics = setUpAesthetics().aesthetics;
 
     let aestheticsSample = document.querySelector('.ucp--description[data-section="Aesthetics"] .sample');
-    if(aestheticsSample) {
+    if (aestheticsSample) {
         aestheticsSample.classList.add(aesthetics.replace(' ', ''));
         aestheticsSample.innerHTML = formatAesthetics(aesthetics, imageObj);
     }
@@ -276,25 +257,25 @@ function ucpAesthetics() {
 function ucpAvatars() {
     let avatarSample = document.querySelector('.ucp--description[data-section="Images"] .sample');
     let avatarObj = {
-        'tall': document.querySelector('#field_17_input').value,
-        'wide': document.querySelector('#field_18_input').value,
+        'tall': document.querySelector('#field_65_input').value,
+        'wide': document.querySelector('#field_66_input').value,
     }
     let { aesthetics, aestheticsObj } = setUpAesthetics();
 
     let accType = getSelectText(document.querySelector('#field_1_input'));
-    if(avatarSample) {
+    if (avatarSample) {
         let html = `<div><strong>Avatars</strong>
             <div class="avatars">
             ${formatAvatars(avatarObj)}
         </div></div>`;
 
-        if(accType === 'character') {
+        if (accType === 'character') {
             html += `<div><strong>Aesthetics</strong>
                 <div class="profile--aesthetic ${aesthetics}">
                 ${formatAesthetics(aesthetics, aestheticsObj)}
             </div></div>`;
         }
-        
+
         avatarSample.innerHTML = html;
     }
 }
@@ -304,7 +285,7 @@ function formatAvatars(images) {
     return imageHTML;
 }
 function createFieldArray(arr, input = false) {
-    if(input) {
+    if (input) {
         return arr.map(item => `#field_${item}_input`);
     }
     return arr.map(item => `#field_${item}`);
@@ -314,7 +295,7 @@ function createFieldArray(arr, input = false) {
 function formatMemberRow(type, data, extraFilters = '') {
     let tagList = ``, info = ``, details = ``;
 
-    if(type === 'character') {
+    if (type === 'character') {
         tagList += `${data.character.ageClass} ${data.character.relationshipClass}`;
         info += `<div class="member--stats">
             <span>${data.character.age} years old</span>
@@ -357,9 +338,9 @@ function formatMemberRow(type, data, extraFilters = '') {
     </div>`;
 }
 function toggleListMenu(e) {
-    if(e.closest('.members--menu')) {
+    if (e.closest('.members--menu')) {
         e.closest('.members--menu').classList.toggle('is-open');
-    } else if(e.closest('.webpage--menu')) {
+    } else if (e.closest('.webpage--menu')) {
         e.closest('.webpage--menu').classList.toggle('is-open');
     }
 }

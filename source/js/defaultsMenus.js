@@ -50,7 +50,10 @@ const localStoreLinks = `<div class="accordion--trigger" data-category="personal
         </div>`;
 
 const localModCPLinks = `
-        <a href="mod.html">Home</a>
+        <div class="accordion--trigger" data-category="home"><b>Home</b></div>
+        <div class="accordion--content" data-category="home">
+            <a href="mod.html">Home</a>
+        </div>
         <div class="accordion--trigger" data-category="forumsposts"><b>Forums & Posts</b></div>
         <div class="accordion--content" data-category="forumsposts">
             <a href="mod-queue.html">Queue</a>
