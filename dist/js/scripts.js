@@ -1203,9 +1203,13 @@ if (pageType === "modcp") {
   });
 
   let html = "";
-  anchors.forEach(a => {
+  anchors.forEach((a, i) => {
     html += `<a href="${a.href}">${a.textContent.trim()}</a>`;
-    html += `<span class="lb-breadcrumb__sep" aria-hidden="true"><i class="ph-thin ph-caret-right"></i></span>`;
+    // only add sep if this isn't the last anchor, or if there's a current page after it
+    const isLast = i === anchors.length - 1;
+    if (!isLast || currentText) {
+      html += `<span class="lb-breadcrumb__sep" aria-hidden="true"><i class="ph-thin ph-caret-right"></i></span>`;
+    }
   });
   if (currentText) {
     html += `<span class="lb-breadcrumb__current">${currentText}</span>`;
