@@ -809,7 +809,7 @@ if (pageType === "idx" || pageType === "SC") {
 /********** Profile **********/
 if (pageType === "Profile") {
   initMarkdown();
-  if (typeof injectFakeProfileData === 'function') {
+  if (typeof injectFakeProfileData === 'function' && !window.location.hostname.includes('jcink.net')) {
     const isCharacter = sessionStorage.getItem("dev-account") !== "member";
     injectFakeProfileData(isCharacter ? characterProfile : memberProfile);
   }
