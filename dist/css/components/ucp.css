@@ -487,43 +487,43 @@
       #UserCP.code_00 #ucpcontent > form > div[align="center"] > form > select {
         width: auto; }
 
-#UserCP.code_01 #ucpcontent form > .pformstrip {
+#UserCP.code-01 #ucpcontent form > .pformstrip {
   display: none; }
 
-#UserCP.code_01 #ucpcontent form #field-birthday,
-#UserCP.code_01 #ucpcontent form #field-website,
-#UserCP.code_01 #ucpcontent form #field-location,
-#UserCP.code_01 #ucpcontent form #field-interests {
+#UserCP.code-01 #ucpcontent form #field-birthday,
+#UserCP.code-01 #ucpcontent form #field-website,
+#UserCP.code-01 #ucpcontent form #field-location,
+#UserCP.code-01 #ucpcontent form #field-interests {
   display: none; }
 
-#UserCP.code_01 #ucpcontent form > table {
+#UserCP.code-01 #ucpcontent form > table {
   display: grid !important;
   grid-template-columns: repeat(6, 1fr);
   gap: var(--space-lg);
   width: 100%; }
-  #UserCP.code_01 #ucpcontent form > table thead.fullWidth {
+  #UserCP.code-01 #ucpcontent form > table thead.fullWidth {
     grid-column: 1 / -1;
     display: block;
     padding-block-start: var(--space-lg);
     padding-block-end: var(--space-sm);
     border-block-end: var(--bdash); }
-    #UserCP.code_01 #ucpcontent form > table thead.fullWidth:first-of-type {
+    #UserCP.code-01 #ucpcontent form > table thead.fullWidth:first-of-type {
       padding-block-start: 0; }
-    #UserCP.code_01 #ucpcontent form > table thead.fullWidth tr.ucp--header {
+    #UserCP.code-01 #ucpcontent form > table thead.fullWidth tr.ucp--header {
       display: block; }
-    #UserCP.code_01 #ucpcontent form > table thead.fullWidth td {
+    #UserCP.code-01 #ucpcontent form > table thead.fullWidth td {
       display: block;
       padding: 0; }
-    #UserCP.code_01 #ucpcontent form > table thead.fullWidth .sticky {
+    #UserCP.code-01 #ucpcontent form > table thead.fullWidth .sticky {
       display: flex;
       flex-direction: column;
       gap: var(--space-xs); }
-    #UserCP.code_01 #ucpcontent form > table thead.fullWidth .ucp--header-title {
+    #UserCP.code-01 #ucpcontent form > table thead.fullWidth .ucp--header-title {
       font: 400 var(--size-sm)/1 var(--font-cinzel);
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--text-hiCon); }
-      #UserCP.code_01 #ucpcontent form > table thead.fullWidth .ucp--header-title::after {
+      #UserCP.code-01 #ucpcontent form > table thead.fullWidth .ucp--header-title::after {
         content: "";
         display: block;
         margin-block-start: 0.4rem;
@@ -531,25 +531,25 @@
         width: 2rem;
         background: var(--accent-1);
         opacity: 0.5; }
-    #UserCP.code_01 #ucpcontent form > table thead.fullWidth .ucp--description {
+    #UserCP.code-01 #ucpcontent form > table thead.fullWidth .ucp--description {
       font: 400 var(--size-sm)/1.6 var(--font-hand);
       color: var(--text-loCon);
       letter-spacing: 0.04em;
       max-width: 60ch;
       opacity: 0.8; }
-  #UserCP.code_01 #ucpcontent form > table tbody {
+  #UserCP.code-01 #ucpcontent form > table tbody {
     display: contents !important; }
-    #UserCP.code_01 #ucpcontent form > table tbody tr {
+    #UserCP.code-01 #ucpcontent form > table tbody tr {
       grid-column: span 3;
       margin-bottom: 0 !important;
       display: flex;
       flex-direction: column;
       gap: var(--space-sm); }
-      #UserCP.code_01 #ucpcontent form > table tbody tr.fullWidth {
+      #UserCP.code-01 #ucpcontent form > table tbody tr.fullWidth {
         grid-column: 1 / -1; }
-      #UserCP.code_01 #ucpcontent form > table tbody tr:last-child {
+      #UserCP.code-01 #ucpcontent form > table tbody tr:last-child {
         grid-column: 1 / -1; }
-      #UserCP.code_01 #ucpcontent form > table tbody tr .pformleft {
+      #UserCP.code-01 #ucpcontent form > table tbody tr .pformleft {
         font: 400 var(--size-xs)/1.5 var(--font-hand);
         color: var(--text-loCon);
         opacity: 0.6;
@@ -558,9 +558,9 @@
         display: flex;
         flex-direction: column;
         gap: var(--space-xs); }
-        #UserCP.code_01 #ucpcontent form > table tbody tr .pformleft br {
+        #UserCP.code-01 #ucpcontent form > table tbody tr .pformleft br {
           display: none; }
-        #UserCP.code_01 #ucpcontent form > table tbody tr .pformleft b, #UserCP.code_01 #ucpcontent form > table tbody tr .pformleft strong, #UserCP.code_01 #ucpcontent form > table tbody tr .pformleft label {
+        #UserCP.code-01 #ucpcontent form > table tbody tr .pformleft b, #UserCP.code-01 #ucpcontent form > table tbody tr .pformleft strong, #UserCP.code-01 #ucpcontent form > table tbody tr .pformleft label {
           font: 400 var(--size-xs)/1 var(--font-hand);
           letter-spacing: 0.14em;
           text-transform: uppercase;
@@ -568,92 +568,92 @@
           opacity: 1;
           display: block;
           max-width: max-content; }
-      #UserCP.code_01 #ucpcontent form > table tbody tr .pformright {
+      #UserCP.code-01 #ucpcontent form > table tbody tr .pformright {
         display: flex;
         flex-wrap: wrap;
         gap: var(--space-xs);
         align-items: flex-start;
         height: max-content; }
 
-#UserCP.code_24 #ucpcontent .tablepad {
+#UserCP.code-24 #ucpcontent .tablepad {
   padding: var(--space-md) 0;
   font-size: 0; }
-  #UserCP.code_24 #ucpcontent .tablepad img {
+  #UserCP.code-24 #ucpcontent .tablepad img {
     max-width: 200px;
     max-height: 200px;
     border-radius: 4px;
     display: block; }
 
-#UserCP.code_24 #ucpcontent #gallery_form {
+#UserCP.code-24 #ucpcontent #gallery_form {
   display: none; }
 
-#UserCP.code_24 #ucpcontent .tablebasic {
+#UserCP.code-24 #ucpcontent .tablebasic {
   display: block;
   width: 100%;
   margin-block-end: var(--space-sm); }
-  #UserCP.code_24 #ucpcontent .tablebasic tbody {
+  #UserCP.code-24 #ucpcontent .tablebasic tbody {
     display: block; }
-  #UserCP.code_24 #ucpcontent .tablebasic tr {
+  #UserCP.code-24 #ucpcontent .tablebasic tr {
     display: flex;
     flex-direction: column;
     gap: var(--space-xs); }
-    #UserCP.code_24 #ucpcontent .tablebasic tr .pformleft {
+    #UserCP.code-24 #ucpcontent .tablebasic tr .pformleft {
       font: 400 var(--size-xs)/1 var(--font-hand);
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--text-loCon);
       padding: 0.2rem 0; }
-      #UserCP.code_24 #ucpcontent .tablebasic tr .pformleft:only-child {
+      #UserCP.code-24 #ucpcontent .tablebasic tr .pformleft:only-child {
         display: none; }
-    #UserCP.code_24 #ucpcontent .tablebasic tr .pformright {
+    #UserCP.code-24 #ucpcontent .tablebasic tr .pformright {
       display: flex;
       flex-wrap: wrap;
       gap: var(--space-xs); }
-      #UserCP.code_24 #ucpcontent .tablebasic tr .pformright strong {
+      #UserCP.code-24 #ucpcontent .tablebasic tr .pformright strong {
         font: 400 var(--size-xs)/1.5 var(--font-hand);
         color: var(--text-medCon); }
-      #UserCP.code_24 #ucpcontent .tablebasic tr .pformright br {
+      #UserCP.code-24 #ucpcontent .tablebasic tr .pformright br {
         display: none; }
 
-#UserCP.code_54 #ucpcontent > p {
+#UserCP.code-54 #ucpcontent > p {
   font: 400 var(--size-sm)/1.7 var(--font-hand);
   color: var(--text-medCon);
   margin-block-end: var(--space-md); }
-  #UserCP.code_54 #ucpcontent > p b {
+  #UserCP.code-54 #ucpcontent > p b {
     color: var(--text-hiCon);
     font-weight: 500; }
 
-#UserCP.code_54 #ucpcontent > div[align="center"] {
+#UserCP.code-54 #ucpcontent > div[align="center"] {
   display: flex;
   flex-direction: column;
   gap: var(--space-lg); }
 
-#UserCP.code_54 #ucpcontent .tableborder:first-child table {
+#UserCP.code-54 #ucpcontent .tableborder:first-child table {
   display: block;
   width: 100%; }
-  #UserCP.code_54 #ucpcontent .tableborder:first-child table > tbody {
+  #UserCP.code-54 #ucpcontent .tableborder:first-child table > tbody {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: var(--space-sm);
     padding: var(--space-sm); }
     @media (min-width: 1025px) {
-      #UserCP.code_54 #ucpcontent .tableborder:first-child table > tbody {
+      #UserCP.code-54 #ucpcontent .tableborder:first-child table > tbody {
         grid-template-columns: repeat(3, 1fr); } }
-    #UserCP.code_54 #ucpcontent .tableborder:first-child table > tbody > tr:first-child {
+    #UserCP.code-54 #ucpcontent .tableborder:first-child table > tbody > tr:first-child {
       display: none; }
-    #UserCP.code_54 #ucpcontent .tableborder:first-child table > tbody > tr:last-child {
+    #UserCP.code-54 #ucpcontent .tableborder:first-child table > tbody > tr:last-child {
       grid-column: 1 / -1;
       display: flex;
       justify-content: center;
       gap: var(--space-sm);
       padding-block-start: var(--space-sm);
       border-block-start: var(--bdash); }
-      #UserCP.code_54 #ucpcontent .tableborder:first-child table > tbody > tr:last-child > td > div {
+      #UserCP.code-54 #ucpcontent .tableborder:first-child table > tbody > tr:last-child > td > div {
         display: flex;
         gap: var(--space-sm);
         flex-wrap: wrap;
         justify-content: center; }
-    #UserCP.code_54 #ucpcontent .tableborder:first-child table > tbody > tr.dlight {
+    #UserCP.code-54 #ucpcontent .tableborder:first-child table > tbody > tr.dlight {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -662,16 +662,16 @@
       border: 1px dashed color-mix(in oklab, var(--text-loCon) 18%, transparent);
       border-radius: 4px;
       transition: border-color var(--transi-quick); }
-      #UserCP.code_54 #ucpcontent .tableborder:first-child table > tbody > tr.dlight:hover {
+      #UserCP.code-54 #ucpcontent .tableborder:first-child table > tbody > tr.dlight:hover {
         border-color: color-mix(in oklab, var(--accent-1) 35%, transparent); }
-      #UserCP.code_54 #ucpcontent .tableborder:first-child table > tbody > tr.dlight td {
+      #UserCP.code-54 #ucpcontent .tableborder:first-child table > tbody > tr.dlight td {
         padding: 0;
         border: none; }
-        #UserCP.code_54 #ucpcontent .tableborder:first-child table > tbody > tr.dlight td:nth-child(1) {
+        #UserCP.code-54 #ucpcontent .tableborder:first-child table > tbody > tr.dlight td:nth-child(1) {
           flex: 1;
           min-width: 0;
           text-align: left !important; }
-          #UserCP.code_54 #ucpcontent .tableborder:first-child table > tbody > tr.dlight td:nth-child(1) a {
+          #UserCP.code-54 #ucpcontent .tableborder:first-child table > tbody > tr.dlight td:nth-child(1) a {
             color: var(--text-hiCon);
             text-decoration: none;
             font: 400 var(--size-xs)/1 var(--font-hand);
@@ -681,16 +681,16 @@
             text-overflow: ellipsis;
             display: block;
             transition: color var(--transi-quick); }
-            #UserCP.code_54 #ucpcontent .tableborder:first-child table > tbody > tr.dlight td:nth-child(1) a:hover {
+            #UserCP.code-54 #ucpcontent .tableborder:first-child table > tbody > tr.dlight td:nth-child(1) a:hover {
               color: var(--accent-1); }
-        #UserCP.code_54 #ucpcontent .tableborder:first-child table > tbody > tr.dlight td:nth-child(2) {
+        #UserCP.code-54 #ucpcontent .tableborder:first-child table > tbody > tr.dlight td:nth-child(2) {
           font-size: var(--size-xs);
           color: var(--text-loCon); }
-        #UserCP.code_54 #ucpcontent .tableborder:first-child table > tbody > tr.dlight td:nth-child(3) {
+        #UserCP.code-54 #ucpcontent .tableborder:first-child table > tbody > tr.dlight td:nth-child(3) {
           flex: 0 0 auto;
           text-align: right !important; }
 
-#UserCP.code_54 #ucpcontent .tableborder:last-child > .pformstrip {
+#UserCP.code-54 #ucpcontent .tableborder:last-child > .pformstrip {
   font: 400 var(--size-xs)/1 var(--font-hand);
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -699,119 +699,119 @@
   border-block-end: var(--bdash);
   opacity: 0.7; }
 
-#UserCP.code_54 #ucpcontent .tableborder:last-child form > table > tbody > tr .pformleft {
+#UserCP.code-54 #ucpcontent .tableborder:last-child form > table > tbody > tr .pformleft {
   font: 400 var(--size-xs)/1 var(--font-hand);
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--text-loCon); }
 
-#UserCP.code_52 #ucpcontent .row2 {
+#UserCP.code-52 #ucpcontent .row2 {
   font: 400 var(--size-sm)/1.7 var(--font-hand);
   color: var(--text-medCon);
   margin-block-end: var(--space-md);
   padding: var(--space-sm) 0;
   border-block-start: var(--bdash); }
-  #UserCP.code_52 #ucpcontent .row2 p {
+  #UserCP.code-52 #ucpcontent .row2 p {
     margin: 0 0 var(--space-sm); }
-  #UserCP.code_52 #ucpcontent .row2 ol {
+  #UserCP.code-52 #ucpcontent .row2 ol {
     padding-inline-start: var(--space-md);
     display: flex;
     flex-direction: column;
     gap: var(--space-xs); }
-  #UserCP.code_52 #ucpcontent .row2 b {
+  #UserCP.code-52 #ucpcontent .row2 b {
     color: var(--text-hiCon);
     font-weight: 500; }
 
-#UserCP.code_52 #ucpcontent form > table > tbody > tr .pformright {
+#UserCP.code-52 #ucpcontent form > table > tbody > tr .pformright {
   color: var(--text-medCon);
   font: 400 var(--size-sm)/1 var(--font-hand);
   align-items: center; }
 
-#UserCP.code_28 #ucpcontent > p,
-#UserCP.code_08 #ucpcontent > p {
+#UserCP.code-28 #ucpcontent > p,
+#UserCP.code-08 #ucpcontent > p {
   font: 400 var(--size-sm)/1.7 var(--font-hand);
   color: var(--text-medCon);
   margin-block-end: var(--space-md); }
 
-#UserCP.code_28 #ucpcontent form[name="form1"] > table,
-#UserCP.code_28 #ucpcontent form[name="theForm"] > table,
-#UserCP.code_08 #ucpcontent form[name="form1"] > table,
-#UserCP.code_08 #ucpcontent form[name="theForm"] > table {
+#UserCP.code-28 #ucpcontent form[name="form1"] > table,
+#UserCP.code-28 #ucpcontent form[name="theForm"] > table,
+#UserCP.code-08 #ucpcontent form[name="form1"] > table,
+#UserCP.code-08 #ucpcontent form[name="theForm"] > table {
   display: block;
   width: 100%; }
-  #UserCP.code_28 #ucpcontent form[name="form1"] > table > tbody,
-  #UserCP.code_28 #ucpcontent form[name="theForm"] > table > tbody,
-  #UserCP.code_08 #ucpcontent form[name="form1"] > table > tbody,
-  #UserCP.code_08 #ucpcontent form[name="theForm"] > table > tbody {
+  #UserCP.code-28 #ucpcontent form[name="form1"] > table > tbody,
+  #UserCP.code-28 #ucpcontent form[name="theForm"] > table > tbody,
+  #UserCP.code-08 #ucpcontent form[name="form1"] > table > tbody,
+  #UserCP.code-08 #ucpcontent form[name="theForm"] > table > tbody {
     display: block; }
-    #UserCP.code_28 #ucpcontent form[name="form1"] > table > tbody > tr,
-    #UserCP.code_28 #ucpcontent form[name="theForm"] > table > tbody > tr,
-    #UserCP.code_08 #ucpcontent form[name="form1"] > table > tbody > tr,
-    #UserCP.code_08 #ucpcontent form[name="theForm"] > table > tbody > tr {
+    #UserCP.code-28 #ucpcontent form[name="form1"] > table > tbody > tr,
+    #UserCP.code-28 #ucpcontent form[name="theForm"] > table > tbody > tr,
+    #UserCP.code-08 #ucpcontent form[name="form1"] > table > tbody > tr,
+    #UserCP.code-08 #ucpcontent form[name="theForm"] > table > tbody > tr {
       display: flex;
       flex-direction: column;
       gap: var(--space-xs);
       margin-block-end: var(--space-md); }
-      #UserCP.code_28 #ucpcontent form[name="form1"] > table > tbody > tr > td:first-child b,
-      #UserCP.code_28 #ucpcontent form[name="form1"] > table > tbody > tr > td:first-child strong,
-      #UserCP.code_28 #ucpcontent form[name="theForm"] > table > tbody > tr > td:first-child b,
-      #UserCP.code_28 #ucpcontent form[name="theForm"] > table > tbody > tr > td:first-child strong,
-      #UserCP.code_08 #ucpcontent form[name="form1"] > table > tbody > tr > td:first-child b,
-      #UserCP.code_08 #ucpcontent form[name="form1"] > table > tbody > tr > td:first-child strong,
-      #UserCP.code_08 #ucpcontent form[name="theForm"] > table > tbody > tr > td:first-child b,
-      #UserCP.code_08 #ucpcontent form[name="theForm"] > table > tbody > tr > td:first-child strong {
+      #UserCP.code-28 #ucpcontent form[name="form1"] > table > tbody > tr > td:first-child b,
+      #UserCP.code-28 #ucpcontent form[name="form1"] > table > tbody > tr > td:first-child strong,
+      #UserCP.code-28 #ucpcontent form[name="theForm"] > table > tbody > tr > td:first-child b,
+      #UserCP.code-28 #ucpcontent form[name="theForm"] > table > tbody > tr > td:first-child strong,
+      #UserCP.code-08 #ucpcontent form[name="form1"] > table > tbody > tr > td:first-child b,
+      #UserCP.code-08 #ucpcontent form[name="form1"] > table > tbody > tr > td:first-child strong,
+      #UserCP.code-08 #ucpcontent form[name="theForm"] > table > tbody > tr > td:first-child b,
+      #UserCP.code-08 #ucpcontent form[name="theForm"] > table > tbody > tr > td:first-child strong {
         display: block;
         font: 400 var(--size-xs)/1 var(--font-hand);
         letter-spacing: 0.14em;
         text-transform: uppercase;
         color: var(--text-loCon);
         padding: 0.2rem 0; }
-      #UserCP.code_28 #ucpcontent form[name="form1"] > table > tbody > tr > td:first-child:not(:has(b)):not(:has(strong)),
-      #UserCP.code_28 #ucpcontent form[name="theForm"] > table > tbody > tr > td:first-child:not(:has(b)):not(:has(strong)),
-      #UserCP.code_08 #ucpcontent form[name="form1"] > table > tbody > tr > td:first-child:not(:has(b)):not(:has(strong)),
-      #UserCP.code_08 #ucpcontent form[name="theForm"] > table > tbody > tr > td:first-child:not(:has(b)):not(:has(strong)) {
+      #UserCP.code-28 #ucpcontent form[name="form1"] > table > tbody > tr > td:first-child:not(:has(b)):not(:has(strong)),
+      #UserCP.code-28 #ucpcontent form[name="theForm"] > table > tbody > tr > td:first-child:not(:has(b)):not(:has(strong)),
+      #UserCP.code-08 #ucpcontent form[name="form1"] > table > tbody > tr > td:first-child:not(:has(b)):not(:has(strong)),
+      #UserCP.code-08 #ucpcontent form[name="theForm"] > table > tbody > tr > td:first-child:not(:has(b)):not(:has(strong)) {
         font: 400 var(--size-xs)/1 var(--font-hand);
         letter-spacing: 0.14em;
         text-transform: uppercase;
         color: var(--text-loCon); }
-      #UserCP.code_28 #ucpcontent form[name="form1"] > table > tbody > tr > td:last-child,
-      #UserCP.code_28 #ucpcontent form[name="theForm"] > table > tbody > tr > td:last-child,
-      #UserCP.code_08 #ucpcontent form[name="form1"] > table > tbody > tr > td:last-child,
-      #UserCP.code_08 #ucpcontent form[name="theForm"] > table > tbody > tr > td:last-child {
+      #UserCP.code-28 #ucpcontent form[name="form1"] > table > tbody > tr > td:last-child,
+      #UserCP.code-28 #ucpcontent form[name="theForm"] > table > tbody > tr > td:last-child,
+      #UserCP.code-08 #ucpcontent form[name="form1"] > table > tbody > tr > td:last-child,
+      #UserCP.code-08 #ucpcontent form[name="theForm"] > table > tbody > tr > td:last-child {
         display: flex;
         gap: var(--space-xs); }
-        #UserCP.code_28 #ucpcontent form[name="form1"] > table > tbody > tr > td:last-child input,
-        #UserCP.code_28 #ucpcontent form[name="theForm"] > table > tbody > tr > td:last-child input,
-        #UserCP.code_08 #ucpcontent form[name="form1"] > table > tbody > tr > td:last-child input,
-        #UserCP.code_08 #ucpcontent form[name="theForm"] > table > tbody > tr > td:last-child input {
+        #UserCP.code-28 #ucpcontent form[name="form1"] > table > tbody > tr > td:last-child input,
+        #UserCP.code-28 #ucpcontent form[name="theForm"] > table > tbody > tr > td:last-child input,
+        #UserCP.code-08 #ucpcontent form[name="form1"] > table > tbody > tr > td:last-child input,
+        #UserCP.code-08 #ucpcontent form[name="theForm"] > table > tbody > tr > td:last-child input {
           width: 100%; }
 
-#UserCP.code_02 #ucpcontent form > .pformstrip {
+#UserCP.code-02 #ucpcontent form > .pformstrip {
   margin-block-end: var(--space-sm); }
 
-#UserCP.code_02 #ucpcontent form > br {
+#UserCP.code-02 #ucpcontent form > br {
   display: none; }
 
-#UserCP.code_02 #ucpcontent form > table {
+#UserCP.code-02 #ucpcontent form > table {
   display: block;
   width: 100%;
   margin-block-end: var(--space-md); }
-  #UserCP.code_02 #ucpcontent form > table > tbody {
+  #UserCP.code-02 #ucpcontent form > table > tbody {
     display: block; }
-    #UserCP.code_02 #ucpcontent form > table > tbody > tr {
+    #UserCP.code-02 #ucpcontent form > table > tbody > tr {
       display: flex;
       gap: var(--space-sm);
       align-items: flex-start;
       padding: var(--space-sm) 0;
       border-block-end: 1px solid color-mix(in oklab, var(--text-loCon) 8%, transparent); }
-      #UserCP.code_02 #ucpcontent form > table > tbody > tr > td[align="right"] {
+      #UserCP.code-02 #ucpcontent form > table > tbody > tr > td[align="right"] {
         flex: 0 0 auto;
         padding-top: 0.15rem; }
-      #UserCP.code_02 #ucpcontent form > table > tbody > tr > td[width="100%"] {
+      #UserCP.code-02 #ucpcontent form > table > tbody > tr > td[width="100%"] {
         flex: 1;
         font: 400 var(--size-sm)/1.5 var(--font-hand);
         color: var(--text-medCon); }
-        #UserCP.code_02 #ucpcontent form > table > tbody > tr > td[width="100%"] b {
+        #UserCP.code-02 #ucpcontent form > table > tbody > tr > td[width="100%"] b {
           display: block;
           font: 400 var(--size-xs)/1 var(--font-hand);
           letter-spacing: 0.12em;
@@ -819,204 +819,204 @@
           color: var(--text-hiCon);
           margin-block-end: 0.25rem;
           font-weight: 400; }
-        #UserCP.code_02 #ucpcontent form > table > tbody > tr > td[width="100%"] br {
+        #UserCP.code-02 #ucpcontent form > table > tbody > tr > td[width="100%"] br {
           display: none; }
 
-#UserCP.code_04 #ucpcontent > form > table > tbody > tr > td:first-child {
+#UserCP.code-04 #ucpcontent > form > table > tbody > tr > td:first-child {
   font: 400 var(--size-xs)/1.6 var(--font-hand);
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--text-loCon);
   padding: 0.2rem 0;
   display: block; }
-  #UserCP.code_04 #ucpcontent > form > table > tbody > tr > td:first-child b ~ br {
+  #UserCP.code-04 #ucpcontent > form > table > tbody > tr > td:first-child b ~ br {
     display: none; }
 
-#UserCP.code_04 #ucpcontent > form > table > tbody > tr > td:last-child {
+#UserCP.code-04 #ucpcontent > form > table > tbody > tr > td:last-child {
   display: flex;
   gap: var(--space-xs);
   height: max-content;
   padding: 0; }
-  #UserCP.code_04 #ucpcontent > form > table > tbody > tr > td:last-child input {
+  #UserCP.code-04 #ucpcontent > form > table > tbody > tr > td:last-child input {
     margin: 0;
     width: 100%; }
 
-#UserCP.code_04 #ucpcontent .input-wrap + br {
+#UserCP.code-04 #ucpcontent .input-wrap + br {
   display: none; }
 
-#UserCP.code_04 #ucpcontent .pformstrip:last-child {
+#UserCP.code-04 #ucpcontent .pformstrip:last-child {
   margin-bottom: 0;
   padding: 0; }
 
-#UserCP.code_alerts #ucpcontent > table img {
+#UserCP.code-alerts #ucpcontent > table img {
   display: none; }
 
-#UserCP.code_alerts #ucpcontent > table:first-of-type > tbody > tr {
+#UserCP.code-alerts #ucpcontent > table:first-of-type > tbody > tr {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap; }
-  #UserCP.code_alerts #ucpcontent > table:first-of-type > tbody > tr .row1 {
+  #UserCP.code-alerts #ucpcontent > table:first-of-type > tbody > tr .row1 {
     text-align: left !important; }
 
-#UserCP.code_alerts #ucpcontent > form > .tableborder > table {
+#UserCP.code-alerts #ucpcontent > form > .tableborder > table {
   display: block; }
-  #UserCP.code_alerts #ucpcontent > form > .tableborder > table > tbody {
+  #UserCP.code-alerts #ucpcontent > form > .tableborder > table > tbody {
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-md); }
-    #UserCP.code_alerts #ucpcontent > form > .tableborder > table > tbody > tr {
+    #UserCP.code-alerts #ucpcontent > form > .tableborder > table > tbody > tr {
       display: flex;
       flex-direction: column;
       gap: 0;
       margin: 0; }
-      #UserCP.code_alerts #ucpcontent > form > .tableborder > table > tbody > tr:first-child {
+      #UserCP.code-alerts #ucpcontent > form > .tableborder > table > tbody > tr:first-child {
         display: none; }
-      #UserCP.code_alerts #ucpcontent > form > .tableborder > table > tbody > tr:last-child {
+      #UserCP.code-alerts #ucpcontent > form > .tableborder > table > tbody > tr:last-child {
         flex: 0 0 100%; }
-        #UserCP.code_alerts #ucpcontent > form > .tableborder > table > tbody > tr:last-child td {
+        #UserCP.code-alerts #ucpcontent > form > .tableborder > table > tbody > tr:last-child td {
           display: flex;
           flex-direction: column;
           align-items: flex-end;
           gap: var(--space-sm); }
-          #UserCP.code_alerts #ucpcontent > form > .tableborder > table > tbody > tr:last-child td input {
+          #UserCP.code-alerts #ucpcontent > form > .tableborder > table > tbody > tr:last-child td input {
             margin: 0;
             line-height: 70%; }
-          #UserCP.code_alerts #ucpcontent > form > .tableborder > table > tbody > tr:last-child td > div:first-child {
+          #UserCP.code-alerts #ucpcontent > form > .tableborder > table > tbody > tr:last-child td > div:first-child {
             display: flex;
             flex-wrap: wrap;
             gap: var(--space-sm);
             align-items: center; }
-            #UserCP.code_alerts #ucpcontent > form > .tableborder > table > tbody > tr:last-child td > div:first-child select {
+            #UserCP.code-alerts #ucpcontent > form > .tableborder > table > tbody > tr:last-child td > div:first-child select {
               width: auto; }
-      #UserCP.code_alerts #ucpcontent > form > .tableborder > table > tbody > tr:not(:first-child):not(:last-child) {
+      #UserCP.code-alerts #ucpcontent > form > .tableborder > table > tbody > tr:not(:first-child):not(:last-child) {
         flex: 0 0 100%;
         padding: var(--space-sm); }
         @media (min-width: 769px) {
-          #UserCP.code_alerts #ucpcontent > form > .tableborder > table > tbody > tr:not(:first-child):not(:last-child) {
+          #UserCP.code-alerts #ucpcontent > form > .tableborder > table > tbody > tr:not(:first-child):not(:last-child) {
             flex: 0 0 calc(50% - calc(var(--space-md) / 2)); } }
         @media (min-width: 1025px) {
-          #UserCP.code_alerts #ucpcontent > form > .tableborder > table > tbody > tr:not(:first-child):not(:last-child) {
+          #UserCP.code-alerts #ucpcontent > form > .tableborder > table > tbody > tr:not(:first-child):not(:last-child) {
             flex: 0 0 calc((100% / 3) - calc(var(--space-md) * 2 / 3)); } }
-        #UserCP.code_alerts #ucpcontent > form > .tableborder > table > tbody > tr:not(:first-child):not(:last-child) > td {
+        #UserCP.code-alerts #ucpcontent > form > .tableborder > table > tbody > tr:not(:first-child):not(:last-child) > td {
           margin: 0;
           padding: 0 0 0 calc(var(--space-sm) + 20px);
           text-align: left; }
-          #UserCP.code_alerts #ucpcontent > form > .tableborder > table > tbody > tr:not(:first-child):not(:last-child) > td:first-child {
+          #UserCP.code-alerts #ucpcontent > form > .tableborder > table > tbody > tr:not(:first-child):not(:last-child) > td:first-child {
             display: none; }
-          #UserCP.code_alerts #ucpcontent > form > .tableborder > table > tbody > tr:not(:first-child):not(:last-child) > td.alert-text {
+          #UserCP.code-alerts #ucpcontent > form > .tableborder > table > tbody > tr:not(:first-child):not(:last-child) > td.alert-text {
             padding-bottom: var(--space-sm);
             margin-top: -1px; }
-            #UserCP.code_alerts #ucpcontent > form > .tableborder > table > tbody > tr:not(:first-child):not(:last-child) > td.alert-text img {
+            #UserCP.code-alerts #ucpcontent > form > .tableborder > table > tbody > tr:not(:first-child):not(:last-child) > td.alert-text img {
               display: none; }
-          #UserCP.code_alerts #ucpcontent > form > .tableborder > table > tbody > tr:not(:first-child):not(:last-child) > td:last-child {
+          #UserCP.code-alerts #ucpcontent > form > .tableborder > table > tbody > tr:not(:first-child):not(:last-child) > td:last-child {
             position: absolute;
             left: 0;
             padding-left: var(--space-sm); }
 
-#UserCP.code_alerts #ucpcontent .pagination ~ br {
+#UserCP.code-alerts #ucpcontent .pagination ~ br {
   display: none; }
 
-#UserCP.code_alerts_settings table .pformstrip {
+#UserCP.code-alerts_settings table .pformstrip {
   padding: 0;
   line-height: 160%;
   margin: var(--space-sm) 0 0; }
-  #UserCP.code_alerts_settings table .pformstrip:first-child {
+  #UserCP.code-alerts_settings table .pformstrip:first-child {
     text-align: left; }
 
-#UserCP.code_alerts_settings table + .pformstrip {
+#UserCP.code-alerts_settings table + .pformstrip {
   text-align: center;
   margin-bottom: 0;
   padding: 0; }
-  #UserCP.code_alerts_settings table + .pformstrip::before {
+  #UserCP.code-alerts_settings table + .pformstrip::before {
     display: none; }
 
-#UserCP.code_alerts_settings tr:not(:nth-last-child(4)):not(:first-child) td {
+#UserCP.code-alerts_settings tr:not(:nth-last-child(4)):not(:first-child) td {
   padding: 0 0 var(--space-md); }
 
-#UserCP.code_alerts_settings tr:nth-last-child(4) .pformstrip {
+#UserCP.code-alerts_settings tr:nth-last-child(4) .pformstrip {
   padding-top: var(--space-md); }
 
-#UserCP.code_50 #ucpcontent > .pformstrip {
+#UserCP.code-50 #ucpcontent > .pformstrip {
   margin-block-end: var(--space-sm); }
 
-#UserCP.code_50 #ucpcontent > br {
+#UserCP.code-50 #ucpcontent > br {
   display: none; }
 
-#UserCP.code_50 #ucpcontent .tableborder > table > tbody > tr:first-child th.titlemedium,
-#UserCP.code_50 #ucpcontent .tableborder > table > tbody > tr:first-child td.titlemedium {
+#UserCP.code-50 #ucpcontent .tableborder > table > tbody > tr:first-child th.titlemedium,
+#UserCP.code-50 #ucpcontent .tableborder > table > tbody > tr:first-child td.titlemedium {
   text-align: left; }
 
-#UserCP.code_50 #ucpcontent .tableborder > table > tbody > tr td.darkrow3[colspan] {
+#UserCP.code-50 #ucpcontent .tableborder > table > tbody > tr td.darkrow3[colspan] {
   padding: var(--space-xs) var(--space-sm); }
 
-#UserCP.code_50 #ucpcontent .tableborder > table > tbody > tr:not(:first-child):not(:last-child):not(:has(td.darkrow3)) td.row1 {
+#UserCP.code-50 #ucpcontent .tableborder > table > tbody > tr:not(:first-child):not(:last-child):not(:has(td.darkrow3)) td.row1 {
   vertical-align: top; }
-  #UserCP.code_50 #ucpcontent .tableborder > table > tbody > tr:not(:first-child):not(:last-child):not(:has(td.darkrow3)) td.row1:nth-child(2) a:first-of-type {
+  #UserCP.code-50 #ucpcontent .tableborder > table > tbody > tr:not(:first-child):not(:last-child):not(:has(td.darkrow3)) td.row1:nth-child(2) a:first-of-type {
     display: block;
     font-weight: 500;
     color: var(--text-hiCon);
     margin-block-end: var(--space-xs); }
-  #UserCP.code_50 #ucpcontent .tableborder > table > tbody > tr:not(:first-child):not(:last-child):not(:has(td.darkrow3)) td.row1:nth-child(2) .desc {
+  #UserCP.code-50 #ucpcontent .tableborder > table > tbody > tr:not(:first-child):not(:last-child):not(:has(td.darkrow3)) td.row1:nth-child(2) .desc {
     font-size: var(--size-xs);
     color: var(--text-loCon); }
-  #UserCP.code_50 #ucpcontent .tableborder > table > tbody > tr:not(:first-child):not(:last-child):not(:has(td.darkrow3)) td.row1:nth-child(2) b a {
+  #UserCP.code-50 #ucpcontent .tableborder > table > tbody > tr:not(:first-child):not(:last-child):not(:has(td.darkrow3)) td.row1:nth-child(2) b a {
     font-size: var(--size-xs); }
 
-#UserCP.code_50 #ucpcontent .tableborder > table > tbody > tr:last-child td.titlemedium {
+#UserCP.code-50 #ucpcontent .tableborder > table > tbody > tr:last-child td.titlemedium {
   padding: var(--space-sm); }
-  #UserCP.code_50 #ucpcontent .tableborder > table > tbody > tr:last-child td.titlemedium a {
+  #UserCP.code-50 #ucpcontent .tableborder > table > tbody > tr:last-child td.titlemedium a {
     color: var(--text-loCon);
     font-size: var(--size-xs);
     text-decoration: none;
     transition: color var(--transi-quick); }
-    #UserCP.code_50 #ucpcontent .tableborder > table > tbody > tr:last-child td.titlemedium a:hover {
+    #UserCP.code-50 #ucpcontent .tableborder > table > tbody > tr:last-child td.titlemedium a:hover {
       color: var(--accent-1); }
 
-#UserCP.code_26 #ucpcontent > .pformstrip {
+#UserCP.code-26 #ucpcontent > .pformstrip {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
   flex-wrap: wrap;
   gap: var(--space-xs); }
-  #UserCP.code_26 #ucpcontent > .pformstrip span {
+  #UserCP.code-26 #ucpcontent > .pformstrip span {
     font-size: var(--size-xs);
     letter-spacing: 0.08em;
     color: var(--text-loCon);
     opacity: 0.8; }
-    #UserCP.code_26 #ucpcontent > .pformstrip span a {
+    #UserCP.code-26 #ucpcontent > .pformstrip span a {
       color: var(--text-loCon);
       text-decoration: none;
       transition: color var(--transi-quick); }
-      #UserCP.code_26 #ucpcontent > .pformstrip span a:hover {
+      #UserCP.code-26 #ucpcontent > .pformstrip span a:hover {
         color: var(--accent-1); }
 
-#UserCP.code_26 #ucpcontent > br {
+#UserCP.code-26 #ucpcontent > br {
   display: none; }
 
-#UserCP.code_26 #ucpcontent form[name="mutliact"] .tableborder > table > tbody > tr:first-child th.titlemedium,
-#UserCP.code_26 #ucpcontent form[name="mutliact"] .tableborder > table > tbody > tr:first-child td.titlemedium {
+#UserCP.code-26 #ucpcontent form[name="mutliact"] .tableborder > table > tbody > tr:first-child th.titlemedium,
+#UserCP.code-26 #ucpcontent form[name="mutliact"] .tableborder > table > tbody > tr:first-child td.titlemedium {
   text-align: left; }
 
-#UserCP.code_26 #ucpcontent form[name="mutliact"] .tableborder > table > tbody > tr td.darkrow3[colspan] {
+#UserCP.code-26 #ucpcontent form[name="mutliact"] .tableborder > table > tbody > tr td.darkrow3[colspan] {
   padding: var(--space-xs) var(--space-sm); }
 
-#UserCP.code_26 #ucpcontent form[name="mutliact"] .tableborder > table > tbody > tr:not(:first-child):not(:last-child):not(:has(td.darkrow3)) td.row3 {
+#UserCP.code-26 #ucpcontent form[name="mutliact"] .tableborder > table > tbody > tr:not(:first-child):not(:last-child):not(:has(td.darkrow3)) td.row3 {
   vertical-align: top; }
-  #UserCP.code_26 #ucpcontent form[name="mutliact"] .tableborder > table > tbody > tr:not(:first-child):not(:last-child):not(:has(td.darkrow3)) td.row3:nth-child(2) a:first-of-type {
+  #UserCP.code-26 #ucpcontent form[name="mutliact"] .tableborder > table > tbody > tr:not(:first-child):not(:last-child):not(:has(td.darkrow3)) td.row3:nth-child(2) a:first-of-type {
     display: block;
     font-weight: 500;
     color: var(--text-hiCon);
     margin-block-end: 0.2rem; }
-  #UserCP.code_26 #ucpcontent form[name="mutliact"] .tableborder > table > tbody > tr:not(:first-child):not(:last-child):not(:has(td.darkrow3)) td.row3:nth-child(2) .desc {
+  #UserCP.code-26 #ucpcontent form[name="mutliact"] .tableborder > table > tbody > tr:not(:first-child):not(:last-child):not(:has(td.darkrow3)) td.row3:nth-child(2) .desc {
     font-size: var(--size-xs);
     color: var(--text-loCon); }
 
-#UserCP.code_26 #ucpcontent form[name="mutliact"] .tableborder > table > tbody > tr:last-child td.titlemedium {
+#UserCP.code-26 #ucpcontent form[name="mutliact"] .tableborder > table > tbody > tr:last-child td.titlemedium {
   padding: var(--space-sm);
   text-align: center; }
 
-#UserCP.code_26 #ucpcontent > div[align="right"]:has(form) {
+#UserCP.code-26 #ucpcontent > div[align="right"]:has(form) {
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -1026,76 +1026,76 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text-loCon); }
-  #UserCP.code_26 #ucpcontent > div[align="right"]:has(form) form {
+  #UserCP.code-26 #ucpcontent > div[align="right"]:has(form) form {
     display: flex;
     align-items: center;
     gap: var(--space-xs); }
-    #UserCP.code_26 #ucpcontent > div[align="right"]:has(form) form select {
+    #UserCP.code-26 #ucpcontent > div[align="right"]:has(form) form select {
       width: auto; }
 
-#UserCP.code_26 #ucpcontent > div[style*="padding"][align="right"]:not(:has(form)) {
+#UserCP.code-26 #ucpcontent > div[style*="padding"][align="right"]:not(:has(form)) {
   font: 400 var(--size-xs)/1.5 var(--font-hand);
   color: var(--text-loCon);
   opacity: 0.6;
   text-align: right;
   padding: var(--space-xs) 0; }
-  #UserCP.code_26 #ucpcontent > div[style*="padding"][align="right"]:not(:has(form)) i {
+  #UserCP.code-26 #ucpcontent > div[style*="padding"][align="right"]:not(:has(form)) i {
     font-style: normal; }
 
 #Msg main > table:first-of-type > tbody > tr > td#ucpcontent > .pformstrip {
   margin-block-end: var(--space-md); }
 
-#Msg.code_01 .ucp--inner > table {
+#Msg.code-01 .ucp--inner > table {
   padding: 0 !important; }
-  #Msg.code_01 .ucp--inner > table > tbody > tr > td:first-child {
+  #Msg.code-01 .ucp--inner > table > tbody > tr > td:first-child {
     display: none; }
-  #Msg.code_01 .ucp--inner > table > tbody > tr > td > br,
-  #Msg.code_01 .ucp--inner > table > tbody > tr > td > form {
+  #Msg.code-01 .ucp--inner > table > tbody > tr > td > br,
+  #Msg.code-01 .ucp--inner > table > tbody > tr > td > form {
     display: none; }
 
-#Msg.code_01 .ucp--inner > form > .tableborder > table > tbody > tr:first-child {
+#Msg.code-01 .ucp--inner > form > .tableborder > table > tbody > tr:first-child {
   display: none; }
 
-#Msg.code_01 .ucp--inner > form > .tableborder > table > tbody > tr:last-child {
+#Msg.code-01 .ucp--inner > form > .tableborder > table > tbody > tr:last-child {
   font-size: 0;
   line-height: 0; }
-  #Msg.code_01 .ucp--inner > form > .tableborder > table > tbody > tr:last-child div,
-  #Msg.code_01 .ucp--inner > form > .tableborder > table > tbody > tr:last-child select,
-  #Msg.code_01 .ucp--inner > form > .tableborder > table > tbody > tr:last-child input:not([name="delete"]) {
+  #Msg.code-01 .ucp--inner > form > .tableborder > table > tbody > tr:last-child div,
+  #Msg.code-01 .ucp--inner > form > .tableborder > table > tbody > tr:last-child select,
+  #Msg.code-01 .ucp--inner > form > .tableborder > table > tbody > tr:last-child input:not([name="delete"]) {
     display: none; }
 
-#Msg.code_01 .ucp--inner > form > .tableborder > table > tbody > tr:not(:first-child):not(:last-child) {
+#Msg.code-01 .ucp--inner > form > .tableborder > table > tbody > tr:not(:first-child):not(:last-child) {
   display: flex;
   flex-direction: column;
   padding-left: calc(var(--space-sm) + var(--space-lg));
   padding-bottom: var(--space-md);
   margin: calc(var(--space-xs) / -2) 0 var(--space-md);
   border-bottom: var(--bdash); }
-  #Msg.code_01 .ucp--inner > form > .tableborder > table > tbody > tr:not(:first-child):not(:last-child):nth-child(2) {
+  #Msg.code-01 .ucp--inner > form > .tableborder > table > tbody > tr:not(:first-child):not(:last-child):nth-child(2) {
     padding-top: var(--space-md); }
-    #Msg.code_01 .ucp--inner > form > .tableborder > table > tbody > tr:not(:first-child):not(:last-child):nth-child(2) > td:last-child {
+    #Msg.code-01 .ucp--inner > form > .tableborder > table > tbody > tr:not(:first-child):not(:last-child):nth-child(2) > td:last-child {
       top: calc(var(--space-md) + var(--space-xs)); }
-  #Msg.code_01 .ucp--inner > form > .tableborder > table > tbody > tr:not(:first-child):not(:last-child) > td {
+  #Msg.code-01 .ucp--inner > form > .tableborder > table > tbody > tr:not(:first-child):not(:last-child) > td {
     padding: 0; }
-    #Msg.code_01 .ucp--inner > form > .tableborder > table > tbody > tr:not(:first-child):not(:last-child) > td:first-child {
+    #Msg.code-01 .ucp--inner > form > .tableborder > table > tbody > tr:not(:first-child):not(:last-child) > td:first-child {
       text-align: left;
       width: 100%; }
-    #Msg.code_01 .ucp--inner > form > .tableborder > table > tbody > tr:not(:first-child):not(:last-child) > td:nth-child(2) a {
+    #Msg.code-01 .ucp--inner > form > .tableborder > table > tbody > tr:not(:first-child):not(:last-child) > td:nth-child(2) a {
       margin-top: -5px;
       margin-bottom: -5px; }
-      #Msg.code_01 .ucp--inner > form > .tableborder > table > tbody > tr:not(:first-child):not(:last-child) > td:nth-child(2) a::before {
+      #Msg.code-01 .ucp--inner > form > .tableborder > table > tbody > tr:not(:first-child):not(:last-child) > td:nth-child(2) a::before {
         display: none; }
-    #Msg.code_01 .ucp--inner > form > .tableborder > table > tbody > tr:not(:first-child):not(:last-child) > td:nth-child(3) {
+    #Msg.code-01 .ucp--inner > form > .tableborder > table > tbody > tr:not(:first-child):not(:last-child) > td:nth-child(3) {
       font-size: 0;
       line-height: 0;
       margin: 0; }
-      #Msg.code_01 .ucp--inner > form > .tableborder > table > tbody > tr:not(:first-child):not(:last-child) > td:nth-child(3) a:first-of-type {
+      #Msg.code-01 .ucp--inner > form > .tableborder > table > tbody > tr:not(:first-child):not(:last-child) > td:nth-child(3) a:first-of-type {
         font-size: var(--size-xs);
         padding: var(--space-xs) 0;
         display: flex;
         flex-wrap: wrap;
         gap: var(--space-xs); }
-        #Msg.code_01 .ucp--inner > form > .tableborder > table > tbody > tr:not(:first-child):not(:last-child) > td:nth-child(3) a:first-of-type::before {
+        #Msg.code-01 .ucp--inner > form > .tableborder > table > tbody > tr:not(:first-child):not(:last-child) > td:nth-child(3) a:first-of-type::before {
           content: "Sent from ";
           width: auto;
           position: relative;
@@ -1103,148 +1103,148 @@
           left: auto;
           height: auto;
           background: none; }
-      #Msg.code_01 .ucp--inner > form > .tableborder > table > tbody > tr:not(:first-child):not(:last-child) > td:nth-child(3) a:last-of-type {
+      #Msg.code-01 .ucp--inner > form > .tableborder > table > tbody > tr:not(:first-child):not(:last-child) > td:nth-child(3) a:last-of-type {
         display: none; }
-    #Msg.code_01 .ucp--inner > form > .tableborder > table > tbody > tr:not(:first-child):not(:last-child) > td:nth-child(4) {
+    #Msg.code-01 .ucp--inner > form > .tableborder > table > tbody > tr:not(:first-child):not(:last-child) > td:nth-child(4) {
       width: 100%;
       font-size: var(--size-xs);
       line-height: 120%; }
-    #Msg.code_01 .ucp--inner > form > .tableborder > table > tbody > tr:not(:first-child):not(:last-child) > td:last-child {
+    #Msg.code-01 .ucp--inner > form > .tableborder > table > tbody > tr:not(:first-child):not(:last-child) > td:last-child {
       position: absolute;
       top: var(--space-xs);
       left: 0; }
 
-#Msg.code_04 form > table > tbody > tr {
+#Msg.code-04 form > table > tbody > tr {
   margin-bottom: var(--space-md); }
-  #Msg.code_04 form > table > tbody > tr .pformstrip {
+  #Msg.code-04 form > table > tbody > tr .pformstrip {
     text-align: left; }
-  #Msg.code_04 form > table > tbody > tr:first-child {
+  #Msg.code-04 form > table > tbody > tr:first-child {
     margin-bottom: var(--space-md) !important; }
-    #Msg.code_04 form > table > tbody > tr:first-child .pformstrip {
+    #Msg.code-04 form > table > tbody > tr:first-child .pformstrip {
       margin-bottom: 0;
       line-height: 160%;
       max-width: max-content; }
-  #Msg.code_04 form > table > tbody > tr:nth-child(2), #Msg.code_04 form > table > tbody > tr:nth-child(4), #Msg.code_04 form > table > tbody > tr:nth-child(5), #Msg.code_04 form > table > tbody > tr:nth-child(6), #Msg.code_04 form > table > tbody > tr:nth-last-child(3), #Msg.code_04 form > table > tbody > tr#code_buttons-header, #Msg.code_04 form > table > tbody > tr#enter-your-post-header {
+  #Msg.code-04 form > table > tbody > tr:nth-child(2), #Msg.code-04 form > table > tbody > tr:nth-child(4), #Msg.code-04 form > table > tbody > tr:nth-child(5), #Msg.code-04 form > table > tbody > tr:nth-child(6), #Msg.code-04 form > table > tbody > tr:nth-last-child(3), #Msg.code-04 form > table > tbody > tr#code-buttons-header, #Msg.code-04 form > table > tbody > tr#enter-your-post-header {
     display: none !important; }
-  #Msg.code_04 form > table > tbody > tr:nth-child(3) .pformleft {
+  #Msg.code-04 form > table > tbody > tr:nth-child(3) .pformleft {
     display: none; }
-  #Msg.code_04 form > table > tbody > tr:nth-child(3) .pformright {
+  #Msg.code-04 form > table > tbody > tr:nth-child(3) .pformright {
     grid-column: 1 / -1;
     padding: 0; }
-  #Msg.code_04 form > table > tbody > tr:nth-child(7) {
+  #Msg.code-04 form > table > tbody > tr:nth-child(7) {
     grid-template-columns: 100%;
     gap: 0; }
-    #Msg.code_04 form > table > tbody > tr:nth-child(7) .pformleft {
+    #Msg.code-04 form > table > tbody > tr:nth-child(7) .pformleft {
       border: none;
       padding: 0; }
-    #Msg.code_04 form > table > tbody > tr:nth-child(7) .pformright {
+    #Msg.code-04 form > table > tbody > tr:nth-child(7) .pformright {
       padding: 0; }
-  #Msg.code_04 form > table > tbody > tr:nth-last-child(2) .pformleft {
+  #Msg.code-04 form > table > tbody > tr:nth-last-child(2) .pformleft {
     display: none; }
-  #Msg.code_04 form > table > tbody > tr:nth-last-child(2) .pformright {
+  #Msg.code-04 form > table > tbody > tr:nth-last-child(2) .pformright {
     grid-column: 1 / -1;
     padding: 0;
     justify-content: center; }
-    #Msg.code_04 form > table > tbody > tr:nth-last-child(2) .pformright br {
+    #Msg.code-04 form > table > tbody > tr:nth-last-child(2) .pformright br {
       display: none; }
-  #Msg.code_04 form > table > tbody > tr#code-buttons {
+  #Msg.code-04 form > table > tbody > tr#code-buttons {
     display: block; }
-    #Msg.code_04 form > table > tbody > tr#code-buttons .pformleft {
+    #Msg.code-04 form > table > tbody > tr#code-buttons .pformleft {
       display: none; }
-    #Msg.code_04 form > table > tbody > tr#code-buttons .pformright {
+    #Msg.code-04 form > table > tbody > tr#code-buttons .pformright {
       font-size: 0;
       line-height: 0;
       padding: 0; }
-      #Msg.code_04 form > table > tbody > tr#code-buttons .pformright > input,
-      #Msg.code_04 form > table > tbody > tr#code-buttons .pformright > br {
+      #Msg.code-04 form > table > tbody > tr#code-buttons .pformright > input,
+      #Msg.code-04 form > table > tbody > tr#code-buttons .pformright > br {
         display: none; }
-      #Msg.code_04 form > table > tbody > tr#code-buttons .pformright #bbcode-buttons {
+      #Msg.code-04 form > table > tbody > tr#code-buttons .pformright #bbcode-buttons {
         display: flex;
         flex-wrap: wrap;
         gap: 5px; }
-        #Msg.code_04 form > table > tbody > tr#code-buttons .pformright #bbcode-buttons input,
-        #Msg.code_04 form > table > tbody > tr#code-buttons .pformright #bbcode-buttons select {
+        #Msg.code-04 form > table > tbody > tr#code-buttons .pformright #bbcode-buttons input,
+        #Msg.code-04 form > table > tbody > tr#code-buttons .pformright #bbcode-buttons select {
           width: max-content;
           max-width: max-content; }
-        #Msg.code_04 form > table > tbody > tr#code-buttons .pformright #bbcode-buttons > a,
-        #Msg.code_04 form > table > tbody > tr#code-buttons .pformright #bbcode-buttons > br {
+        #Msg.code-04 form > table > tbody > tr#code-buttons .pformright #bbcode-buttons > a,
+        #Msg.code-04 form > table > tbody > tr#code-buttons .pformright #bbcode-buttons > br {
           display: none; }
-  #Msg.code_04 form > table > tbody > tr#enter-your-post-header + tr {
+  #Msg.code-04 form > table > tbody > tr#enter-your-post-header + tr {
     display: block; }
-    #Msg.code_04 form > table > tbody > tr#enter-your-post-header + tr > td {
+    #Msg.code-04 form > table > tbody > tr#enter-your-post-header + tr > td {
       display: block; }
-      #Msg.code_04 form > table > tbody > tr#enter-your-post-header + tr > td.pformleft {
+      #Msg.code-04 form > table > tbody > tr#enter-your-post-header + tr > td.pformleft {
         display: none; }
-      #Msg.code_04 form > table > tbody > tr#enter-your-post-header + tr > td.pformright {
+      #Msg.code-04 form > table > tbody > tr#enter-your-post-header + tr > td.pformright {
         padding: 0; }
-      #Msg.code_04 form > table > tbody > tr#enter-your-post-header + tr > td textarea {
+      #Msg.code-04 form > table > tbody > tr#enter-your-post-header + tr > td textarea {
         width: 100%;
         height: 400px;
         box-sizing: border-box; }
-  #Msg.code_04 form > table > tbody > tr:last-child .pformstrip {
+  #Msg.code-04 form > table > tbody > tr:last-child .pformstrip {
     padding-top: var(--space-lg) !important; }
 
-#Msg.code_03 .ucp--inner > .pformstrip ~ div:not(.tableborder) {
+#Msg.code-03 .ucp--inner > .pformstrip ~ div:not(.tableborder) {
   font-size: var(--size-xs); }
 
-#Msg.code_03 .ucp--inner > .tableborder + div {
+#Msg.code-03 .ucp--inner > .tableborder + div {
   display: none; }
 
-#Msg.code_03 .ucp--inner > .tableborder .titlemedium {
+#Msg.code-03 .ucp--inner > .tableborder .titlemedium {
   display: none; }
 
-#Msg.code_03 .ucp--inner .msg-normal > table {
+#Msg.code-03 .ucp--inner .msg-normal > table {
   display: block;
   margin-top: var(--space-md); }
   @media (min-width: 601px) {
-    #Msg.code_03 .ucp--inner .msg-normal > table {
+    #Msg.code-03 .ucp--inner .msg-normal > table {
       margin-top: var(--space-lg); } }
-  #Msg.code_03 .ucp--inner .msg-normal > table tbody {
+  #Msg.code-03 .ucp--inner .msg-normal > table tbody {
     display: flex;
     flex-direction: column; }
-    #Msg.code_03 .ucp--inner .msg-normal > table tbody tr:nth-child(2n + 1) {
+    #Msg.code-03 .ucp--inner .msg-normal > table tbody tr:nth-child(2n + 1) {
       display: flex;
       flex-direction: column;
       gap: var(--space-sm); }
-      #Msg.code_03 .ucp--inner .msg-normal > table tbody tr:nth-child(2n + 1) td {
+      #Msg.code-03 .ucp--inner .msg-normal > table tbody tr:nth-child(2n + 1) td {
         padding: 0;
         width: 100%;
         font-size: var(--size-xs); }
-        #Msg.code_03 .ucp--inner .msg-normal > table tbody tr:nth-child(2n + 1) td:not(:first-child) {
+        #Msg.code-03 .ucp--inner .msg-normal > table tbody tr:nth-child(2n + 1) td:not(:first-child) {
           display: flex;
           gap: var(--space-lg);
           justify-content: space-between;
           align-items: center; }
-          #Msg.code_03 .ucp--inner .msg-normal > table tbody tr:nth-child(2n + 1) td:not(:first-child) > * {
+          #Msg.code-03 .ucp--inner .msg-normal > table tbody tr:nth-child(2n + 1) td:not(:first-child) > * {
             float: none !important; }
-          #Msg.code_03 .ucp--inner .msg-normal > table tbody tr:nth-child(2n + 1) td:not(:first-child) .post-buttons-top {
+          #Msg.code-03 .ucp--inner .msg-normal > table tbody tr:nth-child(2n + 1) td:not(:first-child) .post-buttons-top {
             display: flex;
             gap: var(--space-xs); }
-          #Msg.code_03 .ucp--inner .msg-normal > table tbody tr:nth-child(2n + 1) td:not(:first-child) a {
+          #Msg.code-03 .ucp--inner .msg-normal > table tbody tr:nth-child(2n + 1) td:not(:first-child) a {
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer; }
-            #Msg.code_03 .ucp--inner .msg-normal > table tbody tr:nth-child(2n + 1) td:not(:first-child) a::before {
+            #Msg.code-03 .ucp--inner .msg-normal > table tbody tr:nth-child(2n + 1) td:not(:first-child) a::before {
               display: none; }
-        #Msg.code_03 .ucp--inner .msg-normal > table tbody tr:nth-child(2n + 1) td:first-child a {
+        #Msg.code-03 .ucp--inner .msg-normal > table tbody tr:nth-child(2n + 1) td:first-child a {
           font-size: var(--size-md);
           letter-spacing: 0; }
-    #Msg.code_03 .ucp--inner .msg-normal > table tbody tr:nth-child(2n) {
+    #Msg.code-03 .ucp--inner .msg-normal > table tbody tr:nth-child(2n) {
       display: block;
       padding: var(--space-lg);
       margin: var(--space-md) 0 var(--space-lg);
       border-top: var(--bdash);
       border-bottom: var(--bdash); }
-      #Msg.code_03 .ucp--inner .msg-normal > table tbody tr:nth-child(2n) td {
+      #Msg.code-03 .ucp--inner .msg-normal > table tbody tr:nth-child(2n) td {
         display: block;
         width: 100%;
         padding: 0;
         text-align: justify;
         line-height: 200%; }
-        #Msg.code_03 .ucp--inner .msg-normal > table tbody tr:nth-child(2n) td:first-child {
+        #Msg.code-03 .ucp--inner .msg-normal > table tbody tr:nth-child(2n) td:first-child {
           display: none; }
-      #Msg.code_03 .ucp--inner .msg-normal > table tbody tr:nth-child(2n) .signature {
+      #Msg.code-03 .ucp--inner .msg-normal > table tbody tr:nth-child(2n) .signature {
         display: none; }
-    #Msg.code_03 .ucp--inner .msg-normal > table tbody tr:last-child {
+    #Msg.code-03 .ucp--inner .msg-normal > table tbody tr:last-child {
       display: none; }

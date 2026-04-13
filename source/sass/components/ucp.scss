@@ -508,8 +508,8 @@
   }
 }
 
-// ── code_01: Edit Profile ─────────────────────────────────────────
-#UserCP.code_01 {
+// ── code-01: Edit Profile ─────────────────────────────────────────
+#UserCP.code-01 {
   #ucpcontent {
     form {
       > .pformstrip { display: none; }
@@ -622,8 +622,8 @@
   }
 }
 
-// ── code_24: Edit Avatar ──────────────────────────────────────────
-#UserCP.code_24 {
+// ── code-24: Edit Avatar ──────────────────────────────────────────
+#UserCP.code-24 {
   #ucpcontent {
     // Current avatar preview
     .tablepad {
@@ -690,8 +690,9 @@
   }
 }
 
-// ── code_54: Sub-accounts ─────────────────────────────────────────
-#UserCP.code_54 {
+// ── code-54: Sub-accounts ─────────────────────────────────────────
+// ── code-54: Sub-accounts ─────────────────────────────────────────
+#UserCP.code-54 {
   #ucpcontent {
     > p {
       font: 400 var(--size-sm) / 1.7 var(--font-hand);
@@ -836,8 +837,8 @@
   }
 }
 
-// ── code_52: Change Username ──────────────────────────────────────
-#UserCP.code_52 {
+// ── code-52: Change Username ──────────────────────────────────────
+#UserCP.code-52 {
   #ucpcontent {
     // Instructions block
     .row2 {
@@ -875,11 +876,11 @@
   }
 }
 
-// ── code_28 & code_08: Password / Email ──────────────────────────
+// ── code-28 & code-08: Password / Email ──────────────────────────
 // These pages use a raw <table style="padding:6px"> with
 // <td><b>label</b></td><td><input></td> — no pformleft/pformright
-#UserCP.code_28,
-#UserCP.code_08 {
+#UserCP.code-28,
+#UserCP.code-08 {
   #ucpcontent {
     // Intro paragraph
     > p {
@@ -915,7 +916,7 @@
                   color: var(--text-loCon);
                   padding: 0.2rem 0;
                 }
-                // Current email address text (code_08)
+                // Current email address text (code-08)
                 &:not(:has(b)):not(:has(strong)) {
                   font: 400 var(--size-xs) / 1 var(--font-hand);
                   letter-spacing: 0.14em;
@@ -939,9 +940,9 @@
   }
 }
 
-// ── code_02: Email Settings ───────────────────────────────────────
+// ── code-02: Email Settings ───────────────────────────────────────
 // Checkbox + label description rows — NOT pformleft/pformright
-#UserCP.code_02 {
+#UserCP.code-02 {
   #ucpcontent {
     form {
       > .pformstrip {
@@ -1000,9 +1001,9 @@
   }
 }
 
-// ── code_04: Board Settings ───────────────────────────────────────
+// ── code-04: Board Settings ───────────────────────────────────────
 // Note: verify actual HTML matches assumed structure (not uploaded)
-#UserCP.code_04 {
+#UserCP.code-04 {
   #ucpcontent {
     > form > table > tbody > tr > td {
       &:first-child {
@@ -1040,9 +1041,9 @@
   }
 }
 
-// ── code_alerts: Alerts list ──────────────────────────────────────
+// ── code-alerts: Alerts list ──────────────────────────────────────
 // Note: verify against user-alerts.html (not uploaded)
-#UserCP.code_alerts {
+#UserCP.code-alerts {
   #ucpcontent {
     > table {
       img {
@@ -1151,9 +1152,9 @@
   }
 }
 
-// ── code_alerts_settings: Alert Settings ─────────────────────────
+// ── code-alerts_settings: Alert Settings ─────────────────────────
 // Note: verify against user-alertset.html (not uploaded)
-#UserCP.code_alerts_settings {
+#UserCP.code-alerts_settings {
   table {
     .pformstrip {
       padding: 0;
@@ -1189,8 +1190,8 @@
   }
 }
 
-// ── code_50: Forum subscriptions ─────────────────────────────────
-#UserCP.code_50 {
+// ── code-50: Forum subscriptions ─────────────────────────────────
+#UserCP.code-50 {
   #ucpcontent {
     // Intro strip + br
     > .pformstrip {
@@ -1252,8 +1253,8 @@
   }
 }
 
-// ── code_26: Topic subscriptions ─────────────────────────────────
-#UserCP.code_26 {
+// ── code-26: Topic subscriptions ─────────────────────────────────
+#UserCP.code-26 {
   #ucpcontent {
     // Heading pformstrip has an inline sort-links <span>
     > .pformstrip {
@@ -1375,8 +1376,8 @@
   }
 }
 
-// ── Msg code_01: Inbox ────────────────────────────────────────────
-#Msg.code_01 {
+// ── Msg code-01: Inbox ────────────────────────────────────────────
+#Msg.code-01 {
   .ucp--inner {
     > table {
       padding: 0 !important;
@@ -1482,8 +1483,8 @@
   }
 }
 
-// ── Msg code_04: Send Message ─────────────────────────────────────
-#Msg.code_04 {
+// ── Msg code-04: Send Message ─────────────────────────────────────
+#Msg.code-04 {
   form > table > tbody > tr {
     margin-bottom: var(--space-md);
 
@@ -1505,7 +1506,7 @@
     &:nth-child(5),
     &:nth-child(6),
     &:nth-last-child(3),
-    &#code_buttons-header,
+    &#code-buttons-header,
     &#enter-your-post-header {
       display: none !important;
     }
@@ -1602,8 +1603,8 @@
   }
 }
 
-// ── Msg code_03: View Message ─────────────────────────────────────
-#Msg.code_03 {
+// ── Msg code-03: View Message ─────────────────────────────────────
+#Msg.code-03 {
   .ucp--inner {
     > .pformstrip ~ div:not(.tableborder) {
       font-size: var(--size-xs);
