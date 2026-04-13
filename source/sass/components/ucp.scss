@@ -8,6 +8,11 @@
 // ── Shared: hide jcink chrome ──────────────────────────────────────
 #UserCP,
 #Msg {
+    main {
+        position: relative;
+        z-index: 1;
+    }
+    
   // Hide the outermost table wrapper Jcink forces and all siblings after it
   main > table:first-of-type {
     position:relative;
