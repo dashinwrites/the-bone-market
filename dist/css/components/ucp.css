@@ -11,8 +11,8 @@
 /*******************************
     User CP
 ********************************/
-#UserCP main,
-#Msg main {
+body#UserCP main,
+body#Msg main {
   position: relative;
   z-index: 1; }
 
