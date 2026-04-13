@@ -9,6 +9,7 @@ document.querySelectorAll("#post_as_menu option").forEach((account) => {
 });
 
 let switcher = document.querySelector('#account-switch #subaccounts_menu select')
+  ?? document.querySelector('#subaccounts_menu select')
   ?? document.querySelector('select[name="sub_id"]');
 
 if (switcher !== null) {
