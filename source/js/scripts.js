@@ -813,7 +813,11 @@ if (pageType === "Profile") {
     const isCharacter = sessionStorage.getItem("dev-account") !== "member";
     injectFakeProfileData(isCharacter ? characterProfile : memberProfile);
   }
-  initProfile();  // ← remove the `true` for live site
+  if (typeof initProfile === 'function') {
+    initProfile();
+  } else {
+    console.warn('initProfile not defined — profileFunctions.js may not have loaded');
+  }
 }
 
 /********** Post View Only **********/
@@ -1228,6 +1232,7 @@ if (pageType === "modcp") {
 // CHARACTER / OOC SWAP
 
 (function () {
+  if (window.location.hostname.includes('jcink.net')) return;
   if (!document.querySelector(".bm-profile")) return;
 
   const profile = document.querySelector(".bm-profile");
