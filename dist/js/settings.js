@@ -23,7 +23,7 @@ const staffDiscordRole = `ID`;
 //this is for displaying the avatars for the visual account switcher and the member roster.
 //just make sure the sitename matches and, if it does and the images still don't show, try changes 'uploads2' to 'uploads', sometimes jcink is weird
 const uploads = `uploads2`;
-const siteName = `sitename`;
+const siteName = `the-bone-market`;
 const fileTypes = ['gif', 'jpg', 'jpeg', 'png'];
 const defaultSquare = 'https://picsum.photos/100';
 const checkboxChecked = `<i class="fa-solid fa-check"></i>`;
