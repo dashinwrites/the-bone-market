@@ -57,7 +57,7 @@ main {
     padding: clamp(20px, 2.4vw, 34px);
     border: var(--border--primary, 1px solid var(--bm-guide-border));
     box-shadow: var(--bm-guide-shadow);
-    background: var(--bg-1-rgb); }
+    background: var(--bg-3); }
     .bm-guidebook--tabs::before {
       content: "";
       position: absolute;
