@@ -318,7 +318,7 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
     position: relative;
     z-index: 2;
-    background: var(--bg-1-rgb);
+    background: var(--bg-1);
     border: var(--border-1);
     border-top: var(--border-1);
     border-radius: 0 0 6px 6px;
@@ -794,74 +794,30 @@ body.dark .category[class*="plate-"] {
   display: inline-block;
   line-height: 1.05;
   letter-spacing: 0.02em;
-}
-
-/* 1) Fancy */
-.category-title--fancy {
-  background: linear-gradient(90deg, var(--ct-accent-1), var(--ct-accent-2));
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  padding-bottom: 5px;
-  margin-top: -5px;
-  text-shadow:
-    0 1px 0 rgba(0, 0, 0, 0.25),
-    0 0 12px #{"color-mix(in oklab, var(--ct-accent-1) 40%, transparent)"};
-
-  &::before {
-    content: var(--ct-glyph);
-    position: absolute;
-    inset-inline-start: -1.25em;
-    inset-block-start: 0;
-    font-size: 0.8em;
-    opacity: 0.65;
-    color: var(--ct-accent-1);
-  }
 
   &::after {
     border-bottom: none;
   }
-}
 
-/* 2) Etched */
-.category-title--etched {
-  color: transparent;
-  -webkit-text-stroke: 1px var(--ct-accent-1);
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
-
-  &::after {
-    content: attr(data-title);
-    position: absolute;
-    inset: 0;
-    color: var(--ct-accent-2);
-    opacity: 0.25;
-    transform: translate(1px, 1px);
-    mix-blend-mode: multiply;
-    pointer-events: none;
-  }
-}
-
-/* 3) Capsule */
-.category-title--capsule {
-  padding-inline: 1.25rem;
-
-  &::before,
-  &::after {
-    content: "";
-    position: absolute;
-    inset-block-start: 50%;
-    transform: translateY(-50%);
-    block-size: 1px;
-    inline-size: clamp(40px, 8vw, 120px);
-    background: currentColor;
-    opacity: 0.35;
+  &--stamped {
+    color: var(--ct-accent-1);
+    text-shadow:
+      0 1px 0 #{"color-mix(in oklab, var(--ct-accent-1) 20%, transparent)"},
+      0 -1px 0 rgba(0, 0, 0, 0.4);
   }
 
-  &::before {
-    inset-inline-start: calc(#{"100%"} + 0.5rem);
-  }
-  &::after {
-    inset-inline-end: calc(#{"100%"} + 0.5rem);
+  &--foil {
+    background: linear-gradient(
+      135deg,
+      var(--ct-accent-2) 0%,
+      var(--ct-accent-1) 35%,
+      #{"color-mix(in oklab, var(--ct-accent-1) 60%, white)"} 50%,
+      var(--ct-accent-1) 65%,
+      var(--ct-accent-2) 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 }
 

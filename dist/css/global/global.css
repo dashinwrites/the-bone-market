@@ -32,8 +32,10 @@
    LAYOUT
 ================================ */
 html, body {
-  background-color: var(--bg-1);
   color: var(--text-hiCon); }
+
+.bm-container {
+  background-color: var(--bg-1); }
 
 .bg {
   position: fixed;
@@ -42,7 +44,7 @@ html, body {
   block-size: 100dvb;
   background: var(--bg-img) center/cover no-repeat fixed;
   opacity: .25;
-  z-index: -1;
+  z-index: 0;
   pointer-events: none; }
   .bg::before {
     content: "";
@@ -61,6 +63,7 @@ html, body {
 .bm-container {
   padding-inline: var(--container-pad);
   position: relative;
+  z-index: 1;
   margin-block-start: var(--nav-h);
   margin-inline-start: var(--leftbar-w); }
   .bm-container > .full-bleed,
@@ -69,6 +72,18 @@ html, body {
     margin-inline: calc(-1 * var(--container-pad));
     inline-size: calc(100% + 2 * var(--container-pad));
     overflow-x: clip; }
+
+body#Profile {
+  overflow: hidden; }
+  body#Profile main {
+    height: 100%;
+    overflow: hidden; }
+  body#Profile .bm-container {
+    height: 100%;
+    overflow-y: auto;
+    scrollbar-width: none; }
+    body#Profile .bm-container::-webkit-scrollbar {
+      display: none; }
 
 .invisibleElTagging.menu-open + .alert-options .fa-tags,
 .invisibleElTagging:not(.menu-open) + .alert-options .fa-xmark {

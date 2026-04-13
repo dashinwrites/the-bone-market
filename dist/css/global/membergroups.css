@@ -4,460 +4,512 @@
  SCSS maps + mixins to auto-generate classes.
 ***********************************************/
 /* ── 1) GRADIENT MAPS ───────────────────────── */
-/* Master map (merge all). Order determines cascade if names ever collide. */
+/*
+  text-light = readable on light backgrounds (~#ededed)
+               derived from: color-mix(end, black, 45%)
+  text-dark  = readable on dark backgrounds (~#121212)
+               derived from: color-mix(start, white, 40%)
+*/
+/* Master map */
 /* ── 2) CORE MIXINS ─────────────────────────── */
-/* Utility: create classes like `.membergroup--obsidian` with a CSS var for reuse */
-/* Pill style (filled chip/badge) */
-/* Outline style (transparent fill; gradient border) */
-/* Text gradient style (keeps container transparent) */
-/* ── 3) ONE-LINE API TO GENERATE EVERYTHING ─── */
-/* Emit --mg-gradient via [data-mg="..."] */
-/* Call it for each set (or just once with $gradients-all) */
+/* ── 3) ONE-LINE API ────────────────────────── */
+/* Emit via [data-mg="..."] */
 [data-mg="obsidian"] {
-  --mg-gradient: linear-gradient(135deg, #0b0b0c, #3a3a3d);
-  --mg-start: #0b0b0c;
-  --mg-end: #3a3a3d; }
+  --mg-gradient:   linear-gradient(135deg, #0b0b0c, #3a3a3d);
+  --mg-start:      #0b0b0c;
+  --mg-end:        #3a3a3d;
+  --mg-text-light: #1a1a1b;
+  --mg-text-dark:  #9d9d9e; }
 
 [data-mg="quartz"] {
-  --mg-gradient: linear-gradient(135deg, #d8efff, #cabfff);
-  --mg-start: #d8efff;
-  --mg-end: #cabfff; }
+  --mg-gradient:   linear-gradient(135deg, #d8efff, #cabfff);
+  --mg-start:      #d8efff;
+  --mg-end:        #cabfff;
+  --mg-text-light: #5b5673;
+  --mg-text-dark:  #eff9ff; }
 
 [data-mg="onyx"] {
-  --mg-gradient: linear-gradient(135deg, #161210, #4a3834);
-  --mg-start: #161210;
-  --mg-end: #4a3834; }
+  --mg-gradient:   linear-gradient(135deg, #161210, #4a3834);
+  --mg-start:      #161210;
+  --mg-end:        #4a3834;
+  --mg-text-light: #211917;
+  --mg-text-dark:  #a2a09f; }
 
 [data-mg="amber"] {
-  --mg-gradient: linear-gradient(135deg, #ffb347, #ffcc33);
-  --mg-start: #ffb347;
-  --mg-end: #ffcc33; }
+  --mg-gradient:   linear-gradient(135deg, #ffb347, #ffcc33);
+  --mg-start:      #ffb347;
+  --mg-end:        #ffcc33;
+  --mg-text-light: #735c17;
+  --mg-text-dark:  #ffe1b5; }
 
 [data-mg="jade"] {
-  --mg-gradient: linear-gradient(135deg, #3fa374, #a1d19d);
-  --mg-start: #3fa374;
-  --mg-end: #a1d19d; }
+  --mg-gradient:   linear-gradient(135deg, #3fa374, #a1d19d);
+  --mg-start:      #3fa374;
+  --mg-end:        #a1d19d;
+  --mg-text-light: #485e47;
+  --mg-text-dark:  #b2dac7; }
 
 [data-mg="silver"] {
-  --mg-gradient: linear-gradient(135deg, #b0c4d2, #7890a0);
-  --mg-start: #b0c4d2;
-  --mg-end: #7890a0; }
+  --mg-gradient:   linear-gradient(135deg, #b0c4d2, #7890a0);
+  --mg-start:      #b0c4d2;
+  --mg-end:        #7890a0;
+  --mg-text-light: #364148;
+  --mg-text-dark:  #dfe7ed; }
 
 [data-mg="marrow"] {
-  --mg-gradient: linear-gradient(135deg, #f1e6dc, #bba998);
-  --mg-start: #f1e6dc;
-  --mg-end: #bba998; }
+  --mg-gradient:   linear-gradient(135deg, #f1e6dc, #bba998);
+  --mg-start:      #f1e6dc;
+  --mg-end:        #bba998;
+  --mg-text-light: #544c44;
+  --mg-text-dark:  #f9f5f1; }
 
 [data-mg="sinew"] {
-  --mg-gradient: linear-gradient(135deg, #d5a981, #8c5b3c);
-  --mg-start: #d5a981;
-  --mg-end: #8c5b3c; }
+  --mg-gradient:   linear-gradient(135deg, #d5a981, #8c5b3c);
+  --mg-start:      #d5a981;
+  --mg-end:        #8c5b3c;
+  --mg-text-light: #3f291b;
+  --mg-text-dark:  #eeddcd; }
 
 [data-mg="blood"] {
-  --mg-gradient: linear-gradient(135deg, #7a0d1d, #d92b2b);
-  --mg-start: #7a0d1d;
-  --mg-end: #d92b2b; }
+  --mg-gradient:   linear-gradient(135deg, #7a0d1d, #d92b2b);
+  --mg-start:      #7a0d1d;
+  --mg-end:        #d92b2b;
+  --mg-text-light: #621313;
+  --mg-text-dark:  #ca9ea5; }
 
 [data-mg="vein"] {
-  --mg-gradient: linear-gradient(135deg, #21334d, #486b94);
-  --mg-start: #21334d;
-  --mg-end: #486b94; }
+  --mg-gradient:   linear-gradient(135deg, #21334d, #486b94);
+  --mg-start:      #21334d;
+  --mg-end:        #486b94;
+  --mg-text-light: #203043;
+  --mg-text-dark:  #a6adb8; }
 
 [data-mg="bone"] {
-  --mg-gradient: linear-gradient(135deg, #dedac8, #aaa084);
-  --mg-start: #dedac8;
-  --mg-end: #aaa084; }
+  --mg-gradient:   linear-gradient(135deg, #dedac8, #aaa084);
+  --mg-start:      #dedac8;
+  --mg-end:        #aaa084;
+  --mg-text-light: #4d483b;
+  --mg-text-dark:  #f2f0e9; }
 
 [data-mg="flesh"] {
-  --mg-gradient: linear-gradient(135deg, #f5c3b5, #d98f80);
-  --mg-start: #f5c3b5;
-  --mg-end: #d98f80; }
+  --mg-gradient:   linear-gradient(135deg, #f5c3b5, #d98f80);
+  --mg-start:      #f5c3b5;
+  --mg-end:        #d98f80;
+  --mg-text-light: #62403a;
+  --mg-text-dark:  #fbe7e1; }
 
 [data-mg="eclipse"] {
-  --mg-gradient: linear-gradient(135deg, #191919, #4a3b5e);
-  --mg-start: #191919;
-  --mg-end: #4a3b5e; }
+  --mg-gradient:   linear-gradient(135deg, #191919, #4a3b5e);
+  --mg-start:      #191919;
+  --mg-end:        #4a3b5e;
+  --mg-text-light: #211b2a;
+  --mg-text-dark:  #a3a3a3; }
 
 [data-mg="nova"] {
-  --mg-gradient: linear-gradient(135deg, #ff8a00, #ff3d00);
-  --mg-start: #ff8a00;
-  --mg-end: #ff3d00; }
+  --mg-gradient:   linear-gradient(135deg, #ff8a00, #ff3d00);
+  --mg-start:      #ff8a00;
+  --mg-end:        #ff3d00;
+  --mg-text-light: #731b00;
+  --mg-text-dark:  #ffd099; }
 
 [data-mg="comet"] {
-  --mg-gradient: linear-gradient(135deg, #4b8fd2, #c5dfff);
-  --mg-start: #4b8fd2;
-  --mg-end: #c5dfff; }
+  --mg-gradient:   linear-gradient(135deg, #4b8fd2, #c5dfff);
+  --mg-start:      #4b8fd2;
+  --mg-end:        #c5dfff;
+  --mg-text-light: #596473;
+  --mg-text-dark:  #b7d2ed; }
 
 [data-mg="orbit"] {
-  --mg-gradient: linear-gradient(135deg, #365a64, #78aab4);
-  --mg-start: #365a64;
-  --mg-end: #78aab4; }
+  --mg-gradient:   linear-gradient(135deg, #365a64, #78aab4);
+  --mg-start:      #365a64;
+  --mg-end:        #78aab4;
+  --mg-text-light: #364d51;
+  --mg-text-dark:  #afbdc1; }
 
 [data-mg="umbra"] {
-  --mg-gradient: linear-gradient(135deg, #081020, #204070);
-  --mg-start: #081020;
-  --mg-end: #204070; }
+  --mg-gradient:   linear-gradient(135deg, #081020, #204070);
+  --mg-start:      #081020;
+  --mg-end:        #204070;
+  --mg-text-light: #0e1d32;
+  --mg-text-dark:  #9c9fa6; }
 
 [data-mg="zenith"] {
-  --mg-gradient: linear-gradient(135deg, #f6e58d, #f9ca24);
-  --mg-start: #f6e58d;
-  --mg-end: #f9ca24; }
+  --mg-gradient:   linear-gradient(135deg, #f6e58d, #f9ca24);
+  --mg-start:      #f6e58d;
+  --mg-end:        #f9ca24;
+  --mg-text-light: #705b10;
+  --mg-text-dark:  #fbf5d1; }
 
 [data-mg="hemlock"] {
-  --mg-gradient: linear-gradient(135deg, #1c3b32, #3d6656);
-  --mg-start: #1c3b32;
-  --mg-end: #3d6656; }
+  --mg-gradient:   linear-gradient(135deg, #1c3b32, #3d6656);
+  --mg-start:      #1c3b32;
+  --mg-end:        #3d6656;
+  --mg-text-light: #1b2e27;
+  --mg-text-dark:  #a4b1ad; }
 
 [data-mg="nightshade"] {
-  --mg-gradient: linear-gradient(135deg, #3b1a4a, #713b86);
-  --mg-start: #3b1a4a;
-  --mg-end: #713b86; }
+  --mg-gradient:   linear-gradient(135deg, #3b1a4a, #713b86);
+  --mg-start:      #3b1a4a;
+  --mg-end:        #713b86;
+  --mg-text-light: #331b3c;
+  --mg-text-dark:  #b1a3b7; }
 
 [data-mg="yew"] {
-  --mg-gradient: linear-gradient(135deg, #103449, #2e688a);
-  --mg-start: #103449;
-  --mg-end: #2e688a; }
+  --mg-gradient:   linear-gradient(135deg, #103449, #2e688a);
+  --mg-start:      #103449;
+  --mg-end:        #2e688a;
+  --mg-text-light: #152f3e;
+  --mg-text-dark:  #9faeb6; }
 
 [data-mg="ivy"] {
-  --mg-gradient: linear-gradient(135deg, #264d35, #6ca97f);
-  --mg-start: #264d35;
-  --mg-end: #6ca97f; }
+  --mg-gradient:   linear-gradient(135deg, #264d35, #6ca97f);
+  --mg-start:      #264d35;
+  --mg-end:        #6ca97f;
+  --mg-text-light: #314c39;
+  --mg-text-dark:  #a8b8ae; }
 
 [data-mg="rowan"] {
-  --mg-gradient: linear-gradient(135deg, #803116, #b05e34);
-  --mg-start: #803116;
-  --mg-end: #b05e34; }
+  --mg-gradient:   linear-gradient(135deg, #803116, #b05e34);
+  --mg-start:      #803116;
+  --mg-end:        #b05e34;
+  --mg-text-light: #4f2a17;
+  --mg-text-dark:  #ccada2; }
 
 [data-mg="thorn"] {
-  --mg-gradient: linear-gradient(135deg, #783838, #a86060);
-  --mg-start: #783838;
-  --mg-end: #a86060; }
+  --mg-gradient:   linear-gradient(135deg, #783838, #a86060);
+  --mg-start:      #783838;
+  --mg-end:        #a86060;
+  --mg-text-light: #4c2b2b;
+  --mg-text-dark:  #c9afaf; }
 
 [data-mg="ivory"] {
-  --mg-gradient: linear-gradient(135deg, #fff8ee, #d9cbb0);
-  --mg-start: #fff8ee;
-  --mg-end: #d9cbb0; }
+  --mg-gradient:   linear-gradient(135deg, #fff8ee, #d9cbb0);
+  --mg-start:      #fff8ee;
+  --mg-end:        #d9cbb0;
+  --mg-text-light: #625b4f;
+  --mg-text-dark:  #fffcf8; }
 
 [data-mg="velvet"] {
-  --mg-gradient: linear-gradient(135deg, #4c1526, #8c224e);
-  --mg-start: #4c1526;
-  --mg-end: #8c224e; }
+  --mg-gradient:   linear-gradient(135deg, #4c1526, #8c224e);
+  --mg-start:      #4c1526;
+  --mg-end:        #8c224e;
+  --mg-text-light: #3f0f23;
+  --mg-text-dark:  #b7a1a8; }
 
 [data-mg="spice"] {
-  --mg-gradient: linear-gradient(135deg, #ba6c2b, #db9340);
-  --mg-start: #ba6c2b;
-  --mg-end: #db9340; }
+  --mg-gradient:   linear-gradient(135deg, #ba6c2b, #db9340);
+  --mg-start:      #ba6c2b;
+  --mg-end:        #db9340;
+  --mg-text-light: #63421d;
+  --mg-text-dark:  #e3c4aa; }
 
 [data-mg="smoke"] {
-  --mg-gradient: linear-gradient(135deg, #3c3634, #aaa096);
-  --mg-start: #3c3634;
-  --mg-end: #aaa096; }
+  --mg-gradient:   linear-gradient(135deg, #3c3634, #aaa096);
+  --mg-start:      #3c3634;
+  --mg-end:        #aaa096;
+  --mg-text-light: #4d4844;
+  --mg-text-dark:  #b1afae; }
 
 [data-mg="glass"] {
-  --mg-gradient: linear-gradient(135deg, #d0ece5, #a0d2c4);
-  --mg-start: #d0ece5;
-  --mg-end: #a0d2c4; }
+  --mg-gradient:   linear-gradient(135deg, #d0ece5, #a0d2c4);
+  --mg-start:      #d0ece5;
+  --mg-end:        #a0d2c4;
+  --mg-text-light: #485f58;
+  --mg-text-dark:  #ecf7f5; }
 
 [data-mg="gold"] {
-  --mg-gradient: linear-gradient(135deg, #d4af37, #f5d76e);
-  --mg-start: #d4af37;
-  --mg-end: #f5d76e; }
+  --mg-gradient:   linear-gradient(135deg, #d4af37, #f5d76e);
+  --mg-start:      #d4af37;
+  --mg-end:        #f5d76e;
+  --mg-text-light: #6e6132;
+  --mg-text-dark:  #eedfaf; }
 
-/* or: @include mg-emit-data-vars($gradients-all); */
-/* ── 4) CALLS — generate per-set or all at once ─ */
-.g--obsidian {
+/* ── 4) CALLS ───────────────────────────────── */
+.g-obsidian {
+  --mg-gradient:   linear-gradient(135deg, #0b0b0c, #3a3a3d);
+  --mg-start:      #0b0b0c;
+  --mg-end:        #3a3a3d;
+  --mg-text-light: #1a1a1b;
+  --mg-text-dark:  #9d9d9e; }
+
+.g-quartz {
+  --mg-gradient:   linear-gradient(135deg, #d8efff, #cabfff);
+  --mg-start:      #d8efff;
+  --mg-end:        #cabfff;
+  --mg-text-light: #5b5673;
+  --mg-text-dark:  #eff9ff; }
+
+.g-onyx {
+  --mg-gradient:   linear-gradient(135deg, #161210, #4a3834);
+  --mg-start:      #161210;
+  --mg-end:        #4a3834;
+  --mg-text-light: #211917;
+  --mg-text-dark:  #a2a09f; }
+
+.g-amber {
+  --mg-gradient:   linear-gradient(135deg, #ffb347, #ffcc33);
+  --mg-start:      #ffb347;
+  --mg-end:        #ffcc33;
+  --mg-text-light: #735c17;
+  --mg-text-dark:  #ffe1b5; }
+
+.g-jade {
+  --mg-gradient:   linear-gradient(135deg, #3fa374, #a1d19d);
+  --mg-start:      #3fa374;
+  --mg-end:        #a1d19d;
+  --mg-text-light: #485e47;
+  --mg-text-dark:  #b2dac7; }
+
+.g-silver {
+  --mg-gradient:   linear-gradient(135deg, #b0c4d2, #7890a0);
+  --mg-start:      #b0c4d2;
+  --mg-end:        #7890a0;
+  --mg-text-light: #364148;
+  --mg-text-dark:  #dfe7ed; }
+
+.g-obsidian.is-pill {
+  background: var(--mg-gradient);
+  color: var(--mg-text-light);
+  border-radius: 5px;
+  padding: 0 0.25rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
+  .g-obsidian.is-pill.on-dark {
+    color: var(--mg-text-dark); }
+
+.g-quartz.is-pill {
+  background: var(--mg-gradient);
+  color: var(--mg-text-light);
+  border-radius: 5px;
+  padding: 0 0.25rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
+  .g-quartz.is-pill.on-dark {
+    color: var(--mg-text-dark); }
+
+.g-onyx.is-pill {
+  background: var(--mg-gradient);
+  color: var(--mg-text-light);
+  border-radius: 5px;
+  padding: 0 0.25rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
+  .g-onyx.is-pill.on-dark {
+    color: var(--mg-text-dark); }
+
+.g-amber.is-pill {
+  background: var(--mg-gradient);
+  color: var(--mg-text-light);
+  border-radius: 5px;
+  padding: 0 0.25rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
+  .g-amber.is-pill.on-dark {
+    color: var(--mg-text-dark); }
+
+.g-jade.is-pill {
+  background: var(--mg-gradient);
+  color: var(--mg-text-light);
+  border-radius: 5px;
+  padding: 0 0.25rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
+  .g-jade.is-pill.on-dark {
+    color: var(--mg-text-dark); }
+
+.g-silver.is-pill {
+  background: var(--mg-gradient);
+  color: var(--mg-text-light);
+  border-radius: 5px;
+  padding: 0 0.25rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
+  .g-silver.is-pill.on-dark {
+    color: var(--mg-text-dark); }
+
+.g-obsidian.is-outline {
   --mg-gradient: linear-gradient(135deg, #0b0b0c, #3a3a3d);
-  --mg-start: #0b0b0c;
-  --mg-end: #3a3a3d; }
-
-.g--quartz {
-  --mg-gradient: linear-gradient(135deg, #d8efff, #cabfff);
-  --mg-start: #d8efff;
-  --mg-end: #cabfff; }
-
-.g--onyx {
-  --mg-gradient: linear-gradient(135deg, #161210, #4a3834);
-  --mg-start: #161210;
-  --mg-end: #4a3834; }
-
-.g--amber {
-  --mg-gradient: linear-gradient(135deg, #ffb347, #ffcc33);
-  --mg-start: #ffb347;
-  --mg-end: #ffcc33; }
-
-.g--jade {
-  --mg-gradient: linear-gradient(135deg, #3fa374, #a1d19d);
-  --mg-start: #3fa374;
-  --mg-end: #a1d19d; }
-
-.g--silver {
-  --mg-gradient: linear-gradient(135deg, #b0c4d2, #7890a0);
-  --mg-start: #b0c4d2;
-  --mg-end: #7890a0; }
-
-.g--obsidian.is-pill {
-  background: var(--mg-gradient);
-  color: #1c1c1c;
-  /* readable on most light gradients */
-  /* If your theme is dark, force white text: */
-  border-radius: 5px;
-  padding: 0 0.25rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
-  .g--obsidian.is-pill.on-dark {
-    color: whitesmoke; }
-
-.g--quartz.is-pill {
-  background: var(--mg-gradient);
-  color: #1c1c1c;
-  /* readable on most light gradients */
-  /* If your theme is dark, force white text: */
-  border-radius: 5px;
-  padding: 0 0.25rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
-  .g--quartz.is-pill.on-dark {
-    color: whitesmoke; }
-
-.g--onyx.is-pill {
-  background: var(--mg-gradient);
-  color: #1c1c1c;
-  /* readable on most light gradients */
-  /* If your theme is dark, force white text: */
-  border-radius: 5px;
-  padding: 0 0.25rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
-  .g--onyx.is-pill.on-dark {
-    color: whitesmoke; }
-
-.g--amber.is-pill {
-  background: var(--mg-gradient);
-  color: #1c1c1c;
-  /* readable on most light gradients */
-  /* If your theme is dark, force white text: */
-  border-radius: 5px;
-  padding: 0 0.25rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
-  .g--amber.is-pill.on-dark {
-    color: whitesmoke; }
-
-.g--jade.is-pill {
-  background: var(--mg-gradient);
-  color: #1c1c1c;
-  /* readable on most light gradients */
-  /* If your theme is dark, force white text: */
-  border-radius: 5px;
-  padding: 0 0.25rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
-  .g--jade.is-pill.on-dark {
-    color: whitesmoke; }
-
-.g--silver.is-pill {
-  background: var(--mg-gradient);
-  color: #1c1c1c;
-  /* readable on most light gradients */
-  /* If your theme is dark, force white text: */
-  border-radius: 5px;
-  padding: 0 0.25rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
-  .g--silver.is-pill.on-dark {
-    color: whitesmoke; }
-
-.g--obsidian.is-outline {
-  --mg-gradient: linear-gradient(135deg, #0b0b0c, #3a3a3d);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
   border-radius: 999px;
   padding: 0.25rem 0.6rem;
-  /* border-image supports gradients nicely */
   border-image: var(--mg-gradient) 1; }
 
-.g--quartz.is-outline {
+.g-quartz.is-outline {
   --mg-gradient: linear-gradient(135deg, #d8efff, #cabfff);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
   border-radius: 999px;
   padding: 0.25rem 0.6rem;
-  /* border-image supports gradients nicely */
   border-image: var(--mg-gradient) 1; }
 
-.g--onyx.is-outline {
+.g-onyx.is-outline {
   --mg-gradient: linear-gradient(135deg, #161210, #4a3834);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
   border-radius: 999px;
   padding: 0.25rem 0.6rem;
-  /* border-image supports gradients nicely */
   border-image: var(--mg-gradient) 1; }
 
-.g--amber.is-outline {
+.g-amber.is-outline {
   --mg-gradient: linear-gradient(135deg, #ffb347, #ffcc33);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
   border-radius: 999px;
   padding: 0.25rem 0.6rem;
-  /* border-image supports gradients nicely */
   border-image: var(--mg-gradient) 1; }
 
-.g--jade.is-outline {
+.g-jade.is-outline {
   --mg-gradient: linear-gradient(135deg, #3fa374, #a1d19d);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
   border-radius: 999px;
   padding: 0.25rem 0.6rem;
-  /* border-image supports gradients nicely */
   border-image: var(--mg-gradient) 1; }
 
-.g--silver.is-outline {
+.g-silver.is-outline {
   --mg-gradient: linear-gradient(135deg, #b0c4d2, #7890a0);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
   border-radius: 999px;
   padding: 0.25rem 0.6rem;
-  /* border-image supports gradients nicely */
   border-image: var(--mg-gradient) 1; }
 
-.g--obsidian.is-text {
+.g-obsidian.is-text {
   --mg-gradient: linear-gradient(135deg, #0b0b0c, #3a3a3d);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  /* optional subtle stroke for dark bg legibility */
   -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25); }
 
-/* stronger stroke helper for very light backgrounds */
-.g--obsidian.is-text.on-light {
+.g-obsidian.is-text.on-light {
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
-.g--quartz.is-text {
+.g-quartz.is-text {
   --mg-gradient: linear-gradient(135deg, #d8efff, #cabfff);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  /* optional subtle stroke for dark bg legibility */
   -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25); }
 
-/* stronger stroke helper for very light backgrounds */
-.g--quartz.is-text.on-light {
+.g-quartz.is-text.on-light {
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
-.g--onyx.is-text {
+.g-onyx.is-text {
   --mg-gradient: linear-gradient(135deg, #161210, #4a3834);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  /* optional subtle stroke for dark bg legibility */
   -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25); }
 
-/* stronger stroke helper for very light backgrounds */
-.g--onyx.is-text.on-light {
+.g-onyx.is-text.on-light {
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
-.g--amber.is-text {
+.g-amber.is-text {
   --mg-gradient: linear-gradient(135deg, #ffb347, #ffcc33);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  /* optional subtle stroke for dark bg legibility */
   -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25); }
 
-/* stronger stroke helper for very light backgrounds */
-.g--amber.is-text.on-light {
+.g-amber.is-text.on-light {
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
-.g--jade.is-text {
+.g-jade.is-text {
   --mg-gradient: linear-gradient(135deg, #3fa374, #a1d19d);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  /* optional subtle stroke for dark bg legibility */
   -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25); }
 
-/* stronger stroke helper for very light backgrounds */
-.g--jade.is-text.on-light {
+.g-jade.is-text.on-light {
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
-.g--silver.is-text {
+.g-silver.is-text {
   --mg-gradient: linear-gradient(135deg, #b0c4d2, #7890a0);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  /* optional subtle stroke for dark bg legibility */
   -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25); }
 
-/* stronger stroke helper for very light backgrounds */
-.g--silver.is-text.on-light {
+.g-silver.is-text.on-light {
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
-.g--marrow {
-  --mg-gradient: linear-gradient(135deg, #f1e6dc, #bba998);
-  --mg-start: #f1e6dc;
-  --mg-end: #bba998; }
+.g-marrow {
+  --mg-gradient:   linear-gradient(135deg, #f1e6dc, #bba998);
+  --mg-start:      #f1e6dc;
+  --mg-end:        #bba998;
+  --mg-text-light: #544c44;
+  --mg-text-dark:  #f9f5f1; }
 
-.g--sinew {
-  --mg-gradient: linear-gradient(135deg, #d5a981, #8c5b3c);
-  --mg-start: #d5a981;
-  --mg-end: #8c5b3c; }
+.g-sinew {
+  --mg-gradient:   linear-gradient(135deg, #d5a981, #8c5b3c);
+  --mg-start:      #d5a981;
+  --mg-end:        #8c5b3c;
+  --mg-text-light: #3f291b;
+  --mg-text-dark:  #eeddcd; }
 
-.g--blood {
-  --mg-gradient: linear-gradient(135deg, #7a0d1d, #d92b2b);
-  --mg-start: #7a0d1d;
-  --mg-end: #d92b2b; }
+.g-blood {
+  --mg-gradient:   linear-gradient(135deg, #7a0d1d, #d92b2b);
+  --mg-start:      #7a0d1d;
+  --mg-end:        #d92b2b;
+  --mg-text-light: #621313;
+  --mg-text-dark:  #ca9ea5; }
 
-.g--vein {
-  --mg-gradient: linear-gradient(135deg, #21334d, #486b94);
-  --mg-start: #21334d;
-  --mg-end: #486b94; }
+.g-vein {
+  --mg-gradient:   linear-gradient(135deg, #21334d, #486b94);
+  --mg-start:      #21334d;
+  --mg-end:        #486b94;
+  --mg-text-light: #203043;
+  --mg-text-dark:  #a6adb8; }
 
-.g--bone {
-  --mg-gradient: linear-gradient(135deg, #dedac8, #aaa084);
-  --mg-start: #dedac8;
-  --mg-end: #aaa084; }
+.g-bone {
+  --mg-gradient:   linear-gradient(135deg, #dedac8, #aaa084);
+  --mg-start:      #dedac8;
+  --mg-end:        #aaa084;
+  --mg-text-light: #4d483b;
+  --mg-text-dark:  #f2f0e9; }
 
-.g--flesh {
-  --mg-gradient: linear-gradient(135deg, #f5c3b5, #d98f80);
-  --mg-start: #f5c3b5;
-  --mg-end: #d98f80; }
+.g-flesh {
+  --mg-gradient:   linear-gradient(135deg, #f5c3b5, #d98f80);
+  --mg-start:      #f5c3b5;
+  --mg-end:        #d98f80;
+  --mg-text-light: #62403a;
+  --mg-text-dark:  #fbe7e1; }
 
-.g--marrow.is-pill {
+.g-marrow.is-pill {
   background: var(--mg-gradient);
-  color: #1c1c1c;
-  /* readable on most light gradients */
-  /* If your theme is dark, force white text: */
+  color: var(--mg-text-light);
   border-radius: 5px;
   padding: 0 0.25rem;
   display: inline-flex;
@@ -465,14 +517,12 @@
   gap: 0.4rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
-  .g--marrow.is-pill.on-dark {
-    color: whitesmoke; }
+  .g-marrow.is-pill.on-dark {
+    color: var(--mg-text-dark); }
 
-.g--sinew.is-pill {
+.g-sinew.is-pill {
   background: var(--mg-gradient);
-  color: #1c1c1c;
-  /* readable on most light gradients */
-  /* If your theme is dark, force white text: */
+  color: var(--mg-text-light);
   border-radius: 5px;
   padding: 0 0.25rem;
   display: inline-flex;
@@ -480,14 +530,12 @@
   gap: 0.4rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
-  .g--sinew.is-pill.on-dark {
-    color: whitesmoke; }
+  .g-sinew.is-pill.on-dark {
+    color: var(--mg-text-dark); }
 
-.g--blood.is-pill {
+.g-blood.is-pill {
   background: var(--mg-gradient);
-  color: #1c1c1c;
-  /* readable on most light gradients */
-  /* If your theme is dark, force white text: */
+  color: var(--mg-text-light);
   border-radius: 5px;
   padding: 0 0.25rem;
   display: inline-flex;
@@ -495,14 +543,12 @@
   gap: 0.4rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
-  .g--blood.is-pill.on-dark {
-    color: whitesmoke; }
+  .g-blood.is-pill.on-dark {
+    color: var(--mg-text-dark); }
 
-.g--vein.is-pill {
+.g-vein.is-pill {
   background: var(--mg-gradient);
-  color: #1c1c1c;
-  /* readable on most light gradients */
-  /* If your theme is dark, force white text: */
+  color: var(--mg-text-light);
   border-radius: 5px;
   padding: 0 0.25rem;
   display: inline-flex;
@@ -510,14 +556,12 @@
   gap: 0.4rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
-  .g--vein.is-pill.on-dark {
-    color: whitesmoke; }
+  .g-vein.is-pill.on-dark {
+    color: var(--mg-text-dark); }
 
-.g--bone.is-pill {
+.g-bone.is-pill {
   background: var(--mg-gradient);
-  color: #1c1c1c;
-  /* readable on most light gradients */
-  /* If your theme is dark, force white text: */
+  color: var(--mg-text-light);
   border-radius: 5px;
   padding: 0 0.25rem;
   display: inline-flex;
@@ -525,14 +569,12 @@
   gap: 0.4rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
-  .g--bone.is-pill.on-dark {
-    color: whitesmoke; }
+  .g-bone.is-pill.on-dark {
+    color: var(--mg-text-dark); }
 
-.g--flesh.is-pill {
+.g-flesh.is-pill {
   background: var(--mg-gradient);
-  color: #1c1c1c;
-  /* readable on most light gradients */
-  /* If your theme is dark, force white text: */
+  color: var(--mg-text-light);
   border-radius: 5px;
   padding: 0 0.25rem;
   display: inline-flex;
@@ -540,182 +582,174 @@
   gap: 0.4rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
-  .g--flesh.is-pill.on-dark {
-    color: whitesmoke; }
+  .g-flesh.is-pill.on-dark {
+    color: var(--mg-text-dark); }
 
-.g--marrow.is-outline {
+.g-marrow.is-outline {
   --mg-gradient: linear-gradient(135deg, #f1e6dc, #bba998);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
   border-radius: 999px;
   padding: 0.25rem 0.6rem;
-  /* border-image supports gradients nicely */
   border-image: var(--mg-gradient) 1; }
 
-.g--sinew.is-outline {
+.g-sinew.is-outline {
   --mg-gradient: linear-gradient(135deg, #d5a981, #8c5b3c);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
   border-radius: 999px;
   padding: 0.25rem 0.6rem;
-  /* border-image supports gradients nicely */
   border-image: var(--mg-gradient) 1; }
 
-.g--blood.is-outline {
+.g-blood.is-outline {
   --mg-gradient: linear-gradient(135deg, #7a0d1d, #d92b2b);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
   border-radius: 999px;
   padding: 0.25rem 0.6rem;
-  /* border-image supports gradients nicely */
   border-image: var(--mg-gradient) 1; }
 
-.g--vein.is-outline {
+.g-vein.is-outline {
   --mg-gradient: linear-gradient(135deg, #21334d, #486b94);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
   border-radius: 999px;
   padding: 0.25rem 0.6rem;
-  /* border-image supports gradients nicely */
   border-image: var(--mg-gradient) 1; }
 
-.g--bone.is-outline {
+.g-bone.is-outline {
   --mg-gradient: linear-gradient(135deg, #dedac8, #aaa084);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
   border-radius: 999px;
   padding: 0.25rem 0.6rem;
-  /* border-image supports gradients nicely */
   border-image: var(--mg-gradient) 1; }
 
-.g--flesh.is-outline {
+.g-flesh.is-outline {
   --mg-gradient: linear-gradient(135deg, #f5c3b5, #d98f80);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
   border-radius: 999px;
   padding: 0.25rem 0.6rem;
-  /* border-image supports gradients nicely */
   border-image: var(--mg-gradient) 1; }
 
-.g--marrow.is-text {
+.g-marrow.is-text {
   --mg-gradient: linear-gradient(135deg, #f1e6dc, #bba998);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  /* optional subtle stroke for dark bg legibility */
   -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25); }
 
-/* stronger stroke helper for very light backgrounds */
-.g--marrow.is-text.on-light {
+.g-marrow.is-text.on-light {
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
-.g--sinew.is-text {
+.g-sinew.is-text {
   --mg-gradient: linear-gradient(135deg, #d5a981, #8c5b3c);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  /* optional subtle stroke for dark bg legibility */
   -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25); }
 
-/* stronger stroke helper for very light backgrounds */
-.g--sinew.is-text.on-light {
+.g-sinew.is-text.on-light {
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
-.g--blood.is-text {
+.g-blood.is-text {
   --mg-gradient: linear-gradient(135deg, #7a0d1d, #d92b2b);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  /* optional subtle stroke for dark bg legibility */
   -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25); }
 
-/* stronger stroke helper for very light backgrounds */
-.g--blood.is-text.on-light {
+.g-blood.is-text.on-light {
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
-.g--vein.is-text {
+.g-vein.is-text {
   --mg-gradient: linear-gradient(135deg, #21334d, #486b94);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  /* optional subtle stroke for dark bg legibility */
   -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25); }
 
-/* stronger stroke helper for very light backgrounds */
-.g--vein.is-text.on-light {
+.g-vein.is-text.on-light {
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
-.g--bone.is-text {
+.g-bone.is-text {
   --mg-gradient: linear-gradient(135deg, #dedac8, #aaa084);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  /* optional subtle stroke for dark bg legibility */
   -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25); }
 
-/* stronger stroke helper for very light backgrounds */
-.g--bone.is-text.on-light {
+.g-bone.is-text.on-light {
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
-.g--flesh.is-text {
+.g-flesh.is-text {
   --mg-gradient: linear-gradient(135deg, #f5c3b5, #d98f80);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  /* optional subtle stroke for dark bg legibility */
   -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25); }
 
-/* stronger stroke helper for very light backgrounds */
-.g--flesh.is-text.on-light {
+.g-flesh.is-text.on-light {
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
-.g--eclipse {
-  --mg-gradient: linear-gradient(135deg, #191919, #4a3b5e);
-  --mg-start: #191919;
-  --mg-end: #4a3b5e; }
+.g-eclipse {
+  --mg-gradient:   linear-gradient(135deg, #191919, #4a3b5e);
+  --mg-start:      #191919;
+  --mg-end:        #4a3b5e;
+  --mg-text-light: #211b2a;
+  --mg-text-dark:  #a3a3a3; }
 
-.g--nova {
-  --mg-gradient: linear-gradient(135deg, #ff8a00, #ff3d00);
-  --mg-start: #ff8a00;
-  --mg-end: #ff3d00; }
+.g-nova {
+  --mg-gradient:   linear-gradient(135deg, #ff8a00, #ff3d00);
+  --mg-start:      #ff8a00;
+  --mg-end:        #ff3d00;
+  --mg-text-light: #731b00;
+  --mg-text-dark:  #ffd099; }
 
-.g--comet {
-  --mg-gradient: linear-gradient(135deg, #4b8fd2, #c5dfff);
-  --mg-start: #4b8fd2;
-  --mg-end: #c5dfff; }
+.g-comet {
+  --mg-gradient:   linear-gradient(135deg, #4b8fd2, #c5dfff);
+  --mg-start:      #4b8fd2;
+  --mg-end:        #c5dfff;
+  --mg-text-light: #596473;
+  --mg-text-dark:  #b7d2ed; }
 
-.g--orbit {
-  --mg-gradient: linear-gradient(135deg, #365a64, #78aab4);
-  --mg-start: #365a64;
-  --mg-end: #78aab4; }
+.g-orbit {
+  --mg-gradient:   linear-gradient(135deg, #365a64, #78aab4);
+  --mg-start:      #365a64;
+  --mg-end:        #78aab4;
+  --mg-text-light: #364d51;
+  --mg-text-dark:  #afbdc1; }
 
-.g--umbra {
-  --mg-gradient: linear-gradient(135deg, #081020, #204070);
-  --mg-start: #081020;
-  --mg-end: #204070; }
+.g-umbra {
+  --mg-gradient:   linear-gradient(135deg, #081020, #204070);
+  --mg-start:      #081020;
+  --mg-end:        #204070;
+  --mg-text-light: #0e1d32;
+  --mg-text-dark:  #9c9fa6; }
 
-.g--zenith {
-  --mg-gradient: linear-gradient(135deg, #f6e58d, #f9ca24);
-  --mg-start: #f6e58d;
-  --mg-end: #f9ca24; }
+.g-zenith {
+  --mg-gradient:   linear-gradient(135deg, #f6e58d, #f9ca24);
+  --mg-start:      #f6e58d;
+  --mg-end:        #f9ca24;
+  --mg-text-light: #705b10;
+  --mg-text-dark:  #fbf5d1; }
 
-.g--eclipse.is-pill {
+.g-eclipse.is-pill {
   background: var(--mg-gradient);
-  color: #1c1c1c;
-  /* readable on most light gradients */
-  /* If your theme is dark, force white text: */
+  color: var(--mg-text-light);
   border-radius: 5px;
   padding: 0 0.25rem;
   display: inline-flex;
@@ -723,14 +757,12 @@
   gap: 0.4rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
-  .g--eclipse.is-pill.on-dark {
-    color: whitesmoke; }
+  .g-eclipse.is-pill.on-dark {
+    color: var(--mg-text-dark); }
 
-.g--nova.is-pill {
+.g-nova.is-pill {
   background: var(--mg-gradient);
-  color: #1c1c1c;
-  /* readable on most light gradients */
-  /* If your theme is dark, force white text: */
+  color: var(--mg-text-light);
   border-radius: 5px;
   padding: 0 0.25rem;
   display: inline-flex;
@@ -738,14 +770,12 @@
   gap: 0.4rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
-  .g--nova.is-pill.on-dark {
-    color: whitesmoke; }
+  .g-nova.is-pill.on-dark {
+    color: var(--mg-text-dark); }
 
-.g--comet.is-pill {
+.g-comet.is-pill {
   background: var(--mg-gradient);
-  color: #1c1c1c;
-  /* readable on most light gradients */
-  /* If your theme is dark, force white text: */
+  color: var(--mg-text-light);
   border-radius: 5px;
   padding: 0 0.25rem;
   display: inline-flex;
@@ -753,14 +783,12 @@
   gap: 0.4rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
-  .g--comet.is-pill.on-dark {
-    color: whitesmoke; }
+  .g-comet.is-pill.on-dark {
+    color: var(--mg-text-dark); }
 
-.g--orbit.is-pill {
+.g-orbit.is-pill {
   background: var(--mg-gradient);
-  color: #1c1c1c;
-  /* readable on most light gradients */
-  /* If your theme is dark, force white text: */
+  color: var(--mg-text-light);
   border-radius: 5px;
   padding: 0 0.25rem;
   display: inline-flex;
@@ -768,14 +796,12 @@
   gap: 0.4rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
-  .g--orbit.is-pill.on-dark {
-    color: whitesmoke; }
+  .g-orbit.is-pill.on-dark {
+    color: var(--mg-text-dark); }
 
-.g--umbra.is-pill {
+.g-umbra.is-pill {
   background: var(--mg-gradient);
-  color: #1c1c1c;
-  /* readable on most light gradients */
-  /* If your theme is dark, force white text: */
+  color: var(--mg-text-light);
   border-radius: 5px;
   padding: 0 0.25rem;
   display: inline-flex;
@@ -783,14 +809,12 @@
   gap: 0.4rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
-  .g--umbra.is-pill.on-dark {
-    color: whitesmoke; }
+  .g-umbra.is-pill.on-dark {
+    color: var(--mg-text-dark); }
 
-.g--zenith.is-pill {
+.g-zenith.is-pill {
   background: var(--mg-gradient);
-  color: #1c1c1c;
-  /* readable on most light gradients */
-  /* If your theme is dark, force white text: */
+  color: var(--mg-text-light);
   border-radius: 5px;
   padding: 0 0.25rem;
   display: inline-flex;
@@ -798,182 +822,174 @@
   gap: 0.4rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
-  .g--zenith.is-pill.on-dark {
-    color: whitesmoke; }
+  .g-zenith.is-pill.on-dark {
+    color: var(--mg-text-dark); }
 
-.g--eclipse.is-outline {
+.g-eclipse.is-outline {
   --mg-gradient: linear-gradient(135deg, #191919, #4a3b5e);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
   border-radius: 999px;
   padding: 0.25rem 0.6rem;
-  /* border-image supports gradients nicely */
   border-image: var(--mg-gradient) 1; }
 
-.g--nova.is-outline {
+.g-nova.is-outline {
   --mg-gradient: linear-gradient(135deg, #ff8a00, #ff3d00);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
   border-radius: 999px;
   padding: 0.25rem 0.6rem;
-  /* border-image supports gradients nicely */
   border-image: var(--mg-gradient) 1; }
 
-.g--comet.is-outline {
+.g-comet.is-outline {
   --mg-gradient: linear-gradient(135deg, #4b8fd2, #c5dfff);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
   border-radius: 999px;
   padding: 0.25rem 0.6rem;
-  /* border-image supports gradients nicely */
   border-image: var(--mg-gradient) 1; }
 
-.g--orbit.is-outline {
+.g-orbit.is-outline {
   --mg-gradient: linear-gradient(135deg, #365a64, #78aab4);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
   border-radius: 999px;
   padding: 0.25rem 0.6rem;
-  /* border-image supports gradients nicely */
   border-image: var(--mg-gradient) 1; }
 
-.g--umbra.is-outline {
+.g-umbra.is-outline {
   --mg-gradient: linear-gradient(135deg, #081020, #204070);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
   border-radius: 999px;
   padding: 0.25rem 0.6rem;
-  /* border-image supports gradients nicely */
   border-image: var(--mg-gradient) 1; }
 
-.g--zenith.is-outline {
+.g-zenith.is-outline {
   --mg-gradient: linear-gradient(135deg, #f6e58d, #f9ca24);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
   border-radius: 999px;
   padding: 0.25rem 0.6rem;
-  /* border-image supports gradients nicely */
   border-image: var(--mg-gradient) 1; }
 
-.g--eclipse.is-text {
+.g-eclipse.is-text {
   --mg-gradient: linear-gradient(135deg, #191919, #4a3b5e);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  /* optional subtle stroke for dark bg legibility */
   -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25); }
 
-/* stronger stroke helper for very light backgrounds */
-.g--eclipse.is-text.on-light {
+.g-eclipse.is-text.on-light {
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
-.g--nova.is-text {
+.g-nova.is-text {
   --mg-gradient: linear-gradient(135deg, #ff8a00, #ff3d00);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  /* optional subtle stroke for dark bg legibility */
   -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25); }
 
-/* stronger stroke helper for very light backgrounds */
-.g--nova.is-text.on-light {
+.g-nova.is-text.on-light {
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
-.g--comet.is-text {
+.g-comet.is-text {
   --mg-gradient: linear-gradient(135deg, #4b8fd2, #c5dfff);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  /* optional subtle stroke for dark bg legibility */
   -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25); }
 
-/* stronger stroke helper for very light backgrounds */
-.g--comet.is-text.on-light {
+.g-comet.is-text.on-light {
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
-.g--orbit.is-text {
+.g-orbit.is-text {
   --mg-gradient: linear-gradient(135deg, #365a64, #78aab4);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  /* optional subtle stroke for dark bg legibility */
   -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25); }
 
-/* stronger stroke helper for very light backgrounds */
-.g--orbit.is-text.on-light {
+.g-orbit.is-text.on-light {
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
-.g--umbra.is-text {
+.g-umbra.is-text {
   --mg-gradient: linear-gradient(135deg, #081020, #204070);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  /* optional subtle stroke for dark bg legibility */
   -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25); }
 
-/* stronger stroke helper for very light backgrounds */
-.g--umbra.is-text.on-light {
+.g-umbra.is-text.on-light {
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
-.g--zenith.is-text {
+.g-zenith.is-text {
   --mg-gradient: linear-gradient(135deg, #f6e58d, #f9ca24);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  /* optional subtle stroke for dark bg legibility */
   -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25); }
 
-/* stronger stroke helper for very light backgrounds */
-.g--zenith.is-text.on-light {
+.g-zenith.is-text.on-light {
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
-.g--hemlock {
-  --mg-gradient: linear-gradient(135deg, #1c3b32, #3d6656);
-  --mg-start: #1c3b32;
-  --mg-end: #3d6656; }
+.g-hemlock {
+  --mg-gradient:   linear-gradient(135deg, #1c3b32, #3d6656);
+  --mg-start:      #1c3b32;
+  --mg-end:        #3d6656;
+  --mg-text-light: #1b2e27;
+  --mg-text-dark:  #a4b1ad; }
 
-.g--nightshade {
-  --mg-gradient: linear-gradient(135deg, #3b1a4a, #713b86);
-  --mg-start: #3b1a4a;
-  --mg-end: #713b86; }
+.g-nightshade {
+  --mg-gradient:   linear-gradient(135deg, #3b1a4a, #713b86);
+  --mg-start:      #3b1a4a;
+  --mg-end:        #713b86;
+  --mg-text-light: #331b3c;
+  --mg-text-dark:  #b1a3b7; }
 
-.g--yew {
-  --mg-gradient: linear-gradient(135deg, #103449, #2e688a);
-  --mg-start: #103449;
-  --mg-end: #2e688a; }
+.g-yew {
+  --mg-gradient:   linear-gradient(135deg, #103449, #2e688a);
+  --mg-start:      #103449;
+  --mg-end:        #2e688a;
+  --mg-text-light: #152f3e;
+  --mg-text-dark:  #9faeb6; }
 
-.g--ivy {
-  --mg-gradient: linear-gradient(135deg, #264d35, #6ca97f);
-  --mg-start: #264d35;
-  --mg-end: #6ca97f; }
+.g-ivy {
+  --mg-gradient:   linear-gradient(135deg, #264d35, #6ca97f);
+  --mg-start:      #264d35;
+  --mg-end:        #6ca97f;
+  --mg-text-light: #314c39;
+  --mg-text-dark:  #a8b8ae; }
 
-.g--rowan {
-  --mg-gradient: linear-gradient(135deg, #803116, #b05e34);
-  --mg-start: #803116;
-  --mg-end: #b05e34; }
+.g-rowan {
+  --mg-gradient:   linear-gradient(135deg, #803116, #b05e34);
+  --mg-start:      #803116;
+  --mg-end:        #b05e34;
+  --mg-text-light: #4f2a17;
+  --mg-text-dark:  #ccada2; }
 
-.g--thorn {
-  --mg-gradient: linear-gradient(135deg, #783838, #a86060);
-  --mg-start: #783838;
-  --mg-end: #a86060; }
+.g-thorn {
+  --mg-gradient:   linear-gradient(135deg, #783838, #a86060);
+  --mg-start:      #783838;
+  --mg-end:        #a86060;
+  --mg-text-light: #4c2b2b;
+  --mg-text-dark:  #c9afaf; }
 
-.g--hemlock.is-pill {
+.g-hemlock.is-pill {
   background: var(--mg-gradient);
-  color: #1c1c1c;
-  /* readable on most light gradients */
-  /* If your theme is dark, force white text: */
+  color: var(--mg-text-light);
   border-radius: 5px;
   padding: 0 0.25rem;
   display: inline-flex;
@@ -981,14 +997,12 @@
   gap: 0.4rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
-  .g--hemlock.is-pill.on-dark {
-    color: whitesmoke; }
+  .g-hemlock.is-pill.on-dark {
+    color: var(--mg-text-dark); }
 
-.g--nightshade.is-pill {
+.g-nightshade.is-pill {
   background: var(--mg-gradient);
-  color: #1c1c1c;
-  /* readable on most light gradients */
-  /* If your theme is dark, force white text: */
+  color: var(--mg-text-light);
   border-radius: 5px;
   padding: 0 0.25rem;
   display: inline-flex;
@@ -996,14 +1010,12 @@
   gap: 0.4rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
-  .g--nightshade.is-pill.on-dark {
-    color: whitesmoke; }
+  .g-nightshade.is-pill.on-dark {
+    color: var(--mg-text-dark); }
 
-.g--yew.is-pill {
+.g-yew.is-pill {
   background: var(--mg-gradient);
-  color: #1c1c1c;
-  /* readable on most light gradients */
-  /* If your theme is dark, force white text: */
+  color: var(--mg-text-light);
   border-radius: 5px;
   padding: 0 0.25rem;
   display: inline-flex;
@@ -1011,14 +1023,12 @@
   gap: 0.4rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
-  .g--yew.is-pill.on-dark {
-    color: whitesmoke; }
+  .g-yew.is-pill.on-dark {
+    color: var(--mg-text-dark); }
 
-.g--ivy.is-pill {
+.g-ivy.is-pill {
   background: var(--mg-gradient);
-  color: #1c1c1c;
-  /* readable on most light gradients */
-  /* If your theme is dark, force white text: */
+  color: var(--mg-text-light);
   border-radius: 5px;
   padding: 0 0.25rem;
   display: inline-flex;
@@ -1026,14 +1036,12 @@
   gap: 0.4rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
-  .g--ivy.is-pill.on-dark {
-    color: whitesmoke; }
+  .g-ivy.is-pill.on-dark {
+    color: var(--mg-text-dark); }
 
-.g--rowan.is-pill {
+.g-rowan.is-pill {
   background: var(--mg-gradient);
-  color: #1c1c1c;
-  /* readable on most light gradients */
-  /* If your theme is dark, force white text: */
+  color: var(--mg-text-light);
   border-radius: 5px;
   padding: 0 0.25rem;
   display: inline-flex;
@@ -1041,14 +1049,12 @@
   gap: 0.4rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
-  .g--rowan.is-pill.on-dark {
-    color: whitesmoke; }
+  .g-rowan.is-pill.on-dark {
+    color: var(--mg-text-dark); }
 
-.g--thorn.is-pill {
+.g-thorn.is-pill {
   background: var(--mg-gradient);
-  color: #1c1c1c;
-  /* readable on most light gradients */
-  /* If your theme is dark, force white text: */
+  color: var(--mg-text-light);
   border-radius: 5px;
   padding: 0 0.25rem;
   display: inline-flex;
@@ -1056,182 +1062,174 @@
   gap: 0.4rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
-  .g--thorn.is-pill.on-dark {
-    color: whitesmoke; }
+  .g-thorn.is-pill.on-dark {
+    color: var(--mg-text-dark); }
 
-.g--hemlock.is-outline {
+.g-hemlock.is-outline {
   --mg-gradient: linear-gradient(135deg, #1c3b32, #3d6656);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
   border-radius: 999px;
   padding: 0.25rem 0.6rem;
-  /* border-image supports gradients nicely */
   border-image: var(--mg-gradient) 1; }
 
-.g--nightshade.is-outline {
+.g-nightshade.is-outline {
   --mg-gradient: linear-gradient(135deg, #3b1a4a, #713b86);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
   border-radius: 999px;
   padding: 0.25rem 0.6rem;
-  /* border-image supports gradients nicely */
   border-image: var(--mg-gradient) 1; }
 
-.g--yew.is-outline {
+.g-yew.is-outline {
   --mg-gradient: linear-gradient(135deg, #103449, #2e688a);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
   border-radius: 999px;
   padding: 0.25rem 0.6rem;
-  /* border-image supports gradients nicely */
   border-image: var(--mg-gradient) 1; }
 
-.g--ivy.is-outline {
+.g-ivy.is-outline {
   --mg-gradient: linear-gradient(135deg, #264d35, #6ca97f);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
   border-radius: 999px;
   padding: 0.25rem 0.6rem;
-  /* border-image supports gradients nicely */
   border-image: var(--mg-gradient) 1; }
 
-.g--rowan.is-outline {
+.g-rowan.is-outline {
   --mg-gradient: linear-gradient(135deg, #803116, #b05e34);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
   border-radius: 999px;
   padding: 0.25rem 0.6rem;
-  /* border-image supports gradients nicely */
   border-image: var(--mg-gradient) 1; }
 
-.g--thorn.is-outline {
+.g-thorn.is-outline {
   --mg-gradient: linear-gradient(135deg, #783838, #a86060);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
   border-radius: 999px;
   padding: 0.25rem 0.6rem;
-  /* border-image supports gradients nicely */
   border-image: var(--mg-gradient) 1; }
 
-.g--hemlock.is-text {
+.g-hemlock.is-text {
   --mg-gradient: linear-gradient(135deg, #1c3b32, #3d6656);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  /* optional subtle stroke for dark bg legibility */
   -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25); }
 
-/* stronger stroke helper for very light backgrounds */
-.g--hemlock.is-text.on-light {
+.g-hemlock.is-text.on-light {
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
-.g--nightshade.is-text {
+.g-nightshade.is-text {
   --mg-gradient: linear-gradient(135deg, #3b1a4a, #713b86);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  /* optional subtle stroke for dark bg legibility */
   -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25); }
 
-/* stronger stroke helper for very light backgrounds */
-.g--nightshade.is-text.on-light {
+.g-nightshade.is-text.on-light {
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
-.g--yew.is-text {
+.g-yew.is-text {
   --mg-gradient: linear-gradient(135deg, #103449, #2e688a);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  /* optional subtle stroke for dark bg legibility */
   -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25); }
 
-/* stronger stroke helper for very light backgrounds */
-.g--yew.is-text.on-light {
+.g-yew.is-text.on-light {
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
-.g--ivy.is-text {
+.g-ivy.is-text {
   --mg-gradient: linear-gradient(135deg, #264d35, #6ca97f);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  /* optional subtle stroke for dark bg legibility */
   -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25); }
 
-/* stronger stroke helper for very light backgrounds */
-.g--ivy.is-text.on-light {
+.g-ivy.is-text.on-light {
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
-.g--rowan.is-text {
+.g-rowan.is-text {
   --mg-gradient: linear-gradient(135deg, #803116, #b05e34);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  /* optional subtle stroke for dark bg legibility */
   -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25); }
 
-/* stronger stroke helper for very light backgrounds */
-.g--rowan.is-text.on-light {
+.g-rowan.is-text.on-light {
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
-.g--thorn.is-text {
+.g-thorn.is-text {
   --mg-gradient: linear-gradient(135deg, #783838, #a86060);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  /* optional subtle stroke for dark bg legibility */
   -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25); }
 
-/* stronger stroke helper for very light backgrounds */
-.g--thorn.is-text.on-light {
+.g-thorn.is-text.on-light {
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
-.g--ivory {
-  --mg-gradient: linear-gradient(135deg, #fff8ee, #d9cbb0);
-  --mg-start: #fff8ee;
-  --mg-end: #d9cbb0; }
+.g-ivory {
+  --mg-gradient:   linear-gradient(135deg, #fff8ee, #d9cbb0);
+  --mg-start:      #fff8ee;
+  --mg-end:        #d9cbb0;
+  --mg-text-light: #625b4f;
+  --mg-text-dark:  #fffcf8; }
 
-.g--velvet {
-  --mg-gradient: linear-gradient(135deg, #4c1526, #8c224e);
-  --mg-start: #4c1526;
-  --mg-end: #8c224e; }
+.g-velvet {
+  --mg-gradient:   linear-gradient(135deg, #4c1526, #8c224e);
+  --mg-start:      #4c1526;
+  --mg-end:        #8c224e;
+  --mg-text-light: #3f0f23;
+  --mg-text-dark:  #b7a1a8; }
 
-.g--spice {
-  --mg-gradient: linear-gradient(135deg, #ba6c2b, #db9340);
-  --mg-start: #ba6c2b;
-  --mg-end: #db9340; }
+.g-spice {
+  --mg-gradient:   linear-gradient(135deg, #ba6c2b, #db9340);
+  --mg-start:      #ba6c2b;
+  --mg-end:        #db9340;
+  --mg-text-light: #63421d;
+  --mg-text-dark:  #e3c4aa; }
 
-.g--smoke {
-  --mg-gradient: linear-gradient(135deg, #3c3634, #aaa096);
-  --mg-start: #3c3634;
-  --mg-end: #aaa096; }
+.g-smoke {
+  --mg-gradient:   linear-gradient(135deg, #3c3634, #aaa096);
+  --mg-start:      #3c3634;
+  --mg-end:        #aaa096;
+  --mg-text-light: #4d4844;
+  --mg-text-dark:  #b1afae; }
 
-.g--glass {
-  --mg-gradient: linear-gradient(135deg, #d0ece5, #a0d2c4);
-  --mg-start: #d0ece5;
-  --mg-end: #a0d2c4; }
+.g-glass {
+  --mg-gradient:   linear-gradient(135deg, #d0ece5, #a0d2c4);
+  --mg-start:      #d0ece5;
+  --mg-end:        #a0d2c4;
+  --mg-text-light: #485f58;
+  --mg-text-dark:  #ecf7f5; }
 
-.g--gold {
-  --mg-gradient: linear-gradient(135deg, #d4af37, #f5d76e);
-  --mg-start: #d4af37;
-  --mg-end: #f5d76e; }
+.g-gold {
+  --mg-gradient:   linear-gradient(135deg, #d4af37, #f5d76e);
+  --mg-start:      #d4af37;
+  --mg-end:        #f5d76e;
+  --mg-text-light: #6e6132;
+  --mg-text-dark:  #eedfaf; }
 
-.g--ivory.is-pill {
+.g-ivory.is-pill {
   background: var(--mg-gradient);
-  color: #1c1c1c;
-  /* readable on most light gradients */
-  /* If your theme is dark, force white text: */
+  color: var(--mg-text-light);
   border-radius: 5px;
   padding: 0 0.25rem;
   display: inline-flex;
@@ -1239,14 +1237,12 @@
   gap: 0.4rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
-  .g--ivory.is-pill.on-dark {
-    color: whitesmoke; }
+  .g-ivory.is-pill.on-dark {
+    color: var(--mg-text-dark); }
 
-.g--velvet.is-pill {
+.g-velvet.is-pill {
   background: var(--mg-gradient);
-  color: #1c1c1c;
-  /* readable on most light gradients */
-  /* If your theme is dark, force white text: */
+  color: var(--mg-text-light);
   border-radius: 5px;
   padding: 0 0.25rem;
   display: inline-flex;
@@ -1254,14 +1250,12 @@
   gap: 0.4rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
-  .g--velvet.is-pill.on-dark {
-    color: whitesmoke; }
+  .g-velvet.is-pill.on-dark {
+    color: var(--mg-text-dark); }
 
-.g--spice.is-pill {
+.g-spice.is-pill {
   background: var(--mg-gradient);
-  color: #1c1c1c;
-  /* readable on most light gradients */
-  /* If your theme is dark, force white text: */
+  color: var(--mg-text-light);
   border-radius: 5px;
   padding: 0 0.25rem;
   display: inline-flex;
@@ -1269,14 +1263,12 @@
   gap: 0.4rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
-  .g--spice.is-pill.on-dark {
-    color: whitesmoke; }
+  .g-spice.is-pill.on-dark {
+    color: var(--mg-text-dark); }
 
-.g--smoke.is-pill {
+.g-smoke.is-pill {
   background: var(--mg-gradient);
-  color: #1c1c1c;
-  /* readable on most light gradients */
-  /* If your theme is dark, force white text: */
+  color: var(--mg-text-light);
   border-radius: 5px;
   padding: 0 0.25rem;
   display: inline-flex;
@@ -1284,14 +1276,12 @@
   gap: 0.4rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
-  .g--smoke.is-pill.on-dark {
-    color: whitesmoke; }
+  .g-smoke.is-pill.on-dark {
+    color: var(--mg-text-dark); }
 
-.g--glass.is-pill {
+.g-glass.is-pill {
   background: var(--mg-gradient);
-  color: #1c1c1c;
-  /* readable on most light gradients */
-  /* If your theme is dark, force white text: */
+  color: var(--mg-text-light);
   border-radius: 5px;
   padding: 0 0.25rem;
   display: inline-flex;
@@ -1299,14 +1289,12 @@
   gap: 0.4rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
-  .g--glass.is-pill.on-dark {
-    color: whitesmoke; }
+  .g-glass.is-pill.on-dark {
+    color: var(--mg-text-dark); }
 
-.g--gold.is-pill {
+.g-gold.is-pill {
   background: var(--mg-gradient);
-  color: #1c1c1c;
-  /* readable on most light gradients */
-  /* If your theme is dark, force white text: */
+  color: var(--mg-text-light);
   border-radius: 5px;
   padding: 0 0.25rem;
   display: inline-flex;
@@ -1314,176 +1302,136 @@
   gap: 0.4rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
-  .g--gold.is-pill.on-dark {
-    color: whitesmoke; }
+  .g-gold.is-pill.on-dark {
+    color: var(--mg-text-dark); }
 
-.g--ivory.is-outline {
+.g-ivory.is-outline {
   --mg-gradient: linear-gradient(135deg, #fff8ee, #d9cbb0);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
   border-radius: 999px;
   padding: 0.25rem 0.6rem;
-  /* border-image supports gradients nicely */
   border-image: var(--mg-gradient) 1; }
 
-.g--velvet.is-outline {
+.g-velvet.is-outline {
   --mg-gradient: linear-gradient(135deg, #4c1526, #8c224e);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
   border-radius: 999px;
   padding: 0.25rem 0.6rem;
-  /* border-image supports gradients nicely */
   border-image: var(--mg-gradient) 1; }
 
-.g--spice.is-outline {
+.g-spice.is-outline {
   --mg-gradient: linear-gradient(135deg, #ba6c2b, #db9340);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
   border-radius: 999px;
   padding: 0.25rem 0.6rem;
-  /* border-image supports gradients nicely */
   border-image: var(--mg-gradient) 1; }
 
-.g--smoke.is-outline {
+.g-smoke.is-outline {
   --mg-gradient: linear-gradient(135deg, #3c3634, #aaa096);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
   border-radius: 999px;
   padding: 0.25rem 0.6rem;
-  /* border-image supports gradients nicely */
   border-image: var(--mg-gradient) 1; }
 
-.g--glass.is-outline {
+.g-glass.is-outline {
   --mg-gradient: linear-gradient(135deg, #d0ece5, #a0d2c4);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
   border-radius: 999px;
   padding: 0.25rem 0.6rem;
-  /* border-image supports gradients nicely */
   border-image: var(--mg-gradient) 1; }
 
-.g--gold.is-outline {
+.g-gold.is-outline {
   --mg-gradient: linear-gradient(135deg, #d4af37, #f5d76e);
   background: transparent;
   color: inherit;
   border: 2px solid transparent;
   border-radius: 999px;
   padding: 0.25rem 0.6rem;
-  /* border-image supports gradients nicely */
   border-image: var(--mg-gradient) 1; }
 
-.g--ivory.is-text {
+.g-ivory.is-text {
   --mg-gradient: linear-gradient(135deg, #fff8ee, #d9cbb0);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  /* optional subtle stroke for dark bg legibility */
   -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25); }
 
-/* stronger stroke helper for very light backgrounds */
-.g--ivory.is-text.on-light {
+.g-ivory.is-text.on-light {
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
-.g--velvet.is-text {
+.g-velvet.is-text {
   --mg-gradient: linear-gradient(135deg, #4c1526, #8c224e);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  /* optional subtle stroke for dark bg legibility */
   -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25); }
 
-/* stronger stroke helper for very light backgrounds */
-.g--velvet.is-text.on-light {
+.g-velvet.is-text.on-light {
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
-.g--spice.is-text {
+.g-spice.is-text {
   --mg-gradient: linear-gradient(135deg, #ba6c2b, #db9340);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  /* optional subtle stroke for dark bg legibility */
   -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25); }
 
-/* stronger stroke helper for very light backgrounds */
-.g--spice.is-text.on-light {
+.g-spice.is-text.on-light {
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
-.g--smoke.is-text {
+.g-smoke.is-text {
   --mg-gradient: linear-gradient(135deg, #3c3634, #aaa096);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  /* optional subtle stroke for dark bg legibility */
   -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25); }
 
-/* stronger stroke helper for very light backgrounds */
-.g--smoke.is-text.on-light {
+.g-smoke.is-text.on-light {
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
-.g--glass.is-text {
+.g-glass.is-text {
   --mg-gradient: linear-gradient(135deg, #d0ece5, #a0d2c4);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  /* optional subtle stroke for dark bg legibility */
   -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25); }
 
-/* stronger stroke helper for very light backgrounds */
-.g--glass.is-text.on-light {
+.g-glass.is-text.on-light {
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
-.g--gold.is-text {
+.g-gold.is-text {
   --mg-gradient: linear-gradient(135deg, #d4af37, #f5d76e);
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  /* optional subtle stroke for dark bg legibility */
   -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25); }
 
-/* stronger stroke helper for very light backgrounds */
-.g--gold.is-text.on-light {
+.g-gold.is-text.on-light {
   -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35); }
 
-/* Or: just this one line if you prefer a single pass */
-/* ── 5) EXAMPLES (delete/keep as docs) ──────── */
-/* HTML usage:
-  <span class="membergroup--obsidian is-pill">Obsidian</span>
-  <span class="membergroup--blood is-outline">Blood</span>
-  <span class="membergroup--nova is-text">Nova</span>
-
-  // Optional legibility helpers based on page theme:
-  <span class="membergroup--jade is-pill on-dark">Jade</span>
-  <span class="membergroup--glass is-text on-light">Glass</span>
-*/
 /*************************************************
- Utility: apply membergroup gradients to anything
+ Utility mixins
 **************************************************/
-/* 1) Set the active gradient from the master map */
-/* 2) Gradient BORDER (perfect with rounded corners)
-   Uses twin-background trick so border-radius is honored.  */
-/* 3) Gradient FILL (full background) */
-/* 4) Gradient OVERLAY (keeps original bg; adds gradient veil via ::after) */
-/* 5) Gradient TEXT (transparent fill with optional stroke) */
-/* 6) Gradient RULE (thin bars/dividers) */
-/* 7) Corner ticks fed by gradient (works with your corner-ticks aesthetic)
-   Creates an inset frame using ::before so it plays nice with your own mixin. */
-/* 8) One-liners to scope by name (sugar helpers)
-   Usage: @include mg-apply-border(blood); etc. */
-/* Pill (filled chip) */
+/* ── DATA-VARIANT BLOCKS ────────────────────── */
 [data-variant="pill"] {
   background: var(--mg-gradient);
-  color: var(--mg-text, #1c1c1c);
+  color: var(--mg-text-light, #1c1c1c);
   border-radius: var(--mg-radius, 999px);
   padding: 0.3rem 0.65rem;
   display: inline-flex;
@@ -1491,8 +1439,9 @@
   gap: 0.4rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset; }
+  [data-variant="pill"].on-dark {
+    color: var(--mg-text-dark, whitesmoke); }
 
-/* Outline (gradient border) */
 [data-variant="outline"] {
   background: transparent;
   color: inherit;
@@ -1501,7 +1450,6 @@
   padding: 0.25rem 0.6rem;
   border-image: var(--mg-gradient) 1; }
 
-/* Text (gradient-filled text) */
 [data-variant="text"] {
   background: var(--mg-gradient);
   -webkit-background-clip: text;
@@ -1509,14 +1457,12 @@
   color: transparent;
   -webkit-text-stroke: var(--mg-stroke, 0.5px) var(--mg-stroke-color, rgba(0, 0, 0, 0.25)); }
 
-/* Rule (divider bar) */
 [data-variant="rule"] {
   display: block;
   height: var(--mg-rule-h, 4px);
   border-radius: var(--mg-radius, 999px);
   background: var(--mg-gradient); }
 
-/* Border (card with gradient border + solid fill) */
 [data-variant="border"] {
   --_bg: var(--mg-bg, color-mix(in srgb, var(--bg-2) 85%, transparent));
   border: var(--mg-border-w, 2px) solid transparent;
@@ -1525,7 +1471,6 @@
   background: linear-gradient(var(--_bg), var(--_bg)) padding-box, var(--mg-gradient) border-box;
   box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--text-loCon) 12%, transparent); }
 
-/* Overlay (tinted panel using ::after) */
 [data-variant="overlay"] {
   position: relative;
   border-radius: var(--mg-radius, 10px);
@@ -1540,10 +1485,10 @@
   border-radius: inherit;
   background: var(--mg-gradient);
   mix-blend-mode: var(--mg-blend, multiply);
-  /* try 'screen' for light themes */
   opacity: var(--mg-alpha, 0.35);
   pointer-events: none; }
 
+/* ── TAXONOMY + GROUP ROW + ACCENTS (unchanged) ── */
 .bm-taxonomy {
   position: relative;
   padding: clamp(24px, 3vw, 40px);
@@ -1627,9 +1572,6 @@
   display: grid;
   gap: 10px; }
 
-/*********************************
-  Precious skin
-**********************************/
 .bm-taxonomy--precious {
   background: radial-gradient(circle at top right, oklch(0.46 0.09 55/0.18), transparent 34%), linear-gradient(135deg, oklch(0.14 0.03 24), oklch(0.08 0.02 18)); }
 
@@ -1639,9 +1581,6 @@
 .bm-taxonomy--precious .bm-taxonomy__title {
   letter-spacing: 0.02em; }
 
-/*********************************
-  Group rows
-**********************************/
 .bm-group-row {
   --thumb-size: 44px;
   --thumb-gap: 14px;
@@ -1656,7 +1595,7 @@
   padding-left: var(--left-slot);
   padding-right: var(--row-pad-x);
   border-radius: 14px;
-  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
   overflow: hidden; }
 
 .bm-group-row:hover {
@@ -1718,23 +1657,19 @@
 .bm-group-row--overlay {
   border: 1px dashed var(--bm-guide-border-soft); }
 
-.bm-group-row--border::before {
+.bm-group-row--border::before, .bm-group-row--overlay::before {
   content: "";
   position: absolute;
   inset: 0;
   background: var(--mg-gradient);
-  opacity: var(--bm-mg-row-opacity, 0.18);
   pointer-events: none;
   border-radius: inherit; }
 
+.bm-group-row--border::before {
+  opacity: var(--bm-mg-row-opacity, 0.18); }
+
 .bm-group-row--overlay::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: var(--mg-gradient);
-  opacity: var(--bm-mg-row-opacity-overlay, 0.2);
-  pointer-events: none;
-  border-radius: inherit; }
+  opacity: var(--bm-mg-row-opacity-overlay, 0.2); }
 
 .bm-group-row[data-plate]::after {
   content: attr(data-plate);
@@ -1777,37 +1712,26 @@
 .bm-group-row--flip.bm-group-row--overlay {
   background: linear-gradient(270deg, color-mix(in srgb, var(--mg-gradient) 18%, transparent), transparent 65%); }
 
-/*********************************
-  Optional thumb drift
-**********************************/
 .bm-group-row:nth-child(odd) .bm-group-row__thumb {
   transform: translateY(1px); }
 
 .bm-group-row:nth-child(even) .bm-group-row__thumb {
   transform: translateY(-1px); }
 
-/*********************************
-  Mobile
-**********************************/
 @media (max-width: 700px) {
-  .bm-group-row,
-  .bm-group-row--flip {
+  .bm-group-row, .bm-group-row--flip {
     --thumb-size: 40px;
     --thumb-gap: 12px;
     --row-pad-x: 12px;
     --row-pad-y: 10px; }
-  .bm-group-row:hover,
-  .bm-group-row--flip:hover {
+  .bm-group-row:hover, .bm-group-row--flip:hover {
     transform: none; }
-  .bm-group-row .bm-group-row__text,
-  .bm-group-row--flip .bm-group-row__text {
+  .bm-group-row .bm-group-row__text, .bm-group-row--flip .bm-group-row__text {
     grid-template-columns: 1fr;
     gap: 4px;
     min-height: var(--thumb-size); }
-  .bm-group-row .bm-group-row__name,
-  .bm-group-row .bm-group-row__desc,
-  .bm-group-row--flip .bm-group-row__name,
-  .bm-group-row--flip .bm-group-row__desc {
+  .bm-group-row .bm-group-row__name, .bm-group-row .bm-group-row__desc,
+  .bm-group-row--flip .bm-group-row__name, .bm-group-row--flip .bm-group-row__desc {
     text-align: left; }
   .bm-group-row {
     padding-left: calc(var(--row-pad-x) + var(--thumb-size) + var(--thumb-gap));
@@ -1819,7 +1743,7 @@
     height: var(--thumb-size); }
   .bm-group-row--flip {
     padding-left: var(--row-pad-x);
-    padding-right: calc( var(--row-pad-x) + var(--thumb-size) + var(--thumb-gap)); }
+    padding-right: calc(var(--row-pad-x) + var(--thumb-size) + var(--thumb-gap)); }
   .bm-group-row--flip .bm-group-row__thumb {
     left: auto;
     right: var(--row-pad-x);

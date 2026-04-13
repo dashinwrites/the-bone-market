@@ -4,36 +4,55 @@
 ***********************************************/
 
 /* ── 1) GRADIENT MAPS ───────────────────────── */
+/*
+  text-light = readable on light backgrounds (~#ededed)
+               derived from: color-mix(end, black, 45%)
+  text-dark  = readable on dark backgrounds (~#121212)
+               derived from: color-mix(start, white, 40%)
+*/
+
 $gradients-precious: (
   obsidian: (
     start: rgb(11, 11, 12),
     end: rgb(58, 58, 61),
-    gradient: linear-gradient(135deg, rgb(11, 11, 12), rgb(58, 58, 61))
+    gradient: linear-gradient(135deg, rgb(11, 11, 12), rgb(58, 58, 61)),
+    text-light: rgb(26, 26, 27),
+    text-dark: rgb(157, 157, 158)
   ),
   quartz: (
     start: rgb(216, 239, 255),
     end: rgb(202, 191, 255),
-    gradient: linear-gradient(135deg, rgb(216, 239, 255), rgb(202, 191, 255))
+    gradient: linear-gradient(135deg, rgb(216, 239, 255), rgb(202, 191, 255)),
+    text-light: rgb(91, 86, 115),
+    text-dark: rgb(239, 249, 255)
   ),
   onyx: (
     start: rgb(22, 18, 16),
     end: rgb(74, 56, 52),
-    gradient: linear-gradient(135deg, rgb(22, 18, 16), rgb(74, 56, 52))
+    gradient: linear-gradient(135deg, rgb(22, 18, 16), rgb(74, 56, 52)),
+    text-light: rgb(33, 25, 23),
+    text-dark: rgb(162, 160, 159)
   ),
   amber: (
     start: rgb(255, 179, 71),
     end: rgb(255, 204, 51),
-    gradient: linear-gradient(135deg, rgb(255, 179, 71), rgb(255, 204, 51))
+    gradient: linear-gradient(135deg, rgb(255, 179, 71), rgb(255, 204, 51)),
+    text-light: rgb(115, 92, 23),
+    text-dark: rgb(255, 225, 181)
   ),
   jade: (
     start: rgb(63, 163, 116),
     end: rgb(161, 209, 157),
-    gradient: linear-gradient(135deg, rgb(63, 163, 116), rgb(161, 209, 157))
+    gradient: linear-gradient(135deg, rgb(63, 163, 116), rgb(161, 209, 157)),
+    text-light: rgb(72, 94, 71),
+    text-dark: rgb(178, 218, 199)
   ),
   silver: (
     start: rgb(176, 196, 210),
     end: rgb(120, 144, 160),
-    gradient: linear-gradient(135deg, rgb(176, 196, 210), rgb(120, 144, 160))
+    gradient: linear-gradient(135deg, rgb(176, 196, 210), rgb(120, 144, 160)),
+    text-light: rgb(54, 65, 72),
+    text-dark: rgb(223, 231, 237)
   )
 );
 
@@ -41,32 +60,44 @@ $gradients-anatomy: (
   marrow: (
     start: rgb(241, 230, 220),
     end: rgb(187, 169, 152),
-    gradient: linear-gradient(135deg, rgb(241, 230, 220), rgb(187, 169, 152))
+    gradient: linear-gradient(135deg, rgb(241, 230, 220), rgb(187, 169, 152)),
+    text-light: rgb(84, 76, 68),
+    text-dark: rgb(249, 245, 241)
   ),
   sinew: (
     start: rgb(213, 169, 129),
     end: rgb(140, 91, 60),
-    gradient: linear-gradient(135deg, rgb(213, 169, 129), rgb(140, 91, 60))
+    gradient: linear-gradient(135deg, rgb(213, 169, 129), rgb(140, 91, 60)),
+    text-light: rgb(63, 41, 27),
+    text-dark: rgb(238, 221, 205)
   ),
   blood: (
     start: rgb(122, 13, 29),
     end: rgb(217, 43, 43),
-    gradient: linear-gradient(135deg, rgb(122, 13, 29), rgb(217, 43, 43))
+    gradient: linear-gradient(135deg, rgb(122, 13, 29), rgb(217, 43, 43)),
+    text-light: rgb(98, 19, 19),
+    text-dark: rgb(202, 158, 165)
   ),
   vein: (
     start: rgb(33, 51, 77),
     end: rgb(72, 107, 148),
-    gradient: linear-gradient(135deg, rgb(33, 51, 77), rgb(72, 107, 148))
+    gradient: linear-gradient(135deg, rgb(33, 51, 77), rgb(72, 107, 148)),
+    text-light: rgb(32, 48, 67),
+    text-dark: rgb(166, 173, 184)
   ),
   bone: (
     start: rgb(222, 218, 200),
     end: rgb(170, 160, 132),
-    gradient: linear-gradient(135deg, rgb(222, 218, 200), rgb(170, 160, 132))
+    gradient: linear-gradient(135deg, rgb(222, 218, 200), rgb(170, 160, 132)),
+    text-light: rgb(77, 72, 59),
+    text-dark: rgb(242, 240, 233)
   ),
   flesh: (
     start: rgb(245, 195, 181),
     end: rgb(217, 143, 128),
-    gradient: linear-gradient(135deg, rgb(245, 195, 181), rgb(217, 143, 128))
+    gradient: linear-gradient(135deg, rgb(245, 195, 181), rgb(217, 143, 128)),
+    text-light: rgb(98, 64, 58),
+    text-dark: rgb(251, 231, 225)
   )
 );
 
@@ -74,32 +105,44 @@ $gradients-celestial: (
   eclipse: (
     start: rgb(25, 25, 25),
     end: rgb(74, 59, 94),
-    gradient: linear-gradient(135deg, rgb(25, 25, 25), rgb(74, 59, 94))
+    gradient: linear-gradient(135deg, rgb(25, 25, 25), rgb(74, 59, 94)),
+    text-light: rgb(33, 27, 42),
+    text-dark: rgb(163, 163, 163)
   ),
   nova: (
     start: rgb(255, 138, 0),
     end: rgb(255, 61, 0),
-    gradient: linear-gradient(135deg, rgb(255, 138, 0), rgb(255, 61, 0))
+    gradient: linear-gradient(135deg, rgb(255, 138, 0), rgb(255, 61, 0)),
+    text-light: rgb(115, 27, 0),
+    text-dark: rgb(255, 208, 153)
   ),
   comet: (
     start: rgb(75, 143, 210),
     end: rgb(197, 223, 255),
-    gradient: linear-gradient(135deg, rgb(75, 143, 210), rgb(197, 223, 255))
+    gradient: linear-gradient(135deg, rgb(75, 143, 210), rgb(197, 223, 255)),
+    text-light: rgb(89, 100, 115),
+    text-dark: rgb(183, 210, 237)
   ),
   orbit: (
     start: rgb(54, 90, 100),
     end: rgb(120, 170, 180),
-    gradient: linear-gradient(135deg, rgb(54, 90, 100), rgb(120, 170, 180))
+    gradient: linear-gradient(135deg, rgb(54, 90, 100), rgb(120, 170, 180)),
+    text-light: rgb(54, 77, 81),
+    text-dark: rgb(175, 189, 193)
   ),
   umbra: (
     start: rgb(8, 16, 32),
     end: rgb(32, 64, 112),
-    gradient: linear-gradient(135deg, rgb(8, 16, 32), rgb(32, 64, 112))
+    gradient: linear-gradient(135deg, rgb(8, 16, 32), rgb(32, 64, 112)),
+    text-light: rgb(14, 29, 50),
+    text-dark: rgb(156, 159, 166)
   ),
   zenith: (
     start: rgb(246, 229, 141),
     end: rgb(249, 202, 36),
-    gradient: linear-gradient(135deg, rgb(246, 229, 141), rgb(249, 202, 36))
+    gradient: linear-gradient(135deg, rgb(246, 229, 141), rgb(249, 202, 36)),
+    text-light: rgb(112, 91, 16),
+    text-dark: rgb(251, 245, 209)
   )
 );
 
@@ -107,32 +150,44 @@ $gradients-flora: (
   hemlock: (
     start: rgb(28, 59, 50),
     end: rgb(61, 102, 86),
-    gradient: linear-gradient(135deg, rgb(28, 59, 50), rgb(61, 102, 86))
+    gradient: linear-gradient(135deg, rgb(28, 59, 50), rgb(61, 102, 86)),
+    text-light: rgb(27, 46, 39),
+    text-dark: rgb(164, 177, 173)
   ),
   nightshade: (
     start: rgb(59, 26, 74),
     end: rgb(113, 59, 134),
-    gradient: linear-gradient(135deg, rgb(59, 26, 74), rgb(113, 59, 134))
+    gradient: linear-gradient(135deg, rgb(59, 26, 74), rgb(113, 59, 134)),
+    text-light: rgb(51, 27, 60),
+    text-dark: rgb(177, 163, 183)
   ),
   yew: (
     start: rgb(16, 52, 73),
     end: rgb(46, 104, 138),
-    gradient: linear-gradient(135deg, rgb(16, 52, 73), rgb(46, 104, 138))
+    gradient: linear-gradient(135deg, rgb(16, 52, 73), rgb(46, 104, 138)),
+    text-light: rgb(21, 47, 62),
+    text-dark: rgb(159, 174, 182)
   ),
   ivy: (
     start: rgb(38, 77, 53),
     end: rgb(108, 169, 127),
-    gradient: linear-gradient(135deg, rgb(38, 77, 53), rgb(108, 169, 127))
+    gradient: linear-gradient(135deg, rgb(38, 77, 53), rgb(108, 169, 127)),
+    text-light: rgb(49, 76, 57),
+    text-dark: rgb(168, 184, 174)
   ),
   rowan: (
     start: rgb(128, 49, 22),
     end: rgb(176, 94, 52),
-    gradient: linear-gradient(135deg, rgb(128, 49, 22), rgb(176, 94, 52))
+    gradient: linear-gradient(135deg, rgb(128, 49, 22), rgb(176, 94, 52)),
+    text-light: rgb(79, 42, 23),
+    text-dark: rgb(204, 173, 162)
   ),
   thorn: (
     start: rgb(120, 56, 56),
     end: rgb(168, 96, 96),
-    gradient: linear-gradient(135deg, rgb(120, 56, 56), rgb(168, 96, 96))
+    gradient: linear-gradient(135deg, rgb(120, 56, 56), rgb(168, 96, 96)),
+    text-light: rgb(76, 43, 43),
+    text-dark: rgb(201, 175, 175)
   )
 );
 
@@ -140,36 +195,48 @@ $gradients-trade: (
   ivory: (
     start: rgb(255, 248, 238),
     end: rgb(217, 203, 176),
-    gradient: linear-gradient(135deg, rgb(255, 248, 238), rgb(217, 203, 176))
+    gradient: linear-gradient(135deg, rgb(255, 248, 238), rgb(217, 203, 176)),
+    text-light: rgb(98, 91, 79),
+    text-dark: rgb(255, 252, 248)
   ),
   velvet: (
     start: rgb(76, 21, 38),
     end: rgb(140, 34, 78),
-    gradient: linear-gradient(135deg, rgb(76, 21, 38), rgb(140, 34, 78))
+    gradient: linear-gradient(135deg, rgb(76, 21, 38), rgb(140, 34, 78)),
+    text-light: rgb(63, 15, 35),
+    text-dark: rgb(183, 161, 168)
   ),
   spice: (
     start: rgb(186, 108, 43),
     end: rgb(219, 147, 64),
-    gradient: linear-gradient(135deg, rgb(186, 108, 43), rgb(219, 147, 64))
+    gradient: linear-gradient(135deg, rgb(186, 108, 43), rgb(219, 147, 64)),
+    text-light: rgb(99, 66, 29),
+    text-dark: rgb(227, 196, 170)
   ),
   smoke: (
     start: rgb(60, 54, 52),
     end: rgb(170, 160, 150),
-    gradient: linear-gradient(135deg, rgb(60, 54, 52), rgb(170, 160, 150))
+    gradient: linear-gradient(135deg, rgb(60, 54, 52), rgb(170, 160, 150)),
+    text-light: rgb(77, 72, 68),
+    text-dark: rgb(177, 175, 174)
   ),
   glass: (
     start: rgb(208, 236, 229),
     end: rgb(160, 210, 196),
-    gradient: linear-gradient(135deg, rgb(208, 236, 229), rgb(160, 210, 196))
+    gradient: linear-gradient(135deg, rgb(208, 236, 229), rgb(160, 210, 196)),
+    text-light: rgb(72, 95, 88),
+    text-dark: rgb(236, 247, 245)
   ),
   gold: (
     start: rgb(212, 175, 55),
     end: rgb(245, 215, 110),
-    gradient: linear-gradient(135deg, rgb(212, 175, 55), rgb(245, 215, 110))
+    gradient: linear-gradient(135deg, rgb(212, 175, 55), rgb(245, 215, 110)),
+    text-light: rgb(110, 97, 50),
+    text-dark: rgb(238, 223, 175)
   )
 );
 
-/* Master map (merge all). Order determines cascade if names ever collide. */
+/* Master map */
 $gradients-all: map-merge(
   map-merge(
     map-merge($gradients-precious, $gradients-anatomy),
@@ -180,27 +247,23 @@ $gradients-all: map-merge(
 
 /* ── 2) CORE MIXINS ─────────────────────────── */
 
-/* Utility: create classes like `.membergroup--obsidian` with a CSS var for reuse */
 @mixin mg-emit-vars($map, $prefix: "g") {
   @each $name, $values in $map {
-    .#{$prefix}--#{$name} {
-      --mg-gradient: #{map-get($values, gradient)};
-      --mg-start: #{map-get($values, start)};
-      --mg-end: #{map-get($values, end)};
+    .#{$prefix}-#{$name} {
+      --mg-gradient:   #{map-get($values, gradient)};
+      --mg-start:      #{map-get($values, start)};
+      --mg-end:        #{map-get($values, end)};
+      --mg-text-light: #{map-get($values, text-light)};
+      --mg-text-dark:  #{map-get($values, text-dark)};
     }
   }
 }
 
-/* Pill style (filled chip/badge) */
 @mixin mg-pill($map, $prefix: "g") {
-  @each $name, $grad in $map {
-    .#{$prefix}--#{$name}.is-pill {
+  @each $name, $values in $map {
+    .#{$prefix}-#{$name}.is-pill {
       background: var(--mg-gradient);
-      color: rgb(28, 28, 28); /* readable on most light gradients */
-      /* If your theme is dark, force white text: */
-      &.on-dark {
-        color: rgb(245, 245, 245);
-      }
+      color: var(--mg-text-light);
       border-radius: 5px;
       padding: 0 0.25rem;
       display: inline-flex;
@@ -208,46 +271,45 @@ $gradients-all: map-merge(
       gap: 0.4rem;
       border: 1px solid rgba(0, 0, 0, 0.12);
       box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset;
+
+      &.on-dark {
+        color: var(--mg-text-dark);
+      }
     }
   }
 }
 
-/* Outline style (transparent fill; gradient border) */
 @mixin mg-outline($map, $prefix: "g") {
   @each $name, $grad in $map {
-    .#{$prefix}--#{$name}.is-outline {
+    .#{$prefix}-#{$name}.is-outline {
       --mg-gradient: #{map-get($grad, gradient)};
       background: transparent;
       color: inherit;
       border: 2px solid transparent;
       border-radius: 999px;
       padding: 0.25rem 0.6rem;
-      /* border-image supports gradients nicely */
       border-image: var(--mg-gradient) 1;
     }
   }
 }
 
-/* Text gradient style (keeps container transparent) */
 @mixin mg-text($map, $prefix: "g") {
   @each $name, $grad in $map {
-    .#{$prefix}--#{$name}.is-text {
+    .#{$prefix}-#{$name}.is-text {
       --mg-gradient: #{map-get($grad, gradient)};
       background: var(--mg-gradient);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      /* optional subtle stroke for dark bg legibility */
       -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25);
     }
-    /* stronger stroke helper for very light backgrounds */
-    .#{$prefix}--#{$name}.is-text.on-light {
+    .#{$prefix}-#{$name}.is-text.on-light {
       -webkit-text-stroke: 0.65px rgba(0, 0, 0, 0.35);
     }
   }
 }
 
-/* ── 3) ONE-LINE API TO GENERATE EVERYTHING ─── */
+/* ── 3) ONE-LINE API ────────────────────────── */
 @mixin membergroups-generate($map, $prefix: "g") {
   @include mg-emit-vars($map, $prefix);
   @include mg-pill($map, $prefix);
@@ -255,85 +317,59 @@ $gradients-all: map-merge(
   @include mg-text($map, $prefix);
 }
 
-/* Emit --mg-gradient via [data-mg="..."] */
+/* Emit via [data-mg="..."] */
 @mixin mg-emit-data-vars($map) {
   @each $name, $values in $map {
     [data-mg="#{$name}"] {
-      --mg-gradient: #{map-get($values, gradient)};
-      --mg-start: #{map-get($values, start)};
-      --mg-end: #{map-get($values, end)};
+      --mg-gradient:   #{map-get($values, gradient)};
+      --mg-start:      #{map-get($values, start)};
+      --mg-end:        #{map-get($values, end)};
+      --mg-text-light: #{map-get($values, text-light)};
+      --mg-text-dark:  #{map-get($values, text-dark)};
     }
   }
 }
 
-/* Call it for each set (or just once with $gradients-all) */
 @include mg-emit-data-vars($gradients-precious);
 @include mg-emit-data-vars($gradients-anatomy);
 @include mg-emit-data-vars($gradients-celestial);
 @include mg-emit-data-vars($gradients-flora);
 @include mg-emit-data-vars($gradients-trade);
-/* or: @include mg-emit-data-vars($gradients-all); */
 
-/* ── 4) CALLS — generate per-set or all at once ─ */
+/* ── 4) CALLS ───────────────────────────────── */
 @include membergroups-generate($gradients-precious);
 @include membergroups-generate($gradients-anatomy);
 @include membergroups-generate($gradients-celestial);
 @include membergroups-generate($gradients-flora);
 @include membergroups-generate($gradients-trade);
 
-/* Or: just this one line if you prefer a single pass */
-// @include membergroups-generate($gradients-all);
-
-/* ── 5) EXAMPLES (delete/keep as docs) ──────── */
-/* HTML usage:
-  <span class="membergroup--obsidian is-pill">Obsidian</span>
-  <span class="membergroup--blood is-outline">Blood</span>
-  <span class="membergroup--nova is-text">Nova</span>
-
-  // Optional legibility helpers based on page theme:
-  <span class="membergroup--jade is-pill on-dark">Jade</span>
-  <span class="membergroup--glass is-text on-light">Glass</span>
-*/
-
 /*************************************************
- Utility: apply membergroup gradients to anything
+ Utility mixins
 **************************************************/
 
-/* 1) Set the active gradient from the master map */
 @mixin mg-set($name, $fallback: linear-gradient(135deg, rgb(58, 58, 61), rgb(27, 27, 27))) {
   $values: map-get($gradients-all, $name);
-  --mg-gradient: #{if($values, map-get($values, gradient), $fallback)};
-  --mg-start: #{if($values, map-get($values, start), rgb(58, 58, 61))};
-  --mg-end: #{if($values, map-get($values, end), rgb(27, 27, 27))};
+  --mg-gradient:   #{if($values, map-get($values, gradient),   $fallback)};
+  --mg-start:      #{if($values, map-get($values, start),      rgb(58, 58, 61))};
+  --mg-end:        #{if($values, map-get($values, end),        rgb(27, 27, 27))};
+  --mg-text-light: #{if($values, map-get($values, text-light), rgb(40, 40, 40))};
+  --mg-text-dark:  #{if($values, map-get($values, text-dark),  rgb(220, 220, 220))};
 }
 
-/* 2) Gradient BORDER (perfect with rounded corners)
-   Uses twin-background trick so border-radius is honored.  */
 @mixin mg-border($width: 2px, $radius: 8px, $bg: var(--bg, rgb(26, 26, 26))) {
   position: relative;
   border: $width solid transparent;
   border-radius: $radius;
   background:
     linear-gradient(#{$bg}, #{$bg}) padding-box,
-    var(
-        --mg-gradient,
-        linear-gradient(135deg, rgb(58, 58, 61), rgb(27, 27, 27))
-      )
-      border-box;
+    var(--mg-gradient, linear-gradient(135deg, rgb(58, 58, 61), rgb(27, 27, 27))) border-box;
 }
 
-/* 3) Gradient FILL (full background) */
 @mixin mg-fill($radius: null) {
-  background: var(
-    --mg-gradient,
-    linear-gradient(135deg, rgb(58, 58, 61), rgb(27, 27, 27))
-  );
-  @if $radius != null {
-    border-radius: $radius;
-  }
+  background: var(--mg-gradient, linear-gradient(135deg, rgb(58, 58, 61), rgb(27, 27, 27)));
+  @if $radius != null { border-radius: $radius; }
 }
 
-/* 4) Gradient OVERLAY (keeps original bg; adds gradient veil via ::after) */
 @mixin mg-overlay($alpha: 0.35, $radius: inherit) {
   position: relative;
   &::after {
@@ -341,66 +377,39 @@ $gradients-all: map-merge(
     position: absolute;
     inset: 0;
     border-radius: $radius;
-    background: var(
-      --mg-gradient,
-      linear-gradient(135deg, rgb(58, 58, 61), rgb(27, 27, 27))
-    );
+    background: var(--mg-gradient, linear-gradient(135deg, rgb(58, 58, 61), rgb(27, 27, 27)));
     opacity: $alpha;
     pointer-events: none;
-    mix-blend-mode: multiply; /* try screen for light themes */
+    mix-blend-mode: multiply;
   }
 }
 
-/* 5) Gradient TEXT (transparent fill with optional stroke) */
 @mixin mg-textual($stroke: 0.5px, $stroke-color: rgba(0, 0, 0, 0.25)) {
-  background: var(
-    --mg-gradient,
-    linear-gradient(135deg, rgb(58, 58, 61), rgb(27, 27, 27))
-  );
+  background: var(--mg-gradient, linear-gradient(135deg, rgb(58, 58, 61), rgb(27, 27, 27)));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   -webkit-text-stroke: $stroke $stroke-color;
 }
 
-/* 6) Gradient RULE (thin bars/dividers) */
 @mixin mg-rule($height: 2px, $radius: 999px) {
   height: $height;
   border-radius: $radius;
-  background: var(
-    --mg-gradient,
-    linear-gradient(135deg, rgb(58, 58, 61), rgb(27, 27, 27))
-  );
+  background: var(--mg-gradient, linear-gradient(135deg, rgb(58, 58, 61), rgb(27, 27, 27)));
 }
 
-/* 7) Corner ticks fed by gradient (works with your corner-ticks aesthetic)
-   Creates an inset frame using ::before so it plays nice with your own mixin. */
-@mixin mg-corner-ticks-frame(
-  $inset: 0.5rem,
-  $radius: 6px,
-  $opacity: 0.35,
-  $style: dashed
-) {
+@mixin mg-corner-ticks-frame($inset: 0.5rem, $radius: 6px, $opacity: 0.35, $style: dashed) {
   position: relative;
   &::before {
     content: "";
     position: absolute;
     inset: $inset;
     border-radius: $radius;
-    /* gradient stroke via border-image for the "frame" */
-    border: 2px #0000; /* transparent shim for border-image */
-    border-image: var(
-        --mg-gradient,
-        linear-gradient(135deg, rgb(58, 58, 61), rgb(27, 27, 27))
-      )
-      1;
+    border: 2px #0000;
+    border-image: var(--mg-gradient, linear-gradient(135deg, rgb(58, 58, 61), rgb(27, 27, 27))) 1;
     opacity: $opacity;
     pointer-events: none;
-  }
-  /* If you want dashed look inside the gradient frame, add a mask: */
-  &::before {
     @if $style == dashed {
-      /* creates dashes by masking the gradient frame */
       -webkit-mask:
         linear-gradient(#000 0 0) padding-box,
         repeating-linear-gradient(90deg, #000 0 8px, #0000 8px 14px) border-box;
@@ -411,42 +420,27 @@ $gradients-all: map-merge(
   }
 }
 
-/* 8) One-liners to scope by name (sugar helpers)
-   Usage: @include mg-apply-border(blood); etc. */
-@mixin mg-apply-border(
-  $name,
-  $width: 2px,
-  $radius: 8px,
-  $bg: var(--bg, rgb(26, 26, 26))
-) {
-  @include mg-set($name);
-  @include mg-border($width, $radius, $bg);
+@mixin mg-apply-border($name, $width: 2px, $radius: 8px, $bg: var(--bg, rgb(26, 26, 26))) {
+  @include mg-set($name); @include mg-border($width, $radius, $bg);
 }
 @mixin mg-apply-fill($name, $radius: null) {
-  @include mg-set($name);
-  @include mg-fill($radius);
+  @include mg-set($name); @include mg-fill($radius);
 }
-@mixin mg-apply-text(
-  $name,
-  $stroke: 0.5px,
-  $stroke-color: rgba(0, 0, 0, 0.25)
-) {
-  @include mg-set($name);
-  @include mg-textual($stroke, $stroke-color);
+@mixin mg-apply-text($name, $stroke: 0.5px, $stroke-color: rgba(0, 0, 0, 0.25)) {
+  @include mg-set($name); @include mg-textual($stroke, $stroke-color);
 }
 @mixin mg-apply-rule($name, $height: 2px, $radius: 999px) {
-  @include mg-set($name);
-  @include mg-rule($height, $radius);
+  @include mg-set($name); @include mg-rule($height, $radius);
 }
 @mixin mg-apply-overlay($name, $alpha: 0.35, $radius: inherit) {
-  @include mg-set($name);
-  @include mg-overlay($alpha, $radius);
+  @include mg-set($name); @include mg-overlay($alpha, $radius);
 }
 
-/* Pill (filled chip) */
+/* ── DATA-VARIANT BLOCKS ────────────────────── */
+
 [data-variant="pill"] {
   background: var(--mg-gradient);
-  color: var(--mg-text, rgb(28, 28, 28));
+  color: var(--mg-text-light, rgb(28, 28, 28));
   border-radius: var(--mg-radius, 999px);
   padding: 0.3rem 0.65rem;
   display: inline-flex;
@@ -454,9 +448,12 @@ $gradients-all: map-merge(
   gap: 0.4rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset;
+
+  &.on-dark {
+    color: var(--mg-text-dark, rgb(245, 245, 245));
+  }
 }
 
-/* Outline (gradient border) */
 [data-variant="outline"] {
   background: transparent;
   color: inherit;
@@ -466,17 +463,14 @@ $gradients-all: map-merge(
   border-image: var(--mg-gradient) 1;
 }
 
-/* Text (gradient-filled text) */
 [data-variant="text"] {
   background: var(--mg-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  -webkit-text-stroke: var(--mg-stroke, 0.5px)
-    var(--mg-stroke-color, rgba(0, 0, 0, 0.25));
+  -webkit-text-stroke: var(--mg-stroke, 0.5px) var(--mg-stroke-color, rgba(0, 0, 0, 0.25));
 }
 
-/* Rule (divider bar) */
 [data-variant="rule"] {
   display: block;
   height: var(--mg-rule-h, 4px);
@@ -484,7 +478,6 @@ $gradients-all: map-merge(
   background: var(--mg-gradient);
 }
 
-/* Border (card with gradient border + solid fill) */
 [data-variant="border"] {
   --_bg: var(--mg-bg, color-mix(in srgb, var(--bg-2) 85%, transparent));
   border: var(--mg-border-w, 2px) solid transparent;
@@ -493,11 +486,9 @@ $gradients-all: map-merge(
   background:
     linear-gradient(var(--_bg), var(--_bg)) padding-box,
     var(--mg-gradient) border-box;
-  box-shadow: inset 0 0 0 1px
-    color-mix(in srgb, var(--text-loCon) 12%, transparent);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--text-loCon) 12%, transparent);
 }
 
-/* Overlay (tinted panel using ::after) */
 [data-variant="overlay"] {
   position: relative;
   border-radius: var(--mg-radius, 10px);
@@ -511,10 +502,12 @@ $gradients-all: map-merge(
   inset: 0;
   border-radius: inherit;
   background: var(--mg-gradient);
-  mix-blend-mode: var(--mg-blend, multiply); /* try 'screen' for light themes */
+  mix-blend-mode: var(--mg-blend, multiply);
   opacity: var(--mg-alpha, 0.35);
   pointer-events: none;
 }
+
+/* ── TAXONOMY + GROUP ROW + ACCENTS (unchanged) ── */
 
 .bm-taxonomy {
   position: relative;
@@ -524,360 +517,128 @@ $gradients-all: map-merge(
   overflow: hidden;
   background: var(--bm-tax-bg, linear-gradient(135deg, oklch(0.12 0.01 60), oklch(0.08 0.01 55)));
 }
-.bm-taxonomy::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.45;
-}
+.bm-taxonomy::before { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0.45; }
 .bm-taxonomy__head {
-  position: relative;
-  z-index: 1;
-  display: grid;
+  position: relative; z-index: 1; display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
-  gap: clamp(20px, 2vw, 32px);
-  align-items: start;
-  margin-bottom: 24px;
+  gap: clamp(20px, 2vw, 32px); align-items: start; margin-bottom: 24px;
 }
-.bm-taxonomy__intro {
-  display: grid;
-  gap: 8px;
-  min-width: 0;
-}
+.bm-taxonomy__intro { display: grid; gap: 8px; min-width: 0; }
 .bm-taxonomy__kicker {
-  margin: 0;
-  font: 400 var(--size-xs)/1 var(--font-hand);
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
+  margin: 0; font: 400 var(--size-xs)/1 var(--font-hand);
+  letter-spacing: 0.22em; text-transform: uppercase;
   color: color-mix(in oklch, var(--tax-accent) 50%, var(--tax-dim));
 }
 .bm-taxonomy__title {
-  margin: 0;
-  font: 400 clamp(30px, 3.5vw, 52px)/0.95 var(--font-title);
-  color: var(--tax-text);
-  text-transform: lowercase;
+  margin: 0; font: 400 clamp(30px, 3.5vw, 52px)/0.95 var(--font-title);
+  color: var(--tax-text); text-transform: lowercase;
 }
 .bm-taxonomy__desc {
-  margin: 0;
-  max-width: 40ch;
-  font: 400 var(--size-md)/1.8 var(--font-sans);
-  color: var(--tax-soft);
+  margin: 0; max-width: 40ch; font: 400 var(--size-md)/1.8 var(--font-sans); color: var(--tax-soft);
 }
 .bm-taxonomy__collage {
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat(2, 74px);
-  gap: 8px;
-  align-content: start;
-  padding-top: 4px;
+  position: relative; display: grid; grid-template-columns: repeat(2, 74px);
+  gap: 8px; align-content: start; padding-top: 4px;
 }
 .bm-taxonomy__collage img {
-  width: 74px;
-  height: 74px;
-  object-fit: cover;
-  display: block;
-  border-radius: 12px;border: 1px solid var(--bm-guide-border-soft);
-  background: var(--bm-guide-bg-soft);
+  width: 74px; height: 74px; object-fit: cover; display: block; border-radius: 12px;
+  border: 1px solid var(--bm-guide-border-soft); background: var(--bm-guide-bg-soft);
   box-shadow: 0 8px 20px oklch(0 0 0/0.18);
 }
-.bm-taxonomy__collage img:nth-child(1) {
-  transform: translateY(4px);
-}
-.bm-taxonomy__collage img:nth-child(2) {
-  transform: translateY(-8px);
-}
-.bm-taxonomy__collage img:nth-child(3) {
-  transform: translate(12px, -2px);
-  grid-column: 1 / span 2;
-  justify-self: center;
-}
-.bm-taxonomy__list {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  gap: 10px;
-}
+.bm-taxonomy__collage img:nth-child(1) { transform: translateY(4px); }
+.bm-taxonomy__collage img:nth-child(2) { transform: translateY(-8px); }
+.bm-taxonomy__collage img:nth-child(3) { transform: translate(12px, -2px); grid-column: 1 / span 2; justify-self: center; }
+.bm-taxonomy__list { position: relative; z-index: 1; display: grid; gap: 10px; }
 
-/*********************************
-  Precious skin
-**********************************/
 .bm-taxonomy--precious {
   background:
-    radial-gradient(
-      circle at top right,
-      oklch(0.46 0.09 55/0.18),
-      transparent 34%
-    ),
+    radial-gradient(circle at top right, oklch(0.46 0.09 55/0.18), transparent 34%),
     linear-gradient(135deg, oklch(0.14 0.03 24), oklch(0.08 0.02 18));
 }
 .bm-taxonomy--precious::before {
   background:
-    linear-gradient(
-      115deg,
-      transparent 0 76%,
-      oklch(0.78 0.13 75/0.05) 83%,
-      transparent 90%
-    ),
+    linear-gradient(115deg, transparent 0 76%, oklch(0.78 0.13 75/0.05) 83%, transparent 90%),
     linear-gradient(0deg, oklch(1 0 0/0.025), oklch(1 0 0/0));
 }
-.bm-taxonomy--precious .bm-taxonomy__title {
-  letter-spacing: 0.02em;
-}
+.bm-taxonomy--precious .bm-taxonomy__title { letter-spacing: 0.02em; }
 
-/*********************************
-  Group rows
-**********************************/
 .bm-group-row {
-  --thumb-size: 44px;
-  --thumb-gap: 14px;
-  --row-pad-x: 14px;
-  --row-pad-y: 10px;
+  --thumb-size: 44px; --thumb-gap: 14px; --row-pad-x: 14px; --row-pad-y: 10px;
   --left-slot: calc(var(--row-pad-x) + var(--thumb-size) + var(--thumb-gap));
   --right-slot: calc(var(--row-pad-x) + var(--thumb-size) + var(--thumb-gap));
-  position: relative;
-  display: block;
+  position: relative; display: block;
   min-height: calc(var(--thumb-size) + var(--row-pad-y) * 2);
   padding: var(--row-pad-y) var(--row-pad-x);
-  padding-left: var(--left-slot);
-  padding-right: var(--row-pad-x);
+  padding-left: var(--left-slot); padding-right: var(--row-pad-x);
   border-radius: 14px;
-  transition:
-    transform 0.25s ease,
-    border-color 0.25s ease,
-    background 0.25s ease,
-    box-shadow 0.25s ease;
+  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
   overflow: hidden;
 }
-.bm-group-row:hover {
-  transform: translateX(3px);
-}
+.bm-group-row:hover { transform: translateX(3px); }
 .bm-group-row::after {
-  content: "";
-  position: absolute;
-  inset: auto 14px 0 14px;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    color-mix(in oklch, white 22%, transparent),
-    transparent
-  );
-  opacity: 0.22;
-  pointer-events: none;
+  content: ""; position: absolute; inset: auto 14px 0 14px; height: 1px;
+  background: linear-gradient(90deg, transparent, color-mix(in oklch, white 22%, transparent), transparent);
+  opacity: 0.22; pointer-events: none;
 }
 .bm-group-row__thumb {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: var(--row-pad-x);
-  margin-block: auto;
-  width: var(--thumb-size);
-  height: var(--thumb-size);
-  object-fit: cover;
-  display: block;
-  border-radius: 10px;border: 1px solid var(--bm-guide-border-soft);
-  background: var(--bm-guide-bg-soft);
-  box-shadow: 0 6px 14px oklch(0 0 0/0.14);
-  z-index: 1;
+  position: absolute; top: 0; bottom: 0; left: var(--row-pad-x); margin-block: auto;
+  width: var(--thumb-size); height: var(--thumb-size); object-fit: cover; display: block;
+  border-radius: 10px; border: 1px solid var(--bm-guide-border-soft);
+  background: var(--bm-guide-bg-soft); box-shadow: 0 6px 14px oklch(0 0 0/0.14); z-index: 1;
 }
 .bm-group-row__text {
-  min-width: 0;
-  display: grid;
-  grid-template-columns: minmax(120px, 220px) minmax(0, 1fr);
-  gap: 14px;
-  align-items: center;
-  min-height: var(--thumb-size);
-  position: relative;
-  z-index: 1;
+  min-width: 0; display: grid; grid-template-columns: minmax(120px, 220px) minmax(0, 1fr);
+  gap: 14px; align-items: center; min-height: var(--thumb-size); position: relative; z-index: 1;
 }
-.bm-group-row__name {
-  margin: 0;
-  min-width: 0;
-  font: 400 clamp(18px, 1.8vw, 28px)/1 var(--font-serif);
-  color: var(--tax-text);
-  text-align: left;
-}
-.bm-group-row__desc {
-  margin: 0;
-  min-width: 0;
-  font: 400 var(--size-sm)/1.7 var(--font-sans);
-  color: var(--tax-soft);
-  text-align: right;
-}
-
-// ── DASHED BORDER TREATMENT ──────────────────
+.bm-group-row__name { margin: 0; min-width: 0; font: 400 clamp(18px, 1.8vw, 28px)/1 var(--font-serif); color: var(--tax-text); text-align: left; }
+.bm-group-row__desc { margin: 0; min-width: 0; font: 400 var(--size-sm)/1.7 var(--font-sans); color: var(--tax-soft); text-align: right; }
 
 .bm-group-row--border {
-  // remove solid border, replace with dashed
   border: 1px dashed var(--bm-guide-border);
-  box-shadow:
-    inset 0 1px 0 oklch(1 0 0 / 0.03),
-    0 0 0 1px oklch(1 0 0 / 0.02);
+  box-shadow: inset 0 1px 0 oklch(1 0 0 / 0.03), 0 0 0 1px oklch(1 0 0 / 0.02);
 }
-
-.bm-group-row--overlay {
-  border: 1px dashed var(--bm-guide-border-soft);
+.bm-group-row--overlay { border: 1px dashed var(--bm-guide-border-soft); }
+.bm-group-row--border::before, .bm-group-row--overlay::before {
+  content: ""; position: absolute; inset: 0; background: var(--mg-gradient); pointer-events: none; border-radius: inherit;
 }
-
-.bm-group-row--border::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: var(--mg-gradient);
-  opacity: var(--bm-mg-row-opacity, 0.18);
-  pointer-events: none;
-  border-radius: inherit;
-}
-
-.bm-group-row--overlay::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: var(--mg-gradient);
-  opacity: var(--bm-mg-row-opacity-overlay, 0.20);
-  pointer-events: none;
-  border-radius: inherit;
-}
-
-// ── PLATE NUMBER ─────────────────────────────
+.bm-group-row--border::before  { opacity: var(--bm-mg-row-opacity, 0.18); }
+.bm-group-row--overlay::before { opacity: var(--bm-mg-row-opacity-overlay, 0.20); }
 
 .bm-group-row[data-plate]::after {
-  // override the existing ::after rule (the divider line)
-  // we repurpose it as the plate number instead
-  content: attr(data-plate);
-  position: absolute;
-  top: 6px;
-  right: 10px;
-  bottom: auto; // reset from divider line rule
-  left: auto;
-  height: auto;
-  width: auto;
-  background: none;
+  content: attr(data-plate); position: absolute; top: 6px; right: 10px;
+  bottom: auto; left: auto; height: auto; width: auto; background: none;
   font: 700 var(--size-sm, 10px) / 1 var(--font-hand, monospace);
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  opacity: 0.35;
-  pointer-events: none;
-  transition: opacity 0.25s ease;
+  letter-spacing: 0.18em; text-transform: uppercase; opacity: 0.35; pointer-events: none; transition: opacity 0.25s ease;
 }
+.bm-group-row--flip.bm-group-row--flip[data-plate]::after { right: auto; left: 10px; }
+.bm-group-row:hover[data-plate]::after { opacity: 0.6; }
+.bm-group-row--flip { padding-left: var(--row-pad-x); padding-right: var(--right-slot); }
+.bm-group-row--flip:hover { transform: translateX(-3px); }
+.bm-group-row--flip .bm-group-row__thumb { left: auto; right: var(--row-pad-x); }
+.bm-group-row--flip::after { background: linear-gradient(270deg, transparent, color-mix(in oklch, white 22%, transparent), transparent); }
+.bm-group-row--flip.bm-group-row--overlay { background: linear-gradient(270deg, color-mix(in srgb, var(--mg-gradient) 18%, transparent), transparent 65%); }
+.bm-group-row:nth-child(odd)  .bm-group-row__thumb { transform: translateY(1px); }
+.bm-group-row:nth-child(even) .bm-group-row__thumb { transform: translateY(-1px); }
 
-// flip rows — plate number goes to left side
-.bm-group-row--flip.bm-group-row--flip[data-plate]::after {
-  right: auto;
-  left: 10px;
-}
-
-// lift opacity on hover so it reads as intentional
-.bm-group-row:hover[data-plate]::after {
-  opacity: 0.6;
-}
-
-.bm-group-row--flip {
-  padding-left: var(--row-pad-x);
-  padding-right: var(--right-slot);
-}
-
-.bm-group-row--flip:hover {
-  transform: translateX(-3px);
-}
-
-.bm-group-row--flip .bm-group-row__thumb {
-  left: auto;
-  right: var(--row-pad-x);
-}
-
-.bm-group-row--flip::after {
-  background: linear-gradient(
-    270deg,
-    transparent,
-    color-mix(in oklch, white 22%, transparent),
-    transparent
-  );
-}
-
-.bm-group-row--flip.bm-group-row--overlay {
-  background: linear-gradient(
-    270deg,
-    color-mix(in srgb, var(--mg-gradient) 18%, transparent),
-    transparent 65%
-  );
-}
-
-/*********************************
-  Optional thumb drift
-**********************************/
-.bm-group-row:nth-child(odd) .bm-group-row__thumb {
-  transform: translateY(1px);
-}
-
-.bm-group-row:nth-child(even) .bm-group-row__thumb {
-  transform: translateY(-1px);
-}
-
-/*********************************
-  Mobile
-**********************************/
 @media (max-width: 700px) {
-  .bm-group-row,
-  .bm-group-row--flip {
-    --thumb-size: 40px;
-    --thumb-gap: 12px;
-    --row-pad-x: 12px;
-    --row-pad-y: 10px;
-  }
-  .bm-group-row:hover,
-  .bm-group-row--flip:hover {
-    transform: none;
-  }
-  .bm-group-row .bm-group-row__text,
-  .bm-group-row--flip .bm-group-row__text {
-    grid-template-columns: 1fr;
-    gap: 4px;
-    min-height: var(--thumb-size);
-  }
-  .bm-group-row .bm-group-row__name,
-  .bm-group-row .bm-group-row__desc,
-  .bm-group-row--flip .bm-group-row__name,
-  .bm-group-row--flip .bm-group-row__desc {
-    text-align: left;
-  }
-  .bm-group-row {
-    padding-left: calc(var(--row-pad-x) + var(--thumb-size) + var(--thumb-gap));
-    padding-right: var(--row-pad-x);
-  }
-  .bm-group-row .bm-group-row__thumb {
-    left: var(--row-pad-x);
-    right: auto;
-    width: var(--thumb-size);
-    height: var(--thumb-size);
-  }
-  .bm-group-row--flip {
-    padding-left: var(--row-pad-x);
-    padding-right: calc(
-      var(--row-pad-x) + var(--thumb-size) + var(--thumb-gap)
-    );
-  }
-  .bm-group-row--flip .bm-group-row__thumb {
-    left: auto;
-    right: var(--row-pad-x);
-    width: var(--thumb-size);
-    height: var(--thumb-size);
-  }
+  .bm-group-row, .bm-group-row--flip { --thumb-size: 40px; --thumb-gap: 12px; --row-pad-x: 12px; --row-pad-y: 10px; }
+  .bm-group-row:hover, .bm-group-row--flip:hover { transform: none; }
+  .bm-group-row .bm-group-row__text, .bm-group-row--flip .bm-group-row__text { grid-template-columns: 1fr; gap: 4px; min-height: var(--thumb-size); }
+  .bm-group-row .bm-group-row__name, .bm-group-row .bm-group-row__desc,
+  .bm-group-row--flip .bm-group-row__name, .bm-group-row--flip .bm-group-row__desc { text-align: left; }
+  .bm-group-row { padding-left: calc(var(--row-pad-x) + var(--thumb-size) + var(--thumb-gap)); padding-right: var(--row-pad-x); }
+  .bm-group-row .bm-group-row__thumb { left: var(--row-pad-x); right: auto; width: var(--thumb-size); height: var(--thumb-size); }
+  .bm-group-row--flip { padding-left: var(--row-pad-x); padding-right: calc(var(--row-pad-x) + var(--thumb-size) + var(--thumb-gap)); }
+  .bm-group-row--flip .bm-group-row__thumb { left: auto; right: var(--row-pad-x); width: var(--thumb-size); height: var(--thumb-size); }
 }
 
 @mixin mg-accents($map) {
   @each $name, $values in $map {
     $start: map-get($values, start);
     $end: map-get($values, end);
-
     body.g-#{$name} {
-      --accent-1: #{$end};
-      --accent-2: #{$start};
+      --accent-1: #{$end}; --accent-2: #{$start};
       --accent-3: color-mix(in oklch, #{$start} 55%, #{$end});
-
-      // explicitly re-declare guidebook tokens so they
-      // resolve in the correct scope
       --bm-guide-accent: #{$end};
       --bm-guide-accent-soft: color-mix(in oklch, #{$end} 25%, transparent);
       --bm-guide-border: color-mix(in oklch, #{$end} 35%, transparent);
@@ -892,51 +653,29 @@ $gradients-all: map-merge(
 @include mg-accents($gradients-flora);
 @include mg-accents($gradients-trade);
 
-// ── EDGE CASE OVERRIDES ──────────────────────
 body.g-obsidian {
-  --accent-1: rgb(140, 140, 148);
-  --accent-2: rgb(90, 90, 96);
-  --accent-3: rgb(60, 60, 64);
+  --accent-1: rgb(140, 140, 148); --accent-2: rgb(90, 90, 96); --accent-3: rgb(60, 60, 64);
   --bm-guide-accent: rgb(140, 140, 148);
   --bm-guide-accent-soft: color-mix(in oklch, rgb(140, 140, 148) 25%, transparent);
   --bm-guide-border: color-mix(in oklch, rgb(140, 140, 148) 35%, transparent);
   --bm-guide-border-soft: color-mix(in oklch, rgb(140, 140, 148) 18%, transparent);
 }
-
 body.g-ivory {
-  --accent-1: rgb(180, 160, 120);
-  --accent-2: rgb(150, 130, 95);
-  --accent-3: rgb(120, 105, 78);
+  --accent-1: rgb(180, 160, 120); --accent-2: rgb(150, 130, 95); --accent-3: rgb(120, 105, 78);
   --bm-guide-accent: rgb(180, 160, 120);
   --bm-guide-accent-soft: color-mix(in oklch, rgb(180, 160, 120) 25%, transparent);
   --bm-guide-border: color-mix(in oklch, rgb(180, 160, 120) 35%, transparent);
   --bm-guide-border-soft: color-mix(in oklch, rgb(180, 160, 120) 18%, transparent);
 }
-
-// body.g-quartz {
-//   --accent-1: rgb(160, 148, 220);
-//   --accent-2: rgb(130, 160, 210);
-//   --accent-3: rgb(110, 100, 180);
-//   --bm-guide-accent: rgb(160, 148, 220);
-//   --bm-guide-accent-soft: color-mix(in oklch, rgb(160, 148, 220) 25%, transparent);
-//   --bm-guide-border: color-mix(in oklch, rgb(160, 148, 220) 35%, transparent);
-//   --bm-guide-border-soft: color-mix(in oklch, rgb(160, 148, 220) 18%, transparent);
-// }
-
 body.g-bone {
-  --accent-1: rgb(140, 130, 100);
-  --accent-2: rgb(170, 160, 132);
-  --accent-3: rgb(110, 100, 78);
+  --accent-1: rgb(140, 130, 100); --accent-2: rgb(170, 160, 132); --accent-3: rgb(110, 100, 78);
   --bm-guide-accent: rgb(140, 130, 100);
   --bm-guide-accent-soft: color-mix(in oklch, rgb(140, 130, 100) 25%, transparent);
   --bm-guide-border: color-mix(in oklch, rgb(140, 130, 100) 35%, transparent);
   --bm-guide-border-soft: color-mix(in oklch, rgb(140, 130, 100) 18%, transparent);
 }
-
 body.g-marrow {
-  --accent-1: rgb(160, 140, 120);
-  --accent-2: rgb(187, 169, 152);
-  --accent-3: rgb(130, 112, 96);
+  --accent-1: rgb(160, 140, 120); --accent-2: rgb(187, 169, 152); --accent-3: rgb(130, 112, 96);
   --bm-guide-accent: rgb(160, 140, 120);
   --bm-guide-accent-soft: color-mix(in oklch, rgb(160, 140, 120) 25%, transparent);
   --bm-guide-border: color-mix(in oklch, rgb(160, 140, 120) 35%, transparent);

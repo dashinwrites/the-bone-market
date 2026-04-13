@@ -44,6 +44,10 @@ body#Pages .bm-guidebook--tabs {
 
 // ── GUIDEBOOK ────────────────────────────────
 
+main {
+  min-height: calc(100vh - var(--nav-h));
+}
+
 .bm-guidebook {
   position: relative;
   display: grid;

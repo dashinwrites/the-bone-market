@@ -23,15 +23,18 @@
 ================================ */
 
 html, body {
-  background-color: var(--bg-1);
   color: var(--text-hiCon);
+}
+
+.bm-container {
+  background-color: var(--bg-1);
 }
 
 .bg {
   position: fixed; inset: 0;
   inline-size: 100%; block-size: 100dvb;
   background: var(--bg-img) center/cover no-repeat fixed;
-  opacity: .25; z-index: -1; pointer-events: none;
+  opacity: .25; z-index: 0; pointer-events: none;
 
   &::before {
     content: ""; position: fixed; inset: 0;
@@ -55,6 +58,7 @@ html, body {
 .bm-container {
   padding-inline: var(--container-pad);
   position: relative;
+  z-index: 1;
   margin-block-start: var(--nav-h);
   margin-inline-start: var(--leftbar-w);
 
@@ -67,6 +71,22 @@ html, body {
   }
 
 
+}
+
+body#Profile {
+  overflow: hidden;
+  
+  main {
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .bm-container {
+    height: 100%;
+    overflow-y: auto;
+    scrollbar-width: none;
+    &::-webkit-scrollbar { display: none; }
+  }
 }
 
 .invisibleElTagging {

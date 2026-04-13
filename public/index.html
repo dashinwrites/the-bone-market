@@ -150,10 +150,20 @@
     <a href="/index.php?showuser=<!-- |id| -->" class="icon member-only" data-tooltip="View Profile">
       <i class="ph ph-user"></i>
     </a>
-    <a href="/index.php?act=UserCP&CODE=54" class="icon member-only" aria-label="Switch account"
-      data-tooltip="Switch Account">
-      <i class="ph ph-arrows-left-right"></i>
-    </a>
+    <div class="nav--inline member-only" id="account-switch-nav">
+  <button class="icon button--menu" type="button"
+    onclick="toggleMenu(this)"
+    data-menu="switch"
+    data-tooltip="Switch Account">
+    <i class="ph ph-arrows-left-right"></i>
+  </button>
+  <div class="nav--popout" data-menu="switch">
+    <div class="sidebar-section">
+      <div class="sidebar-head">Switch Account</div>
+      <div class="switch"></div>
+    </div>
+  </div>
+</div>
     <a href="/index.php?act=UserCP&CODE=01" class="icon member-only" data-tooltip="Edit Profile">
       <i class="ph ph-feather"></i>
     </a>
@@ -307,7 +317,7 @@
         </article>
 
         <div class="category-head">
-          <h2 class="category-title category-title--fancy">Category Title</h2>
+          <h2 class="category-title category-title--foil">Category Title</h2>
           <span class="category-meta">fig. 01</span>
         </div>
 
@@ -411,7 +421,7 @@
           </nav>
         </article>
         <div class="category-head">
-          <h2 class="category-title category-title--fancy">Category Title</h2>
+          <h2 class="category-title category-title--foil">Category Title</h2>
           <span class="category-meta">fig. 01</span>
         </div>
         <div class="category-body">

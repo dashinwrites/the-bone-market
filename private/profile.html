@@ -1,238 +1,885 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        @@include('../source/templates/head.html', {
-            "prefix": "../dist"
-        })
-    </head>
-    <body id="Profile" class="g-4">
-        <div class="bm-container">
-      @@include('../source/templates/nav.html', { "prefix": ".." })
-      @@include('../source/templates/header.html', { "prefix": ".." })
 
-      <!--Main Body-->
-      <div class="bg" aria-hidden="true"></div>
-        <main>
-            <a name="top"></a>
-		
+<head>
+  @@include('../source/templates/head.html', {
+  "prefix": "../dist"
+  })
 
-          <!-- ================================================
-            BONE MARKET — CHARACTER DOSSIER TEMPLATE
-            ================================================ -->
-          <section class="bm-profile full-bleed" data-profile="dossier" data-set="anatomy">
-            <!-- TOP TABS -->
-            <div class="bm-tabs" role="tablist" aria-label="Profile sections">
-              <button class="bm-tab is-active" id="tabbtn-cover" role="tab" aria-selected="true" aria-controls="tab-cover" data-tab="cover">cover</button>
-              <button class="bm-tab" id="tabbtn-basics" role="tab" aria-selected="false" aria-controls="tab-basics">basic info & aesthetic</button>
-              <button class="bm-tab" id="tabbtn-cheats" role="tab" aria-selected="false" aria-controls="tab-cheats" data-tab="cheats">cheatsheet & relationships</button>
-              <button class="bm-tab" id="tabbtn-freeform" role="tab" aria-selected="false" aria-controls="tab-freeform" data-tab="freeform">freeform</button>
-              <button class="bm-tab" id="tabbtn-plotting" role="tab" aria-selected="false" aria-controls="tab-plotting" data-tab="plotting">plotting</button>
-              <button class="bm-tab" id="tabbtn-ooc" role="tab" aria-selected="false" aria-controls="tab-ooc" data-tab="ooc">ooc info</button>
-              <span class="bm-tab__active-bar" aria-hidden="true"></span>
+
+</head>
+
+<body id="Profile" class="g-4">
+  <div class="bm-container">
+    @@include('../source/templates/nav.html', { "prefix": ".." })
+    @@include('../source/templates/header.html', { "prefix": ".." })
+
+    <!--Main Body-->
+    <div class="bg" aria-hidden="true"></div>
+    <main>
+      <a name="top"></a>
+
+      <div class="bm-profile g-<!-- |g_id| --> <!-- |field_1| --> g-orbit" id="profile-<!-- |id| -->"
+        data-account="<!-- |id| -->">
+
+        <!-- ══════════════════════════════════════
+     NAME HEADER
+══════════════════════════════════════ -->
+        <div class="bm-nameplate charOnly">
+          <div class="bm-nameplate__rule"></div>
+          <div class="bm-nameplate__inner">
+            <h1 class="bm-nameplate__name">Aurelian Viremont<!-- |name| --></h1>
+            <div class="bm-nameplate__meta">
+              <span class="bm-nameplate__tag">Specimen</span>
+              <span class="bm-nameplate__dot" aria-hidden="true">◆</span>
+              <span class="bm-nameplate__tag">ref. <!-- |id| --></span>
+              <span class="bm-nameplate__dot" aria-hidden="true">◆</span>
+              <span class="bm-nameplate__tag">1894</span>
             </div>
-
-            <!-- PANELS -->
-            <div class="bm-panels">
-
-              <!-- COVER -->
-              <section id="tab-cover" class="bm-panel" role="tabpanel" aria-labelledby="tabbtn-cover">
-                <header class="bm-cover">
-                  <div class="bm-cover__portrait">
-                    <img src="https://picsum.photos/1200/1200" alt="Character portrait">
-                  </div>
-                  <figure class="bm-cover__image">
-                    <img src="https://picsum.photos/1600/900" alt="Character cover image">
-                  </figure>
-                  <div class="bm-cover__overlay">
-                    <h1 class="bm-cover__name">
-                      Character Name
-                      <em class="bm-cover__alias">epithet / alias / moniker</em>
-                    </h1>
-                    <div class="bm-cover__links">
-                      <a class="chip" href="#plotting/interested">plots</a>
-                      <a class="chip" href="?act=Msg&CODE=4">message</a>
-                      <a class="chip" href="#ooc">ooc prefs</a>
-                      <a class="chip" href="#freeform">freeform</a>
-                    </div>
-                    <aside class="bm-cover__tw" aria-label="content warnings">
-                      <strong>content warnings</strong>
-                      <p>themes of body horror, ritual sacrifice, and grief</p>
-                    </aside>
-
-                    <ul class="bm-cover__tokens">
-                      <!-- relics -->
-                      <li>
-                        <img src="https://i.pinimg.com/736x/ce/49/44/ce49444344049c1451d964379ecdc71d.jpg" alt="ritual knife" title="ritual knife">
-                      </li>
-                      <li>
-                        <img src="https://i.pinimg.com/736x/95/76/0e/95760e88c7772c434b004598da51585e.jpg" alt="feather relic" title="feather relic">
-                      </li>
-                      <li>
-                        <img src="https://i.pinimg.com/736x/f4/97/76/f497760292765388518340b2df90834e.jpg" alt="bone charm" title="bone charm">
-                      </li>
-                      <li>
-                        <img src="https://i.pinimg.com/736x/e3/f0/a3/e3f0a304428372601ecfecc5b5ea9b49.jpg" alt="#anatomy" title="#anatomy">
-                      </li>
-                      <li>
-                        <img src="https://i.pinimg.com/736x/2f/8f/e5/2f8fe5f7cb6b6cb346634a77f02ad2d0.jpg" alt="#nadir" title="#nadir">
-                      </li>
-                    </ul>
-
-                  </div>
-                </header>
-              </section>
-
-              <!-- BASIC INFO & AESTHETIC -->
-              <section id="tab-basics" class="bm-panel" role="tabpanel" aria-labelledby="tabbtn-basics" hidden>
-                <div class="bm-basics">
-                  <div class="bm-block bm-basics__info">
-                    <h2 class="bm-h">basic info</h2>
-                    <ul class="bio-grid">
-                      <li><b>name</b> given name | native script | aliases</li>
-                      <li><b>gender & pronouns</b> gender identity, pronouns</li>
-                      <li><b>appears/age</b> apparent age | true age</li>
-                      <li><b>species</b> species or hybrid (faerie, revenant, witch, etc.)</li>
-                      <li><b>orientation</b> sexual & romantic orientation</li>
-                      <li><b>relationship status</b> single / taken / complicated</li>
-                      <li><b>partner(s)</b>name/s here</li>
-                      <li><b>occupation</b> title or trade (florist, surgeon, smuggler)</li>
-                      <li><b>group</b> celestial / flora / anatomy / material</li>
-                      <li><b>orientation</b> apex / median / nadir</li>
-                      <li><b>residence</b> home base or district</li>
-                      <li><b>face claim</b> actor / model / artwork name</li>
-                      <li data-span="full">
-                        <b>defining traits</b>
-                        <span>Distinctive visual details, mannerisms, or anatomical modifications.</span>
-                      </li>
-                    </ul>
-                  </div>
-
-                  <aside class="bm-block bm-basics__mood" aria-labelledby="mood-title">
-                    <h2 class="bm-h" id="mood-title">aesthetic</h2>
-                    <div class="mood-grid-wrap">
-                      <div class="mood-grid" data-layout="mosaic-a" data-overflow="compact">
-                        <img src="https://picsum.photos/400/500" alt="">
-                        <img src="https://picsum.photos/400/500" alt="">
-                        <img src="https://picsum.photos/400/500" alt="">
-                        <img src="https://picsum.photos/400/500" alt="">
-                        <img src="https://picsum.photos/400/500" alt="">
-                        <img src="https://picsum.photos/400/500" alt="">
-                      </div>
-                    </div>
-                  </aside>
-                </div>
-              </section>
-
-              <!-- CHEATSHEET & RELATIONSHIPS -->
-              <section id="tab-cheats" class="bm-panel" role="tabpanel" aria-labelledby="tabbtn-cheats" hidden>
-                <div class="bm-cheats">
-                  <article class="bm-block bm-cheats__facts">
-                    <h2 class="bm-h bm-cheats__title">quick facts</h2>
-                    <ul class="tick bm-cheats__scroll">
-                      <li>born in [location], [century/era]</li>
-                      <li>former title or epithet</li>
-                      <li>significant event #1 that shaped their life</li>
-                      <li>significant event #2 (loss, rebirth, betrayal, etc.)</li>
-                      <li>current role within the market</li>
-                      <li>known symbol or relic associated with them</li>
-                      <li>rumored weakness or cost of power</li>
-                    </ul>
-                  </article>
-
-                  <aside class="bm-block bm-cheats__rels">
-                    <h2 class="bm-h">relationships</h2>
-                    <ul class="rel">
-                      <li><span class="tag tag--lover">lover</span> <b>Name</b> — short description of their dynamic.</li>
-                      <li><span class="tag tag--rival">rival</span> <b>Name</b> — one-line vibe summary.</li>
-                      <li><span class="tag tag--kin">kin</span> <b>Name</b> — familial or companion connection.</li>
-                    </ul>
-                  </aside>
-                </div>
-              </section>
-
-              <!-- FREEFORM -->
-              <section id="tab-freeform" class="bm-panel" role="tabpanel" aria-labelledby="tabbtn-freeform" hidden>
-                <article class="bm-block prose">
-                  <h2 class="bm-h">freeform</h2>
-                  <h4 data-box-align="center">title of your scene or prose</h4>
-                  <et-wrap data-width="xl" data-type="imagegrid" data-columns="1">
-                    <et-image data-ratio="16:9">
-                      <img src="https://picsum.photos/1600/900" alt="">
-                    </et-image>
-                  </et-wrap>
-                  <blockquote>
-                    Opening paragraph of your narrative piece. This section can hold vignettes, myth fragments, or dream sequences that expand on their story.
-                  </blockquote>
-                  <h4 data-box-align="center">optional second section</h4>
-                </article>
-              </section>
-
-              <!-- PLOTTING -->
-              <section id="tab-plotting" class="bm-panel" role="tabpanel" aria-labelledby="tabbtn-plotting" hidden>
-                <div class="plot-grid">
-                  <section class="plot-overview bm-block" aria-labelledby="plot-overview-title">
-                    <h3 id="plot-overview-title" class="bm-h has-caps">character overview <span class="hcap" aria-hidden="true"></span></h3>
-                    <div class="plot-overview__scroll">
-                      <article class="bm-block prose">
-                        <p>Brief personality and history summary: tone, moral alignment, or emotional state. Include motives, fears, or hooks for other characters.</p>
-                      </article>
-                    </div>
-                  </section>
-
-                  <div class="plot-stacks">
-                    <section class="plot-card bm-block" aria-labelledby="plot-int-title">
-                      <h3 id="plot-int-title" class="bm-h has-caps">interested <span class="hcap" aria-hidden="true"></span></h3>
-                      <div class="plot-card__scroll">
-                        <ul class="tick">
-                          <li>Allies, patrons, or fellow artisans within the Market.</li>
-                          <li>Those who share a common history, faith, or debt.</li>
-                          <li>Potential rivals turned collaborators.</li>
-                        </ul>
-                      </div>
-                    </section>
-
-                    <section class="plot-card bm-block" aria-labelledby="plot-not-title">
-                      <h3 id="plot-not-title" class="bm-h has-caps">not interested <span class="hcap" aria-hidden="true"></span></h3>
-                      <div class="plot-card__scroll">
-                        <ul class="tick">
-                          <li>Types of plots, genres, or dynamics the player prefers to avoid.</li>
-                        </ul>
-                      </div>
-                    </section>
-                  </div>
-                </div>
-              </section>
-
-              <!-- OOC INFO -->
-              <section id="tab-ooc" class="bm-panel" role="tabpanel" aria-labelledby="tabbtn-ooc" hidden>
-                <div class="bm-block grid-2">
-                  <div>
-                    <h2 class="bm-h">writer</h2>
-                    <ul class="stack">
-                      <li>timezone: …</li>
-                      <li>reply pace: …</li>
-                      <li>contact: PM / Discord …</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h2 class="bm-h">preferences</h2>
-                    <ul class="stack">
-                      <li>3rd or 1st present; average word count …</li>
-                      <li>wants: hurt/comfort, debts, peril</li>
-                      <li>limits: explicit list or “see not interested”</li>
-                    </ul>
-                  </div>
-                </div>
-              </section>
-
-            </div>
-          </section>
-
-        </main>
-
-        @@include('../source/templates/scripts.html', {
-            "prefix": "../dist"
-        })   
+          </div>
+          <div class="bm-nameplate__rule bm-nameplate__rule--r"></div>
         </div>
-    </body>
+
+        <!-- ══════════════════════════════════════
+       TAB BAR
+  ══════════════════════════════════════ -->
+        <nav class="bm-tabs" aria-label="Profile navigation">
+          <div class="bm-tab__active-bar" aria-hidden="true"></div>
+
+          <a class="bm-tab charOnly" aria-controls="tab-cover" aria-selected="false" role="button"
+            tabindex="0">cover</a>
+          <a class="bm-tab charOnly" aria-controls="tab-character" aria-selected="false" role="button"
+            tabindex="0">character</a>
+          <a class="bm-tab charOnly" aria-controls="tab-freeform" aria-selected="false" role="button"
+            tabindex="0">freeform</a>
+          <a class="bm-tab charOnly" aria-controls="tab-plotting" aria-selected="false" role="button"
+            tabindex="0">plotting</a>
+          <a class="bm-tab" aria-controls="tab-ooc" aria-selected="false" role="button" tabindex="0">ooc info</a>
+          <a class="bm-tab memAccOnly" aria-controls="tab-roster" aria-selected="false" role="button"
+            tabindex="0">characters</a>
+        </nav>
+
+        <!-- ══════════════════════════════════════
+       PANEL 1 — COVER (character only)
+  ══════════════════════════════════════ -->
+        <div class="bm-panel charOnly" id="tab-cover" hidden>
+          <div class="bm-cover">
+
+            <span class="bm-cover__corner bm-cover__corner--tl" aria-hidden="true">pl. <!-- |id| --> · 1894</span>
+            <span class="bm-cover__corner bm-cover__corner--br" aria-hidden="true">the bone market · mercatus
+              ossium</span>
+
+            <div class="bm-cover__record">
+
+              <div class="bm-cover__id">Specimen · ref. <!-- |name| --></div>
+
+              <h1 class="bm-cover__name"><!-- |name| --></h1>
+              <p class="bm-cover__nick"><!-- |field_16| --></p>
+
+              <hr class="bm-cover__rule" aria-hidden="true">
+
+              <dl class="bm-cover__fields">
+                <div class="bm-cover__field">
+                  <dt>Species</dt>
+                  <dd><!-- |field_34| --><span
+                      class="bm-cover__subspecies"><!-- |field_35| --><!-- |field_36| --><!-- |field_38| --></span></dd>
+                </div>
+                <div class="bm-cover__field">
+                  <dt>Resonance</dt>
+                  <dd><span class="bm-resonance" data-resonance="<!-- |field_33| -->"><!-- |field_33| --></span></dd>
+                </div>
+                <div class="bm-cover__field">
+                  <dt>Occupation</dt>
+                  <dd><!-- |field_27| --></dd>
+                </div>
+                <div class="bm-cover__field">
+                  <dt>Status</dt>
+                  <dd><!-- |field_25| --></dd>
+                </div>
+                <div class="bm-cover__field">
+                  <dt>Age</dt>
+                  <dd><age-clip></age-clip></dd>
+                </div>
+                <div class="bm-cover__field">
+                  <dt>Pack / Kin</dt>
+                  <dd><!-- |field_46| --></dd>
+                </div>
+                <div class="bm-cover__field">
+                  <dt>Gender</dt>
+                  <dd><!-- |field_22| --></dd>
+                </div>
+                <div class="bm-cover__field">
+                  <dt>Face Claim</dt>
+                  <dd><!-- |field_28| --></dd>
+                </div>
+              </dl>
+
+              <div class="bm-cover__footer">
+                <div class="bm-cover__cw">
+                  <span class="bm-cover__cw-label">Content warnings</span>
+                  <span class="bm-cover__cw-text"><!-- |field_59| --></span>
+                </div>
+                <div class="bm-cover__filed">
+                  <span class="bm-cover__filed-label">Filed by</span>
+                  <div class="clip-player"></div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="bm-cover__mosaic" aria-hidden="true">
+              <div class="bm-mosaic__cell bm-mosaic__cell--a">
+                <img src="<!-- |field_68| -->" alt="" loading="lazy">
+                <span class="bm-mosaic__fig">fig. 01</span>
+              </div>
+              <div class="bm-mosaic__cell bm-mosaic__cell--b">
+                <img src="<!-- |field_69| -->" alt="" loading="lazy">
+                <span class="bm-mosaic__fig">fig. 02</span>
+              </div>
+              <div class="bm-mosaic__cell bm-mosaic__cell--c">
+                <img src="<!-- |field_70| -->" alt="" loading="lazy">
+                <span class="bm-mosaic__fig">fig. 03</span>
+              </div>
+              <div class="bm-mosaic__cell bm-mosaic__cell--d">
+                <img src="<!-- |field_71| -->" alt="" loading="lazy">
+                <span class="bm-mosaic__fig">fig. 04</span>
+              </div>
+              <div class="bm-mosaic__cell bm-mosaic__cell--e">
+                <img src="<!-- |field_72| -->" alt="" loading="lazy">
+                <span class="bm-mosaic__fig">fig. 05</span>
+              </div>
+              <div class="bm-mosaic__cell bm-mosaic__cell--f">
+                <img src="<!-- |field_73| -->" alt="" loading="lazy">
+                <span class="bm-mosaic__fig">fig. 06</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+        <!-- ══════════════════════════════════════
+       PANEL 2 — CHARACTER (character only)
+  ══════════════════════════════════════ -->
+        <div class="bm-panel charOnly" id="tab-character" hidden>
+          <div class="bm-character">
+
+            <div class="bm-character__fields">
+
+              <section class="bm-section">
+                <h2 class="bm-section__title">Identity</h2>
+                <dl class="bm-field-list">
+                  <div class="bm-field-list__item">
+                    <dt>Full Name</dt>
+                    <dd><!-- |field_16| --></dd>
+                  </div>
+                  <div class="bm-field-list__item">
+                    <dt>Nickname(s)</dt>
+                    <dd><!-- |field_17| --></dd>
+                  </div>
+                  <div class="bm-field-list__item">
+                    <dt>Birthday</dt>
+                    <dd><birthday-clip></birthday-clip></dd>
+                  </div>
+                  <div class="bm-field-list__item">
+                    <dt>Age</dt>
+                    <dd><age-clip></age-clip></dd>
+                  </div>
+                  <div class="bm-field-list__item">
+                    <dt>Gender</dt>
+                    <dd><!-- |field_22| --></dd>
+                  </div>
+                  <div class="bm-field-list__item">
+                    <dt>Pronouns</dt>
+                    <dd><!-- |field_21| --></dd>
+                  </div>
+                  <div class="bm-field-list__item">
+                    <dt>Sexual Orientation</dt>
+                    <dd><!-- |field_23| --></dd>
+                  </div>
+                  <div class="bm-field-list__item">
+                    <dt>Romantic Orientation</dt>
+                    <dd><!-- |field_24| --></dd>
+                  </div>
+                  <div class="bm-field-list__item">
+                    <dt>Relationship Status</dt>
+                    <dd><!-- |field_25| --></dd>
+                  </div>
+                  <div class="bm-field-list__item optional">
+                    <dt>Partner(s)</dt>
+                    <dd><!-- |field_26| --></dd>
+                  </div>
+                  <div class="bm-field-list__item">
+                    <dt>Occupation</dt>
+                    <dd><!-- |field_27| --></dd>
+                  </div>
+                  <div class="bm-field-list__item optional">
+                    <dt>Pack / Coven / Kin</dt>
+                    <dd><!-- |field_46| --></dd>
+                  </div>
+                </dl>
+              </section>
+
+              <section class="bm-section">
+                <h2 class="bm-section__title">Appearance</h2>
+                <dl class="bm-field-list">
+                  <div class="bm-field-list__item">
+                    <dt>Face Claim</dt>
+                    <dd><!-- |field_28| --></dd>
+                  </div>
+                  <div class="bm-field-list__item">
+                    <dt>Portrayed Age</dt>
+                    <dd><!-- |field_29| --></dd>
+                  </div>
+                  <div class="bm-field-list__item">
+                    <dt>Height</dt>
+                    <dd><!-- |field_30| --></dd>
+                  </div>
+                  <div class="bm-field-list__item bm-field-list__item--full">
+                    <dt>Build &amp; Defining Features</dt>
+                    <dd><!-- |field_31| --></dd>
+                  </div>
+                </dl>
+              </section>
+
+              <section class="bm-section">
+                <h2 class="bm-section__title">Species &amp; Resonance</h2>
+                <dl class="bm-field-list">
+                  <div class="bm-field-list__item">
+                    <dt>Perspective</dt>
+                    <dd><!-- |field_32| --></dd>
+                  </div>
+                  <div class="bm-field-list__item">
+                    <dt>Resonance</dt>
+                    <dd><!-- |field_33| --></dd>
+                  </div>
+                  <div class="bm-field-list__item">
+                    <dt>Species</dt>
+                    <dd><!-- |field_34| --></dd>
+                  </div>
+                  <div class="bm-field-list__item bm-species-sub bm-species-sub--specify optional">
+                    <dt>Specify</dt>
+                    <dd><!-- |field_35| --></dd>
+                  </div>
+                  <div class="bm-field-list__item bm-species-sub bm-species-sub--dragon optional">
+                    <dt>Element</dt>
+                    <dd><!-- |field_36| --></dd>
+                  </div>
+                  <div class="bm-field-list__item bm-species-sub bm-species-sub--dragon optional">
+                    <dt>Form Preference</dt>
+                    <dd><!-- |field_37| --></dd>
+                  </div>
+                  <div class="bm-field-list__item bm-species-sub bm-species-sub--shifter optional">
+                    <dt>Shifter Form</dt>
+                    <dd><!-- |field_38| --></dd>
+                  </div>
+                  <div class="bm-field-list__item bm-species-sub bm-species-sub--shifter-specify optional">
+                    <dt>Specify</dt>
+                    <dd><!-- |field_39| --></dd>
+                  </div>
+                  <div class="bm-field-list__item bm-species-sub bm-species-sub--vampire optional">
+                    <dt>Bloodline</dt>
+                    <dd><!-- |field_40| --></dd>
+                  </div>
+                  <div class="bm-field-list__item bm-species-sub bm-species-sub--fae optional">
+                    <dt>Court</dt>
+                    <dd><!-- |field_41| --></dd>
+                  </div>
+                </dl>
+              </section>
+
+              <section class="bm-section bm-magic-section optional">
+                <h2 class="bm-section__title">Magic &amp; Abilities</h2>
+                <dl class="bm-field-list">
+                  <div class="bm-field-list__item">
+                    <dt>Magic Access</dt>
+                    <dd><!-- |field_42| --></dd>
+                  </div>
+                  <div class="bm-field-list__item bm-magic-sub optional">
+                    <dt>Type &amp; Source</dt>
+                    <dd><!-- |field_43| --></dd>
+                  </div>
+                  <div class="bm-field-list__item bm-field-list__item--full bm-magic-sub optional">
+                    <dt>Notable Abilities</dt>
+                    <dd><!-- |field_44| --></dd>
+                  </div>
+                  <div class="bm-field-list__item bm-field-list__item--full bm-magic-sub optional">
+                    <dt>Limitations &amp; Weaknesses</dt>
+                    <dd><!-- |field_45| --></dd>
+                  </div>
+                </dl>
+              </section>
+
+            </div>
+
+            <div class="bm-character__aside">
+
+              <section class="bm-section">
+                <h2 class="bm-section__title">Quick Facts</h2>
+                <div class="bm-quick-facts"><!-- |field_52| --></div>
+              </section>
+
+              <section class="bm-section">
+                <h2 class="bm-section__title">Relationships</h2>
+                <div class="bm-relationships"><!-- |field_58| --></div>
+              </section>
+
+            </div>
+
+          </div>
+        </div>
+
+
+        <!-- ══════════════════════════════════════
+       PANEL 3 — FREEFORM (character only)
+  ══════════════════════════════════════ -->
+        <div class="bm-panel charOnly" id="tab-freeform" hidden>
+          <div class="bm-freeform">
+            <h2 class="bm-section__title">Freeform</h2>
+            <div class="bm-freeform__content"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sed turpis imperdiet, suscipit velit quis, lacinia arcu. Fusce eu urna dolor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam eget arcu facilisis, rutrum eros ac, venenatis est. Donec commodo placerat massa sed rhoncus. Quisque eleifend vestibulum tempor. Mauris laoreet fringilla sem et laoreet. Fusce euismod metus id arcu mattis imperdiet. Nunc ut congue odio. Morbi id ante sit amet est porta scelerisque. Pellentesque magna ex, ultrices vel imperdiet at, venenatis ac dui. Duis cursus vulputate lectus, eu fringilla velit elementum sed. Aenean ultrices justo ornare nibh aliquam, in hendrerit nulla eleifend. Pellentesque eget vehicula ex. Donec hendrerit, risus vestibulum iaculis euismod, tortor ipsum ornare urna, eu consequat lectus dolor nec lacus.
+
+Proin lacinia augue egestas arcu convallis, a rhoncus erat pulvinar. Curabitur feugiat, magna eget venenatis tempor, leo dolor scelerisque felis, sed consectetur magna felis eu diam. Curabitur eget diam convallis, consectetur mi eu, sodales libero. Sed dolor enim, ullamcorper sit amet feugiat non, porta ut magna. Maecenas rhoncus dapibus ligula eget rhoncus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nulla purus, accumsan et risus nec, imperdiet blandit massa. Etiam condimentum libero vel turpis malesuada, id eleifend velit porta. Etiam venenatis tincidunt pharetra. Quisque sit amet vestibulum est. Aliquam erat volutpat.
+
+Sed vel diam rhoncus, ultrices velit eget, laoreet risus. Nullam porttitor orci sed aliquam vestibulum. Nulla commodo venenatis viverra. Vestibulum ut odio metus. Aenean lorem nibh, vestibulum non erat quis, tincidunt maximus nunc. Pellentesque dignissim lectus non posuere tincidunt. Ut justo justo, pellentesque sed ex ut, ullamcorper fringilla justo. Fusce in dapibus mi. Duis quis risus vehicula, efficitur odio et, mollis velit. Sed id purus hendrerit ipsum commodo vestibulum eu vitae leo. Morbi auctor dolor porta dolor pellentesque hendrerit. Aliquam auctor nibh sed ligula porta tempus. Suspendisse potenti. Donec et tellus placerat, faucibus libero vel, fermentum dolor. Sed finibus sagittis enim, nec bibendum neque aliquet quis.
+
+Phasellus quis dolor accumsan, facilisis elit ac, maximus mauris. Duis sapien eros, pulvinar sit amet sodales et, rutrum nec risus. Nunc eu tincidunt enim. Mauris eu vestibulum lacus. Donec ut porttitor sem, dapibus auctor leo. In elementum est ut urna interdum pellentesque id in arcu. Nunc luctus non ante ac aliquet. Sed ultricies purus et condimentum vestibulum. Curabitur in risus at leo accumsan interdum et at ante. Sed vel risus eros. Sed vitae lectus vel ex lacinia finibus in sed ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed at efficitur metus. Sed id feugiat quam. Integer quis ipsum eu purus pellentesque aliquet. Quisque scelerisque nulla at mi hendrerit rutrum.
+
+Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi quis erat quam. Vivamus iaculis ultrices justo, vitae consequat sapien. Mauris et neque fringilla, tristique risus quis, mollis massa. Morbi at luctus justo. Phasellus blandit est vitae ligula interdum, non mattis metus tempor. Maecenas sit amet lacinia arcu, ac pretium velit. Duis id consequat tellus, vitae iaculis ligula. Proin placerat sapien ligula, non lobortis risus ullamcorper ut. Morbi vitae lectus vel leo vestibulum fermentum. Nullam neque dui, condimentum et interdum ut, finibus id augue. Nullam in augue quis eros malesuada ornare eget ut nisl. 
+              <!-- |field_54| -->
+            </div>
+            <div class="bm-freeform__overflow clip-freeform-overflow"></div>
+          </div>
+        </div>
+
+
+        <!-- ══════════════════════════════════════
+       PANEL 4 — PLOTTING (character only)
+  ══════════════════════════════════════ -->
+        <div class="bm-panel charOnly" id="tab-plotting" hidden>
+          <div class="bm-plotting">
+
+            <div class="bm-plotting__overview">
+              <section class="bm-section">
+                <h2 class="bm-section__title">Character Overview</h2>
+                <div class="bm-overview-text"><!-- |field_53| --></div>
+              </section>
+            </div>
+
+            <div class="bm-plotting__prefs">
+              <section class="bm-section">
+                <h2 class="bm-section__title">Interested In</h2>
+                <div class="bm-plot-hooks"><!-- |field_56| --></div>
+              </section>
+              <section class="bm-section">
+                <h2 class="bm-section__title">Not Interested In</h2>
+                <div class="bm-not-interested"><!-- |field_57| --></div>
+              </section>
+            </div>
+
+          </div>
+        </div>
+
+
+        <!-- ══════════════════════════════════════
+       PANEL 5 — OOC INFO (all accounts)
+  ══════════════════════════════════════ -->
+        <div class="bm-panel" id="tab-ooc" hidden>
+          <div class="bm-ooc">
+
+            <div class="bm-ooc__card">
+
+              <div class="bm-ooc__header">
+                <div class="bm-ooc__avatar">
+                  <div class="clip-player-avatar"></div>
+                </div>
+                <div class="bm-ooc__identity">
+                  <span class="bm-ooc__ref">Player Record</span>
+                  <h2 class="bm-ooc__alias clip-player-alias"></h2>
+                  <span class="bm-ooc__pronouns clip-player-pronouns"></span>
+                </div>
+              </div>
+
+              <hr class="bm-ooc__rule" aria-hidden="true">
+
+              <dl class="bm-ooc__fields">
+                <div class="bm-ooc__field">
+                  <dt>Timezone</dt>
+                  <dd><!-- |field_9| --></dd>
+                </div>
+                <div class="bm-ooc__field">
+                  <dt>Response Time</dt>
+                  <dd><!-- |field_12| --></dd>
+                </div>
+                <div class="bm-ooc__field">
+                  <dt>Post Frequency</dt>
+                  <dd><!-- |field_13| --></dd>
+                </div>
+                <div class="bm-ooc__field">
+                  <dt>Partner Activity</dt>
+                  <dd><!-- |field_15| --></dd>
+                </div>
+                <div class="bm-ooc__field">
+                  <dt>Writing Style</dt>
+                  <dd><!-- |field_11| --> · <!-- |field_10| --></dd>
+                </div>
+                <div class="bm-ooc__field">
+                  <dt>Mature Content</dt>
+                  <dd><!-- |field_6| --></dd>
+                </div>
+                <div class="bm-ooc__field">
+                  <dt>Violence</dt>
+                  <dd><!-- |field_7| --></dd>
+                </div>
+                <div class="bm-ooc__field">
+                  <dt>Language</dt>
+                  <dd><!-- |field_8| --></dd>
+                </div>
+                <div class="bm-ooc__field bm-ooc__field--full optional">
+                  <dt>Triggers &amp; Limits</dt>
+                  <dd><!-- |field_14| --></dd>
+                </div>
+              </dl>
+
+              <hr class="bm-ooc__rule" aria-hidden="true">
+
+              <div class="bm-ooc__links">
+                <a href="<!-- |field_60| -->" class="bm-ooc__link optional" target="_blank">Development Board</a>
+                <a href="<!-- |field_62| -->" class="bm-ooc__link optional" target="_blank"><!-- |field_61| --></a>
+                <a href="<!-- |field_64| -->" class="bm-ooc__link optional" target="_blank"><!-- |field_63| --></a>
+              </div>
+
+              <div class="bm-ooc__stats">
+                <div class="bm-ooc__stat">
+                  <span class="bm-ooc__stat-value"><!-- |posts| --></span>
+                  <span class="bm-ooc__stat-label">posts</span>
+                </div>
+                <div class="bm-ooc__stat">
+                  <span class="bm-ooc__stat-value"><!-- |joined| --></span>
+                  <span class="bm-ooc__stat-label">joined</span>
+                </div>
+                <div class="bm-ooc__stat">
+                  <span class="bm-ooc__stat-value"><!-- |last_active| --></span>
+                  <span class="bm-ooc__stat-label">last active</span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Right column: ratings + triggers -->
+            <div class="bm-ooc__ratings">
+
+              <section class="bm-section">
+                <h2 class="bm-section__title">Content Ratings</h2>
+                <div class="bm-rating-row">
+                  <span class="bm-rating-label">Mature Content</span>
+                  <span class="bm-rating-value"><!-- |field_6| --></span>
+                </div>
+                <div class="bm-rating-row">
+                  <span class="bm-rating-label">Violence</span>
+                  <span class="bm-rating-value"><!-- |field_7| --></span>
+                </div>
+                <div class="bm-rating-row">
+                  <span class="bm-rating-label">Language</span>
+                  <span class="bm-rating-value"><!-- |field_8| --></span>
+                </div>
+              </section>
+
+              <section class="bm-section">
+                <h2 class="bm-section__title">Triggers &amp; Limits</h2>
+                <div class="bm-triggers-block"><!-- |field_14| --></div>
+              </section>
+
+            </div>
+
+          </div>
+        </div>
+
+
+        <!-- ══════════════════════════════════════
+       PANEL 6 — ROSTER (OOC only)
+  ══════════════════════════════════════ -->
+        <div class="bm-panel memAccOnly" id="tab-roster" hidden>
+          <div class="bm-roster">
+            <div class="bm-roster__grid profile--roster"></div>
+          </div>
+        </div>
+
+      </div><!-- /.bm-profile -->
+
+    </main>
+
+    <script> // ── profileFunctions.js
+      // ── PROFILE INITIALIZATION ───────────────────────────────────────────────────
+      // These functions run on pageType === 'Profile'
+      // They replace the previous initCharacter / initMember / initProfile functions.
+      //
+      // Field ID reference (display values read from DOM):
+      //   field_1  = Account Type        field_32 = Perspective
+      //   field_16 = Full Name           field_33 = Resonance
+      //   field_18 = Birth Year          field_34 = Species
+      //   field_19 = Birth Month         field_35 = Species (specify)
+      //   field_20 = Birth Day           field_36 = Dragon Element
+      //   field_22 = Gender              field_37 = Dragon Form Preference
+      //   field_27 = Occupation          field_38 = Shifter Form
+      //   field_28 = Face Claim          field_39 = Shifter Form (specify)
+      //   field_33 = Resonance           field_40 = Vampire Bloodline
+      //   field_34 = Species             field_41 = Fae Court
+      //   field_42 = Magic Access        field_43 = Magic Type & Source
+      //   field_44 = Notable Abilities   field_45 = Limitations & Weaknesses
+      //   field_46 = Pack/Coven/Kin      field_52 = Quick Facts
+      //   field_53 = Overview            field_54 = Freeform
+      //   field_55 = Freeform Overflow   field_56 = Plot Hooks
+      //   field_57 = Not Interested      field_58 = Relationships
+      //   field_59 = Content Warnings
+      // ─────────────────────────────────────────────────────────────────────────────
+
+      // ── HELPER: read a displayed profile field value ──────────────────────────────
+      function profileField(id) {
+        const el = document.querySelector(`#field_${id}`);
+        if (!el) return '';
+        const text = el.innerText.trim();
+        return (text === 'No Information' || text === '') ? '' : text;
+      }
+
+      // ── HELPER: hide a profile field row if empty ─────────────────────────────────
+      function cleanProfileField(id) {
+        const row = document.querySelector(`#field_${id}`);
+        if (!row) return;
+        const value = profileField(id);
+        if (!value) {
+          row.closest('.bm-field-list__item, .bm-cover__field, .bm-ooc__field')?.classList.add('hidden');
+        }
+      }
+
+      // ── HELPER: remove blank optional fields across whole profile ─────────────────
+      function removeBlankFields() {
+        document.querySelectorAll('.optional').forEach(el => {
+          const hasContent = el.querySelector('dd, span, p');
+          if (!hasContent) return;
+          const text = hasContent.innerText?.trim() ?? '';
+          if (text === '' || text === 'No Information') {
+            el.remove();
+          }
+        });
+      }
+
+      // ── SPECIES VISIBILITY ON PROFILE ────────────────────────────────────────────
+      function applyProfileSpecies() {
+        const species = profileField(34).toLowerCase();
+
+        document.querySelectorAll('[class*="bm-species-sub"]').forEach(el => {
+          el.classList.add('hidden');
+        });
+
+        if (species === 'mortal') {
+          document.querySelector('#field_32')?.closest('.bm-field-list__item')?.classList.add('hidden');
+          document.querySelector('#field_33')?.closest('.bm-field-list__item')?.classList.add('hidden');
+          document.querySelector('.bm-magic-section')?.classList.add('hidden');
+          return;
+        }
+
+        const map = {
+          dragon: ['dragon'],
+          shifter: ['shifter'],
+          vampire: ['vampire'],
+          fae: ['fae'],
+          hybrid: ['specify'],
+          other: ['specify'],
+        };
+
+        const toShow = map[species] || [];
+        toShow.forEach(key => {
+          document.querySelectorAll(`.bm-species-sub--${key}`).forEach(el => {
+            el.classList.remove('hidden');
+          });
+        });
+
+        if (species === 'shifter') {
+          const shifterForm = profileField(38).toLowerCase();
+          if (shifterForm !== 'other') {
+            document.querySelectorAll('.bm-species-sub--shifter-specify').forEach(el => {
+              el.classList.add('hidden');
+            });
+          }
+        }
+      }
+
+      // ── MAGIC VISIBILITY ON PROFILE ───────────────────────────────────────────────
+      function applyProfileMagic() {
+        const magic = profileField(42).toLowerCase();
+        if (magic !== 'yes') {
+          document.querySelectorAll('.bm-magic-sub').forEach(el => {
+            el.closest('.bm-field-list__item')?.classList.add('hidden');
+          });
+        }
+      }
+
+      // ── PERSPECTIVE / RESONANCE LABEL TOGGLE ─────────────────────────────────────
+      function applyProfilePerspective() {
+        const perspective = profileField(32).toLowerCase();
+        const resonanceEls = document.querySelectorAll('.bm-resonance');
+
+        const marketLabels = { crown: 'Apex', core: 'Median', hollow: 'Nadir' };
+        const resistanceLabels = { crown: 'Crown', core: 'Core', hollow: 'Hollow' };
+
+        resonanceEls.forEach(el => {
+          const raw = el.dataset.resonance?.toLowerCase() ?? '';
+          if (perspective === 'market') {
+            el.textContent = marketLabels[raw] ?? el.textContent;
+          } else {
+            el.textContent = resistanceLabels[raw] ?? el.textContent;
+          }
+        });
+      }
+
+      // ── COVER: SUBSPECIES INLINE LABEL ───────────────────────────────────────────
+      function applyProfileSubspecies() {
+        const species = profileField(34).toLowerCase();
+        const subEl = document.querySelector('.bm-cover__subspecies');
+        if (!subEl) return;
+
+        let subValue = '';
+        switch (species) {
+          case 'dragon': subValue = profileField(36); break;
+          case 'shifter':
+            subValue = profileField(38);
+            if (subValue.toLowerCase() === 'other') subValue = profileField(39) || subValue;
+            break;
+          case 'vampire': subValue = profileField(40); break;
+          case 'fae': subValue = profileField(41); break;
+          case 'hybrid':
+          case 'other': subValue = profileField(35); break;
+          default: subValue = '';
+        }
+
+        if (subValue) {
+          subEl.textContent = subValue;
+          subEl.classList.remove('hidden');
+        } else {
+          subEl.classList.add('hidden');
+        }
+      }
+
+      // ── FREEFORM OVERFLOW ─────────────────────────────────────────────────────────
+      function applyFreeformOverflow() {
+        const overflow = profileField(55);
+        const target = document.querySelector('.bm-freeform__overflow');
+        if (target && overflow) {
+          const raw = document.querySelector('#field_55');
+          if (raw) target.innerHTML = raw.innerHTML;
+        }
+      }
+
+      // ── BIRTHDAY DISPLAY ──────────────────────────────────────────────────────────
+      function applyBirthday(birthday) {
+        const clips = document.querySelectorAll('birthday-clip');
+        if (!clips.length) return;
+
+        let display = '';
+        if (parseInt(birthday.year) < 0) {
+          display = `${birthday.month} ${birthday.day}, ${Math.abs(parseInt(birthday.year))} BC`;
+        } else {
+          display = `${birthday.month} ${birthday.day}, ${birthday.year}`;
+        }
+
+        clips.forEach(clip => clip.innerText = display);
+      }
+
+      // ── AGE DISPLAY ───────────────────────────────────────────────────────────────
+      function applyAge(birthday) {
+        const age = calculateAge(birthday);
+        document.querySelectorAll('age-clip').forEach(clip => clip.innerText = age);
+      }
+
+      // ── LOCK PROFILE HEIGHT ───────────────────────────────────────────────────────
+      // Measures the cover tab's natural height and pins all other panels to it
+      // via --panel-height. Waits for images to load before measuring.
+      function lockProfileHeight() {
+        const profile = document.querySelector('.bm-profile');
+        const cover = document.querySelector('#tab-cover');
+        if (!profile || !cover) return;
+
+        const wasHidden = cover.hidden;
+        cover.hidden = false;
+        cover.style.visibility = 'hidden';
+
+        const images = [...cover.querySelectorAll('img')];
+        const imagePromises = images.map(img =>
+          img.complete ? Promise.resolve() :
+            new Promise(res => {
+              img.addEventListener('load', res, { once: true });
+              img.addEventListener('error', res, { once: true });
+            })
+        );
+
+        Promise.all(imagePromises).then(() => {
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              // Measure the full profile height, not just the cover
+              const totalHeight = profile.scrollHeight;
+              cover.hidden = wasHidden;
+              cover.style.visibility = '';
+
+              if (totalHeight > 0) {
+                profile.style.setProperty('--panel-height', `${totalHeight}px`);
+              }
+            });
+          });
+        });
+      }
+
+      // ── OOC PROFILE: pull player data from parent account ────────────────────────
+      function applyPlayerInfo(accountId) {
+        fetch(members)
+          .then(r => r.json())
+          .then(memberData => {
+            fetch(claims)
+              .then(r => r.json())
+              .then(characterData => {
+
+                const existing = characterData.filter(c => c.AccountID === accountId)[0];
+                const parentId = existing ? existing.ParentID : accountId;
+                const parent = memberData.filter(m => m.AccountID === parentId)[0];
+
+                if (!parent) return;
+
+                document.querySelectorAll('.clip-player').forEach(el => {
+                  el.innerHTML = initPlayerInfo(parent);
+                });
+
+                document.querySelectorAll('.clip-player-alias').forEach(el => {
+                  el.textContent = capitalize(parent.Member);
+                });
+
+                document.querySelectorAll('.clip-player-pronouns').forEach(el => {
+                  el.textContent = parent.Pronouns ?? '';
+                });
+
+                document.querySelectorAll('.clip-player-avatar').forEach(el => {
+                  el.innerHTML = createAvatars('ooc-avatar-img', parentId);
+                });
+
+                // Re-measure after async content lands
+                lockProfileHeight();
+              });
+          });
+      }
+
+      // ── initCharacter ─────────────────────────────────────────────────────────────
+      function initCharacter(isLocal = false) {
+        document.querySelectorAll('.memAccOnly').forEach(el => el.remove());
+
+        const birthday = {
+          year: profileField(18),
+          month: profileField(19),
+          day: profileField(20),
+        };
+
+        applyAge(birthday);
+        applyBirthday(birthday);
+        applyProfilePerspective();
+        applyProfileSpecies();
+        applyProfileMagic();
+        applyProfileSubspecies();
+        applyFreeformOverflow();
+        removeBlankFields();
+
+        const accountId = document.querySelector('body').dataset.account
+          ?? document.querySelector('body').id.replace('profile-', '');
+
+        if (!isLocal) {
+          applyPlayerInfo(accountId);
+
+          if (typeof FillTracker === 'function') {
+            const title = profileField(16) || document.querySelector('.bm-cover__name')?.innerText || '';
+            FillTracker(title, trackerParams);
+          }
+        }
+      }
+
+      // ── initMember ────────────────────────────────────────────────────────────────
+      function initMember() {
+        document.querySelectorAll('.bm-profile .charOnly').forEach(el => el.remove());
+        setRoster();
+
+        const alias = profileField(2);
+        const pronouns = profileField(3);
+
+        document.querySelectorAll('.clip-player-alias').forEach(el => {
+          el.textContent = alias ? capitalize(alias) : '';
+        });
+
+        document.querySelectorAll('.clip-player-pronouns').forEach(el => {
+          el.textContent = pronouns ?? '';
+        });
+
+        const accountId = document.querySelector('body').dataset.account ?? '';
+        document.querySelectorAll('.clip-player-avatar').forEach(el => {
+          el.innerHTML = createAvatars('ooc-avatar-img', accountId);
+        });
+
+        removeBlankFields();
+      }
+
+      // ── initProfile ───────────────────────────────────────────────────────────────
+      function initProfile(isLocal = false) {
+        const accountType = profileField(1).toLowerCase();
+
+        if (accountType === 'member') {
+          initMember();
+        } else if (accountType === 'character') {
+          initCharacter(isLocal);
+        }
+
+        const profileEl = document.querySelector('.bm-profile');
+        if (profileEl) {
+          const bgImg = getComputedStyle(profileEl)
+            .getPropertyValue('--profile-bg-img').trim();
+          if (bgImg && bgImg !== 'none') {
+            document.body.style.setProperty('--profile-bg-img', bgImg);
+          }
+        }
+
+        // Must run after tab switcher has hidden all panels —
+        // tab switcher is in scripts.js which loads after this script,
+        // so defer until next task via setTimeout 0
+        setTimeout(lockProfileHeight, 0);
+      }
+
+      // ── initPlayerInfo ────────────────────────────────────────────────────────────
+      function initPlayerInfo(parent = null) {
+        if (parent) {
+          return `<span class="bm-cover__filed-alias">${capitalize(parent.Member)}</span>
+                  <span class="bm-cover__filed-sep">·</span>
+                  <span class="bm-cover__filed-pronouns">${parent.Pronouns ?? ''}</span>
+                  <span class="bm-cover__filed-sep">·</span>
+                  <span class="bm-cover__filed-tz">${parent.Timezone ?? ''}</span>`;
+        }
+        return `<span class="bm-cover__filed-pending">claims pending</span>`;
+      }
+
+      // ── setRoster ─────────────────────────────────────────────────────────────────
+      function setRoster() {
+        const rosterEl = document.querySelector('.profile--roster');
+        if (!rosterEl) return;
+
+        const alphaChars = Alpha(document.querySelectorAll('select[name=showuser] option'));
+
+        alphaChars.forEach(character => {
+          const imageDiv = createAvatars('switch--image', character.account);
+          const html = `<a class="switch--block" href="?showuser=${character.account}">
+              ${imageDiv}
+              <span class="switch--name">${formatName(capitalize(character.character))}</span>
+          </a>`;
+          rosterEl.insertAdjacentHTML('beforeend', html);
+        });
+      }
+    </script>
+
+    @@include('../source/templates/scripts.html', {
+    "prefix": "../dist"
+    })
+  </div>
+</body>
+
 </html>

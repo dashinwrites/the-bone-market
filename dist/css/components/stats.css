@@ -10,7 +10,7 @@
   margin: 2rem auto;
   max-inline-size: clamp(320px, 90vw, 1280px);
   color: var(--text-clear);
-  background: var(--bg-1-rgb);
+  background: var(--bg-1);
   border: var(--border-1);
   border-radius: 8px;
   box-shadow: var(--plate-shadow);
@@ -54,24 +54,29 @@
       position: relative; } }
 
 .bm-stats__spine-label {
-  font: 400 var(--size-sm)/1 var(--font-cinzel);
+  font-family: var(--font-subtitle);
+  font-weight: 500;
+  font-size: 2rem;
+  line-height: 1;
   letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--accent-1);
+  text-transform: lowercase;
   white-space: nowrap;
-  writing-mode: vertical-lr;
-  transform: rotate(180deg);
-  display: block;
-  writing-mode: horizontal-tb;
-  transform: none;
-  font-size: var(--size-title);
-  letter-spacing: 0.12em;
-  margin-block-end: 0.5rem; }
+  margin-left: var(--spacing-sm);
+  background: linear-gradient(135deg, var(--accent-2) 0%, var(--accent-1) 35%, color-mix(in oklab, var(--accent-1) 60%, white) 50%, var(--accent-1) 65%, var(--accent-2) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; }
+  @media (max-width: 1079px) {
+    .bm-stats__spine-label {
+      display: block;
+      writing-mode: horizontal-tb;
+      transform: none;
+      letter-spacing: 0.12em;
+      margin-block-end: 0.5rem; } }
   @media (min-width: 1080px) {
     .bm-stats__spine-label {
       writing-mode: vertical-lr;
       transform: rotate(180deg);
-      font-size: var(--size-sm);
       margin-block-end: 0; } }
 
 .bm-stats__content {

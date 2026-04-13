@@ -701,6 +701,146 @@ body[data-sidebar="open"] {
   } /* unhide scrim   */
 }
 
+/* ══════════════════════════════════════
+   ACCOUNT SWITCHER POPOUT
+══════════════════════════════════════ */
+#account-switch-nav {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  // separator above — matches lb-plate > .icon + .icon::before
+  &::before {
+    content: "";
+    position: absolute;
+    inset-inline: var(--sep-inset);
+    inset-block-start: var(--sep-offset);
+    border-top: var(--bdash);
+    opacity: 0.35;
+    pointer-events: none;
+  }
+
+  & + .icon::before,
+  & + [class^="m-"] > a:first-of-type::before {
+    content: "";
+    position: absolute;
+    inset-inline: var(--sep-inset);
+    inset-block-start: var(--sep-offset);
+    border-top: var(--bdash);
+    opacity: 0.35;
+    pointer-events: none;
+  }
+
+  .button--menu {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: var(--lb-icon-sz, 38px);
+    block-size: var(--lb-icon-sz, 38px);
+    border: 0;
+    background: transparent;
+    border-radius: 4px;
+    color: var(--text-hiCon);
+    cursor: pointer;
+    transition: var(--transi-quick);
+
+    i {
+      font-size: var(--lb-icon-font, 1.05rem);
+      line-height: 1;
+      color: inherit; // ← inherits from button, not accent
+    }
+
+    &:hover {
+      transform: translateY(-1px);
+      color: var(--accent-1);
+    }
+  }
+}
+
+.nav--popout[data-menu="switch"] {
+  display: none;
+  position: fixed;
+  inset-block-start: var(--nav-h);
+  inset-block-end: 0;
+  inset-inline-start: var(--leftbar-w);
+  inline-size: clamp(220px, 24vw, 320px);
+  overflow-y: auto;
+  background: var(--bg-2);
+  border-inline-start: 1px solid
+    color-mix(in oklab, var(--text-loCon) 18%, transparent);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  z-index: var(--z-sidebar);
+
+  &.is-open {
+    display: block;
+  }
+
+  .sidebar-section {
+    padding: 1.5rem 1.25rem 0.5rem;
+
+    &:first-of-type {
+      padding-top: 1.5rem;
+    }
+  }
+
+  .switch--block {
+    display: grid;
+    grid-template-columns: 36px 1fr;
+    gap: 0.6rem;
+    align-items: center;
+    padding: 0.45rem 0.25rem;
+    cursor: pointer;
+    position: relative;
+    transition: background var(--transi-quick);
+
+    & + .switch--block::before {
+      content: "";
+      position: absolute;
+      inset-block-start: 0;
+      inset-inline: 0;
+      block-size: 1px;
+      background: color-mix(in oklab, var(--text-loCon) 22%, transparent);
+      pointer-events: none;
+    }
+
+    &:hover {
+      background: color-mix(in oklab, var(--accent-1) 8%, transparent);
+    }
+
+    input[type="checkbox"] {
+      display: none;
+    }
+
+    .switch--image {
+      width: 36px;
+      height: 36px;
+      border-radius: 4px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .switch--name {
+      font-family: var(--font-hand);
+      font-size: var(--size-sm);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-medCon);
+      transition: color var(--transi-quick);
+    }
+
+    &:hover .switch--name {
+      color: var(--accent-1);
+    }
+
+    &.parent-account .switch--name {
+      color: var(--text-hiCon);
+    }
+  }
+}
+
 /* ==========================================================
    THEMING
    ========================================================== */

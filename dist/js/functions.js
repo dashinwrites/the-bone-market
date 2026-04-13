@@ -44,98 +44,7 @@ function formatAesthetics(aesthetics, images) {
     }
     return imageHTML;
 }
-function setRoster() {   
-    let alphaChars = Alpha(document.querySelectorAll('select[name=showuser] option'));
-    alphaChars.forEach(character => {
-        let imageDiv = createAvatars('switch--image', character.account, attributes = ``);
 
-        let html = `<a class="switch--block" href="?showuser=${character.account}">
-            ${imageDiv}
-            <span class="switch--name">${formatName(capitalize(character.character))}</span>
-        </a>`;
-
-        document.querySelector('.profile--roster').insertAdjacentHTML('beforeend', html);
-    });
-}
-function initProfile (title, ratings) {
-    document.querySelector('.profile--header h1').innerHTML = capitalize(title);
-    ratings.forEach(rating => formatRating(rating));
-    removeBlankFields();
-}
-function initCharacter(aesthetics, images, overflow, title, birthday, isLocal = false) {
-    //remove member sections
-    document.querySelectorAll('.memAccOnly').forEach(item => item.remove());
-
-    //set up aesthetics
-    if(aesthetics !== `<i>No Information</i>` && aesthetics !== ``) {
-        document.querySelector('.profile--aesthetic').innerHTML = formatAesthetics(aesthetics, images);
-    }
-
-    //set up age & birthday
-    document.querySelector('age-clip').innerText = calculateAge(birthday);
-    if (parseInt(birthday.year) < 0) {
-        document.querySelector('birthday-clip').innerText = `${birthday.month} ${birthday.day}, ${parseInt(birthday.year) * -1} BC`;
-    } else {
-        document.querySelector('birthday-clip').innerText = `${birthday.month} ${birthday.day}, ${parseInt(birthday.year)}`;
-    }
-
-    //Freeform Overflow
-    if(overflow !== `` && overflow !== `<i>No Information</i>`) {
-        document.querySelector('.clip-freeform-overflow').insertAdjacentHTML('beforeend', overflow);
-    }
-
-    //Tracker
-    if(!isLocal) {
-        FillTracker(title, trackerParams);
-    }
-}
-function initMember() {
-    //remove character only sections
-    document.querySelectorAll('.charOnly').forEach(item => item.remove());
-
-    //subaccounts list
-    setRoster();
-}
-function formatProfilePlayer(member) {
-    return `<div class="profile--column">
-                <div class="items--title charOnly">played by</div>
-                <div class="items--title memAccOnly">about</div>
-                <div class="items scroll grid">
-                    <div class="items--item">
-                        <strong>alias</strong>
-                        <span>${capitalize(member.Member, [' ', '-'])}</span>
-                    </div>
-                    <div class="items--item optional">
-                        <strong>pronouns</strong>
-                        <span>${capitalize(member.Pronouns, ['/'])}</span>
-                    </div>
-                    <div class="items--item">
-                        <strong>Age</strong>
-                        <span>${member.Age} years old</span>
-                    </div>
-                    <div class="items--item">
-                        <strong>Timezone</strong>
-                        <span>${member.Timezone.toUpperCase()}</span>
-                    </div>
-                    <div class="items--item">
-                        <strong>Mature Content?</strong>
-                        <span>${capitalize(member.Mature, [' '])}</span>
-                    </div>
-                    <div class="items--item">
-                        <strong>Writing Style</strong>
-                        <span>${capitalize(member.POV, [' '])}, ${capitalize(member.Tense, [' '])}</span>
-                    </div>
-                    <div class="items--item fullWidth">
-                        <strong>Triggers</strong>
-                        <span>${member.Triggers}</span>
-                    </div>
-                </div>
-            </div>
-            <img src="${member.Image}" loading="lazy" class="charOnly" />
-            <div class="profile--column memAccOnly">
-                <div class="scroll profile--roster"></div>
-            </div>`;
-}
 function submitMemberData(e) {
     e.innerHTML = 'Submitting...';
 
@@ -404,24 +313,25 @@ function createFieldArray(arr, input = false) {
 /****** Members Initialization ******/
 function formatMemberRow(type, data, extraFilters = '') {
     let tagList = ``, info = ``, details = ``;
+
     if(type === 'character') {
-        tagList += `${data.character.ageClass} ${data.character.relationshipClass} ${data.character.locationClass}`;
+        tagList += `${data.character.ageClass} ${data.character.relationshipClass}`;
         info += `<div class="member--stats">
             <span>${data.character.age} years old</span>
             <span>${data.character.pronouns}</span>
-            <span>${data.character.location}</span>
+            <span>${data.character.species}</span>
+            <span>${data.character.resonance}</span>
             <span>${data.writer.alias}</span>
         </div>`;
         details = data.character.overview;
     } else {
         info += `<div class="member--stats">
-            <span>${data.writer.age} years old</span>
             <span>${data.writer.pronouns}</span>
             <span>${data.writer.timezone}</span>
-            <span>${data.writer.contact}</span>
         </div>`;
         details = data.writer.triggers;
     }
+
     return `<div class="members--member grid-item g-${data.universal.groupID} ${data.writer.aliasClass} ${type} ${extraFilters} ${tagList}">
         <div class="member">
             <div class="member--top">
@@ -429,8 +339,9 @@ function formatMemberRow(type, data, extraFilters = '') {
             </div>
             <div class="member--main">
                 <a href="?showuser=${data.universal.id}">${formatName(data.universal.name, 'b')}</a>
-                <div class="member--species">Joined ${data.universal.dates.joined}</div>
-                <div class="member--species">Last seen ${data.universal.dates.lastActive}</div>
+                <div class="member--group">${data.universal.groupName}</div>
+                <div class="member--dates">Joined ${data.universal.dates.joined}</div>
+                <div class="member--dates">Last seen ${data.universal.dates.lastActive}</div>
             </div>
             ${info}
             <div class="member--overview"><div class="scroll">
@@ -439,7 +350,7 @@ function formatMemberRow(type, data, extraFilters = '') {
         </div>
         <div class="hidden member--sortable">
             <span class="member--name">${data.universal.name}</span>
-            <span class="member--age">${data.character.age}</span>
+            <span class="member--age">${data.character.age ?? ''}</span>
             <span class="member--posts">${data.universal.posts}</span>
             <span class="member--join">${data.universal.dates.joined}</span>
         </div>

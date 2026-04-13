@@ -35,6 +35,9 @@ body#Pages .bm-guidebook--tabs {
   100% {
     opacity: 0; } }
 
+main {
+  min-height: calc(100vh - var(--nav-h)); }
+
 .bm-guidebook {
   position: relative;
   display: grid;

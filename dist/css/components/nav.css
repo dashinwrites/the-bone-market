@@ -639,6 +639,110 @@ body[data-sidebar="open"] {
   body[data-sidebar="open"] #sidebar-scrim[hidden] {
     display: block; }
 
+/* ══════════════════════════════════════
+   ACCOUNT SWITCHER POPOUT
+══════════════════════════════════════ */
+#account-switch-nav {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%; }
+  #account-switch-nav::before {
+    content: "";
+    position: absolute;
+    inset-inline: var(--sep-inset);
+    inset-block-start: var(--sep-offset);
+    border-top: var(--bdash);
+    opacity: 0.35;
+    pointer-events: none; }
+  #account-switch-nav + .icon::before,
+  #account-switch-nav + [class^="m-"] > a:first-of-type::before {
+    content: "";
+    position: absolute;
+    inset-inline: var(--sep-inset);
+    inset-block-start: var(--sep-offset);
+    border-top: var(--bdash);
+    opacity: 0.35;
+    pointer-events: none; }
+  #account-switch-nav .button--menu {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: var(--lb-icon-sz, 38px);
+    block-size: var(--lb-icon-sz, 38px);
+    border: 0;
+    background: transparent;
+    border-radius: 4px;
+    color: var(--text-hiCon);
+    cursor: pointer;
+    transition: var(--transi-quick); }
+    #account-switch-nav .button--menu i {
+      font-size: var(--lb-icon-font, 1.05rem);
+      line-height: 1;
+      color: inherit; }
+    #account-switch-nav .button--menu:hover {
+      transform: translateY(-1px);
+      color: var(--accent-1); }
+
+.nav--popout[data-menu="switch"] {
+  display: none;
+  position: fixed;
+  inset-block-start: var(--nav-h);
+  inset-block-end: 0;
+  inset-inline-start: var(--leftbar-w);
+  inline-size: clamp(220px, 24vw, 320px);
+  overflow-y: auto;
+  background: var(--bg-2);
+  border-inline-start: 1px solid color-mix(in oklab, var(--text-loCon) 18%, transparent);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  z-index: var(--z-sidebar); }
+  .nav--popout[data-menu="switch"].is-open {
+    display: block; }
+  .nav--popout[data-menu="switch"] .sidebar-section {
+    padding: 1.5rem 1.25rem 0.5rem; }
+    .nav--popout[data-menu="switch"] .sidebar-section:first-of-type {
+      padding-top: 1.5rem; }
+  .nav--popout[data-menu="switch"] .switch--block {
+    display: grid;
+    grid-template-columns: 36px 1fr;
+    gap: 0.6rem;
+    align-items: center;
+    padding: 0.45rem 0.25rem;
+    cursor: pointer;
+    position: relative;
+    transition: background var(--transi-quick); }
+    .nav--popout[data-menu="switch"] .switch--block + .switch--block::before {
+      content: "";
+      position: absolute;
+      inset-block-start: 0;
+      inset-inline: 0;
+      block-size: 1px;
+      background: color-mix(in oklab, var(--text-loCon) 22%, transparent);
+      pointer-events: none; }
+    .nav--popout[data-menu="switch"] .switch--block:hover {
+      background: color-mix(in oklab, var(--accent-1) 8%, transparent); }
+    .nav--popout[data-menu="switch"] .switch--block input[type="checkbox"] {
+      display: none; }
+    .nav--popout[data-menu="switch"] .switch--block .switch--image {
+      width: 36px;
+      height: 36px;
+      border-radius: 4px;
+      background-size: cover;
+      background-position: center; }
+    .nav--popout[data-menu="switch"] .switch--block .switch--name {
+      font-family: var(--font-hand);
+      font-size: var(--size-sm);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-medCon);
+      transition: color var(--transi-quick); }
+    .nav--popout[data-menu="switch"] .switch--block:hover .switch--name {
+      color: var(--accent-1); }
+    .nav--popout[data-menu="switch"] .switch--block.parent-account .switch--name {
+      color: var(--text-hiCon); }
+
 /* ==========================================================
    THEMING
    ========================================================== */

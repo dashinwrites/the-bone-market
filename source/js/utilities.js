@@ -157,38 +157,45 @@ function initQuickLogin() {
     }
 }
 function initSwitcher() {
-	let characters = switcher.querySelectorAll('option');
-	let newSwitch = `<div class="switch">`;
-	let switchValues = Array.from(characters).map((item, i) => ({
-		character: item.innerText.trim().toLowerCase(),
-		id: item.value
-	})).slice(1);
-	switchValues.sort((a, b) => {
-		if(a.character.split(`(p)`).length > 1 && !(b.character.split(`(p)`).length > 1)) {
-			return -1;
-		} else if(!(a.character.split(`(p)`).length > 1) && b.character.split(`(p)`).length > 1) {
-			return 1;
-		} else if(a.character < b.character) {
-			return -1;
-		} else if(a.character > b.character) {
-			return 1;
-		} else {
-			return 0;
-		}
-	});
-	switchValues.forEach(character => {
-		let characterName = formatName(character.character);
-		let characterId = character.id;
-		newSwitch += `<label class="switch--block${character.character.split(`(p)`).length > 1 ? ' parent-account' : ''}">
-			<input type="checkbox" value="${characterId}" onchange="this.form.submit()" name="sub_id" />
-			${createAvatars(`switch--image`, characterId)}
-			<div class="switch--name">${characterName}</div>
-		</label>`;
-	});
-	newSwitch += `</div>`;
-	switcher.insertAdjacentHTML('afterend', newSwitch);
-	switcher.remove();
+  let characters = switcher.querySelectorAll('option');
+  let switchValues = Array.from(characters).map((item) => ({
+    character: item.innerText.trim().toLowerCase(),
+    id: item.value
+  })).slice(1);
+
+  switchValues.sort((a, b) => {
+    const aIsParent = a.character.toLowerCase().includes('(p)');
+    const bIsParent = b.character.toLowerCase().includes('(p)');
+
+    if (aIsParent && !bIsParent) return -1;
+    else if (!aIsParent && bIsParent) return 1;
+    else if (a.character < b.character) return -1;
+    else if (a.character > b.character) return 1;
+    else return 0;
+  });
+
+  const originalForm = switcher.closest('form');
+  const formAction = originalForm?.action ?? '';
+  const formMethod = originalForm?.method ?? 'post';
+
+  const switchEl = document.querySelector('.nav--popout[data-menu="switch"] .switch');
+  if (!switchEl) return;
+
+  let formHTML = `<form action="${formAction}" method="${formMethod}">`;
+  switchValues.forEach(character => {
+    const isParent = character.character.toLowerCase().includes('(p)');
+    formHTML += `<label class="switch--block${isParent ? ' parent-account' : ''}">
+      <input type="checkbox" value="${character.id}" onchange="this.form.submit()" name="sub_id" />
+      ${createAvatars(`switch--image`, character.id)}
+      <div class="switch--name">${formatName(character.character)}</div>
+    </label>`;
+  });
+  formHTML += `</form>`;
+
+  switchEl.innerHTML = formHTML;
+  switcher.remove();
 }
+
 //This one is for UCP, Store, and ModCP menu accordions
 function initAccordionActive() {
     const trackingCodes = ['code-alerts', 'code-50', 'code-26'];
