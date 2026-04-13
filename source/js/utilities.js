@@ -166,7 +166,6 @@ function initSwitcher() {
   switchValues.sort((a, b) => {
     const aIsParent = a.character.toLowerCase().includes('(p)');
     const bIsParent = b.character.toLowerCase().includes('(p)');
-
     if (aIsParent && !bIsParent) return -1;
     else if (!aIsParent && bIsParent) return 1;
     else if (a.character < b.character) return -1;
@@ -174,14 +173,25 @@ function initSwitcher() {
     else return 0;
   });
 
-  const originalForm = switcher.closest('form');
+  // grab the original form and copy its hidden fields
+  const originalForm = document.querySelector('#subaccounts_menu form');
   const formAction = originalForm?.action ?? '';
   const formMethod = originalForm?.method ?? 'post';
+  
+  // copy all hidden fields from the original form
+  let hiddenFields = '';
+  if (originalForm) {
+    originalForm.querySelectorAll('input[type="hidden"]').forEach(input => {
+      hiddenFields += `<input type="hidden" name="${input.name}" value="${input.value}">`;
+    });
+  }
 
   const switchEl = document.querySelector('.nav--popout[data-menu="switch"] .switch');
   if (!switchEl) return;
 
-  let formHTML = `<form action="${formAction}" method="${formMethod}">`;
+  let formHTML = `<form action="${formAction}" method="${formMethod}">
+    ${hiddenFields}`;
+    
   switchValues.forEach(character => {
     const isParent = character.character.toLowerCase().includes('(p)');
     formHTML += `<label class="switch--block${isParent ? ' parent-account' : ''}">
@@ -190,8 +200,8 @@ function initSwitcher() {
       <div class="switch--name">${formatName(character.character)}</div>
     </label>`;
   });
-  formHTML += `</form>`;
 
+  formHTML += `</form>`;
   switchEl.innerHTML = formHTML;
   switcher.remove();
 }
