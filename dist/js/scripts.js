@@ -1038,10 +1038,6 @@ if (pageType === "UserCP" || pageType === "Msg") {
   //ucp menu
   initUCPMenu();
 
-  console.log('accordion el:', document.querySelector('#ucpmenu .accordion'));
-  console.log('triggers found:', document.querySelectorAll('#ucpmenu .accordion--trigger').length);
-  console.log('ucpmenu html:', document.querySelector('#ucpmenu').innerHTML);
-
   //Edit Profile Edits
   if ($("body.code-01").length > 0 && pageType === "UserCP") {
     document
@@ -1315,9 +1311,18 @@ function initSwitcherLocal() {
   if (!switchEl) return;
 
   const fakeChars = [
-    { id: '003', name: 'dashin (p)' },
-    { id: '001', name: 'aurelian viremont' },
-    { id: '002', name: 'mira ashwood' },
+    { id: '001', name: 'dashin (p)' },
+    { id: '002', name: 'aurelian viremont' },
+    { id: '003', name: 'ren jiayi' },
+    { id: '004', name: 'zhao fanxing' },
+    { id: '005', name: 'chen longhai' },
+    { id: '006', name: 'kai callahan' },
+    { id: '007', name: 'riven valqirelle' },
+    { id: '008', name: 'callista carlisle' },
+    { id: '009', name: 'letheon theraponis' },
+    { id: '010', name: 'wren gardner' },
+    { id: '011', name: 'colton haywood' },
+
   ];
 
   let html = `<form>`;
