@@ -13,7 +13,8 @@
 ********************************/
 #UserCP main > table:first-of-type,
 #Msg main > table:first-of-type {
-  display: block; }
+  position: relative;
+  z-index: 1; }
   #UserCP main > table:first-of-type ~ *,
   #Msg main > table:first-of-type ~ * {
     display: none; }

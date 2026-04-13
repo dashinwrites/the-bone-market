@@ -10,7 +10,8 @@
 #Msg {
   // Hide the outermost table wrapper Jcink forces and all siblings after it
   main > table:first-of-type {
-    display: block;
+    position:relative;
+    z-index: 1;
 
     ~ * {
       display: none;
