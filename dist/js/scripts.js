@@ -19,7 +19,7 @@ if (switcher !== null) {
       account.innerHTML = account.innerHTML.replace(/&nbsp;&nbsp;»/g, "");
     });
   initSwitcher();
-} else if (typeof initSwitcherLocal === 'function') {
+} else if (typeof initSwitcherLocal === 'function' && !window.location.hostname.includes('jcink.net')) {
   initSwitcherLocal();
 }
 
