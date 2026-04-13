@@ -8,9 +8,8 @@ document.querySelectorAll("#post_as_menu option").forEach((account) => {
   account.innerHTML = account.innerHTML.replace(/&nbsp;&nbsp;»/g, "");
 });
 
-let switcher = document.querySelector(
-  "#account-switch #subaccounts_menu select",
-);
+let switcher = document.querySelector('#account-switch #subaccounts_menu select')
+  ?? document.querySelector('select[name="sub_id"]');
 
 if (switcher !== null) {
   document
