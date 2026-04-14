@@ -216,10 +216,10 @@
       margin-inline: 1.5rem;
 
       @media (max-width: 768px) {
-          inline-size: 6rem;
-          block-size: 1px;
-          margin-inline: 0;
-          margin-block: 0.25rem;
+        inline-size: 6rem;
+        block-size: 1px;
+        margin-inline: 0;
+        margin-block: 0.25rem;
       }
     }
 
@@ -449,7 +449,7 @@
         @include thin-scrollbar;
       }
 
-      .forum-subforums {
+      .subforums {
         display: flex;
         flex-wrap: wrap;
         align-items: center;
@@ -457,53 +457,21 @@
         padding: 0.5rem 1.25rem 0.6rem;
         border-top: 1px solid
           color-mix(in oklab, var(--text-loCon) 12%, transparent);
-      }
 
-      .forum-subforum {
-        font: 400 var(--size-xs) / 1 var(--font-hand);
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        color: var(--text-loCon);
-        text-decoration: none;
-        white-space: nowrap;
-        transition: color var(--transi-quick);
+        a {
+          font: 400 var(--size-xs) / 1 var(--font-hand);
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          color: var(--text-loCon);
+          text-decoration: none;
+          white-space: nowrap;
+          transition: color var(--transi-quick);
 
-        &:hover {
-          color: var(--accent-1);
-        }
+          &:hover {
+            color: var(--accent-1);
+          }
 
-        @include dagger-separator($margin: 0.4rem);
-      }
-
-      .forum-subforum-more {
-        font: 400 var(--size-xs) / 1 var(--font-hand);
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        color: var(--text-loCon);
-        opacity: 0.5;
-        cursor: pointer;
-        background: none;
-        border: none;
-        padding: 0;
-        transition:
-          color var(--transi-quick),
-          opacity var(--transi-quick);
-
-        &::before {
-          content: "†";
-          font-family: var(--font-serif);
-          color: var(--accent-1);
-          opacity: 0.4;
-          margin-inline: 0.4rem;
-          user-select: none;
-        }
-
-        &:hover {
-          color: var(--accent-1);
-          opacity: 1;
-        }
-        &[aria-expanded="true"] {
-          display: none;
+          @include dagger-separator($margin: 0.4rem);
         }
       }
 
@@ -748,9 +716,15 @@
    --plate-pos, --plate-alpha, --plate-blend
 ------------------------------------------------- */
 
-.category--plate-watermark .category-head { @include plate-watermark; }
-.category--plate-side .category-head { @include plate-side; }
-.category--plate-anchor .category-head { @include plate-anchor; }
+.category--plate-watermark .category-head {
+  @include plate-watermark;
+}
+.category--plate-side .category-head {
+  @include plate-side;
+}
+.category--plate-anchor .category-head {
+  @include plate-anchor;
+}
 
 body.light .category[class*="plate-"],
 body.dark .category[class*="plate-"] {
