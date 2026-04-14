@@ -7162,19 +7162,10 @@ body[id="idx"] .bm-head {
           text-decoration: none;
           white-space: nowrap;
           -webkit-transition: color var(--transi-quick);
-          transition: color var(--transi-quick); }
+          transition: color var(--transi-quick);
+          padding: 0.5rem; }
           .category .category-body > .forum .subforums a:hover {
             color: var(--accent-1); }
-          .category .category-body > .forum .subforums a + .category .category-body > .forum .subforums a::before {
-            content: "†";
-            font-family: var(--font-serif);
-            color: var(--accent-1);
-            opacity: 0.4;
-            margin-inline: 0.4rem;
-            -webkit-user-select: none;
-               -moz-user-select: none;
-                -ms-user-select: none;
-                    user-select: none; }
       .category .category-body > .forum .forum-meta {
         -webkit-box-flex: 0;
         -webkit-flex: 0 0 auto;

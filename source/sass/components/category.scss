@@ -466,12 +466,11 @@
           text-decoration: none;
           white-space: nowrap;
           transition: color var(--transi-quick);
+          padding: 0.5rem;
 
           &:hover {
             color: var(--accent-1);
           }
-
-          @include dagger-separator($margin: 0.4rem);
         }
       }
 

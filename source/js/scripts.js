@@ -1219,14 +1219,6 @@ if (pageType === "modcp") {
   breadcrumb.innerHTML = html;
 })();
 
-document.querySelectorAll('.subforums').forEach(span => {
-    span.childNodes.forEach(node => {
-        if (node.nodeType === Node.TEXT_NODE) {
-            node.textContent = node.textContent.replace(/,/g, '');
-        }
-    });
-});
-
 /**** LOCAL ONLY */
 // GROUP TESTING
 
