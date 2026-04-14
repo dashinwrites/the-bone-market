@@ -13958,7 +13958,8 @@ body#Msg main {
 #UserCP main > table:first-of-type,
 #Msg main > table:first-of-type {
   position: relative;
-  z-index: 1; }
+  z-index: 1;
+  background: var(--bg-1); }
   #UserCP main > table:first-of-type ~ *,
   #Msg main > table:first-of-type ~ * {
     display: none; }
@@ -13979,9 +13980,9 @@ body#Msg main {
       #UserCP main > table:first-of-type > tbody > tr > td#ucpmenu,
       #Msg main > table:first-of-type > tbody > tr > td#ucpmenu {
         -webkit-box-flex: 0;
-        -webkit-flex: 0 0 160px;
-            -ms-flex: 0 0 160px;
-                flex: 0 0 160px;
+        -webkit-flex: 0 0 210px;
+            -ms-flex: 0 0 210px;
+                flex: 0 0 210px;
         -webkit-align-self: stretch;
             -ms-flex-item-align: stretch;
                     -ms-grid-row-align: stretch;
@@ -13989,8 +13990,12 @@ body#Msg main {
         background-color: var(--bg-2);
         -webkit-padding-before: var(--space-md);
                 padding-block-start: var(--space-md);
+        -webkit-padding-after: var(--space-md);
+                padding-block-end: var(--space-md);
         -webkit-border-end: 1px dashed color-mix(in oklab, var(--text-loCon) 12%, transparent);
                 border-inline-end: 1px dashed color-mix(in oklab, var(--text-loCon) 12%, transparent);
+        -webkit-padding-start: var(--space-md);
+                padding-inline-start: var(--space-md);
         -webkit-padding-end: var(--space-md);
                 padding-inline-end: var(--space-md); }
         #UserCP main > table:first-of-type > tbody > tr > td#ucpmenu .maintitle,
@@ -14012,7 +14017,8 @@ body#Msg main {
           top: calc(var(--nav-h) + 1rem); }
         #UserCP main > table:first-of-type > tbody > tr > td#ucpmenu .accordion--trigger,
         #Msg main > table:first-of-type > tbody > tr > td#ucpmenu .accordion--trigger {
-          font: 400 var(--size-xs)/1 var(--font-hand);
+          background-color: var(--bg-1);
+          font: 400 var(--size-md)/1 var(--font-hand);
           letter-spacing: 0.2em;
           text-transform: uppercase;
           color: var(--text-loCon);
@@ -14031,10 +14037,10 @@ body#Msg main {
           transition: color var(--transi-quick), opacity var(--transi-quick); }
           #UserCP main > table:first-of-type > tbody > tr > td#ucpmenu .accordion--trigger:first-of-type,
           #Msg main > table:first-of-type > tbody > tr > td#ucpmenu .accordion--trigger:first-of-type {
-            padding-top: 0; }
+            padding-top: 0.5rem; }
           #UserCP main > table:first-of-type > tbody > tr > td#ucpmenu .accordion--trigger b,
           #Msg main > table:first-of-type > tbody > tr > td#ucpmenu .accordion--trigger b {
-            font-weight: 400; }
+            font-weight: 700; }
           #UserCP main > table:first-of-type > tbody > tr > td#ucpmenu .accordion--trigger::after,
           #Msg main > table:first-of-type > tbody > tr > td#ucpmenu .accordion--trigger::after {
             content: "";
@@ -14226,7 +14232,8 @@ body#Msg main {
           background-repeat: no-repeat;
           background-position: right 0.5rem center;
           -webkit-padding-end: 1.75rem;
-                  padding-inline-end: 1.75rem; }
+                  padding-inline-end: 1.75rem;
+          height: auto; }
         #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent textarea,
         #Msg main > table:first-of-type > tbody > tr > td#ucpcontent textarea {
           resize: vertical;

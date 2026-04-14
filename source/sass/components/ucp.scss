@@ -17,6 +17,7 @@ body#Msg main {
   main > table:first-of-type {
     position:relative;
     z-index: 1;
+    background: var(--bg-1);
 
     ~ * {
       display: none;
@@ -32,13 +33,15 @@ body#Msg main {
 
         // ── SIDEBAR MENU ──────────────────────────────────────────
         > td#ucpmenu {
-          flex: 0 0 160px;
+          flex: 0 0 210px;
           align-self: stretch;
           background-color: var(--bg-2);
 
           padding-block-start: var(--space-md);
+          padding-block-end: var(--space-md);
           border-inline-end: 1px dashed
             color-mix(in oklab, var(--text-loCon) 12%, transparent);
+          padding-inline-start: var(--space-md);
           padding-inline-end: var(--space-md);
 
           .maintitle {
@@ -54,7 +57,8 @@ body#Msg main {
           }
 
           .accordion--trigger {
-            font: 400 var(--size-xs) / 1 var(--font-hand);
+            background-color: var(--bg-1);
+            font: 400 var(--size-md) / 1 var(--font-hand);
             letter-spacing: 0.2em;
             text-transform: uppercase;
             color: var(--text-loCon);
@@ -69,11 +73,11 @@ body#Msg main {
               opacity var(--transi-quick);
 
             &:first-of-type {
-              padding-top: 0;
+              padding-top: 0.5rem;
             }
 
             b {
-              font-weight: 400;
+              font-weight: 700;
             }
 
             // chevron
@@ -250,6 +254,7 @@ body#Msg main {
             background-repeat: no-repeat;
             background-position: right 0.5rem center;
             padding-inline-end: 1.75rem;
+            height: auto;
           }
 
           textarea {
