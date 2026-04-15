@@ -792,7 +792,7 @@ Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi quis erat qu
     </main>
 
     <script> // ── profileFunctions.js
-      // ── PROFILE INITIALIZATION ───────────────────────────────────────────────────
+            // ── PROFILE INITIALIZATION ───────────────────────────────────────────────────
       // These functions run on pageType === 'Profile'
       // They replace the previous initCharacter / initMember / initProfile functions.
       //
@@ -1108,9 +1108,9 @@ Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi quis erat qu
       function initProfile(isLocal = false) {
         const accountType = profileField(1).toLowerCase();
 
-        if (accountType === 'member') {
+        if (accountType === 'type-Member') {
           initMember();
-        } else if (accountType === 'character') {
+        } else if (accountType === 'type-Character') {
           initCharacter(isLocal);
         }
 
