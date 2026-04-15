@@ -7932,10 +7932,9 @@ body.dark .category[class*="plate-"] {
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
   gap: 0.4rem 0;
   margin: 0; }
   .bm-card--now .bm-toolbar a {
@@ -14201,7 +14200,8 @@ body#Msg main {
           -webkit-transition: border-color var(--transi-quick), color var(--transi-quick);
           transition: border-color var(--transi-quick), color var(--transi-quick);
           -webkit-box-sizing: border-box;
-                  box-sizing: border-box; }
+                  box-sizing: border-box;
+          height: 35px; }
           #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent input[type="text"]:focus-visible,
           #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent input[type="file"]:focus-visible,
           #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent input[type="password"]:focus-visible,
@@ -14232,8 +14232,7 @@ body#Msg main {
           background-repeat: no-repeat;
           background-position: right 0.5rem center;
           -webkit-padding-end: 1.75rem;
-                  padding-inline-end: 1.75rem;
-          height: auto; }
+                  padding-inline-end: 1.75rem; }
         #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent textarea,
         #Msg main > table:first-of-type > tbody > tr > td#ucpcontent textarea {
           resize: vertical;

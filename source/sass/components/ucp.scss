@@ -230,6 +230,7 @@ body#Msg main {
               border-color var(--transi-quick),
               color var(--transi-quick);
             box-sizing: border-box;
+            height: 35px;
 
             &:focus-visible {
               outline: none;
@@ -254,7 +255,6 @@ body#Msg main {
             background-repeat: no-repeat;
             background-position: right 0.5rem center;
             padding-inline-end: 1.75rem;
-            height: auto;
           }
 
           textarea {

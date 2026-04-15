@@ -195,7 +195,8 @@ body#Msg main {
           letter-spacing: 0.06em;
           padding: 0.4rem 0.6rem;
           transition: border-color var(--transi-quick), color var(--transi-quick);
-          box-sizing: border-box; }
+          box-sizing: border-box;
+          height: 35px; }
           #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent input[type="text"]:focus-visible,
           #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent input[type="file"]:focus-visible,
           #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent input[type="password"]:focus-visible,
@@ -225,8 +226,7 @@ body#Msg main {
           background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23888'/%3E%3C/svg%3E");
           background-repeat: no-repeat;
           background-position: right 0.5rem center;
-          padding-inline-end: 1.75rem;
-          height: auto; }
+          padding-inline-end: 1.75rem; }
         #UserCP main > table:first-of-type > tbody > tr > td#ucpcontent textarea,
         #Msg main > table:first-of-type > tbody > tr > td#ucpcontent textarea {
           resize: vertical;
