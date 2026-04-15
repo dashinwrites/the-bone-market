@@ -314,9 +314,9 @@
       function initProfile(isLocal = false) {
         const accountType = profileField(1).toLowerCase();
 
-        if (accountType === 'member') {
+        if (accountType === 'type-Member') {
           initMember();
-        } else if (accountType === 'character') {
+        } else if (accountType === 'type-Character') {
           initCharacter(isLocal);
         }
 

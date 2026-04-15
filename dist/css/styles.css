@@ -12898,16 +12898,16 @@ input[type="submit"] {
 .bm-profile .memAccOnly {
   display: none !important; }
 
-.bm-profile.character .charOnly {
+.bm-profile.type-Character .charOnly {
   display: revert !important; }
 
-.bm-profile.character .memAccOnly {
+.bm-profile.type-Character .memAccOnly {
   display: none !important; }
 
-.bm-profile.member .memAccOnly {
+.bm-profile.type-Member .memAccOnly {
   display: revert !important; }
 
-.bm-profile.member .charOnly {
+.bm-profile.type-Member .charOnly {
   display: none !important; }
 
 /* panels always respect hidden attribute regardless of visibility class */

@@ -1269,12 +1269,12 @@ if (pageType === "modcp") {
   if (!document.querySelector(".bm-profile")) return;
 
   const profile = document.querySelector(".bm-profile");
-  const saved = sessionStorage.getItem("dev-account") || "character";
+  const saved = sessionStorage.getItem("dev-account") || "type-Character";
 
   function applyAccountType(val) {
-    profile.classList.remove("member", "character");
+    profile.classList.remove("type-Member", "type-Character");
     profile.classList.add(val);
-    btn.textContent = `${val === "character" ? "Character" : "Member"}`;
+    btn.textContent = `${val === "type-Character" ? "Character" : "Member"}`;
     sessionStorage.setItem("dev-account", val);
   }
 
@@ -1294,8 +1294,8 @@ if (pageType === "modcp") {
     `;
 
   btn.addEventListener("click", () => {
-    const current = sessionStorage.getItem("dev-account") || "character";
-    applyAccountType(current === "character" ? "member" : "character");
+    const current = sessionStorage.getItem("dev-account") || "type-Character";
+    applyAccountType(current === "type-Character" ? "type-Member" : "type-Character");
   });
 
   // append to navstrip utils area
