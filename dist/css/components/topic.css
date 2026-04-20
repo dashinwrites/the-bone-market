@@ -1,3 +1,37 @@
+@charset "UTF-8";
+/* ────────────────────────────────
+   Base Variables
+──────────────────────────────── */
+/* ────────────────────────────────
+   Media Query Mixins
+──────────────────────────────── */
+/* Max-width — common "down" breakpoints */
+/* Min-width — common "up" breakpoints */
+/* Between two sizes */
+/* Orientation helpers */
+/* Motion-safe helper (for animations/transitions) */
+/* Motion-reduce helper */
+/* Example usage:
+───────────────────────────────────────
+@include down($bp-sm) {
+  .category { width: 95%; }
+}
+
+@include up($bp-lg) {
+  .plate-info__staff img { width: 120px; }
+}
+
+@include between($bp-sm, $bp-lg) {
+  .leftbar { display: none; }
+}
+
+@include portrait {
+  .header-bg { background-position: center top; }
+}
+*/
+/* ────────────────────────────────
+   Optional Semantic Shortcuts
+──────────────────────────────── */
 /* ================================================
    UI Detail Mixins
    ================================================ */

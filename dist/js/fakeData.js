@@ -6,13 +6,13 @@ const characterProfile = {
     groupName: 'orbit',
     birthday: { year: '1992', month: 'April', day: '10' },
     fields: {
-        1:  'character',
-        2:  'Alias',
-        3:  'they/them',
-        6:  'Fade to Black',
-        7:  'Graphic',
-        8:  'Uncensored',
-        9:  'EST',
+        1: 'character',
+        2: 'Alias',
+        3: 'they/them',
+        6: 'Fade to Black',
+        7: 'Graphic',
+        8: 'Uncensored',
+        9: 'EST',
         10: 'Present Tense',
         11: 'Third Person',
         12: 'Weekly',
@@ -66,13 +66,13 @@ const memberProfile = {
     type: 'member',
     birthday: { year: '', month: '', day: '' },
     fields: {
-        1:  'member',
-        2:  'Dashin',
-        3:  'she/her',
-        6:  'Explicit',
-        7:  'Graphic',
-        8:  'Uncensored',
-        9:  'EST',
+        1: 'member',
+        2: 'Dashin',
+        3: 'she/her',
+        6: 'Explicit',
+        7: 'Graphic',
+        8: 'Uncensored',
+        9: 'EST',
         10: 'Past Tense',
         11: 'Third Person',
         12: 'Weekly',
@@ -88,20 +88,7 @@ const memberProfile = {
 function injectFakeProfileData(profile) {
     // inject account type and group class onto bm-profile
     const profileEl = document.querySelector('.bm-profile');
-    if (profileEl) {
-        profileEl.classList.remove('member', 'character');
-        profileEl.classList.add(profile.type);
-
-        // strip any existing g-* classes then apply the profile's group
-        profileEl.className = profileEl.className
-            .split(' ')
-            .filter(c => !c.startsWith('g-'))
-            .join(' ')
-            .trim();
-        if (profile.groupName) {
-            profileEl.classList.add(`g-${profile.groupName}`);
-        }
-    }
+    
 
     // create a hidden container for field elements
     let container = document.querySelector('#fake-fields');
@@ -131,4 +118,24 @@ function injectFakeProfileData(profile) {
         const val = profile.fields[fieldId];
         if (img && val) img.src = val;
     });
+}
+
+function setRosterLocal() {
+  const rosterEl = document.querySelector('.profile--roster');
+  if (!rosterEl) return;
+
+  const fakeChars = [
+    { id: '002', name: 'Aurelian Viremont' },
+    { id: '003', name: 'Ren Jiayi' },
+    { id: '004', name: 'Zhao Fanxing' },
+  ];
+
+  fakeChars.forEach(char => {
+    const imageDiv = createAvatars('switch--image', char.id);
+    const html = `<a class="switch--block" href="?showuser=${char.id}">
+      ${imageDiv}
+      <span class="switch--name">${formatName(capitalize(char.name))}</span>
+    </a>`;
+    rosterEl.insertAdjacentHTML('beforeend', html);
+  });
 }

@@ -208,6 +208,7 @@ if (switcher !== null) {
     freeform: "tab-freeform",
     plotting: "tab-plotting",
     ooc: "tab-ooc",
+    roster: "tab-roster",
   };
 
   function activateTop(panelId, { pushHash = true } = {}) {
@@ -276,9 +277,12 @@ if (switcher !== null) {
      ROUTER (hash -> state)
      =============================== */
   function routeFromHash() {
-    const raw = (location.hash || "#cover").slice(1);
+    const raw = (location.hash || "").slice(1);
     const [topAlias, subAlias] = raw.split("/");
-    const topId = HASH_TO_PANEL[topAlias] || "tab-cover";
+    
+    const firstVisibleTab = tabs.find(btn => !btn.hidden && btn.offsetParent !== null);
+    const defaultPanel = firstVisibleTab?.getAttribute('aria-controls') || 'tab-cover';
+    const topId = HASH_TO_PANEL[topAlias] || defaultPanel;
 
     activateTop(topId, { pushHash: false });
 
@@ -335,7 +339,6 @@ if (switcher !== null) {
     routeFromHash();
     moveBar(bar, $('.bm-tab[aria-selected="true"]', tabsWrap), tabsWrap);
     moveBar(subbar, $('.bm-subtab[aria-selected="true"]', subWrap), subWrap);
-    // removed lockProfileHeight — handled by profileFunctions.js
   } else {
     addEventListener(
       "load",
@@ -1222,6 +1225,52 @@ if (pageType === "modcp") {
 /**** LOCAL ONLY */
 // GROUP TESTING
 
+// LOCAL ONLY — cover layout switcher
+(function () {
+  if (window.location.hostname.includes('jcink.net')) return;
+  if (!document.querySelector('.bm-cover')) return;
+
+  const layouts = ['solo','diptych','triptych','quad','feature','strip','mosaic','gallery','expanded'];
+  const cover = document.querySelector('.bm-cover');
+
+  const sel = document.createElement('select');
+  sel.style.cssText = `
+    font-family: var(--font-hand);
+    font-size: var(--size-xs);
+    letter-spacing: 0.1em;
+    background: transparent;
+    border: 1px dashed color-mix(in oklab, var(--accent-1) 40%, transparent);
+    color: var(--accent-1);
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+  `;
+
+  layouts.forEach(l => {
+    const opt = document.createElement('option');
+    opt.value = l;
+    opt.textContent = l;
+    if (l === cover.dataset.layout) opt.selected = true;
+    sel.appendChild(opt);
+  });
+
+  sel.addEventListener('change', () => {
+    cover.dataset.layout = sel.value;
+
+    const layoutImageCount = {
+      solo: 1, diptych: 2, triptych: 3, quad: 4,
+      feature: 3, strip: 4, mosaic: 6, gallery: 8, expanded: 10
+    };
+    const needed = layoutImageCount[sel.value] ?? 1;
+
+    cover.querySelectorAll('.bm-cover__img-cell').forEach((cell, i) => {
+      cell.hidden = i >= needed;
+    });
+  }); // ← closes addEventListener
+
+  const utils = document.querySelector('.nav-utils');
+  if (utils) utils.prepend(sel);
+})(); // ← closes the IIFE
+
 (function () {
   const switcher = document.getElementById("dev-group");
   if (!switcher) return;
@@ -1260,49 +1309,6 @@ if (pageType === "modcp") {
     switcher.value = saved;
     applyGroup(saved);
   }
-})();
-
-// CHARACTER / OOC SWAP
-
-(function () {
-  if (window.location.hostname.includes('jcink.net')) return;
-  if (!document.querySelector(".bm-profile")) return;
-
-  const profile = document.querySelector(".bm-profile");
-  const saved = sessionStorage.getItem("dev-account") || "type-Character";
-
-  function applyAccountType(val) {
-    profile.classList.remove("type-Member", "type-Character");
-    profile.classList.add(val);
-    btn.textContent = `${val === "type-Character" ? "Character" : "Member"}`;
-    sessionStorage.setItem("dev-account", val);
-  }
-
-  const btn = document.createElement("button");
-  btn.className = "dev-account-toggle";
-  btn.style.cssText = `
-        font-family: var(--font-hand);
-        font-size: var(--size-xs);
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        background: transparent;
-        border: 1px dashed currentColor;
-        color: var(--accent-1);
-        padding: 0.25rem 0.6rem;
-        cursor: pointer;
-        border-radius: 3px;
-    `;
-
-  btn.addEventListener("click", () => {
-    const current = sessionStorage.getItem("dev-account") || "type-Character";
-    applyAccountType(current === "type-Character" ? "type-Member" : "type-Character");
-  });
-
-  // append to navstrip utils area
-  const utils = document.querySelector(".nav-utils");
-  if (utils) utils.prepend(btn);
-
-  applyAccountType(saved);
 })();
 
 // in your local dev setup

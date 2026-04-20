@@ -1,4 +1,37 @@
 @charset "UTF-8";
+/* ────────────────────────────────
+   Base Variables
+──────────────────────────────── */
+/* ────────────────────────────────
+   Media Query Mixins
+──────────────────────────────── */
+/* Max-width — common "down" breakpoints */
+/* Min-width — common "up" breakpoints */
+/* Between two sizes */
+/* Orientation helpers */
+/* Motion-safe helper (for animations/transitions) */
+/* Motion-reduce helper */
+/* Example usage:
+───────────────────────────────────────
+@include down($bp-sm) {
+  .category { width: 95%; }
+}
+
+@include up($bp-lg) {
+  .plate-info__staff img { width: 120px; }
+}
+
+@include between($bp-sm, $bp-lg) {
+  .leftbar { display: none; }
+}
+
+@include portrait {
+  .header-bg { background-position: center top; }
+}
+*/
+/* ────────────────────────────────
+   Optional Semantic Shortcuts
+──────────────────────────────── */
 /* ================================================
    UI Detail Mixins
    ================================================ */
@@ -41,6 +74,39 @@ a {
   -webkit-transition: color .15s ease;
   transition: color .15s ease; }
 
+/* ────────────────────────────────
+   Base Variables
+──────────────────────────────── */
+/* ────────────────────────────────
+   Media Query Mixins
+──────────────────────────────── */
+/* Max-width — common "down" breakpoints */
+/* Min-width — common "up" breakpoints */
+/* Between two sizes */
+/* Orientation helpers */
+/* Motion-safe helper (for animations/transitions) */
+/* Motion-reduce helper */
+/* Example usage:
+───────────────────────────────────────
+@include down($bp-sm) {
+  .category { width: 95%; }
+}
+
+@include up($bp-lg) {
+  .plate-info__staff img { width: 120px; }
+}
+
+@include between($bp-sm, $bp-lg) {
+  .leftbar { display: none; }
+}
+
+@include portrait {
+  .header-bg { background-position: center top; }
+}
+*/
+/* ────────────────────────────────
+   Optional Semantic Shortcuts
+──────────────────────────────── */
 /*******************************
     Variables
 ********************************/
@@ -423,13 +489,42 @@ body .g-4, body.mgroup-4,
 body .mgroup-4 {
   --rgb: 2, 60, 133; }
 
+/* ────────────────────────────────
+   Base Variables
+──────────────────────────────── */
+/* ────────────────────────────────
+   Media Query Mixins
+──────────────────────────────── */
+/* Max-width — common "down" breakpoints */
+/* Min-width — common "up" breakpoints */
+/* Between two sizes */
+/* Orientation helpers */
+/* Motion-safe helper (for animations/transitions) */
+/* Motion-reduce helper */
+/* Example usage:
+───────────────────────────────────────
+@include down($bp-sm) {
+  .category { width: 95%; }
+}
+
+@include up($bp-lg) {
+  .plate-info__staff img { width: 120px; }
+}
+
+@include between($bp-sm, $bp-lg) {
+  .leftbar { display: none; }
+}
+
+@include portrait {
+  .header-bg { background-position: center top; }
+}
+*/
+/* ────────────────────────────────
+   Optional Semantic Shortcuts
+──────────────────────────────── */
 /* ================================================
    UI Detail Mixins
    ================================================ */
-/***************************************
- 📐 Bone Market — Responsive Breakpoints
- Lightweight, semantic, SCSS-based
-***************************************/
 /* ────────────────────────────────
    Base Variables
 ──────────────────────────────── */
@@ -969,6 +1064,39 @@ body .mgroup-4 {
 .max-w-prose {
   max-width: 70ch; }
 
+/* ────────────────────────────────
+   Base Variables
+──────────────────────────────── */
+/* ────────────────────────────────
+   Media Query Mixins
+──────────────────────────────── */
+/* Max-width — common "down" breakpoints */
+/* Min-width — common "up" breakpoints */
+/* Between two sizes */
+/* Orientation helpers */
+/* Motion-safe helper (for animations/transitions) */
+/* Motion-reduce helper */
+/* Example usage:
+───────────────────────────────────────
+@include down($bp-sm) {
+  .category { width: 95%; }
+}
+
+@include up($bp-lg) {
+  .plate-info__staff img { width: 120px; }
+}
+
+@include between($bp-sm, $bp-lg) {
+  .leftbar { display: none; }
+}
+
+@include portrait {
+  .header-bg { background-position: center top; }
+}
+*/
+/* ────────────────────────────────
+   Optional Semantic Shortcuts
+──────────────────────────────── */
 /* ================================================
    UI Detail Mixins
    ================================================ */
@@ -2272,9 +2400,75 @@ html.debug .bm-container {
 html.debug .bm-head {
   outline: 2px solid red; }
 
+/* ────────────────────────────────
+   Base Variables
+──────────────────────────────── */
+/* ────────────────────────────────
+   Media Query Mixins
+──────────────────────────────── */
+/* Max-width — common "down" breakpoints */
+/* Min-width — common "up" breakpoints */
+/* Between two sizes */
+/* Orientation helpers */
+/* Motion-safe helper (for animations/transitions) */
+/* Motion-reduce helper */
+/* Example usage:
+───────────────────────────────────────
+@include down($bp-sm) {
+  .category { width: 95%; }
+}
+
+@include up($bp-lg) {
+  .plate-info__staff img { width: 120px; }
+}
+
+@include between($bp-sm, $bp-lg) {
+  .leftbar { display: none; }
+}
+
+@include portrait {
+  .header-bg { background-position: center top; }
+}
+*/
+/* ────────────────────────────────
+   Optional Semantic Shortcuts
+──────────────────────────────── */
 /* ================================================
    UI Detail Mixins
    ================================================ */
+/* ────────────────────────────────
+   Base Variables
+──────────────────────────────── */
+/* ────────────────────────────────
+   Media Query Mixins
+──────────────────────────────── */
+/* Max-width — common "down" breakpoints */
+/* Min-width — common "up" breakpoints */
+/* Between two sizes */
+/* Orientation helpers */
+/* Motion-safe helper (for animations/transitions) */
+/* Motion-reduce helper */
+/* Example usage:
+───────────────────────────────────────
+@include down($bp-sm) {
+  .category { width: 95%; }
+}
+
+@include up($bp-lg) {
+  .plate-info__staff img { width: 120px; }
+}
+
+@include between($bp-sm, $bp-lg) {
+  .leftbar { display: none; }
+}
+
+@include portrait {
+  .header-bg { background-position: center top; }
+}
+*/
+/* ────────────────────────────────
+   Optional Semantic Shortcuts
+──────────────────────────────── */
 /* ================================================
    UI Detail Mixins
    ================================================ */
@@ -2318,9 +2512,75 @@ a {
   font-style: normal;
   font-display: swap; }
 
+/* ────────────────────────────────
+   Base Variables
+──────────────────────────────── */
+/* ────────────────────────────────
+   Media Query Mixins
+──────────────────────────────── */
+/* Max-width — common "down" breakpoints */
+/* Min-width — common "up" breakpoints */
+/* Between two sizes */
+/* Orientation helpers */
+/* Motion-safe helper (for animations/transitions) */
+/* Motion-reduce helper */
+/* Example usage:
+───────────────────────────────────────
+@include down($bp-sm) {
+  .category { width: 95%; }
+}
+
+@include up($bp-lg) {
+  .plate-info__staff img { width: 120px; }
+}
+
+@include between($bp-sm, $bp-lg) {
+  .leftbar { display: none; }
+}
+
+@include portrait {
+  .header-bg { background-position: center top; }
+}
+*/
+/* ────────────────────────────────
+   Optional Semantic Shortcuts
+──────────────────────────────── */
 /* ================================================
    UI Detail Mixins
    ================================================ */
+/* ────────────────────────────────
+   Base Variables
+──────────────────────────────── */
+/* ────────────────────────────────
+   Media Query Mixins
+──────────────────────────────── */
+/* Max-width — common "down" breakpoints */
+/* Min-width — common "up" breakpoints */
+/* Between two sizes */
+/* Orientation helpers */
+/* Motion-safe helper (for animations/transitions) */
+/* Motion-reduce helper */
+/* Example usage:
+───────────────────────────────────────
+@include down($bp-sm) {
+  .category { width: 95%; }
+}
+
+@include up($bp-lg) {
+  .plate-info__staff img { width: 120px; }
+}
+
+@include between($bp-sm, $bp-lg) {
+  .leftbar { display: none; }
+}
+
+@include portrait {
+  .header-bg { background-position: center top; }
+}
+*/
+/* ────────────────────────────────
+   Optional Semantic Shortcuts
+──────────────────────────────── */
 /* ================================================
    UI Detail Mixins
    ================================================ */
@@ -2577,8 +2837,7 @@ tag-image[data-ratio="16:9"],
   max-height: 400px; }
 
 /***********************************************
- Member Group Gradients (RGB)
- SCSS maps + mixins to auto-generate classes.
+ Member Group Gradients
 ***********************************************/
 /* ── 1) GRADIENT MAPS ───────────────────────── */
 /*
@@ -4931,6 +5190,39 @@ body.g-marrow {
   --bm-guide-border: color-mix(in oklch, rgb(160, 140, 120) 35%, transparent);
   --bm-guide-border-soft: color-mix(in oklch, rgb(160, 140, 120) 18%, transparent); }
 
+/* ────────────────────────────────
+   Base Variables
+──────────────────────────────── */
+/* ────────────────────────────────
+   Media Query Mixins
+──────────────────────────────── */
+/* Max-width — common "down" breakpoints */
+/* Min-width — common "up" breakpoints */
+/* Between two sizes */
+/* Orientation helpers */
+/* Motion-safe helper (for animations/transitions) */
+/* Motion-reduce helper */
+/* Example usage:
+───────────────────────────────────────
+@include down($bp-sm) {
+  .category { width: 95%; }
+}
+
+@include up($bp-lg) {
+  .plate-info__staff img { width: 120px; }
+}
+
+@include between($bp-sm, $bp-lg) {
+  .leftbar { display: none; }
+}
+
+@include portrait {
+  .header-bg { background-position: center top; }
+}
+*/
+/* ────────────────────────────────
+   Optional Semantic Shortcuts
+──────────────────────────────── */
 /* ================================================
    UI Detail Mixins
    ================================================ */
@@ -6098,6 +6390,39 @@ body.g-4 .admin-only {
       background: var(--bg-2);
       color: var(--text-medCon); }
 
+/* ────────────────────────────────
+   Base Variables
+──────────────────────────────── */
+/* ────────────────────────────────
+   Media Query Mixins
+──────────────────────────────── */
+/* Max-width — common "down" breakpoints */
+/* Min-width — common "up" breakpoints */
+/* Between two sizes */
+/* Orientation helpers */
+/* Motion-safe helper (for animations/transitions) */
+/* Motion-reduce helper */
+/* Example usage:
+───────────────────────────────────────
+@include down($bp-sm) {
+  .category { width: 95%; }
+}
+
+@include up($bp-lg) {
+  .plate-info__staff img { width: 120px; }
+}
+
+@include between($bp-sm, $bp-lg) {
+  .leftbar { display: none; }
+}
+
+@include portrait {
+  .header-bg { background-position: center top; }
+}
+*/
+/* ────────────────────────────────
+   Optional Semantic Shortcuts
+──────────────────────────────── */
 /* ================================================
    UI Detail Mixins
    ================================================ */
@@ -6646,6 +6971,39 @@ body[id="idx"] .bm-head {
   display: -ms-grid;
   display: grid; }
 
+/* ────────────────────────────────
+   Base Variables
+──────────────────────────────── */
+/* ────────────────────────────────
+   Media Query Mixins
+──────────────────────────────── */
+/* Max-width — common "down" breakpoints */
+/* Min-width — common "up" breakpoints */
+/* Between two sizes */
+/* Orientation helpers */
+/* Motion-safe helper (for animations/transitions) */
+/* Motion-reduce helper */
+/* Example usage:
+───────────────────────────────────────
+@include down($bp-sm) {
+  .category { width: 95%; }
+}
+
+@include up($bp-lg) {
+  .plate-info__staff img { width: 120px; }
+}
+
+@include between($bp-sm, $bp-lg) {
+  .leftbar { display: none; }
+}
+
+@include portrait {
+  .header-bg { background-position: center top; }
+}
+*/
+/* ────────────────────────────────
+   Optional Semantic Shortcuts
+──────────────────────────────── */
 /* ================================================
    UI Detail Mixins
    ================================================ */
@@ -7573,6 +7931,39 @@ body.dark .category[class*="plate-"] {
   .category-title {
     text-shadow: none; } }
 
+/* ────────────────────────────────
+   Base Variables
+──────────────────────────────── */
+/* ────────────────────────────────
+   Media Query Mixins
+──────────────────────────────── */
+/* Max-width — common "down" breakpoints */
+/* Min-width — common "up" breakpoints */
+/* Between two sizes */
+/* Orientation helpers */
+/* Motion-safe helper (for animations/transitions) */
+/* Motion-reduce helper */
+/* Example usage:
+───────────────────────────────────────
+@include down($bp-sm) {
+  .category { width: 95%; }
+}
+
+@include up($bp-lg) {
+  .plate-info__staff img { width: 120px; }
+}
+
+@include between($bp-sm, $bp-lg) {
+  .leftbar { display: none; }
+}
+
+@include portrait {
+  .header-bg { background-position: center top; }
+}
+*/
+/* ────────────────────────────────
+   Optional Semantic Shortcuts
+──────────────────────────────── */
 /* ================================================
    UI Detail Mixins
    ================================================ */
@@ -8501,6 +8892,39 @@ body.dark .category[class*="plate-"] {
 .chip--material {
   background: var(--material, #d2bea0); }
 
+/* ────────────────────────────────
+   Base Variables
+──────────────────────────────── */
+/* ────────────────────────────────
+   Media Query Mixins
+──────────────────────────────── */
+/* Max-width — common "down" breakpoints */
+/* Min-width — common "up" breakpoints */
+/* Between two sizes */
+/* Orientation helpers */
+/* Motion-safe helper (for animations/transitions) */
+/* Motion-reduce helper */
+/* Example usage:
+───────────────────────────────────────
+@include down($bp-sm) {
+  .category { width: 95%; }
+}
+
+@include up($bp-lg) {
+  .plate-info__staff img { width: 120px; }
+}
+
+@include between($bp-sm, $bp-lg) {
+  .leftbar { display: none; }
+}
+
+@include portrait {
+  .header-bg { background-position: center top; }
+}
+*/
+/* ────────────────────────────────
+   Optional Semantic Shortcuts
+──────────────────────────────── */
 /* ================================================
    UI Detail Mixins
    ================================================ */
@@ -8904,6 +9328,39 @@ body#SF main > div[align="center"] #mark-as-read-subto {
   body#SF main > div[align="center"] #mark-as-read-subto a {
     margin: 0 var(--spacing-xs); }
 
+/* ────────────────────────────────
+   Base Variables
+──────────────────────────────── */
+/* ────────────────────────────────
+   Media Query Mixins
+──────────────────────────────── */
+/* Max-width — common "down" breakpoints */
+/* Min-width — common "up" breakpoints */
+/* Between two sizes */
+/* Orientation helpers */
+/* Motion-safe helper (for animations/transitions) */
+/* Motion-reduce helper */
+/* Example usage:
+───────────────────────────────────────
+@include down($bp-sm) {
+  .category { width: 95%; }
+}
+
+@include up($bp-lg) {
+  .plate-info__staff img { width: 120px; }
+}
+
+@include between($bp-sm, $bp-lg) {
+  .leftbar { display: none; }
+}
+
+@include portrait {
+  .header-bg { background-position: center top; }
+}
+*/
+/* ────────────────────────────────
+   Optional Semantic Shortcuts
+──────────────────────────────── */
 /* ================================================
    UI Detail Mixins
    ================================================ */
@@ -10583,12 +11040,44 @@ main {
     font: 400 italic var(--size-lg, 14px)/1.7 var(--font-serif, serif);
     opacity: 0.82; }
 
+/* ────────────────────────────────
+   Base Variables
+──────────────────────────────── */
+/* ────────────────────────────────
+   Media Query Mixins
+──────────────────────────────── */
+/* Max-width — common "down" breakpoints */
+/* Min-width — common "up" breakpoints */
+/* Between two sizes */
+/* Orientation helpers */
+/* Motion-safe helper (for animations/transitions) */
+/* Motion-reduce helper */
+/* Example usage:
+───────────────────────────────────────
+@include down($bp-sm) {
+  .category { width: 95%; }
+}
+
+@include up($bp-lg) {
+  .plate-info__staff img { width: 120px; }
+}
+
+@include between($bp-sm, $bp-lg) {
+  .leftbar { display: none; }
+}
+
+@include portrait {
+  .header-bg { background-position: center top; }
+}
+*/
+/* ────────────────────────────────
+   Optional Semantic Shortcuts
+──────────────────────────────── */
 /* ================================================
    UI Detail Mixins
    ================================================ */
 /* =========================================================
-   BONE MARKET — POST ROW (GRID) + SLIDER (CONSOLIDATED)
-   Layout: header | mini(sticky) + content + foot
+Post Row
    ========================================================= */
 /* ---- Card shell ---- */
 .bm-post {
@@ -12140,6 +12629,39 @@ input[type="submit"] {
         color: var(--accent-1);
         border-color: color-mix(in srgb, var(--accent-1) 30%, transparent); }
 
+/* ────────────────────────────────
+   Base Variables
+──────────────────────────────── */
+/* ────────────────────────────────
+   Media Query Mixins
+──────────────────────────────── */
+/* Max-width — common "down" breakpoints */
+/* Min-width — common "up" breakpoints */
+/* Between two sizes */
+/* Orientation helpers */
+/* Motion-safe helper (for animations/transitions) */
+/* Motion-reduce helper */
+/* Example usage:
+───────────────────────────────────────
+@include down($bp-sm) {
+  .category { width: 95%; }
+}
+
+@include up($bp-lg) {
+  .plate-info__staff img { width: 120px; }
+}
+
+@include between($bp-sm, $bp-lg) {
+  .leftbar { display: none; }
+}
+
+@include portrait {
+  .header-bg { background-position: center top; }
+}
+*/
+/* ────────────────────────────────
+   Optional Semantic Shortcuts
+──────────────────────────────── */
 /* ================================================
    UI Detail Mixins
    ================================================ */
@@ -12358,8 +12880,6 @@ input[type="submit"] {
   position: relative;
   -webkit-animation: panel-in 0.25s ease both;
           animation: panel-in 0.25s ease both; }
-  .bm-panel[hidden] {
-    display: none !important; }
 
 @-webkit-keyframes panel-in {
   from {
@@ -12458,33 +12978,45 @@ input[type="submit"] {
 /* ══════════════════════════════════════
    COVER TAB
 ══════════════════════════════════════ */
+.bm-cover__img-cell {
+  overflow: hidden;
+  background: var(--profile-bg-2);
+  height: 100%; }
+  .bm-cover__img-cell[hidden] {
+    display: none !important; }
+  .bm-cover__img-cell img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    display: block;
+    -webkit-filter: saturate(0.5) contrast(1.08) sepia(0.15);
+            filter: saturate(0.5) contrast(1.08) sepia(0.15);
+    -webkit-transition: -webkit-filter var(--transi-med), -webkit-transform var(--transi-med);
+    transition: -webkit-filter var(--transi-med), -webkit-transform var(--transi-med);
+    transition: filter var(--transi-med), transform var(--transi-med);
+    transition: filter var(--transi-med), transform var(--transi-med), -webkit-filter var(--transi-med), -webkit-transform var(--transi-med); }
+  .bm-cover__img-cell:hover img {
+    -webkit-filter: saturate(0.8) contrast(1.1) sepia(0.05);
+            filter: saturate(0.8) contrast(1.1) sepia(0.05);
+    -webkit-transform: scale(1.02);
+        -ms-transform: scale(1.02);
+            transform: scale(1.02); }
+
 .bm-cover {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr clamp(280px, 38%, 520px);
-  grid-template-columns: 1fr clamp(280px, 38%, 520px);
+  -ms-grid-columns: 42% 1fr;
+  grid-template-columns: 42% 1fr;
+  position: relative;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   min-height: 0;
-  height: 100%;
-  position: relative; }
+  height: 100%; }
 
-/* Corner annotations */
-.bm-cover__corner {
-  position: absolute;
-  font: 400 var(--size-xs)/1 var(--font-hand);
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: color-mix(in oklch, var(--profile-gold) 28%, transparent);
-  z-index: 5;
-  pointer-events: none; }
-  .bm-cover__corner--tl {
-    top: 14px;
-    left: 14px; }
-  .bm-cover__corner--br {
-    bottom: 14px;
-    right: 14px; }
-
-/* Record (left side) */
-.bm-cover__record {
+.bm-cover__left {
   padding: 2.5rem 2rem;
   display: -webkit-box;
   display: -webkit-flex;
@@ -12495,102 +13027,65 @@ input[type="submit"] {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
-  gap: 0;
   border-right: var(--profile-dash);
   position: relative;
-  z-index: 2; }
+  z-index: 2;
+  background: var(--profile-bg);
+  overflow-y: auto; }
 
-.bm-cover__id {
+.bm-cover__eyebrow {
   font: 400 var(--size-xs)/1 var(--font-hand);
-  letter-spacing: 0.22em;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: color-mix(in oklch, var(--profile-gold) 45%, transparent);
-  margin-bottom: 0.5rem; }
+  color: color-mix(in oklch, var(--profile-gold) 35%, transparent);
+  margin-bottom: 0.75rem; }
 
 .bm-cover__name {
-  font: 300 clamp(28px, 3.5vw, 46px)/1 var(--font-serif);
-  font-style: italic;
-  color: var(--profile-ink);
-  margin: 0 0 0.2rem;
-  letter-spacing: 0.01em; }
-
-.bm-cover__nick {
-  font: 400 var(--size-sm)/1 var(--font-hand);
-  letter-spacing: 0.1em;
-  color: color-mix(in oklch, var(--profile-gold) 55%, transparent);
-  margin: 0 0 1.5rem; }
+  margin: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 0.3rem; }
+  .bm-cover__name .fn {
+    display: block;
+    font: 400 clamp(32px, 4vw, 56px)/1 var(--font-subtitle);
+    color: var(--profile-ink);
+    letter-spacing: 0.01em; }
+  .bm-cover__name .ln {
+    display: block;
+    font: 400 var(--size-xs)/1 var(--font-hand);
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    color: var(--profile-gold);
+    font-style: normal; }
 
 .bm-cover__rule {
+  width: 35%;
   height: 1px;
-  background: -webkit-gradient(linear, left top, right top, from(color-mix(in oklch, var(--profile-gold) 35%, transparent)), to(transparent));
-  background: linear-gradient(to right, color-mix(in oklch, var(--profile-gold) 35%, transparent), transparent);
-  border: none;
-  margin-bottom: 1.5rem; }
+  background: -webkit-gradient(linear, left top, right top, from(color-mix(in oklch, var(--profile-red) 55%, transparent)), to(transparent));
+  background: linear-gradient(to right, color-mix(in oklch, var(--profile-red) 55%, transparent), transparent);
+  margin: 0.9rem 0;
+  border: none; }
 
-/* Cover field grid */
-.bm-cover__fields {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr 1fr;
-  grid-template-columns: 1fr 1fr;
-  gap: 0;
+.bm-cover__quote {
+  font: 300 var(--size-md)/1.7 var(--font-serif);
+  font-style: italic;
+  color: var(--profile-ink-lo);
   -webkit-box-flex: 1;
   -webkit-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  margin: 0;
-  padding: 0;
-  list-style: none; }
-
-.bm-cover__field {
-  padding: 0.7rem 0;
-  border-bottom: var(--profile-dash-dim);
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  gap: 0.25rem; }
-  .bm-cover__field:nth-child(odd) {
-    padding-right: 1.5rem;
-    border-right: var(--profile-dash-dim); }
-  .bm-cover__field:nth-child(even) {
-    padding-left: 1.5rem; }
-  .bm-cover__field dt {
-    font: 400 var(--size-xs)/1 var(--font-hand);
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: color-mix(in oklch, var(--profile-gold) 50%, transparent); }
-  .bm-cover__field dd {
-    font: 400 var(--size-md)/1.2 var(--font-serif);
-    color: var(--profile-ink-med);
-    margin: 0; }
-
-/* Subspecies inline label */
-.bm-cover__subspecies {
-  font: 400 var(--size-xs)/1 var(--font-hand);
-  letter-spacing: 0.1em;
-  color: color-mix(in oklch, var(--profile-gold) 40%, transparent);
-  margin-left: 0.25rem; }
-  .bm-cover__subspecies:empty {
+  margin: 0; }
+  .bm-cover__quote:empty {
     display: none; }
-  .bm-cover__subspecies::before {
-    content: "·";
-    margin-right: 0.25rem; }
 
-/* Resonance label — perspective-aware */
-.bm-resonance[data-resonance="crown"], .bm-resonance[data-resonance="core"], .bm-resonance[data-resonance="hollow"] {
-  /* resistance perspective — shown by default */
-  color: var(--profile-ink-med); }
-
-/* Cover footer */
-.bm-cover__footer {
-  margin-top: auto;
-  padding-top: 1.5rem;
+.bm-cover__links {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -12600,135 +13095,349 @@ input[type="submit"] {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
-  gap: 1rem;
+  gap: 0;
+  margin-top: auto;
+  padding-top: 0.75rem;
   border-top: var(--profile-dash-dim); }
 
-.bm-cover__cw {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  gap: 0.25rem; }
-
-.bm-cover__cw-label {
+.bm-cover__link {
   font: 400 var(--size-xs)/1 var(--font-hand);
-  letter-spacing: 0.18em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: color-mix(in oklch, var(--profile-red) 65%, transparent); }
+  color: color-mix(in oklch, var(--profile-gold) 45%, transparent);
+  text-decoration: none;
+  padding: 0.4rem 0;
+  border-bottom: var(--profile-dash-dim);
+  -webkit-transition: color var(--transi-quick);
+  transition: color var(--transi-quick); }
+  .bm-cover__link:last-child {
+    border-bottom: none; }
+  .bm-cover__link:hover {
+    color: var(--profile-gold); }
+  .bm-cover__link:empty {
+    display: none; }
+  .bm-cover__link[href=""], .bm-cover__link[href="#"] {
+    display: none; }
 
-.bm-cover__cw-text {
-  font: 400 var(--size-sm)/1.5 var(--font-hand);
-  color: color-mix(in oklch, var(--profile-ink-lo) 80%, transparent); }
-
-.bm-cover__filed {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  gap: 0.25rem; }
-
-.bm-cover__filed-label {
-  font: 400 var(--size-xs)/1 var(--font-hand);
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: color-mix(in oklch, var(--profile-gold) 45%, transparent); }
-
-/* Filed by / clip-player styles on cover */
-.bm-cover__record .clip-player {
-  font: 400 var(--size-sm)/1.4 var(--font-hand);
-  color: color-mix(in oklch, var(--profile-gold) 60%, transparent);
-  letter-spacing: 0.08em; }
-
-/* ── Mosaic (right side of cover) ── */
-.bm-cover__mosaic {
+.bm-cover__images {
+  position: relative;
+  overflow: hidden;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 2fr 1fr 1fr;
-  grid-template-columns: 2fr 1fr 1fr;
-  -ms-grid-rows: 220px 160px 1fr;
-  grid-template-rows: 220px 160px 1fr;
-  gap: 3px;
-  background: color-mix(in oklch, var(--profile-bg) 60%, black);
+  -ms-grid-rows: 1fr;
+  grid-template-rows: 1fr;
+  height: 100%;
+  min-height: 0;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  gap: 2px;
+  background: color-mix(in oklch, var(--profile-bg) 50%, black); }
+
+.bm-cover__corner {
+  position: absolute;
+  font: 400 var(--size-xs)/1 var(--font-hand);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: color-mix(in oklch, var(--profile-gold) 22%, transparent);
+  z-index: 5;
+  pointer-events: none; }
+  .bm-cover__corner--tl {
+    top: 14px;
+    left: 14px; }
+  .bm-cover__corner--br {
+    bottom: 14px;
+    right: 14px; }
+
+#tab-cover {
   overflow: hidden; }
 
-.bm-mosaic__cell {
-  background: var(--profile-bg-2);
-  overflow: hidden;
-  position: relative; }
-  .bm-mosaic__cell img {
-    width: 100%;
-    height: 100%;
-    -o-object-fit: cover;
-       object-fit: cover;
-    display: block;
-    -webkit-filter: saturate(0.65) contrast(1.06);
-            filter: saturate(0.65) contrast(1.06);
-    -webkit-transition: -webkit-filter var(--transi-med), -webkit-transform var(--transi-med);
-    transition: -webkit-filter var(--transi-med), -webkit-transform var(--transi-med);
-    transition: filter var(--transi-med), transform var(--transi-med);
-    transition: filter var(--transi-med), transform var(--transi-med), -webkit-filter var(--transi-med), -webkit-transform var(--transi-med); }
-  .bm-mosaic__cell:hover img {
-    -webkit-filter: saturate(0.85) contrast(1.08);
-            filter: saturate(0.85) contrast(1.08);
-    -webkit-transform: scale(1.02);
-        -ms-transform: scale(1.02);
-            transform: scale(1.02); }
-  .bm-mosaic__cell--a {
+.bm-cover[data-layout="solo"] .bm-cover__images {
+  -ms-grid-columns: 1fr;
+  grid-template-columns: 1fr;
+  -ms-grid-rows: 1fr;
+  grid-template-rows: 1fr; }
+  .bm-cover[data-layout="solo"] .bm-cover__images .bm-cover__img-cell--1 {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    grid-area: 1 / 1; }
+
+.bm-cover[data-layout="diptych"] .bm-cover__images {
+  -ms-grid-columns: 1fr;
+  grid-template-columns: 1fr;
+  -ms-grid-rows: 1fr 1fr;
+  grid-template-rows: 1fr 1fr; }
+  .bm-cover[data-layout="diptych"] .bm-cover__images .bm-cover__img-cell--1 {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    grid-area: 1 / 1; }
+  .bm-cover[data-layout="diptych"] .bm-cover__images .bm-cover__img-cell--2 {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+    grid-area: 2 / 1; }
+
+.bm-cover[data-layout="triptych"] .bm-cover__images {
+  -ms-grid-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  -ms-grid-rows: 1fr 1fr;
+  grid-template-rows: 1fr 1fr; }
+  .bm-cover[data-layout="triptych"] .bm-cover__images .bm-cover__img-cell--1 {
     -ms-grid-column: 1;
     grid-column: 1;
     -ms-grid-row: 1;
     -ms-grid-row-span: 2;
     grid-row: 1 / 3; }
-  .bm-mosaic__cell--b {
+  .bm-cover[data-layout="triptych"] .bm-cover__images .bm-cover__img-cell--2 {
     -ms-grid-column: 2;
     grid-column: 2;
     -ms-grid-row: 1;
     grid-row: 1; }
-  .bm-mosaic__cell--c {
+  .bm-cover[data-layout="triptych"] .bm-cover__images .bm-cover__img-cell--3 {
+    -ms-grid-column: 2;
+    grid-column: 2;
+    -ms-grid-row: 2;
+    grid-row: 2; }
+
+.bm-cover[data-layout="quad"] .bm-cover__images {
+  -ms-grid-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  -ms-grid-rows: 1fr 1fr;
+  grid-template-rows: 1fr 1fr; }
+  .bm-cover[data-layout="quad"] .bm-cover__images .bm-cover__img-cell--1 {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    grid-area: 1 / 1; }
+  .bm-cover[data-layout="quad"] .bm-cover__images .bm-cover__img-cell--2 {
+    -ms-grid-row: 1;
+    -ms-grid-column: 2;
+    grid-area: 1 / 2; }
+  .bm-cover[data-layout="quad"] .bm-cover__images .bm-cover__img-cell--3 {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+    grid-area: 2 / 1; }
+  .bm-cover[data-layout="quad"] .bm-cover__images .bm-cover__img-cell--4 {
+    -ms-grid-row: 2;
+    -ms-grid-column: 2;
+    grid-area: 2 / 2; }
+
+.bm-cover[data-layout="feature"] .bm-cover__images {
+  -ms-grid-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  -ms-grid-rows: 2fr 1fr;
+  grid-template-rows: 2fr 1fr; }
+  .bm-cover[data-layout="feature"] .bm-cover__images .bm-cover__img-cell--1 {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-column: 1 / 3;
+    -ms-grid-row: 1;
+    grid-row: 1; }
+  .bm-cover[data-layout="feature"] .bm-cover__images .bm-cover__img-cell--2 {
+    -ms-grid-column: 1;
+    grid-column: 1;
+    -ms-grid-row: 2;
+    grid-row: 2; }
+  .bm-cover[data-layout="feature"] .bm-cover__images .bm-cover__img-cell--3 {
+    -ms-grid-column: 2;
+    grid-column: 2;
+    -ms-grid-row: 2;
+    grid-row: 2; }
+
+.bm-cover[data-layout="strip"] .bm-cover__images {
+  -ms-grid-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  -ms-grid-rows: 2fr 1fr;
+  grid-template-rows: 2fr 1fr; }
+  .bm-cover[data-layout="strip"] .bm-cover__images .bm-cover__img-cell--1 {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
+    grid-column: 1 / 4;
+    -ms-grid-row: 1;
+    grid-row: 1; }
+  .bm-cover[data-layout="strip"] .bm-cover__images .bm-cover__img-cell--2 {
+    -ms-grid-column: 1;
+    grid-column: 1;
+    -ms-grid-row: 2;
+    grid-row: 2; }
+  .bm-cover[data-layout="strip"] .bm-cover__images .bm-cover__img-cell--3 {
+    -ms-grid-column: 2;
+    grid-column: 2;
+    -ms-grid-row: 2;
+    grid-row: 2; }
+  .bm-cover[data-layout="strip"] .bm-cover__images .bm-cover__img-cell--4 {
+    -ms-grid-column: 3;
+    grid-column: 3;
+    -ms-grid-row: 2;
+    grid-row: 2; }
+
+.bm-cover[data-layout="mosaic"] .bm-cover__images {
+  -ms-grid-columns: 2fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr;
+  -ms-grid-rows: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr; }
+  .bm-cover[data-layout="mosaic"] .bm-cover__images .bm-cover__img-cell--1 {
+    -ms-grid-column: 1;
+    grid-column: 1;
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 2;
+    grid-row: 1 / 3; }
+  .bm-cover[data-layout="mosaic"] .bm-cover__images .bm-cover__img-cell--2 {
+    -ms-grid-column: 2;
+    grid-column: 2;
+    -ms-grid-row: 1;
+    grid-row: 1; }
+  .bm-cover[data-layout="mosaic"] .bm-cover__images .bm-cover__img-cell--3 {
     -ms-grid-column: 3;
     grid-column: 3;
     -ms-grid-row: 1;
     grid-row: 1; }
-  .bm-mosaic__cell--d {
+  .bm-cover[data-layout="mosaic"] .bm-cover__images .bm-cover__img-cell--4 {
     -ms-grid-column: 2;
     -ms-grid-column-span: 2;
     grid-column: 2 / 4;
     -ms-grid-row: 2;
     grid-row: 2; }
-  .bm-mosaic__cell--e {
+  .bm-cover[data-layout="mosaic"] .bm-cover__images .bm-cover__img-cell--5 {
     -ms-grid-column: 1;
     -ms-grid-column-span: 2;
     grid-column: 1 / 3;
     -ms-grid-row: 3;
     grid-row: 3; }
-  .bm-mosaic__cell--f {
+  .bm-cover[data-layout="mosaic"] .bm-cover__images .bm-cover__img-cell--6 {
     -ms-grid-column: 3;
     grid-column: 3;
     -ms-grid-row: 3;
     grid-row: 3; }
 
-.bm-mosaic__fig {
-  position: absolute;
-  bottom: 5px;
-  right: 7px;
-  font: 400 var(--size-xs)/1 var(--font-hand);
-  letter-spacing: 0.12em;
-  color: color-mix(in oklch, var(--profile-gold) 45%, transparent);
-  pointer-events: none;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none; }
+.bm-cover[data-layout="gallery"] .bm-cover__images {
+  -ms-grid-columns: 2fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr;
+  -ms-grid-rows: (1fr)[4];
+  grid-template-rows: repeat(4, 1fr); }
+  .bm-cover[data-layout="gallery"] .bm-cover__images .bm-cover__img-cell--1 {
+    -ms-grid-column: 1;
+    grid-column: 1;
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 2;
+    grid-row: 1 / 3; }
+  .bm-cover[data-layout="gallery"] .bm-cover__images .bm-cover__img-cell--2 {
+    -ms-grid-column: 2;
+    grid-column: 2;
+    -ms-grid-row: 1;
+    grid-row: 1; }
+  .bm-cover[data-layout="gallery"] .bm-cover__images .bm-cover__img-cell--3 {
+    -ms-grid-column: 3;
+    grid-column: 3;
+    -ms-grid-row: 1;
+    grid-row: 1; }
+  .bm-cover[data-layout="gallery"] .bm-cover__images .bm-cover__img-cell--4 {
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 2;
+    grid-column: 2 / 4;
+    -ms-grid-row: 2;
+    grid-row: 2; }
+  .bm-cover[data-layout="gallery"] .bm-cover__images .bm-cover__img-cell--5 {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-column: 1 / 3;
+    -ms-grid-row: 3;
+    grid-row: 3; }
+  .bm-cover[data-layout="gallery"] .bm-cover__images .bm-cover__img-cell--6 {
+    -ms-grid-column: 3;
+    grid-column: 3;
+    -ms-grid-row: 3;
+    grid-row: 3; }
+  .bm-cover[data-layout="gallery"] .bm-cover__images .bm-cover__img-cell--7 {
+    -ms-grid-column: 1;
+    grid-column: 1;
+    -ms-grid-row: 4;
+    grid-row: 4; }
+  .bm-cover[data-layout="gallery"] .bm-cover__images .bm-cover__img-cell--8 {
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 2;
+    grid-column: 2 / 4;
+    -ms-grid-row: 4;
+    grid-row: 4; }
+
+.bm-cover[data-layout="expanded"] .bm-cover__images {
+  -ms-grid-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  -ms-grid-rows: (1fr)[5];
+  grid-template-rows: repeat(5, 1fr); }
+  .bm-cover[data-layout="expanded"] .bm-cover__images .bm-cover__img-cell--1 {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-column: 1 / 3;
+    -ms-grid-row: 1;
+    grid-row: 1; }
+  .bm-cover[data-layout="expanded"] .bm-cover__images .bm-cover__img-cell--2 {
+    -ms-grid-column: 3;
+    grid-column: 3;
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 2;
+    grid-row: 1 / 3; }
+  .bm-cover[data-layout="expanded"] .bm-cover__images .bm-cover__img-cell--3 {
+    -ms-grid-column: 1;
+    grid-column: 1;
+    -ms-grid-row: 2;
+    grid-row: 2; }
+  .bm-cover[data-layout="expanded"] .bm-cover__images .bm-cover__img-cell--4 {
+    -ms-grid-column: 2;
+    grid-column: 2;
+    -ms-grid-row: 2;
+    grid-row: 2; }
+  .bm-cover[data-layout="expanded"] .bm-cover__images .bm-cover__img-cell--5 {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-column: 1 / 3;
+    -ms-grid-row: 3;
+    grid-row: 3; }
+  .bm-cover[data-layout="expanded"] .bm-cover__images .bm-cover__img-cell--6 {
+    -ms-grid-column: 3;
+    grid-column: 3;
+    -ms-grid-row: 3;
+    grid-row: 3; }
+  .bm-cover[data-layout="expanded"] .bm-cover__images .bm-cover__img-cell--7 {
+    -ms-grid-column: 1;
+    grid-column: 1;
+    -ms-grid-row: 4;
+    grid-row: 4; }
+  .bm-cover[data-layout="expanded"] .bm-cover__images .bm-cover__img-cell--8 {
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 2;
+    grid-column: 2 / 4;
+    -ms-grid-row: 4;
+    grid-row: 4; }
+  .bm-cover[data-layout="expanded"] .bm-cover__images .bm-cover__img-cell--9 {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+    grid-column: 1 / 2;
+    -ms-grid-row: 5;
+    grid-row: 5; }
+  .bm-cover[data-layout="expanded"] .bm-cover__images .bm-cover__img-cell--10 {
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 2;
+    grid-column: 2 / 4;
+    -ms-grid-row: 5;
+    grid-row: 5; }
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .bm-cover {
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+    -ms-grid-rows: auto 1fr;
+    grid-template-rows: auto 1fr; }
+  .bm-cover__left {
+    border-right: none;
+    border-bottom: var(--profile-dash); }
+  .bm-cover__images {
+    min-height: 240px; } }
+
+@media (max-width: 768px) {
+  .bm-cover__name {
+    font-size: clamp(24px, 8vw, 36px); }
+  .bm-cover__images {
+    min-height: 180px; } }
 
 /* ══════════════════════════════════════
    CHARACTER TAB
@@ -12737,8 +13446,7 @@ input[type="submit"] {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr clamp(220px, 30%, 320px);
-  grid-template-columns: 1fr clamp(220px, 30%, 320px);
-  min-height: 500px; }
+  grid-template-columns: 1fr clamp(220px, 30%, 320px); }
 
 .bm-character__fields {
   padding: 2rem;
@@ -12916,8 +13624,7 @@ input[type="submit"] {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr clamp(220px, 32%, 340px);
-  grid-template-columns: 1fr clamp(220px, 32%, 340px);
-  min-height: 420px; }
+  grid-template-columns: 1fr clamp(220px, 32%, 340px); }
 
 .bm-plotting__overview {
   padding: 2rem;
@@ -13000,8 +13707,7 @@ input[type="submit"] {
   display: grid;
   -ms-grid-columns: clamp(220px, 30%, 300px) 1fr;
   grid-template-columns: clamp(220px, 30%, 300px) 1fr;
-  gap: 2rem;
-  min-height: 380px; }
+  gap: 2rem; }
 
 .bm-ooc__card {
   border: var(--profile-dash);
@@ -13538,7 +14244,8 @@ body#Profile:has(.bm-profile.g-gold) {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: var(--panel-height, auto);
+  height: calc(90vh - clamp(2rem, 5vh, 4rem));
+  max-height: calc(90vh - clamp(2rem, 5vh, 4rem));
   overflow: hidden; }
 
 .bm-nameplate,
@@ -13547,47 +14254,188 @@ body#Profile:has(.bm-profile.g-gold) {
       -ms-flex-negative: 0;
           flex-shrink: 0; }
 
-#tab-cover {
-  -webkit-flex-shrink: 0;
-      -ms-flex-negative: 0;
-          flex-shrink: 0;
-  overflow: visible; }
-
-.bm-panel:not(#tab-cover) {
+.bm-panel {
+  min-height: 0;
   -webkit-box-flex: 1;
   -webkit-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  min-height: 0;
-  overflow-y: scroll;
-  scrollbar-width: none;
-  scrollbar-color: color-mix(in oklab, var(--accent-1) 30%, transparent) transparent;
-  background: var(--profile-bg); }
-  .bm-panel:not(#tab-cover)[hidden] {
-    display: none !important; }
-  .bm-panel:not(#tab-cover)::-webkit-scrollbar {
+  overflow-y: auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column; }
+  .bm-panel::-webkit-scrollbar {
     width: 3px; }
-  .bm-panel:not(#tab-cover)::-webkit-scrollbar-thumb {
+  .bm-panel::-webkit-scrollbar-thumb {
     background: color-mix(in oklab, var(--accent-1) 30%, transparent);
     border-radius: 999px; }
-  .bm-panel:not(#tab-cover)::-webkit-scrollbar-track {
+  .bm-panel::-webkit-scrollbar-track {
     background: transparent; }
+  .bm-panel > * {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+        -ms-flex: 1;
+            flex: 1; }
+  @media (max-width: 768px) {
+    .bm-panel {
+      min-height: unset;
+      overflow-y: visible; } }
+  .bm-panel[hidden] {
+    display: none !important; }
 
+/* ────────────────────────────────
+   Base Variables
+──────────────────────────────── */
+/* ────────────────────────────────
+   Media Query Mixins
+──────────────────────────────── */
+/* Max-width — common "down" breakpoints */
+/* Min-width — common "up" breakpoints */
+/* Between two sizes */
+/* Orientation helpers */
+/* Motion-safe helper (for animations/transitions) */
+/* Motion-reduce helper */
+/* Example usage:
+───────────────────────────────────────
+@include down($bp-sm) {
+  .category { width: 95%; }
+}
+
+@include up($bp-lg) {
+  .plate-info__staff img { width: 120px; }
+}
+
+@include between($bp-sm, $bp-lg) {
+  .leftbar { display: none; }
+}
+
+@include portrait {
+  .header-bg { background-position: center top; }
+}
+*/
+/* ────────────────────────────────
+   Optional Semantic Shortcuts
+──────────────────────────────── */
 /* ================================================
    UI Detail Mixins
    ================================================ */
 /*******************************
     Member List
 ********************************/
+/* ────────────────────────────────
+   Base Variables
+──────────────────────────────── */
+/* ────────────────────────────────
+   Media Query Mixins
+──────────────────────────────── */
+/* Max-width — common "down" breakpoints */
+/* Min-width — common "up" breakpoints */
+/* Between two sizes */
+/* Orientation helpers */
+/* Motion-safe helper (for animations/transitions) */
+/* Motion-reduce helper */
+/* Example usage:
+───────────────────────────────────────
+@include down($bp-sm) {
+  .category { width: 95%; }
+}
+
+@include up($bp-lg) {
+  .plate-info__staff img { width: 120px; }
+}
+
+@include between($bp-sm, $bp-lg) {
+  .leftbar { display: none; }
+}
+
+@include portrait {
+  .header-bg { background-position: center top; }
+}
+*/
+/* ────────────────────────────────
+   Optional Semantic Shortcuts
+──────────────────────────────── */
 /* ================================================
    UI Detail Mixins
    ================================================ */
 /*******************************
     Webpages
 ********************************/
+/* ────────────────────────────────
+   Base Variables
+──────────────────────────────── */
+/* ────────────────────────────────
+   Media Query Mixins
+──────────────────────────────── */
+/* Max-width — common "down" breakpoints */
+/* Min-width — common "up" breakpoints */
+/* Between two sizes */
+/* Orientation helpers */
+/* Motion-safe helper (for animations/transitions) */
+/* Motion-reduce helper */
+/* Example usage:
+───────────────────────────────────────
+@include down($bp-sm) {
+  .category { width: 95%; }
+}
+
+@include up($bp-lg) {
+  .plate-info__staff img { width: 120px; }
+}
+
+@include between($bp-sm, $bp-lg) {
+  .leftbar { display: none; }
+}
+
+@include portrait {
+  .header-bg { background-position: center top; }
+}
+*/
+/* ────────────────────────────────
+   Optional Semantic Shortcuts
+──────────────────────────────── */
 /* ================================================
    UI Detail Mixins
    ================================================ */
+/* ────────────────────────────────
+   Base Variables
+──────────────────────────────── */
+/* ────────────────────────────────
+   Media Query Mixins
+──────────────────────────────── */
+/* Max-width — common "down" breakpoints */
+/* Min-width — common "up" breakpoints */
+/* Between two sizes */
+/* Orientation helpers */
+/* Motion-safe helper (for animations/transitions) */
+/* Motion-reduce helper */
+/* Example usage:
+───────────────────────────────────────
+@include down($bp-sm) {
+  .category { width: 95%; }
+}
+
+@include up($bp-lg) {
+  .plate-info__staff img { width: 120px; }
+}
+
+@include between($bp-sm, $bp-lg) {
+  .leftbar { display: none; }
+}
+
+@include portrait {
+  .header-bg { background-position: center top; }
+}
+*/
+/* ────────────────────────────────
+   Optional Semantic Shortcuts
+──────────────────────────────── */
 /* ================================================
    UI Detail Mixins
    ================================================ */
@@ -14389,9 +15237,75 @@ a[href="<i>No Information</i>"] {
 #board-message {
   padding: var(--space-lg); }
 
+/* ────────────────────────────────
+   Base Variables
+──────────────────────────────── */
+/* ────────────────────────────────
+   Media Query Mixins
+──────────────────────────────── */
+/* Max-width — common "down" breakpoints */
+/* Min-width — common "up" breakpoints */
+/* Between two sizes */
+/* Orientation helpers */
+/* Motion-safe helper (for animations/transitions) */
+/* Motion-reduce helper */
+/* Example usage:
+───────────────────────────────────────
+@include down($bp-sm) {
+  .category { width: 95%; }
+}
+
+@include up($bp-lg) {
+  .plate-info__staff img { width: 120px; }
+}
+
+@include between($bp-sm, $bp-lg) {
+  .leftbar { display: none; }
+}
+
+@include portrait {
+  .header-bg { background-position: center top; }
+}
+*/
+/* ────────────────────────────────
+   Optional Semantic Shortcuts
+──────────────────────────────── */
 /* ================================================
    UI Detail Mixins
    ================================================ */
+/* ────────────────────────────────
+   Base Variables
+──────────────────────────────── */
+/* ────────────────────────────────
+   Media Query Mixins
+──────────────────────────────── */
+/* Max-width — common "down" breakpoints */
+/* Min-width — common "up" breakpoints */
+/* Between two sizes */
+/* Orientation helpers */
+/* Motion-safe helper (for animations/transitions) */
+/* Motion-reduce helper */
+/* Example usage:
+───────────────────────────────────────
+@include down($bp-sm) {
+  .category { width: 95%; }
+}
+
+@include up($bp-lg) {
+  .plate-info__staff img { width: 120px; }
+}
+
+@include between($bp-sm, $bp-lg) {
+  .leftbar { display: none; }
+}
+
+@include portrait {
+  .header-bg { background-position: center top; }
+}
+*/
+/* ────────────────────────────────
+   Optional Semantic Shortcuts
+──────────────────────────────── */
 /* ================================================
    UI Detail Mixins
    ================================================ */
@@ -16076,15 +16990,114 @@ body#Msg main {
     #Msg.code-03 .ucp--inner .msg-normal > table tbody tr:last-child {
       display: none; }
 
+/* ────────────────────────────────
+   Base Variables
+──────────────────────────────── */
+/* ────────────────────────────────
+   Media Query Mixins
+──────────────────────────────── */
+/* Max-width — common "down" breakpoints */
+/* Min-width — common "up" breakpoints */
+/* Between two sizes */
+/* Orientation helpers */
+/* Motion-safe helper (for animations/transitions) */
+/* Motion-reduce helper */
+/* Example usage:
+───────────────────────────────────────
+@include down($bp-sm) {
+  .category { width: 95%; }
+}
+
+@include up($bp-lg) {
+  .plate-info__staff img { width: 120px; }
+}
+
+@include between($bp-sm, $bp-lg) {
+  .leftbar { display: none; }
+}
+
+@include portrait {
+  .header-bg { background-position: center top; }
+}
+*/
+/* ────────────────────────────────
+   Optional Semantic Shortcuts
+──────────────────────────────── */
 /* ================================================
    UI Detail Mixins
    ================================================ */
 /*******************************
     Mod CP
 ********************************/
+/* ────────────────────────────────
+   Base Variables
+──────────────────────────────── */
+/* ────────────────────────────────
+   Media Query Mixins
+──────────────────────────────── */
+/* Max-width — common "down" breakpoints */
+/* Min-width — common "up" breakpoints */
+/* Between two sizes */
+/* Orientation helpers */
+/* Motion-safe helper (for animations/transitions) */
+/* Motion-reduce helper */
+/* Example usage:
+───────────────────────────────────────
+@include down($bp-sm) {
+  .category { width: 95%; }
+}
+
+@include up($bp-lg) {
+  .plate-info__staff img { width: 120px; }
+}
+
+@include between($bp-sm, $bp-lg) {
+  .leftbar { display: none; }
+}
+
+@include portrait {
+  .header-bg { background-position: center top; }
+}
+*/
+/* ────────────────────────────────
+   Optional Semantic Shortcuts
+──────────────────────────────── */
 /* ================================================
    UI Detail Mixins
    ================================================ */
+/* ────────────────────────────────
+   Base Variables
+──────────────────────────────── */
+/* ────────────────────────────────
+   Media Query Mixins
+──────────────────────────────── */
+/* Max-width — common "down" breakpoints */
+/* Min-width — common "up" breakpoints */
+/* Between two sizes */
+/* Orientation helpers */
+/* Motion-safe helper (for animations/transitions) */
+/* Motion-reduce helper */
+/* Example usage:
+───────────────────────────────────────
+@include down($bp-sm) {
+  .category { width: 95%; }
+}
+
+@include up($bp-lg) {
+  .plate-info__staff img { width: 120px; }
+}
+
+@include between($bp-sm, $bp-lg) {
+  .leftbar { display: none; }
+}
+
+@include portrait {
+  .header-bg { background-position: center top; }
+}
+*/
+/* ────────────────────────────────
+   Optional Semantic Shortcuts
+──────────────────────────────── */
 /* ================================================
    UI Detail Mixins
    ================================================ */
