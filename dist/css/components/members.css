@@ -38,3 +38,228 @@
 /*******************************
     Member List
 ********************************/
+#members--rows,
+.members--rows {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: oklch(1 0 0/0.05);
+  border: 1px dashed oklch(1 0 0/0.08);
+  border-radius: 3px;
+  overflow: hidden; }
+  @media (max-width: 768px) {
+    #members--rows,
+    .members--rows {
+      grid-template-columns: 1fr; } }
+  @media (min-width: 1280px) {
+    #members--rows,
+    .members--rows {
+      grid-template-columns: repeat(3, 1fr); } }
+
+.member-card {
+  --card-h:  400px;
+  --img-h:   180px;
+  --blurb-h: 72px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: var(--card-h);
+  background: var(--bg-1);
+  overflow: hidden;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.28s ease, box-shadow 0.28s ease; }
+  .member-card:hover {
+    background: oklch(0.245 0.003 67.7);
+    z-index: 1;
+    box-shadow: 0 0 0 1px color-mix(in oklab, var(--mg-start, var(--accent-2)) 28%, transparent), 0 6px 24px oklch(0 0 0/0.4); }
+  @media (min-width: 1280px) {
+    .member-card {
+      --card-h:  370px;
+      --img-h:   155px;
+      --blurb-h: 66px; } }
+  @media (max-width: 768px) {
+    .member-card {
+      --card-h:  auto;
+      --img-h:   200px;
+      --blurb-h: 80px; } }
+
+.member-card__img-wrap {
+  position: relative;
+  height: var(--img-h);
+  flex-shrink: 0;
+  overflow: hidden; }
+
+.member-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  filter: sepia(0.18) brightness(0.75);
+  transition: filter 0.4s ease, transform 0.45s ease; }
+  .member-card:hover .member-card__img {
+    filter: sepia(0.04) brightness(0.88);
+    transform: scale(1.05); }
+
+.member-card__img-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 30%, color-mix(in oklab, var(--mg-start, var(--accent-2)) 12%, transparent) 65%, oklch(0.2228 0.0025 67.7/0.92) 100%);
+  pointer-events: none; }
+
+.member-card__img-wrap::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--mg-start, var(--accent-2)) 0%, color-mix(in oklab, var(--mg-start, var(--accent-2)) 35%, transparent) 55%, transparent 100%);
+  z-index: 2;
+  opacity: 0.72;
+  transition: opacity 0.28s ease; }
+  .member-card:hover .member-card__img-wrap::before {
+    opacity: 1; }
+
+.member-card__img-label {
+  position: absolute;
+  bottom: 0.6rem;
+  left: 0.8rem;
+  right: 0.8rem;
+  z-index: 2; }
+
+.member-card__name {
+  font: 600 var(--size-lg)/1.15 var(--font-cinzel);
+  letter-spacing: 0.07em;
+  margin-bottom: 0.2rem; }
+  .member-card__name a {
+    color: var(--text-hiCon);
+    text-decoration: none;
+    text-shadow: 0 1px 10px oklch(0 0 0/0.75);
+    transition: color 0.28s ease; }
+    .member-card__name a:hover {
+      color: #fff; }
+
+.member-card__group {
+  font: 400 var(--size-xs)/1 var(--font-hand);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mg-start, var(--accent-2));
+  text-shadow: 0 1px 6px oklch(0 0 0/0.65);
+  opacity: 0.9; }
+
+.member-card__body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  padding: 0.65rem 0.8rem 0;
+  border-top: 1px dashed oklch(1 0 0/0.08); }
+  .member-card__body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, color-mix(in oklab, var(--mg-start, var(--accent-2)) 6%, transparent) 0%, transparent 55%);
+    pointer-events: none; }
+
+.member-card__role {
+  font: 400 var(--size-xs)/1 var(--font-hand);
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--text-loCon);
+  flex-shrink: 0;
+  margin-bottom: 0.45rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; }
+
+.member-card__blurb-wrap {
+  height: var(--blurb-h);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  flex-shrink: 0;
+  mask-image: linear-gradient(180deg, #000 70%, transparent 100%);
+  -webkit-mask-image: linear-gradient(180deg, #000 70%, transparent 100%);
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in oklab, var(--mg-start, var(--accent-2)) 30%, transparent) transparent;
+  padding-right: 4px;
+  margin-right: -4px; }
+  .member-card__blurb-wrap::-webkit-scrollbar {
+    width: 3px; }
+  .member-card__blurb-wrap::-webkit-scrollbar-thumb {
+    background: color-mix(in oklab, var(--mg-start, var(--accent-2)) 30%, transparent);
+    border-radius: 999px; }
+  .member-card__blurb-wrap::-webkit-scrollbar-track {
+    background: transparent; }
+  .member-card:hover .member-card__blurb-wrap::-webkit-scrollbar-thumb {
+    background: color-mix(in oklab, var(--mg-start, var(--accent-2)) 55%, transparent); }
+
+.member-card__blurb {
+  font: 400 var(--size-md)/1.55 var(--font-serif);
+  font-style: italic;
+  color: var(--text-loCon);
+  padding-bottom: 0.6rem;
+  transition: color 0.28s ease; }
+  .member-card:hover .member-card__blurb {
+    color: var(--text-medCon); }
+  .member-card__blurb p {
+    margin: 0; }
+  .member-card__blurb p + p {
+    margin-top: 0.4em; }
+
+.member-card__footer {
+  flex-shrink: 0;
+  margin-top: auto;
+  padding: 0.5rem 0 0.65rem;
+  border-top: 1px dashed oklch(1 0 0/0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem; }
+
+.member-card__stats {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0; }
+
+.member-card__stat {
+  font: 400 var(--size-xs)/1 var(--font-hand);
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--text-loCon);
+  white-space: nowrap; }
+  .member-card__stat b {
+    color: var(--text-medCon);
+    font-weight: 600; }
+  .member-card__stat + .member-card__stat::before {
+    content: "†";
+    font-family: var(--font-serif);
+    color: var(--mg-start, var(--accent-2));
+    opacity: 0.35;
+    margin-inline: 0.5rem; }
+
+.member-card__tags {
+  display: flex;
+  gap: 0.3rem;
+  flex-wrap: wrap; }
+
+.member-card__tag {
+  font: 400 var(--size-xs)/1 var(--font-hand);
+  letter-spacing: 0.08em;
+  padding: 2px 7px;
+  border-radius: 2px;
+  background: color-mix(in oklab, var(--mg-start, var(--accent-2)) 10%, transparent);
+  color: var(--mg-start, var(--accent-2));
+  border: 1px solid color-mix(in oklab, var(--mg-start, var(--accent-2)) 22%, transparent);
+  white-space: nowrap;
+  transition: background 0.28s ease, border-color 0.28s ease; }
+  .member-card:hover .member-card__tag {
+    background: color-mix(in oklab, var(--mg-start, var(--accent-2)) 17%, transparent);
+    border-color: color-mix(in oklab, var(--mg-start, var(--accent-2)) 38%, transparent); }
+
+.member-card .hidden {
+  display: none; }

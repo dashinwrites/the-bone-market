@@ -292,50 +292,131 @@ function createFieldArray(arr, input = false) {
 }
 
 /****** Members Initialization ******/
+/**
+ * formatMemberRow  —  vertical portrait card
+ *
+ * Replaces the old horizontal row layout.
+ * Called from populatePage() in utilities.js exactly as before:
+ *
+ *   formatMemberRow('character', data, 'active')
+ *   formatMemberRow('writer',    data, 'active')
+ *   formatMemberRow('character', data, 'pending')
+ *
+ * Data shape (from fakeAccounts.js template):
+ *
+ *   data.universal  → name, id, groupID, groupName, imageTall, imageWide,
+ *                      type, posts, dates.{ joined, lastActive, lastPost }
+ *   data.character  → pronouns, relationship, relationshipClass,
+ *                      age, ageClass, location, locationClass, overview
+ *   data.writer     → alias, aliasClass, pronouns, timezone, triggers
+ */
 function formatMemberRow(type, data, extraFilters = '') {
-    let tagList = ``, info = ``, details = ``;
+    // ── filter/sort classes ─────────────────────────────────────────────────
+    // These stay on the outer wrapper so the existing Isotope / search logic
+    // continues to work without any changes to utilities.js.
+    const tagList = type === 'character'
+        ? `${data.character.ageClass} ${data.character.relationshipClass}`
+        : ``;
 
+    // ── image ───────────────────────────────────────────────────────────────
+    // Prefer the tall (portrait) avatar; fall back to wide if absent.
+    const imgSrc = data.universal.imageTall || data.universal.imageWide || ``;
+
+    // ── name + group label (overlaid on image) ──────────────────────────────
+    const displayName = formatName(data.universal.name, 'b');
+    const groupLabel  = capitalize(data.universal.groupName);
+
+    // ── role line (one compact line under the name in the body) ────────────
+    let roleFragments = [];
     if (type === 'character') {
-        tagList += `${data.character.ageClass} ${data.character.relationshipClass}`;
-        info += `<div class="member--stats">
-            <span>${data.character.age} years old</span>
-            <span>${data.character.pronouns}</span>
-            <span>${data.character.species}</span>
-            <span>${data.character.resonance}</span>
-            <span>${data.writer.alias}</span>
-        </div>`;
-        details = data.character.overview;
+        if (data.character.location)     roleFragments.push(data.character.location);
+        if (data.character.pronouns)     roleFragments.push(data.character.pronouns);
+        if (data.character.age)          roleFragments.push(`${data.character.age} yrs`);
+        if (data.character.relationship) roleFragments.push(data.character.relationship);
     } else {
-        info += `<div class="member--stats">
-            <span>${data.writer.pronouns}</span>
-            <span>${data.writer.timezone}</span>
-        </div>`;
-        details = data.writer.triggers;
+        if (data.writer.pronouns)  roleFragments.push(data.writer.pronouns);
+        if (data.writer.timezone)  roleFragments.push(data.writer.timezone);
+    }
+    const roleText = roleFragments.join(' · ');
+
+    // ── scrollable blurb content ────────────────────────────────────────────
+    const blurbContent = type === 'character'
+        ? data.character.overview   // field_27 — character overview
+        : data.writer.triggers;     // field_23 — writer triggers/about
+
+    // ── stat footer ─────────────────────────────────────────────────────────
+    let stats = ``;
+    if (type === 'character') {
+        stats = `
+            <span class="member-card__stat"><b>${data.universal.posts}</b> posts</span>
+            <span class="member-card__stat">by <b>${data.writer.alias}</b></span>
+            <span class="member-card__stat">joined <b>${data.universal.dates.joined}</b></span>`;
+    } else {
+        stats = `
+            <span class="member-card__stat"><b>${data.universal.posts}</b> posts</span>
+            <span class="member-card__stat">joined <b>${data.universal.dates.joined}</b></span>
+            <span class="member-card__stat">last seen <b>${data.universal.dates.lastActive}</b></span>`;
     }
 
-    return `<div class="members--member grid-item g-${data.universal.groupID} ${data.writer.aliasClass} ${type} ${extraFilters} ${tagList}">
-        <div class="member">
-            <div class="member--top">
-                <img src="${data.universal.imageWide}" loading="lazy" />
+    // ── tag pills ────────────────────────────────────────────────────────────
+    // Character: relationship status + ageClass labels as pills
+    // Writer:    timezone as a single pill
+    let tags = ``;
+    if (type === 'character') {
+        if (data.character.relationship) {
+            tags += `<span class="member-card__tag">${data.character.relationship}</span>`;
+        }
+        // ageClass e.g. "2634 mortal" — grab the word portion only
+        const ageLabel = (data.character.ageClass || '')
+            .replace(/^\d+\s*/, '').trim();
+        if (ageLabel) {
+            tags += `<span class="member-card__tag">${ageLabel}</span>`;
+        }
+    } else {
+        if (data.writer.timezone) {
+            tags += `<span class="member-card__tag">${data.writer.timezone}</span>`;
+        }
+    }
+
+    // ── assemble ─────────────────────────────────────────────────────────────
+    return `
+<div class="members--member member-card g-${data.universal.groupID} ${data.writer.aliasClass} ${type} ${extraFilters} ${tagList}">
+
+    <div class="member-card__img-wrap">
+        <img class="member-card__img"
+             src="${imgSrc}"
+             alt="${data.universal.name}"
+             loading="lazy" />
+        <div class="member-card__img-label">
+            <div class="member-card__name">
+                <a href="?showuser=${data.universal.id}">${displayName}</a>
             </div>
-            <div class="member--main">
-                <a href="?showuser=${data.universal.id}">${formatName(data.universal.name, 'b')}</a>
-                <div class="member--group">${data.universal.groupName}</div>
-                <div class="member--dates">Joined ${data.universal.dates.joined}</div>
-                <div class="member--dates">Last seen ${data.universal.dates.lastActive}</div>
-            </div>
-            ${info}
-            <div class="member--overview"><div class="scroll">
-                ${details}
-            </div></div>
+            <div class="member-card__group">${groupLabel}</div>
         </div>
-        <div class="hidden member--sortable">
-            <span class="member--name">${data.universal.name}</span>
-            <span class="member--age">${data.character.age ?? ''}</span>
-            <span class="member--posts">${data.universal.posts}</span>
-            <span class="member--join">${data.universal.dates.joined}</span>
+    </div>
+
+    <div class="member-card__body">
+        ${roleText ? `<div class="member-card__role">${roleText}</div>` : ``}
+
+        <div class="member-card__blurb-wrap">
+            <div class="member-card__blurb">${blurbContent}</div>
         </div>
-    </div>`;
+
+        <div class="member-card__footer">
+            <div class="member-card__stats">${stats}</div>
+            ${tags ? `<div class="member-card__tags">${tags}</div>` : ``}
+        </div>
+    </div>
+
+    ${/* hidden sortable block — keeps existing sort/filter JS working unchanged */''}
+    <div class="hidden member--sortable">
+        <span class="member--name">${data.universal.name}</span>
+        <span class="member--age">${data.character.age ?? ''}</span>
+        <span class="member--posts">${data.universal.posts}</span>
+        <span class="member--join">${data.universal.dates.joined}</span>
+    </div>
+
+</div>`;
 }
 function toggleListMenu(e) {
     if (e.closest('.members--menu')) {

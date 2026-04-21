@@ -1093,7 +1093,8 @@
     background: rgba(255,255,255,0.04);
 
     &::before { opacity: 0.7; }
-    .switch--name { color: var(--profile-ink-med); }
+    .switch--name { color: var(--profile-ink-med); 
+    }
   }
 
   // punch hole

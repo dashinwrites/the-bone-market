@@ -63,7 +63,7 @@ const imageWide = `https://picsum.photos/800/500`;
 accounts = [
     {
         universal: {
-            name: standardizeLower(`Lux`),
+            name: standardizeLower(`dashin`),
             id: parseInt(`1`),
             groupID: parseInt(`4`),
             groupName: standardizeLower(`Admin`),
@@ -89,8 +89,8 @@ accounts = [
             overview: ``,
         },
         writer: {
-            aliasClass: standardizeLower(cleanText(`Lux`)),
-            alias: standardizeLower(`Lux`),
+            aliasClass: standardizeLower(cleanText(`Dashin`)),
+            alias: standardizeLower(`Dashin`),
             age: parseInt(`32`),
             pronouns: standardizeLower(`she/her`),
             timezone: standardizeLower(`GMT-04:00`),
@@ -100,7 +100,7 @@ accounts = [
     },
     {
         universal: {
-            name: standardizeLower(`Spyder`),
+            name: standardizeLower(`Max`),
             id: parseInt(`2`),
             groupID: parseInt(`4`),
             groupName: standardizeLower(`Admin`),
@@ -126,8 +126,8 @@ accounts = [
             overview: ``,
         },
         writer: {
-            aliasClass: standardizeLower(cleanText(`Spyder`)),
-            alias: standardizeLower(`Spyder`),
+            aliasClass: standardizeLower(cleanText(`Max`)),
+            alias: standardizeLower(`Max`),
             age: parseInt(`26`),
             pronouns: standardizeLower(`They/Them`),
             timezone: standardizeLower(`GMT-05:00`),
@@ -137,10 +137,10 @@ accounts = [
     },
     {
         universal: {
-            name: standardizeLower(`Fiore Amoretti`),
+            name: standardizeLower(`Aurelian Viremont`),
             id: parseInt(`3`),
             groupID: parseInt(`7`),
-            groupName: standardizeLower(`Group Seven`),
+            groupName: standardizeLower(`Orbit`),
             imageTall: imageTall,
             imageWide: imageWide,
             type: standardizeLower(`Character`),
@@ -163,8 +163,8 @@ accounts = [
             overview: lipsum,
         },
         writer: {
-            aliasClass: standardizeLower(cleanText(`Lux`)),
-            alias: standardizeLower(`Lux`),
+            aliasClass: standardizeLower(cleanText(`Dashin`)),
+            alias: standardizeLower(`Dashin`),
             age: parseInt(`32`),
             pronouns: standardizeLower(`she/her`),
             timezone: standardizeLower(`GMT-04:00`),
@@ -174,7 +174,7 @@ accounts = [
     },
     {
         universal: {
-            name: standardizeLower(`Emily Lawry`),
+            name: standardizeLower(`Bright Panyopas`),
             id: parseInt(`4`),
             groupID: parseInt(`8`),
             groupName: standardizeLower(`Group Eight`),
@@ -190,7 +190,7 @@ accounts = [
             }
         },
         character: {
-            pronouns: standardizeLower(`She/her`),
+            pronouns: standardizeLower(`He/Him`),
             relationship: standardizeLower(`Single`),
             relationshipClass: standardizeLower(cleanText(`Single`)),
             age: parseInt(`31`),
@@ -200,8 +200,8 @@ accounts = [
             overview: lipsum,
         },
         writer: {
-            aliasClass: standardizeLower(cleanText(`Spyder`)),
-            alias: standardizeLower(`Spyder`),
+            aliasClass: standardizeLower(cleanText(`Max`)),
+            alias: standardizeLower(`Max`),
             age: parseInt(`26`),
             pronouns: standardizeLower(`They/Them`),
             timezone: standardizeLower(`GMT-05:00`),
