@@ -71,6 +71,20 @@ body {
   overflow: hidden;
   border-radius: 4px;
   background: oklch(0.12 0.002 67);
+  /* Grab cursor when not dragging */
+  cursor: grab;
+}
+.vesper-map.is-dragging { cursor: grabbing; }
+
+/* ── VIEWPORT — the layer that gets transformed ── */
+.vesper-map__viewport {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform-origin: 0 0;
+  /* JS sets transform: translate(x,y) scale(z) */
+  will-change: transform;
 }
 
 .vesper-map__img {
@@ -81,6 +95,7 @@ body {
   object-position: center;
   user-select: none;
   -webkit-user-drag: none;
+  pointer-events: none;
 }
 
 .vesper-map__svg {
@@ -91,17 +106,63 @@ body {
   overflow: visible;
 }
 
+/* ── ZOOM CONTROLS — fixed to container, outside viewport ── */
+.vm-controls {
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.vm-ctrl-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: var(--bg-2);
+  border: 1px solid var(--bm-guide-border);
+  color: var(--text-loCon);
+  font-family: var(--font-hand);
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.vm-ctrl-btn:hover {
+  color: var(--text-hiCon);
+  border-color: var(--bm-guide-accent);
+  background: oklch(1 0 0 / 0.05);
+}
+.vm-ctrl-btn:active { background: oklch(1 0 0 / 0.1); }
+
+/* Zoom level indicator */
+.vm-zoom-label {
+  font-family: var(--font-hand);
+  font-size: 8px;
+  letter-spacing: 0.1em;
+  color: var(--text-loCon);
+  text-align: center;
+  opacity: 0.6;
+  margin-top: 1px;
+}
+
 /* ── ZONES ── */
 .vm-zone {
-  fill: transparent;
+  fill: color-mix(in oklch, var(--zone-color, var(--accent-2)) 60%, transparent);;
   stroke: transparent;
   cursor: pointer;
   transition: fill 0.25s ease, stroke 0.25s ease;
 }
 .vm-zone:hover,
 .vm-zone.is-active {
-  fill: color-mix(in oklch, var(--zone-color, var(--accent-2)) 14%, transparent);
-  stroke: color-mix(in oklch, var(--zone-color, var(--accent-2)) 60%, transparent);
+  fill: color-mix(in oklch, var(--zone-color, var(--accent-2)) 80%, transparent);
+  stroke: color-mix(in oklch, var(--zone-color, var(--accent-2)) 100%, transparent);
   stroke-width: 2;
   stroke-linejoin: round;
   stroke-dasharray: 6 4;
@@ -283,9 +344,12 @@ body {
     Replace this src with your hosted map image URL.
     The image should be 3600×2600px (or any 18:13 ratio crop).
   -->
+  <!-- VIEWPORT: this div is what gets pan/zoom transform applied -->
+  <div class="vesper-map__viewport" id="vmViewport">
+
   <img
     class="vesper-map__img"
-    src="https://i.postimg.cc/Fs0ybD6P/blackchurch-rotate2.png"
+    src="https://i.postimg.cc/wTJ8JYq4/vesperstadt-detailed.png"
     alt="Map of Vesperstadt"
     draggable="false"
   />
@@ -315,101 +379,80 @@ body {
     <path class="vm-zone" data-id="cindertop" data-type="district"
       style="--zone-color: #c07838;"
       d="
-        m 757.12643,1226.8664
-c 64.32364,-35.4445 -218.4642,-61.0255 -227.24856,-134.2745 -8.78436,-73.249 117.15492,-73.7088 127.98563,-124.69823 10.83071,-50.98942 -60.48882,-67.85159 -49.70617,-124.51796 10.78265,-56.66637 145.58146,-83.14796 145.43462,-154.2852 -0.14684,-71.13724 -149.41127,-73.34393 -147.97988,-155.69253 1.43139,-82.3486 135.82653,-125.9651 199.38506,-195.6839 63.55853,-69.7188 4.45295,-146.01105 71.93103,-190.83621 67.47809,-44.82517 203.24664,51.97368 281.91664,10.61207 78.67,-41.36161 57.5097,-107.93435 126.1969,-148.758618 68.6872,-40.824268 202.9304,-69.484219 278.3764,-57.949709 75.446,11.53451 77.3783,31.120734 151.6149,84.54023 74.2366,53.419496 181.3271,140.018027 277.3377,252.645117 96.0106,112.62709 280.9885,428.98275 280.9885,428.98275
-l -143.8693,225.1523 -146.2426,-45.40943 -152.8577,-15.64218 -173.4163,-4.8246 -105.3874,23.42552 -77.2739,38.30913 -69.0052,63.11515 -44.4978,80.4722 -46.5786,92.1427 -129.3086,-0.2927 -84.9558,42.0487 -64.647,51.996 -61.69256,49.388 -100.61782,71.1221 -122.31322,74.385 -146.67673,92.4713 -72.30459,-132.5905
-c 0,0 161.08871,-159.9075 225.41235,-195.352
+        m 600.6469,1633.2514 271.0322,-158.1021 243.5055,-199.0393 169.7102,2.5462 29.446,-75.3618 -2.7449,-5.989 3.9927,-8.4845 7.7358,-3.244 35.6846,-63.6334 -0.9982,-8.9835 5.2404,-6.4881 9.2331,-2.4955 49.9085,-48.6608 0.2495,-9.233 9.2331,-5.9891 6.9872,2.745 64.8811,-34.6864 0.7486,-4.4918 9.7322,-5.24038 8.7339,3.24408 81.3509,-16.46984 5.49,-5.98902 11.4789,-0.99817 3.2441,5.24039 91.3326,2.24588 0.2495,-4.49176 13.4753,-8.98354 15.2221,2.74497 8.734,10.73033 88.8372,1.99634 6.9872,-4.99085 8.2349,0.99817 3.4936,5.48994 101.8133,17.21846 1.9964,-6.73767 -44.6681,-161.20452 -381.0516,-55.64799 -136.4998,18.2166 -20.712,-11.22941
+c 0,0 -23.8656,41.90787 -33.6809,64.44988 -9.8154,22.54201 -25.2112,70.8022 -25.2112,70.8022 0,0 -75.2714,-30.71154 -109.7309,-70.59432 -34.2322,-39.61976 -103.3784,-160.23258 -103.3784,-160.23258
+l -59.6407,36.68277 164.4485,259.52429 -24.2056,104.30885 -87.0904,55.1489 -170.43754,-124.2722 -77.10866,66.6278 78.10682,91.0831
+c 0,0 -33.42526,23.5106 -52.77825,28.0735 -20.28111,4.7817 -62.51042,0.3743 -62.51042,0.3743
+l -12.22759,108.052 -271.75188,196.39
 z
       "
     />
 
     <!-- THE SPIRES — north arc of walled ring, above river -->
-    <polygon class="vm-zone" data-id="spires" data-type="district"
+    <path class="vm-zone" data-id="spires" data-type="district"
       style="--zone-color: #b8963a;"
-      points="
-        2167,1240 2140,1100 2233,981
-        2385,944  2479,934  2549,943
-        2600,940  2647,952  2705,954
-        2790,961  2893,1014 3050,1006
-        3170,950  3300,1100 3198,1350
-        2948,1344 2893,1416 2807,1422
-        2710,1447 2614,1415 2490,1437
-        2344,1451 2155,1423
+      d="
+        m 1299.7547,1279.992 99.1667,27.1737 88.2267,54.3477 84.1682,15.1749 19.7627,-2.8232 51.1715,-10.9401 17.9982,2.8232 7.2346,7.0582 5.4701,-0.1765 29.997,16.2337 28.9383,37.9375 108.3423,64.7583 42.3488,10.2343 5.4701,0.8823 12.8811,0.8822 13.4104,-0.8822 100.7548,-13.7634 28.9384,-0.8823 23.4682,-3.7055 107.6365,-47.113 52.5831,-20.645 56.2886,-22.939 -4.7642,-50.2891 -2.1175,-37.2317 -5.1171,-2.2939 -2.1175,-8.4697 2.4704,-6.3523 -6.1759,-14.9986 -0.1764,-4.7642 -20.6451,-56.465 -6.3523,-3.882 -4.4113,-10.0579 -15.3514,-22.4095 -37.2317,-45.525 -8.6462,-2.9997 -4.7642,-3.1761 -2.8233,-6.3523 -78.5217,-52.4067 -5.8229,1.2352 -6.7053,-3.7055 -4.4113,-6.7052 -93.5202,-34.0555 -3.882,2.4703 -8.6462,-1.0587 -6.7052,-6.3523 -94.9319,-14.9985 -6.7052,4.0584 -9.5285,-0.8823 -5.47,-5.1171 -86.815,-1.58809 -8.4698,10.94009 -8.4698,5.2936 -3.8819,-3.7055 -12.1753,-2.8233 -8.8227,-10.4107 -87.1679,-2.29389 -2.1174,3.35261 -8.4698,1.94098 -8.8226,-3.88197 -44.1133,9.52847 -34.7613,8.4698 -4.9407,5.2936 -10.9401,0.1764 -64.5819,31.9381 0.1764,5.9994 -3.7055,4.5878 -12.1753,2.6468 -39.349,38.6432 -2.4704,0.1765 -7.9404,7.9404 0.5294,8.6462 -5.1172,6.5287 -5.8229,1.0588 -20.8215,34.5848 -14.8221,26.2915 0.7058,9.8814 -4.7642,7.0582 -4.7643,1.0587
+z
       "
     />
 
     <!-- AMBERBANK — eastern lobe right of walled ring -->
-    <polygon class="vm-zone" data-id="amberbank" data-type="district"
+    <path class="vm-zone" data-id="amberbank" data-type="district"
       style="--zone-color: #487060;"
-      points="
-        3170,950  3300,700  3496,746
-        3596,941  3566,1156 3575,1260
-        3585,1350 3385,1377 3393,1417
-        3352,1422 3333,1454 3300,1430
-        3236,1544 3182,1511 3126,1476
-        3124,1407 3198,1350 3300,1100
+      d="
+        m 2041.9171,2063.7973 210.3323,-31.7616 14.4692,4.5878 -26.468,89.9912
+c 0,0 55.7592,21.0568 83.8153,36.1729 28.0561,15.1162 84.5211,54.5241 84.5211,54.5241 0,0 -20.5862,29.2912 -32.9968,43.9369 -12.4105,14.6456 -41.4665,43.9368 -41.4665,43.9368
+l 69.8755,76.9336 -13.0575,70.9342 269.9735,-9.8814 10.5872,-123.8702 136.5748,25.0564 7.411,-46.9366 -141.8684,-77.6394 56.8179,-164.8073 67.4052,-26.8209 43.0546,-284.0898 63.5232,-28.9383 -8.1169,-195.1573 136.2219,-127.3993 176.1004,124.2231 208.5677,-159.1608 -37.0552,-117.165 -47.9952,16.5866 -51.5244,-96.6964 39.8784,-85.7562 -158.8079,-239.97648
+c 0,0 -69.6402,47.76002 -104.4603,67.75805 -34.8201,19.99804 -104.4603,52.23017 -104.4603,52.23017
+l -63.5232,-138.69227
+c 0,0 -43.1722,20.35094 -65.8171,27.70316 -22.6448,7.35222 -70.0519,16.41016 -70.0519,16.41016
+l -9.8814,-53.28889 -247.3875,-42.34878 -94.5789,147.51493 15.1749,75.8749 -225.8601,125.98765 0.7058,3.529 -1.4116,5.2936 55.7592,65.9936 7.411,3.1761 5.2936,5.9994 -0.7058,9.5285 27.5267,78.3453 7.764,4.9406 1.0587,7.764 -5.2936,9.8814 7.411,71.9929 3.5291,0.3529
+v 14.8221
+l 0.7058,54.3476 0.3529,10.9401 -3.1761,0.3529 -1.0588,24.7034 5.2936,4.2349 -0.3529,8.4698 -7.0581,6.3523 -4.2349,65.2877 2.8233,3.5291
+v 8.8226
+l -5.6465,5.6465 -5.6465,55.7593 3.1761,3.529 0.3529,10.2343 -6.3523,5.9994 -7.0581,58.2296 5.2936,7.0581 -0.3529,5.9995 -9.1756,6.7052 -21.1744,64.9348 2.4704,2.8232 0.3529,11.293 -6.3524,4.9407 -5.9994,1.0587 -45.5249,74.4633 2.4703,6.3523 -6.3523,9.1756
+h -9.1756
+l -56.465,61.0528 0.7058,2.1175 1.0587,8.8226 -2.4703,8.8227 -4.2349,6.7052 -14.1162,4.2349 -7.0582,-3.5291
+z
       "
     />
 
     <!-- THE GLOAM — dense west half of walled ring, north of river -->
-    <polygon class="vm-zone" data-id="gloam" data-type="district"
+    <path class="vm-zone" data-id="gloam" data-type="district"
       style="--zone-color: #506878;"
-      points="
-        2026,1397 2015,1488 2003,1550
-        1995,1598 1989,1642 1993,1696
-        2107,1881 2025,1945 1898,1873
-        1825,1838 1770,1801 1725,1771
-        1676,1747 1617,1718 1506,1684
-        1410,1598 1544,1523 1621,1481
-        1676,1450 1720,1416 1765,1376
-        1825,1318 1910,1279 2020,1260
+      d="
+        m 636.64336,1679.1292 44.11332,33.879 75.52199,40.2314 107.63649,42.3488 130.22251,59.9941 131.28123,83.9917 106.4013,57.8767 121.9292,7.0581 -47.8188,-73.9339 -7.4111,1.4116 -11.9988,-6.5287 -5.2936,-19.9392 4.5878,-7.0582 -45.5249,-70.5813 -5.6465,-0.3529 -4.7643,-6.5288 -0.7058,-6.3523 2.6468,-4.0584 -23.4683,-78.8746 -6.5287,-4.0584 -1.7646,-9.3521 4.2349,-8.4697 3.1762,-76.5807 -5.4701,-7.4111 2.6468,-7.5875 6.7052,-5.6465 16.4102,-69.699 -3.7055,-7.2346 2.6468,-8.6462 6.5287,-4.7642 12.8811,-50.8186 -7.2346,-7.5875 -1.4116,-10.9401 3.7055,-9.8813 11.1166,-7.5875 2.8232,0.8822 0.7059,-0.8822 1.7645,0.5293 14.1162,-51.3479 -4.4113,-6.8816 3.3526,-7.4111 3.5291,-3.882 -1.0587,-20.9979 -4.0585,-0.8823 1.7646,-8.6462 -111.8714,-1.588 -24.3505,-0.5294 -10.0579,9.5285 1.0587,1.2351 -96.3434,80.8156 -106.2249,80.2863 -45.17203,33.3496 -6.17587,0.8823 -94.93185,56.2886 -77.28653,45.3485
+z
       "
     />
 
     <!-- SAFFRON QUARTER — central south, between Gloam and Ravelin -->
-    <polygon class="vm-zone" data-id="saffron" data-type="district"
+    <path class="vm-zone" data-id="saffron" data-type="district"
       style="--zone-color: #b87030;"
-      points="
-        2060,1399 2170,1440 2245,1465
-        2315,1459 2400,1451 2436,1529
-        2414,1622 2438,1668 2455,1720
-        2467,1779 2475,1852 2454,1928
-        2433,2045 2333,2048 2245,2025
-        2179,1966 2133,1915 2100,1865
-        2068,1822 2042,1774 2015,1720
-        1999,1654 2007,1582 2030,1504
+      d="
+        m 1746.0496,1503.4941 -53.6517,-34.9359 -27.2002,-34.4369 -23.457,-12.7267 -68.6242,14.4735 -93.828,-16.9689
+h -6.7377
+l -98.5693,-60.6389 -87.5894,-20.9615 1.2477,29.446 5.2404,5.4899 -0.7487,10.2313 -7.2367,4.7413 -13.9744,51.4058 6.2386,7.9853 1.7468,9.2331 -3.4936,11.4789 -5.2404,6.9872 -9.9817,1.7468 -14.9726,52.1544 2.745,3.9927 -0.9982,8.4845 -7.4862,6.4881 -16.7194,69.8719 2.9945,2.745 0.2496,8.4844 -5.7395,6.4881 -1.9964,76.1105 3.9927,4.7413 1.2477,8.2349 -2.4954,6.7377 22.2093,75.1123 4.7413,2.2459 4.9909,7.9854 -1.7468,5.989 43.9195,68.3746 11.7285,1.7468 13.9743,9.9817 -1.4972,22.4589 32.191,51.1562 10.9799,18.7157 5.989,-1.2477 5.7395,6.2386 1.4972,9.4826 63.1343,55.8975 8.4844,-0.4991 6.7377,7.9854 80.3527,23.7065 5.7395,-3.244 8.2349,1.7468 2.2459,2.745 98.0702,-2.745 3.4936,-4.4918 4.9909,-2.2459 1.9963,0.2496 23.457,-142.4888 4.2422,-42.6718 5.49,-61.138 1.7468,-25.4533 -30.9433,-101.3143 -80.1032,-87.839 35.4351,-22.7084 40.4259,-18.2166 40.2387,-13.7585 37.4154,-20.4638 29.6264,-3.1761 -3.0734,-35.7072
+z
       "
     />
 
     <!-- RAVELIN HEIGHTS — citadel park, south-east of walled ring -->
-    <polygon class="vm-zone" data-id="ravelin" data-type="district"
+    <path class="vm-zone" data-id="ravelin" data-type="district"
       style="--zone-color: #783040;"
-      points="
-        2476,1448 2577,1432 2669,1454
-        2737,1455 2807,1449 2902,1424
-        3073,1374 3067,1520 3056,1624
-        3042,1710 3013,1783 2967,1842
-        2925,1897 2885,1965 2822,2023
-        2737,2045 2648,2043 2547,2039
-        2448,1999 2482,1857 2481,1778
-        2457,1710 2428,1627 2443,1540
+      d="
+        m 1765.5913,1513.2632 2.6468,37.408 -31.5851,4.4114 -34.5849,22.2331 -42.3487,14.2927 -38.6433,16.2337 -32.8203,22.2331 75.3455,81.1685 16.0573,51.8773 16.5866,53.6418 -11.4695,129.6931 -22.9389,142.5742 2.8233,0.353 1.9409,3.3526 81.345,-1.4117 13.7633,0.5294 3.882,-3.3526 12.3517,0.3529 2.9998,3.7055 78.3452,8.9991 1.7645,-1.7645 7.2346,-1.941 6.1759,1.941 1.941,2.2939 62.8173,-0.7058 1.0587,-3.1762 5.4701,-2.4703 9.8814,0.1764 8.9991,-3.3526 51.7008,-24.527 1.7645,-5.47 6.8817,-4.7643 3.7055,0.7058 56.6415,-59.4647 -2.2939,-13.4105 10.4108,-14.1162 12.1753,-3.882 6.5287,2.1174 58.2296,-61.0528 1.941,-9.1756 6.5288,-5.1171 3.3526,-0.1765 46.5836,-75.6984 -1.4116,-2.8233 2.1174,-8.1168 7.0582,-5.9994 18.704,-67.9345 -2.4703,-2.2939 2.1174,-8.6462 4.0584,-1.4116 7.764,-58.2296 -4.9407,-8.8227 3.1761,-9.1756 4.5878,-2.6468 6.5288,-57.7002 -2.4703,-2.2939 -2.2939,-6.5287 3.8819,-7.5875 3.1762,-1.7646 4.4113,-62.1115 -4.2349,-6.7052 0.8823,-7.2346 4.9407,-5.823 1.0587,-29.4677 -87.3443,34.4084 -107.813,46.5837 -0.8822,3.3526 -69.8755,7.2346 -85.227,10.7636 -47.113,4.0585 -77.6394,-18.7041 -3.1762,-5.823
+z
       "
     />
 
     <!-- ASHBRAE — sprawl south of river, wrapping bottom -->
-    <polygon class="vm-zone" data-id="ashbrae" data-type="district"
+    <path class="vm-zone" data-id="ashbrae" data-type="district"
       style="--zone-color: #684878;"
-      points="
-        1307,1737 1399,2137 1545,2270
-        1711,2338 1895,2305 2015,2263
-        2100,2170 2149,2133 2290,2279
-        2379,2229 2455,2155 2556,2050
-        3577,2345 3595,1950 3597,1548
-        3126,1476 3182,1511 3236,1544
-        2822,2023 2737,2045 2648,2043
-        2433,2045 2333,2048 2245,2025
-        2107,1881 1993,1696 1989,1642
-        1995,1598 1506,1684 1410,1598
+      d="
+        m 1648.0734,2106.8519 13.4105,8.4698 16.9395,112.2243 -148.2207,150.3381 -81.8743,-279.5019 -22.5861,-6.3524 -141.8684,160.9254 -2.1174,28.2325 -134.1045,26.8209 22.586,63.5232 -68.4638,59.9941 -285.14851,-151.044 4.23487,-21.8802 -296.44147,-253.3869 -76.22781,67.7581 -106.57777,-74.1104 26.8209,-123.5173 268.20895,-196.9218 44.46622,36.7023 77.63944,40.2313 106.66469,41.3497 129.01352,59.3911 130.76037,83.8463 106.5546,59.1416 119.2814,6.2386 0.4991,3.7431 4.4918,6.4881 8.2349,1.7468 64.6315,55.8976 4.2422,9.4826 12.2276,4.9908 3.7431,-2.2458 79.8537,22.4588 6.7376,6.2386 9.4826,1.4972 7.4863,-4.9908
+z
       "
     />
 
@@ -617,6 +660,16 @@ z
 
   </svg>
 
+  </div><!-- /.vesper-map__viewport -->
+
+  <!-- ZOOM CONTROLS -->
+  <div class="vm-controls" id="vmControls">
+    <button class="vm-ctrl-btn" id="vmZoomIn"    title="Zoom in">+</button>
+    <button class="vm-ctrl-btn" id="vmZoomOut"   title="Zoom out">−</button>
+    <button class="vm-ctrl-btn" id="vmZoomReset" title="Reset view">⌂</button>
+    <div class="vm-zoom-label" id="vmZoomLabel">100%</div>
+  </div>
+
   <!-- POPUP -->
   <div class="vm-popup" id="vmPopup" role="tooltip">
     <button class="vm-popup__close" id="vmPopupClose" aria-label="Close">×</button>
@@ -636,6 +689,145 @@ z
 // Jcink version:  const STAFF_MODE = '{membergroup}' === 'Staff';
 const STAFF_MODE = false;
 if (STAFF_MODE) document.getElementById('vesperMap').classList.add('staff-visible');
+
+// ── PAN & ZOOM ──────────────────────────────────────────────────
+const mapEl    = document.getElementById('vesperMap');
+const viewport = document.getElementById('vmViewport');
+const zoomLabel= document.getElementById('vmZoomLabel');
+
+const ZOOM_MIN = 1;      // can't zoom out past 1× (full map visible)
+const ZOOM_MAX = 4;      // max 4× zoom
+const ZOOM_STEP = 0.25;  // button step size
+
+let vp = { x: 0, y: 0, z: 1 }; // current pan (x,y) and zoom (z)
+
+function clampPan(x, y, z) {
+  // Prevent panning outside map bounds
+  const rect = mapEl.getBoundingClientRect();
+  const maxX = 0;
+  const minX = rect.width  * (1 - z);
+  const maxY = 0;
+  const minY = rect.height * (1 - z);
+  return {
+    x: Math.min(maxX, Math.max(minX, x)),
+    y: Math.min(maxY, Math.max(minY, y)),
+  };
+}
+
+function applyTransform(animate) {
+  if (animate) {
+    viewport.style.transition = 'transform 0.2s ease';
+    setTimeout(() => viewport.style.transition = '', 220);
+  } else {
+    viewport.style.transition = '';
+  }
+  viewport.style.transform = `translate(${vp.x}px, ${vp.y}px) scale(${vp.z})`;
+  zoomLabel.textContent = `${Math.round(vp.z * 100)}%`;
+}
+
+function zoomTo(newZ, originX, originY) {
+  // originX/Y are in container px — zoom toward that point
+  const rect = mapEl.getBoundingClientRect();
+  const ox = (originX ?? rect.width  / 2);
+  const oy = (originY ?? rect.height / 2);
+  const clampedZ = Math.min(ZOOM_MAX, Math.max(ZOOM_MIN, newZ));
+  // Scale the pan offset to keep the origin point stable
+  const scale = clampedZ / vp.z;
+  const newX  = ox - scale * (ox - vp.x);
+  const newY  = oy - scale * (oy - vp.y);
+  const clamped = clampPan(newX, newY, clampedZ);
+  vp = { x: clamped.x, y: clamped.y, z: clampedZ };
+  applyTransform(true);
+}
+
+function resetView() {
+  vp = { x: 0, y: 0, z: 1 };
+  applyTransform(true);
+}
+
+// ── SCROLL TO ZOOM ──
+mapEl.addEventListener('wheel', e => {
+  e.preventDefault();
+  const rect = mapEl.getBoundingClientRect();
+  const mouseX = e.clientX - rect.left;
+  const mouseY = e.clientY - rect.top;
+  const delta  = e.deltaY < 0 ? ZOOM_STEP : -ZOOM_STEP;
+  zoomTo(vp.z + delta, mouseX, mouseY);
+}, { passive: false });
+
+// ── BUTTON CONTROLS ──
+document.getElementById('vmZoomIn').addEventListener('click',    () => zoomTo(vp.z + ZOOM_STEP));
+document.getElementById('vmZoomOut').addEventListener('click',   () => zoomTo(vp.z - ZOOM_STEP));
+document.getElementById('vmZoomReset').addEventListener('click', () => resetView());
+
+// ── CLICK-DRAG TO PAN ──
+let drag = { active: false, startX: 0, startY: 0, startPanX: 0, startPanY: 0 };
+
+mapEl.addEventListener('mousedown', e => {
+  // Don't initiate drag on controls or popup
+  if (e.target.closest('.vm-controls') || e.target.closest('.vm-popup')) return;
+  drag = { active: true, startX: e.clientX, startY: e.clientY, startPanX: vp.x, startPanY: vp.y };
+  mapEl.classList.add('is-dragging');
+  e.preventDefault();
+});
+
+window.addEventListener('mousemove', e => {
+  if (!drag.active) return;
+  const dx = e.clientX - drag.startX;
+  const dy = e.clientY - drag.startY;
+  const clamped = clampPan(drag.startPanX + dx, drag.startPanY + dy, vp.z);
+  vp.x = clamped.x; vp.y = clamped.y;
+  applyTransform(false);
+});
+
+window.addEventListener('mouseup', () => {
+  drag.active = false;
+  mapEl.classList.remove('is-dragging');
+});
+
+// ── TOUCH: pinch to zoom + drag ──
+let touch = { lastDist: null, lastX: null, lastY: null };
+
+mapEl.addEventListener('touchstart', e => {
+  if (e.touches.length === 2) {
+    touch.lastDist = Math.hypot(
+      e.touches[0].clientX - e.touches[1].clientX,
+      e.touches[0].clientY - e.touches[1].clientY
+    );
+  } else if (e.touches.length === 1) {
+    touch.lastX = e.touches[0].clientX;
+    touch.lastY = e.touches[0].clientY;
+  }
+}, { passive: true });
+
+mapEl.addEventListener('touchmove', e => {
+  if (e.touches.length === 2) {
+    e.preventDefault();
+    const dist = Math.hypot(
+      e.touches[0].clientX - e.touches[1].clientX,
+      e.touches[0].clientY - e.touches[1].clientY
+    );
+    if (touch.lastDist) {
+      const midX = (e.touches[0].clientX + e.touches[1].clientX) / 2;
+      const midY = (e.touches[0].clientY + e.touches[1].clientY) / 2;
+      const rect  = mapEl.getBoundingClientRect();
+      zoomTo(vp.z * (dist / touch.lastDist), midX - rect.left, midY - rect.top);
+    }
+    touch.lastDist = dist;
+  } else if (e.touches.length === 1 && touch.lastX !== null) {
+    const dx = e.touches[0].clientX - touch.lastX;
+    const dy = e.touches[0].clientY - touch.lastY;
+    const clamped = clampPan(vp.x + dx, vp.y + dy, vp.z);
+    vp.x = clamped.x; vp.y = clamped.y;
+    applyTransform(false);
+    touch.lastX = e.touches[0].clientX;
+    touch.lastY = e.touches[0].clientY;
+  }
+}, { passive: false });
+
+mapEl.addEventListener('touchend', () => {
+  touch = { lastDist: null, lastX: null, lastY: null };
+}, { passive: true });
 
 // ── LORE DATA ───────────────────────────────────────────────────
 // Edit this object to update all popup text.
@@ -827,7 +1019,8 @@ const LORE = {
 };
 
 // ── POPUP LOGIC ─────────────────────────────────────────────────
-const mapEl    = document.getElementById('vesperMap');
+// Popup lives OUTSIDE the viewport so it doesn't zoom with the map.
+// Position is calculated from clientX/Y → container-relative coords.
 const popup    = document.getElementById('vmPopup');
 const pKicker  = document.getElementById('vmPopupKicker');
 const pName    = document.getElementById('vmPopupName');
@@ -849,6 +1042,7 @@ function showPopup(el, lore, clientX, clientY) {
   pName.textContent   = lore.name   || '';
   pBody.innerHTML     = staffBadge + lore.body + link;
 
+  // Position relative to container, not viewport (popup doesn't pan/zoom)
   const mapRect = mapEl.getBoundingClientRect();
   const PAD = 16, PW = 240;
   const PH  = popup.offsetHeight || 170;
@@ -868,14 +1062,23 @@ function hidePopup() {
 }
 
 closeBtn.addEventListener('click', hidePopup);
+
+// Hide popup on click outside — but only if not dragging
+let didDrag = false;
+mapEl.addEventListener('mousedown', () => { didDrag = false; });
+window.addEventListener('mousemove', () => { if (drag.active) didDrag = true; });
+
 mapEl.addEventListener('click', e => {
+  if (didDrag) return; // was a pan, not a click
   if (!e.target.closest('.vm-zone') &&
       !e.target.closest('.vm-pin')  &&
-      !e.target.closest('.vm-popup')) hidePopup();
+      !e.target.closest('.vm-popup') &&
+      !e.target.closest('.vm-controls')) hidePopup();
 });
 
 document.querySelectorAll('.vm-zone, .vm-pin').forEach(el => {
   el.addEventListener('click', e => {
+    if (didDrag) return;
     e.stopPropagation();
     const lore = LORE[el.dataset.id];
     if (!lore) return;
@@ -905,8 +1108,14 @@ DISTRICT_META.forEach(({ id, color }) => {
   item.addEventListener('click', () => {
     const zone = document.querySelector(`.vm-zone[data-id="${id}"]`);
     if (!zone) return;
-    const rect = zone.getBoundingClientRect();
-    showPopup(zone, lore, rect.left + rect.width / 2, rect.top + rect.height / 2);
+    // Get the zone's center in screen coords accounting for pan/zoom
+    const mapRect  = mapEl.getBoundingClientRect();
+    const svgEl    = document.querySelector('.vesper-map__svg');
+    const svgRect  = svgEl.getBoundingClientRect();
+    // Use map center as fallback popup position for legend clicks
+    const cx = mapRect.left + mapRect.width  / 2;
+    const cy = mapRect.top  + mapRect.height / 2;
+    showPopup(zone, lore, cx, cy);
   });
   legend.appendChild(item);
 });
