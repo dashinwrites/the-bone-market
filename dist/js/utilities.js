@@ -72,37 +72,28 @@ function toggleSize() {
         setSize();
     }
 }
-function toggleMenu(e) {
-    let close = false;
-    if (e.classList.contains('is-open')) {
-        close = true;
-    }
-    if (e.dataset.menu) {
-        document.querySelectorAll('.nav--popout').forEach(menu => menu.classList.remove('is-open'));
-        document.querySelectorAll('.button--menu').forEach(menu => menu.classList.remove('is-open'));
+function toggleMenu(btn) {
+  const menuId = btn.dataset.menu;
+  const popout = document.querySelector(`.nav--popout[data-menu="${menuId}"]`);
+  if (!popout) return;
 
-        if (!close) {
-            e.classList.add('is-open');
-            document.querySelector(`.nav--popout[data-menu="${e.dataset.menu}"]`).classList.add('is-open');
-            document.querySelector('.invisibleEl').classList.add('menu-open');
-            if (e.dataset.menu === 'alerts') {
-                load_alerts();
-            }
-        } else {
-            document.querySelector('.invisibleEl').classList.remove('menu-open');
-        }
-    } else {
-        document.querySelectorAll('.nav--popout').forEach(menu => menu.classList.remove('is-open'));
-        document.querySelectorAll('.button--menu').forEach(menu => menu.classList.remove('is-open'));
+  const isOpen = popout.classList.contains('is-open');
 
-        if (!close) {
-            e.classList.add('is-open');
-            e.closest('.nav--inline').querySelector('.nav--popout').classList.add('is-open');
-            document.querySelector('.invisibleEl').classList.add('menu-open');
-        } else {
-            document.querySelector('.invisibleEl').classList.remove('menu-open');
-        }
-    }
+  if (!isOpen) {
+    popout.hidden = false;
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => popout.classList.add('is-open'));
+    });
+  } else {
+    popout.classList.remove('is-open');
+    popout.addEventListener('transitionend', function hide(e) {
+      if (e.propertyName !== 'transform') return;
+      popout.hidden = true;
+      popout.removeEventListener('transitionend', hide);
+    });
+  }
+
+  btn.classList.toggle('is-open', !isOpen);
 }
 
 /****** Initializations ******/

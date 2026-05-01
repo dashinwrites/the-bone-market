@@ -251,7 +251,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    z-index: calc(var(--z-nav) * 2);
     gap: 0.5rem;
     /* vertical rhythm */
     padding: 6px;
@@ -720,7 +719,6 @@ body[data-sidebar="open"] {
       color: var(--accent-1); }
 
 .nav--popout[data-menu="switch"] {
-  display: none;
   position: fixed;
   inset-block-start: var(--nav-h);
   inset-block-end: 0;
@@ -730,18 +728,48 @@ body[data-sidebar="open"] {
   background: var(--bg-2);
   border-inline-start: 1px solid color-mix(in oklab, var(--text-loCon) 18%, transparent);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-  z-index: var(--z-sidebar); }
+  z-index: var(--z-sidebar);
+  transform: translateX(-102%);
+  opacity: 0.999;
+  transition: transform 320ms cubic-bezier(0.22, 0.61, 0.36, 1), opacity 320ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  will-change: transform; }
   .nav--popout[data-menu="switch"].is-open {
-    display: block; }
+    transform: translateX(0); }
   .nav--popout[data-menu="switch"] .sidebar-section {
     padding: 1.5rem 1.25rem 0.5rem; }
     .nav--popout[data-menu="switch"] .sidebar-section:first-of-type {
       padding-top: 1.5rem; }
+    .nav--popout[data-menu="switch"] .sidebar-section .sidebar-head {
+      font-family: var(--font-cinzel);
+      font-size: var(--size-xs);
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-hiCon);
+      text-align: center;
+      position: relative;
+      margin-bottom: 0.75rem;
+      /* hairline rule through the label — same as plate-info__staff-head */ }
+      .nav--popout[data-menu="switch"] .sidebar-section .sidebar-head::before, .nav--popout[data-menu="switch"] .sidebar-section .sidebar-head::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        block-size: 1px;
+        inline-size: 28%;
+        background: var(--accent-1);
+        opacity: 0.4;
+        transform: translateY(-50%); }
+      .nav--popout[data-menu="switch"] .sidebar-section .sidebar-head::before {
+        left: 0; }
+      .nav--popout[data-menu="switch"] .sidebar-section .sidebar-head::after {
+        right: 0; }
   .nav--popout[data-menu="switch"] .switch--block {
     display: grid;
     grid-template-columns: 36px 1fr;
     gap: 0.6rem;
     align-items: center;
+    white-space: nowrap;
+    overflow: hidden;
     padding: 0.45rem 0.25rem;
     cursor: pointer;
     position: relative;
@@ -757,14 +785,20 @@ body[data-sidebar="open"] {
     .nav--popout[data-menu="switch"] .switch--block:hover {
       background: color-mix(in oklab, var(--accent-1) 8%, transparent); }
     .nav--popout[data-menu="switch"] .switch--block input[type="checkbox"] {
-      display: none; }
+      display: none;
+      position: absolute; }
     .nav--popout[data-menu="switch"] .switch--block .switch--image {
+      grid-column: 1;
+      grid-row: 1;
       width: 36px;
       height: 36px;
       border-radius: 4px;
       background-size: cover;
       background-position: center; }
     .nav--popout[data-menu="switch"] .switch--block .switch--name {
+      grid-column: 2;
+      justify-self: start;
+      grid-row: 1;
       font-family: var(--font-hand);
       font-size: var(--size-sm);
       letter-spacing: 0.08em;
@@ -848,7 +882,9 @@ body.dark {
   #leftbar .lb-plate .icon {
     transition: none; }
   #leftbar .lb-plate .icon:hover {
-    transform: none; } }
+    transform: none; }
+  .nav--popout[data-menu="switch"] {
+    transition: none; } }
 
 /* ==========================================================
    RESPONSIVE
