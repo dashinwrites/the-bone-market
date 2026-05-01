@@ -441,6 +441,12 @@ function initForums() {
             desc.remove();
         }
     });
+
+    // move .forum-links out of .forum-info to sit after .forum-main
+    document.querySelectorAll('.forum-info .forum-links').forEach(bar => {
+        const forumMain = bar.closest('.forum')?.querySelector('.forum-main');
+        if (forumMain) forumMain.after(bar);
+    });
 }
 
 /****** Webpages ******/
